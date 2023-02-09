@@ -1,0 +1,157 @@
+//Rift Sabi
+//
+//
+//
+//
+//
+//Sabi Create
+function TrapLillyCreate(){
+home_state = TrapLillyFree;
+entity_step = home_state;
+entity_drop = TrapLillyDrop;
+enemy_idle = spr_enemy_trapLilly;
+enemy_move = spr_enemy_trapLilly;
+enemy_damaged = spr_enemy_trapLilly;
+damaged_snd = snd_rat_damaged;
+shadow = 0;
+targeted = false;
+aggro_drop = 300;
+sprite_index = enemy_idle;
+image_speed = 0;
+image_index = 3;
+max_hp = 180;
+hp = max_hp;
+hor_spd = 0;
+ver_spd = 0;
+enemy_spd = 2.0;
+local_frame = 0;
+hit_by_attack = -1;
+timer1 = 0;
+timer2 = 0;
+walk_snd_delay = 0;
+}
+//
+//
+//
+//
+//
+//Sabi Free
+function TrapLillyFree(){
+if (obj_game.gamePaused = false)
+{
+	//Timers
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (flash > 0) entity_step = EnemyDamaged;
+
+	//Toggle Aggro 
+	if (timer1 <= 0)
+	{
+		walk_snd_delay = walk_snd_delay - 1;
+		EnemyWander(60,180);
+	}
+	else sprite_index = enemy_idle;
+	if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (timer2 <= 0)
+	{
+		if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		{
+			entity_step = TrapLillyBubbleFlail
+		}
+	}	
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_play_sound(snd_walk_regular,1,0);
+	}
+	
+	//Animation
+	script_execute(EnemyAnimation);
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Trap Lilly Bubble Flail
+function TrapLillyBubbleFlail(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_trapLilly_open)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_trapLilly_open;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 65;
+	
+	if (timer2 <= 0)
+	{
+		timer2 = 36;
+		audio_play_sound(snd_folioBulb_pitFire,0,false);
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy))
+		{
+			script_execute(BulbPitCreate);
+			direction =  point_direction(x,y,obj_player.x,obj_player.y);
+			image_angle = direction;
+			speed = enemy_spd;
+			break_object = other.break_object;
+			fragment_count = 3;
+			fragment = obj_fragWood;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+		}
+	}
+	//Animate
+	EnemyAnimation1();
+	if (animation_end)
+	{
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Sabi Drop
+function TrapLillyDrop(){
+var _objects = 3;
+var _dropBean = 18;
+var _drop1 = irandom_range(0,99)	
+var _drop2 = irandom_range(0,99)
+var _angle = random(360);
+
+
+
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
+{
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 > 50) 
+{
+	with (instance_create_layer(x,y,"Instances",obj_item))
+	{
+		item_id = 8;
+		amount = 1;
+		sprite_index = spr_item_all;
+		image_index = item_id;
+		direction = _angle/_objects;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+//else instance_create_layer(x,y,"Instances",_objects[0])
+
+	
+}

@@ -1,0 +1,125 @@
+//Create
+//
+//
+//
+//
+//Form Script (Default Regaliare)
+script_execute(RegaliareSet);
+//
+//
+//
+//
+//
+//Initialize Controls
+key_left = keyboard_check(ord("A"));
+key_right = keyboard_check(ord("D"));
+key_up = keyboard_check(ord("W"));
+key_down = keyboard_check(ord("S"));
+key_activate = keyboard_check_pressed(ord("E"));
+key_ability = keyboard_check_pressed(vk_space);
+key_attackM = mouse_check_button_pressed(mb_left);
+key_attackW = mouse_check_button_pressed(mb_right);
+key_attackS = keyboard_check(vk_shift);
+//
+//
+//
+//
+//
+//Animation
+iAlpha = 1.0;
+image_speed = 0;
+local_frame = 0;
+flash = 0;
+uni_flash = shader_get_uniform(sh_flash_white,"flash")
+z = 0;
+//
+//
+//
+//
+//
+//Sound
+walk_snd = snd_walk_regular;
+walk_snd_delay = 0;
+atk_snd_delay = 0;
+//
+//
+//
+//
+//
+//Scripts
+state_script = Idle;
+free_script = Idle;
+attack_script = Idle;
+tracking_quest = Idle;
+//melee_id = 0;//
+//magic_id = 0;//
+//armor_main = Idle;//
+//armor_id = 0;//
+attacking = false;
+hit_by_attack = -1;
+hor_spd = 0;
+ver_spd = 0;
+damage = 0;
+magic_count = 0;
+special_timer = 0;
+stamina_timer = 0;
+timer1 = 0;
+timer2 = 0;
+//
+//
+//
+//
+//
+//Enhancable Stats
+vitality = 20; //added to health
+energy = 20; //max_roll_timer = 180 - stamina
+might = 20; //added to weapon damage
+grace = 20; //the base to weapon damage
+max_crull_stone = 1;
+armor = 0; //negates damage in enemy damage calc
+//
+//
+//
+//
+//
+//Other Stats 
+beans = 0;
+max_hp = 150;
+walk_spd = 1.75;
+roll_spd = 3;
+roll_dist = 64;
+stamina = 50 + (3 * energy);
+max_stamina = 50 + (3 * energy);
+max_hp = max_hp + (3*vitality) + round(vitality/15);
+hp = max_hp;
+crull_stone = max_crull_stone;
+magic_count = max_magic_count
+//
+//
+//
+//
+//
+//Status
+scene = false;
+dead = false;
+ablaze = false;
+ablaze_dur_timer = 0;
+ablaze_damage_timer = 0;
+thundux = false;
+thundux_dur_timer = 0;
+voidsick = false;
+voidsick_dur_timer = 0;
+watervice = false;
+watervice_dur_timer = 0;
+watervice_flash_timer = 0;
+knockback = false;
+knockback_dur = 0;
+knockback_dir = 0;
+invincible = false;
+inv_dur_timer = 0;
+level = 1;
+break_object = obj_break;
+//
+//
+//
+

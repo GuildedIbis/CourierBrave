@@ -1,0 +1,265 @@
+////
+////
+////
+////
+////
+////Game Home Settings Menu
+//function GameHomeSettingsMenu(){
+//var _mouseX = device_mouse_x_to_gui(0);
+//var _mouseY = device_mouse_y_to_gui(0);
+	
+////Draw Sprites
+//draw_sprite_stretched(menu_sprite,0,64,32,192,96);
+//draw_sprite_stretched(menu_sprite,2,68,36,32,16);
+//draw_sprite_stretched(menu_sprite,2,68,54,32,16);
+//draw_sprite_stretched(menu_sprite,2,68,72,32,16);
+//draw_sprite_stretched(menu_sprite,2,68,90,32,16);
+//draw_sprite_stretched(menu_sprite,2,68,108,32,16);
+
+////Set Text
+//draw_set_font(fnt_text);
+//draw_set_color(c_black);
+//draw_set_halign(fa_center);
+//draw_set_valign(fa_middle);
+	
+////Draw Text
+//draw_text_transformed(84,44,"Volume",.35,.35,0);
+//draw_text_transformed(84,62,"Controls",.35,.35,0);
+//draw_text_transformed(84,116,"Return",.35,.35,0);
+
+////Mechanics
+//if (point_in_rectangle(_mouseX,_mouseY,68,36,100,52))
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,66,34,36,20)
+//	if(mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		sub_menu = GameHomeVolumeMenu;
+//	}
+//}
+//if (point_in_rectangle(_mouseX,_mouseY,68,54,100,70))
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,66,52,36,20)
+//	if(mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		sub_menu = PlayerHomeControlsMenu;
+//	}
+//}
+//if (point_in_rectangle(_mouseX,_mouseY,68,108,100,124))
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,66,106,36,20);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		script_execute(SaveGameSettings);
+//		sub_menu = -1;
+
+//	}
+//}
+//}
+
+
+
+//
+//
+//
+//
+//
+//Save Select
+function SaveSelectMenu(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+//Draw Sprites
+
+draw_sprite_stretched(menu_sprite,2,68,36,56,88);
+draw_sprite_stretched(menu_sprite,2,68,128,56,32);
+draw_sprite_stretched(menu_sprite,2,132,36,56,88);
+draw_sprite_stretched(menu_sprite,2,132,128,56,32);
+draw_sprite_stretched(menu_sprite,2,196,36,56,88);
+draw_sprite_stretched(menu_sprite,2,196,128,56,32);
+	
+//Set Text
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+//Draw Text
+draw_text_transformed(96,80,"RESUME\nGAME 1",.7,1,0);	
+draw_text_transformed(96,144,"RESTART\nGAME 1",.5,.5,0);	
+draw_text_transformed(160,80,"RESUME\nGAME 2",.7,1,0);
+draw_text_transformed(160,144,"RESTART\nGAME 2",.5,.5,0);
+draw_text_transformed(224,80,"RESUME\nGAME 3",.7,1,0);
+draw_text_transformed(224,144,"RESTART\nGAME 3",.5,.5,0);
+
+	
+//Mechanics
+if (point_in_rectangle(_mouseX,_mouseY,68,36,124,124))//Resume Game 1
+{
+	draw_sprite(spr_highlight_button,0,66,34);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		instance_create_layer(x,y,"Instances",obj_player);
+
+		LoadGame();
+		obj_player.hp = obj_player.max_hp;
+		room_goto(global.lastCamp);
+		obj_player.x = global.targetX;
+		obj_player.y = global.targetY;
+		audio_stop_all();
+			
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,68,128,124,160))//New Game 1
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,66,126,60,36);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		with (instance_create_layer(x,y,"Instances",obj_player))
+		{
+			sprite_index = spr_player_scene01;
+			state_script = PlayerScene01;
+			image_speed = 1;
+		}
+
+		room_goto(rm_scene01);
+		
+		SaveGame();
+		with (obj_text)
+		{
+			text_string = ""
+			string_counter = 0;
+			text_script = PlayerSceneText01;
+		}
+		obj_game.gamePaused = true;
+		obj_game.textPaused = true;
+		gamePaused = true;
+		textPaused = true;
+		
+		obj_player.x = 159;
+		obj_player.y = 63;
+		audio_stop_all();
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,132,36,188,124))//Resume Game 2
+{
+	draw_sprite(spr_highlight_button,0,130,34);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame2;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		instance_create_layer(x,y,"Instances",obj_player);
+		LoadGame2();
+		obj_player.hp = obj_player.max_hp;
+		room_goto(global.lastCamp);
+		obj_player.x = global.targetX;
+		obj_player.y = global.targetY;
+		audio_stop_all();
+			
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,132,128,188,160))//New Game 2
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,130,126,60,36);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame2;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		with (instance_create_layer(x,y,"Instances",obj_player))
+		{
+			sprite_index = spr_player_scene01;
+			state_script = PlayerScene01;
+			image_speed = 1;
+		}
+		room_goto(rm_scene01);
+		
+		SaveGame2();
+		with (obj_text)
+		{
+			text_string = ""
+			string_counter = 0;
+			text_script = PlayerSceneText01;
+		}
+		obj_game.gamePaused = true;
+		obj_game.textPaused = true;
+		gamePaused = true;
+		textPaused = true;
+		
+		obj_player.x = 159;
+		obj_player.y = 63;
+		audio_stop_all();
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,196,36,252,124))//Resume Game 3
+{
+	draw_sprite(spr_highlight_button,0,194,34);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame3;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		instance_create_layer(x,y,"Instances",obj_player);
+		LoadGame3();
+		obj_player.hp = obj_player.max_hp;
+		room_goto(global.lastCamp);
+		obj_player.x = global.targetX;
+		obj_player.y = global.targetY;
+		audio_stop_all();	
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,196,128,252,160))//new Game 3
+{
+	show_debug_message(string(instance_number(obj_inventory)));
+	show_debug_message(string(instance_number(obj_text)));
+	draw_sprite_stretched(spr_highlight_nineslice,0,194,126,60,36);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		global.current_save = SaveGame3;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		global.home = false;
+		with (instance_create_layer(x,y,"Instances",obj_player))
+		{
+			sprite_index = spr_player_scene01;
+			state_script = PlayerScene01;
+			image_speed = 1;
+		}
+		
+		room_goto(rm_scene01);
+		
+		SaveGame3();
+		with (obj_text)
+		{
+			text_string = ""
+			string_counter = 0;
+			text_script = PlayerSceneText01;
+		}
+		obj_game.gamePaused = true;
+		obj_game.textPaused = true;
+		gamePaused = true;
+		textPaused = true;
+		
+		obj_player.x = 159;
+		obj_player.y = 63;
+		audio_stop_all();
+	}
+}
+
+}
