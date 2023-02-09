@@ -421,7 +421,7 @@
     {"name":"snd_lenko_themeMain","order":2,"path":"sounds/snd_lenko_themeMain/snd_lenko_themeMain.yy",},
     {"name":"obj_fragGold","order":10,"path":"objects/obj_fragGold/obj_fragGold.yy",},
     {"name":"spr_enemy_endireKnight_heatwave","order":5,"path":"sprites/spr_enemy_endireKnight_heatwave/spr_enemy_endireKnight_heatwave.yy",},
-    {"name":"spr_weapon_zerkriftHook","order":10,"path":"sprites/spr_weapon_zerkriftHook/spr_weapon_zerkriftHook.yy",},
+    {"name":"spr_weapon_adavoidHook","order":10,"path":"sprites/spr_weapon_adavoidHook/spr_weapon_adavoidHook.yy",},
     {"name":"spr_player_ceriver_recharge","order":11,"path":"sprites/spr_player_ceriver_recharge/spr_player_ceriver_recharge.yy",},
     {"name":"FormPedestal","order":8,"path":"scripts/FormPedestal/FormPedestal.yy",},
     {"name":"rm_lenko_lakePath_3","order":2,"path":"rooms/rm_lenko_lakePath_3/rm_lenko_lakePath_3.yy",},

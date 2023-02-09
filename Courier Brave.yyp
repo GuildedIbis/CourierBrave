@@ -493,7 +493,7 @@
     {"id":{"name":"obj_fragGold","path":"objects/obj_fragGold/obj_fragGold.yy",},"order":0,},
     {"id":{"name":"spr_enemy_endireKnight_heatwave","path":"sprites/spr_enemy_endireKnight_heatwave/spr_enemy_endireKnight_heatwave.yy",},"order":5,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":0,},
-    {"id":{"name":"spr_weapon_zerkriftHook","path":"sprites/spr_weapon_zerkriftHook/spr_weapon_zerkriftHook.yy",},"order":10,},
+    {"id":{"name":"spr_weapon_adavoidHook","path":"sprites/spr_weapon_adavoidHook/spr_weapon_adavoidHook.yy",},"order":0,},
     {"id":{"name":"Alter","path":"scripts/Alter/Alter.yy",},"order":0,},
     {"id":{"name":"spr_player_ceriver_recharge","path":"sprites/spr_player_ceriver_recharge/spr_player_ceriver_recharge.yy",},"order":11,},
     {"id":{"name":"FormPedestal","path":"scripts/FormPedestal/FormPedestal.yy",},"order":8,},
