@@ -555,11 +555,41 @@ if (input_mag != 0)
 else sprite_index = spr_player_halofire_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
+
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
+
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
 	magic_count = magic_count - 1;
-	with (instance_create_layer(obj_player.x,obj_player.y-14,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
@@ -676,6 +706,7 @@ if (input_mag != 0)
 else sprite_index = spr_player_halofire_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
+//Bullet Spawn Position
 var _dirPos = round(obj_player.direction/90);
 switch(_dirPos)
 {
@@ -704,12 +735,13 @@ switch(_dirPos)
 		dir_offY = -14;
 	break;	
 }
+
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
 	attack_counter = attack_counter + 1;
 	magic_count = magic_count - 2;
-	with (instance_create_layer(obj_player.x+dir_offX,obj_player.y+dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
@@ -779,10 +811,35 @@ if (sprite_index != spr_player_halofire_cast)
 	ds_list_clear(hit_by_attack);
 }
 
-//if (timer2 <= 0)
-//{	
-	
-//}
+
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
 
 //Calcuate Hit Entitites
 //AttackCalculate(spr_fayaniBlade_goldArc_hitbox);
@@ -792,7 +849,7 @@ PlayerAnimation();
 
 if (animation_end)
 {
-	with (instance_create_layer(x,y-6,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x+dir_offX,obj_player.y+dir_offY,"Instances",obj_projectile))
 	{
 		timer1 = 120;
 		timer1 = 30;
@@ -805,7 +862,7 @@ if (animation_end)
 		hit_by_attack = -1;
 		enemy_in_range = -1;
 		//script_execute(LeafArcCreate);
-		direction = point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y+6);
+		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 		projectile_speed = 2.5;
 	}
