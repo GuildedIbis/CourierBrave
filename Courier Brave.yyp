@@ -627,6 +627,7 @@
     {"id":{"name":"spr_highlight_circle","path":"sprites/spr_highlight_circle/spr_highlight_circle.yy",},"order":21,},
     {"id":{"name":"MapMenu","path":"scripts/MapMenu/MapMenu.yy",},"order":6,},
     {"id":{"name":"obj_escort","path":"objects/obj_escort/obj_escort.yy",},"order":8,},
+    {"id":{"name":"rm_yakflowerPath_1","path":"rooms/rm_yakflowerPath_1/rm_yakflowerPath_1.yy",},"order":0,},
     {"id":{"name":"rm_house_template","path":"rooms/rm_house_template/rm_house_template.yy",},"order":1,},
     {"id":{"name":"spr_solarSabi2_stone","path":"sprites/spr_solarSabi2_stone/spr_solarSabi2_stone.yy",},"order":19,},
     {"id":{"name":"fnt_inventory","path":"fonts/fnt_inventory/fnt_inventory.yy",},"order":2,},
@@ -962,6 +963,7 @@
     {"roomId":{"name":"rm_lenko_lakePath_7","path":"rooms/rm_lenko_lakePath_7/rm_lenko_lakePath_7.yy",},},
     {"roomId":{"name":"rm_habrafLake_1","path":"rooms/rm_habrafLake_1/rm_habrafLake_1.yy",},},
     {"roomId":{"name":"rm_habrafLake_4","path":"rooms/rm_habrafLake_4/rm_habrafLake_4.yy",},},
+    {"roomId":{"name":"rm_yakflowerPath_1","path":"rooms/rm_yakflowerPath_1/rm_yakflowerPath_1.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

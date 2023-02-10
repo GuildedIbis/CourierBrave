@@ -544,6 +544,7 @@
     {"name":"spr_highlight_circle","order":21,"path":"sprites/spr_highlight_circle/spr_highlight_circle.yy",},
     {"name":"MapMenu","order":6,"path":"scripts/MapMenu/MapMenu.yy",},
     {"name":"obj_escort","order":8,"path":"objects/obj_escort/obj_escort.yy",},
+    {"name":"rm_yakflowerPath_1","order":1,"path":"rooms/rm_yakflowerPath_1/rm_yakflowerPath_1.yy",},
     {"name":"rm_house_template","order":1,"path":"rooms/rm_house_template/rm_house_template.yy",},
     {"name":"spr_solarSabi2_stone","order":19,"path":"sprites/spr_solarSabi2_stone/spr_solarSabi2_stone.yy",},
     {"name":"fnt_inventory","order":2,"path":"fonts/fnt_inventory/fnt_inventory.yy",},
