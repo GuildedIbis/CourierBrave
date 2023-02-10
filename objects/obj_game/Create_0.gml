@@ -4,7 +4,7 @@
 randomize();
 script_execute(AllItems);
 
-version = "Version: 0.2.3.0"
+version = "Version: 0.2.3.1"
 menu_sprite = spr_menu;
 pause_menu = GamePauseMenu;
 timer1 = 300;
