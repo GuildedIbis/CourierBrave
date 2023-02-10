@@ -581,7 +581,7 @@ if (cast = true)
 function CeriverPolyorbCast(){
 walk_spd = 1.2;
 attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
+
 
 
 //Timers
@@ -596,10 +596,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	}
 }
 if (timer2 > 0) timer2 = timer2 - 1;
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
+
 
 
 //Movement 1: Set
@@ -622,11 +619,41 @@ if (input_mag != 0)
 else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
+
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
 	magic_count = magic_count - 2;
-	with (instance_create_layer(obj_player.x,obj_player.y-14,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
@@ -647,7 +674,7 @@ if (timer2 <= 0)
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
 		speed = projectile_speed;
-		direction = point_direction(obj_player.x,obj_player.y-14,mouse_x,mouse_y) + irandom_range(-12,12);
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
 		image_angle = direction;
 	}
 	timer2 = 5;
@@ -657,6 +684,7 @@ if (timer2 <= 0)
 //Animate
 PlayerAnimation();
 
+//End State, Return to Free State
 if (mouse_check_button(mb_left) = false) or (magic_count < 1)
 {
 	attacking = false;
@@ -709,7 +737,7 @@ if (sd_timer <= 0) instance_destroy();
 function CeriverDrainDartCast(){
 walk_spd = 1.2;
 attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
+
 
 
 //Timers
@@ -724,20 +752,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	}
 }
 
-//if (roll_energy < max_roll_energy) //Roll Recharge
-//{
-//	if (energy_timer > 0) energy_timer = energy_timer - 1;
-//	if (energy_timer <= 0) 
-//	{
-//		energy_timer = 3;
-//		roll_energy = roll_energy + 1;
-//	}
-//}
-//if (timer2 > 0) timer2 = timer2 - 1;
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
 
 
 //Movement 1: Set
@@ -761,6 +775,35 @@ else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
 
 //Animate
 PlayerAnimation();
@@ -771,7 +814,7 @@ if (magic_timer <= 0) and (special_count >= 1)
 	audio_play_sound(snd_ceriver_drainDart,0,0);
 	magic_timer = 30;
 	special_count = special_count - 1;
-	with (instance_create_layer(x,y-14,"Instances",obj_projectile))
+	with (instance_create_layer(x + dir_offX,y + dir_offY,"Instances",obj_projectile))
 	{
 		timer1 = 120;
 		timer1 = 30;

@@ -302,11 +302,41 @@ if (input_mag != 0)
 else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
+
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
 	magic_count = magic_count - 1;
-	with (instance_create_layer(obj_player.x,obj_player.y-14,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
@@ -424,11 +454,41 @@ if (input_mag != 0)
 else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = -4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = 5;
+		dir_offY = -14;
+	break;	
+}
+
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
 	magic_count = magic_count - 2;
-	with (instance_create_layer(obj_player.x,obj_player.y-14,"Instances",obj_projectile))
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
