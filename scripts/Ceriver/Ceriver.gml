@@ -456,7 +456,7 @@ if (mouse_check_button(mb_left) = false)
 //Ceriver Dynorb Projectile Script
 function CeriverDynorbFree(){
 //Step
-
+depth = obj_player.depth - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -471,7 +471,7 @@ if (sprite_index != projectile_sprite)
 if (cast = false)
 {
 	var _dirPos = round(obj_player.direction/90);
-	depth = obj_player.depth - 1;
+	
 	switch(_dirPos)
 	{
 		case 0:
@@ -634,7 +634,7 @@ switch(_dirPos)
 	break;
 		
 	case 1:
-		dir_offX = -4;
+		dir_offX = 4;
 		dir_offY = -14;
 	break;
 		
@@ -644,7 +644,7 @@ switch(_dirPos)
 	break;
 		
 	case 3:
-		dir_offX = 5;
+		dir_offX = -5;
 		dir_offY = -14;
 	break;	
 }
