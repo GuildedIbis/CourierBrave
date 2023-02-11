@@ -27,7 +27,7 @@ var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 max_hp = 70;
 hp = max_hp;
-enemy_spd = 1.85;
+enemy_spd = 1.75;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -77,8 +77,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
-		
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,32)) 
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,32)) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{	
 			script_execute(EnemyChase);
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
@@ -96,7 +95,7 @@ if (obj_game.gamePaused = false)
 		{
 			path_end();
 			sprite_index = enemy_idle;
-			if (timer2 <= 0) and (point_in_rectangle(obj_player.x,obj_player.y,x-160,y-90,x+160,y+90)) 
+			if (timer2 <= 0) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) 
 			{	
 				path_end();
 				entity_step = BalurneHunterShoot;
