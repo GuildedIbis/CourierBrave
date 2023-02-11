@@ -94,7 +94,7 @@ if (obj_inventory.habraf_lair[1] < 2)
 	}
 	if (instance_exists(obj_escort))
 	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,520,136,32))
+		if (point_in_circle(obj_escort.x,obj_escort.y,512,136,4))
 		{
 			sprite_index = spr_door_habrafEscort_open;
 			image_speed = 1;
@@ -122,7 +122,7 @@ else
 	{
 		with (obj_escort)
 		{
-			x = 520;
+			x = 512;
 			y = 136;
 		}
 	}
@@ -156,7 +156,7 @@ if (obj_inventory.habraf_lair[2] < 2)
 	}
 	if (instance_exists(obj_escort))
 	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,224,216,32))
+		if (point_in_circle(obj_escort.x,obj_escort.y,224,208,4))
 		{
 			sprite_index = spr_door_habrafEscort_open;
 			image_speed = 1;
@@ -218,7 +218,7 @@ if (obj_inventory.habraf_lair[3] < 2)
 	}
 	if (instance_exists(obj_escort))
 	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,160,72,32))
+		if (point_in_circle(obj_escort.x,obj_escort.y,160,72,4))
 		{
 			sprite_index = spr_door_habrafEscort_open;
 			image_speed = 1;

@@ -560,27 +560,27 @@ var _dirPos = round(obj_player.direction/90);
 switch(_dirPos)
 {
 	case 0:
-		dir_offX = 3;
+		dir_offX = 2;
 		dir_offY = -14;
 	break;
 		
 	case 4:
-		dir_offX = 3;
+		dir_offX = 2;
 		dir_offY = -14;
 	break;
 		
 	case 1:
-		dir_offX = -4;
+		dir_offX = -6;
 		dir_offY = -14;
 	break;
 		
 	case 2:
-		dir_offX = -3;
+		dir_offX = -4;
 		dir_offY = -14;
 	break;
 		
 	case 3:
-		dir_offX = 5;
+		dir_offX = 3;
 		dir_offY = -14;
 	break;	
 }
@@ -711,27 +711,27 @@ var _dirPos = round(obj_player.direction/90);
 switch(_dirPos)
 {
 	case 0:
-		dir_offX = 3;
+		dir_offX = 2;
 		dir_offY = -14;
 	break;
 		
 	case 4:
-		dir_offX = 3;
+		dir_offX = 2;
 		dir_offY = -14;
 	break;
 		
 	case 1:
-		dir_offX = -4;
+		dir_offX = -6;
 		dir_offY = -14;
 	break;
 		
 	case 2:
-		dir_offX = -3;
+		dir_offX = -4;
 		dir_offY = -14;
 	break;
 		
 	case 3:
-		dir_offX = 5;
+		dir_offX = 3;
 		dir_offY = -14;
 	break;	
 }
