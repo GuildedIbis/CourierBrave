@@ -16,6 +16,7 @@ if (!obj_game.gamePaused)
 			if (image_alpha < 1) image_alpha = image_alpha + .05;
 		}
 	}
+	else
 	{
 		if (image_alpha < 1) image_alpha = image_alpha + .05;
 	}
