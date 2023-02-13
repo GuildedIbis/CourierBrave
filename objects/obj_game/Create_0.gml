@@ -3,6 +3,7 @@
 //Randomize... and other random things
 randomize();
 script_execute(AllItems);
+script_execute(RoomEnemies);
 
 version = "Version: 0.2.3.2"
 menu_sprite = spr_menu;
@@ -20,6 +21,7 @@ event_live = false;
 day_timer = 0;
 max_day_timer = 18000;
 transition_timer = 0;
+room_num = 0;
 room_name = -1;
 room_name_timer = 0;
 game_paused_image_speed = 0;

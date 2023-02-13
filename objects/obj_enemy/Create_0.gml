@@ -12,3 +12,5 @@ dir_switch = -1;
 
 //Status Effects
 StatusEffects();
+
+

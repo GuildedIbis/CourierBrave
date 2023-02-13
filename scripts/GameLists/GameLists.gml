@@ -114,3 +114,37 @@ roomName_ary[39] = "LENKO\n";
 //roomName_ary[9] = "LENKO\n";
 
 }
+//
+//
+//
+//
+//
+//Room Enemies
+function RoomEnemies(){
+room_enemy_grid = ds_grid_create(45,20);
+
+for (var i = 0; i < 45; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		room_enemy_grid[# i, j] = false;
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Room Enemies Reset
+function RoomEnemiesReset(){
+for (var i = 0; i < 45; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.room_enemy_grid[# i, j] = false;
+	}
+}
+
+}

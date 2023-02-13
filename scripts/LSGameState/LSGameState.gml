@@ -22,7 +22,10 @@ if (variable_struct_exists(_loadEntity,"crullM000")) obj_inventory.crullM_list[0
 if (variable_struct_exists(_loadEntity,"crullM001")) obj_inventory.crullM_list[1] = _loadEntity.crullM001;
 if (variable_struct_exists(_loadEntity,"crullM002")) obj_inventory.crullM_list[2] = _loadEntity.crullM002;
 
-
+//if (variable_struct_exists(_loadEntity,"enemy28_0")) obj_game.room_enemy_grid[# 28, 0] = _loadEntity.enemy28_0;
+//if (variable_struct_exists(_loadEntity,"enemy28_1")) obj_game.room_enemy_grid[# 28, 1] = _loadEntity.enemy28_1;
+//if (variable_struct_exists(_loadEntity,"enemy28_2")) obj_game.room_enemy_grid[# 28, 2] = _loadEntity.enemy28_2;
+//if (variable_struct_exists(_loadEntity,"enemy28_3")) obj_game.room_enemy_grid[# 28, 3] = _loadEntity.enemy28_3;
 		
 }
 //
@@ -40,7 +43,10 @@ var _saveInv =
 dayTimer : obj_game.day_timer,
 dayPhase : global.dayPhase,
 
-
+//enemy28_0 : obj_game.room_enemy_grid[# 28, 0],
+//enemy28_1 : obj_game.room_enemy_grid[# 28, 1],
+//enemy28_2 : obj_game.room_enemy_grid[# 28, 2],
+//enemy28_3 : obj_game.room_enemy_grid[# 28, 3]
 	
 }
 array_push(_saveData, _saveInv);

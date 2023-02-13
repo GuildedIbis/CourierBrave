@@ -9,6 +9,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 	{
 		if (room_num != -1)
 		{
+			obj_game.room_num = room_num;
 			obj_game.room_name = obj_inventory.roomName_ary[room_num];
 			obj_game.room_name_timer = 180;
 		}
@@ -18,10 +19,10 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 		global.targetCamp = target_camp;
 		if (target_camp = true)
 		{
+			script_execute(RoomEnemiesReset);
 			global.lastCamp = target_room;
 			global.lastCampX = target_x;
 			global.lastCampY = target_y;
-			
 			if (camp_num != -1)
 			{
 				obj_inventory.camp_grid[# camp_num, 3] = true;
