@@ -17,7 +17,7 @@ inv_dur_timer = 0;
 enemy_move = spr_enemy_whiteCrescent;
 aggro_drop = 300;
 timer1 = 180;
-enemy_spd = 1.8
+enemy_spd = 1.2
 local_frame = 0;
 hit_by_attack = -1;
 damage = 65;
@@ -34,12 +34,15 @@ function WhiteCrescentFree(){
 if (obj_game.gamePaused = false)
 {
 	timer1 = timer1 - 1;
-	if (aggro_drop > 0)
-	{
-		script_execute(EnemyChase);
-		aggro_drop = aggro_drop - 1;
-	}
-	else direction = point_direction(x,y,obj_player.x,obj_player.y);
+	//if (aggro_drop > 0)
+	//{
+	//	script_execute(EnemyChase);
+	//	aggro_drop = aggro_drop - 1;
+	//}
+	//else 
+	//{
+	direction = point_direction(x,y,obj_player.x,obj_player.y);
+	//}
 	sprite_index = enemy_move;
 	speed = enemy_spd;
 	if (place_meeting(x,y,obj_player))

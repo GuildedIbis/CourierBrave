@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "LenkoProjectiles",
-    "path": "folders/Scripts/Enemy/LenkoEnemy/LenkoProjectiles.yy",
+    "name": "xRetired",
+    "path": "folders/Scripts/Enemy/xRetired.yy",
   },
 }

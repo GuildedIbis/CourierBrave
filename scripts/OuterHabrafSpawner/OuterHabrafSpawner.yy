@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "HabrafSpawners",
-    "path": "folders/Scripts/Enemy/HabrafEnemy/HabrafSpawners.yy",
+    "name": "xRetired",
+    "path": "folders/Scripts/Enemy/xRetired.yy",
   },
 }

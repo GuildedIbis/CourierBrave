@@ -24,7 +24,7 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 180;
+max_hp = 400;
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -34,6 +34,7 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
 }
@@ -53,18 +54,38 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
-		aggro_drop = 300;
-		targeted = true;
-		global.aggroCounter = global.aggroCounter + 1;
+		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		{
+			EnemyAlert();
+			aggro_drop = 300;
+			targeted = true;
+		}
 	}
-	
+	if (aggro_drop <= 0)
+	{
+		image_speed = 0;
+		sprite_index = enemy_idle;
+		path_end();
+		aggro_drop = 300;
+		targeted = false;
+		global.aggroCounter = global.aggroCounter - 1;
+	}
 
 	//While Aggro is on
-	if (targeted = true) and (timer1 <= 0)
+	if (targeted = true)
 	{
-		timer1 = 21;
-		timer2 = 50;
-		entity_step = OfaMothDustStep;
+		if (timer1 <= 0)
+		{
+			timer1 = 21;
+			timer2 = 50;
+			attack_counter = 0;
+			entity_step = OfaMothDustStep;
+		}
+		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
+		{
+			aggro_drop = aggro_drop - 1;
+		}
+		else aggro_drop = 300;
 	}
 		
 	
@@ -124,7 +145,16 @@ if (obj_game.gamePaused = false)
 	{
 		shadow = 0;
 		path_end();
-		entity_step = OfaMothCrescentFire;
+		var _atk = irandom_range(0,1);
+		if (_atk = 0)
+		{
+			entity_step = OfaMothCrescentFire;
+		}
+		else 
+		{
+			timer2 = 20;
+			entity_step = OfaMothMoonBlast;
+		}
 	}
 	
 	
@@ -154,9 +184,10 @@ if (obj_game.gamePaused = false)
 	script_execute(EnemyAnimation1);
 	if (animation_end = true)
 	{
+		attack_counter = attack_counter + 1;
 		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
-		with (instance_create_layer(x,y-8,"Instances",obj_enemy))
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			WhiteCrescentCreate();
 			break_object = other.break_object;
@@ -169,7 +200,7 @@ if (obj_game.gamePaused = false)
 		}
 		for (var i = 0; i < 6; i = i + 1)
 		{
-			with (instance_create_layer(x,y-8,"Instances",obj_enemy))
+			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				WhiteRodCreate();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) - 45 + (15 * i);
@@ -182,8 +213,79 @@ if (obj_game.gamePaused = false)
 				hit_script = EntityHitDestroy;
 			}
 		}
-		timer1 = 300;
-		entity_step = OfaMothFree;
+		if (attack_counter >= 4)
+		{
+			timer1 = 180;
+			entity_step = OfaMothFree;
+		}
+		else
+		{
+			timer1 = 21;
+			timer2 = 50;
+			entity_step = OfaMothDustStep;
+		}
+			
+	}
+	
+}
+}
+//
+//
+//
+//
+//
+//Ofa Moth Moon Blast
+function OfaMothMoonBlast(){
+if (obj_game.gamePaused = false)
+{
+
+	//Set
+	if (sprite_index != spr_enemy_ofaMoth_moonBlast)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_ofaMoth_moonBlast;
+		local_frame = 0;
+		image_index = 0;
+	}
+	timer2 = timer2 - 1;
+
+	//Animation
+	script_execute(EnemyAnimation1);
+	
+	if (timer2 <= 0)
+	{
+		timer2 = 10;
+		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
+		audio_play_sound(snd_ofaMoth_shoot,0,false);
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		{
+			WhiteRodCreate();
+			depth = other.depth - 1;
+			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
+			image_angle = direction;
+			speed = enemy_spd;
+			break_object = other.break_object;
+			fragment_count = 0;
+			fragment = obj_fragment;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+		}
+	}
+	if (animation_end = true)
+	{
+		attack_counter = attack_counter + 1;
+		if (attack_counter >= 4)
+		{
+			timer1 = 180;
+			sprite_index = enemy_idle;
+			entity_step = OfaMothFree;
+		}
+		else
+		{
+			timer1 = 21;
+			timer2 = 50;
+			entity_step = OfaMothDustStep;
+		}
 	}
 	
 }

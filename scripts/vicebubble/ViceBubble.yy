@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "HabrafEnemy",
-    "path": "folders/Scripts/Enemy/HabrafEnemy.yy",
+    "path": "folders/Scripts/Enemy/LenkoEnemy/HabrafEnemy.yy",
   },
 }
