@@ -81,7 +81,7 @@ if (obj_game.gamePaused = false)
 			audio_sound_gain(snd_ofaWorm_dash,global.volumeEffects,1);
 			audio_play_sound(snd_ofaWorm_dash,0,false);	
 			dash_timer = 720;
-			timer2 = 120;
+			timer2 = 90;
 		}
 		if (timer2 > 0)
 		{

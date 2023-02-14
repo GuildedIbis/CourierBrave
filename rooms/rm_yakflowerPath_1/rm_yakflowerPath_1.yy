@@ -896,7 +896,13 @@
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
 -840,0,-80,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--13,0,1,534,-43,0,1,140,-66,0,1,255,-102,0,1,162,-12,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+-13,0,1,534,-31,0,1,133,-3,0,28,13,133,133,0,0,13,0,133,140,
+0,0,133,133,0,10,131,12,133,0,0,131,130,12,0,0,133,132,133,-5,
+0,15,130,12,10,132,11,130,13,130,10,133,131,131,11,133,12,-5,0,14,
+11,12,131,130,13,12,131,11,130,132,10,131,51,130,-7,0,14,130,131,50,
+132,130,11,130,12,13,131,13,131,50,132,-6,0,14,50,131,130,52,12,131,
+11,130,130,10,0,132,53,130,-8,0,10,51,132,130,13,132,130,11,0,130,
+13,-17,0,1,10,-34,0,1,162,-12,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -7,0,6,162,80,41,43,163,162,-9,0,-6,162,4,0,81,83,163,-7,162,
 -3,0,-2,162,1,206,-3,122,4,165,0,0,164,-3,122,5,209,162,162,0,

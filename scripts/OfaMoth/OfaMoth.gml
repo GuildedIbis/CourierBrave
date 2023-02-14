@@ -24,7 +24,7 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 400;
+max_hp = 250;
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -47,6 +47,7 @@ path = -1;
 function OfaMothFree(){
 if (obj_game.gamePaused = false)
 {
+	healthbar = true;
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (flash > 0) entity_step = EnemyDamaged;
@@ -104,6 +105,7 @@ else path_end();
 function OfaMothDustStep(){
 if (obj_game.gamePaused = false)
 {
+	healthbar = false;
 	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -148,10 +150,12 @@ if (obj_game.gamePaused = false)
 		var _atk = irandom_range(0,1);
 		if (_atk = 0)
 		{
+			healthbar = true;
 			entity_step = OfaMothCrescentFire;
 		}
 		else 
 		{
+			healthbar = true;
 			timer2 = 20;
 			entity_step = OfaMothMoonBlast;
 		}

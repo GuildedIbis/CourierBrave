@@ -10,3 +10,4 @@ spawn_x = x;
 spawn_y = y;
 image_alpha = 0;
 game_paused_image_speed = 0;
+if (spawn_create != -1) script_execute(spawn_create);

@@ -16,11 +16,11 @@ boss = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_whiteCrescent;
 aggro_drop = 300;
-timer1 = 180;
+timer1 = 150;
 enemy_spd = 1.2
 local_frame = 0;
 hit_by_attack = -1;
-damage = 65;
+damage = 35;
 hp = 60;
 max_hp = 60;
 }

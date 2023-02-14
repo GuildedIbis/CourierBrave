@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_enemy_ofaMoth_moonBlast",
-  "bbox_bottom": 30,
+  "bbox_bottom": 31,
   "bbox_left": 9,
   "bbox_right": 30,
   "bbox_top": 4,
