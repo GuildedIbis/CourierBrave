@@ -607,6 +607,7 @@
     {"id":{"name":"Ceriver","path":"scripts/Ceriver/Ceriver.yy",},"order":5,},
     {"id":{"name":"spr_enemy_gorog_run","path":"sprites/spr_enemy_gorog_run/spr_enemy_gorog_run.yy",},"order":10,},
     {"id":{"name":"spr_enemy_caverat_idle","path":"sprites/spr_enemy_caverat_idle/spr_enemy_caverat_idle.yy",},"order":0,},
+    {"id":{"name":"rm_yakflowerPath_2","path":"rooms/rm_yakflowerPath_2/rm_yakflowerPath_2.yy",},"order":0,},
     {"id":{"name":"EndireKnight","path":"scripts/EndireKnight/EndireKnight.yy",},"order":6,},
     {"id":{"name":"obj_fragElectric","path":"objects/obj_fragElectric/obj_fragElectric.yy",},"order":0,},
     {"id":{"name":"snd_ghost_soulFlare","path":"sounds/snd_ghost_soulFlare/snd_ghost_soulFlare.yy",},"order":12,},
@@ -968,6 +969,7 @@
     {"roomId":{"name":"rm_habrafLake_1","path":"rooms/rm_habrafLake_1/rm_habrafLake_1.yy",},},
     {"roomId":{"name":"rm_habrafLake_4","path":"rooms/rm_habrafLake_4/rm_habrafLake_4.yy",},},
     {"roomId":{"name":"rm_yakflowerPath_1","path":"rooms/rm_yakflowerPath_1/rm_yakflowerPath_1.yy",},},
+    {"roomId":{"name":"rm_yakflowerPath_2","path":"rooms/rm_yakflowerPath_2/rm_yakflowerPath_2.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

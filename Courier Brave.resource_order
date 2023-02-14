@@ -527,6 +527,7 @@
     {"name":"snd_hit_invincible","order":5,"path":"sounds/snd_hit_invincible/snd_hit_invincible.yy",},
     {"name":"Ceriver","order":5,"path":"scripts/Ceriver/Ceriver.yy",},
     {"name":"spr_enemy_gorog_run","order":10,"path":"sprites/spr_enemy_gorog_run/spr_enemy_gorog_run.yy",},
+    {"name":"rm_yakflowerPath_2","order":2,"path":"rooms/rm_yakflowerPath_2/rm_yakflowerPath_2.yy",},
     {"name":"EndireKnight","order":5,"path":"scripts/EndireKnight/EndireKnight.yy",},
     {"name":"snd_ghost_soulFlare","order":12,"path":"sounds/snd_ghost_soulFlare/snd_ghost_soulFlare.yy",},
     {"name":"spr_enemy_duskLeech_run","order":5,"path":"sprites/spr_enemy_duskLeech_run/spr_enemy_duskLeech_run.yy",},
