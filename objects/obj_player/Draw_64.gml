@@ -35,7 +35,7 @@ if (scene = false)
 	draw_set_color(c_white);
 	draw_text_transformed(301,12,beans,.5,.5,0)
 
-
+	
 	//Aggro (Below Weapons)
 	if (obj_game.gamePaused = false)
 	{

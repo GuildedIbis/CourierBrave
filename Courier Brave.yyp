@@ -127,7 +127,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Other","folderPath":"folders/Sprites/World/Effects/Other.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"YakflowerEnemy","folderPath":"folders/Scripts/Enemy/LenkoEnemyAll/YakflowerEnemy.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"LenkoMainEnemy","folderPath":"folders/Scripts/Enemy/LenkoEnemyAll/LenkoMainEnemy.yy","order":0,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"LenkoEnemyAll","folderPath":"folders/Scripts/Enemy/LenkoEnemyAll.yy","order":0,},
   ],
   "IncludedFiles": [],
   "isEcma": false,
