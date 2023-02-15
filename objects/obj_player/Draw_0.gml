@@ -11,9 +11,9 @@ if (flash != 0)
 }
 
 //if (dead = false) draw_sprite(spr_player_shadow,0,x,y);
-var _x1 = x - 4 + 4;
+var _x1 = x - 4 + 6;
 var _y1 = y - 8;
-var _x2 = x + 4 + 4;
+var _x2 = x + 4 + 6;
 var _y2 = y - 8
 var _x3 = x + 4;
 var _y3 = y;

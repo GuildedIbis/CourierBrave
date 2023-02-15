@@ -5,7 +5,7 @@
 //
 //
 //Yakflower Spawn Create 1
-function YakflowerSpawnCreate1(){
+function YakflowerSpawnCreate2(){
 
 if (obj_inventory.yakflower_lair[1] < 20)
 {
@@ -110,7 +110,7 @@ if (obj_inventory.yakflower_lair[1] < 20)
 //
 //
 //Habfaf Lair: Escort 1 Spawner
-function YakflowerSpawner1(){
+function YakflowerSpawner2(){
 
 if (obj_inventory.yakflower_lair[1] < 20) 
 {
@@ -125,8 +125,8 @@ if (obj_inventory.yakflower_lair[1] < 20)
 	{
 		x_spawn1 = 72;
 		y_spawn1 = 72;
-		x_spawn2 = 240;
-		y_spawn2 = 64;
+		x_spawn2 = 232;
+		y_spawn2 = 80;
 	}
 	if (spawn_timer > 0) 
 	{
@@ -136,6 +136,169 @@ if (obj_inventory.yakflower_lair[1] < 20)
 			obj_inventory.yakflower_lair[1] = obj_inventory.yakflower_lair[1] + 1;
 			
 			if (obj_inventory.yakflower_lair[1] mod 5 = 0) 
+			{
+					with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
+					{
+						image_alpha = 1;
+						script_execute(OfaMothCreate);
+						global.aggroCounter = global.aggroCounter + 1;
+						targeted = true;
+						break_object = obj_break2;
+					}
+			}
+			else 
+			{
+				with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
+				{
+					image_alpha = 1;
+					script_execute(OfaWormCreate);
+					global.aggroCounter = global.aggroCounter + 1;
+					targeted = true;
+					break_object = obj_break2;
+				}
+			}
+			spawn_timer = 180;
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Yakflower Spawn Create 4
+function YakflowerSpawnCreate4(){
+
+if (obj_inventory.yakflower_lair[3] < 20)
+{
+	obj_inventory.yakflower_lair[3] = 10;
+	//Spawn 1
+	with (instance_create_layer(432,112,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 2 
+	with (instance_create_layer(472,128,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 3
+	with (instance_create_layer(536,128,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 4
+	with (instance_create_layer(352,48,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 5
+	with (instance_create_layer(320,128,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 6
+	with (instance_create_layer(256,48,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 7
+	with (instance_create_layer(256,128,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 8
+	with (instance_create_layer(160,48,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 9
+	with (instance_create_layer(160,128,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaWormCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+	//Spawn 10		
+	with (instance_create_layer(344,88,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaMothCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}
+			
+			
+}
+}
+//
+//
+//
+//
+//
+//Habfaf Lair: Escort 4 Spawner
+function YakflowerSpawner4(){
+
+if (obj_inventory.yakflower_lair[3] < 20) 
+{
+	if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
+	{
+		x_spawn1 = 472;
+		y_spawn1 = 128;
+		x_spawn2 = 576;
+		y_spawn2 = 128;
+	}
+	else
+	{
+		x_spawn1 = 168;
+		y_spawn1 = 56;
+		x_spawn2 = 160;
+		y_spawn2 = 128;
+	}
+	if (spawn_timer > 0) 
+	{
+		spawn_timer = spawn_timer -1;
+		if (spawn_timer <= 0)
+		{
+			obj_inventory.yakflower_lair[3] = obj_inventory.yakflower_lair[3] + 1;
+			
+			if (obj_inventory.yakflower_lair[3] mod 5 = 0) 
 			{
 					with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
 					{

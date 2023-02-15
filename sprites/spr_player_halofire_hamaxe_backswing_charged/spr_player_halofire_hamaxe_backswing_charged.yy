@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_player_halofire_hamaxe_backswing_charged",
-  "bbox_bottom": 23,
+  "bbox_bottom": 24,
   "bbox_left": 16,
   "bbox_right": 21,
   "bbox_top": 17,
