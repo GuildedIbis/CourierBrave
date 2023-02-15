@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "HabrafEnemy",
-    "path": "folders/Scripts/Enemy/LenkoEnemyAll/HabrafEnemy.yy",
+    "name": "EnemyHabrafLake",
+    "path": "folders/Scripts/EnemyLenkoAll/EnemyHabrafLake.yy",
   },
 }
