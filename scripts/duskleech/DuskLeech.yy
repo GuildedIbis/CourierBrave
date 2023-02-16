@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "xRetired",
-    "path": "folders/Scripts/EnemyLenkoAll/xRetired.yy",
+    "path": "folders/Scripts/Enemy/xRetired.yy",
   },
 }

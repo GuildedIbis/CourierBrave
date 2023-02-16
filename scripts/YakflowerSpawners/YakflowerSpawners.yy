@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/EnemyLenkoAll/EnemyYakflowerPath.yy",
+    "path": "folders/Scripts/Enemy/EnemyYakflowerPath.yy",
   },
 }
