@@ -77,7 +77,7 @@ if (charge < max_charge) //charge Recharge
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 10;
+		charge_timer = 5;
 		charge = charge + 1;
 	}
 }
