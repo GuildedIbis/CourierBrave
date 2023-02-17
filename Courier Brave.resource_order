@@ -236,6 +236,7 @@
     {"name":"spr_enemy_bossZerwerk_tailLash","order":4,"path":"sprites/spr_enemy_bossZerwerk_tailLash/spr_enemy_bossZerwerk_tailLash.yy",},
     {"name":"obj_kephraStone","order":2,"path":"objects/obj_kephraStone/obj_kephraStone.yy",},
     {"name":"spr_enemy_lillyGuard_run","order":8,"path":"sprites/spr_enemy_lillyGuard_run/spr_enemy_lillyGuard_run.yy",},
+    {"name":"spr_hud_skills","order":19,"path":"sprites/spr_hud_skills/spr_hud_skills.yy",},
     {"name":"QuestDrawActive","order":10,"path":"scripts/QuestDrawActive/QuestDrawActive.yy",},
     {"name":"snd_lenko_themeCamp","order":1,"path":"sounds/snd_lenko_themeCamp/snd_lenko_themeCamp.yy",},
     {"name":"snd_menu02","order":1,"path":"sounds/snd_menu02/snd_menu02.yy",},

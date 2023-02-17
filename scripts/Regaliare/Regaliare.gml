@@ -72,6 +72,15 @@ if (stamina < max_stamina) //Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
+if (charge < max_charge) //charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 10;
+		charge = charge + 1;
+	}
+}
 if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
@@ -122,17 +131,19 @@ if (key_attackM) and (voidsick = false)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (magic_count >= 1)
+		if (magic_primary = true) and (charge >= 5)
 		{
 			timer2 = 0;
-			max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+			max_charge = 50 + (3 * grace);
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (magic_count >= 2)
+		if (magic_primary = false) and (charge >= 10)
 		{
 			timer2 = 0;
-			max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+			max_charge = 50 + (3 * grace);
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}
@@ -340,7 +351,8 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
-	magic_count = magic_count - 1;
+	//magic_count = magic_count - 1;
+	charge = charge - 5;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -367,7 +379,7 @@ if (timer2 <= 0)
 //Animate
 PlayerAnimation();
 
-if (mouse_check_button(mb_left) = false) or (magic_count < 1)
+if (mouse_check_button(mb_left) = false) or (charge < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -492,7 +504,8 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
-	magic_count = magic_count - 2;
+	//magic_count = magic_count - 2;
+	charge = charge - 10;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -519,7 +532,7 @@ if (timer2 <= 0)
 //Animate
 PlayerAnimation();
 
-if (mouse_check_button(mb_left) = false) or (magic_count < 1)
+if (mouse_check_button(mb_left) = false) or (charge < 10)
 {
 	attacking = false;
 	state_script = free_state;

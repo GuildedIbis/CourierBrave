@@ -63,6 +63,7 @@ damage = 0;
 magic_count = 0;
 special_timer = 0;
 stamina_timer = 0;
+charge_timer = 0;
 timer1 = 0;
 timer2 = 0;
 //
@@ -88,6 +89,8 @@ max_hp = 150;
 walk_spd = 1.75;
 roll_spd = 3;
 roll_dist = 64;
+charge = 50 + (3 * grace);
+max_charge = 50 + (3 * grace);
 stamina = 50 + (3 * energy);
 max_stamina = 50 + (3 * energy);
 max_hp = max_hp + (3*vitality) + round(vitality/15);
