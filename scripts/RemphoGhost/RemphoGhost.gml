@@ -212,7 +212,7 @@ if (obj_game.gamePaused = false)
 		else timer1 = 300;
 		audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulFlare,0,false);
-		with (instance_create_layer(x+22,y-8,"Instances",obj_enemy))
+		with (instance_create_layer(x+22,y-8,"Instances",obj_enemy_projectile))
 		{
 			SoulFlareCreate();
 			direction = 0;
@@ -224,7 +224,7 @@ if (obj_game.gamePaused = false)
 			bullet = true;
 			hit_script = EntityHitDestroy;
 		}
-		with (instance_create_layer(x,y-24,"Instances",obj_enemy))
+		with (instance_create_layer(x,y-24,"Instances",obj_enemy_projectile))
 		{
 			SoulFlareCreate();
 			direction = 90;
@@ -236,7 +236,7 @@ if (obj_game.gamePaused = false)
 			bullet = true;
 			hit_script = EntityHitDestroy;
 		}
-		with (instance_create_layer(x-22,y-8,"Instances",obj_enemy))
+		with (instance_create_layer(x-22,y-8,"Instances",obj_enemy_projectile))
 		{
 			SoulFlareCreate();
 			direction = 180;
@@ -248,7 +248,7 @@ if (obj_game.gamePaused = false)
 			bullet = true;
 			hit_script = EntityHitDestroy;
 		}
-		with (instance_create_layer(x,y+16,"Instances",obj_enemy))
+		with (instance_create_layer(x,y+16,"Instances",obj_enemy_projectile))
 		{
 			SoulFlareCreate();
 			direction = 270;
