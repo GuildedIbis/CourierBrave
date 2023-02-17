@@ -86,14 +86,17 @@ if (scene = false)
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
 	draw_text_transformed(222,26,string(_magicCount),.35,.35,0);
-	var _magicSPerc = (special_timer/max_special_timer) * 100;
-	draw_healthbar(240,8,266,20,_magicSPerc,c_black,c_white,c_white,0,true,true);
-	draw_sprite(spr_ability_hud3,0,238,6);
-	draw_sprite(spr_special_allGame,form,238,4);
-	if (max_special_count != -1)
+	if (obj_inventory.form_grid[# form, 8] > 0)
 	{
-		var _specialCount = string(special_count) + "/" + string(max_special_count)
-		draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
+		var _magicSPerc = (special_timer/max_special_timer) * 100;
+		draw_healthbar(240,8,266,20,_magicSPerc,c_black,c_white,c_white,0,true,true);
+		draw_sprite(spr_ability_hud3,0,238,6);
+		draw_sprite(spr_special_allGame,form,238,4);
+		if (max_special_count != -1)
+		{
+			var _specialCount = string(special_count) + "/" + string(max_special_count)
+			draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
+		}
 	}
 
 }

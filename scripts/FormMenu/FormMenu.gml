@@ -8,7 +8,7 @@
 function FormCreate(){
 form_grid = ds_grid_create(16,9);
 
-//Regaliare Firn
+//Regaliare 
 form_grid[# 0, 0] = "Regaliare"
 form_grid[# 0, 1] = "Description"
 form_grid[# 0, 2] = RegaliareSet; //Set Script
@@ -17,9 +17,9 @@ form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 1; //Weapon
 form_grid[# 0, 6] = 1; //Armor
 form_grid[# 0, 7] = 1; //Magic
-form_grid[# 0, 8] = 1; //Special
+form_grid[# 0, 8] = 0; //Special
 
-//Habraf Set
+//Ceriver
 form_grid[# 1, 0] = "Ceriver"
 form_grid[# 1, 1] = "Blue and Green Lizard with boomerang, bubbles, and sp (water cannon with push?)"
 form_grid[# 1, 2] = CeriverSet; //Player Script
@@ -28,9 +28,9 @@ form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 1; //Weapon
 form_grid[# 1, 6] = 1; //Armor
 form_grid[# 1, 7] = 1; //Magic
-form_grid[# 1, 8] = 1; //Special
+form_grid[# 1, 8] = 0; //Special
 
-//Zerwerk Set
+//Adavoid
 form_grid[# 2, 0] = "Adavoid"
 form_grid[# 2, 1] = "Purple armor with white accents, bird, zerkrift hook, magic, and sp"
 form_grid[# 2, 2] = Idle; //Player Script
@@ -39,9 +39,9 @@ form_grid[# 2, 4] = false; //Unlocked Status
 form_grid[# 2, 5] = 1; //Weapon
 form_grid[# 2, 6] = 1; //Armor
 form_grid[# 2, 7] = 1; //Magic
-form_grid[# 2, 8] = 1; //Special
+form_grid[# 2, 8] = 0; //Special
 
-//Endire Set
+//Halofire
 form_grid[# 3, 0] = "Halofire"
 form_grid[# 3, 1] = "White bird with fire hair and orange accents"
 form_grid[# 3, 2] = HalofireSet; //Player Script
@@ -50,7 +50,7 @@ form_grid[# 3, 4] = false; //Unlocked Status
 form_grid[# 3, 5] = 1; //Weapon
 form_grid[# 3, 6] = 1; //Armor
 form_grid[# 3, 7] = 1; //Magic
-form_grid[# 3, 8] = 1; //Special
+form_grid[# 3, 8] = 0; //Special
 
 }
 //

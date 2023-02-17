@@ -77,14 +77,17 @@ if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
 }
-if (special_timer < max_special_timer) and (watervice = false)
+if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (special_count < max_special_count) special_timer = special_timer + 1;
-}
-if (special_timer >= max_special_timer) and (special_count < max_special_count)
-{
-	special_timer = 0;
-	special_count = special_count + 1;
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		if (special_count < max_special_count) special_timer = special_timer + 1;
+	}
+	if (special_timer >= max_special_timer) and (special_count < max_special_count)
+	{
+		special_timer = 0;
+		special_count = special_count + 1;
+	}
 }
 
 
@@ -169,13 +172,16 @@ if (key_attackM) and (voidsick = false)
 }
 
 //Special Attack
-if (key_attackS) and (special_count > 0)
+if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (watervice = false)
+	if (key_attackS) and (special_count > 0)
 	{
-		magic_timer = 30;
-		attack_script = CeriverDrainDartCast;
-		state_script = PlayerStateAttack;
+		if (watervice = false)
+		{
+			magic_timer = 30;
+			attack_script = CeriverDrainDartCast;
+			state_script = PlayerStateAttack;
+		}
 	}
 }
 

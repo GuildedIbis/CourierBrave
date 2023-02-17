@@ -116,8 +116,10 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special_timer < max_special_timer) special_timer = special_timer + 1;
-
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) special_timer = special_timer + 1;
+}
 //Animation Start
 if (sprite_index != crull_sprite)
 {
@@ -157,8 +159,10 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special_timer < max_special_timer) special_timer = special_timer + 1;
-
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) special_timer = special_timer + 1;
+}
 
 //Animation Start
 if (sprite_index != recharge_sprite)
@@ -188,9 +192,10 @@ if (animation_end)
 function PlayerStateRoll(){
 max_stamina = 50 + (3 * energy);
 inv_dur_timer = 30;
-
-if (special_timer < max_special_timer) special_timer = special_timer + 1;
-
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) special_timer = special_timer + 1;
+}
 
 hor_spd = lengthdir_x(roll_spd,direction);
 ver_spd = lengthdir_y(roll_spd,direction);
@@ -237,9 +242,12 @@ if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
 }
-if (special_timer < max_special_timer) and (watervice = false)
+if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	special_timer = special_timer + 1;
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
 if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 {

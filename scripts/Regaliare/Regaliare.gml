@@ -76,11 +76,13 @@ if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
 }
-if (special_timer < max_special_timer) and (watervice = false)
+if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	special_timer = special_timer + 1;
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
-
 
 
 //Movement 2: Collision
@@ -138,13 +140,16 @@ if (key_attackM) and (voidsick = false)
 }
 
 //Special Attack
-if (key_attackS) and (special_timer >= max_special_timer)
+if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (watervice = false)
+	if (key_attackS) and (special_timer >= max_special_timer)
 	{
-		special_timer = 0;
-		attack_script = RegaliareSpecial;
-		state_script = PlayerStateAttack;
+		if (watervice = false)
+		{
+			special_timer = 0;
+			attack_script = RegaliareSpecial;
+			state_script = PlayerStateAttack;
+		}
 	}
 }
 
