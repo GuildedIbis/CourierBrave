@@ -60,10 +60,10 @@ if (room_name_timer > 0)
 	if (_rmNameAlpha > 1.0) _rmNameAlpha = 1.0;
 	//draw_sprite_stretched_ext(menu_sprite,3,14,144,96,32,c_white,_rmNameAlpha);
 	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
+	draw_set_halign(fa_right)
 	draw_set_valign(fa_top)
-	draw_text_transformed_color(17,152,room_name,.5,.5,0,c_black,c_black,c_black,c_black,_rmNameAlpha);
-	draw_text_transformed_color(16,152,room_name,.5,.5,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
+	draw_text_transformed_color(316,24,room_name,.5,.5,0,c_black,c_black,c_black,c_black,_rmNameAlpha);
+	draw_text_transformed_color(315,24,room_name,.5,.5,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
 }
 }
 //
@@ -103,8 +103,8 @@ if (scene = false)
 	if (global.home = false)
 	{
 		var _dayPerc = (day_timer/max_day_timer) * 100;
-		draw_healthbar(147,9,173,11,_dayPerc,c_black,c_white,c_white,0,true,true);
-		draw_sprite_ext(spr_lighting_phase,global.dayPhase,144,7,1,1,0,c_white,1.0);
+		draw_healthbar(15,9,41,11,_dayPerc,c_black,c_white,c_white,0,true,true);
+		draw_sprite_ext(spr_lighting_phase,global.dayPhase,12,7,1,1,0,c_white,1.0);
 	}
 }
 }
