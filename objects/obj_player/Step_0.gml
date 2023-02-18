@@ -17,23 +17,18 @@ input_dir = point_direction(0,0,key_right - key_left, key_down - key_up);
 input_mag = (key_right - key_left != 0) or (key_down - key_up != 0);
 flash = max(flash-0.05,0);
 
-//Run State
+//State
 if (obj_game.gamePaused = false)
 {
 	script_execute(state_script);
 	depth = -y;
 }
 
-
-//if (keyboard_check_pressed(ord("T"))) and (global.aggroCounter <= 0)
-//{
-//	room_goto(global.lastCamp)
-//	obj_player.x = 296;
-//	obj_player.y = 88;
-//}
-
+//Death
 if (hp <= 0)
 {
 	state_script = PlayerDeath;
 }
+
+//Status Effects
 StatusEffects();

@@ -43,8 +43,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Adavoid",
-    "path": "folders/Sprites/Player/Adavoid.yy",
+    "name": "Adavio",
+    "path": "folders/Sprites/Player/Adavio.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

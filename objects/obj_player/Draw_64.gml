@@ -20,7 +20,6 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_valign(fa_middle);
 	draw_set_color(c_black);
 	draw_text_transformed(8,166,hp,.5,.5,0);
-
 	draw_set_color(c_white);
 	draw_text_transformed(7,166,hp,.5,.5,0);
 
@@ -39,7 +38,6 @@ if (scene = false) and (obj_game.textPaused = false)
 	//Aggro (Below Weapons)
 	if (obj_game.gamePaused = false)
 	{
-	
 		//Aggro
 		if (global.aggroCounter > 0) 
 		{
@@ -52,7 +50,6 @@ if (scene = false) and (obj_game.textPaused = false)
 			draw_set_color(c_white);
 			draw_text_transformed(159,12,global.aggroCounter,.5,.5,0);
 		}
-	
 		//Active Quest
 		draw_sprite(spr_activeQuest_hud,0,303,6);
 		draw_set_font(fnt_text)
@@ -65,15 +62,10 @@ if (scene = false) and (obj_game.textPaused = false)
 
 
 	//Stamina Meter
-	
-	//draw_sprite(spr_stamina_hud,0,64,0);
 	draw_set_font(fnt_text)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	//draw_set_color(c_black);
-	//draw_text_transformed(70,12,stamina,.5,.5,0);
-	//draw_set_color(c_white);
-	//draw_text_transformed(69,12,stamina,.5,.5,0);
+	
 
 	//Charge and Energy Meters
 	var _chargePerc = (charge/max_charge) * 100;
@@ -83,23 +75,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,246,160);
 	draw_sprite(spr_magic_allGame,form,232,160);
-	//draw_set_font(fnt_text)
-	//draw_set_halign(fa_left);
-	//draw_set_valign(fa_middle);
-	//draw_set_color(c_black);
-	//draw_text_transformed(70,12,stamina,.5,.5,0);
-	//draw_set_color(c_white);
-	//draw_text_transformed(69,12,stamina,.5,.5,0);
 
-	//Form HUD
-	//draw_sprite(spr_ability_hud,0,192,6);
-	//draw_sprite(spr_ability_hud,0,214,6);
-	
-	//var _magicCount = string(magic_count) + "/" + string(max_magic_count)
-	//draw_set_halign(fa_center);
-	//draw_set_valign(fa_middle);
-	//draw_set_color(c_white);
-	//draw_text_transformed(222,26,string(_magicCount),.35,.35,0);
+	//Special
 	if (obj_inventory.form_grid[# form, 8] > 0)
 	{
 		var _magicSPerc = (special_timer/max_special_timer) * 100;

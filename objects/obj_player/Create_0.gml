@@ -51,16 +51,12 @@ state_script = Idle;
 free_script = Idle;
 attack_script = Idle;
 tracking_quest = Idle;
-//melee_id = 0;//
-//magic_id = 0;//
-//armor_main = Idle;//
-//armor_id = 0;//
 attacking = false;
 hit_by_attack = -1;
 hor_spd = 0;
 ver_spd = 0;
 damage = 0;
-magic_count = 0;
+//magic_count = 0;
 special_timer = 0;
 stamina_timer = 0;
 charge_timer = 0;
@@ -96,7 +92,7 @@ max_stamina = 50 + (3 * energy);
 max_hp = max_hp + (3*vitality) + round(vitality/15);
 hp = max_hp;
 crull_stone = max_crull_stone;
-magic_count = max_magic_count
+//magic_count = max_magic_count;
 //
 //
 //
