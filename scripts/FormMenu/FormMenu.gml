@@ -33,9 +33,9 @@ form_grid[# 1, 8] = 0; //Special
 //Adavoid
 form_grid[# 2, 0] = "Adavoid"
 form_grid[# 2, 1] = "Purple armor with white accents, bird, zerkrift hook, magic, and sp"
-form_grid[# 2, 2] = Idle; //Player Script
-form_grid[# 2, 3] = Idle; //Inventory Script
-form_grid[# 2, 4] = false; //Unlocked Status
+form_grid[# 2, 2] = AdavioSet; //Player Script
+form_grid[# 2, 3] = AdavioSelected; //Inventory Script
+form_grid[# 2, 4] = true; //Unlocked Status
 form_grid[# 2, 5] = 1; //Weapon
 form_grid[# 2, 6] = 1; //Armor
 form_grid[# 2, 7] = 1; //Magic
