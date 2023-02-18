@@ -73,6 +73,15 @@ if (stamina < max_stamina) //Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
+if (charge < max_charge) //charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
 if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
@@ -129,10 +138,10 @@ if (key_attackM) and (voidsick = false)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (magic_count >= 1)
+		if (magic_primary = true) and (charge >= 5)
 		{
 			timer2 = 0;
-			max_magic_count = 24 + ((obj_inventory.form_grid[# 1, 7]*2));
+			//max_magic_count = 24 + ((obj_inventory.form_grid[# 1, 7]*2));
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 			with (instance_create_layer(obj_player.x,obj_player.y-10,"Instances",obj_projectile))
@@ -160,10 +169,10 @@ if (key_attackM) and (voidsick = false)
 			timer2 = 10;
 			magic_timer = 10;
 		}
-		if (magic_primary = false) and (magic_count >= 2)
+		if (magic_primary = false) and (charge >= 8)
 		{
 			timer2 = 0;
-			max_magic_count = 24 + (obj_inventory.form_grid[# 1, 7] * 2);
+			//max_magic_count = 24 + (obj_inventory.form_grid[# 1, 7] * 2);
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}
@@ -520,11 +529,11 @@ if (cast = false)
 	timer2 = timer2 + 1;
 	var _stage = min(4,round(timer2/30));
 	image_index = max(0,_stage-1)
-	if (mouse_check_button_released(mb_left)) or (_stage >= obj_player.magic_count)
+	if (mouse_check_button_released(mb_left)) or (_stage * 5 >= obj_player.charge)
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
-		obj_player.magic_count = obj_player.magic_count - _stage;
+		obj_player.charge = obj_player.charge - _stage * 5;
 		cast = true;
 		damage = (round(obj_player.grace/2)*_stage)  + ((obj_inventory.form_grid[# 1, 7])*(4)*(_stage));
 		direction = (point_direction(x,y,mouse_x,mouse_y));
@@ -544,7 +553,7 @@ if (cast = false)
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
-		obj_player.magic_count = obj_player.magic_count - _stage;
+		obj_player.charge = obj_player.charge - _stage * 5;
 		cast = true;
 		damage = (round(obj_player.grace/2)*_stage)  + ((obj_inventory.form_grid[# 1, 7])*(4)*(_stage));
 		direction = irandom_range(-1,1) + (point_direction(x,y,mouse_x,mouse_y));
@@ -658,7 +667,7 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
-	magic_count = magic_count - 2;
+	charge = charge - 8;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -691,7 +700,7 @@ if (timer2 <= 0)
 PlayerAnimation();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (magic_count < 1)
+if (mouse_check_button(mb_left) = false) or (charge < 8)
 {
 	attacking = false;
 	state_script = free_state;

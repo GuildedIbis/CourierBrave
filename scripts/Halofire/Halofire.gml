@@ -73,6 +73,15 @@ if (stamina < max_stamina) //Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
+if (charge < max_charge) //charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
 if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
@@ -125,18 +134,18 @@ if (key_attackM) and (voidsick = false)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (magic_count >= 1)
+		if (magic_primary = true) and (charge >= 18)
 		{
 			timer2 = 0;
-			max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
+			//max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (magic_count >= 2)
+		if (magic_primary = false) and (charge >= 30)
 		{
 			timer2 = 0;
-			max_attack_counter = floor(magic_count/2)
-			max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
+			max_attack_counter = floor(charge/30)
+			//max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
 			attack_script = HalofireTriRock;
 			state_script = PlayerStateAttack;
 		}
@@ -594,7 +603,7 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (timer2 <= 0)
 {	
-	magic_count = magic_count - 1;
+	charge = charge - 18;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
@@ -622,7 +631,7 @@ if (timer2 <= 0)
 PlayerAnimation();
 
 
-if (mouse_check_button(mb_left) = false) or (magic_count < 1)
+if (mouse_check_button(mb_left) = false) or (charge < 18)
 {
 	attacking = false;
 	state_script = free_state;
@@ -746,7 +755,7 @@ switch(_dirPos)
 if (timer2 <= 0)
 {	
 	attack_counter = attack_counter + 1;
-	magic_count = magic_count - 2;
+	charge = charge - 30;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
