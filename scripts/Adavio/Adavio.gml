@@ -365,12 +365,13 @@ if (timer2 <= 0)
 		damage = round(obj_player.grace/2) + (6 + (obj_inventory.form_grid[# 2, 7]-1)*(6));//
 		projectile_sprite = spr_adavio_voidCycle;
 		projectile_script = AdavioVoidCycle;
+		timer1 = 15;
 		idle_sprite = spr_goldBullet;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
 		image_angle = direction;
-		projectile_speed = 4.0;
+		projectile_speed = 2.0;
 	}
 	timer2 = 30;
 	magic_timer = 30;
@@ -397,8 +398,71 @@ if (mouse_check_button(mb_left) = false) or (charge < 20)
 //Adavio Magic Primary Projectile Script
 function AdavioVoidCycle(){
 //Step
-if (follow_timer > 0) follow_timer = follow_timer - 1;
+//if (follow_timer > 0) follow_timer = follow_timer - 1;
+timer1 = timer1 - 1;
 speed = projectile_speed;
+image_angle = timer1 - 30;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (timer1 <= 0)
+{
+	for (var i = 0; i < 4; i = i + 1)
+	{
+		with (instance_create_layer(x,y,"Instances",obj_projectile))
+		{
+			audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+			audio_play_sound(snd_goldBullet,0,0);
+			break_object = obj_player.break_object;
+			magic = true;
+			//follow_timer = 28; //2/5/23
+			fragment_count = 2;
+			fragment = obj_fragGold;
+			damage = round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8));//
+			projectile_sprite = spr_adavio_voidBit;
+			projectile_script = AdavioVoidBit;
+			timer1 = 30;
+			idle_sprite = spr_adavio_voidBit;
+			hit_by_attack = -1;
+			//script_execute(LeafArcCreate);
+			direction = (other.direction - 6 + (4 * i)) + irandom_range(-3,3);
+			image_angle = direction;
+			projectile_speed = 4.0;
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculate(projectile_sprite);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	instance_destroy();
+}
+
+}
+//
+//
+//
+//
+//
+//
+function AdavioVoidBit(){
+//Step
+//if (follow_timer > 0) follow_timer = follow_timer - 1;
+
+speed = projectile_speed;
+
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -419,7 +483,6 @@ if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
-
 }
 //
 //
