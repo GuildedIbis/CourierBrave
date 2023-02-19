@@ -251,6 +251,9 @@
     {"name":"inst_1482B480","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
     {"name":"inst_37BF327B","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
     {"name":"inst_7B33BFEC","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
+    {"name":"inst_47324702","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
+    {"name":"inst_57A3DB49","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
+    {"name":"inst_54EB8C57","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -308,6 +311,21 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"544",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_y","path":"objects/obj_door/obj_door.yy",},"value":"24",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":0.5,"x":528.0,"y":344.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_47324702","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_totemYakflower","path":"objects/obj_effect_totemYakflower/obj_effect_totemYakflower.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotem2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotemCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break2",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":304.0,"y":112.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_57A3DB49","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_totemYakflower","path":"objects/obj_effect_totemYakflower/obj_effect_totemYakflower.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotem1",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotemCreate",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":208.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_54EB8C57","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_totemYakflower","path":"objects/obj_effect_totemYakflower/obj_effect_totemYakflower.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotem3",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotemCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break2",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":488.0,"y":184.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_585A62C2_1_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLenko","path":"objects/obj_effect_treeLenko/obj_effect_treeLenko.yy",},"properties":[

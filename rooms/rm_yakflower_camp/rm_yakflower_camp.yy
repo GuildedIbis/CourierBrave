@@ -154,6 +154,8 @@
     {"name":"inst_4A6A54D4","path":"rooms/rm_yakflower_camp/rm_yakflower_camp.yy",},
     {"name":"inst_70886433","path":"rooms/rm_yakflower_camp/rm_yakflower_camp.yy",},
     {"name":"inst_66F665D2","path":"rooms/rm_yakflower_camp/rm_yakflower_camp.yy",},
+    {"name":"inst_1AD656F0","path":"rooms/rm_yakflower_camp/rm_yakflower_camp.yy",},
+    {"name":"inst_B75FCDC","path":"rooms/rm_yakflower_camp/rm_yakflower_camp.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -212,6 +214,16 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_camp","path":"objects/obj_door/obj_door.yy",},"value":"False",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"13",},
           ],"rotation":0.0,"scaleX":0.5,"scaleY":2.0,"x":312.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1AD656F0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_totemYakflower","path":"objects/obj_effect_totemYakflower/obj_effect_totemYakflower.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotem1",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotemCreate",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":112.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_B75FCDC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_totemYakflower","path":"objects/obj_effect_totemYakflower/obj_effect_totemYakflower.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotem2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerTotemCreate",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.0,"y":80.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_863F179_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLenko","path":"objects/obj_effect_treeLenko/obj_effect_treeLenko.yy",},"properties":[

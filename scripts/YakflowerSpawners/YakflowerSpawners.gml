@@ -336,7 +336,7 @@ if (obj_inventory.yakflower_lair[3] < 20)
 //Yakflower Spawn Create Boss
 function YakflowerSpawnCreateBoss(){
 
-if (obj_inventory.yakflower_lair[5] < 1)
+if (obj_inventory.yakflower_lair[4] < 1)
 {
 
 	//Spawn 1

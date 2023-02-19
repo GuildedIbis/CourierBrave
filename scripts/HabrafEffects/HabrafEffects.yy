@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "WorldEffects",
+  "name": "HabrafEffects",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Effects",
-    "path": "folders/Scripts/Game/Effects.yy",
+    "name": "LenkoEffects",
+    "path": "folders/Scripts/World/LenkoEffects.yy",
   },
 }

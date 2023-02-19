@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_effect_treeLenko",
+  "name": "obj_effect_totemYakflower",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -11,8 +11,6 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"value":"3600",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLenkoTree",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLenkoTreeCreate",},
   ],
   "parent": {
     "name": "Effects",
@@ -35,13 +33,11 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"variant","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_tree_lenko",
-    "path": "sprites/spr_tree_lenko/spr_tree_lenko.yy",
+    "name": "spr_effect_yakflower_totem",
+    "path": "sprites/spr_effect_yakflower_totem/spr_effect_yakflower_totem.yy",
   },
   "spriteMaskId": null,
   "visible": true,
