@@ -126,6 +126,7 @@ if (key_attackW) and (weapon_count >= 1)
 {
 	if (thundux = false) and (stamina >= 15)
 	{
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 15;
 		timer1 = 15;
 		attack_script = CeriverBoomerang;

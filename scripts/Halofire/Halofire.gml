@@ -122,6 +122,7 @@ if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 25)
 	{
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 25;
 		attack_script = HalofireHamaxe;
 		state_script = PlayerStateAttack;

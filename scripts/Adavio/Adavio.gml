@@ -11,7 +11,7 @@ home_state = AdavioSet;
 free_state = AdavioFree;
 state_script = AdavioFree;
 magicP_script = AdavioVoidCycleCast;
-magicA_script = AdavioMagicA;
+magicA_script = AdavioGravibitCast;
 magic_primary = true;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
@@ -118,11 +118,12 @@ PlayerAnimation();
 //Melee Attack
 if (key_attackW)
 {
-	if (thundux = false) and (stamina >= 20)
+	if (thundux = false) and (stamina >= 15)
 	{
-		//stamina = stamina - 20;
-		//attack_script = RegaliareSlash;
-		//state_script = PlayerStateAttack;
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		stamina = stamina - 15;
+		attack_script = AdavioHookThrust;
+		state_script = PlayerStateAttack;
 	}
 }
 
@@ -219,10 +220,10 @@ if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 //
 //
 //
-//Adavio Weapon State
-function AdavioWeapon(){
+//Adavio Hook Thrust State
+function AdavioHookThrust(){
 attacking = true;
-damage = might + (11 * obj_inventory.form_grid[# 0, 5]);
+damage = might - 6 + (5 * obj_inventory.form_grid[# 2, 5]);
 //weapon_sprite = spr_weapon_fayaniBlade;
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
@@ -238,11 +239,11 @@ if (special_timer < max_special_timer) and (watervice = false)
 
 
 //Attack Start
-if (sprite_index != spr_player_regaliare_slash)
+if (sprite_index != spr_player_adavio_hookThrust)
 {
 	//Start Animation From Beginning
 	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
-	sprite_index = spr_player_regaliare_slash;
+	sprite_index = spr_player_adavio_hookThrust;
 	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
 	local_frame = 0;
 	image_index = 0;
@@ -253,7 +254,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_fayaniBlade_hitbox,obj_player,1.5,-1,-1,-1,-1,-1);
+AttackCalculateStatus(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1);
 
 //Animate
 PlayerAnimation();
@@ -373,8 +374,8 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 2.0;
 	}
-	timer2 = 30;
-	magic_timer = 30;
+	timer2 = 45;
+	magic_timer = 45;
 }
 
 //Animate
@@ -387,7 +388,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 20)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-	magic_timer = 30;
+	magic_timer = 45;
 }
 }
 //
@@ -414,7 +415,7 @@ if (sprite_index != projectile_sprite)
 }
 if (timer1 <= 0)
 {
-	for (var i = 0; i < 4; i = i + 1)
+	for (var i = 0; i < 5; i = i + 1)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_projectile))
 		{
@@ -432,7 +433,7 @@ if (timer1 <= 0)
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
 			//script_execute(LeafArcCreate);
-			direction = (other.direction - 6 + (4 * i)) + irandom_range(-3,3);
+			direction = (other.direction - 16 + (8 * i)) + irandom_range(-6,6);
 			image_angle = direction;
 			projectile_speed = 4.0;
 		}
@@ -490,7 +491,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //AdavioMagicA
-function AdavioMagicA(){
+function AdavioGravibitCast(){
 walk_spd = 1.2;
 attacking = true;
 //weapon_sprite = spr_spiritStone_meteor;
@@ -529,9 +530,9 @@ var _oldSprite = sprite_index;
 if (input_mag != 0)
 {
 	direction = input_dir;
-	sprite_index = spr_player_regaliare_runCast;
+	sprite_index = spr_player_adavio_runCast;
 }
-else sprite_index = spr_player_regaliare_cast;
+else sprite_index = spr_player_adavio_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
@@ -568,7 +569,7 @@ switch(_dirPos)
 if (timer2 <= 0)
 {	
 	//magic_count = magic_count - 2;
-	charge = charge - 10;
+	charge = charge - 20;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -578,9 +579,11 @@ if (timer2 <= 0)
 		//follow_timer = 28; //2/1/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
-		projectile_sprite = spr_heavyBullet;
-		projectile_script = RegaliareHeavyBullet;
+		timer1 = 30;
+		bounces = 0;
+		damage = round(obj_player.grace - 10) + ((obj_inventory.form_grid[# 2, 7])*(8));//
+		projectile_sprite = spr_adavio_gravibit;
+		projectile_script = AdavioGravibit;
 		idle_sprite = spr_heavyBullet;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
@@ -595,7 +598,7 @@ if (timer2 <= 0)
 //Animate
 PlayerAnimation();
 
-if (mouse_check_button(mb_left) = false) or (charge < 10)
+if (mouse_check_button(mb_left) = false) or (charge < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -609,10 +612,9 @@ if (mouse_check_button(mb_left) = false) or (charge < 10)
 //
 //
 //
-//Regaliare Heavy Bullet Projectile Script
-function AdavioMagicAProjectile(){
+//Adavio Elastibit Projectile Script
+function AdavioGravibit(){
 //Step
-if (follow_timer > 0) follow_timer = follow_timer - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -627,12 +629,19 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	AttackCalculate(projectile_sprite);
+	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
 {
+	bounces = bounces + 1;
+	move_bounce_all(false);
+	damage = round(damage * 1.5)
+}
+if (bounces > 0) timer1 = timer1 - 1;
+if (bounces > 1) or (timer1 <= 0)
+{
 	instance_destroy();
 }
-
 }
 //
 //

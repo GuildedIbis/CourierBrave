@@ -120,6 +120,7 @@ if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 20)
 	{
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 20;
 		attack_script = RegaliareSlash;
 		state_script = PlayerStateAttack;
