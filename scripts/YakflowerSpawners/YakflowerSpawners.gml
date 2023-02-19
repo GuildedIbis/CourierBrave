@@ -4,6 +4,39 @@
 //
 //
 //
+//Yakflower Spawn Create Boss
+function YakflowerSpawnCreate1(){
+
+if (obj_inventory.yakflower_lair[0] < 1)
+{
+
+	//Spawn 1
+	obj_inventory.yakflower_lair[0] = 1;
+	with (instance_create_layer(160,96,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(OfaMothCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}		
+			
+}
+}
+//
+//
+//
+//
+//
+//Yakflower Lair: Room 1 Spawn
+function YakflowerSpawner1(){
+
+}
+//
+//
+//
+//
+//
 //Yakflower Spawn Create 1
 function YakflowerSpawnCreate2(){
 
@@ -134,28 +167,13 @@ if (obj_inventory.yakflower_lair[1] < 20)
 		if (spawn_timer <= 0)
 		{
 			obj_inventory.yakflower_lair[1] = obj_inventory.yakflower_lair[1] + 1;
-			
-			if (obj_inventory.yakflower_lair[1] mod 5 = 0) 
+			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
 			{
-					with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
-					{
-						image_alpha = 1;
-						script_execute(OfaMothCreate);
-						global.aggroCounter = global.aggroCounter + 1;
-						targeted = true;
-						break_object = obj_break2;
-					}
-			}
-			else 
-			{
-				with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
-				{
-					image_alpha = 1;
-					script_execute(OfaWormCreate);
-					global.aggroCounter = global.aggroCounter + 1;
-					targeted = true;
-					break_object = obj_break2;
-				}
+				image_alpha = 1;
+				script_execute(OfaWormCreate);
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break2;
 			}
 			spawn_timer = 180;
 		}
@@ -297,33 +315,50 @@ if (obj_inventory.yakflower_lair[3] < 20)
 		if (spawn_timer <= 0)
 		{
 			obj_inventory.yakflower_lair[3] = obj_inventory.yakflower_lair[3] + 1;
-			
-			if (obj_inventory.yakflower_lair[3] mod 5 = 0) 
+			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
 			{
-					with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
-					{
-						image_alpha = 1;
-						script_execute(OfaMothCreate);
-						global.aggroCounter = global.aggroCounter + 1;
-						targeted = true;
-						break_object = obj_break2;
-					}
-			}
-			else 
-			{
-				with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
-				{
-					image_alpha = 1;
-					script_execute(OfaWormCreate);
-					global.aggroCounter = global.aggroCounter + 1;
-					targeted = true;
-					break_object = obj_break2;
-				}
+				image_alpha = 1;
+				script_execute(OfaWormCreate);
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break2;
 			}
 			spawn_timer = 180;
 		}
 	}
 }
+}
+//
+//
+//
+//
+//
+//Yakflower Spawn Create Boss
+function YakflowerSpawnCreateBoss(){
+
+if (obj_inventory.yakflower_lair[5] < 1)
+{
+
+	//Spawn 1
+	with (instance_create_layer(160,168,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(BossZerwerkCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break2;
+	}		
+			
+}
+}
+//
+//
+//
+//
+//
+//Yakflower Lair: Boss Spawn
+function YakflowerSpawnerBoss(){
+
 }
 ////
 ////
