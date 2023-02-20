@@ -90,8 +90,8 @@ if (obj_game.gamePaused = false)
 					sprite_index = enemy_idle;
 					if (timer1 <= 0)
 					{
-						audio_sound_gain(snd_whip,global.volumeEffects,1);
-						audio_play_sound(snd_whip,0,false);
+						audio_sound_gain(snd_slash01,global.volumeEffects,1);
+						audio_play_sound(snd_slash01,0,false);
 						timer1 = 7;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
@@ -190,7 +190,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 85;
+	damage = 65;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_tailLash)
 
@@ -223,7 +223,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 85;
+	damage = 65;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_voidBlade)
 
@@ -255,7 +255,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55;
+	damage = 45;
 
 	//Animate
 	EnemyAnimation1();
@@ -406,13 +406,14 @@ if (obj_game.gamePaused = false)
 		timer1 = 90;
 		for (var i = 0; i < 3; i = i + 1)
 		{
-			with (instance_create_layer(x,y+8,"Instances",obj_enemy))
+			with (instance_create_layer(x,y+8,"Instances",obj_enemy_projectile))
 			{
 				VoidCastCreate(75);
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-22,22);
 				image_angle = direction;
 				speed = enemy_spd;
 				break_object = other.break_object;
+				projectile_sprite = spr_enemy_voidCast;
 				fragment_count = 6;
 				fragment = obj_fragFire;
 				bullet = true;
