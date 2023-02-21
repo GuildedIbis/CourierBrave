@@ -40,7 +40,7 @@
   "origin": 9,
   "parent": {
     "name": "Zerwerk",
-    "path": "folders/Sprites/Enemy/Lenko/Zerwerk.yy",
+    "path": "folders/Sprites/Enemy/Lenko/Yakflower/Zerwerk.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

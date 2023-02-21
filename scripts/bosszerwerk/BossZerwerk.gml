@@ -90,8 +90,8 @@ if (obj_game.gamePaused = false)
 					sprite_index = enemy_idle;
 					if (timer1 <= 0)
 					{
-						audio_sound_gain(snd_slash01,global.volumeEffects,1);
-						audio_play_sound(snd_slash01,0,false);
+						audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
+						audio_play_sound(snd_zerwerk_slash,0,false);
 						timer1 = 7;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
@@ -110,8 +110,8 @@ if (obj_game.gamePaused = false)
 					image_index = 0;
 					if (timer1 <= 0)
 					{
-						audio_sound_gain(snd_slash01,global.volumeEffects,1);
-						audio_play_sound(snd_slash01,0,false);
+						audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
+						audio_play_sound(snd_zerwerk_slash,0,false);
 						timer1 = 7;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
@@ -132,8 +132,8 @@ if (obj_game.gamePaused = false)
 			switch (attack_chose)
 			{
 				case 0:
-					audio_sound_gain(snd_fireball,global.volumeEffects,1);
-					audio_play_sound(snd_fireball,0,false);
+					audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+					audio_play_sound(snd_zerwerk_voidRift,0,false);
 					path_end();
 					sprite_index = enemy_idle;
 					timer1 = 120;
@@ -143,7 +143,8 @@ if (obj_game.gamePaused = false)
 				break;
 				
 				case 1:
-					//audio_play_sound(snd_fireball,0,false);
+					audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+					audio_play_sound(snd_zerwerk_voidRift,0,false);
 					path_end();
 					sprite_index = enemy_idle;
 					timer1 = 180;
@@ -261,6 +262,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation1();
 	if (animation_end)
 	{
+		audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_voidRift,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy))
 		{
 			script_execute(RiftSlashTailCreate);
@@ -338,8 +341,10 @@ if (obj_game.gamePaused = false)
 	if (snd_timer > 0) snd_timer = snd_timer -1;
 	if (snd_timer = 0)
 	{
-		audio_play_sound(snd_drop,0,false);
-		audio_play_sound(snd_fireball,0,false);
+		audio_sound_gain(snd_zerwerk_riftSlam,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_riftSlam,0,false);
+		audio_sound_gain(snd_zerwerk_fireball,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_fireball,0,false);
 		snd_timer = 60;
 	}
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlamDownA)
@@ -385,8 +390,8 @@ if (obj_game.gamePaused = false)
 	if (snd_timer > 0) snd_timer = snd_timer -1;
 	if (snd_timer = 0)
 	{
-		audio_play_sound(snd_drop,0,false);
-		audio_play_sound(snd_fireball,0,false);
+		audio_play_sound(snd_zerwerk_riftSlam,0,false);
+		audio_play_sound(snd_zerwerk_fireball,0,false);
 		snd_timer = 60;
 	}
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlamDownB)
@@ -441,12 +446,20 @@ if (obj_game.gamePaused = false)
 //Zerwerk Drop
 function BossZerwerkDrop(){
 var _objects = 3;
+var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)
 var _drop3 = irandom_range(0,99)
 var _angle = random(360);
 
 
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
+{
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
+}
 if (_drop1 > 0) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
@@ -486,14 +499,19 @@ if (_drop3 > 0)
 	}
 	
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-obj_inventory.weapon_grid[# 1 ,3] = true;
-with (obj_text)
+if (obj_inventory.quest_grid[# 8, 3] = false)
 {
-	text_script = ZerwerkVictoryText;
+	obj_inventory.yakflower_lair[4] = 1;
+	obj_inventory.quest_grid[# 8, 0] = true;
+	obj_inventory.quest_grid[# 8, 1] = obj_inventory.quest_grid[# 8, 2];
+	obj_inventory.quest_grid[# 8, 3] = true;
+	with (obj_text)
+	{
+		text_script = ZerwerkVictoryText;
+	}
+	obj_game.gamePaused = !obj_game.gamePaused;
+	obj_game.textPaused = !obj_game.textPaused;
 }
-obj_game.gamePaused = !obj_game.gamePaused;
-obj_game.textPaused = !obj_game.textPaused;
 
 	
 }
@@ -531,14 +549,14 @@ if (string_counter = 0)
 if (string_counter = 1)
 {
 	speaker = 1;
-	text_string = "REWARD:\n400 Beansn\nZerkrift Hook Weapon Unlocked"
+	text_string = "Quest Complete - Lair: Yakflower Path\nREWARD:1000 Beans"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter >= 2)
 {
 
-	obj_player.beans = obj_player.beans + 400;
+	obj_player.beans = obj_player.beans + 1000;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);

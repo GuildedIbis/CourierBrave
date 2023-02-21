@@ -26,9 +26,10 @@ if (dead = false)
 	gpu_set_fog(true,c_black,0,1);
 	draw_sprite_pos(sprite_index,image_index,_x1,_y1,_x2,_y2,_x3,_y3,_x4,_y4,.5)
 	gpu_set_fog(false,c_black,0,1);
-	event_inherited();
-	draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 }
+event_inherited();
+draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+
 
 //Shader
 if (shader_current != -1)

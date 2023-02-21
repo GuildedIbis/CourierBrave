@@ -362,12 +362,20 @@ if (place_meeting(x,y,obj_player))
 //Mother Lily Drop
 function BossMotherLilyDrop(){
 var _objects = 3;
+var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)
 var _drop3 = irandom_range(0,99)
 var _angle = random(360);
 
 
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
+{
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
+}
 if (_drop1 > 0) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
@@ -408,20 +416,20 @@ if (_drop3 > 50)
 	
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.quest_grid[# 8, 3] = false)
+if (obj_inventory.quest_grid[# 9, 3] = false)
 {
 	obj_player.beans = obj_player.beans + 1000;
 	obj_inventory.habraf_lair[4] = 1;
-	obj_inventory.quest_grid[# 8, 0] = true;
-	obj_inventory.quest_grid[# 8, 1] = 3;
-	obj_inventory.quest_grid[# 8, 3] = true;
+	obj_inventory.quest_grid[# 9, 0] = true;
+	obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
+	obj_inventory.quest_grid[# 9, 3] = true;
 	//obj_inventory.form_grid[# 1, 4] = true;
-	//with (obj_text)
-	//{
-	//	text_script = MotherLilyVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
+	with (obj_text)
+	{
+		text_script = MotherLilyVictoryText;
+	}
+	obj_game.gamePaused = !obj_game.gamePaused;
+	obj_game.textPaused = !obj_game.textPaused;
 }
 	
 }
@@ -459,7 +467,7 @@ if (string_counter = 0)
 if (string_counter = 1)
 {
 	speaker = 1;
-	text_string = "REWARD:\n1000 Beans"
+	text_string = "Quest Complete - Lair: Habraf Lake\nREWARD: 1000 Beans"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
@@ -467,9 +475,6 @@ if (string_counter >= 2)
 {
 
 	obj_player.beans = obj_player.beans + 1000;
-	obj_inventory.habraf_lair[4] = 1;
-	obj_inventory.quest_grid[# 8, 1] = 4;
-	obj_inventory.quest_grid[# 8, 3] = true;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);

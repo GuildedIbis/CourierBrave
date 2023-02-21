@@ -10,10 +10,10 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 0.415986,
   "parent": {
-    "name": "Lenko",
-    "path": "folders/Sounds/Enemy/Lenko.yy",
+    "name": "LenkoMain",
+    "path": "folders/Sounds/Enemy/Lenko/LenkoMain.yy",
   },
   "preload": false,
   "sampleRate": 44100,

@@ -27,6 +27,7 @@ if (obj_game.gamePaused = false)
 //Death
 if (hp <= 0)
 {
+
 	state_script = PlayerDeath;
 }
 

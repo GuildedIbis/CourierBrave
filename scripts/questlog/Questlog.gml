@@ -75,20 +75,20 @@ quest_grid[# 7, 3] = false;
 quest_grid[# 7, 4] = DualStarsOverLenkoActiveDraw;
 quest_grid[# 7, 5] = DualStarsOverLenkoMenuDraw;
 quest_grid[# 7, 6] = "Dual Star Over Lenko";
-quest_grid[# 8, 0] = false;//Lake Habraf Lair
+quest_grid[# 8, 0] = false;//Yakflower Path Lair
 quest_grid[# 8, 1] = 0;
-quest_grid[# 8, 2] = 4; // 2 escort rooms, and boss
+quest_grid[# 8, 2] = 5; // Intro, 2 swarms, capture, and boss
 quest_grid[# 8, 3] = false;
-quest_grid[# 8, 4] = LairLakeHabrafActiveDraw;
-quest_grid[# 8, 5] = LairLakeHabrafMenuDraw;
-quest_grid[# 8, 6] = "Lair: Lake Habraf";
+quest_grid[# 8, 4] = Idle;
+quest_grid[# 8, 5] = Idle;
+quest_grid[# 8, 6] = "Lair: Yakflower Path";
 quest_grid[# 9, 0] = false;//Lake Habraf Lair
 quest_grid[# 9, 1] = 0;
-quest_grid[# 9, 2] = 4; // main room, 2 objective rooms and boss
+quest_grid[# 9, 2] = 5; // Intro, 3 escorts and boss
 quest_grid[# 9, 3] = false;
-quest_grid[# 9, 4] = Idle;
-quest_grid[# 9, 5] = Idle;
-quest_grid[# 9, 6] = "Lair: Zerwerks Den";
+quest_grid[# 9, 4] = LairLakeHabrafActiveDraw;
+quest_grid[# 9, 5] = LairLakeHabrafMenuDraw;
+quest_grid[# 9, 6] = "Lair: Habraf Lake";
 }
 //
 //
