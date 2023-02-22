@@ -499,9 +499,9 @@ if (_drop3 > 0)
 	}
 	
 }
+obj_inventory.yakflower_lair[4] = 1;
 if (obj_inventory.quest_grid[# 8, 3] = false)
 {
-	obj_inventory.yakflower_lair[4] = 1;
 	obj_inventory.quest_grid[# 8, 0] = true;
 	obj_inventory.quest_grid[# 8, 1] = obj_inventory.quest_grid[# 8, 2];
 	obj_inventory.quest_grid[# 8, 3] = true;

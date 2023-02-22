@@ -267,7 +267,6 @@
     {"name":"inst_3D7BB6AB","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_52569C68","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_15BFE80A","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
-    {"name":"inst_29AB7284","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_7A2C0D0F","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_725101C6","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_57BA0274","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
@@ -374,6 +373,7 @@
     {"name":"inst_44DD9F2","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_31BF8EA6","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
     {"name":"inst_2AFAA3D6","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
+    {"name":"inst_F59EB6A","path":"rooms/rm_habrafLake_3/rm_habrafLake_3.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -1862,10 +1862,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLenkoTree",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLenkoTreeCreate",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":248.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_29AB7284","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectHabrafLakeDoorB",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"frag","path":"objects/obj_effect/obj_effect.yy",},"value":"False",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":256.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7A2C0D0F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_reedsHabraf","path":"objects/obj_environment_reedsHabraf/obj_environment_reedsHabraf.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":160.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_725101C6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_reedsHabraf","path":"objects/obj_environment_reedsHabraf/obj_environment_reedsHabraf.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":160.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_57BA0274","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_reedsHabraf","path":"objects/obj_environment_reedsHabraf/obj_environment_reedsHabraf.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":168.0,},
@@ -1968,6 +1964,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_destination","path":"objects/obj_destination/obj_destination.yy",},"propertyId":{"name":"destination2_y","path":"objects/obj_destination/obj_destination.yy",},"value":"264",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_destination","path":"objects/obj_destination/obj_destination.yy",},"propertyId":{"name":"end_cap2","path":"objects/obj_destination/obj_destination.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":4.0,"scaleY":3.0,"x":168.0,"y":264.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F59EB6A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door_habraf","path":"objects/obj_door_habraf/obj_door_habraf.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":256.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_55E9381D_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[

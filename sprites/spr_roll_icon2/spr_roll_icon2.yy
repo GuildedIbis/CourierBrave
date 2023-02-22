@@ -29,7 +29,7 @@
   "origin": 0,
   "parent": {
     "name": "Hud",
-    "path": "folders/Sprites/Game/Hud.yy",
+    "path": "folders/Scripts/Player/xWeapons/Game/Hud.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

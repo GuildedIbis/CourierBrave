@@ -9,6 +9,7 @@ if (bullet = false)
 		if (obj_game.room_enemy_grid[# obj_game.room_num, activate_args] = true)
 		{
 			instance_destroy()
+			if (targeted = true) global.aggroCounter = global.aggroCounter - 1;
 		}
 	}
 	if (hp > max_hp) hp = max_hp;

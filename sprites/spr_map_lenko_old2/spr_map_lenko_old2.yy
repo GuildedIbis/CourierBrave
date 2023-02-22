@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "xRetiredMap",
-    "path": "folders/Sprites/Game/Menu/MapMenu/xRetiredMap.yy",
+    "path": "folders/Scripts/Player/xWeapons/Game/Menu/MapMenu/xRetiredMap.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

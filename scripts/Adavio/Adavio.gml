@@ -122,6 +122,7 @@ if (key_attackW)
 	{
 		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 15;
+		timer1 = 12;
 		attack_script = AdavioHookThrust;
 		state_script = PlayerStateAttack;
 	}
@@ -236,6 +237,7 @@ if (special_timer < max_special_timer) and (watervice = false)
 {
 	special_timer = special_timer + 1;
 }
+timer1 = timer1 - 1;
 
 
 //Attack Start
@@ -256,9 +258,64 @@ if (sprite_index != spr_player_adavio_hookThrust)
 //Calcuate Hit Entitites
 AttackCalculateStatus(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1);
 
+//Hook Blast Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 8;
+		dir_offY = -6;
+	break;
+		
+	case 4:
+		dir_offX = 8;
+		dir_offY = -6;
+	break;
+		
+	case 1:
+		dir_offX = 0;
+		dir_offY = -18;
+	break;
+		
+	case 2:
+		dir_offX = -8;
+		dir_offY = -6;
+	break;
+		
+	case 3:
+		dir_offX = 3;
+		dir_offY = 7;
+	break;	
+}
+
 //Animate
 PlayerAnimation();
-
+if (timer1 <= 0)
+{
+	timer1 = 60;
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	{
+		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+		//audio_play_sound(snd_goldBullet,0,0);
+		//depth = obj_player.depth - 1;
+		break_object = obj_player.break_object;
+		magic = true;
+		//follow_timer = 28; //2/1/23
+		fragment_count = 2;
+		fragment = obj_fragGold;
+		timer1 = 10;
+		bounces = 0;
+		damage = round(obj_player.might - 10) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+		projectile_sprite = spr_adavio_hook_blast;
+		projectile_script = AdavioHookBlast;
+		idle_sprite = spr_adavio_hook_blast;
+		hit_by_attack = -1;
+		//script_execute(LeafArcCreate);
+		direction = obj_player.direction;
+		image_angle = direction;
+		projectile_speed = 3.5;
+	}
+}
 if (animation_end)
 {
 	attacking = false;
@@ -268,6 +325,43 @@ if (animation_end)
 	atk_snd_delay = 0;
 	
 }
+}
+//
+//
+//
+//
+//
+//Adavio Hook Blast
+function AdavioHookBlast(){
+//Step
+//if (follow_timer > 0) follow_timer = follow_timer - 1;
+timer1 = timer1 - 1;
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (timer1 <= 0)
+{
+	instance_destroy();
+}
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculate(projectile_sprite);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	instance_destroy();
+}
+
 }
 //
 //

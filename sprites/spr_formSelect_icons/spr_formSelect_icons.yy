@@ -30,7 +30,7 @@
   "origin": 4,
   "parent": {
     "name": "Menu",
-    "path": "folders/Sprites/Game/Menu.yy",
+    "path": "folders/Scripts/Player/xWeapons/Game/Menu.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
