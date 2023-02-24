@@ -297,3 +297,41 @@ else
 }
 
 }
+//
+//
+//
+//
+//
+//Effect Yakflower Lake Door C - Room 1 Blocking Boss
+function EffectYakflowerPathDoorC(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.yakflower_lair[1] < 20)
+{
+	sprite_index = spr_door_yakflower;
+	
+}
+else 
+{
+	sprite_index = spr_door_yakflower_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+}
+
+}
