@@ -556,6 +556,7 @@
     {"name":"inst_61F206C9","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
     {"name":"inst_2CB1E963","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
     {"name":"inst_4D168E13","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
+    {"name":"inst_44AFEB7","path":"rooms/rm_yakflowerPath_3/rm_yakflowerPath_3.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -2875,6 +2876,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerPathDoorA",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectYakflowerPathDoorCreate",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":56.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_44AFEB7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_script","path":"objects/obj_spawner/obj_spawner.yy",},"value":"YakflowerSpawner3",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"YakflowerSpawnCreate3",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":280.0,"y":272.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_786A7619_1_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair2","path":"objects/obj_stair2/obj_stair2.yy",},"properties":[],"rotation":0.0,"scaleX":6.0,"scaleY":1.0,"x":136.0,"y":8.0,},
