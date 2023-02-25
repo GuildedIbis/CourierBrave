@@ -518,6 +518,7 @@
     {"id":{"name":"spr_player_adavio_hookThrust","path":"sprites/spr_player_adavio_hookThrust/spr_player_adavio_hookThrust.yy",},"order":0,},
     {"id":{"name":"Alter","path":"scripts/Alter/Alter.yy",},"order":0,},
     {"id":{"name":"spr_player_ceriver_recharge","path":"sprites/spr_player_ceriver_recharge/spr_player_ceriver_recharge.yy",},"order":11,},
+    {"id":{"name":"Mesa","path":"scripts/Mesa/Mesa.yy",},"order":9,},
     {"id":{"name":"FormPedestal","path":"scripts/FormPedestal/FormPedestal.yy",},"order":8,},
     {"id":{"name":"rm_lenko_lakePath_3","path":"rooms/rm_lenko_lakePath_3/rm_lenko_lakePath_3.yy",},"order":2,},
     {"id":{"name":"obj_stair2","path":"objects/obj_stair2/obj_stair2.yy",},"order":6,},

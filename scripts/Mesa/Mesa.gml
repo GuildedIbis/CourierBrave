@@ -1,13 +1,13 @@
-//NPC Andor the Browi
-//Lair: Lake Habraf Camp
-//Start, reset, and gather info on Lake Habraf
+//NPC Mesa the Browi
+//Lair: Yakflower Path Camp
+//Start, reset, and gather info on Yakflower Path
 //
 //
 //
 //
-//Andor Create
-function AndorCreate(){
-entity_step = AndorStep;
+//Mesa Create
+function MesaCreate(){
+entity_step = MesaStep;
 sound = snd_npc_mouse;
 }
 //
@@ -15,9 +15,9 @@ sound = snd_npc_mouse;
 //
 //
 //
-//Andor Step
-function AndorStep(){
-sprite_index = spr_npc_andor;
+//Mesa Step
+function MesaStep(){
+sprite_index = spr_npc_mesa;
 image_speed = 0;
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
@@ -33,11 +33,11 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 //
 //
 //
-//Andor Text
-function AndorText(){
+//Mesa Text
+function MesaText(){
 
-//First Time Speaking to Andor
-if (obj_inventory.quest_grid[# 9, 0] = false)
+//First Time Speaking to Mesa
+if (obj_inventory.quest_grid[# 8, 0] = false)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -45,35 +45,35 @@ if (obj_inventory.quest_grid[# 9, 0] = false)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
 	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Andor of the Browi"
+	var _name = "Mesa of the Browi"
 
 	//Draw Based on String Counter
 	var _SubString
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "I heard of your arrival Courier.\nI am Andor of the Browi, and I have\nbeen here studying the region of Habraf Lake." 
+		text_string = "I heard of your arrival Courier.\nI am Mesa of the Browi, and I have\nbeen here studying the region of Yakflower Path." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "I believe there is a Form Stone\nhidden somewhere in the lake.\nWith it you could use another of your forms."
+		text_string = "I believe there is a Form Stone\nhidden somewhere in the glade.\nWith it you could use another of your forms."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "But I must warn you Courier...\nthere is a rumor of a Mother Lilly living here.\nNo small beast those are, Courier."
+		text_string = "Yakflower is known as the home of\nOfa Moths, a large powerful create.\nI suspect too a darker precesnce hides in the trees too."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 
 	if (string_counter >= 3)
 	{
-		obj_inventory.quest_grid[# 9, 0] = true;
+		obj_inventory.quest_grid[# 8, 0] = true;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -103,7 +103,7 @@ if (obj_inventory.quest_grid[# 9, 0] = false)
 //
 //
 //Habraf Lake already started
-if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] <= 3)
+if (obj_inventory.quest_grid[# 8, 0] = true) and (obj_inventory.quest_grid[# 8, 1] <= 3)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -155,7 +155,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 //
 //
 //Nisma after intiation
-if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] >= 4)
+if (obj_inventory.quest_grid[# 8, 0] = true) and (obj_inventory.quest_grid[# 8, 1] >= 4)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -189,7 +189,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 
 	if (string_counter >= 2)
 	{
-		obj_inventory.quest_grid[# 9, 3] = true;
+		obj_inventory.quest_grid[# 8, 3] = true;
 		text_script = AndorMenu;
 		text_string = ""
 		string_counter = 0;
@@ -317,7 +317,7 @@ if (keyboard_check_pressed(ord("E")))
 function AndorHabrafText(){
 
 //Finish Introduction
-if (obj_inventory.quest_grid[# 9, 1] < 3)
+if (obj_inventory.quest_grid[# 8, 1] < 3)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -332,14 +332,28 @@ if (obj_inventory.quest_grid[# 9, 1] < 3)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "There are some strange tall crystals here around.\nIf you stand near them they drift about...\nThey seem to control the old stone gates that block the paths."
+		text_string = "I believe there is a Form Stone\nhidden somewhere in the lake.\nWith it you could use another of your forms."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "I suspect it's in a part of the\nlake I've been unable to reach.\nThere several doors locked and guarded by angry lilies."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "Watch for the Ofa Moth here in Yakflower too. "
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "But I must remind you Courier...\nthere is a rumor of a Mother Lilly living here.\nNo small beast those are, Courier."
+		text_string = "But I must warn you Courier...\nthere is a rumor of a Mother Lilly living here.\nNo small beast those are, Courier."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
@@ -376,7 +390,7 @@ if (obj_inventory.quest_grid[# 9, 1] < 3)
 //
 //
 //Habraf Lake already started
-if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] >= 3)
+if (obj_inventory.quest_grid[# 8, 0] = true) and (obj_inventory.quest_grid[# 8, 1] >= 3)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -468,8 +482,8 @@ if (string_counter = 0)
 			obj_inventory.habraf_lair[2] = 0;
 			obj_inventory.habraf_lair[3] = 0;
 			obj_inventory.habraf_lair[4] = 0;
-			obj_inventory.quest_grid[# 9, 1] = 0;
-			obj_inventory.quest_grid[# 9, 3] = false;
+			obj_inventory.quest_grid[# 8, 1] = 0;
+			obj_inventory.quest_grid[# 8, 3] = false;
 			audio_sound_gain(snd_text01,global.volumeMenu,1);
 			audio_play_sound(snd_text01,0,false);
 			text_string = ""
