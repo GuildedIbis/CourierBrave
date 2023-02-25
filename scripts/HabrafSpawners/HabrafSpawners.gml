@@ -66,7 +66,7 @@ if (obj_inventory.habraf_lair[2] < 2)
 				break_object = obj_break;
 			}
 			spawn_status = true;
-			spawn_timer = spawn_timer_max;
+			spawn_timer = 300;
 		}
 	}
 	if (spawn_timer2 > 0) and (spawn_status2 = false)
@@ -82,7 +82,7 @@ if (obj_inventory.habraf_lair[2] < 2)
 				break_object = obj_break;
 			}
 			spawn_status2 = true;
-			spawn_timer2 = spawn_timer2_max;
+			spawn_timer2 = 300;
 		}
 	}
 }
@@ -110,7 +110,7 @@ if (obj_inventory.habraf_lair[3] < 2)
 				break_object = obj_break;
 			}
 			spawn_status = true;
-			spawn_timer = spawn_timer_max;
+			spawn_timer = 300;
 		}
 	}
 	if (spawn_timer2 > 0) and (spawn_status2 = false)
@@ -126,7 +126,7 @@ if (obj_inventory.habraf_lair[3] < 2)
 				break_object = obj_break;
 			}
 			spawn_status2 = true;
-			spawn_timer2 = spawn_timer2_max;
+			spawn_timer2 = 300;
 		}
 	}
 }

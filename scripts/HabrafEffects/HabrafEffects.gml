@@ -4,6 +4,60 @@
 //
 //
 //
+//Effect Yakflower Door Create
+function EffectHabrafLakeDoorCreate(){
+	frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_door_habraf;
+if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
+{
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 6;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+	
+}
+//
+//
+//
+//
+//
 //Effect Habraf Lake Door - Escort 1
 function EffectHabrafLakeDoorA(){
 frag = false
@@ -15,21 +69,12 @@ image_yscale = 1;
 if (obj_inventory.habraf_lair[1] < 2)
 {
 	sprite_index = spr_door_habraf;
-	if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-	{
-		with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-		{
-			image_xscale = 6;
-			image_yscale = 2;
-			game_paused_image_speed = image_speed;
-		}
-	}
 	if (instance_exists(obj_escort))
 	{
 		if (point_in_circle(obj_escort.x,obj_escort.y,512,136,4))
 		{
 			sprite_index = spr_door_habraf_open;
-			image_speed = 1;
+			image_speed = 0;
 			obj_inventory.habraf_lair[1] = 2;
 		}
 		else 
@@ -40,10 +85,17 @@ if (obj_inventory.habraf_lair[1] < 2)
 		}
 	}
 }
-else 
+if (obj_inventory.habraf_lair[1] >= 2)
 {
 	sprite_index = spr_door_habraf_open;
 	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
 	{
 		if (place_meeting(x,y,other))
 		{
@@ -77,15 +129,6 @@ image_yscale = 1;
 if (obj_inventory.habraf_lair[2] < 2)
 {
 	sprite_index = spr_door_habraf;
-	if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-	{
-		with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-		{
-			image_xscale = 6;
-			image_yscale = 2;
-			game_paused_image_speed = image_speed;
-		}
-	}
 	if (instance_exists(obj_escort))
 	{
 		if (point_in_circle(obj_escort.x,obj_escort.y,224,208,4))
@@ -106,6 +149,13 @@ else
 {
 	sprite_index = spr_door_habraf_open;
 	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
 	{
 		if (place_meeting(x,y,other))
 		{
@@ -139,15 +189,6 @@ image_yscale = 1;
 if (obj_inventory.habraf_lair[3] < 2)
 {
 	sprite_index = spr_door_habraf;
-	if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-	{
-		with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-		{
-			image_xscale = 6;
-			image_yscale = 2;
-			game_paused_image_speed = image_speed;
-		}
-	}
 	if (instance_exists(obj_escort))
 	{
 		if (point_in_circle(obj_escort.x,obj_escort.y,160,72,4))
@@ -168,6 +209,13 @@ else
 {
 	sprite_index = spr_door_habraf_open;
 	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
 	{
 		if (place_meeting(x,y,other))
 		{
@@ -200,21 +248,19 @@ image_yscale = 1;
 if (obj_inventory.habraf_lair[4] < 1)
 {
 	sprite_index = spr_door_habraf;
-	if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-	{
-		with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-		{
-			image_xscale = 6;
-			image_yscale = 2;
-			game_paused_image_speed = image_speed;
-		}
-	}
 
 }
 else 
 {
 	sprite_index = spr_door_habraf_open;
 	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
 	{
 		if (place_meeting(x,y,other))
 		{
