@@ -16,3 +16,9 @@
 event_inherited();
 
 
+if (active = true)
+{
+	draw_circle_color(x,y,48,c_white,c_white,true);
+}
+
+

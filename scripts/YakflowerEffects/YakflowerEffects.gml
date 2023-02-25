@@ -9,6 +9,7 @@ function EffectYakflowerTotemCreate(){
 image_speed = 0;
 sprite_index = spr_effect_yakflower_totem;
 timer1 = 0;
+active = false
 with (instance_create_layer(x-4,y-14,"Wall",obj_wall))
 {
 	image_xscale = 1;
@@ -44,10 +45,15 @@ if (obj_inventory.yakflower_lair[2] < 1)
 	if (timer1 >= 900) obj_inventory.yakflower_lair[2] = 1;
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
+		active = true;
 		timer1 = timer1 + 1;
 		sprite_index = spr_effect_yakflower_totemActive;
 	}
-	else sprite_index = spr_effect_yakflower_totem;
+	else
+	{
+		active = false;
+		sprite_index = spr_effect_yakflower_totem;
+	}
 }
 else
 {
@@ -90,11 +96,16 @@ if (obj_inventory.yakflower_lair[2] = 1)
 	if (timer1 >= 900) obj_inventory.yakflower_lair[2] = 2;
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
+		active = true;
 		timer1 = timer1 + 1;
 		sprite_index = spr_effect_yakflower_totemActive;
 
 	}
-	else sprite_index = spr_effect_yakflower_totem;
+	else
+	{
+		active = false;
+		sprite_index = spr_effect_yakflower_totem;
+	}
 
 }
 if (obj_inventory.yakflower_lair[2] >= 2)
@@ -138,11 +149,16 @@ if (obj_inventory.yakflower_lair[2] = 2)
 	if (timer1 >= 900) obj_inventory.yakflower_lair[2] = 3;
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
+		active = true;
 		timer1 = timer1 + 1;
 		sprite_index = spr_effect_yakflower_totemActive;
 
 	}
-	else sprite_index = spr_effect_yakflower_totem;
+	else 
+	{
+		active = false;
+		sprite_index = spr_effect_yakflower_totem;
+	}
 
 }
 if (obj_inventory.yakflower_lair[2] >= 3)

@@ -192,6 +192,7 @@ if (obj_inventory.yakflower_lair[1] < 20)
 //
 //Yakflower Spawn Create 1
 function YakflowerSpawnCreate3(){
+spawn_timer = 180;
 x_spawn1 = 80;
 y_spawn1 = 304;
 x_spawn2 = 80;
@@ -221,7 +222,7 @@ if (obj_inventory.yakflower_lair[2] < 3)
 		break_object = obj_break2;
 	}
 	//Spawn 3
-	with (instance_create_layer(80,80,"Instances",obj_enemy))
+	with (instance_create_layer(240,72,"Instances",obj_enemy))
 	{
 		image_alpha = 1;
 		script_execute(OfaWormCreate);
@@ -311,7 +312,7 @@ if (obj_inventory.yakflower_lair[2] < 1)
 	if (spawn1 = false)
 	{
 		spawn1 = true;
-		with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
+		with (instance_create_layer(288,280,"Instances",obj_enemy))
 		{
 			image_alpha = 1;
 			script_execute(OfaMothCreate);
@@ -376,7 +377,7 @@ if (obj_inventory.yakflower_lair[2] = 1)
 	if (spawn2 = false)
 	{
 		spawn2 = true;
-		with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
+		with (instance_create_layer(288,280,"Instances",obj_enemy))
 		{
 			image_alpha = 1;
 			script_execute(OfaMothCreate);
@@ -441,7 +442,7 @@ if (obj_inventory.yakflower_lair[2] = 2)
 	if (spawn3 = false)
 	{
 		spawn3 = true;
-		with (instance_create_layer(x_spawn2,y_spawn2,"Instances",obj_enemy))
+		with (instance_create_layer(288,280,"Instances",obj_enemy))
 		{
 			image_alpha = 1;
 			script_execute(OfaMothCreate);
