@@ -142,10 +142,10 @@ if (obj_game.gamePaused = false)
 //Sabi Drop
 function OfaWormDrop(){
 	
-if(obj_inventory.quest_grid[# 6, 1] < obj_inventory.quest_grid[# 6, 2]) obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
+//if(obj_inventory.quest_grid[# 6, 1] < obj_inventory.quest_grid[# 6, 2]) obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
 var _objects = 1;
-var _dropBean = 11;
-//var _drop1 = irandom_range(0,99)	
+var _dropBean = 12;
+var _drop1 = irandom_range(0,99)	
 var _angle = random(360);
 
 
@@ -157,19 +157,19 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
-//if (_drop1 > 50) 
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_item))
-//	{
-//		item_id = 8;
-//		amount = 1;
-//		sprite_index = spr_item_all;
-//		image_index = item_id;
-//		direction = _angle/_objects;
-//		spd = .75 + (.3) + random(0.1);
-//	}
+if (_drop1 > 94) 
+{
+	with (instance_create_layer(x,y,"Instances",obj_item))
+	{
+		item_id = 8;
+		amount = 1;
+		sprite_index = spr_item_all;
+		image_index = item_id;
+		direction = _angle/_objects;
+		spd = .75 + (.3) + random(0.1);
+	}
 	
-//}
+}
 //else instance_create_layer(x,y,"Instances",_objects[0])
 
 	
