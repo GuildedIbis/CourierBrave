@@ -14,8 +14,8 @@ idle_sprite = spr_player_ceriver_idle;
 roll_sprite = spr_player_ceriver_roll;
 crull_sprite = spr_player_ceriver_crull;
 recharge_sprite = spr_player_ceriver_recharge;
-magicP_script = CeriverDynorbCast;
-magicA_script = CeriverPolyorbCast;
+magicP_script = CeriverPolyorbCast;
+magicA_script = CeriverDynorbCast;
 magic_primary = true;
 obj_cursor.curs_script = CeriverCursor;
 
@@ -139,11 +139,20 @@ if (key_attackM) and (voidsick = false)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 5)
+		//Polyorb
+		if (magic_primary = true) and (charge >= 8)
+		{
+			timer2 = 0;
+			//max_magic_count = 24 + (obj_inventory.form_grid[# 1, 7] * 2);
+			attack_script = magicP_script;
+			state_script = PlayerStateAttack;
+		}
+		//Dynorb
+		if (magic_primary = false) and (charge >= 5)
 		{
 			timer2 = 0;
 			//max_magic_count = 24 + ((obj_inventory.form_grid[# 1, 7]*2));
-			attack_script = magicP_script;
+			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 			with (instance_create_layer(obj_player.x,obj_player.y-10,"Instances",obj_projectile))
 			{
@@ -169,13 +178,6 @@ if (key_attackM) and (voidsick = false)
 			}
 			timer2 = 10;
 			magic_timer = 10;
-		}
-		if (magic_primary = false) and (charge >= 8)
-		{
-			timer2 = 0;
-			//max_magic_count = 24 + (obj_inventory.form_grid[# 1, 7] * 2);
-			attack_script = magicA_script;
-			state_script = PlayerStateAttack;
 		}
 	}
 

@@ -10,8 +10,8 @@ form = 2;
 home_state = AdavioSet;
 free_state = AdavioFree;
 state_script = AdavioFree;
-magicP_script = AdavioVoidCycleCast;
-magicA_script = AdavioGravibitCast;
+magicP_script = AdavioVoidSpreadCast;
+magicA_script = AdavioVoidCycleCast;
 magic_primary = true;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
@@ -133,7 +133,7 @@ if (key_attackM) and (voidsick = false)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 20)
+		if (magic_primary = true) and (charge >= 25)
 		{
 			timer2 = 0;
 			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
@@ -141,10 +141,9 @@ if (key_attackM) and (voidsick = false)
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 20)
+		if (magic_primary = false) and (charge >= 25)
 		{
 			timer2 = 0;
-			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 			max_charge = 50 + (3 * grace);
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -305,7 +304,7 @@ if (timer1 <= 0)
 		fragment = obj_fragGold;
 		timer1 = 10;
 		bounces = 0;
-		damage = round(obj_player.might - 10) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+		damage = round(obj_player.might) + ((obj_inventory.form_grid[# 2, 5])*(7));//
 		projectile_sprite = spr_adavio_hook_blast;
 		projectile_script = AdavioHookBlast;
 		idle_sprite = spr_adavio_hook_blast;
@@ -369,6 +368,165 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Adavio Void Cycle State
+function AdavioVoidSpreadCast(){
+walk_spd = 1.2;
+attacking = true;
+//weapon_sprite = spr_spiritStone_meteor;
+
+
+//Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (timer2 > 0) timer2 = timer2 - 1;
+//if (special_timer < max_special_timer) and (watervice = false)
+//{
+//	special_timer = special_timer + 1;
+//} //2/1/23
+
+
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_adavio_runCast;
+}
+else sprite_index = spr_player_adavio_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = 4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = -5;
+		dir_offY = -14;
+	break;	
+}
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (timer2 <= 0)
+{	
+	//magic_count = magic_count - 1;
+	charge = charge - 25;
+	audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+	audio_play_sound(snd_goldBullet,0,0);
+	for (var i = 0; i < 5; i = i + 1)
+	{
+		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
+		{
+			break_object = obj_player.break_object;
+			magic = true;
+			//follow_timer = 28; //2/5/23
+			fragment_count = 2;
+			fragment = obj_fragGold;
+			damage = round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8));//
+			projectile_sprite = spr_adavio_voidBit;
+			projectile_script = AdavioVoidBit;
+			timer1 = 30;
+			idle_sprite = spr_adavio_voidBit;
+			hit_by_attack = -1;
+			//script_execute(LeafArcCreate);
+			direction = (point_direction(x,y,mouse_x,mouse_y) - 16 + (8 * i)) + irandom_range(-6,6);
+			image_angle = direction;
+			projectile_speed = 4.0;
+		}
+	}
+	timer2 = 45;
+	magic_timer = 45;
+}
+
+//Animate
+PlayerAnimation();
+
+if (mouse_check_button(mb_left) = false) or (charge < 25)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+	magic_timer = 45;
+}
+}
+
+//
+//
+//
+//
+//
+//
+function AdavioVoidBit(){
+//Step
+//if (follow_timer > 0) follow_timer = follow_timer - 1;
+
+speed = projectile_speed;
+
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculate(projectile_sprite);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	instance_destroy();
+}
+}
+//
+//
+//
+//
+//
+//AdavioMagicA
 function AdavioVoidCycleCast(){
 walk_spd = 1.2;
 attacking = true;
@@ -428,7 +586,7 @@ switch(_dirPos)
 	break;
 		
 	case 1:
-		dir_offX = -4;
+		dir_offX = 4;
 		dir_offY = -14;
 	break;
 		
@@ -438,7 +596,7 @@ switch(_dirPos)
 	break;
 		
 	case 3:
-		dir_offX = 5;
+		dir_offX = -5;
 		dir_offY = -14;
 	break;	
 }
@@ -447,24 +605,24 @@ switch(_dirPos)
 if (timer2 <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 20;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	charge = charge - 25;
+	audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+	audio_play_sound(snd_goldBullet,0,0);
+	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
 		break_object = obj_player.break_object;
 		magic = true;
 		//follow_timer = 28; //2/5/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = round(obj_player.grace/2) + (6 + (obj_inventory.form_grid[# 2, 7]-1)*(6));//
+		damage = round(obj_player.grace) + (3 + (obj_inventory.form_grid[# 2, 7])*(7));//
 		projectile_sprite = spr_adavio_voidCycle;
 		projectile_script = AdavioVoidCycle;
-		timer1 = 15;
-		idle_sprite = spr_goldBullet;
+		timer1 = 20;
+		idle_sprite = spr_adavio_voidCycle;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
+		direction = (point_direction(x,y,mouse_x,mouse_y));
 		image_angle = direction;
 		projectile_speed = 2.0;
 	}
@@ -475,7 +633,7 @@ if (timer2 <= 0)
 //Animate
 PlayerAnimation();
 
-if (mouse_check_button(mb_left) = false) or (charge < 20)
+if (mouse_check_button(mb_left) = false) or (charge < 25)
 {
 	attacking = false;
 	state_script = free_state;
@@ -520,7 +678,7 @@ if (timer1 <= 0)
 			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8));//
+			damage = round(other.damage/2);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -546,197 +704,7 @@ if (place_meeting(x,y,break_object))
 }
 
 }
-//
-//
-//
-//
-//
-//
-function AdavioVoidBit(){
-//Step
-//if (follow_timer > 0) follow_timer = follow_timer - 1;
 
-speed = projectile_speed;
-
-if (sprite_index != projectile_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = projectile_sprite;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-if (place_meeting(x,y,obj_enemy)) 
-{
-	
-	AttackCalculate(projectile_sprite);
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
-}
-//
-//
-//
-//
-//
-//AdavioMagicA
-function AdavioGravibitCast(){
-walk_spd = 1.2;
-attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
-
-
-//Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (timer2 > 0) timer2 = timer2 - 1;
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
-
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_adavio_runCast;
-}
-else sprite_index = spr_player_adavio_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 5;
-		dir_offY = -14;
-	break;	
-}
-
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
-{	
-	//magic_count = magic_count - 2;
-	charge = charge - 20;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
-	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
-		break_object = obj_player.break_object;
-		magic = true;
-		//follow_timer = 28; //2/1/23
-		fragment_count = 2;
-		fragment = obj_fragGold;
-		timer1 = 30;
-		bounces = 0;
-		damage = round(obj_player.grace - 10) + ((obj_inventory.form_grid[# 2, 7])*(8));//
-		projectile_sprite = spr_adavio_gravibit;
-		projectile_script = AdavioGravibit;
-		idle_sprite = spr_heavyBullet;
-		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
-		image_angle = direction;
-		projectile_speed = 4.0;
-	}
-	timer2 = 15;
-	magic_timer = 15;
-}
-
-//Animate
-PlayerAnimation();
-
-if (mouse_check_button(mb_left) = false) or (charge < 20)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
-}
-//
-//
-//
-//
-//
-//Adavio Elastibit Projectile Script
-function AdavioGravibit(){
-//Step
-speed = projectile_speed;
-if (sprite_index != projectile_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = projectile_sprite;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-if (place_meeting(x,y,obj_enemy)) 
-{
-	AttackCalculate(projectile_sprite);
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	bounces = bounces + 1;
-	move_bounce_all(false);
-	damage = round(damage * 1.5)
-}
-if (bounces > 0) timer1 = timer1 - 1;
-if (bounces > 1) or (timer1 <= 0)
-{
-	instance_destroy();
-}
-}
 //
 //
 //
@@ -1311,10 +1279,10 @@ draw_sprite_stretched(spr_menu,3,196,110,32,16);
 //Draw the selected form
 
 //Draw it's four levelable features //weapon, armor, magic, special
-draw_sprite(spr_weapons_allGame,0,70,42);
-draw_sprite(spr_armor_allGame,0,70,76);
-draw_sprite(spr_magic_allGame,0,162,42);
-draw_sprite(spr_special_allGame,0,162,76);
+draw_sprite(spr_weapons_allGame,2,70,42);
+draw_sprite(spr_armor_allGame,2,70,76);
+draw_sprite(spr_magic_allGame,2,162,42);
+draw_sprite(spr_special_allGame,2,162,76);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 5]-1,70,63);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 6]-1,70,97);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 7]-1,162,63);
@@ -1326,11 +1294,11 @@ draw_text_transformed(178,118,"EQUIP",.35,.35,0);
 draw_text_transformed(212,118,"BACK",.35,.35,0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-var _weaponText = "WEAPON: L-CLICK\nA quick slash that does\n" + string(obj_player.might + (11 * obj_inventory.form_grid[# 2, 5])) + " damage per hit.\nCan hit multiple targets."
+var _weaponText = "WEAPON: L-CLICK\nA forward thrust that does\n" + string(round(obj_player.might) + ((obj_inventory.form_grid[# 2, 5])*(7))) + " damage per hit.\nShoots a damage slash forward."
 draw_text_transformed(104,42,_weaponText,.35,.35,0);
-var _armorText = "ARMOR: PASSIVE\nBlock " + string(12 + (6 * (obj_inventory.form_grid[# 2, 6] -1))) + " incoming\ndamage."
+var _armorText = "ARMOR: PASSIVE\nBlock " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6] -1))) + " incoming\ndamage."
 draw_text_transformed(104,76,_armorText,.35,.35,0);
-var _magicText = "MAGIC: R-CLICK\nRapidly fire small\ngolden projectiles that\nbreak on inpact and deal\n" + string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 2, 7]-1)*(5))) + " damage per hit."
+var _magicText = "MAGIC: R-CLICK\nA wide spread of orange void bits that\nbreak on inpact and deal\n" + string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 2, 7]-1)*(5))) + " damage per hit."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
 var _specialText = "SPECIAL: SHIFT\n2 gold arcs that\nspin around the player,\ndealing " + string(obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8] - 1))) + " damage\nper hit with knockback."
 draw_text_transformed(196,76,_specialText,.35,.35,0);
@@ -1382,7 +1350,7 @@ curs_form = 2;
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
-if (obj_player.magic_primary = true) spread = 3.5;
+if (obj_player.magic_primary = true) spread = 1.5;
 if (obj_player.magic_primary = false) spread = 3.5;
 if (obj_game.gamePaused = false)
 {
