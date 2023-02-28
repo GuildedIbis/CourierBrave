@@ -228,8 +228,8 @@ damage = might - 6 + (5 * obj_inventory.form_grid[# 2, 5]);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	audio_sound_gain(snd_adavio_hookThrust,global.volumeEffects,1);
+	audio_play_sound(snd_adavio_hookThrust,0,0);
 	atk_snd_delay = 28;
 }
 if (special_timer < max_special_timer) and (watervice = false)
@@ -447,8 +447,8 @@ if (timer2 <= 0)
 {	
 	//magic_count = magic_count - 1;
 	charge = charge - 25;
-	audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-	audio_play_sound(snd_goldBullet,0,0);
+	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
+	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
 	{
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -606,8 +606,8 @@ if (timer2 <= 0)
 {	
 	//magic_count = magic_count - 1;
 	charge = charge - 25;
-	audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-	audio_play_sound(snd_goldBullet,0,0);
+	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
+	audio_play_sound(snd_adavio_voidCycle,0,0);
 	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
 	{
 		break_object = obj_player.break_object;
@@ -667,12 +667,12 @@ if (sprite_index != projectile_sprite)
 }
 if (timer1 <= 0)
 {
+	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
+	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_projectile))
 		{
-			audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-			audio_play_sound(snd_goldBullet,0,0);
 			break_object = obj_player.break_object;
 			magic = true;
 			//follow_timer = 28; //2/5/23

@@ -9,19 +9,19 @@ function MapsCreate(){
 map_selected = -1;
 map_grid = ds_grid_create(6,3)
 
-map_grid[# 0, 0] = "Lenko Forest"
+map_grid[# 0, 0] = "Farway Road"
 map_grid[# 0, 1] = false;
 map_grid[# 0, 2] = LenkoMapMenuDraw;
-map_grid[# 1, 0] = "Ethera Tundra"
+map_grid[# 1, 0] = "Lake Path"
 map_grid[# 1, 1] = false;
 map_grid[# 1, 2] = LenkoMapMenuDraw;
-map_grid[# 2, 0] = "Golden Forest"
+map_grid[# 2, 0] = "Greyrock"
 map_grid[# 2, 1] = false;
-map_grid[# 2, 2] =LenkoMapMenuDraw;
-map_grid[# 3, 0] = "Swamp Cut by lava flow"
+map_grid[# 2, 2] = LenkoMapMenuDraw;
+map_grid[# 3, 0] = "Lair: Habraf Lake"
 map_grid[# 3, 1] = false;
 map_grid[# 3, 2] = LenkoMapMenuDraw;
-map_grid[# 4, 1] = "Mountain";
+map_grid[# 4, 1] = "Lair: Yakflower Path";
 map_grid[# 4, 1] = false;
 map_grid[# 4, 2] = LenkoMapMenuDraw;
 }
@@ -66,12 +66,14 @@ draw_sprite(spr_scroll_bar1b,page,68,43);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
+draw_sprite_stretched(menu_sprite,3,103,41,147,86);
+
 for (var i = 0; i < 5; i = i + 1)
 {
 	draw_sprite_stretched(button_sprite,3,80,42 + (i * 17),15,15);
 	if (obj_inventory.map_grid[# i, 1] = true)
 	{
-		//draw_text_transformed(72,42 + (i * 16),obj_inventory.map_grid[# i, 0],.5,.5,0);
+		draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1);
 		draw_sprite_ext(spr_map_button,i,80,42+(i*17),1.0,1.0,0,c_white,1.0);
 		if (point_in_rectangle(_mouseX,_mouseY,80,42 + (i * 15),94,57 + (i * 15)))
 		{
@@ -88,15 +90,15 @@ for (var i = 0; i < 5; i = i + 1)
 }
 
 
-//draw_line_width_color(82,70,82,170,1,c_black,c_black)
 
-draw_sprite_stretched(menu_sprite,3,103,41,147,86);
 
-if (obj_inventory.map_selected != -1)
-{
-	draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
-	script_execute(obj_inventory.map_grid[# map_selected, 2])
-}
+
+
+//if (obj_inventory.map_selected != -1)
+//{
+//	draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
+//	script_execute(obj_inventory.map_grid[# map_selected, 2])
+//}
 
 
 

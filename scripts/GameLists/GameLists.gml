@@ -23,12 +23,12 @@ crullM_list = array_create(50,false);
 //Sun Locations
 //0: Lake Path 1
 //1: Greyrock 1
-//2: Greyrock 7
+//2: Greyrock 4
 
 //Moon Locations
 //0: Farway Road 2
 //1: Greyrock 4
-//0: Lake Path 3
+//2: Lake Path 3
 }
 //
 //
@@ -96,7 +96,8 @@ roomName_ary[30] = "LENKO\nGreyrock 5";
 roomName_ary[31] = "LENKO\nGreyrock 6";
 roomName_ary[32] = "LENKO\nGreyrock 7";
 roomName_ary[33] = "LENKO\nGreyrock 8";
-roomName_ary[34] = "LENKO\nFortress Camp";
+roomName_ary[34] = "LENKO\nGreyrock 9";
+roomName_ary[35] = "LENKO\nFortress Camp";
 roomName_ary[35] = "LENKO\nEkthalem's Fortress";
 roomName_ary[36] = "LENKO\n";
 roomName_ary[37] = "LENKO\n";
