@@ -5,6 +5,119 @@
 //
 //
 //Effect Lekno Lake Path Well Create
+function EffectLenkoAbandonedHouseCreate(){
+image_speed = 0;
+with (instance_create_layer(x-33,y-16,"Wall",obj_wall))
+{
+	image_xscale = 5;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x+21,y-16,"Wall",obj_wall))
+{
+	image_xscale = 1.5;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x-39,y,"Wall",obj_wall))
+{
+	image_xscale = 2;
+	image_yscale = 8;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x+23,y,"Wall",obj_wall))
+{
+	image_xscale = 2;
+	image_yscale = 8;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x-33,y+54,"Wall",obj_wall))
+{
+	image_xscale = 3.5;
+	image_yscale = 2.5;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x+7,y+54,"Wall",obj_wall))
+{
+	image_xscale = 3.5;
+	image_yscale = 2.5;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-33,y-16,"Wall",break_object))
+	{
+		image_xscale = 5;
+		image_yscale = .5;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+21,y-16,"Wall",break_object))
+	{
+		image_xscale = 1.5;
+		image_yscale = .5;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-39,y,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 6;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+23,y,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 6;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-33,y+54,"Wall",break_object))
+	{
+		image_xscale = 3.5;
+		image_yscale = .5;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+7,y+54,"Wall",break_object))
+	{
+		image_xscale = 3.5;
+		image_yscale = .5;
+		game_paused_image_speed = image_speed;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Effect Well Step
+function EffectLenkoAbandonedHouse(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+}
+//
+//
+//
+//
+//
+//Effect Lekno Lake Path Well Create
 function EffectWellCreate(){
 image_speed = 0;
 with (instance_create_layer(x-8,y-12,"Wall",obj_wall))

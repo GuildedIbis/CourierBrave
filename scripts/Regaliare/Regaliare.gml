@@ -63,7 +63,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (stamina < max_stamina) //Stamina Recharge
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
 	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
 	if (stamina_timer <= 0) 
@@ -72,7 +72,7 @@ if (stamina < max_stamina) //Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) //charge Recharge
+if (charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
@@ -81,13 +81,13 @@ if (charge < max_charge) //charge Recharge
 		charge = charge + 1;
 	}
 }
-if (magic_timer > 0) and (voidsick = false)
+if (magic_timer > 0)
 {
 	magic_timer = magic_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (special_timer < max_special_timer) and (watervice = false)
+	if (special_timer < max_special_timer)
 	{
 		special_timer = special_timer + 1;
 	}
@@ -128,7 +128,7 @@ if (key_attackW)
 }
 
 //Magic Attack
-if (key_attackM) and (voidsick = false)
+if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{

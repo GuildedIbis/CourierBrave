@@ -428,7 +428,7 @@ function LilyCultistDrop(){
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
 //}
 var _objects = 2;
-var _dropBean = 31;
+var _dropBean = irandom_range(20,40);
 var _drop1 = irandom_range(0,99)	
 var _angle = random(360);
 
@@ -445,7 +445,7 @@ if (_drop1 > 50) //Rat Teeth
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 1;
+		item_id = 4;
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;

@@ -23,7 +23,6 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_color(c_white);
 	draw_text_transformed(7,166,hp,.5,.5,0);
 
-
 	//Beans
 	draw_sprite(spr_bean_hud,0,50,6);
 	draw_set_font(fnt_text)
@@ -33,6 +32,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_text_transformed(66,12,beans,.5,.5,0)
 	draw_set_color(c_white);
 	draw_text_transformed(65,12,beans,.5,.5,0)
+
 
 	
 	//Aggro (Below Weapons)
@@ -90,6 +90,18 @@ if (scene = false) and (obj_game.textPaused = false)
 		}
 	}
 
+}
+if (obj_game.textPaused = true)
+{
+	//Beans
+	draw_sprite(spr_bean_hud,0,50,6);
+	draw_set_font(fnt_text)
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_black);
+	draw_text_transformed(66,12,beans,.5,.5,0)
+	draw_set_color(c_white);
+	draw_text_transformed(65,12,beans,.5,.5,0)
 }
 
 
