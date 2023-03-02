@@ -406,6 +406,167 @@ if (sd_timer <= 0)
 //
 //
 //
+//Ceriver Polyorb Magic State
+function CeriverPolyorbCast(){
+walk_spd = 1.2;
+attacking = true;
+
+
+
+//Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (timer2 > 0) timer2 = timer2 - 1;
+
+
+
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_ceriver_runCast;
+}
+else sprite_index = spr_player_ceriver_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+var _dirPos = round(obj_player.direction/90);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 4:
+		dir_offX = 3;
+		dir_offY = -14;
+	break;
+		
+	case 1:
+		dir_offX = 4;
+		dir_offY = -14;
+	break;
+		
+	case 2:
+		dir_offX = -3;
+		dir_offY = -14;
+	break;
+		
+	case 3:
+		dir_offX = -5;
+		dir_offY = -14;
+	break;	
+}
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (timer2 <= 0)
+{	
+	charge = charge - 8;
+	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
+		audio_play_sound(snd_ceriver_dynorb,0,0);
+		break_object = obj_player.break_object;
+		fragment_count = 1;
+		fragment = obj_fragWater;
+		magic = true;
+		sd_timer = 30;
+		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]-1)*(1));//
+		projectile_sprite = spr_ceriver_polyorb;
+		projectile_script = CeriverPolyorbFree;
+		idle_sprite = spr_ceriver_polyorb;
+		image_index = irandom_range(0,3);
+		projectile_speed = 3.0 + (.5 * image_index);
+		image_speed = 0;
+		damage = damage + ((obj_inventory.form_grid[# 1, 7]) * image_index);
+		hit_by_attack = -1;
+		speed = projectile_speed;
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
+		image_angle = direction;
+	}
+	timer2 = 5;
+	magic_timer = 5;
+}
+
+//Animate
+PlayerAnimation();
+
+//End State, Return to Free State
+if (mouse_check_button(mb_left) = false) or (charge < 8)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+	magic_timer = 5;
+}
+}//
+//
+//
+//
+//
+//
+//Ceriver Polyorb Projectile Script
+function CeriverPolyorbFree(){
+
+//Step
+image_speed = 0;
+if (inv_timer > 0) inv_timer = inv_timer - 1;
+if (sd_timer > 0) sd_timer = sd_timer - 1;
+speed = projectile_speed;
+if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+{
+	instance_destroy();
+}
+if (sd_timer <= 0) instance_destroy();
+
+}
+//
+//
+//
+//
+//
 //Ceriver Dynorb Magic State
 function CeriverDynorbCast(){
 walk_spd = 1.2;
@@ -560,6 +721,11 @@ if (cast = false)
 		cast = true;
 		damage = (round(obj_player.grace/2)*_stage)  + ((obj_inventory.form_grid[# 1, 7])*(4)*(_stage));
 		direction = irandom_range(-1,1) + (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 		with (obj_player)
@@ -576,6 +742,7 @@ if (cast = false)
 
 if (cast = true)
 {
+	if (inv_timer > 0) inv_timer = inv_timer - 1;
 	speed = projectile_speed;
 	if (place_meeting(x,y,obj_enemy)) 
 	{
@@ -583,7 +750,7 @@ if (cast = true)
 		AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
 		instance_destroy();
 	}
-	if (place_meeting(x,y,break_object)) 
+	if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 	{
 		instance_destroy();
 	}
@@ -592,162 +759,6 @@ if (cast = true)
 }
 //
 //
-//
-//
-//
-//Ceriver Polyorb Magic State
-function CeriverPolyorbCast(){
-walk_spd = 1.2;
-attacking = true;
-
-
-
-//Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (timer2 > 0) timer2 = timer2 - 1;
-
-
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_ceriver_runCast;
-}
-else sprite_index = spr_player_ceriver_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = 4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = -5;
-		dir_offY = -14;
-	break;	
-}
-
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
-{	
-	charge = charge - 8;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
-	{
-		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
-		audio_play_sound(snd_ceriver_dynorb,0,0);
-		break_object = obj_player.break_object;
-		fragment_count = 1;
-		fragment = obj_fragWater;
-		magic = true;
-		follow_timer = 0;
-		sd_timer = 30;
-		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]-1)*(1));//
-		projectile_sprite = spr_ceriver_polyorb;
-		projectile_script = CeriverPolyorbFree;
-		idle_sprite = spr_ceriver_polyorb;
-		image_index = irandom_range(0,3);
-		projectile_speed = 3.0 + (.5 * image_index);
-		image_speed = 0;
-		damage = damage + ((obj_inventory.form_grid[# 1, 7]) * image_index);
-		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
-		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
-		image_angle = direction;
-	}
-	timer2 = 5;
-	magic_timer = 5;
-}
-
-//Animate
-PlayerAnimation();
-
-//End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 8)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-	magic_timer = 5;
-}
-}//
-//
-//
-//
-//
-//
-//Ceriver Polyorb Projectile Script
-function CeriverPolyorbFree(){
-
-//Step
-image_speed = 0;
-if (follow_timer > 0) follow_timer = follow_timer - 1;
-if (sd_timer > 0) sd_timer = sd_timer - 1;
-speed = projectile_speed;
-if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
-if (sprite_index != projectile_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = projectile_sprite;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-if (place_meeting(x,y,obj_enemy)) 
-{
-	
-	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
-if (sd_timer <= 0) instance_destroy();
-
-}//
 //
 //
 //
@@ -846,6 +857,11 @@ if (magic_timer <= 0) and (special_count >= 1)
 		enemy_in_range = -1;
 		//script_execute(LeafArcCreate);
 		direction = point_direction(obj_player.x,obj_player.y-14,mouse_x,mouse_y);
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 2.5;
 	}
@@ -884,7 +900,7 @@ if (place_meeting(x,y,obj_enemy))
 	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,.25);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) 
+if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 {
 	instance_destroy();
 }

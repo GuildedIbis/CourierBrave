@@ -466,6 +466,11 @@ if (timer2 <= 0)
 			hit_by_attack = -1;
 			//script_execute(LeafArcCreate);
 			direction = (point_direction(x,y,mouse_x,mouse_y) - 16 + (8 * i)) + irandom_range(-6,6);
+			if (direction < 135) and (direction > 45)
+			{
+				inv_timer = 0;
+			}
+			else inv_timer = 15;
 			image_angle = direction;
 			projectile_speed = 4.0;
 		}
@@ -487,7 +492,6 @@ if (mouse_check_button(mb_left) = false) or (charge < 25)
 	magic_timer = 45;
 }
 }
-
 //
 //
 //
@@ -496,8 +500,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 25)
 //
 function AdavioVoidBit(){
 //Step
-//if (follow_timer > 0) follow_timer = follow_timer - 1;
-
+if (inv_timer > 0) inv_timer = inv_timer - 1;
 speed = projectile_speed;
 
 if (sprite_index != projectile_sprite)
@@ -516,7 +519,7 @@ if (place_meeting(x,y,obj_enemy))
 	AttackCalculate(projectile_sprite);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) 
+if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 {
 	instance_destroy();
 }
@@ -623,6 +626,11 @@ if (timer2 <= 0)
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
 		direction = (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 2.0;
 	}
@@ -675,17 +683,20 @@ if (timer1 <= 0)
 		{
 			break_object = obj_player.break_object;
 			magic = true;
-			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(other.damage/2);//
+			damage = round(other.damage/3);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
-			//script_execute(LeafArcCreate);
 			direction = (other.direction - 16 + (8 * i)) + irandom_range(-6,6);
+			if (direction < 135) and (direction > 45)
+			{
+				inv_timer = 0;
+			}
+			else inv_timer = 15;
 			image_angle = direction;
 			projectile_speed = 4.0;
 		}

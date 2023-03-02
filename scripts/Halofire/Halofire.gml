@@ -607,7 +607,7 @@ if (timer2 <= 0)
 	charge = charge - 18;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
@@ -619,8 +619,12 @@ if (timer2 <= 0)
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
 		direction = irandom_range(-6,6) + (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -649,7 +653,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 18)
 //Halofire Meteor Projectile Script
 function HalofireMeteor(){
 //Step
-
+if (inv_timer > 0) inv_timer = inv_timer - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -667,7 +671,7 @@ if (place_meeting(x,y,obj_enemy))
 	AttackCalculate(projectile_sprite);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) 
+if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 {
 	instance_destroy();
 }
@@ -759,7 +763,7 @@ if (timer2 <= 0)
 	charge = charge - 30;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
@@ -771,8 +775,12 @@ if (timer2 <= 0)
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
 		direction = irandom_range(-12,12) + (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -808,7 +816,7 @@ if (timer2 > 0) timer2 = timer2 - 1;
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	audio_sound_gain(snd_halofire_special,global.volumeEffects,1);
 	audio_play_sound(snd_halofire_special,0,0,global.volumeEffects)
 	atk_snd_delay = 20;
 }
@@ -877,8 +885,12 @@ if (animation_end)
 		projectile_script = HalofireFlameSeed;
 		hit_by_attack = -1;
 		enemy_in_range = -1;
-		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y);
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 2.5;
 	}
@@ -899,6 +911,7 @@ function HalofireFlameSeed(){
 //Step
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
+if (inv_timer  > 0) inv_timer = inv_timer  - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -946,6 +959,11 @@ if (timer2 <= 0)
 			else direction = irandom_range(0,359);
 		}
 		else direction = irandom_range(0,359);
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 3;
 	}
@@ -965,7 +983,7 @@ ds_list_clear(enemy_in_range);
 //Halofire Meteor Projectile Script
 function HalofireFireSpark(){
 //Step
-if (follow_timer > 0) follow_timer = follow_timer - 1;
+if (inv_timer > 0) inv_timer = inv_timer - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
