@@ -11,6 +11,7 @@ sound = -1;
 active_sprite = spr_crull_pedestal;
 idle_sprite = spr_crull_pedestal_empty;
 }
+
 //
 //
 //
@@ -51,7 +52,7 @@ if (obj_inventory.crullStone_list[1] = false)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Additional Crull Stone Unlocked" 
+		text_string = "Additional Crull Stone Charge Unlocked." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -98,7 +99,7 @@ if (obj_inventory.crullStone_list[1] = true)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "There was a Crull Stone here" 
+		text_string = "There was a Crull Stone Charge here" 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -153,7 +154,7 @@ if (obj_inventory.crullStone_list[2] = false)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Additional Crull Stone Unlocked" 
+		text_string = "Additional Crull Stone Charge Unlocked" 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -200,7 +201,7 @@ if (obj_inventory.crullStone_list[2] = true)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "There was a Crull Stone here" 
+		text_string = "There was a Crull Stone Charge here" 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}

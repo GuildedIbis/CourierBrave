@@ -30,6 +30,7 @@ function LoadPlayer(_loadEntity){
 		//if (variable_struct_exists(_loadEntity,"cul") ) obj_player.max_crull_stone = _loadEntity.cul; 
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_stone = _loadEntity.crull;
+		if (variable_struct_exists(_loadEntity,"crullLevel") ) obj_player.crull_level = _loadEntity.crullLevel;
 		if (variable_struct_exists(_loadEntity,"armor")) obj_player.armor = _loadEntity.armor; 
 		//if (variable_struct_exists(_loadEntity,"roll")) obj_player.max_roll_count = _loadEntity.roll;
 		
@@ -72,6 +73,7 @@ var _savePlayer =
 	might : obj_player.might,
 	grace : obj_player.grace,
 	crull : obj_player.max_crull_stone,
+	crullLevel : obj_player.crull_level,
 	hp : obj_player.max_hp,
 	armor : obj_player.armor,
 	breakObject : obj_player.break_object,

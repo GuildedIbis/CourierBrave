@@ -28,6 +28,12 @@ if (variable_struct_exists(_loadEntity,"crullStone15")) obj_inventory.crullStone
 if (variable_struct_exists(_loadEntity,"crullStone16")) obj_inventory.crullStone_list[16] = _loadEntity.crullStone16;
 if (variable_struct_exists(_loadEntity,"crullStone17")) obj_inventory.crullStone_list[17] = _loadEntity.crullStone17;
 
+//Load Crull Upgrades
+if (variable_struct_exists(_loadEntity,"crullUpgrade00")) obj_inventory.crullUpgrade_list[0] = _loadEntity.crullUpgrade00;
+if (variable_struct_exists(_loadEntity,"crullUpgrade01")) obj_inventory.crullUpgrade_list[1] = _loadEntity.crullUpgrade01;
+if (variable_struct_exists(_loadEntity,"crullUpgrade02")) obj_inventory.crullUpgrade_list[2] = _loadEntity.crullUpgrade02;
+if (variable_struct_exists(_loadEntity,"crullUpgrade03")) obj_inventory.crullUpgrade_list[3] = _loadEntity.crullUpgrade03;
+if (variable_struct_exists(_loadEntity,"crullUpgrade04")) obj_inventory.crullUpgrade_list[4] = _loadEntity.crullUpgrade04;
 
 //Load Crull Flowers
 if (variable_struct_exists(_loadEntity,"crullS000")) obj_inventory.crullS_list[0] = _loadEntity.crullS000;
@@ -72,6 +78,12 @@ crullStone15 : obj_inventory.crullStone_list[15],
 crullStone16 : obj_inventory.crullStone_list[16],
 crullStone17 : obj_inventory.crullStone_list[17],
 
+//Crull Upgrades
+crullUpgrade00 : obj_inventory.crullUpgrade_list[0],
+crullUpgrade01 : obj_inventory.crullUpgrade_list[1],
+crullUpgrade02 : obj_inventory.crullUpgrade_list[2],
+crullUpgrade03 : obj_inventory.crullUpgrade_list[3],
+crullUpgrade04 : obj_inventory.crullUpgrade_list[4],
 
 
 //Save Crull Flowers

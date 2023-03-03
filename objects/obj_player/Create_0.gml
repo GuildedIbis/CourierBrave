@@ -73,6 +73,7 @@ energy = 20; //max_roll_timer = 180 - stamina
 might = 20; //added to weapon damage
 grace = 20; //the base to weapon damage
 max_crull_stone = 1;
+crull_level = 1;
 armor = 0; //negates damage in enemy damage calc
 //
 //

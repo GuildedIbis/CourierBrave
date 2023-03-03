@@ -7,6 +7,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 {
 	if (locked = false) and (global.aggroCounter <= 0)
 	{
+		show_debug_message(obj_player.crull_level)
 		if (room_num != -1)
 		{
 			obj_game.room_num = room_num;

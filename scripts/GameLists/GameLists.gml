@@ -17,6 +17,9 @@ chest_list = array_create(50,false)
 function CrullList(){
 crullStone_list = array_create(18,false);
 crullStone_list[0] = true;
+crullUpgrade_list = array_create(5,false);
+crullUpgrade_list[0] = true;
+
 crullS_list = array_create(50,false);
 crullM_list = array_create(50,false);
 

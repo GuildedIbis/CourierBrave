@@ -135,6 +135,9 @@ PlayerAnimation();
 
 if (animation_end)
 {
+	crull_stone = crull_stone - 1;
+	hp = hp + (75 + 25 * crull_level);
+	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;
 	animation_end = false;
 }
