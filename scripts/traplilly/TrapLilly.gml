@@ -5,14 +5,14 @@
 //
 //
 //Sabi Create
-function TrapLillyCreate(){
-home_state = TrapLillyFree;
+function TrapLilyCreate(){
+home_state = TrapLilyFree;
 entity_step = home_state;
-entity_drop = TrapLillyDrop;
-enemy_idle = spr_enemy_trapLilly;
-enemy_move = spr_enemy_trapLilly;
-enemy_damaged = spr_enemy_trapLilly;
-damaged_snd = snd_trapLilly_hit;
+entity_drop = TrapLilyDrop;
+enemy_idle = spr_enemy_trapLily;
+enemy_move = spr_enemy_trapLily;
+enemy_damaged = spr_enemy_trapLily;
+damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
 shadow = 0;
 targeted = false;
@@ -43,7 +43,7 @@ path = -1;
 //
 //
 //Sabi Free
-function TrapLillyFree(){
+function TrapLilyFree(){
 
 if (obj_game.gamePaused = false)
 {
@@ -86,7 +86,7 @@ if (obj_game.gamePaused = false)
 			{
 				special_timer = 180;
 				timer2 = 36;
-				entity_step = TrapLillyBubbleFlail
+				entity_step = TrapLilyBubbleFlail
 			}
 		}
 	}
@@ -113,15 +113,15 @@ else path_end();
 //
 //
 //
-//Trap Lilly Bubble Flail
-function TrapLillyBubbleFlail(){
+//Trap Lily Bubble Flail
+function TrapLilyBubbleFlail(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (sprite_index != spr_enemy_trapLilly_open)
+	if (sprite_index != spr_enemy_trapLily_open)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_trapLilly_open;
+		sprite_index = spr_enemy_trapLily_open;
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
@@ -151,7 +151,7 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation1();
 	if (animation_end)
 	{
-		entity_step = TrapLillyExposed;
+		entity_step = TrapLilyExposed;
 		animation_end = false;
 	}
 }
@@ -161,14 +161,14 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Trap Lilly Exposed
-function TrapLillyExposed(){
+//Trap Lily Exposed
+function TrapLilyExposed(){
 if (obj_game.gamePaused = false)
 {
-	if (sprite_index != spr_enemy_trapLilly_exposed)
+	if (sprite_index != spr_enemy_trapLily_exposed)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_trapLilly_exposed;
+		sprite_index = spr_enemy_trapLily_exposed;
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
@@ -191,7 +191,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Sabi Drop
-function TrapLillyDrop(){
+function TrapLilyDrop(){
 var _objects = 2;
 var _dropBean = 35;
 var _drop1 = irandom_range(0,99)	

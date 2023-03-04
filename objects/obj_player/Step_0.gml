@@ -17,6 +17,7 @@ input_dir = point_direction(0,0,key_right - key_left, key_down - key_up);
 input_mag = (key_right - key_left != 0) or (key_down - key_up != 0);
 flash = max(flash-0.05,0);
 
+if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
 //State
 if (obj_game.gamePaused = false)
 {
@@ -29,6 +30,7 @@ if (hp <= 0)
 {
 
 	state_script = PlayerDeath;
+	script_execute(RoomEnemiesReset);
 }
 
 //Status Effects

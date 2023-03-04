@@ -298,9 +298,13 @@ if (_hits > 0)
 			{
 				if (invincible = false) and (dead = false)
 				{
-					inv_dur_timer = 30;
-					audio_sound_gain(snd_player_hit,global.volumeEffects,1);
-					audio_play_sound(snd_player_hit,0,false);
+					inv_dur_timer = 15;
+					if (dmg_snd_delay <= 0)
+					{
+						dmg_snd_delay = 15;
+						audio_sound_gain(snd_player_hit,global.volumeEffects,1);
+						audio_play_sound(snd_player_hit,0,false);
+					}
 					var _damageTaken = max(1,other.damage - armor);
 					hp = hp - _damageTaken;
 					flash = .7;

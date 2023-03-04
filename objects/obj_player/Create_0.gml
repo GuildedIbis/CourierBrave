@@ -41,6 +41,8 @@ z = 0;
 walk_snd = snd_walk_regular;
 walk_snd_delay = 0;
 atk_snd_delay = 0;
+dmg_snd = snd_player_hit;
+dmg_snd_delay = 0;
 //
 //
 //

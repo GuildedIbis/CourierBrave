@@ -31,8 +31,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "MotherLilly",
-    "path": "folders/Sprites/Enemy/Lenko/Habraf/MotherLilly.yy",
+    "name": "MotherLily",
+    "path": "folders/Sprites/Enemy/Lenko/Habraf/MotherLily.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

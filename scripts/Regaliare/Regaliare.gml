@@ -1152,11 +1152,11 @@ draw_sprite_stretched(spr_menu,3,196,110,32,16);
 draw_sprite(spr_weapons_allGame,0,70,42);
 draw_sprite(spr_armor_allGame,0,70,76);
 draw_sprite(spr_magic_allGame,0,162,42);
-draw_sprite(spr_special_allGame,0,162,76);
+if (obj_inventory.form_grid[# 0, 8] > 0) draw_sprite(spr_special_allGame,0,162,76);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 5]-1,70,63);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 6]-1,70,97);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 7]-1,162,63);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 8]-1,162,97);
+if (obj_inventory.form_grid[# 0, 8] > 0)  draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 8]-1,162,97);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_transformed(115,118,"REGALIARE",.35,.35,0);
@@ -1171,7 +1171,7 @@ draw_text_transformed(104,76,_armorText,.35,.35,0);
 var _magicText = "MAGIC: R-CLICK\nRapidly fire small\ngolden projectiles that\nbreak on inpact and deal\n" + string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5))) + " damage per hit."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
 var _specialText = "SPECIAL: SHIFT\n2 gold arcs that\nspin around the player,\ndealing " + string(obj_player.grace + (6 * (obj_inventory.form_grid[# 0, 8] - 1))) + " damage\nper hit with knockback."
-draw_text_transformed(196,76,_specialText,.35,.35,0);
+if (obj_inventory.form_grid[# 0, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);
 
 
 

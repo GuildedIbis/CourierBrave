@@ -6,5 +6,5 @@ if (place_meeting(x,y,obj_player))
 	draw_text_transformed(298,30,"Press \"E\" to pickup",.5,.5,0)
 	draw_sprite(spr_menu_square16,0,300,24)
 	draw_set_color(c_white);
-	draw_sprite(sprite_index,image_index,308,36)
+	draw_sprite(sprite_index,image_index,308,32)
 }

@@ -19,7 +19,7 @@ if (variable_struct_exists(_loadEntity,"yakflower00")) obj_inventory.yakflower_l
 if (variable_struct_exists(_loadEntity,"yakflower01")) obj_inventory.yakflower_lair[1] = _loadEntity.yakflower01;
 if (variable_struct_exists(_loadEntity,"yakflower02")) obj_inventory.yakflower_lair[2] = _loadEntity.yakflower02;
 if (variable_struct_exists(_loadEntity,"yakflower03")) obj_inventory.yakflower_lair[3] = _loadEntity.yakflower03;
-if (variable_struct_exists(_loadEntity,"yakflower04")) obj_inventory.yakflower_lair[3] = _loadEntity.yakflower04;
+if (variable_struct_exists(_loadEntity,"yakflower04")) obj_inventory.yakflower_lair[4] = _loadEntity.yakflower04;
 
 
 
@@ -51,7 +51,7 @@ habraf00 : obj_inventory.habraf_lair[0],
 habraf01 : obj_inventory.habraf_lair[1],
 habraf02 : obj_inventory.habraf_lair[2],
 habraf03 : obj_inventory.habraf_lair[3],
-habraf03 : obj_inventory.habraf_lair[4],
+habraf04 : obj_inventory.habraf_lair[4],
 //Yakflower
 yakflower00 : obj_inventory.yakflower_lair[0],
 yakflower01 : obj_inventory.yakflower_lair[1],

@@ -477,19 +477,19 @@ if (timer2 <= 0)
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
+		var _bubbleRand = irandom_range(0,3);
 		break_object = obj_player.break_object;
 		fragment_count = 1;
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]-1)*(1));//
+		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
 		idle_sprite = spr_ceriver_polyorb;
-		image_index = irandom_range(0,3);
+		image_index = _bubbleRand;
 		projectile_speed = 3.0 + (.5 * image_index);
 		image_speed = 0;
-		damage = damage + ((obj_inventory.form_grid[# 1, 7]) * image_index);
 		hit_by_attack = -1;
 		speed = projectile_speed;
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
@@ -692,6 +692,11 @@ if (cast = false)
 		cast = true;
 		damage = (round(obj_player.grace/2)*_stage)  + ((obj_inventory.form_grid[# 1, 7])*(4)*(_stage));
 		direction = (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 		with (obj_player)
@@ -931,7 +936,7 @@ switch (obj_inventory.form_grid[# 1, 5])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 5] = 2;
+						obj_inventory.form_grid[# 1, 5] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 5, 5);
 						ItemRemove(obj_inventory, 4, 1);
@@ -969,7 +974,7 @@ switch (obj_inventory.form_grid[# 1, 5])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 5] = 3;
+						obj_inventory.form_grid[# 1, 5] = 3;
 						ItemRemove(obj_inventory, 15, 5);
 						ItemRemove(obj_inventory, 15, 1);
 						ItemRemove(obj_inventory, 4, 5);
@@ -1375,11 +1380,11 @@ draw_sprite_stretched(spr_menu,3,196,110,32,16);
 draw_sprite(spr_weapons_allGame,1,70,42);
 draw_sprite(spr_armor_allGame,1,70,76);
 draw_sprite(spr_magic_allGame,1,162,42);
-draw_sprite(spr_special_allGame,1,162,76);
+if (obj_inventory.form_grid[# 1, 8] > 0) draw_sprite(spr_special_allGame,1,162,76);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 5]-1,70,63);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 6]-1,70,97);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 7]-1,162,63);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 8]-1,162,97);
+if (obj_inventory.form_grid[# 1, 8] > 0) draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 8]-1,162,97);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_transformed(115,118,"CERIVER",.35,.35,0);
@@ -1391,10 +1396,10 @@ var _weaponText = "WEAPON: L-CLICK\nThrow a boomerang for\n" + string(obj_player
 draw_text_transformed(104,42,_weaponText,.35,.35,0);
 var _armorText = "ARMOR: PASSIVE\nBlock " + string(9 + (5 * (obj_inventory.form_grid[# 1, 6] -1))) + " incoming\ndamage."
 draw_text_transformed(104,76,_armorText,.35,.35,0);
-var _magicText = "MAGIC: R-CLICK\nFire a projectile that\ngrows if held.\nRelease to fire for\n" + string((round(obj_player.grace/2))  + ((obj_inventory.form_grid[# 1, 7])*(4))) + "-" + string((round(obj_player.grace/2)*4)  + ((obj_inventory.form_grid[# 1, 7])*(4)*(4))) + "damage."
+var _magicText = "MAGIC: R-CLICK\nRapidly fire bubbles of\nvarious size, between" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(3))) + "damage."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
 var _specialText = "SPECIAL: SHIFT\nShoot 3 projectiles\nthat heal a 1/4\nof the" + string(obj_player.grace + (12 * obj_inventory.form_grid[# 1, 8])) + " damage\ndealt."
-draw_text_transformed(196,76,_specialText,.35,.35,0);
+if (obj_inventory.form_grid[# 1, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);
 
 
 

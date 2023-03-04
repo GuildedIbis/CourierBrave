@@ -279,19 +279,6 @@ if (animation_end)
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharging(){
-//if (roll_energy < max_roll_energy) //Roll Recharge
-//{
-//	if (energy_timer > 0) energy_timer = energy_timer - 1;
-//	if (energy_timer <= 0) 
-//	{
-//		energy_timer = 3;
-//		roll_energy = roll_energy + 1;
-//	}
-//}
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
 
 //Set
 attacking = true;
@@ -341,19 +328,7 @@ if (mouse_check_button_released(mb_right))
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharged(){
-//if (roll_energy < max_roll_energy) //Roll Recharge
-//{
-//	if (energy_timer > 0) energy_timer = energy_timer - 1;
-//	if (energy_timer <= 0) 
-//	{
-//		energy_timer = 3;
-//		roll_energy = roll_energy + 1;
-//	}
-//}
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
+
 attacking = true;
 ability_charge = ability_charge + 1;
 
@@ -399,28 +374,14 @@ if (mouse_check_button_released(mb_right))
 //
 //Halofire Hamaxe State
 function HalofireHamaxeBackswing(){
-//if (roll_energy < max_roll_energy) //Roll Recharge
-//{
-//	if (energy_timer > 0) energy_timer = energy_timer - 1;
-//	if (energy_timer <= 0) 
-//	{
-//		energy_timer = 3;
-//		roll_energy = roll_energy + 1;
-//	}
-//}
-if (special_timer < max_special_timer) and (watervice = false)
-{
-	special_timer = special_timer + 1;
-}
+
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
-//weapon_sprite = spr_weapon_fayaniBlade;
+
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	//audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
@@ -464,22 +425,10 @@ if (animation_end)
 //
 //Halofire Hamaxe State
 function HalofireHamaxeBackswingCharged(){
-//if (roll_energy < max_roll_energy) //Roll Recharge
-//{
-//	if (energy_timer > 0) energy_timer = energy_timer - 1;
-//	if (energy_timer <= 0) 
-//	{
-//		energy_timer = 3;
-//		roll_energy = roll_energy + 1;
-//	}
-//}
-if (special_timer < max_special_timer) and (watervice = false)
-{
-	special_timer = special_timer + 1;
-}
+
+//Set
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
-
 
 
 //Attack Start
@@ -522,7 +471,7 @@ if (animation_end)
 function HalofireMeteorSling(){
 walk_spd = 1.2;
 attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
+
 
 
 //Timers
@@ -537,10 +486,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	}
 }
 if (timer2 > 0) timer2 = timer2 - 1;
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
+
 
 //Movement 1: Set
 hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
@@ -1488,11 +1434,11 @@ draw_sprite_stretched(spr_menu,3,196,110,32,16);
 draw_sprite(spr_weapons_allGame,3,70,42);
 draw_sprite(spr_armor_allGame,3,70,76);
 draw_sprite(spr_magic_allGame,3,162,42);
-draw_sprite(spr_special_allGame,3,162,76);
+if (obj_inventory.form_grid[# 3, 8] > 0) draw_sprite(spr_special_allGame,3,162,76);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 5]-1,70,63);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 6]-1,70,97);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 7]-1,162,63);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 8]-1,162,97);
+if (obj_inventory.form_grid[# 3, 8] > 0) draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 8]-1,162,97);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_transformed(115,118,"HALOFIRE",.35,.35,0);
@@ -1507,7 +1453,7 @@ draw_text_transformed(104,76,_armorText,.35,.35,0);
 var _magicText = "MAGIC: R-CLICK\nShoot meteors that\nbreak on inpact and deal\n" + string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5))) + " damage per hit."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
 var _specialText = "SPECIAL: SHIFT\nShoot a large spinning\nspark that shoots out\nsmaller sparks, dealing\n" + string(obj_player.grace + (10 * obj_inventory.form_grid[# 3, 8])) + " and " + string(round(obj_player.grace/2)) + "damage.";
-draw_text_transformed(196,76,_specialText,.35,.35,0);
+if (obj_inventory.form_grid[# 3, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);
 
 
 

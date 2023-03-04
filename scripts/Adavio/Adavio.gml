@@ -1287,11 +1287,11 @@ draw_sprite_stretched(spr_menu,3,196,110,32,16);
 draw_sprite(spr_weapons_allGame,2,70,42);
 draw_sprite(spr_armor_allGame,2,70,76);
 draw_sprite(spr_magic_allGame,2,162,42);
-draw_sprite(spr_special_allGame,2,162,76);
+if (obj_inventory.form_grid[# 2, 8] > 0) draw_sprite(spr_special_allGame,2,162,76);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 5]-1,70,63);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 6]-1,70,97);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 7]-1,162,63);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 8]-1,162,97);
+if (obj_inventory.form_grid[# 2, 8] > 0) draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 8]-1,162,97);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text_transformed(115,118,"ADAVIO",.35,.35,0);
@@ -1299,14 +1299,14 @@ draw_text_transformed(178,118,"EQUIP",.35,.35,0);
 draw_text_transformed(212,118,"BACK",.35,.35,0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-var _weaponText = "WEAPON: L-CLICK\nA forward thrust that does\n" + string(round(obj_player.might) + ((obj_inventory.form_grid[# 2, 5])*(7))) + " damage per hit.\nShoots a damage slash forward."
+var _weaponText = "WEAPON: L-CLICK\nA forward thrust that does\n" + string(round(obj_player.might) + (obj_inventory.form_grid[# 2, 5])*(7)) + " damage per hit.\nShoots a damage slash forward."
 draw_text_transformed(104,42,_weaponText,.35,.35,0);
 var _armorText = "ARMOR: PASSIVE\nBlock " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6] -1))) + " incoming\ndamage."
 draw_text_transformed(104,76,_armorText,.35,.35,0);
-var _magicText = "MAGIC: R-CLICK\nA wide spread of orange void bits that\nbreak on inpact and deal\n" + string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 2, 7]-1)*(5))) + " damage per hit."
+var _magicText = "MAGIC: R-CLICK\nA wide spread of orange void bits that\nbreak on inpact and deal\n" + string(round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8))) + " damage each."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
-var _specialText = "SPECIAL: SHIFT\n2 gold arcs that\nspin around the player,\ndealing " + string(obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8] - 1))) + " damage\nper hit with knockback."
-draw_text_transformed(196,76,_specialText,.35,.35,0);
+var _specialText = "SPECIAL: ???" + string(obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8] - 1))) + " damage\nper hit with knockback."
+if (obj_inventory.form_grid[# 2, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);
 
 
 

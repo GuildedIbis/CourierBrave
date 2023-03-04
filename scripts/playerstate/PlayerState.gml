@@ -241,6 +241,15 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
+if (charge < max_charge) and (watervice = false)//charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
 if (magic_timer > 0) and (voidsick = false)
 {
 	magic_timer = magic_timer - 1;
