@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "Tools",
-    "path": "folders/Scripts/Player/xWeapons/Game/Tools.yy",
+    "path": "folders/Sprites/Game/Tools.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

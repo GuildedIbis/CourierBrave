@@ -27,7 +27,7 @@
   "origin": 4,
   "parent": {
     "name": "Icon",
-    "path": "folders/Scripts/Player/xWeapons/Game/Icon.yy",
+    "path": "folders/Sprites/Game/Icon.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -31,7 +31,7 @@
   "origin": 0,
   "parent": {
     "name": "MapMenu",
-    "path": "folders/Scripts/Player/xWeapons/Game/Menu/MapMenu.yy",
+    "path": "folders/Sprites/Game/Menu/MapMenu.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

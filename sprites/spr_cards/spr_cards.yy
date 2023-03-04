@@ -59,7 +59,7 @@
   "origin": 0,
   "parent": {
     "name": "CardGame",
-    "path": "folders/Scripts/Player/xWeapons/Game/CardGame.yy",
+    "path": "folders/Sprites/Game/CardGame.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -301,13 +301,13 @@ if (page = 0)
 	draw_text_transformed(105,52,"Tab - Open the player menu: inventory, equipment, stats.",.35,.35,0);
 	draw_text_transformed(105,62,"W,S,A,D - Up, Down, Left, Right. The direction the\nplayer is facing and moving.",.35,.35,0);
 	draw_text_transformed(105,82,"C - Use a Crull Stone to restore 100 health. Return to a\ncamp to restore Crull stones and health.",.35,.35,0);
-	draw_text_transformed(105,102,"R - Recharge magic skill",.35,.35,0);
+	draw_text_transformed(105,102,"R - Potion (coming soon)",.35,.35,0);
 	draw_set_color(c_white);
 	draw_text_transformed(104,42,"ESC - Open the game menu: settings, save, and quite.",.35,.35,0);
 	draw_text_transformed(104,52,"Tab - Open the player menu: inventory, equipment, stats.",.35,.35,0);
 	draw_text_transformed(104,62,"W,S,A,D - Up, Down, Left, Right. The direction the\nplayer is facing and moving.",.35,.35,0);
 	draw_text_transformed(104,82,"C - Use a Crull Stone to restore 100 health. Return to a\ncamp to restore Crull stones and health.",.35,.35,0);
-	draw_text_transformed(104,102,"R - Recharge magic skill",.35,.35,0);
+	draw_text_transformed(104,102,"R - Potion (coming soon)",.35,.35,0);
 
 
 }
@@ -331,15 +331,15 @@ if (page = 1)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_black);
-	draw_text_transformed(105,42,"L Mouse - Use weapon. ",.35,.35,0);
-	draw_text_transformed(105,52,"R Mouse - Use magic.",.35,.35,0);
-	draw_text_transformed(105,62,"Shift - Use special.",.35,.35,0);
+	draw_text_transformed(105,42,"L Mouse - Use magic skill. ",.35,.35,0);
+	draw_text_transformed(105,52,"R Mouse - Use weapon skill.",.35,.35,0);
+	draw_text_transformed(105,62,"Shift - Use special skill (unlock).",.35,.35,0);
 	draw_text_transformed(105,72,"Space - Roll.",.35,.35,0);
 	draw_set_color(c_white);
-	draw_text_transformed(104,42,"L Mouse - Use weapon.",.35,.35,0);
-	draw_text_transformed(104,52,"R Mouse - Use magic.",.35,.35,0);
-	draw_text_transformed(104,62,"Shift - Use special.",.35,.35,0);
-	draw_text_transformed(104,72,"Space - Roll",.35,.35,0);
+	draw_text_transformed(104,42,"L Mouse - Use magic skill. ",.35,.35,0);
+	draw_text_transformed(104,52,"R Mouse - Use weapon skill.",.35,.35,0);
+	draw_text_transformed(104,62,"Shift - Use special skill (unlock).",.35,.35,0);
+	draw_text_transformed(104,72,"Space - Roll.",.35,.35,0);
 
 }
 draw_sprite(spr_scroll_bar2,page,242,41)

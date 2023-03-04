@@ -10,13 +10,13 @@ kephra_grid = ds_grid_create(60,3);
 
 kephra_grid[# 0, 0] = KephraStoneIntroA;
 kephra_grid[# 0, 1] = false;
-kephra_grid[# 0, 2] = "Press C to use a Crull Stone. It heals damage the\nCourier has taken.\nLeft click to use the Courier's weapon."
+kephra_grid[# 0, 2] = "Press C to use a Crull Stone. It heals damage the\nCourier has taken.\nLeft click to use the Courier's magic skill."
 kephra_grid[# 1, 0] = KephraStoneIntroB;
 kephra_grid[# 1, 1] = false
-kephra_grid[# 1, 2] = "Right click to use the Courier's magic skill.\nPress R to recharge the Courier's magic skill."
+kephra_grid[# 1, 2] = "Right click to user the Couriers weapon skill.\nPress Space to roll. It grans breif invincibility."
 kephra_grid[# 2, 0] = KephraStoneIntroC;
 kephra_grid[# 2, 1] = false
-kephra_grid[# 2, 2] = "Press Shift to use the Courier's special skill.\nIt recharges on a timer.\nPress Space to roll. It grans breif invincibility."
+kephra_grid[# 2, 2] = "Press Shift to use the Courier's special skill.\nPress R to use a potion (coming soon)"
 kephra_grid[# 3, 0] = KephraStoneUpgrades;
 kephra_grid[# 3, 1] = false
 kephra_grid[# 3, 2] = "The Courier can spend Beans (enemy drops) to level\nstats at alters.\nSkills can be leveled speaking to certain NPC's"
@@ -112,7 +112,7 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
 draw_text_transformed(69 + _shiftX,107 + _shiftY,"Crull Stone Heal - Heal 100 damage.\nReturn to a camp room to restore\nCrull Stones.",.35,.35,0);
-draw_text_transformed(164 + _shiftX,107 + _shiftY,"Weapon skills effectiveness\ndetermined by Might stat and\nweapon level.",.35,.35,0);
+draw_text_transformed(164 + _shiftX,107 + _shiftY,"Magic skills use up charge that refills\nover time. Effectiveness determined\n by Grace stat.",.35,.35,0);
 //draw_set_color(c_white);
 //draw_text_transformed(68 + _shiftX,107 + _shiftY,"Roll Dodge - Move faster and become\ninvincible for a breif window.\nAutomatically recharges with time.",.35,.35,0);
 //draw_text_transformed(163 + _shiftX,107 + _shiftY,"Crull Stone Heal - Heal 100 damage.\nReturn to a camp room to restore\nCrull Stones.",.35,.35,0);
@@ -136,8 +136,9 @@ draw_set_font(fnt_text);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
-draw_text_transformed(69 + _shiftX,107 + _shiftY,"Magic skills can be used a number of\ntimes. Effectiveness determined by\nGrace stat.",.35,.35,0);
-draw_text_transformed(164 + _shiftX,107 + _shiftY,"Recharge magic skill charge to\nmaximum. Max amount increased by\nleveling magic skill.",.35,.35,0);
+draw_text_transformed(69 + _shiftX,107 + _shiftY,"Weapon skills effectiveness\ndetermined by Might stat and\nweapon level.",.35,.35,0);
+draw_text_transformed(164 + _shiftX,107 + _shiftY,"Rolling Uses energy which recharges\nwith time. Grants invincibility.",.35,.35,0);
+
 //draw_set_color(c_white);
 //draw_text_transformed(68 + _shiftX,107 + _shiftY,"Slash - Swing the sword for damage.\ndamage = might + (11 x weapon power)",.35,.35,0);
 //draw_text_transformed(163 + _shiftX,107 + _shiftY,"Gold Arc - Shot a projectile that",.35,.35,0);
@@ -162,7 +163,7 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
 draw_text_transformed(69 + _shiftX,107 + _shiftY,"The special skill recharges with time.\nEffectiveness determined by varying\nstats.",.35,.35,0);
-draw_text_transformed(164 + _shiftX,107 + _shiftY,"Uses energy which recharges with\ntime. Grants invincibility.",.35,.35,0);
+draw_text_transformed(164 + _shiftX,107 + _shiftY,"Potions can have a variety of\ndiffernt effects, like healing, restoring magic\nand more.",.35,.35,0);
 //draw_set_color(c_white);
 //draw_text_transformed(68 + _shiftX,107 + _shiftY,"Meteor Shot - Damage",.35,.35,0);
 //draw_text_transformed(163 + _shiftX,107 + _shiftY,"Meteor Slam - Damage",.35,.35,0);
