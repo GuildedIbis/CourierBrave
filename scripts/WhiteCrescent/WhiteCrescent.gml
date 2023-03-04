@@ -53,8 +53,12 @@ if (obj_game.gamePaused = false)
 		{
 			if (invincible = false)
 			{
-				audio_sound_gain(snd_player_hit,global.volumeEffects,1);
-				audio_play_sound(snd_player_hit,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
 				flash = .35;
 				hp = hp - (other.damage - armor);
 				
