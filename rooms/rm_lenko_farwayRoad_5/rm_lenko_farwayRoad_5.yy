@@ -194,7 +194,6 @@
     {"name":"inst_1CD7490C","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
     {"name":"inst_6A6207A9","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
     {"name":"inst_31438096","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
-    {"name":"inst_3675A38D","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
     {"name":"inst_41C9F74A","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
     {"name":"inst_7BE6EBA","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
     {"name":"inst_4948F471","path":"rooms/rm_lenko_farwayRoad_5/rm_lenko_farwayRoad_5.yy",},
@@ -385,11 +384,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"4",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":312.0,"y":96.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3675A38D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"BalurneHunterCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":344.0,"y":120.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_41C9F74A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"BalurneHunterCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
