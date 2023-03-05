@@ -15,7 +15,7 @@
   ],
   "parent": {
     "name": "Environment",
-    "path": "folders/Objects/Fragments/Environment.yy",
+    "path": "folders/Objects/Effects/Environment.yy",
   },
   "parentObjectId": {
     "name": "obj_environment",

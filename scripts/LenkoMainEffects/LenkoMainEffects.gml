@@ -242,21 +242,31 @@ image_yscale = 1;
 //Effect Lekno Lake Path Rat Tent Create
 function EffectRatTentCreate(){
 image_speed = 0;
-with (instance_create_layer(x-16,y-18,"Wall",obj_wall))
+with (instance_create_layer(x-20,y-16,"Wall",obj_wall))
 {
-	image_xscale = 4;
-	image_yscale = 2.25;
+	image_xscale = 5;
+	image_yscale = 2.5;
 	game_paused_image_speed = image_speed;
 }
 if (break_object != -1)
 {
-	with (instance_create_layer(x-16,y-18,"Break",break_object))
+	with (instance_create_layer(x-20,y-16,"Break",break_object))
 	{
-		image_xscale = 4;
-		image_yscale = 1;
+		image_xscale = 5;
+		image_yscale = 1.25;
 		game_paused_image_speed = image_speed;
 	}
 }
+//Set Shadow
+shadow = true;
+sx1 = x - 6;
+sy1 = y - 30;
+sx2 = x + 32;
+sy2 = y - 30;
+sx3 = x + 16;
+sy3 = y + 8;
+sx4 = x - 16;
+sy4 = y + 8;
 }
 //
 //
@@ -265,7 +275,7 @@ if (break_object != -1)
 //
 //Effect Rat Tent L Step
 function EffectRatTentL(){
-frag = false
+
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
@@ -295,7 +305,7 @@ depth = -y;
 //
 //Effect Rat Tent R Step
 function EffectRatTentR(){
-frag = false
+
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
@@ -318,4 +328,72 @@ else
 }
 depth = -y;
 }
+//
+//
+//
+//
+//
+//Effect Statue Moth Create [Farway Road 7]
+function EffectStatueMothCreate(){
+image_speed = 0;
+sprite_index = spr_statue_moth;
+//Create Collision
+with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
+{
+	image_xscale = 4;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-16,y-8,"Break",break_object))
+	{
+		image_xscale = 4;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
 
+//Set Shadow
+shadow = true;
+sx1 = x - 6;
+sy1 = y - 30;
+sx2 = x + 32;
+sy2 = y - 30;
+sx3 = x + 16;
+sy3 = y + 8;
+sx4 = x - 16;
+sy4 = y + 8;
+
+
+event_inherited();
+}
+//
+//
+//
+//
+//
+//Effect Statue Moth
+function EffectStatueMoth(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_statue_moth;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+}

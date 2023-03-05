@@ -13,7 +13,7 @@
   ],
   "parent": {
     "name": "Items",
-    "path": "folders/Objects/Fragments/Items.yy",
+    "path": "folders/Objects/Effects/Items.yy",
   },
   "parentObjectId": {
     "name": "obj_fragment",

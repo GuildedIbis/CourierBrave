@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Fragments",
-    "path": "folders/Objects/Fragments/Fragments.yy",
+    "path": "folders/Objects/Effects/Fragments.yy",
   },
   "parentObjectId": null,
   "persistent": false,

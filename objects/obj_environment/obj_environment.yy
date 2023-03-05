@@ -12,7 +12,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Environment",
-    "path": "folders/Objects/Fragments/Environment.yy",
+    "path": "folders/Objects/Effects/Environment.yy",
   },
   "parentObjectId": null,
   "persistent": false,
