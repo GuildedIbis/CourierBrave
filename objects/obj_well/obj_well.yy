@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_effect_houseAbandoned",
+  "name": "obj_well",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_house_abandonedFront",
-    "path": "sprites/spr_house_abandonedFront/spr_house_abandonedFront.yy",
+    "name": "spr_well",
+    "path": "sprites/spr_well/spr_well.yy",
   },
   "spriteMaskId": null,
   "visible": true,

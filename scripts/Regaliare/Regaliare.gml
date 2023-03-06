@@ -52,7 +52,7 @@ hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
 ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -81,11 +81,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
-if (magic_timer > 0)
+if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0) //Special Recharge
 {
 	if (special_timer < max_special_timer)
 	{
@@ -115,7 +119,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 PlayerAnimation();
 
 
-//Melee Attack
+//Weapon Skill
 if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 20)
@@ -127,23 +131,19 @@ if (key_attackW)
 	}
 }
 
-//Magic Attack
+//Magic Skill
 if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
 		if (magic_primary = true) and (charge >= 5)
 		{
-			timer2 = 0;
-			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 			max_charge = 50 + (3 * grace);
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 10)
 		{
-			timer2 = 0;
-			//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 			max_charge = 50 + (3 * grace);
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -216,9 +216,11 @@ if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 //
 //Regaliare Slash State
 function RegaliareSlash(){
+//Set
 attacking = true;
 damage = might + (11 * obj_inventory.form_grid[# 0, 5]);
-//weapon_sprite = spr_weapon_fayaniBlade;
+
+//Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -226,10 +228,26 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (special_timer < max_special_timer) and (watervice = false)
+if (charge < max_charge) and (watervice = false)//Charge Recharge
 {
-	special_timer = special_timer + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
 }
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1; 
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}//if (special_timer < max_special_timer) and (watervice = false)
+//{
+//	special_timer = special_timer + 1;
+//}
 
 
 //Attack Start
@@ -260,7 +278,6 @@ if (animation_end)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-	
 }
 }
 //
@@ -275,7 +292,7 @@ attacking = true;
 //weapon_sprite = spr_spiritStone_meteor;
 
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -286,7 +303,23 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 > 0) timer2 = timer2 - 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
 //	special_timer = special_timer + 1;
@@ -344,10 +377,10 @@ switch(_dirPos)
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
+if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 5;
+	charge = charge - 7;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -371,7 +404,6 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	timer2 = 10;
 	magic_timer = 10;
 }
 
@@ -385,7 +417,6 @@ if (mouse_check_button(mb_left) = false) or (charge < 5)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-	magic_timer = 10;
 }
 }
 //
@@ -444,7 +475,23 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 > 0) timer2 = timer2 - 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
 //	special_timer = special_timer + 1;
@@ -502,7 +549,7 @@ switch(_dirPos)
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
+if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 2;
 	charge = charge - 10;
@@ -529,7 +576,6 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	timer2 = 15;
 	magic_timer = 15;
 }
 
@@ -544,6 +590,8 @@ if (mouse_check_button(mb_left) = false) or (charge < 10)
 	animation_end = false;
 	atk_snd_delay = 0;
 }
+
+//End Regaliare Heavy Burst Magic State
 }
 //
 //
@@ -574,6 +622,7 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 	instance_destroy();
 }
 
+//End Player Projectile (Regaliare Heavy Bullet) Free State
 }
 //
 //
@@ -582,9 +631,10 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 //
 //Regaliare Special State
 function RegaliareSpecial(){
-//
-//Timers
-if (timer2 > 0) timer2 = timer2 - 1;
+//Set
+attacking = true;
+
+//Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -592,9 +642,34 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0)
 	atk_snd_delay = 20;
 }
-//
-//State
-attacking = true;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+
+//Initiate Attack
 if (sprite_index != spr_player_regaliare_cast)
 {
 	//Start Animation From Beginning
@@ -606,7 +681,8 @@ if (sprite_index != spr_player_regaliare_cast)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
-//
+
+
 //Animation
 PlayerAnimation();
 if (animation_end)
@@ -633,6 +709,8 @@ if (animation_end)
 	animation_end = false;
 	atk_snd_delay = 0;
 }
+
+//End Regaliare Special State
 }
 //
 //

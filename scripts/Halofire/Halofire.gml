@@ -73,7 +73,7 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
@@ -82,9 +82,13 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
-if (magic_timer > 0)
+if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
@@ -137,16 +141,12 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (charge >= 18)
 		{
-			timer2 = 0;
-			//max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 30)
 		{
-			timer2 = 0;
 			max_attack_counter = floor(charge/30)
-			//max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
 			attack_script = HalofireTriRock;
 			state_script = PlayerStateAttack;
 		}
@@ -221,7 +221,7 @@ function HalofireHamaxe(){
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
 
-//Timed Sound Effect
+//Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -231,7 +231,23 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe)
@@ -282,7 +298,34 @@ function HalofireHamaxeCharging(){
 
 //Set
 attacking = true;
-ability_charge = ability_charge + 1;
+
+//Standard Timers
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe_charging)
@@ -297,7 +340,7 @@ if (sprite_index != spr_player_halofire_hamaxe_charging)
 	ds_list_clear(hit_by_attack);
 }
 
-if (ability_charge >= 90)
+if (melee_timer <= 0)
 {
 	state_script = HalofireHamaxeCharged
 }
@@ -311,7 +354,7 @@ if (mouse_check_button_released(mb_right))
 	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (ability_charge >= 90)
+	if (melee_timer <= 0)
 	{
 		state_script = HalofireHamaxeBackswingCharged;
 	}
@@ -329,8 +372,27 @@ if (mouse_check_button_released(mb_right))
 //Halofire Hamaxe State
 function HalofireHamaxeCharged(){
 
+//Set
 attacking = true;
-ability_charge = ability_charge + 1;
+
+//Standard Timers
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 
 
@@ -357,7 +419,7 @@ if (mouse_check_button_released(mb_right))
 	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (ability_charge >= 90)
+	if (melee_timer <= 0)
 	{
 		state_script = HalofireHamaxeBackswingCharged;
 	}
@@ -374,16 +436,34 @@ if (mouse_check_button_released(mb_right))
 //
 //Halofire Hamaxe State
 function HalofireHamaxeBackswing(){
-
+//Set
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
 
+//Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
 }
 
 
@@ -425,11 +505,9 @@ if (animation_end)
 //
 //Halofire Hamaxe State
 function HalofireHamaxeBackswingCharged(){
-
 //Set
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
-
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
@@ -444,7 +522,6 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 	ds_list_clear(hit_by_attack);
 }
 
-
 //Calcuate Hit Entitites
 AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,30,-1,-1,-1,-1);
 
@@ -453,13 +530,11 @@ PlayerAnimation();
 
 if (animation_end)
 {
-	
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-
 }
 }
 //
@@ -469,10 +544,9 @@ if (animation_end)
 //
 //Halofire Meteor Sling Magic State
 function HalofireMeteorSling(){
+//Set
 walk_spd = 1.2;
 attacking = true;
-
-
 
 //Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -485,7 +559,23 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 > 0) timer2 = timer2 - 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 
 //Movement 1: Set
@@ -539,7 +629,7 @@ switch(_dirPos)
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
+if (magic_timer <= 0)
 {	
 	charge = charge - 18;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
@@ -565,7 +655,6 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	timer2 = 30;
 	magic_timer = 30;
 }
 
@@ -621,12 +710,11 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 //
 //Halofire Tri-Rock Magic State
 function HalofireTriRock(){
+//Set
 walk_spd = 1.2;
 attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
 
-
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -637,7 +725,23 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 > 0) timer2 = timer2 - 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
 //	special_timer = special_timer + 1;
@@ -694,7 +798,7 @@ switch(_dirPos)
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
+if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
 	charge = charge - 30;
@@ -721,7 +825,7 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	timer2 = 6;
+	magic_timer = 6;
 }
 
 //Animate
@@ -736,8 +840,6 @@ if (attack_counter >= max_attack_counter)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-	timer2 = 30;
-	magic_timer = 30;
 }
 }
 //
@@ -747,9 +849,10 @@ if (attack_counter >= max_attack_counter)
 //
 //Halofire Special State
 function HalofireSpecial(){
+//Set
 attacking = true;
-//weapon_sprite = spr_weapon_fayaniBlade_goldArc;
-if (timer2 > 0) timer2 = timer2 - 1;
+
+//Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -757,7 +860,32 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_special,0,0,global.volumeEffects)
 	atk_snd_delay = 20;
 }
-
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 //Attack Start
 if (sprite_index != spr_player_halofire_cast)

@@ -1,6 +1,3 @@
-//Draw
-
+//Create Effect
 
 event_inherited();
-
-

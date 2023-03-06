@@ -11,18 +11,18 @@ key_attackM = mouse_check_button_pressed(mb_left);
 key_attackW = mouse_check_button_pressed(mb_right);
 key_attackS = keyboard_check(vk_shift);
 
-
 //Movement Setup
 input_dir = point_direction(0,0,key_right - key_left, key_down - key_up);
 input_mag = (key_right - key_left != 0) or (key_down - key_up != 0);
 flash = max(flash-0.05,0);
 
-if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
+
 //State
 if (obj_game.gamePaused = false)
 {
 	script_execute(state_script);
 	depth = -y;
+	if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
 }
 
 //Death

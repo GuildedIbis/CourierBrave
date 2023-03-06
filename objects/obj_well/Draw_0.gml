@@ -1,6 +1,4 @@
 //Draw
-
-
 event_inherited();
 
 

@@ -17,11 +17,11 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 112,
+  "height": 105,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6f4a29d0-7c54-4178-9e34-c9fcd2e33d00","blendMode":0,"displayName":"Layer 7","isLocked":false,"opacity":100.0,"visible":true,},
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"acb78ff4-f280-409e-8ed6-8333caa82df3","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":false,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"acb78ff4-f280-409e-8ed6-8333caa82df3","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9aada291-a9f9-4dd4-87b4-33ad2f3773fc","blendMode":0,"displayName":"Layer 2","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
@@ -55,13 +55,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"aff22752-78b3-4bdd-9d36-46b9898ede7b","path":"sprites/spr_house_abandoned/spr_house_abandoned.yy",},},},"Disabled":false,"id":"5e7a83dc-9f21-4fda-aab3-3ad6ae9a1344","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"aff22752-78b3-4bdd-9d36-46b9898ede7b","path":"sprites/spr_house_abandoned/spr_house_abandoned.yy",},},},"Disabled":false,"id":"08a2c7cc-1117-40c8-8932-282fc1dd2f78","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 40,
-    "yorigin": 105,
+    "xorigin": 44,
+    "yorigin": 100,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -71,5 +71,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 80,
+  "width": 88,
 }

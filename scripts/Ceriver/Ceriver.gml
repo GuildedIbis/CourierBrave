@@ -30,7 +30,7 @@ special_draw = DrawCeriverSpecialUpgrade;
 weapon_count = 3;
 max_weapon_count = 3;
 magic_timer = 0;
-timer1 = 0;
+melee_timer = 0;
 walk_spd = 1.75;
 armor = 9 + (5 * (obj_inventory.form_grid[# 1, 6] -1));
 max_magic_count = 20 + (obj_inventory.form_grid[# 1, 7] * 2);
@@ -53,7 +53,7 @@ hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
 ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -73,7 +73,7 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
@@ -82,11 +82,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
-if (magic_timer > 0)
+if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0) //Special
 {
 	if (special_timer < max_special_timer) and (watervice = false)
 	{
@@ -142,21 +146,17 @@ if (key_attackM)
 		//Polyorb
 		if (magic_primary = true) and (charge >= 8)
 		{
-			timer2 = 0;
-			//max_magic_count = 24 + (obj_inventory.form_grid[# 1, 7] * 2);
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		//Dynorb
 		if (magic_primary = false) and (charge >= 5)
 		{
-			timer2 = 0;
-			//max_magic_count = 24 + ((obj_inventory.form_grid[# 1, 7]*2));
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 			with (instance_create_layer(obj_player.x,obj_player.y-10,"Instances",obj_projectile))
 			{
-				timer2 = 30;
+				timer1 = 30;
 				damage = 0;
 				dir_offX = 0;
 				dir_offY = 0;
@@ -176,7 +176,6 @@ if (key_attackM)
 				speed = 0;
 				image_speed = 0;
 			}
-			timer2 = 10;
 			magic_timer = 10;
 		}
 	}
@@ -210,7 +209,7 @@ if (key_ability) and (stamina >= 50)
 	}
 }
 
-//Recharge Magic State
+//Potion State
 if (keyboard_check_pressed(ord("R")))
 {
 
@@ -239,6 +238,8 @@ if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 		attack_script = magicP_script;
 	}
 }
+
+//End Ceriver Free State
 }
 //
 //
@@ -250,16 +251,28 @@ function CeriverBoomerang(){
 //Set
 attacking = true;
 damage = round(might/2) + (13 * obj_inventory.form_grid[# 1, 5]);
-timer1 = timer1 - 1;
 
-//Timed Attack Sound
-//if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
-//if (atk_snd_delay <= 0)
-//{
-//	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
-//	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-//	atk_snd_delay = 20;
-//}
+
+//Standard Timers
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
+//Custom Timers
+
 
 
 //Attack Start
@@ -281,11 +294,11 @@ if (sprite_index != spr_player_ceriver_boomerangThrow)
 PlayerAnimation();
 
 //Create Boomerange Projectile
-if (timer1 <= 0)
+if (melee_timer <= 0)
 {
 	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
 	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-	timer1 = 15;
+	melee_timer = 15;
 	weapon_count = weapon_count - 1;
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
@@ -314,7 +327,7 @@ if (animation_end)
 		if (thundux = false) and (stamina >= 15)
 		{
 			stamina = stamina - 15;
-			timer1 = 15;
+			melee_timer = 15;
 			attack_script = CeriverBoomerang;
 			state_script = PlayerStateAttack;
 		}
@@ -404,7 +417,7 @@ attacking = true;
 
 
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -415,7 +428,23 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 > 0) timer2 = timer2 - 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 
 
@@ -470,7 +499,7 @@ switch(_dirPos)
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (timer2 <= 0)
+if (magic_timer <= 0)
 {	
 	charge = charge - 8;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
@@ -500,7 +529,6 @@ if (timer2 <= 0)
 		else inv_timer = 15;
 		image_angle = direction;
 	}
-	timer2 = 5;
 	magic_timer = 5;
 }
 
@@ -515,7 +543,6 @@ if (mouse_check_button(mb_left) = false) or (charge < 8)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
-	magic_timer = 5;
 }
 }//
 //
@@ -560,12 +587,11 @@ if (sd_timer <= 0) instance_destroy();
 //
 //Ceriver Dynorb Magic State
 function CeriverDynorbCast(){
+//Set
 walk_spd = 1.2;
 attacking = true;
-//weapon_sprite = spr_spiritStone_meteor;
 
-
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -576,7 +602,28 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (timer2 < 120) timer2 = timer2 + 1;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
 //	special_timer = special_timer + 1;
@@ -681,8 +728,8 @@ if (cast = false)
 		
 	}
 	speed = 0;
-	timer2 = timer2 + 1;
-	var _stage = min(4,round(timer2/30));
+	timer1 = timer1 + 1;
+	var _stage = min(4,round(timer1/30));
 	image_index = max(0,_stage-1)
 	if (mouse_check_button_released(mb_left)) or (_stage * 5 >= obj_player.charge)
 	{
@@ -709,7 +756,7 @@ if (cast = false)
 		}
 		
 	}
-	if (timer2 >= 119)
+	if (timer1 >= 119)
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
@@ -776,7 +823,32 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0) //Melee time between attacks
+{
+	melee_timer = melee_timer - 1;
+}
 
 
 //Movement 1: Set

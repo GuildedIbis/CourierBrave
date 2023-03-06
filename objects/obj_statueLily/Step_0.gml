@@ -1,6 +1,5 @@
-//Draw
-
-
+//Effect Step
+//
 event_inherited();
 
 

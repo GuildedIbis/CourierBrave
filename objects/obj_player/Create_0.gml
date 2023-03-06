@@ -1,15 +1,8 @@
 //Create
-//
-//
-//
-//
+
 //Form Script (Default Regaliare)
 script_execute(RegaliareSet);
-//
-//
-//
-//
-//
+
 //Initialize Controls
 key_left = keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
@@ -20,11 +13,7 @@ key_ability = keyboard_check_pressed(vk_space);
 key_attackM = mouse_check_button_pressed(mb_left);
 key_attackW = mouse_check_button_pressed(mb_right);
 key_attackS = keyboard_check(vk_shift);
-//
-//
-//
-//
-//
+
 //Animation
 iAlpha = 1.0;
 image_speed = 0;
@@ -32,22 +21,15 @@ local_frame = 0;
 flash = 0;
 uni_flash = shader_get_uniform(sh_flash_white,"flash")
 z = 0;
-//
-//
-//
-//
-//
+
 //Sound
 walk_snd = snd_walk_regular;
 walk_snd_delay = 0;
 atk_snd_delay = 0;
 dmg_snd = snd_player_hit;
 dmg_snd_delay = 0;
-//
-//
-//
-//
-//
+
+
 //Scripts
 state_script = Idle;
 free_script = Idle;
@@ -58,17 +40,14 @@ hit_by_attack = -1;
 hor_spd = 0;
 ver_spd = 0;
 damage = 0;
-//magic_count = 0;
-special_timer = 0;
+
+//Standard Timers
 stamina_timer = 0;
 charge_timer = 0;
-timer1 = 0;
-timer2 = 0;
-//
-//
-//
-//
-//
+magic_timer = 0;
+melee_timer = 0;
+special_timer = 0;
+
 //Enhancable Stats
 vitality = 20; //added to health
 energy = 20; //max_roll_timer = 180 - stamina
@@ -77,11 +56,7 @@ grace = 20; //the base to weapon damage
 max_crull_stone = 1;
 crull_level = 1;
 armor = 0; //negates damage in enemy damage calc
-//
-//
-//
-//
-//
+
 //Other Stats 
 beans = 0;
 max_hp = 150;
@@ -96,11 +71,7 @@ max_hp = max_hp + (3*vitality) + round(vitality/15);
 hp = max_hp;
 crull_stone = max_crull_stone;
 //magic_count = max_magic_count;
-//
-//
-//
-//
-//
+
 //Status
 scene = false;
 dead = false;

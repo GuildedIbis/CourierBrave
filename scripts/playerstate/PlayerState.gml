@@ -107,7 +107,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 //Crull Stone State
 function PlayerStateCrull(){
 invincible = false;
-if (stamina < max_stamina) //Roll Recharge
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
 	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
 	if (stamina_timer <= 0) 
@@ -115,6 +115,23 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina_timer = 3;
 		stamina = stamina + 1;
 	}
+}
+if (charge < max_charge) and (watervice = false)//charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
@@ -195,6 +212,23 @@ if (animation_end)
 function PlayerStateRoll(){
 max_stamina = 50 + (3 * energy);
 inv_dur_timer = 30;
+if (charge < max_charge) and (watervice = false)//charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
 	if (special_timer < max_special_timer) special_timer = special_timer + 1;
@@ -232,48 +266,19 @@ if (_collided = true)
 //Player State Attack 
 function PlayerStateAttack(){
 //Timers
-if (stamina < max_stamina) //Roll Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (charge < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (magic_timer > 0) and (voidsick = false)
-{
-	magic_timer = magic_timer - 1;
-}
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) and (watervice = false)
-	{
-		special_timer = special_timer + 1;
-	}
-}
-if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
-{
-	if (magic_primary = true)
-	{
-		magic_primary = false;
-		attack_script = magicA_script;
-	}
-	else
-	{
-		magic_primary = true;
-		attack_script = magicP_script;
-	}
-}
+//if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
+//{
+//	if (magic_primary = true)
+//	{
+//		magic_primary = false;
+//		attack_script = magicA_script;
+//	}
+//	else
+//	{
+//		magic_primary = true;
+//		attack_script = magicP_script;
+//	}
+//}
 //Weapon State
 script_execute(attack_script);
 }
