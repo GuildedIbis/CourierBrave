@@ -489,6 +489,7 @@
     {"name":"inst_2B79A980","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_639A5E0E","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_A368389","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
+    {"name":"inst_A368389","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
   ],
   "isDnd": false,
   "layers": [
