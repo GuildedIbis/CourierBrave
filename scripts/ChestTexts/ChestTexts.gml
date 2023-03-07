@@ -92,7 +92,6 @@ if (string_counter = 0)
 {
 	speaker = 1;
 	text_string = "CHEST OPENED:\n500 Beans\nFarway Road Map"
-	obj_player.beans = obj_player.beans + 500;
 	obj_inventory.map_grid[# 0, 1] = true;
 	obj_inventory.chest_list[activate_args] = true;
 	_SubString = string_copy(text_string,1,letter_counter);

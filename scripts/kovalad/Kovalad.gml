@@ -411,8 +411,6 @@ if (obj_inventory.quest_grid[# 2, 1] < 100)
 		text_string = "If you could clear enough of them out\nI'd be honored to share what I gather." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-		obj_inventory.quest_grid[# 1, 0] = true;
-		obj_inventory.quest_grid[# 1, 1] = 0;
 	}
 	if (string_counter >= 2)
 	{

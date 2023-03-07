@@ -65,16 +65,16 @@ if (break_object != -1)
 }
 
 //Set Shadow
-shadow = false;
-//shadow_sprite = spr_house_abandoned;
-//sx1 = x - 33;
-//sy1 = y - 34;
-//sx2 = x + 49;
-//sy2 = y - 34;
-//sx3 = x + 49;
-//sy3 = y + 71;
-//sx4 = x - 39;
-//sy4 = y + 71;
+shadow = true;
+shadow_sprite = spr_house_abandoned;
+sx1 = x - 36;
+sy1 = y - 34;
+sx2 = x + 46;
+sy2 = y - 34;
+sx3 = x + 46;
+sy3 = y + 71;
+sx4 = x - 36;
+sy4 = y + 71;
 }
 //
 //
