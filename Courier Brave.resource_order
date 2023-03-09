@@ -368,6 +368,7 @@
     {"name":"spr_player_ironPlate_idle","order":2,"path":"sprites/spr_player_ironPlate_idle/spr_player_ironPlate_idle.yy",},
     {"name":"spr_drainDart","order":12,"path":"sprites/spr_drainDart/spr_drainDart.yy",},
     {"name":"spr_halofire_hamaxe_hitbox","order":23,"path":"sprites/spr_halofire_hamaxe_hitbox/spr_halofire_hamaxe_hitbox.yy",},
+    {"name":"spr_map_pointer","order":5,"path":"sprites/spr_map_pointer/spr_map_pointer.yy",},
     {"name":"OuterHabrafSpawner","order":6,"path":"scripts/OuterHabrafSpawner/OuterHabrafSpawner.yy",},
     {"name":"obj_enemy_projectile","order":6,"path":"objects/obj_enemy_projectile/obj_enemy_projectile.yy",},
     {"name":"spr_player_regaliare_recharge","order":9,"path":"sprites/spr_player_regaliare_recharge/spr_player_regaliare_recharge.yy",},

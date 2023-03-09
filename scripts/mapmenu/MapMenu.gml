@@ -88,10 +88,12 @@ for (var i = 0; i < 5; i = i + 1)
 	}
 	else draw_sprite_ext(spr_lock,1,85,50+(i*17),1,1,0,c_white,1.0);
 }
-
-
-
-
+if (room_num != -1)
+{
+	var _x = (107 + obj_inventory.roomName_ary[room_num][1])
+	var _y = (45 + obj_inventory.roomName_ary[room_num][2])
+	draw_sprite(spr_map_pointer,0,_x,_y);
+}
 
 
 //if (obj_inventory.map_selected != -1)

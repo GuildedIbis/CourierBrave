@@ -429,6 +429,7 @@
     {"id":{"name":"spr_drainDart","path":"sprites/spr_drainDart/spr_drainDart.yy",},"order":12,},
     {"id":{"name":"spr_halofire_hamaxe_hitbox","path":"sprites/spr_halofire_hamaxe_hitbox/spr_halofire_hamaxe_hitbox.yy",},"order":23,},
     {"id":{"name":"tile_fields","path":"tilesets/tile_fields/tile_fields.yy",},"order":0,},
+    {"id":{"name":"spr_map_pointer","path":"sprites/spr_map_pointer/spr_map_pointer.yy",},"order":5,},
     {"id":{"name":"OuterHabrafSpawner","path":"scripts/OuterHabrafSpawner/OuterHabrafSpawner.yy",},"order":6,},
     {"id":{"name":"obj_enemy_projectile","path":"objects/obj_enemy_projectile/obj_enemy_projectile.yy",},"order":6,},
     {"id":{"name":"spr_player_ironPlate_castJab","path":"sprites/spr_player_ironPlate_castJab/spr_player_ironPlate_castJab.yy",},"order":0,},

@@ -7,11 +7,11 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 {
 	if (locked = false) and (global.aggroCounter <= 0)
 	{
-		show_debug_message(obj_player.crull_level)
 		if (room_num != -1)
 		{
+			obj_inventory.room_num = room_num;
 			obj_game.room_num = room_num;
-			obj_game.room_name = obj_inventory.roomName_ary[room_num];
+			obj_game.room_name = obj_inventory.roomName_ary[room_num][0];
 			obj_game.room_name_timer = 180;
 		}
 		global.targetX = target_x;
