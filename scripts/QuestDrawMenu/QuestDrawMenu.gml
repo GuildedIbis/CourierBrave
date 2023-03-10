@@ -270,7 +270,40 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //
-//Quest 08: Lair: Lake Habraf
+//Quest 08: Lair: Yakflower Path
+function LairYakflowerPathMenuDraw(){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Draw
+draw_sprite_stretched(spr_menu,3,162,110,32,13);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+if (quest_grid[# 8, 1] < quest_grid[# 8, 2]) var _headerText = "LAIR: YAKFLOWER PATH"
+if (quest_grid[# 8, 1] >= quest_grid[# 8, 2]) var _headerText = "LAIR: YAKFLOWER PATH (COMPLETE)"
+var _activeText = "There is a Form Stone hidden\nsomewhere in Yakflower Path.\nMoths and their worm-like\nlarva protect the glade.";
+draw_set_color(c_black);
+draw_text_transformed(162,44,_headerText,.35,.35,0);
+draw_text_transformed(162,51,_activeText,.35,.35,0);
+draw_text_transformed(169,114,"TRACK",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(161,44,_headerText,.35,.35,0);
+draw_text_transformed(161,51,_activeText,.35,.35,0);
+draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+	obj_player.tracking_quest = LairYakflowerPathActiveDraw;
+}
+}
+//
+//
+//
+//
+//
+//Quest 09: Lair: Lake Habraf
 function LairLakeHabrafMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -280,8 +313,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_sprite_stretched(spr_menu,3,162,110,32,13);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-if (quest_grid[# 8, 1] < quest_grid[# 8, 2]) var _headerText = "LAIR: LAKE HABRAF"
-if (quest_grid[# 8, 1] >= quest_grid[# 8, 2]) var _headerText = "LAIR: LAKE HABRAF (COMPLETE)"
+if (quest_grid[# 9, 1] < quest_grid[# 9, 2]) var _headerText = "LAIR: LAKE HABRAF"
+if (quest_grid[# 9, 1] >= quest_grid[# 9, 2]) var _headerText = "LAIR: LAKE HABRAF (COMPLETE)"
 var _activeText = "There is a Form Stone hidden\nsomewhere in Lake Habraf.\nThere is also rumor of a giant\nlillion called Mother Lily.";
 draw_set_color(c_black);
 draw_text_transformed(162,44,_headerText,.35,.35,0);
@@ -296,5 +329,137 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
 	obj_player.tracking_quest = LairLakeHabrafActiveDraw;
+}
+}
+//
+//
+//
+//
+//
+//Quest 10: Regaliare's Quest
+function RegaliareQuestMenuDraw(){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Draw
+draw_sprite_stretched(spr_menu,3,162,110,32,13);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+if (quest_grid[# 10, 1] < quest_grid[# 10, 2]) var _headerText = "REGALIARE'S QUEST"
+if (quest_grid[# 10, 1] >= quest_grid[# 10, 2]) var _headerText = "LAIR: LAKE HABRAF (COMPLETE)"
+var _activeText = "As Regaliare, defeat the Elite\nGorog and take his\nalternate magic skill.";
+draw_set_color(c_black);
+draw_text_transformed(162,44,_headerText,.35,.35,0);
+draw_text_transformed(162,51,_activeText,.35,.35,0);
+draw_text_transformed(169,114,"TRACK",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(161,44,_headerText,.35,.35,0);
+draw_text_transformed(161,51,_activeText,.35,.35,0);
+draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+	obj_player.tracking_quest = RegaliareQuestActiveDraw;
+}
+}
+//
+//
+//
+//
+//
+//Quest 11: Adavio's Quest
+function AdavioQuestMenuDraw(){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Draw
+draw_sprite_stretched(spr_menu,3,162,110,32,13);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+if (quest_grid[# 11, 1] < quest_grid[# 11, 2]) var _headerText = "ADAVIO'S QUEST"
+if (quest_grid[# 11, 1] >= quest_grid[# 11, 2]) var _headerText = "ADAVIO'S QUEST (COMPLETE)"
+var _activeText = "As Adavio, defeat the Enraged\nMoth and take his\nalternate magic skill.";
+draw_set_color(c_black);
+draw_text_transformed(162,44,_headerText,.35,.35,0);
+draw_text_transformed(162,51,_activeText,.35,.35,0);
+draw_text_transformed(169,114,"TRACK",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(161,44,_headerText,.35,.35,0);
+draw_text_transformed(161,51,_activeText,.35,.35,0);
+draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+	obj_player.tracking_quest = AdavioQuestActiveDraw;
+}
+}
+//
+//
+//
+//
+//
+//Quest 12: Ceriver's Quest
+function CeriverQuestMenuDraw(){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Draw
+draw_sprite_stretched(spr_menu,3,162,110,32,13);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+if (quest_grid[# 12, 1] < quest_grid[# 12, 2]) var _headerText = "CERIVER'S QUEST"
+if (quest_grid[# 12, 1] >= quest_grid[# 12, 2]) var _headerText = "CERIVER'S QUEST (COMPLETE)"
+var _activeText = "As Ceviver, defeat the Lily\nZealot and take her\nalternate magic skill.";
+draw_set_color(c_black);
+draw_text_transformed(162,44,_headerText,.35,.35,0);
+draw_text_transformed(162,51,_activeText,.35,.35,0);
+draw_text_transformed(169,114,"TRACK",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(161,44,_headerText,.35,.35,0);
+draw_text_transformed(161,51,_activeText,.35,.35,0);
+draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+	obj_player.tracking_quest = CeriverQuestActiveDraw;
+}
+}
+//
+//
+//
+//
+//
+//Quest 13: Halofire's Quest
+function HalofireQuestMenuDraw(){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Draw
+draw_sprite_stretched(spr_menu,3,162,110,32,13);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+if (quest_grid[# 13, 1] < quest_grid[# 13, 2]) var _headerText = "HALOFIRE'S QUEST"
+if (quest_grid[# 13, 1] >= quest_grid[# 13, 2]) var _headerText = "HALOFIRE'S QUEST (COMPLETE)"
+var _activeText = "As Halofire, defeat the ???\nenemy and take her\nalternate magic skill.";
+draw_set_color(c_black);
+draw_text_transformed(162,44,_headerText,.35,.35,0);
+draw_text_transformed(162,51,_activeText,.35,.35,0);
+draw_text_transformed(169,114,"TRACK",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(161,44,_headerText,.35,.35,0);
+draw_text_transformed(161,51,_activeText,.35,.35,0);
+draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+	obj_player.tracking_quest = HalofireQuestActiveDraw;
 }
 }

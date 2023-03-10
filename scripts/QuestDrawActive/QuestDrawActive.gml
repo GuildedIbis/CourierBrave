@@ -110,10 +110,75 @@ function DualStarsOverLenkoActiveDraw(){
 //
 //
 //Quest 08: Lair: Lake Habraf
+function LairYakflowerPathActiveDraw(){
+var _activeText = "Retreive the Form Stone in Yakflower Path"
+draw_set_color(c_black);
+draw_text_transformed(302,16,_activeText,.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(301,16,_activeText,.35,.35,0);
+}
+//
+//
+//
+//
+//
+//Quest 09: Lair: Lake Habraf
 function LairLakeHabrafActiveDraw(){
 	var _activeText = "Retreive the Form Stone in Lake Habraf"
 	draw_set_color(c_black);
-	draw_text_transformed(302,32,_activeText,.35,.35,0);
+	draw_text_transformed(302,16,_activeText,.35,.35,0);
 	draw_set_color(c_white);
-	draw_text_transformed(301,32,_activeText,.35,.35,0);
+	draw_text_transformed(301,16,_activeText,.35,.35,0);
+}
+//
+//
+//
+//
+//
+//Quest 10: Regaliare's Quest
+function RegaliareQuestActiveDraw(){
+	var _activeText = "Find Regaliare's Alternate Magic Skill"
+	draw_set_color(c_black);
+	draw_text_transformed(302,16,_activeText,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(301,16,_activeText,.35,.35,0);
+}
+//
+//
+//
+//
+//
+//Quest 11: Adavio's Quest
+function AdavioQuestActiveDraw(){
+	var _activeText = "Find Adavio's Alternate Magic Skill"
+	draw_set_color(c_black);
+	draw_text_transformed(302,16,_activeText,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(301,16,_activeText,.35,.35,0);
+}
+//
+//
+//
+//
+//
+//Quest 12: Ceriver's Quest
+function CeriverQuestActiveDraw(){
+	var _activeText = "Find Ceriver's Alternate Magic Skill"
+	draw_set_color(c_black);
+	draw_text_transformed(302,16,_activeText,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(301,16,_activeText,.35,.35,0);
+}
+//
+//
+//
+//
+//
+//Quest 13: Halofire's Quest
+function HalofireQuestActiveDraw(){
+	var _activeText = "Find Halofire's Alternate Magic Skill"
+	draw_set_color(c_black);
+	draw_text_transformed(302,16,_activeText,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(301,16,_activeText,.35,.35,0);
 }
