@@ -48,8 +48,11 @@ max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 0, 8]);
 function RegaliareFree(){
 walk_spd = 1.75;
 //Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 
 //Standard Timers

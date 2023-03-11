@@ -317,7 +317,7 @@ if (obj_game.gamePaused = false)
 		if (attack_counter >= 2)
 		{
 			attack_counter = 0;
-			timer2 = 60;
+			timer2 = 120;
 			sprite_index = enemy_idle;
 			entity_step = home_state;
 			animation_end = false;

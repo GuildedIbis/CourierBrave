@@ -14,7 +14,8 @@
 //Animation
 z = 0;
 flash = 0;
-uni_flash = shader_get_uniform(sh_flash_white,"flash")
+uni_flash = shader_get_uniform(sh_flash_white,"flash");
+special_draw = -1;
 
 //Init
 //hp = 1;

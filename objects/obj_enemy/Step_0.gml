@@ -15,8 +15,6 @@ if (bullet = false)
 	if (hp > max_hp) hp = max_hp;
 	if (hp <= 0) 
 	{
-		//bean_array = array_create(3, obj_itemBean);
-		//DropObject(x,y,bean_array);
 		if (obj_game.room_num != -1) and (activate_args != -1)
 		{
 			obj_game.room_enemy_grid[# obj_game.room_num, activate_args] = true;

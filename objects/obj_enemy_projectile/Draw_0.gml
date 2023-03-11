@@ -4,6 +4,10 @@
 //
 //
 //
+if (special_draw != -1) 
+{
+	script_execute(special_draw)
+}
 if (bullet = true)
 {
 	draw_self();	
@@ -12,8 +16,6 @@ else
 {
 	//Draw Shadow
 	if (shadow != -1) draw_sprite(spr_enemy_shadow,shadow,x,y);
-	
-	
 	
 	//Health
 	if (healthbar = true)

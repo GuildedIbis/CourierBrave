@@ -60,12 +60,15 @@ if (inv_dur_timer <= 0)
 if (knockback_dur > 0)
 {
 	knockback = true;
-	var xx = lengthdir_x(knockback_dur,knockback_dir);
-	var yy = lengthdir_y(knockback_dur,knockback_dir);
-	if (!place_meeting(x+xx,y+yy,obj_entity))
+	if (knockback_dir != -1)
 	{
-		x = x + xx;
-		y = y + yy;
+		var xx = lengthdir_x(knockback_dur,knockback_dir);
+		var yy = lengthdir_y(knockback_dur,knockback_dir);
+		if (!place_meeting(x+xx,y+yy,obj_entity))
+		{
+			x = x + xx;
+			y = y + yy;
+		}
 	}
 	knockback_dur = knockback_dur - 1/10;
 }
