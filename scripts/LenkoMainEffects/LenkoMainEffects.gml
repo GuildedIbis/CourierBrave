@@ -542,13 +542,12 @@ depth = -y;
 //
 //
 //Effect Regaliare Quest Door Create
-function EffectRegaliareQuestDoorCreate(){
+function EffectStandardDoorCreate(){
 frag = false
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-sprite_index = spr_door_questRegaliare;
 if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 {
 	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
@@ -606,25 +605,57 @@ image_yscale = 1;
 if (obj_player.form != 0)
 {
 	sprite_index = spr_door_questRegaliare;
-	if (instance_exists(obj_escort))
-	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,512,136,4))
-		{
-			sprite_index = spr_door_regaliare_open;
-			image_speed = 0;
-			obj_inventory.habraf_lair[1] = 2;
-		}
-		else 
-		{
-			sprite_index = spr_door_habraf;
-			image_speed = 0;
-			obj_inventory.habraf_lair[1] = 1;
-		}
-	}
+
 }
 if (obj_player.form = 0)
 {
 	sprite_index = spr_door_questRegaliare_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 512;
+			y = 136;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door - Escort 1
+function EffectAdavioQuestDoor(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 2)
+{
+	sprite_index = spr_door_questAdavio;
+
+}
+if (obj_player.form = 2)
+{
+	sprite_index = spr_door_questAdavio_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
