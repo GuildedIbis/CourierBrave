@@ -484,11 +484,10 @@
     {"name":"inst_C130217","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_5D9CF18C","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_30D49B1D","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
-    {"name":"inst_1734BA8E","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
-    {"name":"inst_11A01087","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_2B79A980","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
+    {"name":"inst_11A01087","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
+    {"name":"inst_1734BA8E","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_639A5E0E","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
-    {"name":"inst_A368389","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
     {"name":"inst_A368389","path":"rooms/rm_lenko_greyrock_4/rm_lenko_greyrock_4.yy",},
   ],
   "isDnd": false,
@@ -619,8 +618,8 @@
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":352.0,"y":136.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2B79A980","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_rat_tent","path":"objects/obj_rat_tent/obj_rat_tent.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectRatTentL",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectRatTentCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectRatTentL",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":328.0,"y":184.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_639A5E0E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_rat_tent","path":"objects/obj_rat_tent/obj_rat_tent.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},

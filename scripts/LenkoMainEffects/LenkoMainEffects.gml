@@ -435,7 +435,7 @@ sx4 = x - 16;
 sy4 = y + 8;
 
 
-event_inherited();
+//event_inherited();
 }
 //
 //
@@ -475,6 +475,7 @@ depth = -y;
 function EffectStatueLiliesCreate(){
 image_speed = 0;
 sprite_index = spr_statue_lily;
+
 //Create Collision
 with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
 {
@@ -504,7 +505,7 @@ sx4 = x - 15;
 sy4 = y + 7;
 
 
-event_inherited();
+//event_inherited();
 }
 //
 //

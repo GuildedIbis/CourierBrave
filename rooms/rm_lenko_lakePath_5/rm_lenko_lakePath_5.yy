@@ -541,8 +541,7 @@
     {"name":"inst_443CCB80","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
     {"name":"inst_1C71430D","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
     {"name":"inst_2F10E9AB","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
-    {"name":"inst_3AE4B8FB","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
-    {"name":"inst_32201F8C","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
+    {"name":"inst_63A8E5C6","path":"rooms/rm_lenko_lakePath_5/rm_lenko_lakePath_5.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -2533,13 +2532,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"hit_script","path":"objects/obj_entity/obj_entity.yy",},"value":"EntityHitTarby",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_sound","path":"objects/obj_resource/obj_resource.yy",},"value":"snd_resourcePlant",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":408.0,"y":128.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3AE4B8FB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_statueLily","path":"objects/obj_statueLily/obj_statueLily.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"shadow","path":"objects/obj_effect/obj_effect.yy",},"value":"True",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectStandardStep",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectStatueLiliesCreate",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":408.0,"y":200.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_32201F8C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_statueLily","path":"objects/obj_statueLily/obj_statueLily.yy",},"properties":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_63A8E5C6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_statueLily","path":"objects/obj_statueLily/obj_statueLily.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"shadow","path":"objects/obj_effect/obj_effect.yy",},"value":"True",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectStandardStep",},
