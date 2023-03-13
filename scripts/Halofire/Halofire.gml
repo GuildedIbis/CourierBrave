@@ -37,6 +37,7 @@ special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
 max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
+max_charge = 50 + (3* (grace + round(grace/15)));
 if (magic_count > max_magic_count) magic_count = max_magic_count;
 max_special_timer = 360 - round(12 * obj_inventory.form_grid[# 3, 8]);
 }
@@ -141,12 +142,14 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (charge >= 18)
 		{
+			max_charge = 50 + (3* (grace + round(grace/15)));
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 30)
 		{
-			max_attack_counter = floor(charge/30)
+			max_charge = 50 + (3* (grace + round(grace/15)));
+			max_attack_counter = floor(charge/30);
 			attack_script = HalofireTriRock;
 			state_script = PlayerStateAttack;
 		}

@@ -33,6 +33,7 @@ magic_timer = 0;
 walk_spd = 1.75;
 armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
 max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+max_charge = 50 + (3* (grace + round(grace/15)));
 magic_count = 0;
 special_count = -1;
 max_special_count = -1;
@@ -141,13 +142,13 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (charge >= 5)
 		{
-			max_charge = 50 + (3 * grace);
+			max_charge = 50 + (3* (grace + round(grace/15)))
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 10)
 		{
-			max_charge = 50 + (3 * grace);
+			max_charge = 50 + (3* (grace + round(grace/15)))
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}

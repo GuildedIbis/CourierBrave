@@ -221,7 +221,7 @@ if (obj_game.gamePaused = false)
 			}
 			else
 			{
-				attack_counter = 1;
+				attack_counter = 0;
 				timer2 = 60;
 				entity_step = home_state;
 			}

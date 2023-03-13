@@ -1,0 +1,335 @@
+//Enraged Moth
+//
+//
+//
+//
+//
+//Enraged Moth Create
+function EnragedMothCreate(){
+home_state = EnragedMothFree;
+entity_step = home_state;
+entity_drop = EnragedMothDrop;
+enemy_idle = spr_enemy_enragedMoth;
+enemy_move = spr_enemy_enragedMoth;
+enemy_damaged = spr_enemy_enragedMoth;
+damaged_snd = snd_ofaMoth_damaged;
+walk_snd = snd_ofaWorm_dash;
+shadow = 0;
+targeted = false;
+invincible = false;
+bullet = false;
+healthbar = true;
+inv_dur_timer = 0;
+aggro_drop = 300;
+sprite_index = enemy_idle;
+image_speed = 0;
+image_index = 3;
+max_hp = 900;
+hp = max_hp;
+hor_spd = 0;
+ver_spd = 0;
+enemy_spd = 5;
+local_frame = 0;
+hit_by_attack = -1;
+timer1 = 0;
+timer2 = 0;
+timer3 = 0;
+attack_counter = 0;
+walk_snd_delay = 0;
+path = -1;
+}
+//
+//
+//
+//
+//
+//Enraged Moth Free
+function EnragedMothFree(){
+if (obj_game.gamePaused = false)
+{
+	healthbar = true;
+	//Timers
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (flash > 0) entity_step = EnemyDamaged;
+
+	//Toggle Aggro 
+	if (targeted = false)
+	{
+		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		{
+			EnemyAlert();
+			aggro_drop = 300;
+			targeted = true;
+		}
+	}
+	if (aggro_drop <= 0)
+	{
+		image_speed = 0;
+		sprite_index = enemy_idle;
+		path_end();
+		aggro_drop = 300;
+		targeted = false;
+		global.aggroCounter = global.aggroCounter - 1;
+	}
+
+	//While Aggro is on
+	if (targeted = true)
+	{
+		if (timer1 <= 0)
+		{
+			attack_counter = 0;
+			entity_step = EnragedMothDustStep;
+		}
+		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
+		{
+			aggro_drop = aggro_drop - 1;
+		}
+		else aggro_drop = 300;
+	}
+		
+	
+	
+	//Animation
+	script_execute(EnemyAnimation1);
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Enraged Moth Dash
+function EnragedMothDustStep(){
+if (obj_game.gamePaused = false)
+{
+	healthbar = false;
+	//Timers
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer1 > 0) timer1 = timer1 - 1;
+	
+	//Set
+	if (sprite_index != spr_enemy_enragedMoth_dustStep)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_enragedMoth_dustStep;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	
+	//Collision Damage
+	if (timer1 <= 0)
+	{
+		//Chase: create and execute a path towards player
+		shadow = -1;
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
+		walk_snd_delay = walk_snd_delay - 1;
+		if (timer2 <= 0)
+		{
+			walk_snd_delay = 15;
+			path_end();
+		}
+	}
+	else 
+	{
+		shadow = 0;
+		path_end();
+	}
+	
+	//Animation
+	script_execute(EnemyAnimation1);
+	if (animation_end = true)
+	{
+		shadow = 0;
+		path_end();
+		healthbar = true;
+		entity_step = EnragedMothRageCharge;
+	}
+	
+	
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Enraged Moth Rage Charge
+function EnragedMothRageCharge(){
+if (obj_game.gamePaused = false)
+{
+
+	//Set
+	healthbar = true;
+	if (sprite_index != spr_enemy_enragedMoth_rageCharge)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_enragedMoth_rageCharge;
+		local_frame = 0;
+		image_index = 0;
+	}
+	
+	//Animation
+	script_execute(EnemyAnimation1);
+	if (animation_end = true)
+	{
+		entity_step = EnragedMothRageRush;
+		damage = 70;
+		hor_spd = 0;
+		ver_spd = 0;
+		var _dir = round(point_direction(x,y,obj_player.x,obj_player.y)/90)
+		switch(_dir)
+		{
+			case 0:
+				hor_spd = 1;
+				ver_spd = 0;
+			break;
+			case 1:
+				hor_spd = 0;
+				ver_spd = -1;
+			break;
+			case 2:
+				hor_spd = -1;
+				ver_spd = 0;
+			break;
+			case 3:
+				hor_spd = 0;
+				ver_spd = 1;
+			break;
+		}
+		timer1 = 10;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Enraged Moth Rage Rush
+function EnragedMothRageRush(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	//Set
+	healthbar = true;
+	if (sprite_index != spr_enemy_enragedMoth_rageRush)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_enragedMoth_rageRush;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+
+	if (timer1 <= 0) 
+	{
+		var _xDest = x + (hor_spd * (enemy_spd))
+		var _yDest = y + (ver_spd * (enemy_spd))
+		if (place_meeting(_xDest, _yDest,obj_entity))
+		{
+			hor_spd = -hor_spd;
+			ver_spd = -ver_spd;
+			//sprite_index = enemy_idle;
+		}
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, 3, 0, 0);
+		EnemyAttackCalculate(spr_enemy_enragedMoth_rageRush_hitbox);
+	
+	}
+	else speed = 0;
+		
+	//Animation
+	script_execute(EnemyAnimation);
+	if (animation_end)
+	{
+		speed = 0;
+		attack_counter = attack_counter + 1;
+		if (attack_counter <= 2)
+		{
+			animation_end = false;
+			var _dir = round(point_direction(x,y,obj_player.x,obj_player.y)/90)
+			switch(_dir)
+			{
+				case 0:
+					hor_spd = 1;
+					ver_spd = 0;
+				break;
+				case 1:
+					hor_spd = 0;
+					ver_spd = -1;
+				break;
+				case 2:
+					hor_spd = -1;
+					ver_spd = 0;
+				break;
+				case 3:
+					hor_spd = 0;
+					ver_spd = 1;
+				break;
+			}
+			timer1 = 10;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+		}
+		else
+		{
+			attack_counter = 0;
+			timer1 = 120;
+			entity_step = home_state;
+			sprite_index = enemy_idle;
+		}
+	}
+	
+}
+}
+//
+//
+//
+//
+//
+//Enraged Moth Drop
+function EnragedMothDrop(){
+var _objects = 1;
+var _dropBean = 110;
+var _drop1 = irandom_range(0,99)	
+var _angle = random(360);
+
+
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
+{
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 > 0) 
+{
+	with (instance_create_layer(x,y,"Instances",obj_item))
+	{
+		item_id = 8;
+		amount = 1;
+		sprite_index = spr_item_all;
+		image_index = item_id;
+		direction = _angle/_objects;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+//else instance_create_layer(x,y,"Instances",_objects[0])
+
+	
+}
+
+
+
+
+
+
+

@@ -65,8 +65,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Yakflower",
-    "path": "folders/Sprites/Enemy/Lenko/Yakflower.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Enemy/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
