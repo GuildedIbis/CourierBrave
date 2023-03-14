@@ -492,7 +492,7 @@ if (magic_timer <= 0)
 			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8));//
+			damage = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -732,7 +732,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(other.damage/3);//
+			damage = round(obj_player.grace/2) + ((obj_inventory.form_grid[# 2, 7]-1)*5);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -1216,8 +1216,8 @@ for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
 }
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-var _damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 2, 7]-1)*(5));
-var _damage1 = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 2, 7])*(5));
+var _damage = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8);//;
+var _damage1 = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8);//;
 var _armorExplain = "Level " + string(obj_inventory.form_grid[# 2, 7]) + ": " + string(_damage) + " > Level " + string(obj_inventory.form_grid[# 2, 7] + 1) + ": " + string(_damage1);
 draw_text_transformed(141,44,_armorExplain,.5,.5,0);
 draw_set_halign(fa_center);
@@ -1328,8 +1328,8 @@ for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
 }
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-var _damage = obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8] - 1));
-var _damage1 = obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8]));
+var _damage = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8);//;
+var _damage1 = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7])*8);//;
 var _armorExplain = "Level " + string(obj_inventory.form_grid[# 2, 8]) + ": " + string(_damage) + " > Level " + string(obj_inventory.form_grid[# 2, 8] + 1) + ": " + string(_damage1);
 draw_text_transformed(141,44,_armorExplain,.5,.5,0);
 draw_set_halign(fa_center);
@@ -1381,7 +1381,7 @@ var _weaponText = "WEAPON: L-CLICK\nA forward thrust that does\n" + string(round
 draw_text_transformed(104,42,_weaponText,.35,.35,0);
 var _armorText = "ARMOR: PASSIVE\nBlock " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6] -1))) + " incoming\ndamage."
 draw_text_transformed(104,76,_armorText,.35,.35,0);
-var _magicText = "MAGIC: R-CLICK\nA wide spread of orange void bits that\nbreak on inpact and deal\n" + string(round(obj_player.grace/2) + (3 + (obj_inventory.form_grid[# 2, 7])*(8))) + " damage each."
+var _magicText = "MAGIC: R-CLICK\nA wide spread of orange void bits that\nbreak on inpact and deal\n" + string(round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8));// + " damage each."
 draw_text_transformed(196,42,_magicText,.35,.35,0);
 var _specialText = "SPECIAL: ???" + string(obj_player.grace + (6 * (obj_inventory.form_grid[# 2, 8] - 1))) + " damage\nper hit with knockback."
 if (obj_inventory.form_grid[# 2, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);

@@ -77,6 +77,8 @@ if (obj_game.gamePaused = false)
 	{
 		if (timer1 <= 0)
 		{
+			timer1 = 21;
+			timer2 = 50;
 			attack_counter = 0;
 			entity_step = EnragedMothDustStep;
 		}
@@ -86,7 +88,6 @@ if (obj_game.gamePaused = false)
 		}
 		else aggro_drop = 300;
 	}
-		
 	
 	
 	//Animation
@@ -146,7 +147,15 @@ if (obj_game.gamePaused = false)
 		shadow = 0;
 		path_end();
 		healthbar = true;
-		entity_step = EnragedMothRageCharge;
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,20))
+		{
+			entity_step = EnragedMothRageCharge;
+		}
+		else
+		{
+			timer2 = 20;
+			entity_step = EnragedMothRageSpawn;
+		}
 	}
 	
 	
@@ -280,13 +289,140 @@ if (obj_game.gamePaused = false)
 		}
 		else
 		{
-			attack_counter = 0;
-			timer1 = 120;
-			entity_step = home_state;
-			sprite_index = enemy_idle;
+			entity_step = EnragedMothRageSpawn;
 		}
 	}
 	
+}
+else
+{
+	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Ofa Moth Moon Blast
+function EnragedMothRageSpawn(){
+if (obj_game.gamePaused = false)
+{
+
+	//Set
+	if (sprite_index != spr_enemy_enragedMoth_spawnOrb)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_enragedMoth_spawnOrb;
+		local_frame = 0;
+		image_index = 0;
+	}
+	timer2 = timer2 - 1;
+
+	//Animation
+	script_execute(EnemyAnimation1);
+	
+	if (timer2 <= 0)
+	{
+		timer2 = 25;
+		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
+		audio_play_sound(snd_ofaMoth_shoot,0,false);
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		{
+			WormEggCreate();
+			depth = other.depth - 1;
+			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
+			image_angle = direction;
+			speed = enemy_spd;
+			break_object = other.break_object;
+			fragment_count = 0;
+			fragment = obj_fragment;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+		}
+	}
+	if (animation_end = true)
+	{
+		timer1 = 120;
+		sprite_index = enemy_idle;
+		entity_step = EnragedMothFree;
+	}
+	
+}
+}
+//
+//
+//
+//
+//
+//Worm Egg Create
+function WormEggCreate(){
+home_state = WormEggFree;
+entity_step = home_state;
+entity_drop = Idle;
+invincible = false;
+bullet = true;
+healthbar = false;
+boss = false;
+inv_dur_timer = 0;
+enemy_move = spr_enragedMoth_wormEgg;
+
+aggro_drop = 300;
+timer1 = 150;
+enemy_spd = 2.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 0;
+hp = 60;
+max_hp = 60;
+}
+//
+//
+//
+//
+//
+//Worm Egg Free
+function WormEggFree(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with instance_create_layer(x,y,"Instances",obj_enemy)
+	{
+		image_alpha = 1;
+		script_execute(EnragedWormCreate);
+		timer1 = 20;
+		entity_step = EnragedWormExplode;
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = other.break_object;
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with instance_create_layer(x,y,"Instances",obj_enemy)
+	{
+		image_alpha = 1;
+		script_execute(EnragedWormCreate);
+		timer1 = 20;
+		entity_step = EnragedWormFree;
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = other.break_object;
+	}
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
 }
 }
 //

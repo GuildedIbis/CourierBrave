@@ -107,7 +107,7 @@ if (obj_game.gamePaused = false)
 		{
 			if (timer2 <= 0)
 			{	
-				var _rATK = irandom_range(0,3);
+				var _rATK = irandom_range(0,2);
 				if (_rATK = 0)
 				{
 					path_end();
@@ -290,7 +290,7 @@ if (obj_game.gamePaused = false)
 			script_execute(EliteGorogChainHookCreate);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
 			image_angle = direction;
-			enemy_spd = 4;
+			enemy_spd = 4.5;
 			parent = other;
 			break_object = other.break_object;
 			fragment_count = 3;

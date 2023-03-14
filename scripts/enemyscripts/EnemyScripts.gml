@@ -46,12 +46,24 @@ function EnemyChase(){
 if (knockback = false)
 {
 	//Chase: create and execute a path towards player
-	if (path_exists(path)) path_delete(path);
-	path = path_add();
-	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
-	path_start(path, enemy_spd, 0, 0);
-	image_speed = 1;
-	sprite_index = enemy_move;
+	if (place_meeting(x,y,obj_entity))
+	{
+		if (path_exists(path)) path_delete(path);
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_game);
+		path_start(path, enemy_spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	}
+	else
+	{
+		if (path_exists(path)) path_delete(path);
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	}
 }
 else path_end(); 
 }

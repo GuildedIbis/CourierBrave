@@ -81,8 +81,8 @@ enemy_move = spr_enemy_gorogE_chainHook;
 aggro_drop = 300;
 healthbar = false;
 bullet = true;
-enemy_spd = 4;
-timer1 = 60;
+enemy_spd = 4.5;
+timer1 = 30;
 local_frame = 0;
 hit_by_attack = -1;
 damage = 65;
@@ -182,7 +182,10 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 }
 
 }
-
+else
+{
+	speed = 0;
+}
 }
 //
 //
