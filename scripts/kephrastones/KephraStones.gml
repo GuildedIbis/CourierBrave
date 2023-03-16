@@ -137,7 +137,7 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
 draw_text_transformed(69 + _shiftX,107 + _shiftY,"Weapon skills effectiveness\ndetermined by Might stat and\nweapon level.",.35,.35,0);
-draw_text_transformed(164 + _shiftX,107 + _shiftY,"Rolling Uses energy which recharges\nwith time. Grants invincibility.",.35,.35,0);
+draw_text_transformed(164 + _shiftX,107 + _shiftY,"Rolling Uses stamina which recharges\nwith time. Grants invincibility.",.35,.35,0);
 
 //draw_set_color(c_white);
 //draw_text_transformed(68 + _shiftX,107 + _shiftY,"Slash - Swing the sword for damage.\ndamage = might + (11 x weapon power)",.35,.35,0);

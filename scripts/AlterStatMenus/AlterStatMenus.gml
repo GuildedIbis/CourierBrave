@@ -11,7 +11,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Buttons (Draw) 
-var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.energy + obj_player.might + obj_player.grace;
+var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.might + obj_player.grace;
 draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
@@ -116,7 +116,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Buttons (Draw) 
-var _cost = (obj_player.might * round(obj_player.might/2)) + obj_player.vitality + obj_player.energy + obj_player.grace;
+var _cost = (obj_player.might * round(obj_player.might/2)) + obj_player.vitality + obj_player.grace;
 draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
@@ -167,7 +167,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Buttons (Draw) 
-var _cost = (obj_player.grace* round(obj_player.grace/2)) + obj_player.vitality + obj_player.might + obj_player.energy
+var _cost = (obj_player.grace* round(obj_player.grace/2)) + obj_player.vitality + obj_player.might;
 draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 

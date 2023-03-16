@@ -23,7 +23,7 @@ function LoadPlayer(_loadEntity){
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
-		if (variable_struct_exists(_loadEntity,"energy")) obj_player.energy = _loadEntity.energy; 
+		//if (variable_struct_exists(_loadEntity,"energy")) obj_player.energy = _loadEntity.energy; 
 		if (variable_struct_exists(_loadEntity,"stamina")) obj_player.max_stamina = _loadEntity.stamina; 
 		if (variable_struct_exists(_loadEntity,"might")) obj_player.might = _loadEntity.might; 
 		if (variable_struct_exists(_loadEntity,"grace")) obj_player.grace = _loadEntity.grace; 
@@ -69,7 +69,7 @@ var _savePlayer =
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,
-	energy : obj_player.energy,
+	//energy : obj_player.energy,
 	stamina : obj_player.max_stamina,
 	might : obj_player.might,
 	grace : obj_player.grace,

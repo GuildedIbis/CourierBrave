@@ -210,7 +210,7 @@ if (animation_end)
 //
 //Roll State
 function PlayerStateRoll(){
-max_stamina = 50 + (3 * energy);
+max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
 if (charge < max_charge) and (watervice = false)//charge Recharge
 {

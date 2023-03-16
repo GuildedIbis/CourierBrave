@@ -48,7 +48,7 @@ special_timer = 0;
 
 //Enhancable Stats
 vitality = 20; //added to health
-energy = 20; //max_roll_timer = 180 - stamina
+//energy = 20; //max_roll_timer = 180 - stamina
 might = 20; //added to weapon damage
 grace = 20; //the base to weapon damage
 max_crull_stone = 1;
@@ -63,8 +63,8 @@ roll_spd = 3;
 roll_dist = 64;
 charge = 50 + (3* (grace + round(grace/15)));
 max_charge = 50 + (3* (grace + round(grace/15)));
-stamina = 50 + (3* (energy + round(energy/15)));
-max_stamina = 50 + (3* (energy + round(energy/15)));
+stamina = 50 + (3* (might + round(might/15)));
+max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 hp = max_hp;
 crull_stone = max_crull_stone;
