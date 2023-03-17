@@ -1,11 +1,11 @@
-//Player Menu
+//Stats Menu
 //
 //
 //
 //
 //
-//Player Menu GUI
-function PlayerMenuGUI(){
+//Stats Menu GUI
+function StatsMenuGUI(){
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -15,12 +15,12 @@ draw_set_color(c_white);
 
 
 //Buttons
-//draw_sprite_stretched(spr_menu,3,69,42,90,16);
-//draw_sprite_stretched(spr_menu,3,69,54,90,16);
+draw_sprite_stretched(spr_menu_beveled,3,69,42,90,28);
+draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
 draw_sprite_stretched(spr_menu,3,69,72,90,16);
 draw_sprite_stretched(spr_menu,3,69,90,90,16);
 draw_sprite_stretched(spr_menu,3,69,108,90,16);
-draw_sprite_stretched(spr_menu,3,161,108,90,16);
+
 
 //Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,72,159,88))//Vitality
@@ -64,31 +64,50 @@ var _graceTitle = "GRACE | LVL: " + string(obj_player.grace);
 draw_text_transformed(75,77,_vitalityTitle,.35,.35,0);
 draw_text_transformed(75,95,_mightTitle,.35,.35,0);
 draw_text_transformed(75,113,_graceTitle,.35,.35,0);
+draw_set_halign(fa_center);
+draw_set_color(c_black);
+draw_text_transformed(114,46,"COURIER\nSTATS",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(113,46,"COURIER\nSTATS",.6,.6,0);
 
 //Draw Vitality
 if (page = 0)
 {
+	
+	//Main Text
 	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _vitLevel = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
 	var _health = "Max health: " + string(150 + (3* ((obj_player.vitality) + round((obj_player.vitality)/15)))) + ">" + string(150 + (3* ((obj_player.vitality + 1) + round((obj_player.vitality+1)/15))));
-	var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.might + obj_player.grace;
-	//draw_sprite_stretched(menu_sprite,3,140,106,40,13);
-	draw_sprite(spr_bean,0,167,113)
 	draw_set_color(c_black);
-	draw_text_transformed(167,44,"VITALITY",.5,.5,0);
-	draw_text_transformed(167,60,"Increase max health.\nBase health 150.",.35,.35,0); 
-	draw_text_transformed(167,88,_vitLevel,.35,.35,0); 
-	draw_text_transformed(167,100,_health,.35,.35,0); 
-	draw_text_transformed(167,113,_cost,.35,.35,0)
+	draw_text_transformed(167,46,"VITALITY",.5,.5,0);
+	draw_text_transformed(167,56,"Increase max health.\nBase health 150.",.35,.35,0); 
+	draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+	draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,44,"VITALITY",.5,.5,0);
-	draw_text_transformed(166,60,"Increase max health.\nBase health 150.",.35,.35,0); 
-	draw_text_transformed(166,88,_vitLevel,.35,.35,0); 
-	draw_text_transformed(166,100,_health,.35,.35,0);
-	draw_text_transformed(166,113,_cost,.35,.35,0)
+	draw_text_transformed(166,46,"VITALITY",.5,.5,0);
+	draw_text_transformed(166,56,"Increase max health.\nBase health 150.",.35,.35,0); 
+	draw_text_transformed(166,87,_vitLevel,.35,.35,0); 
+	draw_text_transformed(166,95,_health,.35,.35,0);
+	
+	//Cost Button
+	draw_sprite_stretched(spr_menu,3,161,108,90,16);
+	draw_sprite(spr_bean,0,243,117)
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(c_black);
+	draw_text_transformed(167,113,"Level up:",.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(166,113,"Level up:",.35,.35,0);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.might + obj_player.grace;
+	draw_set_color(c_black);
+	draw_text_transformed(235,113,_cost,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(234,113,_cost,.35,.35,0);
 	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
@@ -109,23 +128,110 @@ if (page = 0)
 //Draw Might
 if (page = 1)
 {
-	draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
+
+	//Main Text
+	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _mitLevel = "Level: " + string(obj_player.might) + " > " + string(obj_player.might+1);
+	var _health = "Max stamina: " + string(50 + (3* (obj_player.might + round(obj_player.might/15)))) + ">" + string(50 + (3* ((obj_player.might + 1) + round((obj_player.might+1)/15))));
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"MIGHT",.5,.5,0);
+	draw_text_transformed(167,56,"Increases damage of weapon skills.\nIncrease max stamina.\nBase stamina 50.",.35,.35,0); 
+	draw_text_transformed(167,87,_mitLevel,.35,.35,0); 
+	draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(167,47,"MIGHT",.35,.35,0);
-	draw_text_transformed(167,54,"Added to weapon skill.\nApplies to some special skills.",.3,.3,0);
+	draw_text_transformed(166,46,"MIGHT",.5,.5,0);
+	draw_text_transformed(166,56,"Increases damage of weapon skills.\nIncrease max stamina.\nBase stamina 50.",.35,.35,0);  
+	draw_text_transformed(166,87,_mitLevel,.35,.35,0); 
+	draw_text_transformed(166,95,_health,.35,.35,0);
+	
+	//Cost Button
+	draw_sprite_stretched(spr_menu,3,161,108,90,16);
+	draw_sprite(spr_bean,0,243,117)
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(c_black);
+	draw_text_transformed(167,113,"Level up:",.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(166,113,"Level up:",.35,.35,0);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	var _cost = (obj_player.might * round(obj_player.might/2)) + obj_player.vitality + obj_player.grace;
+	draw_set_color(c_black);
+	draw_text_transformed(235,113,_cost,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(234,113,_cost,.35,.35,0);
+	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			obj_player.beans = obj_player.beans - _cost;
+			obj_player.might = obj_player.might + 1;
+			obj_player.max_stamina = 50 + (3* (obj_player.might + round(obj_player.might/15)));
+			obj_player.stamina = obj_player.max_stamina;
+			
+		
+		}
+	}
 }
 
 //Draw Grace
 if (page = 2)
 {
-	draw_sprite_stretched(spr_menu_player_stat,3,196,64,30,30);
+	//Main Text
+	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _mitLevel = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);
+	var _health = "Max stamina: " + string(50 + (3* (obj_player.grace + round(obj_player.grace/15)))) + ">" + string(50 + (3* ((obj_player.grace + 1) + round((obj_player.grace+1)/15))));
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"GRACE",.5,.5,0);
+	draw_text_transformed(167,56,"Increases damage of magic skills.\nIncrease max charge.\nBase charge 50.",.35,.35,0); 
+	draw_text_transformed(167,87,_mitLevel,.35,.35,0); 
+	draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(167,47,"GRACE",.35,.35,0);
-	draw_text_transformed(167,54,"Applies to magic skills.\nApplies to some special skills.",.3,.3,0);
+	draw_text_transformed(166,46,"GRACE",.5,.5,0);
+	draw_text_transformed(166,56,"Increases damage of magic skills.\nIncrease max charge.\nBase charge 50.",.35,.35,0);  
+	draw_text_transformed(166,87,_mitLevel,.35,.35,0); 
+	draw_text_transformed(166,95,_health,.35,.35,0);
+	
+	//Cost Button
+	draw_sprite_stretched(spr_menu,3,161,108,90,16);
+	draw_sprite(spr_bean,0,243,117)
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(c_black);
+	draw_text_transformed(167,113,"Level up:",.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(166,113,"Level up:",.35,.35,0);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	var _cost = (obj_player.grace * round(obj_player.grace/2)) + obj_player.vitality + obj_player.might;
+	draw_set_color(c_black);
+	draw_text_transformed(235,113,_cost,.35,.35,0);
+	draw_set_color(c_white);
+	draw_text_transformed(234,113,_cost,.35,.35,0);
+	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			obj_player.beans = obj_player.beans - _cost;
+			obj_player.grace = obj_player.grace + 1;
+			obj_player.max_charge = 50 + (3* (obj_player.charge + round(obj_player.charge/15)));
+			obj_player.charge = obj_player.max_charge;
+			
+		
+		}
+	}
 }
 
 }
