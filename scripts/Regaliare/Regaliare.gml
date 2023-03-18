@@ -142,13 +142,13 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (charge >= 5)
 		{
-			max_charge = 50 + (3* (grace + round(grace/15)))
+			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 10)
 		{
-			max_charge = 50 + (3* (grace + round(grace/15)))
+			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}

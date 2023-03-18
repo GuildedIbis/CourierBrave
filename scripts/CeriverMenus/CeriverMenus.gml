@@ -96,16 +96,16 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _damage = string(obj_player.might + (11 * obj_inventory.form_grid[# 1, 5]));
-var _cost = string(20);
+var _damage = string(round(obj_player.might/2) + (13 * obj_inventory.form_grid[# 1, 5]));
+var _cost = string(15);
 draw_set_color(c_black);
 draw_text_transformed(167,46,"TURNBLADES",.5,.5,0);
-draw_text_transformed(167,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+draw_text_transformed(167,56,"Throw boomerang blades that deal\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
 draw_text_transformed(166,46,"TURNBLADES",.5,.5,0);
-draw_text_transformed(166,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+draw_text_transformed(166,56,"Throw boomerang blades that deal\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
 
 //Level	
 switch (obj_inventory.form_grid[# 1, 5])
@@ -194,7 +194,7 @@ switch (obj_inventory.form_grid[# 1, 5])
 //
 //
 //
-//Draw Ceriver's Armor Menu in Inventory
+//Draw Ceriver Armor Menu in Inventory
 function CeriverHabraArmorMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
@@ -204,7 +204,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _armor = string(12 + (6 * (obj_inventory.form_grid[# 1, 6] -1)));
+var _armor = string(9 + (5 * (obj_inventory.form_grid[# 1, 6] -1)));
 draw_set_color(c_black);
 draw_text_transformed(167,46,"HABRA ARMOR",.5,.5,0);
 draw_text_transformed(167,56,"Blue steel armor that negates " + _armor + "\ndamage of every hit taken.",.35,.35,0);  
@@ -301,7 +301,7 @@ switch (obj_inventory.form_grid[# 1, 6])
 //
 //
 //
-//Draw Gold Burst Menu in Inventory
+//Draw Ceriver Polyorb Menu in Inventory
 function CeriverPolyorbMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
@@ -311,11 +311,11 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _damage = string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 1, 7]-1)*(5)));
-var _cost = string(5);
+var _damage = string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(3)));
+var _cost = string(8);
 draw_set_color(c_black);
 draw_text_transformed(167,46,"POLYORB",.5,.5,0);
-draw_text_transformed(167,56,"Rapidly fire small golden projec-\ntiles that deal " + _damage + " and\ncost " + _cost + " charge each.",.35,.35,0);  
+draw_text_transformed(167,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and\ncost " + _cost + " charge each.",.35,.35,0);  
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
@@ -339,7 +339,7 @@ switch (obj_inventory.form_grid[# 1, 7])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 7] = 2;
+						obj_inventory.form_grid[# 1, 7] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 2, 5);
 						ItemRemove(obj_inventory, 9, 1);
@@ -377,7 +377,7 @@ switch (obj_inventory.form_grid[# 1, 7])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 7] = 3;
+						obj_inventory.form_grid[# 1, 7] = 3;
 						ItemRemove(obj_inventory, 15, 5);
 						ItemRemove(obj_inventory, 15, 1);
 						ItemRemove(obj_inventory, 4, 5);

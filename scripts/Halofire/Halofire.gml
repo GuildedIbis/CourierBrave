@@ -142,13 +142,13 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (charge >= 18)
 		{
-			max_charge = 50 + (3* (grace + round(grace/15)));
+			max_charge = 100 + (grace + round(grace/15));
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
 		if (magic_primary = false) and (charge >= 30)
 		{
-			max_charge = 50 + (3* (grace + round(grace/15)));
+			max_charge = 100 + (grace + round(grace/15));
 			max_attack_counter = floor(charge/30);
 			attack_script = HalofireTriRock;
 			state_script = PlayerStateAttack;

@@ -83,12 +83,12 @@ if (page = 0)
 	var _health = "Max health: " + string(150 + (3* ((obj_player.vitality) + round((obj_player.vitality)/15)))) + ">" + string(150 + (3* ((obj_player.vitality + 1) + round((obj_player.vitality+1)/15))));
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"VITALITY",.5,.5,0);
-	draw_text_transformed(167,56,"Increase max health.\nBase health 150.",.35,.35,0); 
+	draw_text_transformed(167,56,"Increases max health.\nBase health 150.",.35,.35,0); 
 	draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 	draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
 	draw_text_transformed(166,46,"VITALITY",.5,.5,0);
-	draw_text_transformed(166,56,"Increase max health.\nBase health 150.",.35,.35,0); 
+	draw_text_transformed(166,56,"Increases max health.\nBase health 150.",.35,.35,0); 
 	draw_text_transformed(166,87,_vitLevel,.35,.35,0); 
 	draw_text_transformed(166,95,_health,.35,.35,0);
 	
@@ -138,12 +138,12 @@ if (page = 1)
 	var _health = "Max stamina: " + string(50 + (3* (obj_player.might + round(obj_player.might/15)))) + ">" + string(50 + (3* ((obj_player.might + 1) + round((obj_player.might+1)/15))));
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"MIGHT",.5,.5,0);
-	draw_text_transformed(167,56,"Increases damage of weapon skills.\nIncrease max stamina.\nBase stamina 50.",.35,.35,0); 
+	draw_text_transformed(167,56,"Increases max stamina. Slightly\nincreases damage of weapon skills.\nBase stamina 50.",.35,.35,0); 
 	draw_text_transformed(167,87,_mitLevel,.35,.35,0); 
 	draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
 	draw_text_transformed(166,46,"MIGHT",.5,.5,0);
-	draw_text_transformed(166,56,"Increases damage of weapon skills.\nIncrease max stamina.\nBase stamina 50.",.35,.35,0);  
+	draw_text_transformed(166,56,"Increases max stamina. Slightly\nincreases damage of weapon skills.\nBase stamina 50.",.35,.35,0);  
 	draw_text_transformed(166,87,_mitLevel,.35,.35,0); 
 	draw_text_transformed(166,95,_health,.35,.35,0);
 	
@@ -188,18 +188,18 @@ if (page = 2)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _mitLevel = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);
-	var _health = "Max stamina: " + string(50 + (3* (obj_player.grace + round(obj_player.grace/15)))) + ">" + string(50 + (3* ((obj_player.grace + 1) + round((obj_player.grace+1)/15))));
+	var _grcLevel = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);
+	var _charge = "Max charge: " + string(100 + (obj_player.grace + round(obj_player.grace/15))) + ">" + string(100 + ((obj_player.grace + 1) + round((obj_player.grace+1)/15)));
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"GRACE",.5,.5,0);
-	draw_text_transformed(167,56,"Increases damage of magic skills.\nIncrease max charge.\nBase charge 50.",.35,.35,0); 
-	draw_text_transformed(167,87,_mitLevel,.35,.35,0); 
-	draw_text_transformed(167,95,_health,.35,.35,0); 
+	draw_text_transformed(167,56,"Increases max charge. Slightly\nincreases damage of magic skills.\nBase charge 100.",.35,.35,0); 
+	draw_text_transformed(167,87,_grcLevel,.35,.35,0); 
+	draw_text_transformed(167,95,_charge,.35,.35,0); 
 	draw_set_color(c_white);
 	draw_text_transformed(166,46,"GRACE",.5,.5,0);
-	draw_text_transformed(166,56,"Increases damage of magic skills.\nIncrease max charge.\nBase charge 50.",.35,.35,0);  
-	draw_text_transformed(166,87,_mitLevel,.35,.35,0); 
-	draw_text_transformed(166,95,_health,.35,.35,0);
+	draw_text_transformed(166,56,"Increases max charge. Slightly\nincreases damage of magic skills.\nBase charge 100.",.35,.35,0);  
+	draw_text_transformed(166,87,_grcLevel,.35,.35,0); 
+	draw_text_transformed(166,95,_charge,.35,.35,0);
 	
 	//Cost Button
 	draw_sprite_stretched(spr_menu,3,161,108,90,16);
@@ -226,7 +226,7 @@ if (page = 2)
 			audio_play_sound(snd_menu,0,false);
 			obj_player.beans = obj_player.beans - _cost;
 			obj_player.grace = obj_player.grace + 1;
-			obj_player.max_charge = 50 + (3* (obj_player.grace + round(obj_player.grace/15)));
+			obj_player.max_charge = 100 + (obj_player.grace + round(obj_player.grace/15));
 			obj_player.charge = obj_player.max_charge;
 			
 		
