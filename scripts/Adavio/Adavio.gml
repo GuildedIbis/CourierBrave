@@ -19,7 +19,7 @@ crull_sprite = spr_player_adavio_crull;
 recharge_sprite = spr_player_regaliare_recharge;
 obj_cursor.curs_script = AdavioCursor;
 
-melee_draw = DrawAdavioWeaponUpgrade;
+weapon_draw = DrawAdavioWeaponUpgrade;
 magic_draw = DrawAdavioMagicUpgrade;
 armor_draw = DrawAdavioArmorUpgrade;
 special_draw = DrawAdavioSpecialUpgrade;

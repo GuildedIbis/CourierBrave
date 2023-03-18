@@ -12,7 +12,7 @@ form_grid = ds_grid_create(16,9);
 form_grid[# 0, 0] = "REGALIARE"
 form_grid[# 0, 1] = "Description"
 form_grid[# 0, 2] = RegaliareSet; //Set Script
-form_grid[# 0, 3] = RegaliareSelected;
+form_grid[# 0, 3] = RegaliareSelectedMenu;
 form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 1; //Weapon
 form_grid[# 0, 6] = 1; //Armor
@@ -23,7 +23,7 @@ form_grid[# 0, 8] = 0; //Special
 form_grid[# 1, 0] = "CERIVER"
 form_grid[# 1, 1] = "Blue and Green Lizard with boomerang, bubbles, and sp (water cannon with push?)"
 form_grid[# 1, 2] = CeriverSet; //Player Script
-form_grid[# 1, 3] = CeriverSelected; //Inventory Script
+form_grid[# 1, 3] = CeriverSelectedMenu; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 1; //Weapon
 form_grid[# 1, 6] = 1; //Armor
@@ -34,7 +34,7 @@ form_grid[# 1, 8] = 0; //Special
 form_grid[# 2, 0] = "ADAVIO"
 form_grid[# 2, 1] = "Purple armor with white accents, bird, zerkrift hook, magic, and sp"
 form_grid[# 2, 2] = AdavioSet; //Player Script
-form_grid[# 2, 3] = AdavioSelected; //Inventory Script
+form_grid[# 2, 3] = AdavioSelectedMenu; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
 form_grid[# 2, 5] = 1; //Weapon
 form_grid[# 2, 6] = 1; //Armor
@@ -45,7 +45,7 @@ form_grid[# 2, 8] = 0; //Special
 form_grid[# 3, 0] = "HALOFIRE"
 form_grid[# 3, 1] = "White bird with fire hair and orange accents"
 form_grid[# 3, 2] = HalofireSet; //Player Script
-form_grid[# 3, 3] = HalorfireSelected; //Inventory Script
+form_grid[# 3, 3] = HalofireSelectedMenu; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
 form_grid[# 3, 5] = 1; //Weapon
 form_grid[# 3, 6] = 1; //Armor
@@ -73,7 +73,7 @@ draw_set_color(c_white);
 draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
 
 draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
-draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20)
+draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
 draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
 draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
 draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
@@ -81,6 +81,11 @@ draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
 draw_sprite_stretched(spr_menu,3,69,108,44,16);
 draw_sprite_stretched(spr_menu,3,115,108,44,16);
 draw_sprite_stretched(spr_menu,3,161,108,32,16);
+draw_set_halign(fa_center);
+draw_set_color(c_black);
+draw_text_transformed(140,113,"SWITCH",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(139,113,"SWITCH",.35,.35,0);
 
 //Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Switch
@@ -90,8 +95,10 @@ if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Switch
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		
-		
+		with (obj_player)
+		{
+			script_execute(obj_inventory.form_grid[# other.slot, 2]);
+		}
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,115,108,161,124))//Switch
@@ -101,11 +108,11 @@ if (point_in_rectangle(_mouseX,_mouseY,115,108,161,124))//Switch
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		inv_gui = DrawSwitchMenu;
+		inv_gui = FormSwitchMenu;
 	}
 }
 
-script_execute(selected_info);
+script_execute(form_menu);
 
 }
 //
@@ -114,7 +121,7 @@ script_execute(selected_info);
 //
 //
 //Draw Switch Menu
-function DrawSwitchMenu(){
+function FormSwitchMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _rowLength = 6;
@@ -135,7 +142,9 @@ for (var i = 0; i < 16; i = i + 1)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				inv_gui = FormMenuGUI;
-				selected_info = obj_inventory.form_grid[# i, 3];
+				form_menu = obj_inventory.form_grid[# i, 3];
+				selected_info = -1;
+				slot = i;
 			}
 		}
 	}
@@ -148,7 +157,7 @@ for (var i = 0; i < 16; i = i + 1)
 //
 //
 //Draw Selected (Run in FormMenuGUI)
-function DrawSelectedGear(){	//function DrawSelectedGear()
+function DrawSelectedGear(){	
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

@@ -19,7 +19,7 @@ magicA_script = HalofireTriRock;
 magic_primary = true;
 obj_cursor.curs_script = HalofireCursor;
 
-melee_draw = DrawHalofireHamaxeUpgrade;
+weapon_draw = DrawHalofireHamaxeUpgrade;
 magic_draw = DrawHalofireMagicUpgrade;
 armor_draw = DrawHalofireArmorUpgrade;
 special_draw = DrawHalofireSpecialUpgrade;

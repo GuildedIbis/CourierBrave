@@ -19,10 +19,10 @@ magicA_script = CeriverDynorbCast;
 magic_primary = true;
 obj_cursor.curs_script = CeriverCursor;
 
-melee_draw = DrawCeriverBoomerangUpgrade;
-magic_draw = DrawCeriverDynorbUpgrade;
-armor_draw = DrawCeriverArmorUpgrade;
-special_draw = DrawCeriverSpecialUpgrade;
+weapon_draw = CeriverTurnbladesMenu;
+magic_draw = CeriverHabraArmorMenu;
+armor_draw = CeriverPolyorbMenu;
+special_draw = CeriverSpecialMenu;
 
 
 

@@ -53,13 +53,14 @@ if (point_in_rectangle(_mouseX,_mouseY,89,128,110,156)) //Forms Menu
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
 		inv_gui = FormMenuGUI;
+		form_menu = obj_inventory.form_grid[# obj_player.form, 3];
 		//gear_sprite = spr_armor_allGame;
 		//stat_script = obj_inventory.form_grid[# obj_player.form, 3];
 		//describe_script = DrawWeaponDescribe;
-		selected_info = obj_inventory.form_grid[# obj_player.form, 3];
+		selected_info = -1;
 		item_name = obj_inventory.form_grid[# obj_player.form, 0];
 		page = 0;
-		slot = 0;
+		slot = obj_player.form;
 		
 		//unlocked = true;
 	}

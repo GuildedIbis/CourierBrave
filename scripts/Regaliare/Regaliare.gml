@@ -19,10 +19,10 @@ crull_sprite = spr_player_regaliare_crull;
 recharge_sprite = spr_player_regaliare_recharge;
 obj_cursor.curs_script = RegaliareCursor;
 
-melee_draw = DrawRegaliareSlashUpgrade;
-magic_draw = DrawRegaliareMagicUpgrade;
-armor_draw = DrawRegaliareArmorUpgrade;
-special_draw = DrawRegaliareSpecialUpgrade;
+weapon_draw = RegaliareRegalBladeMenu;
+magic_draw = RegaliareGoldBurstMenu;
+armor_draw = RegaliareRegalArmorMenu;
+special_draw = RegaliareGoldArcMenu;
 
 
 
@@ -130,7 +130,7 @@ if (key_attackW)
 	{
 		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 20;
-		attack_script = RegaliareSlash;
+		attack_script = RegaliareRegalBlade;
 		state_script = PlayerStateAttack;
 	}
 }
@@ -218,8 +218,8 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 10, 3] = t
 //
 //
 //
-//Regaliare Slash State
-function RegaliareSlash(){
+//Regaliare RegalBlade State
+function RegaliareRegalBlade(){
 //Set
 attacking = true;
 damage = might + (11 * obj_inventory.form_grid[# 0, 5]);

@@ -226,7 +226,7 @@ if (page = 2)
 			audio_play_sound(snd_menu,0,false);
 			obj_player.beans = obj_player.beans - _cost;
 			obj_player.grace = obj_player.grace + 1;
-			obj_player.max_charge = 50 + (3* (obj_player.charge + round(obj_player.charge/15)));
+			obj_player.max_charge = 50 + (3* (obj_player.grace + round(obj_player.grace/15)));
 			obj_player.charge = obj_player.max_charge;
 			
 		
