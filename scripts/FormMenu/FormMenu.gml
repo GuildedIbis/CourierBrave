@@ -71,21 +71,15 @@ draw_set_color(c_white);
 
 //Buttons
 draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
-
 draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
-draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
-draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
-
 draw_sprite_stretched(spr_menu,3,69,108,44,16);
 draw_sprite_stretched(spr_menu,3,115,108,44,16);
 draw_sprite_stretched(spr_menu,3,161,108,32,16);
 draw_set_halign(fa_center);
 draw_set_color(c_black);
-draw_text_transformed(140,113,"SWITCH",.35,.35,0);
+draw_text_transformed(138,113,"SWITCH",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(139,113,"SWITCH",.35,.35,0);
+draw_text_transformed(137,113,"SWITCH",.35,.35,0);
 
 //Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Switch

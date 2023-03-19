@@ -61,21 +61,29 @@ draw_set_halign(fa_center);
 draw_set_color(c_black);
 draw_text_transformed(114,46,"ADAVIO",.6,.6,0);
 draw_text_transformed(90,113,"EQUIP",.35,.35,0);
-draw_text_transformed(175,113,"LEVEL",.35,.35,0);
+draw_text_transformed(178,113,"LEVEL",.35,.35,0);
 draw_set_color(c_white);
 draw_text_transformed(113,46,"ADAVIO",.6,.6,0);
 draw_text_transformed(89,113,"EQUIP",.35,.35,0);
-draw_text_transformed(174,113,"LEVEL",.35,.35,0);
+draw_text_transformed(177,113,"LEVEL",.35,.35,0);
 
 
 
 
 //Skills sprites
-draw_sprite(spr_armor_allGame,2,63,62);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 5],89,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 6],132,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 7],89,90);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 2, 8],132,90);
+draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
+draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
+draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
+draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
+draw_sprite(spr_armor_allGame,2,63,61);
 draw_sprite(spr_weapons_allGame,2,106,62);
 draw_sprite(spr_magic_allGame,2,63,85);
 if (obj_inventory.form_grid[# 2, 8] > 0) draw_sprite(spr_special_allGame,2,106,85);
-else draw_sprite(spr_item_all,0,114,93);
+else draw_sprite(spr_item_all,0,120,93);
 
 
 //Draw Right Hand Menu
@@ -100,12 +108,12 @@ var _damage = string(obj_player.might - 6 + (5 * obj_inventory.form_grid[# 2, 5]
 var _cost = string(20);
 draw_set_color(c_black);
 draw_text_transformed(167,46,"POWER HOOK",.5,.5,0);
-draw_text_transformed(167,56,"A fast jabbing hook that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+draw_text_transformed(167,56,"A fast jabbing hook that does " + _damage + "\ndamage per hit and costs " + _cost + "\nstamina per swing",.35,.35,0); 
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
 draw_text_transformed(166,46,"POWER HOOK",.5,.5,0);
-draw_text_transformed(166,56,"A fast jabbing hook that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+draw_text_transformed(166,56,"A fast jabbing hook that does " + _damage + "\ndamage per hit and costs " + _cost + "\nstamina per swing",.35,.35,0); 
 
 //Level	
 switch (obj_inventory.form_grid[# 2, 5])
@@ -315,12 +323,12 @@ var _damage = string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[#
 var _cost = string(25);
 draw_set_color(c_black);
 draw_text_transformed(167,46,"VOID SPREAD",.5,.5,0);
-draw_text_transformed(167,56,"Fire a cluster of projectiles\n with a wide spread that deal\n" + _damage + " damageeach, costing " + _cost + "\ncharge each cluster.",.35,.35,0);  
+draw_text_transformed(167,56,"Fire a cluster of projectiles with a\nwide spread that deal " + _damage + " damage\neach, costing " + _cost + " charge each\ncluster.",.35,.35,0);  
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
 draw_text_transformed(166,46,"VOID SPREAD",.5,.5,0);
-draw_text_transformed(166,56,"Fire a cluster of projectiles\n with a wide spread that deal\n" + _damage + " damageeach, costing " + _cost + "\ncharge each cluster.",.35,.35,0); 
+draw_text_transformed(166,56,"Fire a cluster of projectiles with a\nwide spread that deal " + _damage + " damage\neach, costing " + _cost + " charge each\ncluster.",.35,.35,0); 
 
 //Level	
 switch (obj_inventory.form_grid[# 2, 7])
