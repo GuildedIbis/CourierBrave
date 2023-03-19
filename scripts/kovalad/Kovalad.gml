@@ -90,12 +90,12 @@ if (obj_inventory.quest_grid[# 1, 1] >= 1) and (obj_inventory.quest_grid[# 2, 0]
 
 	if (string_counter >= 2)
 	{
-		text_script = KovaladMenu;
+		//text_script = KovaladMenu;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
-		//obj_game.gamePaused = false;
-		//obj_game.textPaused = false;
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
 		//Reset Buy/Sell Menu
 		page = 0;
@@ -215,14 +215,14 @@ if (obj_inventory.quest_grid[# 1, 1] >= 1) and (obj_inventory.quest_grid[# 2, 0]
 	if (string_counter >= 3)
 	{
 			
-		text_script = KovaladMenu;
+		//text_script = KovaladMenu;
 		obj_inventory.quest_grid[# 2, 0] = true;
 		obj_inventory.quest_grid[# 2, 1] = 0;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
-		//obj_game.gamePaused = false;
-		//obj_game.textPaused = false;
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
 		//Reset Buy/Sell Menu
 		page = 0;

@@ -55,14 +55,14 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "There are four towers,\nfour captains of the great evil.\nYour arrival is their deepest fear realized." 
+		text_string = "There are four keys hidden, and they\nmust be found before the Necromancer finds them." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Ekthalem is here in Lenko.\nGo to the tower Southeast of here.\nDestroy her."
+		text_string = "Anything I can do to aid you on your journey?"
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -74,10 +74,12 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 
 	if (string_counter >= 2)
 	{
-		text_script = NismaMenu;
+		//text_script = NismaMenu;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
 		//Reset Buy/Sell Menu
 		text_gui = 0
@@ -201,21 +203,21 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "It would be an honor to study the magic arts with you\nCourier, but first there is important discussion of\nyour purpose... The Geat Evil." 
+		text_string = "It would be an honor to study the magic arts with you\nCourier, but first there is important discussion of\nyour purpose... Olutaph." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "To be blunt Courier, we know very little of the Great\nevil. It hides in the Fortress of the Heart, and rules\nvicariously. But I believe I have discovered an\ninstrument in The Great Evil's demise." 
+		text_string = "Olutaph is a necromancer who has destroyed and\nconquered the land over the course of the last 300\nyears. He masked himself at first as a wise man to\nkings,to bring us into the weakness of civil war." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "The ones through which The Great Evil rules are his\nvile captains. Each of the captains hides in a tower\nwhere a precious relic was once kept. These relics might\nbe the key to The Great Evil's defeat."
+		text_string = "Kings fell, and now he reigns over all from The\nFortress of the Heart... but I fear it may be worse\nthan a tyrant king... he has proclaimed himself the\nAcolyte of the Great Evil."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -227,7 +229,7 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "The nearest of these towers is not far.\nEkthalem the Ancient Witch waits there.\nIf you destroy her, we might learn the weakness of\nThe Great Evil."
+		text_string = "He plans to break the Great Evil from it's prison- and\nthis must be why you are sent to us now.\nYou must stop the Necromancer from unleashing\nThe Great Evil of ancient destruction."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -236,13 +238,27 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 		//DrawBuyMenu();
 		//DrawSelectedMenu(obj_inventory);
 	}
-	if (string_counter >= 4)
+	if (string_counter = 4)
+	{
+		speaker = 1;
+		text_string = "The Great Evil was imprisoned in the Fortress of the Heart,\nand could only be freed with the\n4 Sephra Key's. You must act fast Courier, and\nfind the four keys before Olutaph. They may be hidden,\nbut it is no secret that one is in the Fortress south of here."
+		_SubString = string_copy(text_string,1,letter_counter);
+		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+		//DrawSellMenu(obj_inventory);
+		//DrawBuyMenu();
+		//DrawSelectedMenu(obj_inventory);
+	}
+	if (string_counter >= 5)
 	{
 		obj_inventory.quest_grid[# 1, 1] = 1;
-		text_script = NismaMenu;
+		//text_script = NismaMenu;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
 		//Reset Buy/Sell Menu
 		text_gui = 0
