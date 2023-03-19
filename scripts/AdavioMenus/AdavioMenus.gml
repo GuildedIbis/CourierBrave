@@ -120,14 +120,14 @@ switch (obj_inventory.form_grid[# 2, 5])
 			{
 				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,5,5))
 				{
-					if (ItemCheckQuantity(obj_inventory,6,1))
+					if (ItemCheckQuantity(obj_inventory,8,1))
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 2, 5] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 5, 5);
-						ItemRemove(obj_inventory, 6, 1);
+						ItemRemove(obj_inventory, 8, 1);
 					}
 				}
 			}
@@ -144,7 +144,7 @@ switch (obj_inventory.form_grid[# 2, 5])
 		draw_text_transformed(209,121,"10",.35,.35,0);
 		draw_sprite_stretched(spr_item_all,5,214,108,16,16);
 		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,6,232,108,16,16);
+		draw_sprite_stretched(spr_item_all,8,232,108,16,16);
 		draw_text_transformed(245,121,"1",.35,.35,0);	
 	break;
 	
@@ -227,14 +227,14 @@ switch (obj_inventory.form_grid[# 2, 6])
 			{
 				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,5,5))
 				{
-					if (ItemCheckQuantity(obj_inventory,6,1))
+					if (ItemCheckQuantity(obj_inventory,8,1))
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 2, 6] = 2;
 						ItemRemove(obj_inventory, 7, 10);
 						ItemRemove(obj_inventory, 5, 5);
-						ItemRemove(obj_inventory, 6, 1);
+						ItemRemove(obj_inventory, 8, 1);
 					}
 				}
 			}
@@ -251,7 +251,7 @@ switch (obj_inventory.form_grid[# 2, 6])
 		draw_text_transformed(209,121,"10",.35,.35,0);
 		draw_sprite_stretched(spr_item_all,5,214,108,16,16);
 		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,6,232,108,16,16);
+		draw_sprite_stretched(spr_item_all,8,232,108,16,16);
 		draw_text_transformed(245,121,"1",.35,.35,0);	
 	break;
 	
@@ -335,14 +335,14 @@ switch (obj_inventory.form_grid[# 2, 7])
 			{
 				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,2,5))
 				{
-					if (ItemCheckQuantity(obj_inventory,9,1))
+					if (ItemCheckQuantity(obj_inventory,8,1))
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 2, 7] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 2, 5);
-						ItemRemove(obj_inventory, 9, 1);
+						ItemRemove(obj_inventory, 8, 1);
 					}
 				}
 			}
@@ -359,7 +359,7 @@ switch (obj_inventory.form_grid[# 2, 7])
 		draw_text_transformed(209,121,"10",.35,.35,0);
 		draw_sprite_stretched(spr_item_all,2,214,108,16,16);
 		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,9,232,108,16,16);
+		draw_sprite_stretched(spr_item_all,8,232,108,16,16);
 		draw_text_transformed(245,121,"1",.35,.35,0);	
 	break;
 	
@@ -442,14 +442,14 @@ switch (obj_inventory.form_grid[# 2, 8])
 			{
 				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,15,5))
 				{
-					if (ItemCheckQuantity(obj_inventory,9,1))
+					if (ItemCheckQuantity(obj_inventory,8,1))
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 2, 8] = 2;
 						ItemRemove(obj_inventory, 7, 10);
 						ItemRemove(obj_inventory, 15, 5);
-						ItemRemove(obj_inventory, 6, 1);
+						ItemRemove(obj_inventory, 8, 1);
 					}
 				}
 			}
@@ -466,7 +466,7 @@ switch (obj_inventory.form_grid[# 2, 8])
 		draw_text_transformed(209,121,"10",.35,.35,0);
 		draw_sprite_stretched(spr_item_all,15,214,108,16,16);
 		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,9,232,108,16,16);
+		draw_sprite_stretched(spr_item_all,8,232,108,16,16);
 		draw_text_transformed(245,121,"1",.35,.35,0);	
 	break;
 	
