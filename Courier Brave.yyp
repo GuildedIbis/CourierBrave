@@ -150,7 +150,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.2.0.71",
+    "IDEVersion": "2023.2.1.75",
   },
   "resources": [
     {"id":{"name":"spr_chest","path":"sprites/spr_chest/spr_chest.yy",},},
@@ -351,6 +351,7 @@
     {"id":{"name":"spr_terrain","path":"sprites/spr_terrain/spr_terrain.yy",},},
     {"id":{"name":"snd_zerwerk_slash","path":"sounds/snd_zerwerk_slash/snd_zerwerk_slash.yy",},},
     {"id":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},},
+    {"id":{"name":"obj_door_quest_ceriver","path":"objects/obj_door_quest_ceriver/obj_door_quest_ceriver.yy",},},
     {"id":{"name":"spr_kephraStone_infograph","path":"sprites/spr_kephraStone_infograph/spr_kephraStone_infograph.yy",},},
     {"id":{"name":"snd_endireKnight_heatwave_proj","path":"sounds/snd_endireKnight_heatwave_proj/snd_endireKnight_heatwave_proj.yy",},},
     {"id":{"name":"snd_ofaWorm_dash","path":"sounds/snd_ofaWorm_dash/snd_ofaWorm_dash.yy",},},
@@ -605,6 +606,7 @@
     {"id":{"name":"spr_player_ceriver_roll","path":"sprites/spr_player_ceriver_roll/spr_player_ceriver_roll.yy",},},
     {"id":{"name":"spr_tileset_lenko","path":"sprites/spr_tileset_lenko/spr_tileset_lenko.yy",},},
     {"id":{"name":"spr_npc_knightMono","path":"sprites/spr_npc_knightMono/spr_npc_knightMono.yy",},},
+    {"id":{"name":"spr_door_questCeriver_open","path":"sprites/spr_door_questCeriver_open/spr_door_questCeriver_open.yy",},},
     {"id":{"name":"spr_enemy_knight_damaged","path":"sprites/spr_enemy_knight_damaged/spr_enemy_knight_damaged.yy",},},
     {"id":{"name":"spr_spawner","path":"sprites/spr_spawner/spr_spawner.yy",},},
     {"id":{"name":"snd_cultistDilloc_stab","path":"sounds/snd_cultistDilloc_stab/snd_cultistDilloc_stab.yy",},},
@@ -844,6 +846,7 @@
     {"id":{"name":"spr_well","path":"sprites/spr_well/spr_well.yy",},},
     {"id":{"name":"spr_enemy_cultistZealot_waterSlash_hitbox","path":"sprites/spr_enemy_cultistZealot_waterSlash_hitbox/spr_enemy_cultistZealot_waterSlash_hitbox.yy",},},
     {"id":{"name":"spr_player_ceriver_runCast","path":"sprites/spr_player_ceriver_runCast/spr_player_ceriver_runCast.yy",},},
+    {"id":{"name":"spr_cultistZealot_waterLeaf","path":"sprites/spr_cultistZealot_waterLeaf/spr_cultistZealot_waterLeaf.yy",},},
     {"id":{"name":"snd_simpleA","path":"sounds/snd_simpleA/snd_simpleA.yy",},},
     {"id":{"name":"spr_enemy_cultistZealot_waterSlash_back_hitbox","path":"sprites/spr_enemy_cultistZealot_waterSlash_back_hitbox/spr_enemy_cultistZealot_waterSlash_back_hitbox.yy",},},
     {"id":{"name":"spr_enemy_bioBolt","path":"sprites/spr_enemy_bioBolt/spr_enemy_bioBolt.yy",},},
@@ -1011,6 +1014,7 @@
     {"id":{"name":"spr_enemy_cultistDilloc_lifeLeaf","path":"sprites/spr_enemy_cultistDilloc_lifeLeaf/spr_enemy_cultistDilloc_lifeLeaf.yy",},},
     {"id":{"name":"rm_lenko_greyrock_3","path":"rooms/rm_lenko_greyrock_3/rm_lenko_greyrock_3.yy",},},
     {"id":{"name":"spr_tileset_lenko_alt","path":"sprites/spr_tileset_lenko_alt/spr_tileset_lenko_alt.yy",},},
+    {"id":{"name":"spr_door_questCeriver","path":"sprites/spr_door_questCeriver/spr_door_questCeriver.yy",},},
     {"id":{"name":"rm_parent","path":"rooms/rm_parent/rm_parent.yy",},},
   ],
   "RoomOrderNodes": [
