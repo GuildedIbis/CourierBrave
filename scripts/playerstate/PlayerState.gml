@@ -499,6 +499,7 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 	x = global.lastCampX;
 	y = global.lastCampY;
 	global.aggroCounter = 0;
+	global.bossCounter = 0;
 	state_script = free_state;
 	attacking = false;
 	obj_inventory.depth = depth + 1;

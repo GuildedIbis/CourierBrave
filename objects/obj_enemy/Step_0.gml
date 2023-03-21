@@ -20,6 +20,7 @@ if (bullet = false)
 			obj_game.room_enemy_grid[# obj_game.room_num, activate_args] = true;
 		}
 		if (targeted = true) global.aggroCounter = global.aggroCounter - 1;
+		if (boss = true) global.bossCounter = global.bossCounter - 1;
 		script_execute(entity_drop);
 		instance_destroy();
 		if (spawn_slot != -1)

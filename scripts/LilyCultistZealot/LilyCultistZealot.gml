@@ -6,6 +6,8 @@
 //
 //Lily Cultist Zealot Create
 function LilyCultistZealotCreate(){
+name = "Zealot Cultist"
+boss = true;
 home_state = LilyCultistZealotFree;
 entity_step = home_state;
 entity_drop = LilyCultistZealotDrop;
@@ -25,7 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 800;
+max_hp = 550;
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -61,6 +63,7 @@ if (obj_game.gamePaused = false)
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
+			//global.bossCounter = global.bossCounter + 1;
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -74,6 +77,7 @@ if (obj_game.gamePaused = false)
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;
+		global.bossCounter = global.bossCounter - 1;
 	}
 	
 	//While Aggro is on
@@ -256,6 +260,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_cultistZealot_waterSlash)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_cultistZealot_waterSlash,global.volumeEffects,1);
+		audio_play_sound(snd_cultistZealot_waterSlash,0,false);
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		sprite_index = spr_enemy_cultistZealot_waterSlash;
 		local_frame = 0;
@@ -294,6 +300,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_cultistZealot_waterSlash_back)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_cultistZealot_waterSlash,global.volumeEffects,1);
+		audio_play_sound(snd_cultistZealot_waterSlash,0,false);
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		sprite_index = spr_enemy_cultistZealot_waterSlash_back;
 		local_frame = 0;
@@ -313,11 +321,11 @@ if (obj_game.gamePaused = false)
 			var _dir = (round(direction/90) * 90) + (-8 + 8*i);
 			with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 			{
-				home_state = ZealotWaterPinFree;
+				home_state = ZealotWaterLeafFree;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
-				enemy_move = spr_cultistZealot_waterPin;
+				enemy_move = spr_cultistZealot_waterLeaf;
 				aggro_drop = 300;
 				healthbar = false;
 				enemy_spd = 3.5;
@@ -373,8 +381,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end)
 	{
-		audio_sound_gain(snd_cultistBacwire_leafShoot,global.volumeEffects,1);
-		audio_play_sound(snd_cultistBacwire_leafShoot,0,false);
+		audio_sound_gain(snd_cultistZealot_waterEdge,global.volumeEffects,1);
+		audio_play_sound(snd_cultistZealot_waterEdge,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = ZealotWaterEdgeFree;
@@ -433,8 +441,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_cultistZealot_waterEdge_burst,global.volumeEffects,1);
+	audio_play_sound(snd_cultistZealot_waterEdge_burst,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -453,18 +461,18 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_cultistZealot_waterEdge_burst,global.volumeEffects,1);
+	audio_play_sound(snd_cultistZealot_waterEdge_burst,0,false);
 	for (var i = 0; i <= 4; i = i + 1)
 	{
 		var _dir = (direction - 180) + (-9 + 6*i);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			home_state = ZealotWaterPinFree;
+			home_state = ZealotWaterLeafFree;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_cultistZealot_waterPin;
+			enemy_move = spr_cultistZealot_waterLeaf;
 			aggro_drop = 300;
 			healthbar = false;
 			enemy_spd = 3.5;
@@ -494,16 +502,14 @@ else
 //
 //
 //
-//Cultist Zealot Water Pin Free
-function ZealotWaterPinFree(){
+//Cultist Zealot Water Leaf Free
+function ZealotWaterLeafFree(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -522,8 +528,7 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+
 	instance_destroy();
 }
 }

@@ -6,6 +6,8 @@
 //
 //Elite Gorog Create
 function EliteGorogCreate(){
+name = "Elite Gorog"
+boss = true;
 home_state = EliteGorogFree;
 entity_step = home_state;
 entity_drop = EliteGorogDrop;
@@ -72,6 +74,7 @@ if (obj_game.gamePaused = false)
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;
+		global.bossCounter = global.bossCounter - 1;
 	}
 	
 

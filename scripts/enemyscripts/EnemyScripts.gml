@@ -279,6 +279,7 @@ with (obj_enemy)
 		if (targeted = false) 
 		{
 			global.aggroCounter = global.aggroCounter + 1;
+			if (boss = true) global.bossCounter = global.bossCounter + 1;
 			targeted = true;
 			EnemyAggro();
 		}

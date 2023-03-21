@@ -81,6 +81,8 @@ if (obj_game.gamePaused = false)
 			timer2 = 50;
 			attack_counter = 0;
 			entity_step = OfaMothDustStep;
+			audio_sound_gain(snd_ofaMoth_dustStep,global.volumeEffects,1);
+			audio_play_sound(snd_ofaMoth_dustStep,0,false);
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -247,6 +249,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_ofaMoth_moonBlast)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_ofaMoth_orb,global.volumeEffects,1);
+		audio_play_sound(snd_ofaMoth_orb,0,false);
 		sprite_index = spr_enemy_ofaMoth_moonBlast;
 		local_frame = 0;
 		image_index = 0;

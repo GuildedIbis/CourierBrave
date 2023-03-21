@@ -43,6 +43,7 @@ global.targetRoom = rm_lenko_farwayCamp;
 global.transition = false;
 global.fadeOut = false;
 global.aggroCounter = 0;
+global.bossCounter = 0;
 global.dayPhase = 0;
 global.volumeMusic = .75;
 global.volumeMenu = .30;

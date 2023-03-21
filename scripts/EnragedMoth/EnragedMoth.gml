@@ -6,6 +6,8 @@
 //
 //Enraged Moth Create
 function EnragedMothCreate(){
+name = "Enraged Moth"
+boss = true;
 home_state = EnragedMothFree;
 entity_step = home_state;
 entity_drop = EnragedMothDrop;
@@ -58,6 +60,7 @@ if (obj_game.gamePaused = false)
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
+			global.bossCounter = global.bossCounter + 1;
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -70,6 +73,7 @@ if (obj_game.gamePaused = false)
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;
+		global.bossCounter = global.bossCounter - 1;
 	}
 
 	//While Aggro is on
@@ -81,6 +85,8 @@ if (obj_game.gamePaused = false)
 			timer2 = 50;
 			attack_counter = 0;
 			entity_step = EnragedMothDustStep;
+			audio_sound_gain(snd_ofaMoth_dustStep,global.volumeEffects,1);
+			audio_play_sound(snd_ofaMoth_dustStep,0,false);
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -177,6 +183,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_enragedMoth_rageCharge)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_enragedMoth_rageCharge,global.volumeEffects,1);
+		audio_play_sound(snd_enragedMoth_rageCharge,0,false);
 		sprite_index = spr_enemy_enragedMoth_rageCharge;
 		local_frame = 0;
 		image_index = 0;
@@ -187,6 +195,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end = true)
 	{
 		entity_step = EnragedMothRageRush;
+		audio_sound_gain(snd_enragedMoth_rageRush,global.volumeEffects,1);
+		audio_play_sound(snd_enragedMoth_rageRush,0,false);
 		damage = 70;
 		hor_spd = 0;
 		ver_spd = 0;
@@ -263,6 +273,8 @@ if (obj_game.gamePaused = false)
 		if (attack_counter <= 2)
 		{
 			animation_end = false;
+			audio_sound_gain(snd_enragedMoth_rageRush,global.volumeEffects,1);
+			audio_play_sound(snd_enragedMoth_rageRush,0,false);
 			var _dir = round(point_direction(x,y,obj_player.x,obj_player.y)/90)
 			switch(_dir)
 			{
@@ -284,6 +296,7 @@ if (obj_game.gamePaused = false)
 				break;
 			}
 			timer1 = 10;
+			image_index = 0;
 			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 			ds_list_clear(hit_by_attack);
 		}
@@ -313,6 +326,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_enragedMoth_spawnOrb)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_ofaMoth_orb,global.volumeEffects,1);
+		audio_play_sound(snd_ofaMoth_orb,0,false);
 		sprite_index = spr_enemy_enragedMoth_spawnOrb;
 		local_frame = 0;
 		image_index = 0;

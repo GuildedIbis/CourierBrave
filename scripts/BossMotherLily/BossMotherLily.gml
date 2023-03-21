@@ -58,6 +58,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 			global.aggroCounter = global.aggroCounter + 1;
+			global.bossCounter = global.bossCounter + 1;
 		}
 	}
 	
