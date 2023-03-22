@@ -283,6 +283,7 @@
     {"name":"CrullUpgrade","order":9,"path":"scripts/CrullUpgrade/CrullUpgrade.yy",},
     {"name":"spr_ceriver_boomerang","order":3,"path":"sprites/spr_ceriver_boomerang/spr_ceriver_boomerang.yy",},
     {"name":"spr_scroll_bar2","order":15,"path":"sprites/spr_scroll_bar2/spr_scroll_bar2.yy",},
+    {"name":"spr_scroll_bar3b","order":23,"path":"sprites/spr_scroll_bar3b/spr_scroll_bar3b.yy",},
     {"name":"spr_enemy_razerSprout","order":8,"path":"sprites/spr_enemy_razerSprout/spr_enemy_razerSprout.yy",},
     {"name":"spr_home_title","order":4,"path":"sprites/spr_home_title/spr_home_title.yy",},
     {"name":"spr_player_regaliare_slash","order":3,"path":"sprites/spr_player_regaliare_slash/spr_player_regaliare_slash.yy",},

@@ -71,8 +71,8 @@ draw_text_transformed(177,113,"LEVEL",.35,.35,0);
 
 
 //Skills sprites
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 5],89,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 6],132,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 6],89,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 5],132,67);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 7],89,90);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 8],132,90);
 draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
@@ -315,20 +315,59 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 	
 //Main Text
+if (page = 0)
+{
+	//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
+	var _cost = string(18);
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"METEOR",.5,.5,0);
+	draw_text_transformed(167,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0);  
+	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+	//draw_text_transformed(167,95,_health,.35,.35,0); 
+	draw_set_color(c_white);
+	draw_text_transformed(166,46,"METEOR",.5,.5,0);
+	draw_text_transformed(166,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0); 
+}
+if (page = 1)
+{
 //draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-var _cost = string(18);
-draw_set_color(c_black);
-draw_text_transformed(167,46,"METEOR",.5,.5,0);
-draw_text_transformed(167,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0);  
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"METEOR",.5,.5,0);
-draw_text_transformed(166,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0); 
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
+	var _cost = string(25);
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"TRIROCK",.5,.5,0);
+	draw_text_transformed(167,56,"Rapidly fire projectiles until there\n is not enough charge left to continue.\nEach does " + _damage + " and costs " + _cost + " charge.",.35,.35,0);  
+	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+	//draw_text_transformed(167,95,_health,.35,.35,0); 
+	draw_set_color(c_white);
+	draw_text_transformed(166,46,"TRIROCK",.5,.5,0);
+	draw_text_transformed(166,56,"Rapidly fire projectiles until there\n is not enough charge left to continue.\nEach does " + _damage + " and costs " + _cost + " charge." + _cost + " charge each shot.",.35,.35,0); 
+}
+
+//Alt Magic
+if (obj_inventory.quest_grid[# 14, 3] = true)
+{
+	draw_sprite_stretched(spr_menu,3,234,90,10,10);
+	draw_text_transformed(236,90,"A",.5,.5,0);
+	if (point_in_rectangle(_mouseX,_mouseY,234,90,244,100))
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,232,88,14,14)
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_text02,global.volumeMenu,1);
+			audio_play_sound(snd_text02,0,false);
+			if (page = 0) page = 1;
+			else page = 0;
+		}
+	}
+}
+else page = 0;
 
 //Level	
 switch (obj_inventory.form_grid[# 3, 7])

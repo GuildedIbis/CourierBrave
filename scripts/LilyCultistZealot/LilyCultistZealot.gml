@@ -609,7 +609,7 @@ function LilyCultistZealotDrop(){
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
 //}
 var _objects = 2;
-var _dropBean = irandom_range(20,40);
+var _dropBean = 300;
 var _drop1 = irandom_range(0,99)	
 var _angle = random(360);
 
@@ -622,7 +622,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	spd = .75 + (.3) + random(0.1);
 }
 
-if (_drop1 > 50) //Rat Teeth
+if (_drop1 > 0) //Jeweled Root
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

@@ -472,13 +472,10 @@ if (timer1 <= 0)
 //
 //Elite Gorog Drop
 function EliteGorogDrop(){
-if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-{
-	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-}
+
 
 var _objects = 3;
-var _dropBean = 89;
+var _dropBean = 600;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
 var _drop3 = irandom_range(0,99);

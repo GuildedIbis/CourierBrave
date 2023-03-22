@@ -62,6 +62,8 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 10, 0] = true;
+		obj_inventory.quest_grid[# 10, 2] = 1;
 		obj_inventory.quest_grid[# 10, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
@@ -106,6 +108,9 @@ if (obj_inventory.quest_grid[# 10, 3] = true)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 10, 0] = true;
+		obj_inventory.quest_grid[# 10, 2] = 1;
+		obj_inventory.quest_grid[# 10, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -161,6 +166,8 @@ if (obj_inventory.quest_grid[# 11, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 11, 0] = true;
+		obj_inventory.quest_grid[# 11, 2] = 1;
 		obj_inventory.quest_grid[# 11, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
@@ -205,6 +212,9 @@ if (obj_inventory.quest_grid[# 11, 3] = true)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 11, 0] = true;
+		obj_inventory.quest_grid[# 11, 2] = 1;
+		obj_inventory.quest_grid[# 11, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -260,6 +270,8 @@ if (obj_inventory.quest_grid[# 12, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 12, 0] = true;
+		obj_inventory.quest_grid[# 12, 2] = 1;
 		obj_inventory.quest_grid[# 12, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
@@ -304,6 +316,9 @@ if (obj_inventory.quest_grid[# 12, 3] = true)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 12, 0] = true;
+		obj_inventory.quest_grid[# 12, 2] = 1;
+		obj_inventory.quest_grid[# 12, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

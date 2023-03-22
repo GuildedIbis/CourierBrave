@@ -252,6 +252,8 @@ for (var i = 0; i < 45; i = i + 1)
 //
 //Room Enemies Reset
 function RoomEnemiesReset(){
+global.aggroCounter = 0;
+global.bossCounter = 0;
 for (var i = 0; i < 45; i = i + 1)
 {
 	for (var j = 0; j < 20; j = j + 1)

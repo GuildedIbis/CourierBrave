@@ -448,7 +448,7 @@ else
 //Enraged Moth Drop
 function EnragedMothDrop(){
 var _objects = 1;
-var _dropBean = 110;
+var _dropBean = 600;
 var _drop1 = irandom_range(0,99)	
 var _angle = random(360);
 

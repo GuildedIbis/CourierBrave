@@ -71,8 +71,8 @@ draw_text_transformed(177,113,"LEVEL",.35,.35,0);
 
 
 //Skills sprites
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 5],89,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 6],132,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 6],89,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 5],132,67);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 7],89,90);
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 8],132,90);
 draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
@@ -314,21 +314,64 @@ function CeriverPolyorbMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 	
+	
+	
 //Main Text
-//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _damage = string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(3)));
-var _cost = string(8);
-draw_set_color(c_black);
-draw_text_transformed(167,46,"POLYORB",.5,.5,0);
-draw_text_transformed(167,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and cost\n" + _cost + " charge each.",.35,.35,0);  
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"POLYORB",.5,.5,0);
-draw_text_transformed(166,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and cost\n" + _cost + " charge each.",.35,.35,0); 
+if (page = 0)
+{
+	//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _damage = string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(3)));
+	var _cost = string(8);
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"POLYORB",.5,.5,0);
+	draw_text_transformed(167,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and cost\n" + _cost + " charge each.",.35,.35,0);  
+	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+	//draw_text_transformed(167,95,_health,.35,.35,0); 
+	draw_set_color(c_white);
+	draw_text_transformed(166,46,"POLYORB",.5,.5,0);
+	draw_text_transformed(166,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and cost\n" + _cost + " charge each.",.35,.35,0); 
+}
+
+if (page = 1)
+{
+	//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_font(fnt_text);
+	var _damageA = string(round(obj_player.grace) + (3 + (obj_inventory.form_grid[# 2, 7])*(7)));
+	var _damageB = string(round(obj_player.grace/2) + ((obj_inventory.form_grid[# 2, 7]-1)*5));
+	var _cost = string(25);
+	draw_set_color(c_black);
+	draw_text_transformed(167,46,"DYNORB",.5,.5,0);
+	draw_text_transformed(167,56,"Fire a projectile that does" + _damageA + "\n, or can burst into a cluster of\nprojectiles that deals" + _damageB + "damage\neach, costing " + _cost + " charge each shot.",.35,.35,0);  
+	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+	//draw_text_transformed(167,95,_health,.35,.35,0); 
+	draw_set_color(c_white);
+	draw_text_transformed(166,46,"DYNORB",.5,.5,0);
+	draw_text_transformed(166,56,"Fire a projectile that does" + _damageA + "\n, or can burst into a cluster of\nprojectiles that deals" + _damageB + "damage\neach, costing " + _cost + " charge each shot.",.35,.35,0); 
+}
+
+//Alt Magic
+
+if (obj_inventory.quest_grid[# 12, 3] = true)
+{
+	draw_sprite_stretched(spr_menu,3,234,90,10,10);
+	draw_text_transformed(236,90,"A",.5,.5,0);
+	if (point_in_rectangle(_mouseX,_mouseY,234,90,244,100))
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,232,88,14,14)
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_text02,global.volumeMenu,1);
+			audio_play_sound(snd_text02,0,false);
+			if (page = 0) page = 1;
+			else page = 0;
+		}
+	}
+}
 
 //Level	
 switch (obj_inventory.form_grid[# 1, 7])

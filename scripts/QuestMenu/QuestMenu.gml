@@ -11,14 +11,14 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 //Slider
-draw_sprite(spr_scroll_bar2b,page,68,43);
+draw_sprite(spr_scroll_bar3b,page,68,43);
 if (point_in_rectangle(_mouseX,_mouseY,69,43,77,49))
 {
 	draw_sprite(spr_scroll_highlight,0,69,43);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		if (page > 0) page = page - 1;
-		else page = 1;
+		else page = 2;
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,69,116,77,121))
@@ -26,7 +26,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,116,77,121))
 	draw_sprite(spr_scroll_highlight,1,69,116);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (page < 1) page = page + 1;
+		if (page < 2) page = page + 1;
 		else page = 0;
 	}
 }

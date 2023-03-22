@@ -118,12 +118,14 @@ script_execute(form_menu);
 function FormSwitchMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _rowLength = 6;
+var _rowLength = 4;
+draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
+draw_sprite_stretched(spr_menu_beveled,3,82,62,64,64);
 //Button Mechanics
 for (var i = 0; i < 16; i = i + 1)
 {
-	var _x2 = 95 + (i mod _rowLength) * 22;
-	var _y2 = 53 + (i div _rowLength) * 22;
+	var _x2 = 164 + (i mod _rowLength) * 22;
+	var _y2 = 41 + (i div _rowLength) * 22;
 	draw_sprite_stretched(spr_menu_circle16,1,_x2,_y2,20,20)
 	if (obj_inventory.form_grid[# i, 4] = true) 
 	{
