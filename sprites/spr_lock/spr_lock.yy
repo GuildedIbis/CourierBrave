@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sprites/Game/Menu.yy",
+    "name": "OtherMenu",
+    "path": "folders/Sprites/Game/Menu/OtherMenu.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

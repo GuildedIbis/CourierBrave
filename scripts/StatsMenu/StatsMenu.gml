@@ -130,7 +130,7 @@ if (page = 1)
 {
 
 	//Main Text
-	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
+	draw_sprite_stretched(spr_menu_player_stat,1,196,64,30,30);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
@@ -184,7 +184,7 @@ if (page = 1)
 if (page = 2)
 {
 	//Main Text
-	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
+	draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
@@ -235,134 +235,6 @@ if (page = 2)
 }
 
 }
-//
-//
-//
-//
-//
-//Draw Stats
-//function DrawStats(){
-//draw_set_halign(fa_center);
-//draw_set_valign(fa_middle);
-////Does not include mouse conversion to GUI
-//var _mouseX = device_mouse_x_to_gui(0);
-//var _mouseY = device_mouse_y_to_gui(0);
-//draw_set_halign(fa_left);
-//	draw_set_valign(fa_top);
-//	draw_set_color(c_white);
-////Background
-//draw_sprite_stretched(spr_menu,3,69,42,90,16);
-//draw_sprite_stretched(spr_menu,3,69,60,90,16);
-//draw_sprite_stretched(spr_menu,3,69,78,90,16);
-//draw_sprite_stretched(spr_menu,3,69,96,90,16);
-//////draw_sprite_stretched(spr_menu_circle16,3,70,42,36,36);
-////draw_sprite_stretched(spr_menu_player_stat,0,100,46,30,30);
-//////draw_sprite_stretched(spr_menu_circle16,3,184,42,36,36);
-////draw_sprite_stretched(spr_menu_player_stat,1,191,46,30,30);
-//////draw_sprite_stretched(spr_menu_circle16,3,70,88,36,36);
-////draw_sprite_stretched(spr_menu_player_stat,2,100,92,30,30);
-//////draw_sprite_stretched(spr_menu_circle16,3,184,88,36,36);
-////draw_sprite_stretched(spr_menu_player_stat,3,191,92,30,30);
-//if (point_in_rectangle(_mouseX,_mouseY,69,42,159,58))//Select weapons menu draw script
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,40,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 0;
-		
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,60,159,76))//Select weapons menu draw script
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,58,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 1;
-		
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,78,159,94))//Select weapons menu draw script
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,76,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 2;
-		
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,96,159,112))//Select weapons menu draw script
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,94,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 3;
-		
-//	}
-//}
-
-//var _vitalityTitle = "VITALITY | LVL: " + string(obj_player.vitality);
-//var _energyTitle = "ENERGY | LVL: " + string(obj_player.energy);
-//var _mightTitle = "MIGHT | LVL: " + string(obj_player.might);
-//var _graceTitle = "GRACE | LVL: " + string(obj_player.grace);
-//draw_text_transformed(75,47,_vitalityTitle,.35,.35,0);
-//draw_text_transformed(75,65,_energyTitle,.35,.35,0);
-//draw_text_transformed(75,83,_mightTitle,.35,.35,0);
-//draw_text_transformed(75,101,_graceTitle,.35,.35,0);
-
-////Draw Vitality
-//if (page = 0)
-//{
-//	draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_top);
-//	draw_set_color(c_white);
-//	draw_text_transformed(167,47,"VITALITY",.35,.35,0);
-//	draw_text_transformed(167,54,"Base health 150.\nEach level increases max health.",.3,.3,0);
-//}
-
-
-////Draw Energy
-//if (page = 1)
-//{
-//	draw_sprite_stretched(spr_menu_player_stat,1,196,64,30,30);
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_top);
-//	draw_set_color(c_white);
-//	draw_text_transformed(167,47,"ENERGY",.35,.35,0);
-//	draw_text_transformed(167,54,"Base energy 50.\nEach level increases max energy.",.3,.3,0);
-//}
-
-
-////Draw Might
-//if (page = 2)
-//{
-//	draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_top);
-//	draw_set_color(c_white);
-//	draw_text_transformed(167,47,"MIGHT",.35,.35,0);
-//	draw_text_transformed(167,54,"Added to weapon damage and sometimes special damage.",.3,.3,0);
-//}
-
-////Draw Might
-//if (page = 3)
-//{
-//	draw_sprite_stretched(spr_menu_player_stat,3,196,64,30,30);
-//	draw_set_halign(fa_left);
-//	draw_set_valign(fa_top);
-//	draw_set_color(c_white);
-//	draw_text_transformed(167,47,"GRACE",.35,.35,0);
-//	draw_text_transformed(167,54,"Added to magic damage and sometimes special damage.",.3,.3,0);
-//}
-//}	
 //
 //
 //

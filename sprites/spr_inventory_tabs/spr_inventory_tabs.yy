@@ -4,7 +4,7 @@
   "name": "spr_inventory_tabs",
   "bbox_bottom": 16,
   "bbox_left": 4,
-  "bbox_right": 176,
+  "bbox_right": 153,
   "bbox_top": 1,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sprites/Game/Menu.yy",
+    "name": "MenuIcons",
+    "path": "folders/Sprites/Game/Menu/MenuIcons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

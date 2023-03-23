@@ -13,7 +13,7 @@ if (targeted = false)
 {
 	targeted = true;
 	global.aggroCounter = global.aggroCounter + 1;
-	global.bossCounter = global.bossCounter + 1;
+	if (boss = true) global.bossCounter = global.bossCounter + 1;
 }
 
 if (invincible = false)

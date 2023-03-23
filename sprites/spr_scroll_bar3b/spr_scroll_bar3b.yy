@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sprites/Game/Menu.yy",
+    "name": "BaseButtons",
+    "path": "folders/Sprites/Game/Menu/BaseButtons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

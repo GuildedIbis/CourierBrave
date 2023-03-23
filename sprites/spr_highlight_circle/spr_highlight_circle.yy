@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sprites/Game/Menu.yy",
+    "name": "Highlights",
+    "path": "folders/Sprites/Game/Menu/Highlights.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
