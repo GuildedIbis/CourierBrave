@@ -4,7 +4,7 @@
   "name": "spr_inventory_tabs",
   "bbox_bottom": 16,
   "bbox_left": 4,
-  "bbox_right": 153,
+  "bbox_right": 177,
   "bbox_top": 1,
   "bboxMode": 0,
   "collisionKind": 1,

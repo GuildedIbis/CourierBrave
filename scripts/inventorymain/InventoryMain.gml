@@ -21,6 +21,7 @@ draw_sprite_stretched(button_sprite,3,135,128,21,24);
 draw_sprite_stretched(button_sprite,3,158,128,21,24);
 draw_sprite_stretched(button_sprite,3,181,128,21,24);
 draw_sprite_stretched(button_sprite,3,204,128,21,24);
+draw_sprite_stretched(button_sprite,3,227,128,21,24);
 //draw_sprite(spr_lock,0,160,108);
 //draw_sprite(spr_lock,0,224,108);
 
@@ -72,7 +73,7 @@ if (point_in_rectangle(_mouseX,_mouseY,112,128,133,156)) //Items Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
-		inv_gui = AspectsMenuGUI;	
+		inv_gui = ItemsMenuGUI;	
 		page = 0;
 	}
 }
@@ -113,9 +114,21 @@ if (point_in_rectangle(_mouseX,_mouseY,181,128,202,156)) //Treasure Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Info Menu
+if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Treasure Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,202,126,25,28);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		inv_gui = WorkInProgress;
+		selected_info = Idle;
+		page = 0;
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Info Menu
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,225,126,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
