@@ -13,6 +13,7 @@ state_script = RegaliareFree;
 magicP_script = RegaliareGoldBurst;
 magicA_script = RegaliareHeavyBurst;
 magic_primary = true;
+weapon_aim = false;
 idle_sprite = spr_player_regaliare_idle;
 roll_sprite = spr_player_regaliare_roll;
 crull_sprite = spr_player_regaliare_crull;
@@ -128,7 +129,7 @@ if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 20)
 	{
-		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 20;
 		attack_script = RegaliareRegalBlade;
 		state_script = PlayerStateAttack;
@@ -212,6 +213,18 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 10, 3] = t
 	}
 }
 
+//Switch Weapon Aim Style
+if (keyboard_check_pressed(ord("Z")))
+{
+	if (weapon_aim = true)
+	{
+		weapon_aim = false;
+	}
+	else
+	{
+		weapon_aim = true;
+	}
+}
 }
 //
 //

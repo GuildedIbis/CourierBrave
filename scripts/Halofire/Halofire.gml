@@ -17,6 +17,7 @@ recharge_sprite = spr_player_halofire_recharge;
 magicP_script = HalofireMeteorSling;
 magicA_script = HalofireTriRock;
 magic_primary = true;
+weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
 
 weapon_draw = HalofireHamaxeMenu;
@@ -127,7 +128,7 @@ if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 25)
 	{
-		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 25;
 		attack_script = HalofireHamaxe;
 		state_script = PlayerStateAttack;
@@ -210,6 +211,19 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 13, 3] = t
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+	}
+}
+
+//Switch Weapon Aim Style
+if (keyboard_check_pressed(ord("Z")))
+{
+	if (weapon_aim = true)
+	{
+		weapon_aim = false;
+	}
+	else
+	{
+		weapon_aim = true;
 	}
 }
 }

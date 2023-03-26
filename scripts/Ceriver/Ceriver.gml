@@ -17,6 +17,7 @@ recharge_sprite = spr_player_ceriver_recharge;
 magicP_script = CeriverPolyorbCast;
 magicA_script = CeriverDynorbCast;
 magic_primary = true;
+weapon_aim = true;
 obj_cursor.curs_script = CeriverCursor;
 
 weapon_draw = CeriverTurnbladesMenu;
@@ -131,7 +132,7 @@ if (key_attackW) and (weapon_count >= 1)
 {
 	if (thundux = false) and (stamina >= 15)
 	{
-		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 15;
 		timer1 = 15;
 		attack_script = CeriverBoomerang;
@@ -241,7 +242,17 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 12, 3] = t
 		attack_script = magicP_script;
 	}
 }
-
+if (keyboard_check_pressed(ord("Z")))
+{
+	if (weapon_aim = true)
+	{
+		weapon_aim = false;
+	}
+	else
+	{
+		weapon_aim = true;
+	}
+}
 //End Ceriver Free State
 }
 //

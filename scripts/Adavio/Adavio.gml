@@ -13,6 +13,7 @@ state_script = AdavioFree;
 magicP_script = AdavioVoidSpreadCast;
 magicA_script = AdavioVoidCycleCast;
 magic_primary = true;
+weapon_aim = false;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
 crull_sprite = spr_player_adavio_crull;
@@ -125,7 +126,7 @@ if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 15)
 	{
-		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 15;
 		timer1 = 12;
 		attack_script = AdavioHookThrust;
@@ -209,7 +210,17 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 11, 3] = t
 		attack_script = magicP_script;
 	}
 }
-
+if (keyboard_check_pressed(ord("Z")))
+{
+	if (weapon_aim = true)
+	{
+		weapon_aim = false;
+	}
+	else
+	{
+		weapon_aim = true;
+	}
+}
 }
 //
 //
