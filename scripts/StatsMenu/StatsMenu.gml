@@ -111,7 +111,7 @@ if (page = 0)
 	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
-		if (mouse_check_button_pressed(mb_left))
+		if (mouse_check_button_pressed(mb_left)) and (obj_player.beans >= _cost)
 		{
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -166,7 +166,7 @@ if (page = 1)
 	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
-		if (mouse_check_button_pressed(mb_left))
+		if (mouse_check_button_pressed(mb_left)) and (obj_player.beans >= _cost)
 		{
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -220,7 +220,7 @@ if (page = 2)
 	if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
-		if (mouse_check_button_pressed(mb_left))
+		if (mouse_check_button_pressed(mb_left)) and (obj_player.beans >= _cost)
 		{
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);

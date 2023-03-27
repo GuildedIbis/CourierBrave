@@ -113,7 +113,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	script_execute(StatusEffectsGUI);
 
 }
-if (obj_game.textPaused = true)
+if (obj_game.textPaused = true) and (scene = false)
 {
 	//Beans
 	draw_sprite(spr_bean_hud,0,50,6);

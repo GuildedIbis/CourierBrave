@@ -241,7 +241,7 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 	if (string_counter = 4)
 	{
 		speaker = 1;
-		text_string = "The Great Evil was imprisoned in the Fortress of the Heart,\nand could only be freed with the\n4 Sephra Key's. You must act fast Courier, and\nfind the four keys before Olutaph. They may be hidden,\nbut it is no secret that one is in the Fortress south of here."
+		text_string = "The Great Evil was imprisoned in the Fortress of the\nHeart,and could only be freed with the\n4 Sephra Key's. You must act fast Courier, and\nfind the four keys before Olutaph."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -250,7 +250,19 @@ if (obj_inventory.quest_grid[# 0, 3] = true) and (obj_inventory.quest_grid[# 1, 
 		//DrawBuyMenu();
 		//DrawSelectedMenu(obj_inventory);
 	}
-	if (string_counter >= 5)
+	if (string_counter = 5)
+	{
+		speaker = 1;
+		text_string = "They may be hidden, but it is no secret that one is in\nthe Fortress south of here."
+		_SubString = string_copy(text_string,1,letter_counter);
+		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+		//DrawSellMenu(obj_inventory);
+		//DrawBuyMenu();
+		//DrawSelectedMenu(obj_inventory);
+	}
+	if (string_counter >= 6)
 	{
 		obj_inventory.quest_grid[# 1, 1] = 1;
 		//text_script = NismaMenu;

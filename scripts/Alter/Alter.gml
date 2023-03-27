@@ -39,7 +39,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "Travel between alters. (WIP)" 
+	text_string = "You will return here on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
