@@ -108,6 +108,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
 		}
 	}
+	
+	//Status Effect
+	script_execute(StatusEffectsGUI);
 
 }
 if (obj_game.textPaused = true)

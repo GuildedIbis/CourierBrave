@@ -38,4 +38,6 @@ knockback_dir = 0;
 home_state = -1;
 invincible = false;
 inv_dur_timer = 0;
+cursed = false;
+cursed_dur_timer = 0;
 

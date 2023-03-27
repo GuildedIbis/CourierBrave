@@ -88,6 +88,8 @@ knockback_dur = 0;
 knockback_dir = 0;
 invincible = false;
 inv_dur_timer = 0;
+cursed = false
+cursed_dur_timer = 0;
 level = 1;
 break_object = obj_break;
 //
