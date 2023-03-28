@@ -56,19 +56,19 @@ if (point_in_rectangle(_mouseX,_mouseY,112,85,132,105)) and (obj_inventory.form_
 		
 	}
 }
+
 //Button Text
 draw_set_halign(fa_center);
 draw_set_color(c_black);
 draw_text_transformed(114,46,"CERIVER",.6,.6,0);
-draw_text_transformed(90,113,"EQUIP",.35,.35,0);
+if (obj_player.cursed = false) draw_text_transformed(90,113,"EQUIP",.35,.35,0);
+else draw_text_transformed(90,113,"CURSED",.35,.35,0);
 draw_text_transformed(178,113,"LEVEL",.35,.35,0);
 draw_set_color(c_white);
 draw_text_transformed(113,46,"CERIVER",.6,.6,0);
-draw_text_transformed(89,113,"EQUIP",.35,.35,0);
+if (obj_player.cursed = false) draw_text_transformed(89,113,"EQUIP",.35,.35,0);
+else draw_text_transformed(89,113,"CURSED",.35,.35,0);
 draw_text_transformed(177,113,"LEVEL",.35,.35,0);
-
-
-
 
 //Skills sprites
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 1, 6],89,67);

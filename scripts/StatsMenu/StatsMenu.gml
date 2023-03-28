@@ -118,7 +118,6 @@ if (page = 0)
 			obj_player.beans = obj_player.beans - _cost;
 			obj_player.vitality = obj_player.vitality + 1;
 			obj_player.max_hp = 150 + (3* (obj_player.vitality + round(obj_player.vitality/15)));
-			obj_player.hp = obj_player.max_hp;
 			
 		
 		}

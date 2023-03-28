@@ -44,6 +44,7 @@ stamina_timer = 0;
 charge_timer = 0;
 magic_timer = 0;
 melee_timer = 0;
+weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats

@@ -21,7 +21,7 @@ if (ablaze = true)
 	if (ablaze_damage_timer <= 0)
 	{
 		ablaze_damage_timer = 60;
-		hp = hp - round(max_hp/50)
+		hp = hp - max(2,round(max_hp/50))
 	}
 }
 

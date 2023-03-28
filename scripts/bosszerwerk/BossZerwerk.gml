@@ -27,6 +27,7 @@ image_index = 3;
 max_hp = 870;
 hp = max_hp;
 boss = true;
+name = "Zerwerk";
 enemy_spd = 1.3;
 local_frame = 0;
 hit_by_attack = -1;

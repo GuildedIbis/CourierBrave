@@ -88,9 +88,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
@@ -123,7 +123,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 PlayerAnimation();
 
 
-//Melee Attack
+//Weapon Attack
 if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 25)
@@ -261,9 +261,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
@@ -292,7 +292,8 @@ if (animation_end)
 	if (mouse_check_button(mb_right)) and (stamina >= 15)
 	{
 		stamina = stamina - 15;
-		ability_charge = 0;
+		weapon_timer = 45;
+		fixed_dir = _cardinalDir
 		state_script = HalofireHamaxeCharging;
 	}
 	else
@@ -312,18 +313,19 @@ if (animation_end)
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharging(){
-
 //Set
 attacking = true;
+walk_spd = .75;
 
 //Standard Timers
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
 	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
 	}
 }
 if (charge < max_charge) and (watervice = false)//Charge Recharge
@@ -339,47 +341,54 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
 
-//Attack Start
-if (sprite_index != spr_player_halofire_hamaxe_charging)
+//Switch to charged state
+if (weapon_timer <= 0)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_player_halofire_hamaxe_charging;
-	sprite_set_speed(sprite_index,12,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	state_script = HalofireHamaxeCharged;
 }
 
-if (melee_timer <= 0)
+
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	state_script = HalofireHamaxeCharged
+	direction = input_dir;
+	sprite_index = spr_player_halofire_hamaxe_chargingMove;
 }
+else sprite_index = spr_player_halofire_hamaxe_charging;
+if (_oldSprite != sprite_index) local_frame = 0;
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
+//Attack
 if (mouse_check_button_released(mb_right))
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
-	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (melee_timer <= 0)
-	{
-		state_script = HalofireHamaxeBackswingCharged;
-	}
-	else
-	{
-		state_script = HalofireHamaxeBackswing;
-	}
+	state_script = HalofireHamaxeBackswing;
 }
+
 }
 //
 //
@@ -388,11 +397,21 @@ if (mouse_check_button_released(mb_right))
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharged(){
-
 //Set
 attacking = true;
+walk_spd = .75;
 
 //Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
 if (charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
@@ -406,44 +425,46 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
 
 
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 
-//Attack Start
-if (sprite_index != spr_player_halofire_hamaxe_charged)
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_player_halofire_hamaxe_charged;
-	sprite_set_speed(sprite_index,12,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	direction = input_dir;
+	sprite_index = spr_player_halofire_hamaxe_chargedMove;
 }
+else sprite_index = spr_player_halofire_hamaxe_charged;
+if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (mouse_check_button_released(mb_right))
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
-	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (melee_timer <= 0)
-	{
-		state_script = HalofireHamaxeBackswingCharged;
-	}
-	else
-	{
-		state_script = HalofireHamaxeBackswing;
-	}
+	state_script = HalofireHamaxeBackswingCharged;
 }
 }
 //
@@ -478,9 +499,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 
@@ -502,11 +523,12 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1);
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (animation_end)
 {
 	
+	image_xscale = 1;
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
@@ -540,13 +562,14 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,30,-1,-1,-1,-1);
+AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (animation_end)
 {
+	image_xscale = 1;
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
@@ -589,9 +612,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 
@@ -755,9 +778,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
@@ -899,9 +922,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
