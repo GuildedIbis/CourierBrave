@@ -104,8 +104,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _damage = string(round(obj_player.might/2) + (13 * obj_inventory.form_grid[# 1, 5]));
-var _cost = string(15);
+var _damage = string(round(obj_player.might/2) + (10 * obj_inventory.form_grid[# 1, 5]));
+var _cost = string(30);
 draw_set_color(c_black);
 draw_text_transformed(167,46,"TURNBLADES",.5,.5,0);
 draw_text_transformed(167,56,"Throw boomerang blades that\ndeal" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
@@ -341,17 +341,16 @@ if (page = 1)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _damageA = string(round(obj_player.grace) + (3 + (obj_inventory.form_grid[# 2, 7])*(7)));
-	var _damageB = string(round(obj_player.grace/2) + ((obj_inventory.form_grid[# 2, 7]-1)*5));
+	var _damageA = string(round(obj_player.grace - 3 + (13 * obj_inventory.form_grid[# 1, 7])));
 	var _cost = string(25);
 	draw_set_color(c_black);
-	draw_text_transformed(167,46,"DYNORB",.5,.5,0);
-	draw_text_transformed(167,56,"Fire a projectile that does" + _damageA + "\n, or can burst into a cluster of\nprojectiles that deals" + _damageB + "damage\neach, costing " + _cost + " charge each shot.",.35,.35,0);  
+	draw_text_transformed(167,46,"ORBLADE DASH",.5,.5,0);
+	draw_text_transformed(167,56,"Dash in the direction of the cursor and\nsummon a watery blade around Ceriver\nthat does " + _damageA + " damage and costs\n" + _cost + " charge each dash.",.35,.35,0);  
 	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"DYNORB",.5,.5,0);
-	draw_text_transformed(166,56,"Fire a projectile that does" + _damageA + "\n, or can burst into a cluster of\nprojectiles that deals" + _damageB + "damage\neach, costing " + _cost + " charge each shot.",.35,.35,0); 
+	draw_text_transformed(166,46,"ORBLADE DASH",.5,.5,0);
+	draw_text_transformed(166,56,"Dash in the direction of the cursor and\nsummon a watery blade around Ceriver\nthat does " + _damageA + " damage and costs\n" + _cost + " charge each dash.",.35,.35,0); 
 }
 
 //Alt Magic

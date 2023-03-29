@@ -245,7 +245,7 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.habraf_lair[4] < 1)
+if (obj_inventory.habraf_lair[4] < 2)
 {
 	sprite_index = spr_door_habraf;
 

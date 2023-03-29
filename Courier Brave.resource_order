@@ -402,6 +402,7 @@
     {"name":"spr_enemy_enragedWorm_explode","order":8,"path":"sprites/spr_enemy_enragedWorm_explode/spr_enemy_enragedWorm_explode.yy",},
     {"name":"obj_curse","order":2,"path":"objects/obj_curse/obj_curse.yy",},
     {"name":"spr_player_regaliare_recharge","order":9,"path":"sprites/spr_player_regaliare_recharge/spr_player_regaliare_recharge.yy",},
+    {"name":"spr_player_ceriver_cast_orbDash","order":14,"path":"sprites/spr_player_ceriver_cast_orbDash/spr_player_ceriver_cast_orbDash.yy",},
     {"name":"ChestTexts","order":4,"path":"scripts/ChestTexts/ChestTexts.yy",},
     {"name":"obj_fragFire","order":1,"path":"objects/obj_fragFire/obj_fragFire.yy",},
     {"name":"spr_enemy_ghost2_shadowShiftA","order":6,"path":"sprites/spr_enemy_ghost2_shadowShiftA/spr_enemy_ghost2_shadowShiftA.yy",},

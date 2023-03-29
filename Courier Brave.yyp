@@ -468,6 +468,7 @@
     {"id":{"name":"obj_curse","path":"objects/obj_curse/obj_curse.yy",},},
     {"id":{"name":"spr_player_ironPlate_castJab","path":"sprites/spr_player_ironPlate_castJab/spr_player_ironPlate_castJab.yy",},},
     {"id":{"name":"spr_player_regaliare_recharge","path":"sprites/spr_player_regaliare_recharge/spr_player_regaliare_recharge.yy",},},
+    {"id":{"name":"spr_player_ceriver_cast_orbDash","path":"sprites/spr_player_ceriver_cast_orbDash/spr_player_ceriver_cast_orbDash.yy",},},
     {"id":{"name":"ChestTexts","path":"scripts/ChestTexts/ChestTexts.yy",},},
     {"id":{"name":"obj_fragFire","path":"objects/obj_fragFire/obj_fragFire.yy",},},
     {"id":{"name":"spr_enemy_ghost2_shadowShiftA","path":"sprites/spr_enemy_ghost2_shadowShiftA/spr_enemy_ghost2_shadowShiftA.yy",},},

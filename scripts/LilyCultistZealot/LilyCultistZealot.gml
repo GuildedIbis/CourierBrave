@@ -475,7 +475,7 @@ if (place_meeting(x,y,break_object))
 			enemy_move = spr_cultistZealot_waterLeaf;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 3.5;
+			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 25;

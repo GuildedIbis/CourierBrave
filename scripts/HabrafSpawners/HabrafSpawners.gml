@@ -7,11 +7,11 @@
 //Habraf Spawn 1 Create 
 function HabrafSpawnCreate1(){
 
-if (obj_inventory.habraf_lair[0] < 1)
+if (obj_inventory.habraf_lair[0] < 4)
 {
 
 	//Spawn 1
-	obj_inventory.habraf_lair[0] = 1;
+	obj_inventory.habraf_lair[0] = 0;
 	with (instance_create_layer(96,64,"Instances",obj_enemy))
 	{
 		image_alpha = 1;
@@ -54,7 +54,7 @@ if (obj_inventory.habraf_lair[0] < 1)
 //
 //Habraf Lair: Room 1 Spawn
 function HabrafSpawner1(){
-
+if (!instance_exists(obj_enemy)) obj_inventory.habraf_lair[0] = 4;
 }
 //
 //
@@ -196,7 +196,7 @@ if (obj_inventory.habraf_lair[3] < 2)
 //Habraf Boss Spawn Create 
 function HabrafSpawnCreateBoss(){
 
-if (obj_inventory.habraf_lair[4] < 1)
+if (obj_inventory.habraf_lair[4] < 2)
 {
 
 	//Spawn 1

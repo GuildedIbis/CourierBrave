@@ -15,7 +15,7 @@ roll_sprite = spr_player_ceriver_roll;
 crull_sprite = spr_player_ceriver_crull;
 recharge_sprite = spr_player_ceriver_recharge;
 magicP_script = CeriverPolyorbCast;
-magicA_script = CeriverDynorbCast;
+magicA_script = CeriverOrbRushCast;
 magic_primary = true;
 weapon_aim = true;
 obj_cursor.curs_script = CeriverCursor;
@@ -28,8 +28,8 @@ special_draw = CeriverSpecialMenu;
 
 
 //Dynamic Variables
-weapon_count = 3;
-max_weapon_count = 3;
+weapon_count = 2;
+max_weapon_count = 2;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
@@ -128,12 +128,11 @@ PlayerAnimation();
 
 
 //Melee Attack
-if (key_attackW) and (weapon_count >= 1)
+if (key_attackW) and (stamina >= 30)
 {
-	if (thundux = false) and (stamina >= 15)
+	if (thundux = false) and (weapon_count >= 1)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		stamina = stamina - 15;
 		timer1 = 15;
 		attack_script = CeriverBoomerang;
 		state_script = PlayerStateAttack;
@@ -153,34 +152,14 @@ if (key_attackM)
 			state_script = PlayerStateAttack;
 		}
 		//Dynorb
-		if (magic_primary = false) and (charge >= 5)
+		if (magic_primary = false) and (charge >= 25)
 		{
-			max_charge = 100 + (grace + round(grace/15))
+			max_charge = 100 + (grace + round(grace/15));
+			charge = charge - 25;
+			magic_timer = 20;
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
-			with (instance_create_layer(obj_player.x,obj_player.y-10,"Instances",obj_projectile))
-			{
-				timer1 = 30;
-				damage = 0;
-				dir_offX = 0;
-				dir_offY = 0;
-				break_object = obj_player.break_object;
-				magic = true;
-				cast = false;
-				fragment_count = 1;
-				fragment = obj_fragWater;
-				projectile_sprite = spr_ceriver_dynorb;
-				projectile_script = CeriverDynorbFree;
-				idle_sprite = spr_ceriver_dynorb;
-				hit_by_attack = -1;
-				//script_execute(LeafArcCreate);
-				direction = point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y+6);
-				image_angle = direction;
-				projectile_speed = 4.0;
-				speed = 0;
-				image_speed = 0;
-			}
-			magic_timer = 10;
+			direction = point_direction(x,y,mouse_x,mouse_y);
 		}
 	}
 
@@ -242,6 +221,8 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 12, 3] = t
 		attack_script = magicP_script;
 	}
 }
+
+//Switch Weapon Aim
 if (keyboard_check_pressed(ord("Z")))
 {
 	if (weapon_aim = true)
@@ -264,7 +245,7 @@ if (keyboard_check_pressed(ord("Z")))
 function CeriverBoomerang(){
 //Set
 attacking = true;
-damage = round(might/2) + (13 * obj_inventory.form_grid[# 1, 5]);
+damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
@@ -308,11 +289,38 @@ if (sprite_index != spr_player_ceriver_boomerangThrow)
 PlayerAnimation();
 
 //Create Boomerange Projectile
-if (melee_timer <= 0)
+//if (melee_timer <= 0)
+//{
+//	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
+//	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
+//	melee_timer = 15;
+//	weapon_count = weapon_count - 1;
+//	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+//	{
+//		return_timer = 35;
+//		sd_timer = 120;
+//		break_object = obj_player.break_object;
+//		magic = false;
+//		damage = obj_player.might + ((obj_inventory.form_grid[# 1, 6])*2);//
+//		projectile_sprite = spr_ceriver_boomerang;
+//		projectile_script = CeriverBoomerangFree;
+//		idle_sprite = spr_ceriver_boomerang;
+//		hit_by_attack = -1;
+//		//script_execute(LeafArcCreate);
+//		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+//		image_angle = direction;
+//		projectile_speed = 2.5;
+//		returning = false;
+//	}
+//}
+
+//Return to Free State or Continue Throwing Boomerangs (if possible)
+if (animation_end)
 {
 	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
 	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-	melee_timer = 15;
+	//melee_timer = 15;
+	stamina = stamina - 30;
 	weapon_count = weapon_count - 1;
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
@@ -331,19 +339,21 @@ if (melee_timer <= 0)
 		projectile_speed = 2.5;
 		returning = false;
 	}
-}
-
-//Return to Free State or Continue Throwing Boomerangs (if possible)
-if (animation_end)
-{
-	if (mouse_check_button(mb_right)) and (weapon_count >= 1)
+	if (mouse_check_button(mb_right)) and (stamina >= 30)
 	{
-		if (thundux = false) and (stamina >= 15)
+		if (thundux = false) and (weapon_count >= 1)
 		{
-			stamina = stamina - 15;
-			melee_timer = 15;
+			//melee_timer = 15;
 			attack_script = CeriverBoomerang;
 			state_script = PlayerStateAttack;
+		}
+		else
+		{
+			attacking = false;
+			state_script = free_state;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
 		}
 	}
 	else
@@ -593,6 +603,92 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 }
 if (sd_timer <= 0) instance_destroy();
 
+}
+//
+//
+//
+//
+//
+//Ceriver Orb Rush State
+function CeriverOrbRushCast(){
+//Set
+attacking = true;
+damage = grace - 3 + (13 * obj_inventory.form_grid[# 1, 7]);
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	atk_snd_delay = 28;
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+if (magic_timer > 0)
+{
+	magic_timer = magic_timer - 1;
+}
+if (special_timer < max_special_timer) and (watervice = false)
+{
+	special_timer = special_timer + 1;
+}
+
+
+//Attack Start
+if (sprite_index != spr_player_ceriver_cast_orbDash)
+{
+	//Start Animation From Beginning
+	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
+	sprite_index = spr_player_ceriver_cast_orbDash;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+hor_spd = lengthdir_x(3,direction);
+ver_spd = lengthdir_y(3,direction);
+var _collided = PlayerCollision();
+
+
+
+
+
+//Collision
+if (_collided = true)
+{
+	state_script = free_state;
+	ScreenShake(4,15);
+}
+
+//Calcuate Hit Entitites
+AttackCalculateStatus(spr_player_ceriver_cast_orbDash,obj_player,2.5,-1,-1,-1,-1,-1);
+
+//Animate
+PlayerAnimation();
+
+if (magic_timer <= 0)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
 }
 //
 //
