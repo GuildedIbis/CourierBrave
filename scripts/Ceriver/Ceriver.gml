@@ -154,6 +154,8 @@ if (key_attackM)
 		//Dynorb
 		if (magic_primary = false) and (charge >= 25)
 		{
+			audio_sound_gain(snd_ceriver_orbDash,global.volumeEffects,1);
+			audio_play_sound(snd_ceriver_orbDash,0,false);
 			max_charge = 100 + (grace + round(grace/15));
 			charge = charge - 25;
 			magic_timer = 20;
@@ -620,7 +622,7 @@ if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	//audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
