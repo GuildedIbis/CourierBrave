@@ -369,16 +369,16 @@ if (obj_game.gamePaused = false)
 function EndireKnightTnaksDrop(){
 
 var _objects = 2;
-var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
+var _drop1 = irandom_range(0,99);	
+var _drop2 = irandom_range(0,99);
 var _angle = random(360);
 
 
-if (_drop1 > 25) 
+if (_drop1 > 0) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 17;
+		item_id = 9;
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
@@ -387,7 +387,7 @@ if (_drop1 > 25)
 	}
 	
 }
-if (_drop2 > 25) 
+if (_drop2 > 24) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
@@ -427,10 +427,9 @@ if (obj_inventory.quest_grid[# 3, 3] = false)
 //Obor Drop
 function EndireKnightOborDrop(){
 
-var _objects = 3;
-var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
-var _drop3 = irandom_range(0,99)
+var _objects = 2;
+var _drop1 = irandom_range(0,99);	
+var _drop2 = irandom_range(0,99);
 var _angle = random(360);
 
 
@@ -438,7 +437,7 @@ if (_drop1 > 0)
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 17;
+		item_id = 9;
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
@@ -447,7 +446,7 @@ if (_drop1 > 0)
 	}
 	
 }
-if (_drop2 > 0) 
+if (_drop2 > 24) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
@@ -456,19 +455,6 @@ if (_drop2 > 0)
 		sprite_index = spr_item_all;
 		image_index = item_id;
 		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop3 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 3;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
@@ -499,25 +485,25 @@ if (obj_inventory.quest_grid[# 4, 3] = false)
 function EndireKnightGhafateDrop(){
 
 var _objects = 2;
-var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
+var _drop1 = irandom_range(0,99);	
+var _drop2 = irandom_range(0,99);	
 var _angle = random(360);
 
 
-if (_drop1 > 25) 
+if (_drop1 > 0) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 17;
+		item_id = 9;
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects;
+		direction = _angle/_objects * 2;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 25) 
+if (_drop2 > 24) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

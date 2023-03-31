@@ -157,7 +157,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 94) 
+if (_drop1 > 97) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

@@ -410,7 +410,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 50) 
+if (_drop1 > 90) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

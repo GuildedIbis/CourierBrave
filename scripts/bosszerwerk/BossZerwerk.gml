@@ -467,8 +467,8 @@ if (_drop1 > 0)
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 1;
-		amount = 5;
+		item_id = 8;
+		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
 		direction = _angle/_objects;
@@ -476,20 +476,7 @@ if (_drop1 > 0)
 	}
 	
 }
-if (_drop2 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 3;
-		amount = 3;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop3 > 0) 
+if (_drop3 > 49) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

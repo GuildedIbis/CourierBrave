@@ -416,6 +416,7 @@
     {"id":{"name":"snd_rat_damaged3","path":"sounds/snd_rat_damaged3/snd_rat_damaged3.yy",},},
     {"id":{"name":"spr_enemy_folioBulb_idle","path":"sprites/spr_enemy_folioBulb_idle/spr_enemy_folioBulb_idle.yy",},},
     {"id":{"name":"snd_slash01","path":"sounds/snd_slash01/snd_slash01.yy",},},
+    {"id":{"name":"spr_mapBackground","path":"sprites/spr_mapBackground/spr_mapBackground.yy",},},
     {"id":{"name":"snd_lenko_themeBoss","path":"sounds/snd_lenko_themeBoss/snd_lenko_themeBoss.yy",},},
     {"id":{"name":"LilyCultistDilloc","path":"scripts/LilyCultistDilloc/LilyCultistDilloc.yy",},},
     {"id":{"name":"spr_effect_yakflower_totemActive","path":"sprites/spr_effect_yakflower_totemActive/spr_effect_yakflower_totemActive.yy",},},

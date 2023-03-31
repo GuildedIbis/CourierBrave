@@ -359,6 +359,7 @@
     {"name":"BossZerwerk","order":5,"path":"scripts/BossZerwerk/BossZerwerk.yy",},
     {"name":"snd_rat_damaged3","order":8,"path":"sounds/snd_rat_damaged3/snd_rat_damaged3.yy",},
     {"name":"snd_slash01","order":1,"path":"sounds/snd_slash01/snd_slash01.yy",},
+    {"name":"spr_mapBackground","order":6,"path":"sprites/spr_mapBackground/spr_mapBackground.yy",},
     {"name":"LilyCultistDilloc","order":3,"path":"scripts/LilyCultistDilloc/LilyCultistDilloc.yy",},
     {"name":"spr_effect_yakflower_totemActive","order":9,"path":"sprites/spr_effect_yakflower_totemActive/spr_effect_yakflower_totemActive.yy",},
     {"name":"rm_init","order":2,"path":"rooms/rm_init/rm_init.yy",},
