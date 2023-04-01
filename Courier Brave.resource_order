@@ -356,6 +356,7 @@
     {"name":"spr_weapon_zerkriftHook_fourRift","order":5,"path":"sprites/spr_weapon_zerkriftHook_fourRift/spr_weapon_zerkriftHook_fourRift.yy",},
     {"name":"Sprite368","order":24,"path":"sprites/Sprite368/Sprite368.yy",},
     {"name":"spr_weapon_fayaniBlade_goldArc","order":4,"path":"sprites/spr_weapon_fayaniBlade_goldArc/spr_weapon_fayaniBlade_goldArc.yy",},
+    {"name":"spr_magicAlt_allGame","order":6,"path":"sprites/spr_magicAlt_allGame/spr_magicAlt_allGame.yy",},
     {"name":"BossZerwerk","order":5,"path":"scripts/BossZerwerk/BossZerwerk.yy",},
     {"name":"snd_rat_damaged3","order":8,"path":"sounds/snd_rat_damaged3/snd_rat_damaged3.yy",},
     {"name":"snd_slash01","order":1,"path":"sounds/snd_slash01/snd_slash01.yy",},

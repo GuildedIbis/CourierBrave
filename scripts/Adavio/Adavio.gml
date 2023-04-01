@@ -13,7 +13,7 @@ state_script = AdavioFree;
 magicP_script = AdavioVoidSpreadCast;
 magicA_script = AdavioVoidCycleCast;
 magic_primary = true;
-weapon_aim = false;
+//weapon_aim = false;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
 crull_sprite = spr_player_adavio_crull;
@@ -127,6 +127,7 @@ if (key_attackW)
 	if (thundux = false) and (stamina >= 15)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = false) direction = round(obj_player.direction/90) * 90;
 		stamina = stamina - 15;
 		timer1 = 12;
 		attack_script = AdavioHookThrust;
@@ -339,7 +340,7 @@ if (timer1 <= 0)
 		idle_sprite = spr_adavio_hook_blast;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
-		direction = obj_player.direction;
+		direction = (round(obj_player.direction)/90)*90;
 		image_angle = direction;
 		projectile_speed = 3.5;
 	}

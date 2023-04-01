@@ -11,6 +11,7 @@ key_ability = keyboard_check_pressed(vk_space);
 key_attackM = mouse_check_button_pressed(mb_left);
 key_attackW = mouse_check_button_pressed(mb_right);
 key_attackS = keyboard_check(vk_shift);
+weapon_aim = false;
 
 //Animation
 iAlpha = 1.0;

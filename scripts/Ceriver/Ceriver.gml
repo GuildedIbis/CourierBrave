@@ -17,7 +17,7 @@ recharge_sprite = spr_player_ceriver_recharge;
 magicP_script = CeriverPolyorbCast;
 magicA_script = CeriverOrbRushCast;
 magic_primary = true;
-weapon_aim = true;
+//weapon_aim = true;
 obj_cursor.curs_script = CeriverCursor;
 
 weapon_draw = CeriverTurnbladesMenu;
@@ -132,7 +132,7 @@ if (key_attackW) and (stamina >= 30)
 {
 	if (thundux = false) and (weapon_count >= 1)
 	{
-		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		timer1 = 15;
 		attack_script = CeriverBoomerang;
 		state_script = PlayerStateAttack;

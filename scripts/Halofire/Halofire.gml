@@ -17,7 +17,7 @@ recharge_sprite = spr_player_halofire_recharge;
 magicP_script = HalofireMeteorSling;
 magicA_script = HalofireTriRock;
 magic_primary = true;
-weapon_aim = false
+//weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
 
 weapon_draw = HalofireHamaxeMenu;

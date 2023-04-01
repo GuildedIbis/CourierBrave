@@ -44,7 +44,7 @@ function LoadPlayer(_loadEntity){
 				script_execute(obj_inventory.form_grid[# form, 2])
 			}
 		}
-		
+		if (variable_struct_exists(_loadEntity,"weaponAim")) obj_player.weapon_aim = _loadEntity.weaponAim;
 }
 //
 //
@@ -82,6 +82,7 @@ var _savePlayer =
 	
 	//Loadout
 	form : obj_player.form,
+	weaponAim : obj_player.weapon_aim,
 	////meleeMain : obj_player.melee_main,
 	//meleeID : obj_player.melee_id,
 	////magicMain : obj_player.magic_main,
