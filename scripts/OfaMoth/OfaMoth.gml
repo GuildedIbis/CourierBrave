@@ -14,7 +14,7 @@ enemy_move = spr_enemy_ofaMoth;
 enemy_damaged = spr_enemy_ofaMoth;
 damaged_snd = snd_ofaMoth_damaged;
 walk_snd = snd_ofaWorm_dash;
-shadow = 0;
+shadow = 1;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 <= 0)
 	{
 		//Chase: create and execute a path towards player
-		shadow = -1;
+		shadow = false;
 		path = path_add();
 		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
 		path_start(path, enemy_spd, 0, 0);
@@ -139,7 +139,7 @@ if (obj_game.gamePaused = false)
 	}
 	else 
 	{
-		shadow = 0;
+		shadow = 1;
 		path_end();
 	}
 	
@@ -147,7 +147,7 @@ if (obj_game.gamePaused = false)
 	script_execute(EnemyAnimation1);
 	if (animation_end = true)
 	{
-		shadow = 0;
+		shadow = 1;
 		path_end();
 		var _atk = irandom_range(0,1);
 		if (_atk = 0)

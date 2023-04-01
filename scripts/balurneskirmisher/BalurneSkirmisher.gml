@@ -98,11 +98,6 @@ if (obj_game.gamePaused = false)
 		{
 			aggro_drop = aggro_drop - 1;
 		}
-		//if (walk_snd_delay <= 0)
-		//{
-		//	walk_snd_delay = 30;
-		//	if (point_in_circle(obj_player.x, obj_player.y,x,y,32)) audio_play_sound(walk_snd,1,0);
-		//}
 	}
 	
 	//Animation
