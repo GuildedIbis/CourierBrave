@@ -141,13 +141,13 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 20)
+		if (magic_primary = true) and (charge >= 24)
 		{
 			max_charge = 100 + (grace + round(grace/15));
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 20)
+		if (magic_primary = false) and (charge >= 24)
 		{
 			max_charge = 100 + (grace + round(grace/15));
 			max_attack_counter = floor(charge/20);
@@ -671,14 +671,14 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 18;
+	charge = charge - 24;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
-		follow_timer = 28;
+		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
 		damage = obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5));//
@@ -686,7 +686,7 @@ if (magic_timer <= 0)
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
-		direction = irandom_range(-6,6) + (point_direction(x,y,mouse_x,mouse_y));
+		direction = irandom_range(-8,8) + (point_direction(x,y,mouse_x,mouse_y));
 		if (direction < 135) and (direction > 45)
 		{
 			inv_timer = 0;
@@ -702,7 +702,7 @@ if (magic_timer <= 0)
 PlayerAnimation();
 
 
-if (mouse_check_button(mb_left) = false) or (charge < 18)
+if (mouse_check_button(mb_left) = false) or (charge < 24)
 {
 	attacking = false;
 	state_script = free_state;
@@ -841,7 +841,7 @@ switch(_dirPos)
 if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
-	charge = charge - 30;
+	charge = charge - 24;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_trirock,global.volumeEffects,1);
@@ -1143,8 +1143,8 @@ curs_form = 3;
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 
-if (obj_player.magic_primary = true) spread = 3.5;
-if (obj_player.magic_primary = false) spread = 2.5;
+if (obj_player.magic_primary = true) spread = 4;
+if (obj_player.magic_primary = false) spread = 4;
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);

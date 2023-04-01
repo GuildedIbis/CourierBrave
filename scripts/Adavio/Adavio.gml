@@ -87,9 +87,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0)
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
@@ -255,9 +255,9 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0)
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
@@ -429,10 +429,11 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0)
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
-}//if (special_timer < max_special_timer) and (watervice = false)
+	weapon_timer = weapon_timer - 1;
+}
+//if (special_timer < max_special_timer) and (watervice = false)
 //{
 //	special_timer = special_timer + 1;
 //} //2/1/23
@@ -605,9 +606,9 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0)
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
@@ -813,9 +814,9 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0)
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //
 //State
@@ -917,7 +918,14 @@ curs_form = 2;
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 if (obj_player.magic_primary = true) spread = 1.5;
-if (obj_player.magic_primary = false) spread = 3.5;
+if (obj_player.magic_primary = false)
+{
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,68))
+	{
+		spread = 24;
+	}
+	else spread = 3;
+}
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);

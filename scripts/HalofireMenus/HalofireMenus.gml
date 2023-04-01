@@ -322,7 +322,7 @@ if (page = 0)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-	var _cost = string(18);
+	var _cost = string(24);
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"METEOR",.5,.5,0);
 	draw_text_transformed(167,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0);  
@@ -339,7 +339,7 @@ if (page = 1)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-	var _cost = string(25);
+	var _cost = string(24);
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"TRIROCK",.5,.5,0);
 	draw_text_transformed(167,56,"Rapidly fire projectiles until there\n is not enough charge left to continue.\nEach does " + _damage + " and costs " + _cost + " charge.",.35,.35,0);  

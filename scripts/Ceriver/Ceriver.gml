@@ -15,7 +15,7 @@ roll_sprite = spr_player_ceriver_roll;
 crull_sprite = spr_player_ceriver_crull;
 recharge_sprite = spr_player_ceriver_recharge;
 magicP_script = CeriverPolyorbCast;
-magicA_script = CeriverOrbRushCast;
+magicA_script = CeriverOrbladeDashCast;
 magic_primary = true;
 //weapon_aim = true;
 obj_cursor.curs_script = CeriverCursor;
@@ -88,9 +88,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0)
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0) //Special
 {
@@ -264,9 +264,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //Custom Timers
 
@@ -467,9 +467,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0)//Time between weapon uses
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 
@@ -612,7 +612,7 @@ if (sd_timer <= 0) instance_destroy();
 //
 //
 //Ceriver Orb Rush State
-function CeriverOrbRushCast(){
+function CeriverOrbladeDashCast(){
 //Set
 attacking = true;
 damage = grace - 3 + (13 * obj_inventory.form_grid[# 1, 7]);
@@ -634,13 +634,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (melee_timer > 0)
-{
-	melee_timer = melee_timer - 1;
-}
 if (magic_timer > 0)
 {
 	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
 }
 if (special_timer < max_special_timer) and (watervice = false)
 {
@@ -723,18 +723,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
 }
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
@@ -1102,8 +1097,8 @@ curs_form = 1;
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
-if (obj_player.magic_primary = true) spread = 24;
-if (obj_player.magic_primary = false) spread = 2.5;
+if (obj_player.magic_primary = true) spread = 2;
+if (obj_player.magic_primary = false) spread = 24;
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);
