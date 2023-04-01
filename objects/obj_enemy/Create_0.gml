@@ -8,7 +8,8 @@ event_inherited();
 if (entity_create != -1) script_execute(entity_create);
 spawn_slot = -1;
 dir_switch = -1;
-
+shadow_sprite = -1;
+shadow = false;
 
 //Status Effects
 StatusEffects();

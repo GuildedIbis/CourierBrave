@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_meteor",
+  "name": "snd_halofire_trirock",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.297392,
+  "duration": 3.2,
   "parent": {
     "name": "Halofire",
     "path": "folders/Sounds/Player/Halofire.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_meteor.wav",
+  "soundFile": "snd_halofire_trirock.wav",
   "type": 0,
   "volume": 1.0,
 }

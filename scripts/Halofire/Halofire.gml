@@ -674,8 +674,8 @@ if (magic_timer <= 0)
 	charge = charge - 18;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
+		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
 		follow_timer = 28;
@@ -844,8 +844,8 @@ if (magic_timer <= 0)
 	charge = charge - 30;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
+		audio_sound_gain(snd_halofire_trirock,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_trirock,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
 		follow_timer = 28;

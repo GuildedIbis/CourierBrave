@@ -10,6 +10,8 @@ escort_sprite = spr_escort_crystal;
 sprite_index = escort_sprite;
 escort_spd = .5;
 path = -1;
+shadow_sprite = -1;
+shadow = false;
 
 
 
