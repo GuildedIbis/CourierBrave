@@ -657,6 +657,7 @@
     {"name":"obj_break2","order":1,"path":"objects/obj_break2/obj_break2.yy",},
     {"name":"spr_player_halofire_hamaxe_charging","order":25,"path":"sprites/spr_player_halofire_hamaxe_charging/spr_player_halofire_hamaxe_charging.yy",},
     {"name":"spr_enemy_riftSabi_idle","order":4,"path":"sprites/spr_enemy_riftSabi_idle/spr_enemy_riftSabi_idle.yy",},
+    {"name":"rm_lenko_fortres01","order":1,"path":"rooms/rm_lenko_fortres01/rm_lenko_fortres01.yy",},
     {"name":"spr_player_jab","order":7,"path":"sprites/spr_player_jab/spr_player_jab.yy",},
     {"name":"spr_house_abandonedFront","order":12,"path":"sprites/spr_house_abandonedFront/spr_house_abandonedFront.yy",},
     {"name":"snd_ofaMoth_orb","order":9,"path":"sounds/snd_ofaMoth_orb/snd_ofaMoth_orb.yy",},
