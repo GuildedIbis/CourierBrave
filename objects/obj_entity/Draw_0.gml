@@ -7,8 +7,8 @@ if (flash != 0)
 	shader_set_uniform_f(uni_flash,flash);
 }
 
-//Draw Self with z height
 
+//Draw Self
 draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 
 //??? Investigate

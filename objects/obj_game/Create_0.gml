@@ -5,7 +5,7 @@ randomize();
 script_execute(AllItems);
 script_execute(RoomEnemies);
 
-version = "Version: 0.2.4.1"
+version = "Version: 0.2.5.0"
 menu_sprite = spr_menu;
 pause_menu = GamePauseMenu;
 timer1 = 300;
@@ -43,6 +43,7 @@ global.targetRoom = rm_lenko_farwayCamp;
 global.transition = false;
 global.fadeOut = false;
 global.aggroCounter = 0;
+global.bossCounter = 0;
 global.dayPhase = 0;
 global.volumeMusic = .75;
 global.volumeMenu = .30;

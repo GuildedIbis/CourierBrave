@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function PlayerScene01(){
 sprite_index = spr_player_scene01;
+scene = true;
 //Convert Mouse to GUI
 }
 //

@@ -9,10 +9,10 @@ function FormCreate(){
 form_grid = ds_grid_create(16,9);
 
 //Regaliare 
-form_grid[# 0, 0] = "Regaliare"
+form_grid[# 0, 0] = "REGALIARE"
 form_grid[# 0, 1] = "Description"
 form_grid[# 0, 2] = RegaliareSet; //Set Script
-form_grid[# 0, 3] = RegaliareSelected;
+form_grid[# 0, 3] = RegaliareSelectedMenu;
 form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 1; //Weapon
 form_grid[# 0, 6] = 1; //Armor
@@ -20,10 +20,10 @@ form_grid[# 0, 7] = 1; //Magic
 form_grid[# 0, 8] = 0; //Special
 
 //Ceriver
-form_grid[# 1, 0] = "Ceriver"
+form_grid[# 1, 0] = "CERIVER"
 form_grid[# 1, 1] = "Blue and Green Lizard with boomerang, bubbles, and sp (water cannon with push?)"
 form_grid[# 1, 2] = CeriverSet; //Player Script
-form_grid[# 1, 3] = CeriverSelected; //Inventory Script
+form_grid[# 1, 3] = CeriverSelectedMenu; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 1; //Weapon
 form_grid[# 1, 6] = 1; //Armor
@@ -31,10 +31,10 @@ form_grid[# 1, 7] = 1; //Magic
 form_grid[# 1, 8] = 0; //Special
 
 //Adavoid
-form_grid[# 2, 0] = "Adavoid"
+form_grid[# 2, 0] = "ADAVIO"
 form_grid[# 2, 1] = "Purple armor with white accents, bird, zerkrift hook, magic, and sp"
 form_grid[# 2, 2] = AdavioSet; //Player Script
-form_grid[# 2, 3] = AdavioSelected; //Inventory Script
+form_grid[# 2, 3] = AdavioSelectedMenu; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
 form_grid[# 2, 5] = 1; //Weapon
 form_grid[# 2, 6] = 1; //Armor
@@ -42,10 +42,10 @@ form_grid[# 2, 7] = 1; //Magic
 form_grid[# 2, 8] = 0; //Special
 
 //Halofire
-form_grid[# 3, 0] = "Halofire"
+form_grid[# 3, 0] = "HALOFIRE"
 form_grid[# 3, 1] = "White bird with fire hair and orange accents"
 form_grid[# 3, 2] = HalofireSet; //Player Script
-form_grid[# 3, 3] = HalorfireSelected; //Inventory Script
+form_grid[# 3, 3] = HalofireSelectedMenu; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
 form_grid[# 3, 5] = 1; //Weapon
 form_grid[# 3, 6] = 1; //Armor
@@ -60,78 +60,98 @@ form_grid[# 3, 8] = 0; //Special
 //
 //Form Menu GUI
 function FormMenuGUI(){
+
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _rowLength = 6;
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-
-
-//Slider
-//draw_sprite(spr_scroll_bar2b,page,68,41);
-//if (point_in_rectangle(_mouseX,_mouseY,69,41,77,47))
-//{
-//	draw_sprite(spr_scroll_highlight,0,69,41);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page > 0) page = page - 1;
-//		else page = 1;
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,114,77,119))
-//{
-//	draw_sprite(spr_scroll_highlight,1,69,114);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page < 1) page = page + 1;
-//		else page = 0;
-//	}
-//}
-
-//Buttons Alignment
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 
-//Button Surface Sprites
-//draw_sprite_stretched(spr_menu,3,80,42,79,15);
-//draw_sprite_stretched(spr_menu,3,80,59,79,15);
-//draw_sprite_stretched(spr_menu,3,80,76,79,15);
-//draw_sprite_stretched(spr_menu,3,80,93,79,15);
-//draw_sprite_stretched(spr_menu,3,80,110,79,15);
 
+//Buttons
+draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
+draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
+draw_sprite_stretched(spr_menu,3,69,108,44,16);
+draw_sprite_stretched(spr_menu,3,115,108,44,16);
+draw_sprite_stretched(spr_menu,3,161,108,32,16);
+draw_set_halign(fa_center);
+draw_set_color(c_black);
+draw_text_transformed(138,113,"SWITCH",.35,.35,0);
+draw_set_color(c_white);
+draw_text_transformed(137,113,"SWITCH",.35,.35,0);
+
+//Button Mechanics
+if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Equip
+{
+	if (obj_player.cursed = false)
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,67,106,48,20);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			with (obj_player)
+			{
+				script_execute(obj_inventory.form_grid[# other.slot, 2]);
+			}
+		}
+	}
+	else 
+	{
+		draw_sprite_stretched_ext(spr_highlight_nineslice,0,67,106,48,20,c_red,1.0);
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,115,108,161,124))//Switch
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,113,106,48,20);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		inv_gui = FormSwitchMenu;
+	}
+}
+
+script_execute(form_menu);
+
+}
+//
+//
+//
+//
+//
+//Draw Switch Menu
+function FormSwitchMenu(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _rowLength = 4;
+draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
+draw_sprite_stretched(spr_menu_beveled,3,82,62,64,64);
 //Button Mechanics
 for (var i = 0; i < 16; i = i + 1)
 {
-	var _x2 = 95 + (i mod _rowLength) * 22;
-	var _y2 = 53 + (i div _rowLength) * 22;
+	var _x2 = 164 + (i mod _rowLength) * 22;
+	var _y2 = 41 + (i div _rowLength) * 22;
 	draw_sprite_stretched(spr_menu_circle16,1,_x2,_y2,20,20)
 	if (obj_inventory.form_grid[# i, 4] = true) 
 	{
 		draw_sprite(spr_formSelect_icons,i,_x2 + 10,_y2 + 12);
 		if (point_in_rectangle(_mouseX,_mouseY,_x2,_y2,_x2+20,_y2+20))
 		{
-			draw_sprite_stretched(spr_highlight_circle,1,_x2-1,_y2-1,22,22)
+			draw_sprite_stretched_ext(spr_highlight_circle,1,_x2-1,_y2-1,22,22,c_white,1.0)
 			if (mouse_check_button_pressed(mb_left))
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				inv_gui = obj_inventory.form_grid[# i, 3]; 
+				inv_gui = FormMenuGUI;
+				form_menu = obj_inventory.form_grid[# i, 3];
+				selected_info = -1;
+				slot = i;
 			}
 		}
 	}
 }
-
-
-
-
-
-//draw_line_width_color(172,44,172,124,1,c_black,c_black)
-
-//Execute Selected Draw Script
-//DrawSelectedGear();
-
 
 }
 //
@@ -140,7 +160,7 @@ for (var i = 0; i < 16; i = i + 1)
 //
 //
 //Draw Selected (Run in FormMenuGUI)
-function DrawSelectedGear(){	//function DrawSelectedGear()
+function DrawSelectedGear(){	
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -186,6 +206,7 @@ if (item_id != -1)
 				script_execute(obj_inventory.form_grid[# form, 2]);
 			}
 		}
+
 	}
 }
 

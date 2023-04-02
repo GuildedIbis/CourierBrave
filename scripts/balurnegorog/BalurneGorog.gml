@@ -317,7 +317,7 @@ if (obj_game.gamePaused = false)
 		if (attack_counter >= 2)
 		{
 			attack_counter = 0;
-			timer2 = 60;
+			timer2 = 120;
 			sprite_index = enemy_idle;
 			entity_step = home_state;
 			animation_end = false;
@@ -410,7 +410,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 50) 
+if (_drop1 > 90) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

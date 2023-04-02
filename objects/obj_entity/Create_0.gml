@@ -14,7 +14,10 @@
 //Animation
 z = 0;
 flash = 0;
-uni_flash = shader_get_uniform(sh_flash_white,"flash")
+uni_flash = shader_get_uniform(sh_flash_white,"flash");
+special_draw = -1;
+shadow_sprite = -1;
+shadow = false;
 
 //Init
 //hp = 1;
@@ -37,4 +40,6 @@ knockback_dir = 0;
 home_state = -1;
 invincible = false;
 inv_dur_timer = 0;
+cursed = false;
+cursed_dur_timer = 0;
 

@@ -41,8 +41,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sprites/Enemy/Lenko/Habraf.yy",
+    "name": "Bacwire",
+    "path": "folders/Sprites/Enemy/Lenko/Habraf/Bacwire.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

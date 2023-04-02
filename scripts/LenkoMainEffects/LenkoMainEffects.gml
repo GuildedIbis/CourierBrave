@@ -435,7 +435,7 @@ sx4 = x - 16;
 sy4 = y + 8;
 
 
-event_inherited();
+//event_inherited();
 }
 //
 //
@@ -475,6 +475,7 @@ depth = -y;
 function EffectStatueLiliesCreate(){
 image_speed = 0;
 sprite_index = spr_statue_lily;
+
 //Create Collision
 with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
 {
@@ -504,7 +505,7 @@ sx4 = x - 15;
 sy4 = y + 7;
 
 
-event_inherited();
+//event_inherited();
 }
 //
 //
@@ -534,4 +535,188 @@ else
 	if (image_alpha < 1) image_alpha = image_alpha + .05;
 }
 depth = -y;
+}
+//
+//
+//
+//
+//
+//Effect Regaliare Quest Door Create
+function EffectStandardDoorCreate(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
+{
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 6;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+	
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door - Escort 1
+function EffectRegaliareQuestDoor(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 0)
+{
+	sprite_index = spr_door_questRegaliare;
+
+}
+if (obj_player.form = 0)
+{
+	sprite_index = spr_door_questRegaliare_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 512;
+			y = 136;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Effect Ceriver Quest Door
+function EffectCeriverQuestDoor(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 1)
+{
+	sprite_index = spr_door_questCeriver;
+
+}
+if (obj_player.form = 1)
+{
+	sprite_index = spr_door_questCeriver_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	
+}
+
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door - Escort 1
+function EffectAdavioQuestDoor(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 2)
+{
+	sprite_index = spr_door_questAdavio;
+
+}
+if (obj_player.form = 2)
+{
+	sprite_index = spr_door_questAdavio_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 512;
+			y = 136;
+		}
+	}
+}
+
 }

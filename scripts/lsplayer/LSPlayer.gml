@@ -23,10 +23,11 @@ function LoadPlayer(_loadEntity){
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
-		if (variable_struct_exists(_loadEntity,"energy")) obj_player.energy = _loadEntity.energy; 
+		//if (variable_struct_exists(_loadEntity,"energy")) obj_player.energy = _loadEntity.energy; 
 		if (variable_struct_exists(_loadEntity,"stamina")) obj_player.max_stamina = _loadEntity.stamina; 
 		if (variable_struct_exists(_loadEntity,"might")) obj_player.might = _loadEntity.might; 
 		if (variable_struct_exists(_loadEntity,"grace")) obj_player.grace = _loadEntity.grace; 
+		if (variable_struct_exists(_loadEntity,"charge")) obj_player.max_charge = _loadEntity.grace; 
 		//if (variable_struct_exists(_loadEntity,"cul") ) obj_player.max_crull_stone = _loadEntity.cul; 
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_stone = _loadEntity.crull;
@@ -43,7 +44,7 @@ function LoadPlayer(_loadEntity){
 				script_execute(obj_inventory.form_grid[# form, 2])
 			}
 		}
-		
+		if (variable_struct_exists(_loadEntity,"weaponAim")) obj_player.weapon_aim = _loadEntity.weaponAim;
 }
 //
 //
@@ -68,10 +69,11 @@ var _savePlayer =
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,
-	energy : obj_player.energy,
+	//energy : obj_player.energy,
 	stamina : obj_player.max_stamina,
 	might : obj_player.might,
 	grace : obj_player.grace,
+	charge : obj_player.max_charge,
 	crull : obj_player.max_crull_stone,
 	crullLevel : obj_player.crull_level,
 	hp : obj_player.max_hp,
@@ -80,6 +82,7 @@ var _savePlayer =
 	
 	//Loadout
 	form : obj_player.form,
+	weaponAim : obj_player.weapon_aim,
 	////meleeMain : obj_player.melee_main,
 	//meleeID : obj_player.melee_id,
 	////magicMain : obj_player.magic_main,

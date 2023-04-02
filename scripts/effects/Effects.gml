@@ -21,7 +21,7 @@ if (ablaze = true)
 	if (ablaze_damage_timer <= 0)
 	{
 		ablaze_damage_timer = 60;
-		hp = hp - round(max_hp/50)
+		hp = hp - max(2,round(max_hp/50))
 	}
 }
 
@@ -57,21 +57,33 @@ if (inv_dur_timer <= 0)
 	invincible = false;
 }
 
+//Knockback
 if (knockback_dur > 0)
 {
 	knockback = true;
-	var xx = lengthdir_x(knockback_dur,knockback_dir);
-	var yy = lengthdir_y(knockback_dur,knockback_dir);
-	if (!place_meeting(x+xx,y+yy,obj_entity))
+	if (knockback_dir != -1)
 	{
-		x = x + xx;
-		y = y + yy;
+		var xx = lengthdir_x(knockback_dur,knockback_dir);
+		var yy = lengthdir_y(knockback_dur,knockback_dir);
+		if (!place_meeting(x+xx,y+yy,obj_entity))
+		{
+			x = x + xx;
+			y = y + yy;
+		}
 	}
 	knockback_dur = knockback_dur - 1/10;
 }
 else knockback = false;
 
-}//Close Pause
+//Cursed
+if (cursed_dur_timer > 0)
+{
+	cursed = true;
+	cursed_dur_timer = cursed_dur_timer - 1;
+}
+else cursed = false;
+}
+//Close Pause
 }//End Function
 //
 //
@@ -87,6 +99,36 @@ if (ablaze = true) and (ablaze_damage_timer < 15)
 if (watervice = true) and (watervice_flash_timer < 15)
 {
 	draw_sprite(spr_status_effects,2,x,y-4);
+}
+
+	
+}//End Function
+//
+//
+//
+//
+//
+//Draw Status Effects
+function StatusEffectsGUI(){
+if (ablaze = true)
+{
+	draw_sprite(spr_status_gui,0,2,64);
+}
+if (watervice = true)
+{
+	draw_sprite(spr_status_gui,1,2,64);
+}
+if (thundux = true)
+{
+	draw_sprite(spr_status_gui,2,2,64);
+}
+if (knockback = true)
+{
+	draw_sprite(spr_status_gui,3,2,64);
+}
+if (cursed = true)
+{
+	draw_sprite(spr_status_gui,4,2,64);
 }
 
 	

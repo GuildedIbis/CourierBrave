@@ -75,6 +75,7 @@ if (_hits > 0)
 							knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
 							knockback_dur = _kbDur
 						}
+					
 					}
 				}
 			}

@@ -41,20 +41,30 @@ if (scene = false) and (obj_game.textPaused = false)
 		//Aggro
 		if (global.aggroCounter > 0) 
 		{
-			draw_sprite(spr_aggro_hud,0,161,6);
+			draw_sprite(spr_aggro_hud,0,160,5);
 			draw_set_font(fnt_text)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_middle);
 			draw_set_color(c_black);
-			draw_text_transformed(160,12,global.aggroCounter,.5,.5,0);
+			draw_text_transformed(164,20,global.aggroCounter,.5,.5,0);
 			draw_set_color(c_white);
-			draw_text_transformed(159,12,global.aggroCounter,.5,.5,0);
+			draw_text_transformed(163,20,global.aggroCounter,.5,.5,0);
 		}
+		//if (global.bossCounter > 0) 
+		//{
+		//	draw_set_font(fnt_text)
+		//	draw_set_halign(fa_right);
+		//	draw_set_valign(fa_middle);
+		//	draw_set_color(c_black);
+		//	draw_text_transformed(164,26,global.bossCounter,.5,.5,0);
+		//	draw_set_color(c_white);
+		//	draw_text_transformed(163,26,global.bossCounter,.5,.5,0);
+		//}
 		//Active Quest
 		draw_sprite(spr_activeQuest_hud,0,303,6);
 		draw_set_font(fnt_text)
 		draw_set_halign(fa_right);
-		draw_set_valign(fa_middle);
+		draw_set_valign(fa_top);
 		draw_set_color(c_black);
 		script_execute(tracking_quest);
 	}
@@ -65,16 +75,26 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_font(fnt_text)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	
-
-	//Charge and Energy Meters
 	var _chargePerc = (charge/max_charge) * 100;
 	draw_healthbar(198,168,241,171,_chargePerc,c_black,c_green,c_green,1,true,true);
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(270,168,313,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,246,160);
-	draw_sprite(spr_magic_allGame,form,232,160);
+	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,232,160);
+	else draw_sprite(spr_magicAlt_allGame,form,232,160);
+	
+	draw_set_valign(fa_top);
+	draw_set_halign(fa_right);
+	draw_set_color(c_black);
+	draw_text_transformed(238,158,charge,.5,.5,0);
+	draw_set_color(c_white);
+	draw_text_transformed(237,158,charge,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_color(c_black);
+	draw_text_transformed(274,158,stamina,.5,.5,0);
+	draw_set_color(c_white);
+	draw_text_transformed(273,158,stamina,.5,.5,0);
 
 	//Special
 	if (obj_inventory.form_grid[# form, 8] > 0)
@@ -89,9 +109,12 @@ if (scene = false) and (obj_game.textPaused = false)
 			draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
 		}
 	}
+	
+	//Status Effect
+	script_execute(StatusEffectsGUI);
 
 }
-if (obj_game.textPaused = true)
+if (obj_game.textPaused = true) and (scene = false)
 {
 	//Beans
 	draw_sprite(spr_bean_hud,0,50,6);

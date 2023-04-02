@@ -210,7 +210,7 @@ if (animation_end)
 //
 //Roll State
 function PlayerStateRoll(){
-max_stamina = 50 + (3 * energy);
+max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
 if (charge < max_charge) and (watervice = false)//charge Recharge
 {
@@ -319,6 +319,26 @@ if (local_frame >= _totalFrames)
 {
 	animation_end = true;
 	local_frame = local_frame - _totalFrames
+}
+else animation_end = false;
+}
+//
+//
+//
+//
+//
+//Animation 
+function PlayerAnimationFixed(){
+var _totalFrames = sprite_get_number(sprite_index) / 4;
+image_index = local_frame + (fixed_dir * _totalFrames);
+local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+//Cuts the degree by 90 to give you a number between 0 and 3
+//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+//Local frame then increments in the speed of the animation
+if (local_frame >= _totalFrames)
+{
+	animation_end = true;
+	local_frame = local_frame - _totalFrames;
 }
 else animation_end = false;
 }
@@ -499,6 +519,7 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 	x = global.lastCampX;
 	y = global.lastCampY;
 	global.aggroCounter = 0;
+	global.bossCounter = 0;
 	state_script = free_state;
 	attacking = false;
 	obj_inventory.depth = depth + 1;

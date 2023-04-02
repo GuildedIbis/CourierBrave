@@ -38,8 +38,6 @@ var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _rowLengthB = 10;
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
 
 //Lefthand Buttons
 draw_set_halign(fa_center);

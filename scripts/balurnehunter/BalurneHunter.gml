@@ -19,7 +19,7 @@ enemy_move = spr_enemy_balurneHunter_run;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
-shadow = 1
+shadow = 1;
 aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
@@ -221,7 +221,7 @@ if (obj_game.gamePaused = false)
 			}
 			else
 			{
-				attack_counter = 1;
+				attack_counter = 0;
 				timer2 = 60;
 				entity_step = home_state;
 			}

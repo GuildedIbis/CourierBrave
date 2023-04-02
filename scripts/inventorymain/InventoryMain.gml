@@ -37,7 +37,7 @@ if (point_in_rectangle(_mouseX,_mouseY,66,128,87,156))//Player Menu
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		inv_gui = PlayerMenuGUI;
+		inv_gui = StatsMenuGUI;
 		//playerMenu_draw = DrawStats;
 		selected_info = Idle;
 		page = 0;
@@ -53,13 +53,15 @@ if (point_in_rectangle(_mouseX,_mouseY,89,128,110,156)) //Forms Menu
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
 		inv_gui = FormMenuGUI;
+		form_menu = obj_inventory.form_grid[# obj_player.form, 3];
 		//gear_sprite = spr_armor_allGame;
 		//stat_script = obj_inventory.form_grid[# obj_player.form, 3];
 		//describe_script = DrawWeaponDescribe;
-		selected_info = Idle;
-		page = 0;
-		slot = 0;
+		selected_info = -1;
 		item_name = obj_inventory.form_grid[# obj_player.form, 0];
+		page = 0;
+		slot = obj_player.form;
+		
 		//unlocked = true;
 	}
 }
@@ -95,6 +97,7 @@ if (point_in_rectangle(_mouseX,_mouseY,158,128,179,156)) //Map Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		inv_gui = MapMenuGUI;
+		room_num = obj_game.room_num;
 		page = 0;
 		item_id = -1;
 	}
@@ -111,7 +114,7 @@ if (point_in_rectangle(_mouseX,_mouseY,181,128,202,156)) //Treasure Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Info Menu
+if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Treasure Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,202,126,25,28);
 	if (mouse_check_button_pressed(mb_left))
@@ -123,7 +126,7 @@ if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Info Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Exit
+if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Info Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,225,126,25,28);
 	if (mouse_check_button_pressed(mb_left))
@@ -134,6 +137,7 @@ if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Exit
 		obj_game.invPaused = false;
 	}
 }
+
 
 
 

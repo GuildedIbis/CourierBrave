@@ -48,6 +48,22 @@ if (variable_struct_exists(_loadEntity,"quest90")) obj_inventory.quest_grid[# 9,
 if (variable_struct_exists(_loadEntity,"quest91")) obj_inventory.quest_grid[# 9, 1] = _loadEntity.quest91;
 if (variable_struct_exists(_loadEntity,"quest92")) obj_inventory.quest_grid[# 9, 2] = _loadEntity.quest92;
 if (variable_struct_exists(_loadEntity,"quest93")) obj_inventory.quest_grid[# 9, 3] = _loadEntity.quest93;
+if (variable_struct_exists(_loadEntity,"quest100")) obj_inventory.quest_grid[# 10, 0] = _loadEntity.quest100;
+if (variable_struct_exists(_loadEntity,"quest101")) obj_inventory.quest_grid[# 10, 1] = _loadEntity.quest101;
+if (variable_struct_exists(_loadEntity,"quest102")) obj_inventory.quest_grid[# 10, 2] = _loadEntity.quest102;
+if (variable_struct_exists(_loadEntity,"quest103")) obj_inventory.quest_grid[# 10, 3] = _loadEntity.quest103;
+if (variable_struct_exists(_loadEntity,"quest110")) obj_inventory.quest_grid[# 11, 0] = _loadEntity.quest110;
+if (variable_struct_exists(_loadEntity,"quest111")) obj_inventory.quest_grid[# 11, 1] = _loadEntity.quest111;
+if (variable_struct_exists(_loadEntity,"quest112")) obj_inventory.quest_grid[# 11, 2] = _loadEntity.quest112;
+if (variable_struct_exists(_loadEntity,"quest113")) obj_inventory.quest_grid[# 11, 3] = _loadEntity.quest113;
+if (variable_struct_exists(_loadEntity,"quest120")) obj_inventory.quest_grid[# 12, 0] = _loadEntity.quest120;
+if (variable_struct_exists(_loadEntity,"quest121")) obj_inventory.quest_grid[# 12, 1] = _loadEntity.quest121;
+if (variable_struct_exists(_loadEntity,"quest122")) obj_inventory.quest_grid[# 12, 2] = _loadEntity.quest122;
+if (variable_struct_exists(_loadEntity,"quest123")) obj_inventory.quest_grid[# 12, 3] = _loadEntity.quest123;
+if (variable_struct_exists(_loadEntity,"quest130")) obj_inventory.quest_grid[# 13, 0] = _loadEntity.quest130;
+if (variable_struct_exists(_loadEntity,"quest131")) obj_inventory.quest_grid[# 13, 1] = _loadEntity.quest131;
+if (variable_struct_exists(_loadEntity,"quest132")) obj_inventory.quest_grid[# 13, 2] = _loadEntity.quest132;
+if (variable_struct_exists(_loadEntity,"quest133")) obj_inventory.quest_grid[# 13, 3] = _loadEntity.quest133;
 
 }
 //
@@ -104,6 +120,22 @@ quest90 : obj_inventory.quest_grid[# 9, 0],
 quest91 : obj_inventory.quest_grid[# 9, 1],
 quest92 : obj_inventory.quest_grid[# 9, 2],
 quest93 : obj_inventory.quest_grid[# 9, 3],
+quest100 : obj_inventory.quest_grid[# 10, 0],
+quest101 : obj_inventory.quest_grid[# 10, 1],
+quest102 : obj_inventory.quest_grid[# 10, 2],
+quest103 : obj_inventory.quest_grid[# 10, 3],
+quest110 : obj_inventory.quest_grid[# 11, 0],
+quest111 : obj_inventory.quest_grid[# 11, 1],
+quest112 : obj_inventory.quest_grid[# 11, 2],
+quest113 : obj_inventory.quest_grid[# 11, 3],
+quest120 : obj_inventory.quest_grid[# 12, 0],
+quest121 : obj_inventory.quest_grid[# 12, 1],
+quest122 : obj_inventory.quest_grid[# 12, 2],
+quest123 : obj_inventory.quest_grid[# 12, 3],
+quest130 : obj_inventory.quest_grid[# 13, 0],
+quest131 : obj_inventory.quest_grid[# 13, 1],
+quest132 : obj_inventory.quest_grid[# 13, 2],
+quest133 : obj_inventory.quest_grid[# 13, 3],
 }
 array_push(_saveData, _saveQuest);
 }

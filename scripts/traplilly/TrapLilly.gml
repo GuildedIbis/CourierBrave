@@ -14,7 +14,7 @@ enemy_move = spr_enemy_trapLily;
 enemy_damaged = spr_enemy_trapLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
-shadow = 0;
+shadow = 1;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -206,7 +206,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 75) 
+if (_drop1 > 94) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

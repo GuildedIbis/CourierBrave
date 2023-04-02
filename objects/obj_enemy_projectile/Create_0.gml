@@ -6,7 +6,8 @@ event_inherited();
 
 //Run Instance Specific Creation Code: Set in Variable Definitions in Room Editor.
 if (entity_create != -1) script_execute(entity_create);
-
+shadow_sprite = -1;
+shadow = false;
 
 //Status Effects
 StatusEffects();

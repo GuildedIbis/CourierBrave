@@ -58,6 +58,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 			global.aggroCounter = global.aggroCounter + 1;
+			global.bossCounter = global.bossCounter + 1;
 		}
 	}
 	
@@ -416,7 +417,7 @@ if (_drop3 > 50)
 	
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
-obj_inventory.habraf_lair[4] = 1;
+obj_inventory.habraf_lair[4] = 2;
 if (obj_inventory.quest_grid[# 9, 3] = false)
 {
 	obj_player.beans = obj_player.beans + 1000;

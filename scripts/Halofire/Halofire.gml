@@ -17,12 +17,13 @@ recharge_sprite = spr_player_halofire_recharge;
 magicP_script = HalofireMeteorSling;
 magicA_script = HalofireTriRock;
 magic_primary = true;
+//weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
 
-melee_draw = DrawHalofireHamaxeUpgrade;
-magic_draw = DrawHalofireMagicUpgrade;
-armor_draw = DrawHalofireArmorUpgrade;
-special_draw = DrawHalofireSpecialUpgrade;
+weapon_draw = HalofireHamaxeMenu;
+magic_draw = HalofireMeteorMenu;
+armor_draw = HalofireFirewardArmorMenu;
+special_draw = HalofireSpecialMenu;
 
 
 
@@ -37,6 +38,7 @@ special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
 max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
+max_charge = 50 + (3* (grace + round(grace/15)));
 if (magic_count > max_magic_count) magic_count = max_magic_count;
 max_special_timer = 360 - round(12 * obj_inventory.form_grid[# 3, 8]);
 }
@@ -86,9 +88,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
@@ -121,12 +123,12 @@ if (_oldSprite != sprite_index) local_frame = 0;
 PlayerAnimation();
 
 
-//Melee Attack
+//Weapon Attack
 if (key_attackW)
 {
 	if (thundux = false) and (stamina >= 25)
 	{
-		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 25;
 		attack_script = HalofireHamaxe;
 		state_script = PlayerStateAttack;
@@ -139,14 +141,16 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 18)
+		if (magic_primary = true) and (charge >= 24)
 		{
+			max_charge = 100 + (grace + round(grace/15));
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 30)
+		if (magic_primary = false) and (charge >= 24)
 		{
-			max_attack_counter = floor(charge/30)
+			max_charge = 100 + (grace + round(grace/15));
+			max_attack_counter = floor(charge/20);
 			attack_script = HalofireTriRock;
 			state_script = PlayerStateAttack;
 		}
@@ -196,7 +200,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 13, 3] = true)
 {
 	if (magic_primary = true)
 	{
@@ -207,6 +211,19 @@ if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+	}
+}
+
+//Switch Weapon Aim Style
+if (keyboard_check_pressed(ord("Z")))
+{
+	if (weapon_aim = true)
+	{
+		weapon_aim = false;
+	}
+	else
+	{
+		weapon_aim = true;
 	}
 }
 }
@@ -244,9 +261,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
@@ -275,7 +292,8 @@ if (animation_end)
 	if (mouse_check_button(mb_right)) and (stamina >= 15)
 	{
 		stamina = stamina - 15;
-		ability_charge = 0;
+		weapon_timer = 45;
+		fixed_dir = _cardinalDir
 		state_script = HalofireHamaxeCharging;
 	}
 	else
@@ -295,18 +313,19 @@ if (animation_end)
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharging(){
-
 //Set
 attacking = true;
+walk_spd = .75;
 
 //Standard Timers
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
 	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
 	}
 }
 if (charge < max_charge) and (watervice = false)//Charge Recharge
@@ -322,47 +341,54 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
 
-//Attack Start
-if (sprite_index != spr_player_halofire_hamaxe_charging)
+//Switch to charged state
+if (weapon_timer <= 0)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_player_halofire_hamaxe_charging;
-	sprite_set_speed(sprite_index,12,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	state_script = HalofireHamaxeCharged;
 }
 
-if (melee_timer <= 0)
+
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	state_script = HalofireHamaxeCharged
+	direction = input_dir;
+	sprite_index = spr_player_halofire_hamaxe_chargingMove;
 }
+else sprite_index = spr_player_halofire_hamaxe_charging;
+if (_oldSprite != sprite_index) local_frame = 0;
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
+//Attack
 if (mouse_check_button_released(mb_right))
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
-	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (melee_timer <= 0)
-	{
-		state_script = HalofireHamaxeBackswingCharged;
-	}
-	else
-	{
-		state_script = HalofireHamaxeBackswing;
-	}
+	state_script = HalofireHamaxeBackswing;
 }
+
 }
 //
 //
@@ -371,11 +397,21 @@ if (mouse_check_button_released(mb_right))
 //
 //Halofire Hamaxe State
 function HalofireHamaxeCharged(){
-
 //Set
 attacking = true;
+walk_spd = .75;
 
 //Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
 if (charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
@@ -389,44 +425,46 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Weapon time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
+}
+if (obj_inventory.form_grid[# form, 8] > 0)
+{
+	if (special_timer < max_special_timer) and (watervice = false)
+	{
+		special_timer = special_timer + 1;
+	}
 }
 
 
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 
-//Attack Start
-if (sprite_index != spr_player_halofire_hamaxe_charged)
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_player_halofire_hamaxe_charged;
-	sprite_set_speed(sprite_index,12,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	direction = input_dir;
+	sprite_index = spr_player_halofire_hamaxe_chargedMove;
 }
+else sprite_index = spr_player_halofire_hamaxe_charged;
+if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (mouse_check_button_released(mb_right))
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
-	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
-	if (melee_timer <= 0)
-	{
-		state_script = HalofireHamaxeBackswingCharged;
-	}
-	else
-	{
-		state_script = HalofireHamaxeBackswing;
-	}
+	state_script = HalofireHamaxeBackswingCharged;
 }
 }
 //
@@ -461,9 +499,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 
@@ -485,11 +523,12 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1);
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (animation_end)
 {
 	
+	image_xscale = 1;
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
@@ -523,13 +562,14 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,30,-1,-1,-1,-1);
+AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
 
 //Animate
-PlayerAnimation();
+PlayerAnimationFixed();
 
 if (animation_end)
 {
+	image_xscale = 1;
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
@@ -572,9 +612,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 
@@ -631,14 +671,14 @@ switch(_dirPos)
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 18;
+	charge = charge - 24;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
+		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
-		follow_timer = 28;
+		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
 		damage = obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5));//
@@ -646,7 +686,7 @@ if (magic_timer <= 0)
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
-		direction = irandom_range(-6,6) + (point_direction(x,y,mouse_x,mouse_y));
+		direction = irandom_range(-8,8) + (point_direction(x,y,mouse_x,mouse_y));
 		if (direction < 135) and (direction > 45)
 		{
 			inv_timer = 0;
@@ -662,7 +702,7 @@ if (magic_timer <= 0)
 PlayerAnimation();
 
 
-if (mouse_check_button(mb_left) = false) or (charge < 18)
+if (mouse_check_button(mb_left) = false) or (charge < 24)
 {
 	attacking = false;
 	state_script = free_state;
@@ -738,9 +778,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 //if (special_timer < max_special_timer) and (watervice = false)
 //{
@@ -801,11 +841,11 @@ switch(_dirPos)
 if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
-	charge = charge - 30;
+	charge = charge - 24;
 	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_halofire_meteorshot,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_meteorshot,0,0,global.volumeEffects);
+		audio_sound_gain(snd_halofire_trirock,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_trirock,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
 		follow_timer = 28;
@@ -882,9 +922,9 @@ if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
-if (melee_timer > 0) //Melee time between attacks
+if (weapon_timer > 0) //Melee time between attacks
 {
-	melee_timer = melee_timer - 1;
+	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
@@ -1084,535 +1124,7 @@ if (magic = true)
 	}
 }
 }
-//
-//
-//
-//
-//Draw Halofire's Hamaxe Upgrade at Smith NPC's
-function DrawHalofireHamaxeUpgrade(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-	
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
 
-draw_sprite_stretched(spr_menu,3,71,41,64,13);
-draw_sprite_stretched(spr_menu,3,137,41,112,13);
-draw_text_transformed(74,48,"Fiery Hamaxe",.5,.5,0);
-draw_set_halign(fa_center);
-
-
-switch (obj_inventory.form_grid[# 3, 5])
-{
-	case 1:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,94,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,96,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,5,5))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 5] = 2;
-						ItemRemove(obj_inventory, 1, 10);
-						ItemRemove(obj_inventory, 5, 10);
-						ItemRemove(obj_inventory, 10, 1);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,94,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,1,94,73,16,16);
-		draw_text_transformed(112,82,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,5,94,90,16,16);
-		draw_text_transformed(112,99,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,94,107,16,16);
-		draw_text_transformed(112,116,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,111,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,113,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,15,5)) and (ItemCheckQuantity(obj_inventory,15,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,4,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 5] = 3;
-						ItemRemove(obj_inventory, 15, 5);
-						ItemRemove(obj_inventory, 15, 1);
-						ItemRemove(obj_inventory, 4, 5);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,111,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,15,111,73,16,16);
-		draw_text_transformed(129,82,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,15,111,90,16,16);
-		draw_text_transformed(129,99,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,107,16,16);
-		draw_text_transformed(129,116,"5",.35,.35,0);	
-	break;
-}
-for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
-{
-	draw_sprite_stretched(spr_menu_circle16,1,60+(17*i),56,16,16);
-	if (i < 10) draw_text_transformed(68+(17*i),64,i,.75,.75,0);
-	else draw_text_transformed(238,64,"10",.75,.75,0);
-}
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-var _weapon = string(obj_player.might + (11 * obj_inventory.form_grid[# 3, 5]));
-var _weapon1 = string(obj_player.might + (11 * (obj_inventory.form_grid[# 3, 5] + 1)));
-var _weaponExplain = "Level " + string(obj_inventory.form_grid[# 3, 5]) + ": " + _weapon + " > Level " + string(obj_inventory.form_grid[# 3, 5] + 1) + ": " + _weapon1;
-draw_text_transformed(141,44,_weaponExplain,.5,.5,0);
-draw_set_halign(fa_center);
-
-
-}
-//
-//
-//
-//
-//
-//Draw Halofire's Armor Upgrade at Smith NPC's
-function DrawHalofireArmorUpgrade(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-	
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-
-draw_sprite_stretched(spr_menu,3,71,41,64,13);
-draw_sprite_stretched(spr_menu,3,137,41,112,13);
-draw_text_transformed(74,48,"Armor",.5,.5,0);
-draw_set_halign(fa_center);
-
-
-switch (obj_inventory.form_grid[# 3, 6])
-{
-	case 1:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,94,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,96,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,5,5))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 6] = 2;
-						ItemRemove(obj_inventory, 7, 10);
-						ItemRemove(obj_inventory, 5, 10);
-						ItemRemove(obj_inventory, 10, 1);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,94,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,7,94,73,16,16);
-		draw_text_transformed(112,82,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,5,94,90,16,16);
-		draw_text_transformed(112,99,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,94,107,16,16);
-		draw_text_transformed(112,116,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,111,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,113,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,4,5)) and (ItemCheckQuantity(obj_inventory,4,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,4,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 6] = 3;
-						ItemRemove(obj_inventory, 4, 5);
-						ItemRemove(obj_inventory, 4, 1);
-						ItemRemove(obj_inventory, 4, 5);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,111,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,4,111,73,16,16);
-		draw_text_transformed(129,82,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,90,16,16);
-		draw_text_transformed(129,99,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,107,16,16);
-		draw_text_transformed(129,116,"5",.35,.35,0);	
-	break;
-}
-for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
-{
-	draw_sprite_stretched(spr_menu_circle16,1,60+(17*i),56,16,16);
-	if (i < 10) draw_text_transformed(68+(17*i),64,i,.75,.75,0);
-	else draw_text_transformed(238,64,"10",.75,.75,0);
-}
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-var _armor = string(7 + (4 * (obj_inventory.form_grid[# 3, 6] -1)));
-var _armor1 = string(7 + (4 * (obj_inventory.form_grid[# 3, 6])));
-var _armorExplain = "Level " + string(obj_inventory.form_grid[# 3, 6]) + ": " + _armor + " > Level " + string(obj_inventory.form_grid[# 3, 6] + 1) + ": " + _armor1;
-draw_text_transformed(141,44,_armorExplain,.5,.5,0);
-draw_set_halign(fa_center);
-//obj_player.armor = 6 + (12 * (obj_inventory.form_grid[# 0, 6] -1))
-}
-//
-//
-//
-//
-//
-//Draw Halofire's Magic Upgrade at Browi NPC
-function DrawHalofireMagicUpgrade(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-	
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-
-draw_sprite_stretched(spr_menu,3,71,41,64,13);
-draw_sprite_stretched(spr_menu,3,137,41,112,13);
-draw_text_transformed(74,48,"Meteor Shot",.5,.5,0);
-draw_set_halign(fa_center);
-
-
-switch (obj_inventory.form_grid[# 3, 7])
-{
-	case 1:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,94,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,96,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,2,10))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 7] = 2;
-						ItemRemove(obj_inventory, 1, 10);
-						ItemRemove(obj_inventory, 2, 10);
-						ItemRemove(obj_inventory, 10, 1);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,94,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,1,94,73,16,16);
-		draw_text_transformed(112,82,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,2,94,90,16,16);
-		draw_text_transformed(112,99,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,94,107,16,16);
-		draw_text_transformed(112,116,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,111,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,113,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,4,5)) and (ItemCheckQuantity(obj_inventory,4,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,4,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 7] = 3;
-						ItemRemove(obj_inventory, 4, 5);
-						ItemRemove(obj_inventory, 4, 1);
-						ItemRemove(obj_inventory, 4, 5);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,111,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,4,111,73,16,16);
-		draw_text_transformed(129,82,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,90,16,16);
-		draw_text_transformed(129,99,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,107,16,16);
-		draw_text_transformed(129,116,"5",.35,.35,0);	
-	break;
-}
-for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
-{
-	draw_sprite_stretched(spr_menu_circle16,1,60+(17*i),56,16,16);
-	if (i < 10) draw_text_transformed(68+(17*i),64,i,.75,.75,0);
-	else draw_text_transformed(238,64,"10",.75,.75,0);
-}
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-var _damage = string(obj_player.grace + 3 + ((obj_inventory.form_grid[# 3, 7]-1)*(5)));
-var _damage1 = string(obj_player.grace + 3 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-var _armorExplain = "Level " + string(obj_inventory.form_grid[# 3, 7]) + ": " + _damage + " > Level " + string(obj_inventory.form_grid[# 3, 7] + 1) + ": " + _damage1;
-draw_text_transformed(141,44,_armorExplain,.5,.5,0);
-draw_set_halign(fa_center);
-
-}
-//
-//
-//
-//
-//
-//Draw Halofire Special Upgrade at Browi NPC
-function DrawHalofireSpecialUpgrade(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-	
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-
-draw_sprite_stretched(spr_menu,3,71,41,64,13);
-draw_sprite_stretched(spr_menu,3,137,41,112,13);
-draw_text_transformed(74,48,"Spark Tracker",.5,.5,0);
-draw_set_halign(fa_center);
-
-
-switch (obj_inventory.form_grid[# 3, 8])
-{
-	case 1:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,94,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,96,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,15,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 8] = 2;
-						ItemRemove(obj_inventory, 7, 10);
-						ItemRemove(obj_inventory, 15, 1);
-						ItemRemove(obj_inventory, 10, 1);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,94,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,94,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,7,94,73,16,16);
-		draw_text_transformed(112,82,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,15,94,90,16,16);
-		draw_text_transformed(112,99,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,94,107,16,16);
-		draw_text_transformed(112,116,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if point_in_rectangle(_mouseX,_mouseY,111,61,110,115)
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,1,113,61,12,54)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,4,5)) and (ItemCheckQuantity(obj_inventory,4,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,4,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 8] = 3;
-						ItemRemove(obj_inventory, 4, 5);
-						ItemRemove(obj_inventory, 4, 1);
-						ItemRemove(obj_inventory, 4, 5);
-					}
-				}
-			}
-		}
-		draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_menu_circle16,1,111,73,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,90,16,16);
-		draw_sprite_stretched(spr_menu_circle16,1,111,107,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,4,111,73,16,16);
-		draw_text_transformed(129,82,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,90,16,16);
-		draw_text_transformed(129,99,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,4,111,107,16,16);
-		draw_text_transformed(129,116,"5",.35,.35,0);	
-	break;
-}
-for (var i = 2; i < 11; i = i + 1) //Draw Upper Row of levels
-{
-	draw_sprite_stretched(spr_menu_circle16,1,60+(17*i),56,16,16);
-	if (i < 10) draw_text_transformed(68+(17*i),64,i,.75,.75,0);
-	else draw_text_transformed(238,64,"10",.75,.75,0);
-}
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-var _damage = string(obj_player.might + (10 * obj_inventory.form_grid[# 3, 8]) + obj_player.might);
-var _damage1 = string(obj_player.might + (10 * (obj_inventory.form_grid[# 3, 8] + 1))+  obj_player.might);
-var _armorExplain = "Level " + string(obj_inventory.form_grid[# 3, 8]) + ": " + _damage + " > Level " + string(obj_inventory.form_grid[# 3, 8] + 1) + ": " + _damage1;
-draw_text_transformed(141,44,_armorExplain,.5,.5,0);
-draw_set_halign(fa_center);
-
-}
-//
-//
-//
-//
-//
-//Halofire Selected
-function HalorfireSelected(){
-//Convert Mouse to GUI
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-
-//Draw Selected Form Menu Sprites (Right Hand Side) //Drawn Regardless if form is selected
-draw_sprite_stretched(spr_menu_circle16,1,70,42,32,32);
-draw_sprite_stretched(spr_menu,3,70,63,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,70,76,32,32);
-draw_sprite_stretched(spr_menu,3,70,97,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,162,42,32,32);
-draw_sprite_stretched(spr_menu,3,162,63,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,162,76,32,32);
-draw_sprite_stretched(spr_menu,3,162,97,32,11);
-draw_sprite_stretched(spr_menu,3,70,110,90,16);
-draw_sprite_stretched(spr_menu,3,162,110,32,16);
-draw_sprite_stretched(spr_menu,3,196,110,32,16);
-
-//Draw the selected form
-
-//Draw it's four levelable features //weapon, armor, magic, special
-draw_sprite(spr_weapons_allGame,3,70,42);
-draw_sprite(spr_armor_allGame,3,70,76);
-draw_sprite(spr_magic_allGame,3,162,42);
-if (obj_inventory.form_grid[# 3, 8] > 0) draw_sprite(spr_special_allGame,3,162,76);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 5]-1,70,63);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 6]-1,70,97);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 7]-1,162,63);
-if (obj_inventory.form_grid[# 3, 8] > 0) draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 8]-1,162,97);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_text_transformed(115,118,"HALOFIRE",.35,.35,0);
-draw_text_transformed(178,118,"EQUIP",.35,.35,0);
-draw_text_transformed(212,118,"BACK",.35,.35,0);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-var _weaponText = "WEAPON: L-CLICK\nSlash for " + string(obj_player.might + 3 + (14 * obj_inventory.form_grid[# 3, 5])) + " damage.\nHold to charge a fiery\nbackslash."
-draw_text_transformed(104,42,_weaponText,.35,.35,0);
-var _armorText = "ARMOR: PASSIVE\nBlock " + string(7 + (4 * (obj_inventory.form_grid[# 3, 6] -1))) + " incoming\ndamage."
-draw_text_transformed(104,76,_armorText,.35,.35,0);
-var _magicText = "MAGIC: R-CLICK\nShoot meteors that\nbreak on inpact and deal\n" + string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5))) + " damage per hit."
-draw_text_transformed(196,42,_magicText,.35,.35,0);
-var _specialText = "SPECIAL: SHIFT\nShoot a large spinning\nspark that shoots out\nsmaller sparks, dealing\n" + string(obj_player.grace + (10 * obj_inventory.form_grid[# 3, 8])) + " and " + string(round(obj_player.grace/2)) + "damage.";
-if (obj_inventory.form_grid[# 3, 8] > 0) draw_text_transformed(196,76,_specialText,.35,.35,0);
-
-
-
-//Equip the form
-if (point_in_rectangle(_mouseX,_mouseY,162,110,194,126))
-{
-	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,20);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		with (obj_player) 
-		{
-			form = 3;
-			script_execute(obj_inventory.form_grid[# form, 2]);
-		}
-	}
-}
-//Return to Select
-if (point_in_rectangle(_mouseX,_mouseY,196,110,228,126))
-{
-	draw_sprite_stretched(spr_highlight_nineslice,0,194,108,36,20);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		inv_gui = FormMenuGUI;
-	}
-}
-
-}
 //
 //
 //
@@ -1631,8 +1143,8 @@ curs_form = 3;
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 
-if (obj_player.magic_primary = true) spread = 3.5;
-if (obj_player.magic_primary = false) spread = 2.5;
+if (obj_player.magic_primary = true) spread = 4;
+if (obj_player.magic_primary = false) spread = 4;
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);

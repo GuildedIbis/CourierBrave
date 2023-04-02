@@ -27,6 +27,7 @@ image_index = 3;
 max_hp = 870;
 hp = max_hp;
 boss = true;
+name = "Zerwerk";
 enemy_spd = 1.3;
 local_frame = 0;
 hit_by_attack = -1;
@@ -56,6 +57,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 			global.aggroCounter = global.aggroCounter + 1;
+			global.bossCounter = global.bossCounter + 1;
 		}
 	}
 	
@@ -67,6 +69,7 @@ if (obj_game.gamePaused = false)
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;
+		global.bossCounter = global.bossCounter - 1;
 	}
 	//While Aggro is on
 	if (targeted = true)
@@ -464,8 +467,8 @@ if (_drop1 > 0)
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{
-		item_id = 1;
-		amount = 5;
+		item_id = 8;
+		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
 		direction = _angle/_objects;
@@ -473,20 +476,7 @@ if (_drop1 > 0)
 	}
 	
 }
-if (_drop2 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 3;
-		amount = 3;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop3 > 0) 
+if (_drop3 > 49) 
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
 	{

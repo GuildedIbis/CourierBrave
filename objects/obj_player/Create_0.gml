@@ -1,7 +1,5 @@
 //Create
 
-//Form Script (Default Regaliare)
-script_execute(RegaliareSet);
 
 //Initialize Controls
 key_left = keyboard_check(ord("A"));
@@ -13,6 +11,7 @@ key_ability = keyboard_check_pressed(vk_space);
 key_attackM = mouse_check_button_pressed(mb_left);
 key_attackW = mouse_check_button_pressed(mb_right);
 key_attackS = keyboard_check(vk_shift);
+weapon_aim = false;
 
 //Animation
 iAlpha = 1.0;
@@ -46,11 +45,12 @@ stamina_timer = 0;
 charge_timer = 0;
 magic_timer = 0;
 melee_timer = 0;
+weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats
 vitality = 20; //added to health
-energy = 20; //max_roll_timer = 180 - stamina
+//energy = 20; //max_roll_timer = 180 - stamina
 might = 20; //added to weapon damage
 grace = 20; //the base to weapon damage
 max_crull_stone = 1;
@@ -63,11 +63,11 @@ max_hp = 150;
 walk_spd = 1.75;
 roll_spd = 3;
 roll_dist = 64;
-charge = 50 + (3 * grace);
-max_charge = 50 + (3 * grace);
-stamina = 50 + (3 * energy);
-max_stamina = 50 + (3 * energy);
-max_hp = max_hp + (3*vitality) + round(vitality/15);
+charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 50 + (3* (grace + round(grace/15)));
+stamina = 50 + (3* (might + round(might/15)));
+max_stamina = 50 + (3* (might + round(might/15)));
+max_hp = 150 + (3* (vitality + round(vitality/15)));
 hp = max_hp;
 crull_stone = max_crull_stone;
 //magic_count = max_magic_count;
@@ -90,9 +90,12 @@ knockback_dur = 0;
 knockback_dir = 0;
 invincible = false;
 inv_dur_timer = 0;
+cursed = false
+cursed_dur_timer = 0;
 level = 1;
 break_object = obj_break;
 //
 //
 //
-
+//Form Script (Default Regaliare)
+script_execute(RegaliareSet);
