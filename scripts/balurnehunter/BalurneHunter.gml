@@ -137,7 +137,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 35;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox)
 
 	//Animate
 	EnemyAnimation();
