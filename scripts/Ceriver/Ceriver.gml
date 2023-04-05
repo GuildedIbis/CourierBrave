@@ -538,6 +538,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
+		inv_timer = 0;
 		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
@@ -552,7 +553,10 @@ if (magic_timer <= 0)
 		{
 			inv_timer = 0;
 		}
-		else inv_timer = 15;
+		else 
+		{
+			inv_timer = 5;
+		}
 		image_angle = direction;
 	}
 	magic_timer = 5;
