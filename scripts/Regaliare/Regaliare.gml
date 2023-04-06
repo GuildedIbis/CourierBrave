@@ -29,6 +29,7 @@ special_draw = RegaliareGoldArcMenu;
 
 //Dynamic Variables
 weapon_count = -1;
+casting = false;
 max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
@@ -49,6 +50,7 @@ max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 0, 8]);
 //Regaliare Free (home) state
 function RegaliareFree(){
 walk_spd = 1.75;
+casting = false;
 //Movement 1: Set
 if (knockback = false)
 {
@@ -307,6 +309,7 @@ if (animation_end)
 function RegaliareGoldBurst(){
 walk_spd = 1.2;
 attacking = true;
+casting = true;
 //weapon_sprite = spr_spiritStone_meteor;
 
 
@@ -359,9 +362,9 @@ var _oldSprite = sprite_index;
 if (input_mag != 0)
 {
 	direction = input_dir;
-	sprite_index = spr_player_regaliare_runCast;
+	sprite_index = spr_player_regaliare_runCast2;
 }
-else sprite_index = spr_player_regaliare_cast;
+else sprite_index = spr_player_regaliare_cast2;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
@@ -479,6 +482,7 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 function RegaliareHeavyBurst(){
 walk_spd = 1.2;
 attacking = true;
+casting = true;
 //weapon_sprite = spr_spiritStone_meteor;
 
 
@@ -531,9 +535,9 @@ var _oldSprite = sprite_index;
 if (input_mag != 0)
 {
 	direction = input_dir;
-	sprite_index = spr_player_regaliare_runCast;
+	sprite_index = spr_player_regaliare_runCast2;
 }
-else sprite_index = spr_player_regaliare_cast;
+else sprite_index = spr_player_regaliare_cast2;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
