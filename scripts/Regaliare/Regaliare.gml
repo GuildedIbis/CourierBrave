@@ -310,7 +310,7 @@ function RegaliareGoldBurst(){
 walk_spd = 1.2;
 attacking = true;
 casting = true;
-//weapon_sprite = spr_spiritStone_meteor;
+
 
 
 //Standard Timers
@@ -368,41 +368,15 @@ else sprite_index = spr_player_regaliare_cast2;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 5;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
+
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
 	charge = charge - 7;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
@@ -429,7 +403,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
 if (mouse_check_button(mb_left) = false) or (charge < 5)
 {
