@@ -5,7 +5,7 @@ randomize();
 script_execute(AllItems);
 script_execute(RoomEnemies);
 
-version = "Version: 0.2.5.0"
+version = "Version: 0.2.5.1"
 menu_sprite = spr_menu;
 pause_menu = GamePauseMenu;
 timer1 = 300;
