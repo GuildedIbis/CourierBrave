@@ -18,6 +18,7 @@ idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
 crull_sprite = spr_player_adavio_crull;
 recharge_sprite = spr_player_regaliare_recharge;
+arm_sprite = spr_player_adavio_castArm;
 obj_cursor.curs_script = AdavioCursor;
 
 weapon_draw = AdavioPowerHookMenu;
@@ -48,11 +49,17 @@ max_charge = 50 + (3* (grace + round(grace/15)));
 //
 //Adavio Free (home) state
 function AdavioFree(){
+//Set
 walk_spd = 1.75;
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+attacking = false;
+casting = false;
 
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -232,6 +239,7 @@ if (keyboard_check_pressed(ord("Z")))
 function AdavioHookThrust(){
 //Set
 attacking = true;
+casting = false;
 damage = might - 6 + (5 * obj_inventory.form_grid[# 2, 5]);
 
 //Standard Timers
@@ -400,10 +408,10 @@ if (place_meeting(x,y,break_object))
 //
 //Adavio Void Cycle State
 function AdavioVoidSpreadCast(){
-
 //Set
 walk_spd = 1.2;
 attacking = true;
+casting = true;
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -439,9 +447,12 @@ if (weapon_timer > 0)//Time between weapon uses
 //} //2/1/23
 
 
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -460,34 +471,7 @@ else sprite_index = spr_player_adavio_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = 4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = -5;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
@@ -513,11 +497,6 @@ if (magic_timer <= 0)
 			hit_by_attack = -1;
 			//script_execute(LeafArcCreate);
 			direction = (point_direction(x,y,mouse_x,mouse_y) - 16 + (8 * i)) + irandom_range(-6,6);
-			if (direction < 135) and (direction > 45)
-			{
-				inv_timer = 0;
-			}
-			else inv_timer = 15;
 			image_angle = direction;
 			projectile_speed = 4.0;
 		}
@@ -526,8 +505,9 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
+//Reset or return to free state
 if (mouse_check_button(mb_left) = false) or (charge < 25)
 {
 	attacking = false;
@@ -544,10 +524,8 @@ if (mouse_check_button(mb_left) = false) or (charge < 25)
 //
 //
 function AdavioVoidBit(){
-//Step
-if (inv_timer > 0) inv_timer = inv_timer - 1;
+//Set
 speed = projectile_speed;
-
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -558,13 +536,15 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
 	AttackCalculate(projectile_sprite);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
@@ -576,11 +556,10 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 //
 //AdavioMagicA
 function AdavioVoidCycleCast(){
-
 //Set
 walk_spd = 1.2;
 attacking = true;
-
+casting = true;
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -615,10 +594,12 @@ if (weapon_timer > 0)//Time between weapon uses
 //	special_timer = special_timer + 1;
 //} //2/1/23
 
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -637,34 +618,7 @@ else sprite_index = spr_player_adavio_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = 4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = -5;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
@@ -688,11 +642,6 @@ if (magic_timer <= 0)
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
 		direction = (point_direction(x,y,mouse_x,mouse_y));
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 2.0;
 	}
@@ -700,8 +649,9 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
+//Reset or Return to free state
 if (mouse_check_button(mb_left) = false) or (charge < 25)
 {
 	attacking = false;
@@ -718,7 +668,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 25)
 //
 //Adavio Magic Primary Projectile Script
 function AdavioVoidCycle(){
-//Step
+//Set
 //if (follow_timer > 0) follow_timer = follow_timer - 1;
 timer1 = timer1 - 1;
 speed = projectile_speed;
@@ -733,6 +683,8 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Burst into void bits
 if (timer1 <= 0)
 {
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
@@ -752,17 +704,14 @@ if (timer1 <= 0)
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
 			direction = (other.direction - 16 + (8 * i)) + irandom_range(-6,6);
-			if (direction < 135) and (direction > 45)
-			{
-				inv_timer = 0;
-			}
-			else inv_timer = 15;
 			image_angle = direction;
 			projectile_speed = 4.0;
 		}
 	}
 	instance_destroy();
 }
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	

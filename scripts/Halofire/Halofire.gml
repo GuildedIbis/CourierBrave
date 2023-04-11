@@ -14,6 +14,7 @@ idle_sprite = spr_player_halofire_idle;
 roll_sprite = spr_player_halofire_roll;
 crull_sprite = spr_player_halofire_crull;
 recharge_sprite = spr_player_halofire_recharge;
+arm_sprite = spr_player_halofire_castArm;
 magicP_script = HalofireMeteorSling;
 magicA_script = HalofireTriRock;
 magic_primary = true;
@@ -49,11 +50,17 @@ max_special_timer = 360 - round(12 * obj_inventory.form_grid[# 3, 8]);
 //
 //Halofire Free (home) state
 function HalofireFree(){
+//Set
 walk_spd = 1.75;
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+attacking = false;
+casting = false;
 
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -587,6 +594,7 @@ function HalofireMeteorSling(){
 //Set
 walk_spd = 1.2;
 attacking = true;
+casting = true;
 
 //Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -617,10 +625,12 @@ if (weapon_timer > 0) //Melee time between attacks
 	weapon_timer = weapon_timer - 1;
 }
 
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -639,40 +649,14 @@ else sprite_index = spr_player_halofire_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 2;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 2;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -6;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;	
-}
+//Bullet Spawn Position
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
 	charge = charge - 24;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
@@ -699,9 +683,9 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
-
+//Reset or return to free sate
 if (mouse_check_button(mb_left) = false) or (charge < 24)
 {
 	attacking = false;
@@ -718,8 +702,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 24)
 //
 //Halofire Meteor Projectile Script
 function HalofireMeteor(){
-//Step
-if (inv_timer > 0) inv_timer = inv_timer - 1;
+//Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -731,13 +714,15 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
 	AttackCalculate(projectile_sprite);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
@@ -753,6 +738,7 @@ function HalofireTriRock(){
 //Set
 walk_spd = 1.2;
 attacking = true;
+casting = true;
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -787,9 +773,12 @@ if (weapon_timer > 0) //Melee time between attacks
 //	special_timer = special_timer + 1;
 //}
 
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -808,41 +797,14 @@ else sprite_index = spr_player_halofire_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 2;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 2;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -6;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
 	charge = charge - 24;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_trirock,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_trirock,0,0,global.volumeEffects);
@@ -869,9 +831,9 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
-
+//Restart or return to free state
 if (attack_counter >= max_attack_counter)
 {
 	attack_counter = 0;

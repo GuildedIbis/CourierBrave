@@ -18,6 +18,7 @@ idle_sprite = spr_player_regaliare_idle;
 roll_sprite = spr_player_regaliare_roll;
 crull_sprite = spr_player_regaliare_crull;
 recharge_sprite = spr_player_regaliare_recharge;
+arm_sprite = spr_player_regaliare_castArm;
 obj_cursor.curs_script = RegaliareCursor;
 
 weapon_draw = RegaliareRegalBladeMenu;
@@ -49,15 +50,17 @@ max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 0, 8]);
 //
 //Regaliare Free (home) state
 function RegaliareFree(){
+//Set
 walk_spd = 1.75;
+attacking = false;
 casting = false;
-//Movement 1: Set
+
+//Movement 1: Speed
 if (knockback = false)
 {
 	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
 	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 }
-
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -307,11 +310,10 @@ if (animation_end)
 //
 //Regaliare Magic State
 function RegaliareGoldBurst(){
+//Set
 walk_spd = 1.2;
 attacking = true;
 casting = true;
-
-
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -346,10 +348,12 @@ if (weapon_timer > 0)//Time between weapon uses
 //	special_timer = special_timer + 1;
 //} //2/1/23
 
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -362,9 +366,9 @@ var _oldSprite = sprite_index;
 if (input_mag != 0)
 {
 	direction = input_dir;
-	sprite_index = spr_player_regaliare_runCast2;
+	sprite_index = spr_player_regaliare_runCast;
 }
-else sprite_index = spr_player_regaliare_cast2;
+else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
@@ -391,11 +395,6 @@ if (magic_timer <= 0)
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -405,6 +404,7 @@ if (magic_timer <= 0)
 //Animate
 PlayerAnimationCast();
 
+//Restart or Return to Free
 if (mouse_check_button(mb_left) = false) or (charge < 5)
 {
 	attacking = false;
@@ -421,9 +421,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 5)
 //
 //Regaliare Gold Bullet Projectile Script
 function RegaliareGoldBullet(){
-//Step
-if (follow_timer > 0) follow_timer = follow_timer - 1;
-if (inv_timer > 0) inv_timer = inv_timer - 1;
+//Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -435,13 +433,15 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
 	AttackCalculate(projectile_sprite);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
@@ -454,11 +454,10 @@ if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
 //
 //Regaliare Heavy Burst Magic
 function RegaliareHeavyBurst(){
+//Set
 walk_spd = 1.2;
 attacking = true;
 casting = true;
-//weapon_sprite = spr_spiritStone_meteor;
-
 
 //Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -493,10 +492,12 @@ if (weapon_timer > 0)//Time between weapon uses
 //	special_timer = special_timer + 1;
 //} //2/1/23
 
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -509,53 +510,24 @@ var _oldSprite = sprite_index;
 if (input_mag != 0)
 {
 	direction = input_dir;
-	sprite_index = spr_player_regaliare_runCast2;
+	sprite_index = spr_player_regaliare_runCast;
 }
-else sprite_index = spr_player_regaliare_cast2;
+else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 5;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	//magic_count = magic_count - 2;
 	charge = charge - 10;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
 		break_object = obj_player.break_object;
 		magic = true;
-		//follow_timer = 28; //2/1/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
 		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
@@ -564,11 +536,6 @@ if (magic_timer <= 0)
 		idle_sprite = spr_heavyBullet;
 		hit_by_attack = -1;
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -576,8 +543,9 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
+//Restart or return to free state
 if (mouse_check_button(mb_left) = false) or (charge < 10)
 {
 	attacking = false;
@@ -596,8 +564,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 10)
 //
 //Regaliare Heavy Bullet Projectile Script
 function RegaliareHeavyBullet(){
-//Step
-if (inv_timer > 0) inv_timer = inv_timer - 1;
+//Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -609,11 +576,13 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	AttackCalculate(projectile_sprite);
 }
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }

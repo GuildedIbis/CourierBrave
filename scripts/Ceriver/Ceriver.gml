@@ -14,6 +14,7 @@ idle_sprite = spr_player_ceriver_idle;
 roll_sprite = spr_player_ceriver_roll;
 crull_sprite = spr_player_ceriver_crull;
 recharge_sprite = spr_player_ceriver_recharge;
+arm_sprite = spr_player_ceriver_castArm;
 magicP_script = CeriverPolyorbCast;
 magicA_script = CeriverOrbladeDashCast;
 magic_primary = true;
@@ -49,10 +50,17 @@ max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 1, 8]);
 //
 //Ceriver Free (home) state
 function CeriverFree(){
-//Movement 1: Set
+//Set
 walk_spd = 1.75;
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+attacking = false;
+casting = false;
+
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 
 //Standard Timers
@@ -109,7 +117,7 @@ if (obj_inventory.form_grid[# form, 8] > 0) //Special
 //Movement 2: Collision
 PlayerCollision();
 
-//Movement 3: Environtment
+//Movement 3: Environment
 PlayerEnvironment();
 
 //Animation: Update Sprite
@@ -247,6 +255,7 @@ if (keyboard_check_pressed(ord("Z")))
 function CeriverBoomerang(){
 //Set
 attacking = true;
+casting = false;
 damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
@@ -376,7 +385,7 @@ if (animation_end)
 //
 //Boomerange Free Script
 function CeriverBoomerangFree(){
-//Step
+//Set
 if (sd_timer > 0) sd_timer = sd_timer - 1; 
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -438,10 +447,10 @@ if (sd_timer <= 0)
 //
 //Ceriver Polyorb Magic State
 function CeriverPolyorbCast(){
+//Set
 walk_spd = 1.2;
 attacking = true;
-
-
+casting = true;
 
 //Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
@@ -473,10 +482,12 @@ if (weapon_timer > 0)//Time between weapon uses
 }
 
 
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
 
 //Movement 2: Collision
 PlayerCollision();
@@ -495,40 +506,13 @@ else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = 4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = -5;
-		dir_offY = -14;
-	break;	
-}
+PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
 	charge = charge - 8;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
@@ -538,7 +522,6 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		inv_timer = 0;
 		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
@@ -549,21 +532,13 @@ if (magic_timer <= 0)
 		hit_by_attack = -1;
 		speed = projectile_speed;
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else 
-		{
-			inv_timer = 5;
-		}
 		image_angle = direction;
 	}
 	magic_timer = 5;
 }
 
 //Animate
-PlayerAnimation();
+PlayerAnimationCast();
 
 //End State, Return to Free State
 if (mouse_check_button(mb_left) = false) or (charge < 8)
@@ -582,13 +557,10 @@ if (mouse_check_button(mb_left) = false) or (charge < 8)
 //
 //Ceriver Polyorb Projectile Script
 function CeriverPolyorbFree(){
-
-//Step
+//Set
 image_speed = 0;
-if (inv_timer > 0) inv_timer = inv_timer - 1;
-if (sd_timer > 0) sd_timer = sd_timer - 1;
 speed = projectile_speed;
-if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -597,13 +569,18 @@ if (sprite_index != projectile_sprite)
 	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 	ds_list_clear(hit_by_attack);
 }
+
+//Timers
+if (sd_timer > 0) sd_timer = sd_timer - 1;
+
+//Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
 	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
 	instance_destroy();
 }
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
+if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
@@ -619,6 +596,7 @@ if (sd_timer <= 0) instance_destroy();
 function CeriverOrbladeDashCast(){
 //Set
 attacking = true;
+casting = true;
 damage = grace - 3 + (13 * obj_inventory.form_grid[# 1, 7]);
 
 //Standard Timers
