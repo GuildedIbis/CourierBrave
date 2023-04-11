@@ -596,7 +596,7 @@ if (sd_timer <= 0) instance_destroy();
 function CeriverOrbladeDashCast(){
 //Set
 attacking = true;
-casting = true;
+//casting = true;
 damage = grace - 3 + (13 * obj_inventory.form_grid[# 1, 7]);
 
 //Standard Timers
