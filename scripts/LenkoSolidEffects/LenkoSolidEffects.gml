@@ -111,13 +111,13 @@ shadow = true;
 //sy3 = y + 8;
 //sx4 = x - 16;
 //sy4 = y + 8;
-sx1 = x - (sprite_width/2) + 12;
+sx1 = x - 6;
 sy1 = y - 24;
-sx2 = x + (sprite_width/2) + 12;
+sx2 = x + 24;
 sy2 = y - 24
-sx3 = x + (sprite_width/2);
+sx3 = x + 12;
 sy3 = y + 3;
-sx4 = x - (sprite_width/2);
+sx4 = x - 10;
 sy4 = y + 3;
 }
 //
