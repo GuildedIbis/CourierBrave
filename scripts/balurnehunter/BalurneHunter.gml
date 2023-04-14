@@ -214,7 +214,7 @@ if (obj_game.gamePaused = false)
 		}
 		else
 		{
-			if (attack_counter <= 3)
+			if (attack_counter < 2)
 			{
 				entity_step = BalurneHunterShoot;
 				timer2 = 0;
