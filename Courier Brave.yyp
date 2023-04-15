@@ -830,6 +830,7 @@
     {"id":{"name":"spr_enemy_pupae_idle","path":"sprites/spr_enemy_pupae_idle/spr_enemy_pupae_idle.yy",},},
     {"id":{"name":"spr_felRider","path":"sprites/spr_felRider/spr_felRider.yy",},},
     {"id":{"name":"spr_enemy_balurneHunter_slash_hitbox","path":"sprites/spr_enemy_balurneHunter_slash_hitbox/spr_enemy_balurneHunter_slash_hitbox.yy",},},
+    {"id":{"name":"spr_shatterOrb","path":"sprites/spr_shatterOrb/spr_shatterOrb.yy",},},
     {"id":{"name":"spr_enemy_bossZerwerk_riftSlash","path":"sprites/spr_enemy_bossZerwerk_riftSlash/spr_enemy_bossZerwerk_riftSlash.yy",},},
     {"id":{"name":"spr_enemy_ofaMoth","path":"sprites/spr_enemy_ofaMoth/spr_enemy_ofaMoth.yy",},},
     {"id":{"name":"rm_lenko_greyrock_12","path":"rooms/rm_lenko_greyrock_12/rm_lenko_greyrock_12.yy",},},
