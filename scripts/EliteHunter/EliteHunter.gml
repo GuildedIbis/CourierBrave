@@ -145,7 +145,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 35;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox)
+	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox);
 
 	//Animate
 	EnemyAnimation();
@@ -272,7 +272,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = RatArrowFree;
+			home_state = EliteHunterShatterArrowFree;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -317,6 +317,106 @@ if (obj_game.gamePaused = false)
 		sprite_index = enemy_idle;
 		animation_end = false;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Elite Hunter Shatter Arrow Free
+function EliteHunterShatterArrowFree(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+	with (instance_create_layer(x,y,"Instances",obj_effect))
+	{
+		sprite_index = spr_shatterfield;
+		image_speed = 1;
+		depth = -y;
+		effect_script = EffectShatterfield;
+		timer1 = 65;
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with (instance_create_layer(x,y,"Instances",obj_effect))
+	{
+		sprite_index = spr_shatterfield;
+		image_speed = 1;
+		depth = -y;
+		effect_script = EffectShatterfield;
+		timer1 = 65;
+	}
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Effect Shatterfield
+function EffectShatterfield(){
+if (obj_game.gamePaused = false)
+{
+
+//Set
+damage = obj_player.vitality/3;
+image_speed = 1;
+
+
+//Timers
+if (timer1 >= 0) timer1 = timer1 - 1;
+
+//Collision
+if (place_meeting(x,y,obj_player))
+{
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			audio_sound_gain(snd_player_hit,global.volumeEffects,1);
+			audio_play_sound(snd_player_hit,0,false);
+			inv_dur_timer = 12;
+			flash = .35;
+			hp = hp - other.damage;
+		}
+	}
+}
+
+//SD
+if (timer1 <= 0) 
+{
+	instance_destroy();
+}
 }
 }
 //
