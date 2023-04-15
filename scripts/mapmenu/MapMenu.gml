@@ -91,7 +91,7 @@ for (var i = 0; i < 5; i = i + 1)
 	draw_sprite_stretched(button_sprite,3,80,42 + (i * 17),15,15);
 	if (obj_inventory.region_grid[# i, 1] = true)
 	{
-		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
+		draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
 		draw_sprite_ext(spr_map_button,i,80,42+(i*17),1.0,1.0,0,c_white,1.0);
 		if (point_in_rectangle(_mouseX,_mouseY,80,42 + (i * 15),94,57 + (i * 15)))
 		{
