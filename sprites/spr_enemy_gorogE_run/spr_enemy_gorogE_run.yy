@@ -41,8 +41,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "EliteGorog",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/EliteGorog.yy",
+    "name": "Gorog",
+    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/Gorog.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

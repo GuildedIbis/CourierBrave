@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Balurne Rats",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Enemy/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

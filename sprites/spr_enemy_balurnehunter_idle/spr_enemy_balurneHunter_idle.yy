@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Balurne Rats",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats.yy",
+    "name": "Hunter",
+    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/Hunter.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
