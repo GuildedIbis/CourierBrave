@@ -928,6 +928,7 @@
     {"id":{"name":"Salekt","path":"scripts/Salekt/Salekt.yy",},},
     {"id":{"name":"spr_npc_knightAvita36","path":"sprites/spr_npc_knightAvita36/spr_npc_knightAvita36.yy",},},
     {"id":{"name":"BalurneSkirmisher","path":"scripts/BalurneSkirmisher/BalurneSkirmisher.yy",},},
+    {"id":{"name":"rm_lenko_fortress03","path":"rooms/rm_lenko_fortress03/rm_lenko_fortress03.yy",},},
     {"id":{"name":"spr_enemy_lilyGuard_idle","path":"sprites/spr_enemy_lilyGuard_idle/spr_enemy_lilyGuard_idle.yy",},},
     {"id":{"name":"spr_enemy_cultistZealot_waterEdge","path":"sprites/spr_enemy_cultistZealot_waterEdge/spr_enemy_cultistZealot_waterEdge.yy",},},
     {"id":{"name":"spr_player_regaliare_cast_ultimate","path":"sprites/spr_player_regaliare_cast_ultimate/spr_player_regaliare_cast_ultimate.yy",},},
@@ -1160,6 +1161,7 @@
     {"roomId":{"name":"rm_lenko_farwayRoad_12","path":"rooms/rm_lenko_farwayRoad_12/rm_lenko_farwayRoad_12.yy",},},
     {"roomId":{"name":"rm_lenko_fortress01","path":"rooms/rm_lenko_fortress01/rm_lenko_fortress01.yy",},},
     {"roomId":{"name":"rm_lenko_fortress02","path":"rooms/rm_lenko_fortress02/rm_lenko_fortress02.yy",},},
+    {"roomId":{"name":"rm_lenko_fortress03","path":"rooms/rm_lenko_fortress03/rm_lenko_fortress03.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

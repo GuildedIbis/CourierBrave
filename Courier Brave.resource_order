@@ -812,6 +812,7 @@
     {"name":"Salekt","order":5,"path":"scripts/Salekt/Salekt.yy",},
     {"name":"spr_npc_knightAvita36","order":3,"path":"sprites/spr_npc_knightAvita36/spr_npc_knightAvita36.yy",},
     {"name":"BalurneSkirmisher","order":2,"path":"scripts/BalurneSkirmisher/BalurneSkirmisher.yy",},
+    {"name":"rm_lenko_fortress03","order":3,"path":"rooms/rm_lenko_fortress03/rm_lenko_fortress03.yy",},
     {"name":"spr_enemy_lilyGuard_idle","order":7,"path":"sprites/spr_enemy_lilyGuard_idle/spr_enemy_lilyGuard_idle.yy",},
     {"name":"spr_enemy_cultistZealot_waterEdge","order":2,"path":"sprites/spr_enemy_cultistZealot_waterEdge/spr_enemy_cultistZealot_waterEdge.yy",},
     {"name":"spr_player_regaliare_cast_ultimate","order":15,"path":"sprites/spr_player_regaliare_cast_ultimate/spr_player_regaliare_cast_ultimate.yy",},
