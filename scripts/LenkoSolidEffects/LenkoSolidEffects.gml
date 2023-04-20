@@ -16,8 +16,9 @@ with (instance_create_layer(x-8,y-15,"Wall",obj_wall))
 }
 if (break_object != -1)
 {
-	with (instance_create_layer(x-8,y-15,"Break",break_object))
+	with (instance_create_layer(x-8,y-15,"Instances",break_object))
 	{
+		image_alpha = 1;
 		image_xscale = 2;
 		image_yscale = 1.5;
 		game_paused_image_speed = image_speed;

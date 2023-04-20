@@ -720,3 +720,72 @@ if (obj_player.form = 2)
 }
 
 }
+//
+//
+//
+//
+//
+//Effect Fortress Mausoleum
+function EffectFortressMausoleumCreate(){
+image_speed = 0;
+sprite_index = spr_fortress_mausoleum;
+//Create Collision
+with (instance_create_layer(x-24,y-64,"Wall",obj_wall))
+{
+	image_xscale = 6;
+	image_yscale = 8;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-24,y-64,"Break",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 7;
+		game_paused_image_speed = image_speed;
+	}
+}
+
+//Set Shadow
+shadow = true;
+sx1 = x - 20;
+sy1 = y - 64;
+sx2 = x + 28;
+sy2 = y - 64;
+sx3 = x + 24;
+sy3 = y;
+sx4 = x - 24;
+sy4 = y;
+
+
+//event_inherited();
+}
+	//
+//
+//
+//
+//
+//Effect Statue Moth
+function EffectFortressMausoleum(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_fortress_mausoleum;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+}
