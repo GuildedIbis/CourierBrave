@@ -28,6 +28,8 @@ if (!obj_game.gamePaused)
 	fric = .05;
 	if (z == 0) fric = .1;
 	
+	//Depth
+	depth = -y;
 	
 	//Move
 

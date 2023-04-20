@@ -384,7 +384,7 @@ if (magic_timer <= 0)
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
-		break_object = obj_player.break_object;
+		break_object = other.break_object;
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;

@@ -730,7 +730,7 @@ function EffectFortressMausoleumCreate(){
 image_speed = 0;
 sprite_index = spr_fortress_mausoleum;
 //Create Collision
-with (instance_create_layer(x-24,y-64,"Wall",obj_wall))
+with (instance_create_layer(x-24,y-56,"Wall",obj_wall))
 {
 	image_xscale = 6;
 	image_yscale = 8;
@@ -738,7 +738,7 @@ with (instance_create_layer(x-24,y-64,"Wall",obj_wall))
 }
 if (break_object != -1)
 {
-	with (instance_create_layer(x-24,y-64,"Break",break_object))
+	with (instance_create_layer(x-24,y-56,"Break",break_object))
 	{
 		image_xscale = 6;
 		image_yscale = 7;
@@ -749,13 +749,13 @@ if (break_object != -1)
 //Set Shadow
 shadow = true;
 sx1 = x - 20;
-sy1 = y - 64;
+sy1 = y - 56;
 sx2 = x + 28;
-sy2 = y - 64;
+sy2 = y - 56;
 sx3 = x + 24;
-sy3 = y;
+sy3 = y + 8;
 sx4 = x - 24;
-sy4 = y;
+sy4 = y + 8;
 
 
 //event_inherited();
