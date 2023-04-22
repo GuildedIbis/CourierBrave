@@ -879,6 +879,7 @@
     {"id":{"name":"FormMenu","path":"scripts/FormMenu/FormMenu.yy",},},
     {"id":{"name":"spr_armor_allGame","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},
     {"id":{"name":"obj_break","path":"objects/obj_break/obj_break.yy",},},
+    {"id":{"name":"LenkoSpawners","path":"scripts/LenkoSpawners/LenkoSpawners.yy",},},
     {"id":{"name":"snd_rat_damaged","path":"sounds/snd_rat_damaged/snd_rat_damaged.yy",},},
     {"id":{"name":"Regaliare","path":"scripts/Regaliare/Regaliare.yy",},},
     {"id":{"name":"CrullPedestal","path":"scripts/CrullPedestal/CrullPedestal.yy",},},
