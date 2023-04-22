@@ -24,6 +24,12 @@ if (variable_struct_exists(_loadEntity,"yakflower04")) obj_inventory.yakflower_l
 
 
 //Load Dungeons
+if (variable_struct_exists(_loadEntity,"beaowire00")) obj_inventory.beaowire_dungeon[0] = _loadEntity.beaowire00;
+if (variable_struct_exists(_loadEntity,"beaowire01")) obj_inventory.beaowire_dungeon[1] = _loadEntity.beaowire01;
+if (variable_struct_exists(_loadEntity,"beaowire02")) obj_inventory.beaowire_dungeon[2] = _loadEntity.beaowire02;
+if (variable_struct_exists(_loadEntity,"beaowire03")) obj_inventory.beaowire_dungeon[3] = _loadEntity.beaowire03;
+if (variable_struct_exists(_loadEntity,"beaowire04")) obj_inventory.beaowire_dungeon[4] = _loadEntity.beaowire04;
+
 
 //Load Camps
 if (variable_struct_exists(_loadEntity,"camp00")) obj_inventory.camp_grid[# 0, 3] = _loadEntity.camp00;
@@ -60,6 +66,12 @@ yakflower03 : obj_inventory.yakflower_lair[3],
 yakflower04 : obj_inventory.yakflower_lair[4],
 
 //Save Dungeons
+beaowire00 : obj_inventory.beaowire_dungeon[0],
+beaowire01 : obj_inventory.beaowire_dungeon[1],
+beaowire02 : obj_inventory.beaowire_dungeon[2],
+beaowire03 : obj_inventory.beaowire_dungeon[3],
+beaowire04 : obj_inventory.beaowire_dungeon[4],
+
 
 //Save Camps
 camp00 : obj_inventory.camp_grid[# 0, 3],

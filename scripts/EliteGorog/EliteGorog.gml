@@ -528,6 +528,10 @@ if (_drop3 > 89)
 	}
 	
 }
+
+//else instance_create_layer(x,y,"Instances",_objects[0])
+obj_inventory.beaowire_dungeon[2] = 1;
+
 }
 
 
