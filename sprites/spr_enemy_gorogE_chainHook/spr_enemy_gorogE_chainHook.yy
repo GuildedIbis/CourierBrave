@@ -4,7 +4,7 @@
   "name": "spr_enemy_gorogE_chainHook",
   "bbox_bottom": 5,
   "bbox_left": 0,
-  "bbox_right": 10,
+  "bbox_right": 6,
   "bbox_top": 0,
   "bboxMode": 2,
   "collisionKind": 1,
