@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_enemy_eliteHunter_run",
-  "bbox_bottom": 16,
+  "bbox_bottom": 17,
   "bbox_left": 7,
   "bbox_right": 12,
   "bbox_top": 10,

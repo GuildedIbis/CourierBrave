@@ -56,7 +56,12 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
-		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		if (timer1 <= 0)
+		{
+			EnemyWander(60,180); //Data Leak if not radius restricted?
+		}
+		else sprite_index = enemy_idle;
+		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
 			aggro_drop = 300;
@@ -74,17 +79,17 @@ if (obj_game.gamePaused = false)
 	}
 	
 
-	//While Aggro is on
+	//While Aggro is on}
 	if (targeted = true)
 	{
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,32)) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
 			script_execute(EnemyChase);
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
 				sprite_index = enemy_idle;
-				if (timer1 <= 0) 
+				if (timer1 <= 0) //Heavy Slash A
 				{
 					entity_step = EliteHunterSlash;
 				}		
@@ -98,15 +103,12 @@ if (obj_game.gamePaused = false)
 			if (timer2 <= 0) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) 
 			{	
 				path_end();
-				_atk = irandom_range(0,3)
-				if (_atk <= 1)
+				_atkChoose = irandom_range(0,3)
+				if (_atkChoose <= 1)
 				{
 					entity_step = EliteHunterShoot;
 				}
-				else
-				{
-					entity_step = EliteHunterShootShatter;
-				}
+				else entity_step = EliteHunterShootShatter;
 			}
 		}
 		
@@ -185,8 +187,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	damage = 35;
-	//Cacluate Attack
-	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+
 
 	//Animate
 	EnemyAnimation();
@@ -207,10 +208,10 @@ if (obj_game.gamePaused = false)
 			bullet = true;
 			hit_script = EntityHitDestroy;
 		}
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
 			timer1 = 60;
-			timer2 = 60;
+			//timer2 = 60;
 			hor_spd = irandom_range(-1,1);
 			ver_spd = irandom_range(-1,1);
 			if (hor_spd = 0) and (ver_spd = 0)
@@ -219,6 +220,7 @@ if (obj_game.gamePaused = false)
 				ver_spd = choose(-1,1)
 			}
 			entity_step = EnemyReposition;
+			animation_end = false;
 		}
 		else
 		{
@@ -249,11 +251,11 @@ function EliteHunterShootShatter(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (sprite_index != spr_enemy_eliteHunter_shatter)
+	if (sprite_index != spr_enemy_eliteHunter_shoot)
 	{
 		//Start Animation From Beginning
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
-		sprite_index = spr_enemy_eliteHunter_shatter;
+		sprite_index = spr_enemy_eliteHunter_shoot;
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
@@ -294,10 +296,10 @@ if (obj_game.gamePaused = false)
 			bullet = true;
 			hit_script = EntityHitDestroy;
 		}
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
 			timer1 = 60;
-			timer2 = 60;
+			//timer2 = 60;
 			hor_spd = irandom_range(-1,1);
 			ver_spd = irandom_range(-1,1);
 			if (hor_spd = 0) and (ver_spd = 0)
@@ -306,12 +308,12 @@ if (obj_game.gamePaused = false)
 				ver_spd = choose(-1,1)
 			}
 			entity_step = EnemyReposition;
+			animation_end = false;
 		}
 		else
 		{
-
 			attack_counter = 0;
-			timer2 = 90;
+			timer2 = 60;
 			entity_step = home_state;
 		}
 		sprite_index = enemy_idle;
