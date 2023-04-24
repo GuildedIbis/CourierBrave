@@ -869,6 +869,7 @@
     {"id":{"name":"spr_stair3","path":"sprites/spr_stair3/spr_stair3.yy",},},
     {"id":{"name":"obj_chest","path":"objects/obj_chest/obj_chest.yy",},},
     {"id":{"name":"snd_gorogKnife_hit","path":"sounds/snd_gorogKnife_hit/snd_gorogKnife_hit.yy",},},
+    {"id":{"name":"rm_lenko_beaowire005","path":"rooms/rm_lenko_beaowire005/rm_lenko_beaowire005.yy",},},
     {"id":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},},
     {"id":{"name":"EnemyScripts","path":"scripts/EnemyScripts/EnemyScripts.yy",},},
     {"id":{"name":"rm_lenko_farwayRoad_2","path":"rooms/rm_lenko_farwayRoad_2/rm_lenko_farwayRoad_2.yy",},},
@@ -1172,6 +1173,7 @@
     {"roomId":{"name":"rm_lenko_beaowire002","path":"rooms/rm_lenko_beaowire002/rm_lenko_beaowire002.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire003","path":"rooms/rm_lenko_beaowire003/rm_lenko_beaowire003.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire004","path":"rooms/rm_lenko_beaowire004/rm_lenko_beaowire004.yy",},},
+    {"roomId":{"name":"rm_lenko_beaowire005","path":"rooms/rm_lenko_beaowire005/rm_lenko_beaowire005.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

@@ -759,6 +759,7 @@
     {"name":"snd_ghost_damaged","order":4,"path":"sounds/snd_ghost_damaged/snd_ghost_damaged.yy",},
     {"name":"spr_stair3","order":2,"path":"sprites/spr_stair3/spr_stair3.yy",},
     {"name":"snd_gorogKnife_hit","order":4,"path":"sounds/snd_gorogKnife_hit/snd_gorogKnife_hit.yy",},
+    {"name":"rm_lenko_beaowire005","order":5,"path":"rooms/rm_lenko_beaowire005/rm_lenko_beaowire005.yy",},
     {"name":"obj_fragment","order":3,"path":"objects/obj_fragment/obj_fragment.yy",},
     {"name":"EnemyScripts","order":29,"path":"scripts/EnemyScripts/EnemyScripts.yy",},
     {"name":"rm_lenko_farwayRoad_2","order":2,"path":"rooms/rm_lenko_farwayRoad_2/rm_lenko_farwayRoad_2.yy",},
