@@ -357,6 +357,7 @@ if (place_meeting(x,y,obj_player))
 		home_state = EliteHunterShatterOrb;
 		path = -1;
 		timer1 = 130;
+		timer2 = 15;
 		entity_step = home_state;
 		invincible = false;
 		inv_dur_timer = 0;
@@ -387,6 +388,7 @@ if (place_meeting(x,y,break_object))
 		home_state = EliteHunterShatterOrb;
 		path = -1
 		timer1 = 130;
+		timer2 = 15;
 		entity_step = home_state;
 		invincible = false;
 		inv_dur_timer = 0;
@@ -402,6 +404,7 @@ if (place_meeting(x,y,break_object))
 		fragment = obj_fragWater;
 		bullet = true;
 		hit_script = EntityHitDestroy;
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_angle = irandom_range(0,359);
 		speed = enemy_spd;
 	}
@@ -425,8 +428,19 @@ if (obj_game.gamePaused = false)
 if (timer1 > 0) timer1 = timer1 - 1;
 sprite_index = enemy_move;
 speed = enemy_spd;
-script_execute(EnemyChase);
+
+//Chase
+
+
+if (path_exists(path)) path_delete(path);
+path = path_add();
+mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
+path_start(path, enemy_spd, 0, 0);
+image_speed = 1;
+sprite_index = enemy_move;
 if (point_in_circle(obj_player.x,obj_player.y,x,y,4)) path_end();
+
+
 		
 			
 if (place_meeting(x,y,obj_player))
