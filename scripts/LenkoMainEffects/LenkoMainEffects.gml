@@ -789,3 +789,27 @@ else
 }
 depth = -y;
 }
+	
+	//
+//
+//
+//
+//
+//Effect Lekno Lake Path Rat Tent Create
+function EffectTorchBeaowireCreate(){
+image_speed = 1;
+}
+	//
+//
+//
+//
+//
+//Effect Statue Moth
+function EffectFortressMausoleum(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_torchWall_beaowire;
+
+}
