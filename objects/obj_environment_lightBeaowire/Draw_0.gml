@@ -1,0 +1,3 @@
+//Draw
+event_inherited();
+
