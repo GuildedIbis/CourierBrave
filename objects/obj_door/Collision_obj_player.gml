@@ -10,8 +10,9 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 		if (room_num != -1)
 		{
 			obj_inventory.room_num = room_num;
+			obj_inventory.room_ary = room_ary;
 			obj_game.room_num = room_num;
-			obj_game.room_name = obj_inventory.roomName_ary[room_num][0];
+			obj_game.room_name = room_ary[room_num][0];
 			obj_game.room_name_timer = 180;
 		}
 		global.targetX = target_x;

@@ -113,8 +113,8 @@ if (map_selected != -1)
 }
 if (room_num != -1)
 {
-	var _x = (107 + obj_inventory.roomName_ary[room_num][1])
-	var _y = (45 + obj_inventory.roomName_ary[room_num][2])
+	var _x = (107 + obj_inventory.room_ary[room_num][1])
+	var _y = (45 + obj_inventory.room_ary[room_num][2])
 	draw_sprite(spr_map_pointer,0,_x,_y);
 }
 
