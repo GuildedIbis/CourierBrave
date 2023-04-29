@@ -25,4 +25,3 @@ script_execute(CrullList);
 
 //Some Notes for future implementations
 //ds_grid_resize will help me to increase the inventory size after its initial creation.
-//Damage Multiplyer in gear could also be an armor multiplier if ever implemented armor.

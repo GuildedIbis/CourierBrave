@@ -7,6 +7,9 @@
 //LoadRoomlog
 //Path: obj_game > event Key Pressed "L"
 function LoadRooms(_loadEntity){
+//Load Current Location
+if (variable_struct_exists(_loadEntity,"roomAry")) obj_inventory.room_ary = _loadEntity.roomAry;
+
 //Load Lairs
 //Habraf
 if (variable_struct_exists(_loadEntity,"habraf00")) obj_inventory.habraf_lair[0] = _loadEntity.habraf00;
@@ -51,6 +54,9 @@ function SaveRooms(_saveData){
 //What To Save As : What to Save
 var _saveQuest = 
 {
+//Save current location
+roomAry : obj_inventory.room_ary,
+
 //Save Lairs
 //Habraf
 habraf00 : obj_inventory.habraf_lair[0],
