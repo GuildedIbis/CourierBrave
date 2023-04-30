@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_enemy_enragedWorm_dash",
-  "bbox_bottom": 16,
+  "bbox_bottom": 15,
   "bbox_left": 8,
   "bbox_right": 15,
   "bbox_top": 9,

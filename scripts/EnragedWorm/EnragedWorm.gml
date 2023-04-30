@@ -61,7 +61,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
-		script_execute(EnemyChase);
+		EnemyChaseSpecial(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
 		{
