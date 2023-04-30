@@ -52,3 +52,30 @@ if (object_exists(obj_player))
 	obj_player.cursed_dur_timer = 30;
 }
 }
+		//
+//
+//
+//
+//
+//Effect Lekno Lake Path Rat Tent Create
+function EffectLightWindowCreate(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_empty;
+}
+	//
+//
+//
+//
+//
+//Effect Statue Moth
+function EffectLightWindow(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_empty;
+
+}

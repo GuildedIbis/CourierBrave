@@ -198,6 +198,7 @@
     {"id":{"name":"spr_enemy_folioBulb_rootRise2_hitbox","path":"sprites/spr_enemy_folioBulb_rootRise2_hitbox/spr_enemy_folioBulb_rootRise2_hitbox.yy",},},
     {"id":{"name":"spr_ability_hud","path":"sprites/spr_ability_hud/spr_ability_hud.yy",},},
     {"id":{"name":"snd_halofire_trirock","path":"sounds/snd_halofire_trirock/snd_halofire_trirock.yy",},},
+    {"id":{"name":"spr_empty","path":"sprites/spr_empty/spr_empty.yy",},},
     {"id":{"name":"spr_grassTallo","path":"sprites/spr_grassTallo/spr_grassTallo.yy",},},
     {"id":{"name":"spr_map","path":"sprites/spr_map/spr_map.yy",},},
     {"id":{"name":"spr_enemy_gorogE_chainHook_toss","path":"sprites/spr_enemy_gorogE_chainHook_toss/spr_enemy_gorogE_chainHook_toss.yy",},},
@@ -375,6 +376,7 @@
     {"id":{"name":"spr_status_gui","path":"sprites/spr_status_gui/spr_status_gui.yy",},},
     {"id":{"name":"spr_cursor_play","path":"sprites/spr_cursor_play/spr_cursor_play.yy",},},
     {"id":{"name":"MiscEffects","path":"scripts/MiscEffects/MiscEffects.yy",},},
+    {"id":{"name":"rm_lenko_beaowire_07","path":"rooms/rm_lenko_beaowire_07/rm_lenko_beaowire_07.yy",},},
     {"id":{"name":"spr_enemy_cultistDilloc_damaged","path":"sprites/spr_enemy_cultistDilloc_damaged/spr_enemy_cultistDilloc_damaged.yy",},},
     {"id":{"name":"spr_npc_kovalad","path":"sprites/spr_npc_kovalad/spr_npc_kovalad.yy",},},
     {"id":{"name":"spr_enemy_skirmisher_damaged","path":"sprites/spr_enemy_skirmisher_damaged/spr_enemy_skirmisher_damaged.yy",},},
@@ -1186,6 +1188,7 @@
     {"roomId":{"name":"rm_lenko_beaowire_04","path":"rooms/rm_lenko_beaowire_04/rm_lenko_beaowire_04.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_05","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_06","path":"rooms/rm_lenko_beaowire_06/rm_lenko_beaowire_06.yy",},},
+    {"roomId":{"name":"rm_lenko_beaowire_07","path":"rooms/rm_lenko_beaowire_07/rm_lenko_beaowire_07.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

@@ -24,9 +24,21 @@ if (surface_exists(obj_surfaceBlack.black_surf))
 	with (obj_light)
 	{
 	
-		gpu_set_blendmode(bm_subtract);
-		draw_circle(x,y-4,48,false);
-		gpu_set_blendmode(bm_normal);
+		if (solar = false)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y-4,40,false);
+			gpu_set_blendmode(bm_normal);
+		}
+		else
+		{
+			if (global.dayPhase != 2)
+			{
+				gpu_set_blendmode(bm_subtract);
+				draw_circle(x,y-4,40,false);
+				gpu_set_blendmode(bm_normal);
+			}
+		}
 	}
 	draw_set_color(c_black);
 	draw_sprite_stretched(spr_lighting_box_black,0,0,0,room_width,room_height);
@@ -42,9 +54,21 @@ if (surface_exists(obj_surfaceBlack.black_surf))
 	
 	with (obj_light)
 	{
-		gpu_set_blendmode(bm_subtract);
-		draw_circle(x,y-4,40,false);
-		gpu_set_blendmode(bm_normal);
+		if (solar = false)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y-4,40,false);
+			gpu_set_blendmode(bm_normal);
+		}
+		else
+		{
+			if (global.dayPhase != 2)
+			{
+				gpu_set_blendmode(bm_subtract);
+				draw_circle(x,y-4,40,false);
+				gpu_set_blendmode(bm_normal);
+			}
+		}
 	}
 	
 	surface_reset_target();
