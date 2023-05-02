@@ -7,7 +7,7 @@
 //Elite Gorog Create
 function EliteGorogCreate(){
 name = "Elite Gorog"
-boss = true;
+boss = false;
 home_state = EliteGorogFree;
 entity_step = home_state;
 entity_drop = EliteGorogDrop;
@@ -21,14 +21,13 @@ targeted = false;
 invincible = false;
 bullet = false;
 healthbar = true;
-boss = true;
 inv_dur_timer = 0;
 aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 750;
+max_hp = 550;
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -530,7 +529,7 @@ if (_drop3 > 89)
 }
 
 //else instance_create_layer(x,y,"Instances",_objects[0])
-obj_inventory.beaowire_dungeon[2] = 1;
+//obj_inventory.beaowire_dungeon[2] = 1;
 
 }
 

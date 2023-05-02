@@ -478,13 +478,54 @@ beaowireFortress_map_ary[18][2] = 77;
 //
 //Room Enemies
 function RoomEnemies(){
-room_enemy_grid = ds_grid_create(45,20);
+farwayRoad_enemy_grid = ds_grid_create(20,20);
+yakflowerPath_enemy_grid = ds_grid_create(20,20);
+lakePath_enemy_grid = ds_grid_create(20,20);
+habrafLake_enemy_grid = ds_grid_create(20,20);
+greyrock_enemy_grid = ds_grid_create(20,20);
+beaowireFortress_enemy_grid = ds_grid_create(20,20);
+room_enemy_grid = farwayRoad_enemy_grid;
 
-for (var i = 0; i < 45; i = i + 1)
+for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 20; j = j + 1)
 	{
-		room_enemy_grid[# i, j] = false;
+		farwayRoad_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		yakflowerPath_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		lakePath_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		habrafLake_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		greyrock_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		beaowireFortress_enemy_grid[# i, j] = false;
 	}
 }
 
@@ -498,11 +539,46 @@ for (var i = 0; i < 45; i = i + 1)
 function RoomEnemiesReset(){
 global.aggroCounter = 0;
 global.bossCounter = 0;
-for (var i = 0; i < 45; i = i + 1)
+for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 20; j = j + 1)
 	{
-		obj_game.room_enemy_grid[# i, j] = false;
+		obj_game.farwayRoad_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.yakflowerPath_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.lakePath_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.habrafLake_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.greyrock_enemy_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 20; j = j + 1)
+	{
+		obj_game.beaowireFortress_enemy_grid[# i, j] = false;
 	}
 }
 

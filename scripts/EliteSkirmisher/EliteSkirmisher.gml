@@ -81,7 +81,10 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 	
-		if (timer1 <= 0) script_execute(EnemyChase);
+		if (timer1 <= 0)
+		{
+			EnemyChaseSpecial(obj_game,obj_entity);
+		}
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-24,y-24,x+24,y+24))
 		{
 			path_end();

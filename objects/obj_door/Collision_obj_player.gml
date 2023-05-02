@@ -14,6 +14,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 			obj_game.room_num = room_num;
 			obj_game.room_name = room_ary[room_num][0];
 			obj_game.room_name_timer = 180;
+			if (room_enemy_grid != -1) obj_game.room_enemy_grid = room_enemy_grid;
 		}
 		global.targetX = target_x;
 		global.targetY = target_y;
