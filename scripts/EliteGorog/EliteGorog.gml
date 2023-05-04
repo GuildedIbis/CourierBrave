@@ -27,7 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 550;
+max_hp = 450;
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -474,7 +474,7 @@ function EliteGorogDrop(){
 
 
 var _objects = 3;
-var _dropBean = 600;
+var _dropBean = 150;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
 var _drop3 = irandom_range(0,99);

@@ -25,7 +25,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 400;
+max_hp = 300;
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -481,7 +481,7 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 }
 
 var _objects = 3;
-var _dropBean = 22;
+var _dropBean = 95;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)	
 var _angle = random(360);

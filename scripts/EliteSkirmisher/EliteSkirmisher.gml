@@ -231,7 +231,7 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 }
 var _objects = 2;
-var _dropBean = 31;
+var _dropBean = 70;
 var _drop1 = irandom_range(0,99)	
 var _angle = random(360);
 
