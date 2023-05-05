@@ -70,6 +70,9 @@
     {"name":"inst_3C7B17F7","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
     {"name":"inst_690EE490","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
     {"name":"inst_5689DE1D","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
+    {"name":"inst_549F829A","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
+    {"name":"inst_5947FCD","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
+    {"name":"inst_7F274D09","path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -155,6 +158,9 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.beaowireFortress_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"18",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.beaowireFortress_enemy_grid",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_camp","path":"objects/obj_door/obj_door.yy",},"value":"True",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"locked","path":"objects/obj_door/obj_door.yy",},"value":"True",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"camp_num","path":"objects/obj_door/obj_door.yy",},"value":"4",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":168.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3716B655","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_beaowire_12",},
@@ -171,7 +177,8 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.beaowireFortress_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"16",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.beaowireFortress_enemy_grid",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":16.0,},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"quest_lock","path":"objects/obj_door/obj_door.yy",},"value":"BeaowireEntryQuestLock",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":144.0,"y":40.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_44580FE7_1_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
@@ -184,27 +191,38 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLightWindowCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":56.0,"y":32.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_549F829A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door_beaowireInside","path":"objects/obj_door_beaowireInside/obj_door_beaowireInside.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectBeaowireDoorCreate",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":48.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5947FCD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door_beaowireSpikes","path":"objects/obj_door_beaowireSpikes/obj_door_beaowireSpikes.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectBeaowireDoorSpikeCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":168.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7F274D09","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door_beaowireSpikes","path":"objects/obj_door_beaowireSpikes/obj_door_beaowireSpikes.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectBeaowireDoorSpikeCreate",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":72.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_38060BE1_1_2_2_1_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair1","path":"objects/obj_stair1/obj_stair1.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":4.0,"x":8.0,"y":112.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--28,0,4,128,50,50,129,-16,0,4,168,90,90,169,-64,0,1,805,-19,0,
-2,724,804,-102,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+-29,0,2,214,215,-85,0,1,805,-19,0,2,724,804,-102,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--4,0,1,809,-19,0,1,849,-72,0,1,726,-19,0,1,766,-19,0,3,723,
-887,888,-17,0,1,763,-82,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+-97,0,1,726,-19,0,1,766,-19,0,3,723,887,888,-17,0,1,763,-82,0,
+],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--6,0,8,321,322,323,324,322,323,324,325,-12,0,8,441,362,363,364,362,363,
-364,445,-7,0,26,321,324,322,323,324,367,402,403,404,402,403,404,366,322,323,
-324,322,325,0,324,367,364,362,363,364,407,-6,0,14,406,362,363,364,362,366,
-322,364,407,404,402,403,404,447,-6,0,9,446,402,403,404,402,406,362,404,447,
--7,0,11,565,564,0,0,565,603,0,561,0,446,402,-4,0,1,521,-5,0,
-7,601,564,0,563,0,0,561,-3,0,5,484,327,0,0,561,-13,0,21,326,
-484,0,481,482,483,484,482,483,484,327,0,0,326,482,483,484,482,483,484,485,
--9,0,4,361,0,0,365,-16,0,4,401,0,0,405,-28,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+-8,0,4,321,324,322,325,-16,0,4,441,364,362,445,-9,0,61,321,324,322,
+323,324,323,324,367,562,562,366,322,323,322,323,324,322,325,0,324,367,364,362,
+363,364,363,364,407,0,0,406,362,363,362,363,364,362,366,322,364,407,404,402,
+403,404,403,404,447,0,0,446,402,403,402,403,404,402,406,362,404,447,-7,0,
+11,565,564,0,0,565,603,0,561,0,446,402,-4,0,1,521,-5,0,7,601,
+564,0,563,0,0,561,-3,0,5,484,327,0,0,561,-13,0,21,326,484,0,
+481,482,483,484,482,483,484,327,0,0,326,482,483,484,482,483,484,485,-9,0,
+4,361,0,0,365,-16,0,4,401,0,0,405,-28,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"BaseTIle","depth":1400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--2,0,-5,40,-6,562,-6,40,-3,0,-5,40,-6,562,-5,40,-4,0,-5,40,
+-2,0,-7,40,-2,562,-8,40,-3,0,-7,40,-2,562,-7,40,-4,0,-5,40,
 -6,562,-5,40,-4,0,-5,40,-6,562,-5,40,-4,0,-5,40,-6,562,-6,40,
 -3,0,-8,562,1,560,-7,562,-2,0,-40,562,-2,0,-7,40,-2,562,-9,40,
 -2,0,-7,40,-2,562,-8,40,-3,0,-7,40,-2,562,-7,40,-3,0,-2,40,

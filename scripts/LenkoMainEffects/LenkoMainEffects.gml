@@ -725,6 +725,53 @@ if (obj_player.form = 2)
 //
 //
 //
+//Effect Regaliare Quest Door Create
+function EffectBeaowireDoorCreate(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (obj_inventory.beaowire_dungeon[13] < 2) image_index = 0;
+else iamge_index = 1;
+
+}
+//
+//
+//
+//
+//
+//Effect Regaliare Quest Door Create
+function EffectBeaowireDoorSpikeCreate(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (obj_inventory.beaowire_dungeon[13] < 2)
+{
+	image_index = 0;
+	with (instance_create_layer(x-16,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 4;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-16,y-16,"Wall",obj_break))
+	{
+		image_xscale = 4;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+else image_index = 1;
+
+}
+//
+//
+//
+//
+//
 //Effect Fortress Mausoleum
 function EffectFortressMausoleumCreate(){
 image_speed = 0;

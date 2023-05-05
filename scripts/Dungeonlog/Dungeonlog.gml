@@ -19,6 +19,6 @@ yakflower_lair = array_create(5,0);
 //
 //
 //Dungeon: Beaowire Fortress
-//12 Objectives
-beaowire_dungeon = array_create(12,0);
+//12 Objectives: E door, W door, escort 1, escort 2, pull levers, boss
+beaowire_dungeon = array_create(17,0);
 }
