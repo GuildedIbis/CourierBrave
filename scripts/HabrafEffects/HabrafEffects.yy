@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "LenkoEffects",
-    "path": "folders/Scripts/World/LenkoEffects.yy",
+    "path": "folders/Scripts/World/Effects/LenkoEffects.yy",
   },
 }

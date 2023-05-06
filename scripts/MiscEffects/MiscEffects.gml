@@ -1,5 +1,33 @@
 //Misc Effects
 //
+//
+//
+//
+//
+//Standard Effect Step Event
+function EffectStandardStep(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+}
+//
 ///
 //
 //

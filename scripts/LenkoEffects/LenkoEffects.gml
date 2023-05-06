@@ -4,6 +4,148 @@
 //
 //
 //
+//Effect Regaliare Quest Door Create
+function EffectStandardDoorCreate(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
+{
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 6;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+	
+}
+//
+//
+//
+//
+//
+//Effect Lenko Trees Create
+function EffectLenkoTreeCreate(){
+image_index = irandom_range(0,6);
+image_speed = 0;
+with (instance_create_layer(x-8,y-19,"Wall",obj_wall))
+{
+	image_xscale = 2;
+	image_yscale = 3;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-8,y-19,"Break",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+}
+
+//Shadow
+shadow = true;
+//sx1 = x - 6;
+//sy1 = y - 30;
+//sx2 = x + 32;
+//sy2 = y - 30;
+//sx3 = x + 16;
+//sy3 = y + 8;
+//sx4 = x - 16;
+//sy4 = y + 8;
+sx1 = x - (sprite_width/2) + 12;
+sy1 = y - 24;
+sx2 = x + (sprite_width/2) + 12;
+sy2 = y - 24
+sx3 = x + (sprite_width/2);
+sy3 = y + 3;
+sx4 = x - (sprite_width/2);
+sy4 = y + 3;
+}
+//
+//
+//
+//
+//
+//Effect Lenko Trees
+function EffectLenkoTree(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_tree_lenko;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+
+
+}
+//
+//
+//
+//
+//
+//Effect Nisma Smithy Furnace
+function EffectSmithyFurnace(){
+frag = false;
+sprite_index = spr_furnaceFire;
+image_speed = 1;
+image_xscale = 1;
+image_yscale = 1;
+}
+//
+//
+//
+//
+//
 //Effect Molen Trees Create
 function EffectMolenTreeCreate(){
 image_index = variant;

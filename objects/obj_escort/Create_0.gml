@@ -3,15 +3,10 @@
 //
 event_inherited();
 
-_destX = 0;
-_destY = 0;
-dir_switch = 1;
-escort_sprite = spr_escort_crystal;
-sprite_index = escort_sprite;
-escort_spd = .5;
-path = -1;
-shadow_sprite = -1;
-shadow = false;
+if (entity_create != -1)
+{
+	script_execute(entity_create)
+}
 
 
 

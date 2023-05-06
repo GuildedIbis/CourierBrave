@@ -17,7 +17,7 @@ if (place_meeting(x,y,obj_waterDeep)) and (platform = false)
 	state_script = PlayerDeathFall;
 }
 }
-	//
+//
 //
 //
 //
