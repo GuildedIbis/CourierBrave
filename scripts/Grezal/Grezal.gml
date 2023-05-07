@@ -483,6 +483,11 @@ if (string_counter = 0)
 			obj_inventory.beaowire_dungeon[10] = 0;
 			obj_inventory.beaowire_dungeon[11] = 0;
 			obj_inventory.beaowire_dungeon[12] = 0;
+			obj_inventory.beaowire_dungeon[13] = 0;
+			obj_inventory.beaowire_dungeon[14] = 0;
+			obj_inventory.beaowire_dungeon[15] = 0;
+			obj_inventory.beaowire_dungeon[16] = 0;
+			obj_inventory.beaowire_dungeon[17] = 0;
 			obj_inventory.quest_grid[# 14, 1] = 0;
 			obj_inventory.quest_grid[# 14, 3] = false;
 			audio_sound_gain(snd_text01,global.volumeMenu,1);

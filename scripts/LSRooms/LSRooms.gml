@@ -32,6 +32,19 @@ if (variable_struct_exists(_loadEntity,"beaowire01")) obj_inventory.beaowire_dun
 if (variable_struct_exists(_loadEntity,"beaowire02")) obj_inventory.beaowire_dungeon[2] = _loadEntity.beaowire02;
 if (variable_struct_exists(_loadEntity,"beaowire03")) obj_inventory.beaowire_dungeon[3] = _loadEntity.beaowire03;
 if (variable_struct_exists(_loadEntity,"beaowire04")) obj_inventory.beaowire_dungeon[4] = _loadEntity.beaowire04;
+if (variable_struct_exists(_loadEntity,"beaowire05")) obj_inventory.beaowire_dungeon[5] = _loadEntity.beaowire05;
+if (variable_struct_exists(_loadEntity,"beaowire06")) obj_inventory.beaowire_dungeon[6] = _loadEntity.beaowire06;
+if (variable_struct_exists(_loadEntity,"beaowire07")) obj_inventory.beaowire_dungeon[7] = _loadEntity.beaowire07;
+if (variable_struct_exists(_loadEntity,"beaowire08")) obj_inventory.beaowire_dungeon[8] = _loadEntity.beaowire08;
+if (variable_struct_exists(_loadEntity,"beaowire09")) obj_inventory.beaowire_dungeon[9] = _loadEntity.beaowire09;
+if (variable_struct_exists(_loadEntity,"beaowire10")) obj_inventory.beaowire_dungeon[10] = _loadEntity.beaowire10;
+if (variable_struct_exists(_loadEntity,"beaowire11")) obj_inventory.beaowire_dungeon[11] = _loadEntity.beaowire11;
+if (variable_struct_exists(_loadEntity,"beaowire12")) obj_inventory.beaowire_dungeon[12] = _loadEntity.beaowire12;
+if (variable_struct_exists(_loadEntity,"beaowire13")) obj_inventory.beaowire_dungeon[13] = _loadEntity.beaowire13;
+if (variable_struct_exists(_loadEntity,"beaowire14")) obj_inventory.beaowire_dungeon[14] = _loadEntity.beaowire14;
+if (variable_struct_exists(_loadEntity,"beaowire15")) obj_inventory.beaowire_dungeon[15] = _loadEntity.beaowire15;
+if (variable_struct_exists(_loadEntity,"beaowire16")) obj_inventory.beaowire_dungeon[16] = _loadEntity.beaowire16;
+
 
 
 //Load Camps
@@ -77,6 +90,19 @@ beaowire01 : obj_inventory.beaowire_dungeon[1],
 beaowire02 : obj_inventory.beaowire_dungeon[2],
 beaowire03 : obj_inventory.beaowire_dungeon[3],
 beaowire04 : obj_inventory.beaowire_dungeon[4],
+beaowire05 : obj_inventory.beaowire_dungeon[5],
+beaowire06 : obj_inventory.beaowire_dungeon[6],
+beaowire07 : obj_inventory.beaowire_dungeon[7],
+beaowire08 : obj_inventory.beaowire_dungeon[8],
+beaowire09 : obj_inventory.beaowire_dungeon[9],
+beaowire10 : obj_inventory.beaowire_dungeon[10],
+beaowire11 : obj_inventory.beaowire_dungeon[11],
+beaowire12 : obj_inventory.beaowire_dungeon[12],
+beaowire13 : obj_inventory.beaowire_dungeon[13],
+beaowire14 : obj_inventory.beaowire_dungeon[14],
+beaowire15 : obj_inventory.beaowire_dungeon[15],
+beaowire16 : obj_inventory.beaowire_dungeon[16],
+
 
 
 //Save Camps

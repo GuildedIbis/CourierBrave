@@ -1,5 +1,5 @@
 //
-night_surf = surface_create(room_width,room_height);
+night_surf = -1;
 game_paused_image_speed = 0;
 
 

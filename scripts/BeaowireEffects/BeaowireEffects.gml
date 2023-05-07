@@ -11,11 +11,133 @@ _destY = 0;
 dir_switch = 1;
 escort_sprite = spr_escort_beaowire;
 sprite_index = escort_sprite;
+escort_end = false;
 escort_spd = .5;
 escort_rad = 32;
 path = -1;
 shadow_sprite = -1;
 shadow = false;
+}
+//
+//
+//
+//
+//
+//Effect Beaowire Escort End Create
+function EffectBeaowireEscortEndCreate(){
+frag = false
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_escort_beaowireEnd_idle;
+with (instance_create_layer(x-8,y-16,"Wall",obj_wall))
+{
+	image_xscale = 2;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+with (instance_create_layer(x-8,y-16,"Wall",obj_break))
+{
+	image_xscale = 2;
+	image_yscale = 1;
+	game_paused_image_speed = image_speed;
+}
+	
+}
+//
+//
+//
+//
+//
+//Effect Beaowire Escort End
+function EffectBeaowire11EscortEnd(){
+frag = false
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.beaowire_dungeon[10] < 2)
+{
+	sprite_index = spr_escort_beaowireEnd_idle;
+	if (instance_exists(obj_escort))
+	{
+		if (point_in_circle(obj_escort.x,obj_escort.y,377,194,2))
+		{
+			sprite_index = spr_escort_beaowireEnd;
+			image_speed = 1;
+			obj_inventory.beaowire_dungeon[10] = 2;
+			obj_inventory.beaowire_dungeon[12] = obj_inventory.beaowire_dungeon[12] + 1;
+		}
+		else 
+		{
+			sprite_index = spr_escort_beaowireEnd_idle;
+			image_speed = 1;
+			obj_inventory.beaowire_dungeon[10] = 1;
+		}
+	}
+}
+if (obj_inventory.beaowire_dungeon[10] >= 2)
+{
+	sprite_index = spr_escort_beaowireEnd;
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 377;
+			y = 194;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Effect Beaowire Escort End
+function EffectBeaowire15EscortEnd(){
+frag = false
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.beaowire_dungeon[14] < 2)
+{
+	sprite_index = spr_escort_beaowireEnd_idle;
+	if (instance_exists(obj_escort))
+	{
+		if (point_in_circle(obj_escort.x,obj_escort.y,187,75,2))
+		{
+			sprite_index = spr_escort_beaowireEnd;
+			image_speed = 1;
+			obj_inventory.beaowire_dungeon[14] = 2;
+			obj_inventory.beaowire_dungeon[12] = obj_inventory.beaowire_dungeon[12] + 1;
+		}
+		else 
+		{
+			sprite_index = spr_escort_beaowireEnd_idle;
+			image_speed = 1;
+			obj_inventory.beaowire_dungeon[14] = 1;
+		}
+	}
+}
+if (obj_inventory.beaowire_dungeon[14] >= 2)
+{
+	sprite_index = spr_escort_beaowireEnd;
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 187;
+			y = 75;
+		}
+	}
+}
+
 }
 //
 //
@@ -29,8 +151,8 @@ image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-if (obj_inventory.beaowire_dungeon[13] < 2) image_index = 0;
-else iamge_index = 1;
+if (obj_inventory.beaowire_dungeon[12] < 2) image_index = 0;
+else image_index = 1;
 
 }
 //
@@ -42,11 +164,11 @@ else iamge_index = 1;
 function EffectBeaowireDoorSpikeCreate(){
 frag = false
 image_speed = 0;
-depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-if (obj_inventory.beaowire_dungeon[13] < 2)
+if (obj_inventory.beaowire_dungeon[12] < 2)
 {
+	depth = -y;
 	image_index = 0;
 	with (instance_create_layer(x-16,y-16,"Wall",obj_wall))
 	{
@@ -61,7 +183,11 @@ if (obj_inventory.beaowire_dungeon[13] < 2)
 		game_paused_image_speed = image_speed;
 	}
 }
-else image_index = 1;
+else
+{
+	image_index = 1;
+	depth = obj_player.depth + 1;
+}
 
 }
 //

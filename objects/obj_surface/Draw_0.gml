@@ -1,6 +1,10 @@
 /// @description Insert description here
 if (global.dayPhase = 2)
 {
+	if (!surface_exists(night_surf))
+	{
+		night_surf = surface_create(room_width,room_height);
+	}
 	if (surface_exists(night_surf))
 	{
 		draw_surface(night_surf,0,0);

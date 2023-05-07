@@ -1,5 +1,8 @@
 /// @description Insert description here
-
+if (!surface_exists(black_surf))
+{
+	black_surf = surface_create(room_width,room_height);
+}
 if (surface_exists(black_surf))
 {
 	draw_surface(black_surf,0,0);

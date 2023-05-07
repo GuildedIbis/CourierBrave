@@ -3,6 +3,7 @@ if (escort_end = true)
 {
 	with (other)
 	{
+		escort_end = other.escort_end;
 		path_end();
 	}
 }

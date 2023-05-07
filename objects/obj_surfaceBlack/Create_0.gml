@@ -1,5 +1,5 @@
 //
-black_surf = surface_create(room_width,room_height);
+black_surf = -1;
 game_paused_image_speed = 0;
 
 
