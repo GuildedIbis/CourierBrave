@@ -287,6 +287,7 @@ _destX = 0;
 _destY = 0;
 dir_switch = 1;
 escort_sprite = spr_escort_crystal;
+escort_step = -1;
 sprite_index = escort_sprite;
 escort_end = false;
 escort_spd = .5;

@@ -1,4 +1,4 @@
-//Lenko Spawners
+//Beaowire Spawners
 //
 //
 //
@@ -132,6 +132,112 @@ if (obj_inventory.beaowire_dungeon[2] < 1)
 			}
 			spawn_status = true;
 			spawn_timer = 600;
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Beaowire Dungeon: Room 3 Create
+function BeaowireFortressSpawn11Create(){
+
+if (obj_inventory.beaowire_dungeon[10] < 2)
+{
+	//Spawn Boss
+	with (instance_create_layer(384,304,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(EliteGorogCreate);
+		spawn_slot = 1;
+		break_object = obj_break;
+	}	
+	//Spawn Adds
+	spawn_status = true;
+	spawn_timer = 300;
+
+}
+}
+//
+//
+//
+//
+//
+//Beaowire Dungeon: Room 11 Create
+function BeaowireFortressSpawn11(){
+if (obj_inventory.beaowire_dungeon[10] < 2)
+{
+	//obj_inventory.beaowire_dungeon[10] = 1;
+	//Spawn Enemies
+	if (spawn_status = false)
+	{
+		if (spawn_timer > 0) spawn_timer = spawn_timer - 1;
+		if (spawn_timer <= 0)
+		{
+			spawn_status = true;
+			spawn_timer = 300;
+			with (instance_create_layer(384,304,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				script_execute(EliteGorogCreate);
+				spawn_slot = 1;
+				break_object = obj_break;
+			}
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Beaowire Dungeon: Room 15 Create
+function BeaowireFortressSpawn15Create(){
+
+if (obj_inventory.beaowire_dungeon[10] < 2)
+{
+	//Spawn Boss
+	with (instance_create_layer(48,64,"Instances",obj_enemy))
+	{
+		image_alpha = 1;
+		script_execute(EliteGorogCreate);
+		spawn_slot = 1;
+		break_object = obj_break;
+	}	
+	//Spawn Adds
+	spawn_status = true;
+	spawn_timer = 300;
+
+}
+}
+//
+//
+//
+//
+//
+//Beaowire Dungeon: Room 15 Create
+function BeaowireFortressSpawn15(){
+if (obj_inventory.beaowire_dungeon[14] < 2)
+{
+	//obj_inventory.beaowire_dungeon[10] = 1;
+	//Spawn Enemies
+	if (spawn_status = false)
+	{
+		if (spawn_timer > 0) spawn_timer = spawn_timer - 1;
+		if (spawn_timer <= 0)
+		{
+			spawn_status = true;
+			spawn_timer = 300;
+			with (instance_create_layer(48,64,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				script_execute(EliteGorogCreate);
+				spawn_slot = 1;
+				break_object = obj_break;
+			}
 		}
 	}
 }

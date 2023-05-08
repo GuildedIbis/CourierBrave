@@ -35,6 +35,8 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+_destX = 32;
+_destY = 32;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -63,6 +65,19 @@ if (obj_game.gamePaused = false)
 			EnemyAlert();
 			aggro_drop = 300;
 			targeted = true;
+		}
+		if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
+		{
+			script_execute(EnemyChaseEscort);
+		}
+		else
+		{
+			script_execute(EnemyChaseCustom);
+		}
+		if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
+		{
+			path_end();
+			sprite_index = enemy_idle;
 		}
 	}
 	if (aggro_drop <= 0)
