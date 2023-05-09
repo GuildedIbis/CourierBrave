@@ -117,6 +117,7 @@ timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
 }	
+
 //
 //
 //
@@ -671,7 +672,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 //
 //
 //
-//Obor Victory Text
+//GhafateVictory Text
 function EndireKnightGhafateVictoryText(){
 
 draw_set_font(fnt_text);
@@ -734,6 +735,7 @@ draw_set_color(c_white);
 draw_text_transformed(68,140,_SubString,.5,.5,0);
 
 }
+
 
 
 

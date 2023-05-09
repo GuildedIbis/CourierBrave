@@ -245,7 +245,7 @@
 1,805,-19,0,2,724,804,-102,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -97,0,1,726,-19,0,1,766,-19,0,3,723,887,888,-6,0,2,887,889,-9,
-0,1,763,-4,0,1,887,-77,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+0,1,763,-82,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -8,0,4,321,324,322,325,-16,0,4,441,364,362,445,-9,0,66,321,324,322,
 323,324,323,324,367,562,562,366,322,323,322,323,324,322,325,0,324,367,364,362,

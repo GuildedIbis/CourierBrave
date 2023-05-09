@@ -242,3 +242,49 @@ if (obj_inventory.beaowire_dungeon[14] < 2)
 	}
 }
 }
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door - Escort 1
+function EffectHalofireQuestDoor(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 3)
+{
+	sprite_index = spr_door_questHalofire;
+
+}
+if (obj_player.form = 3)
+{
+	sprite_index = spr_door_questHalofire_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	if (instance_exists(obj_escort))
+	{
+		with (obj_escort)
+		{
+			x = 512;
+			y = 136;
+		}
+	}
+}
+
+}
