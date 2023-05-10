@@ -24,7 +24,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 700;
+max_hp = 900;
 hp = max_hp;
 boss = true;
 name = "Endire Knight Inimar";
@@ -37,6 +37,7 @@ timer2 = 0;
 timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
+projectile_dir = 0;
 }
 	//
 //
@@ -95,12 +96,27 @@ if (obj_game.gamePaused = false)
 				path_end();
 				walk_snd_delay = 15;
 				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,obj_player.x,obj_player.y);
-				timer2 = 40;
-				attack_counter = attack_counter + 1;
-				entity_step = EndireKnightHeatwave;
+				var _atkChoose = irandom_range(0,99)
+				if (_atkChoose < 49)
+				{
+					audio_sound_gain(snd_slash01,global.volumeEffects,1);
+					audio_play_sound(snd_slash01,0,false);
+					direction =  point_direction(x,y,obj_player.x,obj_player.y);
+					timer2 = 40;
+					attack_counter = attack_counter + 1;
+					entity_step = EndireKnightInimarHeatwave;
+				}
+				else
+				{
+					audio_sound_gain(snd_slash01,global.volumeEffects,1);
+					audio_play_sound(snd_slash01,0,false);
+					direction =  point_direction(x,y,room_width/2,room_height/2);
+					projectile_dir = irandom_range(0,360);
+					timer2 = 24;
+					timer3 = 24;
+					attack_counter = attack_counter + 1;
+					entity_step = EndireKnightInimarHeatacer;
+				}
 			}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
 			{
@@ -111,7 +127,7 @@ if (obj_game.gamePaused = false)
 				audio_play_sound(snd_slash01,0,false);
 				direction =  point_direction(x,y,obj_player.x,obj_player.y);
 				timer2 = 23;
-				entity_step = EndireKnightCinderDash;
+				entity_step = EndireKnightInimarCinderDash;
 			}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
 			{
@@ -120,7 +136,7 @@ if (obj_game.gamePaused = false)
 				sprite_index = enemy_idle;
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
-				timer2 = 23;
+				timer2 = 48;
 				entity_step = EndireKnightInimarFireStrike;
 			}
 			
@@ -175,6 +191,262 @@ if (obj_game.gamePaused = false)
 		animation_end = false;
 	}
 }
+}
+//
+//
+//
+//
+//
+//Endire Knight Cinder Dash
+function EndireKnightInimarCinderDash(){
+if (obj_game.gamePaused = false)
+{
+	
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer2 <= 0) speed = 2.5;
+	if (sprite_index != spr_enemy_endireKnight_cinderDash)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_endireKnight_cinderDash;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_endireKnight_cinderDash,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_cinderDash,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 110;
+	//Cacluate Attack
+	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
+	
+	//Check for entities
+	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
+	{speed = 0}
+	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
+	{speed = 0}
+	
+	
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Endire Knight Heatwave
+function EndireKnightInimarHeatwave(){
+if (obj_game.gamePaused = false)
+{
+	
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_endireKnight_heatwave)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_endireKnight_heatwave;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 90;
+	if (timer2 <= 0)
+	{
+		timer2 = 60;
+		for (var i = 0; i < 3; i = i + 1)
+		{
+			audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
+			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
+			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+			{
+				script_execute(HeatwaveCreate);
+				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
+				image_angle = direction
+				speed = 1.1;
+				damage = 50;
+				break_object = other.break_object;
+				fragment_count = 3;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+			}
+		}
+	}
+	//Cacluate Attack
+	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	
+	//Check for entities
+	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
+	{speed = 0}
+	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
+	{speed = 0}
+	
+	
+	//Animate
+	EnemyAnimation1();
+	if (animation_end)
+	{
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Endire Knight Heatwave
+function EndireKnightInimarHeatacer(){
+if (obj_game.gamePaused = false)
+{
+	
+	if (timer2 > 0)
+	{
+		timer2 = timer2 - 1;
+		speed = 2.5;
+	}
+	if (timer3 > 0)
+	{
+		timer3 = timer3 - 1;
+	}
+	if (sprite_index != spr_enemy_endireKnight_heatwave)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_endireKnight_heatwave;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 90;
+	if (timer2 <= 0) 
+	{
+		speed = 0;
+		timer2 = 6;
+		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
+		for (var i = 0; i < 4; i = i + 1)
+		{
+			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+			{
+				script_execute(HeatwaveCreate);
+				direction = other.projectile_dir + (90 * i);
+				image_angle = direction;
+				speed = 1.1;
+				timer1 = irandom_range(0,29);
+				damage = 50;
+				break_object = other.break_object;
+				fragment_count = 3;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+			}
+			
+		}
+	}
+	if (timer3 <= 0)
+	{
+		timer3 = 12
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		{
+			script_execute(HeatacerCreate);
+			direction = point_direction(x,y,obj_player.x,obj_player.y);
+			image_angle = direction;
+			speed = 1.1;
+			break_object = other.break_object;
+			fragment_count = 3;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+		}
+	}
+	//Cacluate Attack
+	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	
+	//Check for entities
+	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
+	{speed = 0}
+	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
+	{speed = 0}
+	
+	//Stop at center
+	if (point_distance(x,y,room_width/2,room_height/2) <= 5) speed = 0;
+	
+	//Animate
+	EnemyAnimation1();
+	if (animation_end)
+	{
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Ghafate Drop
+function EndireKnightInimarDrop(){
+
+var _objects = 2;
+var _drop1 = irandom_range(0,99);	
+var _drop2 = irandom_range(0,99);	
+var _angle = random(360);
+
+
+if (_drop1 > 0) 
+{
+	with (instance_create_layer(x,y,"Instances",obj_item))
+	{
+		item_id = 9;
+		amount = 1;
+		sprite_index = spr_item_all;
+		image_index = item_id;
+		direction = _angle/_objects * 2;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop2 > 0) 
+{
+	with (instance_create_layer(x,y,"Instances",obj_item))
+	{
+		item_id = 10;
+		amount = 1;
+		sprite_index = spr_item_all;
+		image_index = item_id;
+		direction = _angle/_objects * 2;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+//else instance_create_layer(x,y,"Instances",_objects[0])
+if (obj_inventory.form_grid[# 13, 3] = false)
+{
+	obj_inventory.quest_grid[# 13, 0] = true;
+	obj_inventory.quest_grid[# 13, 1] = 1;
+	obj_inventory.quest_grid[# 13, 3] = true;
+	//with (obj_text)
+	//{
+	//	text_script = EndireKnightGhafateVictoryText;
+	//}
+	//obj_game.gamePaused = !obj_game.gamePaused;
+	//obj_game.textPaused = !obj_game.textPaused;
+}
+
+
 }
 //
 //
