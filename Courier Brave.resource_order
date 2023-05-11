@@ -536,6 +536,7 @@
     {"name":"obj_npc","order":3,"path":"objects/obj_npc/obj_npc.yy",},
     {"name":"spr_menu_square16_beveled","order":1,"path":"sprites/spr_menu_square16_beveled/spr_menu_square16_beveled.yy",},
     {"name":"rm_habrafLake_02","order":6,"path":"rooms/rm_habrafLake_02/rm_habrafLake_02.yy",},
+    {"name":"spr_halofire_firespit","order":29,"path":"sprites/spr_halofire_firespit/spr_halofire_firespit.yy",},
     {"name":"spr_enemy_endireKnight_cinderDash_hitbox","order":1,"path":"sprites/spr_enemy_endireKnight_cinderDash_hitbox/spr_enemy_endireKnight_cinderDash_hitbox.yy",},
     {"name":"spr_highlight_button","order":2,"path":"sprites/spr_highlight_button/spr_highlight_button.yy",},
     {"name":"spr_enemy_motherLily_cast_hitbox","order":2,"path":"sprites/spr_enemy_motherLily_cast_hitbox/spr_enemy_motherLily_cast_hitbox.yy",},

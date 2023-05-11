@@ -115,6 +115,7 @@ if (obj_game.gamePaused = false)
 					timer2 = 24;
 					timer3 = 24;
 					attack_counter = attack_counter + 1;
+					inv_dur_timer = 96;
 					entity_step = EndireKnightInimarHeatacer;
 				}
 			}

@@ -611,6 +611,7 @@
     {"id":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},},
     {"id":{"name":"spr_menu_square16_beveled","path":"sprites/spr_menu_square16_beveled/spr_menu_square16_beveled.yy",},},
     {"id":{"name":"rm_habrafLake_02","path":"rooms/rm_habrafLake_02/rm_habrafLake_02.yy",},},
+    {"id":{"name":"spr_halofire_firespit","path":"sprites/spr_halofire_firespit/spr_halofire_firespit.yy",},},
     {"id":{"name":"spr_enemy_endireKnight_cinderDash_hitbox","path":"sprites/spr_enemy_endireKnight_cinderDash_hitbox/spr_enemy_endireKnight_cinderDash_hitbox.yy",},},
     {"id":{"name":"spr_highlight_button","path":"sprites/spr_highlight_button/spr_highlight_button.yy",},},
     {"id":{"name":"spr_enemy_motherLily_cast_hitbox","path":"sprites/spr_enemy_motherLily_cast_hitbox/spr_enemy_motherLily_cast_hitbox.yy",},},

@@ -16,7 +16,7 @@ crull_sprite = spr_player_halofire_crull;
 recharge_sprite = spr_player_halofire_recharge;
 arm_sprite = spr_player_halofire_castArm;
 magicP_script = HalofireMeteorSling;
-magicA_script = HalofireTriRock;
+magicA_script = HalofireFirespitCast;
 magic_primary = true;
 //weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
@@ -154,11 +154,11 @@ if (key_attackM)
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 24)
+		if (magic_primary = false) and (charge >= 8)
 		{
 			max_charge = 100 + (grace + round(grace/15));
 			max_attack_counter = floor(charge/20);
-			attack_script = HalofireTriRock;
+			attack_script = HalofireFirespitCast;
 			state_script = PlayerStateAttack;
 		}
 	}
@@ -665,7 +665,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = obj_player.grace + 9 + ((obj_inventory.form_grid[# 3, 7])*(5));//
+		damage = obj_player.grace + ((obj_inventory.form_grid[# 3, 7])*(7));//
 		projectile_sprite = spr_meteor;
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
@@ -687,6 +687,119 @@ PlayerAnimationCast();
 
 //Reset or return to free sate
 if (mouse_check_button(mb_left) = false) or (charge < 24)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
+}
+//
+//
+//
+//
+//
+//Halofire Firespit Magic State
+function HalofireFirespitCast(){
+//Set
+walk_spd = 1.2;
+attacking = true;
+casting = true;
+
+//Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0) //Melee time between attacks
+{
+	weapon_timer = weapon_timer - 1;
+}
+
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_halofire_runCast;
+}
+else sprite_index = spr_player_halofire_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+
+//Bullet Spawn Position
+PlayerBulletSpawnPosition();
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (magic_timer <= 0)
+{	
+	charge = charge - 8;
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
+		break_object = obj_player.break_object;
+		magic = true;
+		fragment_count = 2;
+		fragment = obj_fragFire;
+		damage = round(obj_player.grace/2) + ((obj_inventory.form_grid[# 3, 7])*(3));//
+		projectile_sprite = spr_halofire_firespit;
+		projectile_script = HalofireFirespit;
+		idle_sprite = spr_halofire_firespit;
+		image_index = irandom_range(0,5);
+		hit_by_attack = -1;
+		direction = irandom_range(-8,8) + (point_direction(x,y,mouse_x,mouse_y));
+		if (direction < 135) and (direction > 45)
+		{
+			inv_timer = 0;
+		}
+		else inv_timer = 15;
+		timer1 = irandom_range(25,35);
+		timer2 = 180;
+		projectile_speed = 2.0;
+		speed = projectile_speed;
+	}
+	magic_timer = 8;
+}
+
+//Animate
+PlayerAnimationCast();
+
+//Reset or return to free sate
+if (mouse_check_button(mb_left) = false) or (charge < 8)
 {
 	attacking = false;
 	state_script = free_state;
@@ -725,6 +838,50 @@ if (place_meeting(x,y,obj_enemy))
 if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
+}
+
+}
+//
+//
+//
+//
+//
+//Halofire Meteor Projectile Script
+function HalofireFirespit(){
+//Set
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (timer1 <= 0)
+{
+	speed = 0;
+}
+if (timer2 <= 0)
+{
+	image_xscale = image_xscale - .02;
+	image_yscale = image_yscale - .02;
+	image_alpha = image_alpha - .02;
+	if (image_alpha <= .5) instance_destroy();
+}
+//Collision
+if (place_meeting(x,y,obj_enemy))
+{
+	
+	AttackCalculate(projectile_sprite);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object))
+{
+	speed = 0;
 }
 
 }
