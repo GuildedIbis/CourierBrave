@@ -154,7 +154,7 @@ if (key_attackM)
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 8)
+		if (magic_primary = false) and (charge >= 5)
 		{
 			max_charge = 100 + (grace + round(grace/15));
 			max_attack_counter = floor(charge/20);
@@ -472,6 +472,7 @@ PlayerAnimationFixed();
 if (mouse_check_button_released(mb_right))
 {
 	state_script = HalofireHamaxeBackswingCharged;
+	timer1 = 12;
 }
 }
 //
@@ -554,6 +555,7 @@ function HalofireHamaxeBackswingCharged(){
 //Set
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
+if (timer1 > 0) timer1 = timer1 - 1;
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
@@ -570,6 +572,30 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 
 //Calcuate Hit Entitites
 AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
+if (timer1 <= 0)
+{
+	timer1 = 24;
+	with (instance_create_layer(obj_player.x, obj_player.y,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_firespit,0,0,global.volumeEffects);
+		break_object = obj_player.break_object;
+		magic = true;
+		fragment_count = 0;
+		fragment = obj_fragFire;
+		damage = round(obj_player.grace/6) + ((obj_inventory.form_grid[# 3, 7]));//
+		projectile_sprite = spr_halofire_firespit;
+		projectile_script = HalofireFirespit;
+		idle_sprite = spr_halofire_firespit;
+		image_index = irandom_range(0,5);
+		hit_by_attack = -1;
+		direction = obj_player.fixed_dir * 90;
+		timer1 = irandom_range(20,30);
+		timer2 = 150;
+		projectile_speed = 2.0;
+		speed = projectile_speed;
+	}
+}
 
 //Animate
 PlayerAnimationFixed();
@@ -766,40 +792,40 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 8;
+	charge = charge - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
+		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
+		audio_play_sound(snd_halofire_firespit,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
-		fragment_count = 2;
+		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = round(obj_player.grace/2) + ((obj_inventory.form_grid[# 3, 7])*(3));//
+		damage = round(obj_player.grace/6) + ((obj_inventory.form_grid[# 3, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = HalofireFirespit;
 		idle_sprite = spr_halofire_firespit;
 		image_index = irandom_range(0,5);
 		hit_by_attack = -1;
-		direction = irandom_range(-8,8) + (point_direction(x,y,mouse_x,mouse_y));
+		direction = irandom_range(-12,12) + (point_direction(x,y,mouse_x,mouse_y));
 		if (direction < 135) and (direction > 45)
 		{
 			inv_timer = 0;
 		}
 		else inv_timer = 15;
-		timer1 = irandom_range(25,35);
-		timer2 = 180;
+		timer1 = irandom_range(20,30);
+		timer2 = 150;
 		projectile_speed = 2.0;
 		speed = projectile_speed;
 	}
-	magic_timer = 8;
+	magic_timer = 4;
 }
 
 //Animate
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (charge < 8)
+if (mouse_check_button(mb_left) = false) or (charge < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -876,8 +902,9 @@ if (timer2 <= 0)
 if (place_meeting(x,y,obj_enemy))
 {
 	
-	AttackCalculate(projectile_sprite);
-	instance_destroy();
+	AttackCalculateStatus(projectile_sprite,obj_player,-1,60,-1,-1,-1,-1);
+	timer2 = 0;
+	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))
 {

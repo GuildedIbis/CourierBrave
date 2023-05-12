@@ -77,6 +77,8 @@ crull_stone = max_crull_stone;
 //magic_count = max_magic_count;
 
 //Status
+status_animate_timer = 0;
+status_animate_index = 0;
 scene = false;
 dead = false;
 ablaze = false;

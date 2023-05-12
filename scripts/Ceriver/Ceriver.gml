@@ -153,7 +153,7 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (charge >= 7)
+		if (magic_primary = true) and (charge >= 6)
 		{
 			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicP_script;
@@ -511,7 +511,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 7;
+	charge = charge - 6;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -522,7 +522,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(_bubbleRand));//
+		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -541,7 +541,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 7)
+if (mouse_check_button(mb_left) = false) or (charge < 6)
 {
 	attacking = false;
 	state_script = free_state;

@@ -323,8 +323,8 @@ if (page = 0)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _damage = string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7])*(3)));
-	var _cost = string(7);
+	var _damage = string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (0))) + "-" + string(round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (3)));
+	var _cost = string(6);
 	draw_set_color(c_black);
 	draw_text_transformed(167,46,"POLYORB",.5,.5,0);
 	draw_text_transformed(167,56,"Rapidly fire bubbles of various\nsizes that deal " + _damage + " and cost\n" + _cost + " charge each.",.35,.35,0);  

@@ -92,9 +92,15 @@ else cursed = false;
 //
 //Draw Status Effects
 function StatusEffectsDraw(){
-if (ablaze = true) and (ablaze_damage_timer < 15)
+if (status_animate_timer > 0) status_animate_timer = status_animate_timer - 1;
+if (status_animate_timer <= 0)
 {
-	draw_sprite(spr_status_effects,0,x,y-4);
+	status_animate_timer = 5;
+	status_animate_index = irandom_range(0,5);
+}
+if (ablaze = true) //and (ablaze_damage_timer < 30)
+{
+	draw_sprite(spr_status_ablaze,irandom_range(status_animate_index,5),x,y-4);
 }
 if (watervice = true) and (watervice_flash_timer < 15)
 {

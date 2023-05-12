@@ -24,6 +24,8 @@ shadow = false;
 //max_hp = 1;
 
 //Status
+status_animate_timer = 0;
+status_animate_index = 0;
 ablaze = false;
 ablaze_dur_timer = 0;
 ablaze_damage_timer = 0;
