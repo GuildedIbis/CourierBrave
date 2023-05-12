@@ -91,33 +91,21 @@ if (obj_game.gamePaused = false)
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
 		{
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) //Heatwave
+			if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) //Heatacer > Heatwave
 			{
 				path_end();
 				walk_snd_delay = 15;
 				sprite_index = enemy_idle;
-				var _atkChoose = irandom_range(0,99)
-				if (_atkChoose < 49)
-				{
-					audio_sound_gain(snd_slash01,global.volumeEffects,1);
-					audio_play_sound(snd_slash01,0,false);
-					direction =  point_direction(x,y,obj_player.x,obj_player.y);
-					timer2 = 40;
-					attack_counter = attack_counter + 1;
-					entity_step = EndireKnightInimarHeatwave;
-				}
-				else
-				{
-					audio_sound_gain(snd_slash01,global.volumeEffects,1);
-					audio_play_sound(snd_slash01,0,false);
-					direction =  point_direction(x,y,room_width/2,room_height/2);
-					projectile_dir = irandom_range(0,360);
-					timer2 = 24;
-					timer3 = 24;
-					attack_counter = attack_counter + 1;
-					inv_dur_timer = 96;
-					entity_step = EndireKnightInimarHeatacer;
-				}
+				audio_sound_gain(snd_slash01,global.volumeEffects,1);
+				audio_play_sound(snd_slash01,0,false);
+				direction =  point_direction(x,y,room_width/2,room_height/2);
+				projectile_dir = irandom_range(0,360);
+				timer2 = 24;
+				timer3 = 24;
+				attack_counter = attack_counter + 1;
+				inv_dur_timer = 96;
+				entity_step = EndireKnightInimarHeatacer;
+				
 			}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
 			{
@@ -272,7 +260,7 @@ if (obj_game.gamePaused = false)
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
 				image_angle = direction
 				speed = 1.1;
-				damage = 50;
+				damage = 40;
 				break_object = other.break_object;
 				fragment_count = 3;
 				fragment = obj_fragPlant;
@@ -334,7 +322,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0) 
 	{
 		speed = 0;
-		timer2 = 6;
+		timer2 = 12;
 		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
 		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 		for (var i = 0; i < 4; i = i + 1)
@@ -346,7 +334,7 @@ if (obj_game.gamePaused = false)
 				image_angle = direction;
 				speed = 1.1;
 				timer1 = irandom_range(0,29);
-				damage = 50;
+				damage = 40;
 				break_object = other.break_object;
 				fragment_count = 3;
 				fragment = obj_fragPlant;
@@ -388,8 +376,25 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation1();
 	if (animation_end)
 	{
-		entity_step = home_state;
-		animation_end = false;
+		if (attack_counter <= 2)
+		{
+			audio_sound_gain(snd_slash01,global.volumeEffects,1);
+			audio_play_sound(snd_slash01,0,false);
+			local_frame = 0;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+			attack_counter = attack_counter + 1;
+			direction =  point_direction(x,y,obj_player.x,obj_player.y);
+			timer2 = 40;
+			entity_step = EndireKnightInimarHeatwave;
+			animation_end = false;
+		}
+		else
+		{
+			entity_step = home_state;
+			animation_end = false;
+		}
+		
 	}
 }
 }
