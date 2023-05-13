@@ -457,6 +457,7 @@
     {"name":"spr_crull_pedestal","order":28,"path":"sprites/spr_crull_pedestal/spr_crull_pedestal.yy",},
     {"name":"spr_player_roll","order":8,"path":"sprites/spr_player_roll/spr_player_roll.yy",},
     {"name":"spr_form_pedestal","order":30,"path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},
+    {"name":"obj_interactable","order":9,"path":"objects/obj_interactable/obj_interactable.yy",},
     {"name":"spr_enemy_bossZerwerk_riftSlamDownA","order":10,"path":"sprites/spr_enemy_bossZerwerk_riftSlamDownA/spr_enemy_bossZerwerk_riftSlamDownA.yy",},
     {"name":"spr_spiritStone_meteor","order":6,"path":"sprites/spr_spiritStone_meteor/spr_spiritStone_meteor.yy",},
     {"name":"snd_zerwerk_fireball","order":5,"path":"sounds/snd_zerwerk_fireball/snd_zerwerk_fireball.yy",},

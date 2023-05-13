@@ -338,20 +338,20 @@ if (page = 1)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-	var _cost = string(24);
+	var _damage = string(round(obj_player.grace/6) + (obj_inventory.form_grid[# 3, 7]));
+	var _cost = string(5);
 	draw_set_color(c_black);
-	draw_text_transformed(167,46,"TRIROCK",.5,.5,0);
-	draw_text_transformed(167,56,"Rapidly fire projectiles until there\n is not enough charge left to continue.\nEach does " + _damage + " and costs " + _cost + " charge.",.35,.35,0);  
+	draw_text_transformed(167,46,"FIRESPIT",.5,.5,0);
+	draw_text_transformed(167,56,"Throw a wave of flames that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand leave the target ablaze for 1\nsecond.",.35,.35,0);  
 	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"TRIROCK",.5,.5,0);
-	draw_text_transformed(166,56,"Rapidly fire projectiles until there\n is not enough charge left to continue.\nEach does " + _damage + " and costs " + _cost + " charge." + _cost + " charge each shot.",.35,.35,0); 
+	draw_text_transformed(166,46,"FIRESPIT",.5,.5,0);
+	draw_text_transformed(166,56,"Throw a wave of flames that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand leave the target ablaze for 1\nsecond.",.35,.35,0); 
 }
 
 //Alt Magic
-if (obj_inventory.quest_grid[# 14, 3] = true)
+if (obj_inventory.quest_grid[# 13, 3] = true)
 {
 	draw_sprite_stretched(spr_menu,3,234,90,10,10);
 	draw_text_transformed(236,90,"A",.5,.5,0);

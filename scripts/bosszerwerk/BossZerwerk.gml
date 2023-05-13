@@ -19,6 +19,8 @@ enemy_move = spr_enemy_bossZerwerk_run;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
 shadow = 2;
+lit = false;
+light_size = 48;
 aggro_drop = 300;
 attack_counter = 0;
 sprite_index = enemy_idle;
@@ -52,6 +54,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			aggro_drop = 300;
@@ -74,6 +77,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
+		lit = true;
 		script_execute(EnemyChase);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))

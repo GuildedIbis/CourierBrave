@@ -2,6 +2,9 @@
 
 // Inherit the parent event
 event_inherited();
+
+lit = true;
+
 if (moon = true)
 {
 	if (obj_inventory.crullM_list[activate_args] = false) and (global.dayPhase = 2)

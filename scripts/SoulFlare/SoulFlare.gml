@@ -11,7 +11,8 @@ inv_dur_timer = 0;
 home_state = SoulFlareFree;
 entity_step = home_state;
 entity_drop = Idle;
-
+lit = true;
+light_size = 16;
 enemy_move = spr_ghost_soulFlare;
 sprite_index = spr_ghost_soulFlare;
 aggro_drop = 300;

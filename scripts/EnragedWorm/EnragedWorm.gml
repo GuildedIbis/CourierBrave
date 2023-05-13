@@ -15,6 +15,8 @@ enemy_damaged = spr_enemy_enragedWorm_hit;
 damaged_snd = snd_ofaWorm_damaged;
 walk_snd = snd_walk_water;
 shadow = 0;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -61,6 +63,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
+		lit = true;
 		EnemyChaseSpecial(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))

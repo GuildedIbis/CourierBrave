@@ -17,6 +17,8 @@ enemy_damaged = spr_enemy_enragedMoth;
 damaged_snd = snd_ofaMoth_damaged;
 walk_snd = snd_ofaWorm_dash;
 shadow = 1;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -57,6 +59,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
@@ -79,6 +82,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
+		lit = true;
 		if (timer1 <= 0)
 		{
 			timer1 = 21;
@@ -110,6 +114,7 @@ else path_end();
 function EnragedMothDustStep(){
 if (obj_game.gamePaused = false)
 {
+	lit = false;
 	healthbar = false;
 	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -153,6 +158,7 @@ if (obj_game.gamePaused = false)
 		shadow = 1;
 		path_end();
 		healthbar = true;
+		lit = true;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,20))
 		{
 			entity_step = EnragedMothRageCharge;

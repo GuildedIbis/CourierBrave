@@ -525,6 +525,7 @@
     {"id":{"name":"spr_crull_pedestal","path":"sprites/spr_crull_pedestal/spr_crull_pedestal.yy",},},
     {"id":{"name":"spr_player_roll","path":"sprites/spr_player_roll/spr_player_roll.yy",},},
     {"id":{"name":"spr_form_pedestal","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},
+    {"id":{"name":"obj_interactable","path":"objects/obj_interactable/obj_interactable.yy",},},
     {"id":{"name":"spr_enemy_bossZerwerk_riftSlamDownA","path":"sprites/spr_enemy_bossZerwerk_riftSlamDownA/spr_enemy_bossZerwerk_riftSlamDownA.yy",},},
     {"id":{"name":"spr_spiritStone_meteor","path":"sprites/spr_spiritStone_meteor/spr_spiritStone_meteor.yy",},},
     {"id":{"name":"snd_zerwerk_fireball","path":"sounds/snd_zerwerk_fireball/snd_zerwerk_fireball.yy",},},

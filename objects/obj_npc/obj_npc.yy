@@ -20,8 +20,8 @@
     "path": "folders/Objects/Entities/Interactable.yy",
   },
   "parentObjectId": {
-    "name": "obj_entity",
-    "path": "objects/obj_entity/obj_entity.yy",
+    "name": "obj_interactable",
+    "path": "objects/obj_interactable/obj_interactable.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

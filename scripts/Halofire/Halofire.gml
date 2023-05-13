@@ -842,6 +842,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 5)
 //Halofire Meteor Projectile Script
 function HalofireMeteor(){
 //Set
+lit = true;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -875,6 +876,7 @@ if (place_meeting(x,y,break_object))
 //Halofire Meteor Projectile Script
 function HalofireFirespit(){
 //Set
+lit = true;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (sprite_index != projectile_sprite)

@@ -17,6 +17,8 @@ enemy_damaged = spr_enemy_gorogE_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
 shadow = 1;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -60,6 +62,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
@@ -95,6 +98,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
+		lit = true;
 		script_execute(EnemyChase);
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) 
 		{	

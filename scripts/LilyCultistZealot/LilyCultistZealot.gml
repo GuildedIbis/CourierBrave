@@ -60,6 +60,7 @@ if (obj_game.gamePaused = false)
 	//If 
 	if (targeted = false)
 	{
+		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
@@ -83,6 +84,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
+		lit = true;
 		script_execute(EnemyChase);
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,16)) 
 		{

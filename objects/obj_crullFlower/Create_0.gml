@@ -4,6 +4,7 @@
 event_inherited();
 
 //Shadow
+light_size = 16
 shadow = true;
 sx1 = x - 4;
 sy1 = y - 14;

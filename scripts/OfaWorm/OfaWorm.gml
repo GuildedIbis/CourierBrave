@@ -15,6 +15,8 @@ enemy_damaged = spr_enemy_ofaWorm_hit;
 damaged_snd = snd_ofaWorm_damaged;
 walk_snd = snd_walk_water;
 shadow = 0;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -62,6 +64,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
+		lit = true;
 		script_execute(EnemyChase);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (dash_timer > 0) dash_timer = dash_timer - 1;

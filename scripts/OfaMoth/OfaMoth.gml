@@ -15,6 +15,8 @@ enemy_damaged = spr_enemy_ofaMoth;
 damaged_snd = snd_ofaMoth_damaged;
 walk_snd = snd_ofaWorm_dash;
 shadow = 1;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -55,6 +57,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			EnemyAlert();
@@ -75,6 +78,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
+		lit = true;
 		if (timer1 <= 0)
 		{
 			timer1 = 21;
@@ -107,6 +111,7 @@ else path_end();
 function OfaMothDustStep(){
 if (obj_game.gamePaused = false)
 {
+	lit = false;
 	healthbar = false;
 	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -147,6 +152,7 @@ if (obj_game.gamePaused = false)
 	script_execute(EnemyAnimation1);
 	if (animation_end = true)
 	{
+		lit = true;
 		shadow = 1;
 		path_end();
 		var _atk = irandom_range(0,1);

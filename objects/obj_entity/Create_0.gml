@@ -17,6 +17,8 @@ flash = 0;
 uni_flash = shader_get_uniform(sh_flash_white,"flash");
 special_draw = -1;
 shadow_sprite = -1;
+lit = false;
+light_size = 0;
 shadow = false;
 
 //Init

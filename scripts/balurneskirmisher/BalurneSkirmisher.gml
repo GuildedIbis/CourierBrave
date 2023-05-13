@@ -17,6 +17,8 @@ enemy_damaged = spr_enemy_skirmisher_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
 shadow = 1;
+lit = false;
+light_size = 32;
 targeted = false;
 invincible = false;
 inv_dur_timer = 0;
@@ -53,6 +55,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false;
 		if (timer1 <= 0)
 		{
 			EnemyWander(60,180); //Data Leak if not radius restricted
@@ -64,9 +67,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 		}
-	}
-	
-	
+	}	
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -80,7 +81,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
-	
+		lit = false;
 		if (timer1 <= 0) script_execute(EnemyChase);
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
 		{

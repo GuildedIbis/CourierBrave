@@ -20,6 +20,8 @@ enemy_damaged = spr_enemy_eliteHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
 shadow = 1;
+lit = false;
+light_size = 32;
 aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
@@ -56,6 +58,7 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
+		lit = false
 		if (timer1 <= 0)
 		{
 			EnemyWander(60,180); //Data Leak if not radius restricted?
@@ -82,6 +85,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on}
 	if (targeted = true)
 	{
+		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
 			script_execute(EnemyChase);

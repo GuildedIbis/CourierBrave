@@ -23,6 +23,25 @@ if (surface_exists(obj_surfaceBlack.black_surf))
 		gpu_set_blendmode(bm_normal);
 			
 	}
+	with (obj_projectile)
+	{
+		if (lit = true)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y,sprite_width+4,false);
+			gpu_set_blendmode(bm_normal);
+		}
+	}
+		
+	with (obj_interactable)
+	{
+		if (lit = true)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y-4,light_size+4,false);
+			gpu_set_blendmode(bm_normal);
+		}
+	}
 	
 	with (obj_light)
 	{
@@ -53,6 +72,24 @@ if (surface_exists(obj_surfaceBlack.black_surf))
 		draw_circle(x,y-4,40,false);
 		gpu_set_blendmode(bm_normal);
 			
+	}
+	with (obj_projectile)
+	{
+		if (lit = true)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y,sprite_width,false);
+			gpu_set_blendmode(bm_normal);
+		}
+	}
+	with (obj_interactable)
+	{
+		if (lit = true)
+		{
+			gpu_set_blendmode(bm_subtract);
+			draw_circle(x,y-4,light_size,false);
+			gpu_set_blendmode(bm_normal);
+		}
 	}
 	
 	with (obj_light)

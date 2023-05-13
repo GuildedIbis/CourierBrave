@@ -15,6 +15,8 @@ enemy_damaged = spr_enemy_trapLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
 shadow = 1;
+lit = false;
+light_size = 18;
 targeted = false;
 invincible = false;
 bullet = false;
@@ -71,6 +73,7 @@ if (obj_game.gamePaused = false)
 	}
 	if (targeted = false)
 	{
+		lit = false
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			targeted = true;
@@ -80,6 +83,7 @@ if (obj_game.gamePaused = false)
 	else sprite_index = enemy_idle;
 	if (targeted = true)
 	{
+		lit = true;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (special_timer <= 0)
 		{
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (watervice = false)
