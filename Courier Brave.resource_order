@@ -703,6 +703,7 @@
     {"name":"spr_solarSabi2_stone","order":19,"path":"sprites/spr_solarSabi2_stone/spr_solarSabi2_stone.yy",},
     {"name":"fnt_inventory","order":2,"path":"fonts/fnt_inventory/fnt_inventory.yy",},
     {"name":"tile_desert8","order":2,"path":"tilesets/tile_desert8/tile_desert8.yy",},
+    {"name":"spr_enemy_chainedTortoise_hammerSlam","order":17,"path":"sprites/spr_enemy_chainedTortoise_hammerSlam/spr_enemy_chainedTortoise_hammerSlam.yy",},
     {"name":"Sprite414","order":1,"path":"sprites/Sprite414/Sprite414.yy",},
     {"name":"spr_enemy_duskLeech_idle","order":4,"path":"sprites/spr_enemy_duskLeech_idle/spr_enemy_duskLeech_idle.yy",},
     {"name":"spr_enemy_ofaWorm_dash","order":3,"path":"sprites/spr_enemy_ofaWorm_dash/spr_enemy_ofaWorm_dash.yy",},

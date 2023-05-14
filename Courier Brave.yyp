@@ -801,6 +801,7 @@
     {"id":{"name":"spr_solarSabi2_stone","path":"sprites/spr_solarSabi2_stone/spr_solarSabi2_stone.yy",},},
     {"id":{"name":"fnt_inventory","path":"fonts/fnt_inventory/fnt_inventory.yy",},},
     {"id":{"name":"tile_desert8","path":"tilesets/tile_desert8/tile_desert8.yy",},},
+    {"id":{"name":"spr_enemy_chainedTortoise_hammerSlam","path":"sprites/spr_enemy_chainedTortoise_hammerSlam/spr_enemy_chainedTortoise_hammerSlam.yy",},},
     {"id":{"name":"Sprite414","path":"sprites/Sprite414/Sprite414.yy",},},
     {"id":{"name":"spr_enemy_duskLeech_idle","path":"sprites/spr_enemy_duskLeech_idle/spr_enemy_duskLeech_idle.yy",},},
     {"id":{"name":"spr_enemy_ofaWorm_dash","path":"sprites/spr_enemy_ofaWorm_dash/spr_enemy_ofaWorm_dash.yy",},},
