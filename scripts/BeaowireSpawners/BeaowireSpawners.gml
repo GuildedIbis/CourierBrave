@@ -247,6 +247,30 @@ if (obj_inventory.beaowire_dungeon[14] < 2)
 //
 //
 //
+//Yakflower Spawn Create Boss
+function BeaowireFortressSpawnBossCreate(){
+
+if (obj_inventory.beaowire_dungeon[15] < 2)
+{
+
+	//Spawn 1
+	with (instance_create_layer(160,168,"Instances",obj_enemy))
+	{
+		beaowire_dungeon[15] = 0;
+		image_alpha = 1;
+		script_execute(BossTortoiseTrollCreate);
+		global.aggroCounter = global.aggroCounter + 1;
+		targeted = true;
+		break_object = obj_break;
+	}		
+			
+}
+}
+//
+//
+//
+//
+//
 //Effect Habraf Lake Door - Escort 1
 function EffectHalofireQuestDoor(){
 frag = false

@@ -99,15 +99,15 @@ if (scene = false) and (obj_game.textPaused = false)
 	//Special
 	if (obj_inventory.form_grid[# form, 8] > 0)
 	{
-		var _magicSPerc = (special_timer/max_special_timer) * 100;
-		draw_healthbar(240,8,266,20,_magicSPerc,c_black,c_white,c_white,0,true,true);
-		draw_sprite(spr_ability_hud3,0,238,6);
-		draw_sprite(spr_special_allGame,form,238,4);
-		if (max_special_count != -1)
-		{
-			var _specialCount = string(special_count) + "/" + string(max_special_count)
-			draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
-		}
+		var _magicSPerc = (special/max_special) * 100;
+		draw_healthbar(150,160,170,164,_magicSPerc,c_black,c_white,c_white,0,true,true);
+		//draw_sprite(spr_ability_hud3,0,238,6);
+		//draw_sprite(spr_special_allGame,form,238,4);
+		//if (max_special_count != -1)
+		//{
+		//	var _specialCount = string(special_count) + "/" + string(max_special_count)
+		//	draw_text_transformed(254,26,string(_specialCount),.35,.35,0);
+		//}
 	}
 	
 	//Status Effect

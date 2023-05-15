@@ -317,6 +317,21 @@ else image_index = 1;
 //
 //
 //Effect Regaliare Quest Door Create
+function EffectBeaowireDoor2Create(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+image_index = 1;
+
+}
+//
+//
+//
+//
+//
+//Effect Regaliare Quest Door Create
 function EffectBeaowireDoorSpikeCreate(){
 frag = false
 image_speed = 0;

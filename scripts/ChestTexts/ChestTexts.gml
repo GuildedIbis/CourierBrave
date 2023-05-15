@@ -938,7 +938,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 //
 //
 //
-//Chest 012 Text: 500B, Habraf Lake Map
+//Chest 014 Text: 500B, Habraf Lake Map
 function Chest014Text(){
 //Lenko: Habraf Lake 5 (Unplaced)
 activate_args = 14;
@@ -1002,7 +1002,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 //
 //
 //
-//Chest 012 Text: 500B, Yakflower Path Map
+//Chest 015 Text: 500B, Yakflower Path Map
 function Chest015Text(){
 //Lenko: Yakflower Path 4
 activate_args = 15;
@@ -1035,6 +1035,204 @@ if (string_counter >= 1)
 
 	obj_player.beans = obj_player.beans + 500;
 	obj_inventory.map_grid[# 4, 1] = true;
+	obj_inventory.chest_list[activate_args] = true;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Chest 016 Text: 500B, Beaowire Fortress Map
+function Chest016Text(){
+//Lenko: Beaowire 12
+activate_args = 16;
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_set_color(c_white);
+//draw_sprite(spr_dialoguePort_all,speaker,447,391);
+if (obj_game.gamePaused)
+{
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+//Draw Based on String Counter
+var _SubString
+
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "CHEST OPENED:\n500 Beans\nYakflower Path Map"
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+if (string_counter >= 1)
+{
+
+	obj_player.beans = obj_player.beans + 500;
+	obj_inventory.map_grid[# 5, 1] = true;
+	obj_inventory.chest_list[activate_args] = true;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Chest 017 Text: 600B, Beaowire Fortress Other
+function Chest017Text(){
+//Lenko: Yakflower Path 4
+activate_args = 17;
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_set_color(c_white);
+//draw_sprite(spr_dialoguePort_all,speaker,447,391);
+if (obj_game.gamePaused)
+{
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+//Draw Based on String Counter
+var _SubString
+
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "CHEST OPENED:\n600 Beans\n???"
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+if (string_counter >= 1)
+{
+
+	obj_player.beans = obj_player.beans + 600;
+	//obj_inventory.map_grid[# 4, 1] = true;
+	obj_inventory.chest_list[activate_args] = true;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Chest 017 Text: 600B, Beaowire Fortress Boss Chest
+function Chest018Text(){
+//Lenko: Yakflower Path 4
+activate_args = 18;
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_set_color(c_white);
+//draw_sprite(spr_dialoguePort_all,speaker,447,391);
+if (obj_game.gamePaused)
+{
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+//Draw Based on String Counter
+var _SubString
+
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "CHEST OPENED:\n1000 Beans\nForm Special Attacks Unlocked"
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+if (string_counter >= 1)
+{
+
+	obj_player.beans = obj_player.beans + 1000;
+	with (obj_inventory)
+	{
+		for (var i = 0; i < 16; i = i + 1)
+		{
+			form_grid[# i, 8] = 1;
+		}
+	}
 	obj_inventory.chest_list[activate_args] = true;
 	text_string = ""
 	string_counter = 0;

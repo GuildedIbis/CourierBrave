@@ -125,6 +125,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -132,10 +141,6 @@ if (magic_timer > 0) //Magic time between shots
 if (melee_timer > 0)
 {
 	melee_timer = melee_timer - 1;
-}
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) special_timer = special_timer + 1;
 }
 //Animation Start
 if (sprite_index != crull_sprite)
@@ -221,6 +226,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -228,10 +242,6 @@ if (magic_timer > 0) //Magic time between shots
 if (melee_timer > 0)
 {
 	melee_timer = melee_timer - 1;
-}
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) special_timer = special_timer + 1;
 }
 
 hor_spd = lengthdir_x(roll_spd,direction);

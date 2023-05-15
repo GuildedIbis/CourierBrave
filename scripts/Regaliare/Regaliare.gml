@@ -38,10 +38,12 @@ armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
 max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 max_charge = 50 + (3* (grace + round(grace/15)));
 magic_count = 0;
-special_count = -1;
-max_special_count = -1;
+special = 0;
+max_special = 1000
+//special_count = -1;
+//max_special_count = -1;
 if (magic_count > max_magic_count) magic_count = max_magic_count;
-max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 0, 8]);
+special_timer = 0;
 }
 //
 //
@@ -91,6 +93,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -99,13 +110,13 @@ if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0) //Special Recharge
-{
-	if (special_timer < max_special_timer)
-	{
-		special_timer = special_timer + 1;
-	}
-}
+//if (obj_inventory.form_grid[# form, 8] > 0) //Special Recharge
+//{
+//	if (special_timer < max_special_timer)
+//	{
+//		special_timer = special_timer + 1;
+//	}
+//}
 
 
 //Movement 2: Collision
@@ -164,11 +175,11 @@ if (key_attackM)
 //Special Attack
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (key_attackS) and (special_timer >= max_special_timer)
+	if (key_attackS) and (special >= 500)
 	{
 		if (watervice = false)
 		{
-			special_timer = 0;
+			special = special - 500;
 			attack_script = RegaliareSpecial;
 			state_script = PlayerStateAttack;
 		}
@@ -259,6 +270,15 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -333,6 +353,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots
@@ -438,8 +467,9 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
 	instance_destroy();
+	
 }
 if (place_meeting(x,y,break_object))
 {
@@ -482,6 +512,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
 }
 if (weapon_timer > 0)//Time between weapon uses
 {
@@ -580,7 +619,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
-	AttackCalculate(projectile_sprite);
+	AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
 }
 if (place_meeting(x,y,break_object))
 {
