@@ -38,10 +38,9 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
-max_magic_count = 6 + round(obj_inventory.form_grid[# 3, 7] / 2);
 max_charge = 50 + (3* (grace + round(grace/15)));
-if (magic_count > max_magic_count) magic_count = max_magic_count;
-max_special_timer = 360 - round(12 * obj_inventory.form_grid[# 3, 8]);
+max_stamina = 50 + (3* (might + round(might/15)));
+max_hp = 150 + (3* (vitality + round(vitality/15)));
 }
 //
 //
@@ -91,6 +90,15 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -99,13 +107,7 @@ if (weapon_timer > 0) //Weapon time between attacks
 {
 	weapon_timer = weapon_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) and (watervice = false)
-	{
-		special_timer = special_timer + 1;
-	}
-}
+
 
 
 
@@ -167,11 +169,11 @@ if (key_attackM)
 //Special Attack
 if (obj_inventory.form_grid[# form, 8] > 0)
 {
-	if (key_attackS) and (special_timer >= max_special_timer)
+	if (key_attackS) and (special >= 500)
 	{
 		if (watervice = false)
 		{
-			special_timer = 0;
+			special = special - 500;
 			attack_script = HalofireSpecial;
 			state_script = PlayerStateAttack;
 		}
@@ -344,6 +346,15 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -352,13 +363,7 @@ if (weapon_timer > 0) //Weapon time between attacks
 {
 	weapon_timer = weapon_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) and (watervice = false)
-	{
-		special_timer = special_timer + 1;
-	}
-}
+
 
 //Switch to charged state
 if (weapon_timer <= 0)
@@ -428,6 +433,15 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -436,13 +450,7 @@ if (weapon_timer > 0) //Weapon time between attacks
 {
 	weapon_timer = weapon_timer - 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) and (watervice = false)
-	{
-		special_timer = special_timer + 1;
-	}
-}
+
 
 
 //Movement 1: Set
@@ -503,6 +511,15 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -556,6 +573,41 @@ function HalofireHamaxeBackswingCharged(){
 attacking = true;
 damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
 if (timer1 > 0) timer1 = timer1 - 1;
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
+	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
+	atk_snd_delay = 28;
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0) //Melee time between attacks
+{
+	weapon_timer = weapon_timer - 1;
+}
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
@@ -640,6 +692,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -751,6 +812,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -1076,10 +1146,10 @@ if (weapon_timer > 0) //Melee time between attacks
 }
 
 //Attack Start
-if (sprite_index != spr_player_halofire_cast)
+if (sprite_index != spr_player_halofire_cast_special)
 {
 	//Start Animation From Beginning
-	sprite_index = spr_player_halofire_cast;
+	sprite_index = spr_player_halofire_cast_special;
 	//sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
 	local_frame = 0;
 	image_index = 0;

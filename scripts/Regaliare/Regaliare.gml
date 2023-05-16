@@ -35,15 +35,15 @@ max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
-max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 max_charge = 50 + (3* (grace + round(grace/15)));
-magic_count = 0;
-special = 0;
-max_special = 1000
+max_stamina = 50 + (3* (might + round(might/15)));
+max_hp = 150 + (3* (vitality + round(vitality/15)));
+//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
+//magic_count = 0;
 //special_count = -1;
 //max_special_count = -1;
-if (magic_count > max_magic_count) magic_count = max_magic_count;
-special_timer = 0;
+//if (magic_count > max_magic_count) magic_count = max_magic_count;
+
 }
 //
 //
@@ -110,13 +110,7 @@ if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (obj_inventory.form_grid[# form, 8] > 0) //Special Recharge
-//{
-//	if (special_timer < max_special_timer)
-//	{
-//		special_timer = special_timer + 1;
-//	}
-//}
+
 
 
 //Movement 2: Collision
@@ -674,10 +668,10 @@ if (weapon_timer > 0)//Time between weapon uses
 }
 
 //Initiate Attack
-if (sprite_index != spr_player_regaliare_cast)
+if (sprite_index != spr_player_regaliare_cast_special)
 {
 	//Start Animation From Beginning
-	sprite_index = spr_player_regaliare_cast;
+	sprite_index = spr_player_regaliare_cast_special;
 	//sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
 	local_frame = 0;
 	image_index = 0;

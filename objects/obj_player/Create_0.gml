@@ -10,7 +10,7 @@ key_activate = keyboard_check_pressed(ord("E"));
 key_ability = keyboard_check_pressed(vk_space);
 key_attackM = mouse_check_button_pressed(mb_left);
 key_attackW = mouse_check_button_pressed(mb_right);
-key_attackS = keyboard_check(vk_shift);
+key_attackS = keyboard_check_pressed(vk_shift);
 weapon_aim = false;
 
 //Animation
@@ -71,6 +71,8 @@ charge = 50 + (3* (grace + round(grace/15)));
 max_charge = 50 + (3* (grace + round(grace/15)));
 stamina = 50 + (3* (might + round(might/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
+special = 1000;
+max_special = 1000;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 hp = max_hp;
 crull_stone = max_crull_stone;

@@ -32,8 +32,10 @@ special_draw = AdavioSpecialMenu;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
-max_special_timer = 600 - round(42 * obj_inventory.form_grid[# 0, 8]);
 max_charge = 50 + (3* (grace + round(grace/15)));
+max_stamina = 50 + (3* (might + round(might/15)));
+max_hp = 150 + (3* (vitality + round(vitality/15)));
+
 //max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
 //magic_count = 0;
 //special_count = -1;
@@ -90,6 +92,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -97,13 +108,6 @@ if (magic_timer > 0) //Magic time between projectiles
 if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
-}
-if (obj_inventory.form_grid[# form, 8] > 0)
-{
-	if (special_timer < max_special_timer) and (watervice = false)
-	{
-		special_timer = special_timer + 1;
-	}
 }
 
 
@@ -167,12 +171,12 @@ if (obj_inventory.form_grid[# form, 8] > 0)
 {
 	if (key_attackS) and (special_timer >= max_special_timer)
 	{
-		if (watervice = false)
-		{
-			special_timer = 0;
-			attack_script = AdavioSpecial;
-			state_script = PlayerStateAttack;
-		}
+		//if (watervice = false)
+		//{
+		//	special_timer = 0;
+		//	attack_script = AdavioSpecial;
+		//	state_script = PlayerStateAttack;
+		//}
 	}
 }
 
@@ -218,6 +222,8 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 11, 3] = t
 		attack_script = magicP_script;
 	}
 }
+
+//Switch Aim Style
 if (keyboard_check_pressed(ord("Z")))
 {
 	if (weapon_aim = true)
@@ -259,6 +265,15 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 		charge = charge + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -267,10 +282,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
+
 
 //Custom Timer
 if (timer1 > 0) timer1 = timer1 - 1; 
@@ -433,6 +445,15 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -441,10 +462,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
+
 
 
 //Movement 1: Speed
@@ -581,6 +599,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -589,10 +616,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
+
 
 //Movement 1: Speed
 if (knockback = false)
