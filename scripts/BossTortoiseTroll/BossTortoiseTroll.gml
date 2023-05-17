@@ -178,13 +178,12 @@ if (obj_game.gamePaused = false)
 }
 else path_end();
 }
-
 //
 //
 //
 //
 //
-//Zerwerk Tail Lash
+//Tortoise Troll Hammer Slam
 function BossTortoiseTrollHammerSlam(){
 if (obj_game.gamePaused = false)
 {
@@ -201,14 +200,18 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
+	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 
 	//Animate
 	EnemyAnimation();
 	if (animation_end)
 	{
-			entity_step = home_state;
-			animation_end = false;
+		entity_step = BossTortoiseTrollHammerLunge;
+		animation_end = false;
+		timer2 = 12;
+		hor_spd = 0;
+		ver_spd = 0;
+		direction = (point_direction(x,y,obj_player.x,obj_player.y));
 	}
 }
 }
@@ -217,7 +220,52 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Zerwerk Drop
+//Troll Tortoise Hammer Lunge
+function BossTortoiseTrollHammerLunge(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_tortoiseTroll_hammerLunge)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_hammerLunge;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 50;
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
+	
+	if (timer2 <= 0)
+	{
+		//speed = enemy_spd * 1.5;
+		hor_spd = lengthdir_x(3,direction);
+		ver_spd = lengthdir_y(3,direction);
+	}
+	
+	var _collided = EnemyCollision();
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end) or (_collided = true)
+	{
+		speed = 0;
+		timer1 = 120;
+		timer2 = 120;
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Drop
 function BossTortoiseTrollDrop(){
 var _objects = 3;
 var _dropBean = 250;
