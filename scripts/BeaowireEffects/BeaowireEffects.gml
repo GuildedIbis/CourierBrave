@@ -39,6 +39,8 @@ if (obj_game.gamePaused = false)
 		{
 			escort_timer = 45;
 			escort_step = EffectBeaowireEscortCharge;
+			audio_sound_gain(snd_escort_beaowire_charging,global.volumeEffects,1);
+			audio_play_sound(snd_escort_beaowire_charging,0,false);
 			sprite_index = spr_escort_beaowire_attackCharge;
 			image_index = 0;
 		}
@@ -91,6 +93,8 @@ if (obj_game.gamePaused = false)
 		if (atk_timer <= 0)
 		{
 			atk_timer = 5;
+			audio_sound_gain(snd_escort_beaowire_shoot,global.volumeEffects,1);
+			audio_play_sound(snd_escort_beaowire_shoot,0,false);
 			with (instance_create_layer(x,y-19,"Instances",obj_enemy_projectile))
 			{
 				home_state = EscortBeaowireBurstFree;

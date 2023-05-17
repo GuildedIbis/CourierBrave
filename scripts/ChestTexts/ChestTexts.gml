@@ -1090,7 +1090,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "CHEST OPENED:\n500 Beans\nYakflower Path Map"
+	text_string = "CHEST OPENED:\n500 Beans\nBeaowire Fortress Map"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
@@ -1154,14 +1154,14 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "CHEST OPENED:\n600 Beans\n???"
+	text_string = "CHEST OPENED:\n2000 Beans"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter >= 1)
 {
 
-	obj_player.beans = obj_player.beans + 600;
+	obj_player.beans = obj_player.beans + 2000;
 	//obj_inventory.map_grid[# 4, 1] = true;
 	obj_inventory.chest_list[activate_args] = true;
 	text_string = ""

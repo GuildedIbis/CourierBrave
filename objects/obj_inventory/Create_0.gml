@@ -15,7 +15,7 @@ script_execute(ChestList);
 script_execute(KephraStoneList);
 script_execute(CrullList);
 
-
+room_ary = farwayRoad_map_ary;
 
 
 

@@ -6,9 +6,9 @@
 //
 //Maps
 function MapsCreate(){
-map_selected = -1;
+map_selected = LenkoMapMenuDraw;
 map_grid = ds_grid_create(6,3);
-region_grid = ds_grid_create(5,3);
+region_grid = ds_grid_create(6,3);
 region_grid[# 0, 0] = "Lenko Woodlands"
 region_grid[# 0, 1] = true;
 region_grid[# 0, 2] = LenkoMapMenuDraw;
@@ -24,6 +24,9 @@ region_grid[# 3, 2] = LenkoMapMenuDraw;
 region_grid[# 4, 0] = "Lenko Woodlands"
 region_grid[# 4, 1] = false;
 region_grid[# 4, 2] = LenkoMapMenuDraw;
+region_grid[# 5, 0] = "Lenko Woodlands"
+region_grid[# 5, 1] = false;
+region_grid[# 5, 2] = LenkoMapMenuDraw;
 
 
 map_grid[# 0, 0] = "Farway Road"
@@ -35,12 +38,15 @@ map_grid[# 1, 2] = Idle;
 map_grid[# 2, 0] = "Greyrock"
 map_grid[# 2, 1] = false;
 map_grid[# 2, 2] = Idle;
-map_grid[# 3, 0] = "Lair: Habraf Lake"
+map_grid[# 3, 0] = "Habraf Lake"
 map_grid[# 3, 1] = false;
 map_grid[# 3, 2] = Idle;
-map_grid[# 4, 1] = "Lair: Yakflower Path";
+map_grid[# 4, 1] = "Yakflower Path";
 map_grid[# 4, 1] = false;
 map_grid[# 4, 2] = Idle;
+map_grid[# 5, 0] = "Beaowire Fortress";
+map_grid[# 5, 1] = true;
+map_grid[# 5, 2] = Idle;
 }
 //
 //
@@ -133,8 +139,8 @@ if (room_num != -1)
 //
 //Lenk Map Menu Draw
 function LenkoMapMenuDraw(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
+//var _mouseX = device_mouse_x_to_gui(0);
+//var _mouseY = device_mouse_y_to_gui(0);
 //0 Camp
 //1 Lair
 //2 Dungeon
@@ -145,7 +151,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 //7 Main Boss
 //Camps
 
-for (var i = 0; i < 5; i = i + 1)
+for (var i = 0; i < 6; i = i + 1)
 {
 	//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
 	if (obj_inventory.map_grid[# i, 1] = true)

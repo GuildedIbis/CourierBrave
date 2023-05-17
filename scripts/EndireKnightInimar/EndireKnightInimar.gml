@@ -9,9 +9,9 @@ function EndireKnightInimarCreate(){
 home_state = EndireKnightInimarFree;
 entity_step = home_state;
 entity_drop = EndireKnightInimarDrop;
-enemy_idle = spr_enemy_endireKnight_idle;
-enemy_move = spr_enemy_endireKnight_run;
-enemy_damaged = spr_enemy_endireKnight_damaged;
+enemy_idle = spr_enemy_endireKnight_inimar_idle;
+enemy_move = spr_enemy_endireKnight_inimar_run;
+enemy_damaged = spr_enemy_endireKnight_inimar_damaged;
 damaged_snd = snd_endireKnight_damaged;
 walk_snd = snd_walk_regular;
 shadow = 1;
@@ -159,11 +159,11 @@ function EndireKnightInimarFireStrike(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (sprite_index != spr_enemy_endireKnight_fireStrike)
+	if (sprite_index != spr_enemy_endireKnight_inimar_fireStrike)
 	{
 		//Start Animation From Beginning
 		direction =  point_direction(x,y,obj_player.x,obj_player.y);
-		sprite_index = spr_enemy_endireKnight_fireStrike;
+		sprite_index = spr_enemy_endireKnight_inimar_fireStrike;
 		local_frame = 0;
 		image_index = 0;
 		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
@@ -196,10 +196,10 @@ if (obj_game.gamePaused = false)
 	
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer2 <= 0) speed = 2.5;
-	if (sprite_index != spr_enemy_endireKnight_cinderDash)
+	if (sprite_index != spr_enemy_endireKnight_inimar_cinderDash)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_endireKnight_cinderDash;
+		sprite_index = spr_enemy_endireKnight_inimar_cinderDash;
 		local_frame = 0;
 		image_index = 0;
 		audio_sound_gain(snd_endireKnight_cinderDash,global.volumeEffects,1);
@@ -238,10 +238,10 @@ if (obj_game.gamePaused = false)
 {
 	
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (sprite_index != spr_enemy_endireKnight_heatwave)
+	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_endireKnight_heatwave;
+		sprite_index = spr_enemy_endireKnight_inimar_heatwave;
 		local_frame = 0;
 		image_index = 0;
 		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
@@ -312,10 +312,10 @@ if (obj_game.gamePaused = false)
 	{
 		timer3 = timer3 - 1;
 	}
-	if (sprite_index != spr_enemy_endireKnight_heatwave)
+	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_endireKnight_heatwave;
+		sprite_index = spr_enemy_endireKnight_inimar_heatwave;
 		local_frame = 0;
 		image_index = 0;
 		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
@@ -412,7 +412,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Ghafate Drop
+//Inimar Drop
 function EndireKnightInimarDrop(){
 
 var _objects = 2;
