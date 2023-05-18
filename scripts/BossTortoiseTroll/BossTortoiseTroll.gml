@@ -78,7 +78,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		EnemyChaseSpecial(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
@@ -200,7 +200,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
+	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
 	//Animate
 	EnemyAnimation();
@@ -255,8 +255,44 @@ if (obj_game.gamePaused = false)
 		speed = 0;
 		timer1 = 120;
 		timer2 = 120;
-		entity_step = home_state;
+		entity_step = BossTortoiseTrollHammerBackslam;
+		direction = (point_direction(x,y,obj_player.x,obj_player.y));
 		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Tortoise Troll Hammer Slam
+function BossTortoiseTrollHammerBackslam(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_tortoiseTroll_hammerBackslam)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_hammerBackslam;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 80;
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		animation_end = false;
+		entity_step = home_state;
+		timer1 = 120;
+		timer2 = 120;
 	}
 }
 }

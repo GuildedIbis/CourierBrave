@@ -397,6 +397,7 @@
     {"name":"spr_magicAlt_allGame","order":6,"path":"sprites/spr_magicAlt_allGame/spr_magicAlt_allGame.yy",},
     {"name":"BossZerwerk","order":5,"path":"scripts/BossZerwerk/BossZerwerk.yy",},
     {"name":"snd_rat_damaged3","order":8,"path":"sounds/snd_rat_damaged3/snd_rat_damaged3.yy",},
+    {"name":"spr_enemy_tortoiseTroll_hammerBackslam_hitbox","order":10,"path":"sprites/spr_enemy_tortoiseTroll_hammerBackslam_hitbox/spr_enemy_tortoiseTroll_hammerBackslam_hitbox.yy",},
     {"name":"snd_slash01","order":1,"path":"sounds/snd_slash01/snd_slash01.yy",},
     {"name":"spr_player_halofire_cast_ultimate","order":28,"path":"sprites/spr_player_halofire_cast_ultimate/spr_player_halofire_cast_ultimate.yy",},
     {"name":"spr_mapBackground","order":6,"path":"sprites/spr_mapBackground/spr_mapBackground.yy",},

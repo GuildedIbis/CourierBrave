@@ -456,6 +456,7 @@
     {"id":{"name":"spr_magicAlt_allGame","path":"sprites/spr_magicAlt_allGame/spr_magicAlt_allGame.yy",},},
     {"id":{"name":"BossZerwerk","path":"scripts/BossZerwerk/BossZerwerk.yy",},},
     {"id":{"name":"snd_rat_damaged3","path":"sounds/snd_rat_damaged3/snd_rat_damaged3.yy",},},
+    {"id":{"name":"spr_enemy_tortoiseTroll_hammerBackslam_hitbox","path":"sprites/spr_enemy_tortoiseTroll_hammerBackslam_hitbox/spr_enemy_tortoiseTroll_hammerBackslam_hitbox.yy",},},
     {"id":{"name":"spr_enemy_folioBulb_idle","path":"sprites/spr_enemy_folioBulb_idle/spr_enemy_folioBulb_idle.yy",},},
     {"id":{"name":"snd_slash01","path":"sounds/snd_slash01/snd_slash01.yy",},},
     {"id":{"name":"spr_player_halofire_cast_ultimate","path":"sprites/spr_player_halofire_cast_ultimate/spr_player_halofire_cast_ultimate.yy",},},
