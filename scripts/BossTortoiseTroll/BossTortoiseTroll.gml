@@ -206,13 +206,28 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end)
 	{
-		entity_step = BossTortoiseTrollHammerLunge;
-		animation_end = false;
-		timer2 = 12;
-		hor_spd = 0;
-		ver_spd = 0;
-		direction = (point_direction(x,y,obj_player.x,obj_player.y));
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
+		{
+			entity_step = BossTortoiseTrollHammerLunge;
+			animation_end = false;
+			timer2 = 12;
+			hor_spd = 0;
+			ver_spd = 0;
+			direction = (point_direction(x,y,obj_player.x,obj_player.y));
+		}
+		else
+		{
+			entity_step = BossTortoiseTrollJumpslam;
+			animation_end = false;
+			timer1 = 60;
+			timer2 = 40;
+			timer3 = 20;
+			direction = (point_direction(x,y,obj_player.x,obj_player.y));
+			//hor_spd = lengthdir_x(3,direction);
+			//ver_spd = lengthdir_y(3,direction);
+		}
 	}
+	
 }
 }
 //
@@ -321,23 +336,43 @@ if (obj_game.gamePaused = false)
 	damage = 50;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
-	
-	if (timer2 <= 0)
+	if (timer3 > 0)
+	{
+		z = z + 1;
+	}
+	else
+	{
+		if (z > 0) z = z - 1;
+	}
+	if (timer2 > 0)
 	{
 		//speed = enemy_spd * 1.5;
-		hor_spd = lengthdir_x(3,direction);
-		ver_spd = lengthdir_y(3,direction);
+		hor_spd = lengthdir_x(2.25,direction);
+		ver_spd = lengthdir_y(2.25,direction);
+	}
+	else
+	{
+		hor_spd = 0;
+		ver_spd = 0;
+		speed = 0;
 	}
 	
 	var _collided = EnemyCollision();
-	if (_collided = true) or (timer
-
+	if (_collided = true) or (timer1 < 0)
+	{
+		z = 0;
+		hor_spd = 0;
+		ver_spd = 0;
+		speed = 0;
+	}
+	
 	//Animate
 	EnemyAnimation();
 	if (animation_end) 
 	{
-		timer1 = 120;
-		timer2 = 120;
+		timer1 = 60;
+		timer2 = 60;
+		z = 0;
 		entity_step = home_state;
 		animation_end = false;
 	}
