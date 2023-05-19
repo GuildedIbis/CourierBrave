@@ -242,8 +242,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		//speed = enemy_spd * 1.5;
-		hor_spd = lengthdir_x(3,direction);
-		ver_spd = lengthdir_y(3,direction);
+		hor_spd = lengthdir_x(4,direction);
+		ver_spd = lengthdir_y(4,direction);
 	}
 	
 	var _collided = EnemyCollision();
@@ -293,6 +293,53 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		timer1 = 120;
 		timer2 = 120;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Hammer Jumpslam
+function BossTortoiseTrollJumpslam(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (sprite_index != spr_enemy_tortoiseTroll_hammerJumpslam)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_hammerJumpslam;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 50;
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
+	
+	if (timer2 <= 0)
+	{
+		//speed = enemy_spd * 1.5;
+		hor_spd = lengthdir_x(3,direction);
+		ver_spd = lengthdir_y(3,direction);
+	}
+	
+	var _collided = EnemyCollision();
+	if (_collided = true) or (timer
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end) 
+	{
+		timer1 = 120;
+		timer2 = 120;
+		entity_step = home_state;
+		animation_end = false;
 	}
 }
 }
