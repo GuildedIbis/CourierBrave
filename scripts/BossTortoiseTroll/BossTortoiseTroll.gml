@@ -79,16 +79,16 @@ if (obj_game.gamePaused = false)
 	{
 		lit = true;
 		EnemyChaseSpecial(obj_game,obj_entity);
-		walk_snd_delay = walk_snd_delay - 1;
+		//walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
-			walk_snd_delay = 15;
+			//walk_snd_delay = 15;
 			path_end();
 			sprite_index = enemy_idle;
 		}
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,32)) and (timer1 <= 0)
 		{
-			walk_snd_delay = 15;
+			//walk_snd_delay = 15;
 			attack_chose = irandom_range(0,1)
 			switch (attack_chose)
 			{
@@ -134,6 +134,13 @@ if (obj_game.gamePaused = false)
 		}
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timer1 <= 0)
 		{
+			
+			//audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+			//audio_play_sound(snd_zerwerk_voidRift,0,false);
+			path_end();
+			sprite_index = enemy_idle;
+			timer1 = 20;
+			entity_step = BossTortoiseTrollHammerMissileFire;
 			//walk_snd_delay = 15;
 			//attack_chose = irandom_range(0,1)
 			//switch (attack_chose)
@@ -161,12 +168,12 @@ if (obj_game.gamePaused = false)
 			//	break;
 			//}
 		}
-		if (walk_snd_delay <= 0)
-		{
-			walk_snd_delay = 15;
-			audio_sound_gain(walk_snd,global.volumeEffects,1);
-			audio_play_sound(walk_snd,1,0);
-		}
+		//if (walk_snd_delay <= 0)
+		//{
+		//	walk_snd_delay = 15;
+		//	audio_sound_gain(walk_snd,global.volumeEffects,1);
+		//	audio_play_sound(walk_snd,1,0);
+		//}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -376,6 +383,168 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		animation_end = false;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Hammer Jumpslam
+function BossTortoiseTrollHammerMissileFire(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+
+	if (sprite_index != spr_enemy_tortoiseTroll_hammerMissiles)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_hammerMissiles;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	
+	var _dirPos = round(direction/90);
+	switch(_dirPos)
+	{
+		case 0:
+			dir_offX = 16;
+			dir_offY = -8;
+		break;
+		
+		case 4:
+			dir_offX = 16;
+			dir_offY = -8;
+		break;
+		
+		case 1:
+			dir_offX = 8;
+			dir_offY = -24;
+		break;
+		
+		case 2:
+			dir_offX = -16;
+			dir_offY = -8;
+		break;
+		
+		case 3:
+			dir_offX = -8;
+			dir_offY = 0;
+		break;	
+	}
+	
+	
+	//Launch Missles
+	if (timer1 <= 0)
+	{
+		timer1 = 10;
+		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
+		{
+			direction = other.direction;
+			image_angle = direction;
+			home_state = TrollTortoiseMissile;
+			timer1 = 180;
+			path = -1;
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_trollTortoise_missile;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 2.0;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 65;
+			break_object = other.break_object;
+			fragment_count = 2;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+			speed = enemy_spd;
+		}
+	}
+	else
+	
+	
+	//Animate
+	EnemyAnimation();
+	if (animation_end) 
+	{
+		timer1 = 60;
+		timer2 = 60;
+		z = 0;
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Missile
+function TrollTortoiseMissile(){
+if (obj_game.gamePaused = false)
+{
+
+//Set
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (timer1 > 0) timer1 = timer1 - 1;
+var _playerDir = point_direction(x,y,obj_player.x,obj_player.y)
+//Direction
+if (direction != _playerDir)
+{
+	if (_playerDir - direction < 180)
+	{
+		direction = direction + 2;
+		image_angle = image_angle + 2;
+	}
+	if (_playerDir - direction >= 180)
+	{
+		direction = direction - 2;
+		image_angle = image_angle - 2;
+	}	
+}
+
+//Collision		
+if (place_meeting(x,y,obj_player))
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			inv_dur_timer = 30;
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	instance_destroy();
+}
+if (timer1 <= 0) instance_destroy();
+
+}
+else
+{
+	speed = 0;
 }
 }
 //

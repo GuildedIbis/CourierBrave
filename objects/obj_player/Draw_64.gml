@@ -79,11 +79,11 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
-	if (obj_inventory.form_grid[# form, 8] > 0)
-	{
-		var _magicSPerc = (special/max_special) * 100;
-		draw_healthbar(280,168,316,171,_magicSPerc,c_black,c_white,c_white,0,true,true);
-	}
+	//if (obj_inventory.form_grid[# form, 8] > 0)
+	//{
+	var _magicSPerc = (special/max_special) * 100;
+	draw_healthbar(280,168,316,171,_magicSPerc,c_black,c_white,c_white,0,true,true);
+	//}
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,240,160);
 	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,197,160);

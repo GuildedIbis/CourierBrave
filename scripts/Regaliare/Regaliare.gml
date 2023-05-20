@@ -167,18 +167,18 @@ if (key_attackM)
 }
 
 //Special Attack
-if (obj_inventory.form_grid[# form, 8] > 0)
+//if (obj_inventory.form_grid[# form, 8] > 0)
+//{
+if (key_attackS) and (special >= 500)
 {
-	if (key_attackS) and (special >= 500)
+	if (watervice = false)
 	{
-		if (watervice = false)
-		{
-			special = special - 500;
-			attack_script = RegaliareSpecial;
-			state_script = PlayerStateAttack;
-		}
+		special = special - 500;
+		attack_script = RegaliareSpecial;
+		state_script = PlayerStateAttack;
 	}
 }
+//}
 
 //Roll State
 if (key_ability) and (stamina >= 50)
