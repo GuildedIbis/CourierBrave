@@ -132,7 +132,7 @@ if (obj_game.gamePaused = false)
 				break;
 			}
 		}
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timer1 <= 0)
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (timer1 <= 0)
 		{
 			
 			//audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
@@ -446,7 +446,8 @@ if (obj_game.gamePaused = false)
 			direction = other.direction;
 			image_angle = direction;
 			home_state = TrollTortoiseMissile;
-			timer1 = 180;
+			timer1 = 150;
+			timer2 = 30;
 			path = -1;
 			entity_step = home_state;
 			invincible = false;
@@ -454,7 +455,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_trollTortoise_missile;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.0;
+			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 65;
@@ -495,21 +496,12 @@ if (obj_game.gamePaused = false)
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (timer1 > 0) timer1 = timer1 - 1;
-var _playerDir = point_direction(x,y,obj_player.x,obj_player.y)
+if (timer2 > 0) timer2 = timer2 - 1;
+var _playerDis = abs (direction - point_direction(x,y,obj_player.x,obj_player.y));
+var _playerDir = point_direction(x,y,obj_player.x,obj_player.y);
 //Direction
-if (direction != _playerDir)
-{
-	if (_playerDir - direction < 180)
-	{
-		direction = direction + 2;
-		image_angle = image_angle + 2;
-	}
-	if (_playerDir - direction >= 180)
-	{
-		direction = direction - 2;
-		image_angle = image_angle - 2;
-	}	
-}
+if (timer2 > 0) direction = lerp(direction,_playerDir,.1);
+image_angle = direction;
 
 //Collision		
 if (place_meeting(x,y,obj_player))
