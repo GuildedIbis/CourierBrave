@@ -135,45 +135,38 @@ if (obj_game.gamePaused = false)
 		if (!point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (timer1 <= 0)
 		{
 			
-			//audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
-			//audio_play_sound(snd_zerwerk_voidRift,0,false);
-			path_end();
-			sprite_index = enemy_idle;
-			timer1 = 20;
-			entity_step = BossTortoiseTrollHammerMissileFire;
 			//walk_snd_delay = 15;
-			//attack_chose = irandom_range(0,1)
-			//switch (attack_chose)
-			//{
-			//	case 0:
-			//		audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
-			//		audio_play_sound(snd_zerwerk_voidRift,0,false);
-			//		path_end();
-			//		sprite_index = enemy_idle;
-			//		timer1 = 120;
-			//		timer2 = 23;
-			//		attack_counter = 0;
-			//		entity_step = BossTortoiseTrollHammerSlam;
-			//	break;
+			attack_chose = irandom_range(0,1)
+			switch (attack_chose)
+			{
+				case 0:
+					path_end();
+					sprite_index = enemy_idle;
+					timer1 = 20;
+					entity_step = BossTortoiseTrollHammerMissileFire;
+				break;
 				
-			//	case 1:
-			//		audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
-			//		audio_play_sound(snd_zerwerk_voidRift,0,false);
-			//		path_end();
-			//		sprite_index = enemy_idle;
-			//		timer1 = 180;
-			//		timer2 = 23;
-			//		attack_counter = 0;
-			//		entity_step = BossTortoiseTrollHammerSlam;
-			//	break;
-			//}
+				case 1:
+					path_end();
+					sprite_index = enemy_idle;
+					timer1 = 15;
+					timer2 = 90;
+					entity_step = BossTortoiseTrollHammerBlossom;
+				break;
+			}
+				
 		}
-		//if (walk_snd_delay <= 0)
+		//if (!point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
 		//{
-		//	walk_snd_delay = 15;
-		//	audio_sound_gain(walk_snd,global.volumeEffects,1);
-		//	audio_play_sound(walk_snd,1,0);
+			
+		//	//audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+		//	//audio_play_sound(snd_zerwerk_voidRift,0,false);
+		//	path_end();
+		//	sprite_index = enemy_idle;
+		//	timer1 = 15;
+		//	entity_step = BossTortoiseTrollHammerBlossom;
 		//}
+		
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -480,6 +473,230 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		animation_end = false;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Hammer Blossom
+function BossTortoiseTrollHammerBlossom(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+
+	if (sprite_index != spr_enemy_tortoiseTroll_hammerBlossom)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_hammerBlossom;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	
+	//Launch Missles
+	if (timer1 <= 0)
+	{
+		timer1 = 30;
+		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
+		{
+			direction = (point_direction(x,y,obj_player.x,obj_player.y));
+			home_state = TrollTortoiseMound;
+			timer1 = 180;
+			timer2 = 90;
+			path = -1;
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_tortoiseTroll_mound;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 2.25;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 65;
+			break_object = other.break_object;
+			fragment_count = 2;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+			speed = enemy_spd;
+		}
+	}
+	
+	
+	//Animate
+	EnemyAnimation1();
+	if (animation_end) 
+	{
+		timer1 = 120;
+		timer2 = 60;
+		z = 0;
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Mound
+function TrollTortoiseMound(){
+if (obj_game.gamePaused = false)
+{
+
+//Set
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+
+//Direction
+if (path_exists(path)) path_delete(path);
+path = path_add();
+mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
+path_start(path, enemy_spd, 0, 0);
+
+//Collision		
+if (place_meeting(x,y,obj_player))
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	entity_step = TrollTortoiseBlossom;
+	timer1 = 55;
+	timer2 = 60;
+}
+if (place_meeting(x,y,break_object)) 
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Blossom
+function TrollTortoiseBlossom(){
+if (obj_game.gamePaused = false)
+{
+
+//Set
+sprite_index = spr_enemy_tortoiseTroll_blossom;
+speed = 0;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+
+if (timer1 <= 0)
+{
+	timer1 = 120;
+	for (var i = 0; i < 3; i = i + 1)
+	{	
+		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
+		{
+			direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
+			home_state = TrollTortoiseBlossomOrb;
+			exploded = false;
+			timer1 = 19;
+			path = -1;
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_tortoiseTroll_blossomOrb;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 3;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 100;
+			break_object = other.break_object;
+			fragment_count = 2;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+			speed = enemy_spd;
+		}
+	}
+
+}
+
+if (timer2 <= 0) instance_destroy();
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Blossom Orb
+function TrollTortoiseBlossomOrb(){
+if (obj_game.gamePaused = false)
+{
+
+if (point_in_circle(obj_player.x,obj_player.y,x,y,6))
+{
+	
+	exploded = true;
+	speed = 0;
+}
+if (exploded = true)
+{
+	timer1 = timer1 - 1;
+	if (timer1 <= 0) instance_destroy();
+	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
+}
+else
+{
+	sprite_index = spr_enemy_tortoiseTroll_blossomOrb;
+}
+	
+
+//Collision		
+if (place_meeting(x,y,obj_player))
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			inv_dur_timer = 30;
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+}
+if (place_meeting(x,y,break_object)) 
+{
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
+	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
+	exploded = true;
+	speed = 0;
+}
+}
+else
+{
+	speed = 0;
 }
 }
 //

@@ -339,7 +339,8 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				script_execute(HeatwaveCreate);
-				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
+				timer1 = 15;
+				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
 				speed = 1.1;
 				break_object = other.break_object;

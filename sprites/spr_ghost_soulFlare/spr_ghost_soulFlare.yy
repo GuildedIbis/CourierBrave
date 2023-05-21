@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Ghost",
-    "path": "folders/Sprites/Enemy/Lenko/Ghost.yy",
+    "name": "Masgar",
+    "path": "folders/Sprites/Enemy/Lenko/Ghost/Masgar.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
