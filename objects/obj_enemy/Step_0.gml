@@ -4,6 +4,7 @@
 script_execute(entity_step);
 if (bullet = false)
 {
+	if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
 	if (obj_game.room_num != -1) and (activate_args != -1)
 	{
 		if (obj_game.room_enemy_grid[# obj_game.room_num, activate_args] = true)

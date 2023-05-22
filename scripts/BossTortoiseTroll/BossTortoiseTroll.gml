@@ -16,7 +16,7 @@ entity_step = home_state;
 entity_drop = BossTortoiseTrollDrop;
 enemy_idle = spr_enemy_tortoiseTroll_idle;
 enemy_move = spr_enemy_tortoiseTroll_run;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_tortoiseTroll_damaged;
 walk_snd = snd_walk_regular;
 shadow = 2;
 lit = false;
@@ -36,6 +36,7 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerS = 0;
 walk_snd_delay = 0;
 path = -1;
 }
@@ -97,8 +98,8 @@ if (obj_game.gamePaused = false)
 					sprite_index = enemy_idle;
 					if (timer1 <= 0)
 					{
-						audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
-						audio_play_sound(snd_zerwerk_slash,0,false);
+						audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
+						audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 						timer1 = 7;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
@@ -117,8 +118,8 @@ if (obj_game.gamePaused = false)
 					image_index = 0;
 					if (timer1 <= 0)
 					{
-						audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
-						audio_play_sound(snd_zerwerk_slash,0,false);
+						audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
+						audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 						timer1 = 7;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
@@ -149,7 +150,7 @@ if (obj_game.gamePaused = false)
 				case 1:
 					path_end();
 					sprite_index = enemy_idle;
-					timer1 = 15;
+					timer1 = 14;
 					timer2 = 90;
 					entity_step = BossTortoiseTrollHammerBlossom;
 				break;
@@ -208,6 +209,8 @@ if (obj_game.gamePaused = false)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
+			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
+			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
 			entity_step = BossTortoiseTrollHammerLunge;
 			animation_end = false;
 			timer2 = 12;
@@ -217,11 +220,14 @@ if (obj_game.gamePaused = false)
 		}
 		else
 		{
+			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
+			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
 			entity_step = BossTortoiseTrollJumpslam;
 			animation_end = false;
 			timer1 = 60;
 			timer2 = 40;
 			timer3 = 20;
+			timerS = 40;
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
 			//hor_spd = lengthdir_x(3,direction);
 			//ver_spd = lengthdir_y(3,direction);
@@ -271,6 +277,8 @@ if (obj_game.gamePaused = false)
 		timer1 = 120;
 		timer2 = 120;
 		entity_step = BossTortoiseTrollHammerBackslam;
+		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
+		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 		direction = (point_direction(x,y,obj_player.x,obj_player.y));
 		animation_end = false;
 	}
@@ -323,6 +331,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerS > 0) timerS = timerS - 1;
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerJumpslam)
 	{
 		//Start Animation From Beginning
@@ -333,7 +342,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 110;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	if (timer3 > 0)
@@ -357,6 +366,13 @@ if (obj_game.gamePaused = false)
 		speed = 0;
 	}
 	
+	//Sound
+	if (timerS <= 0)
+	{
+		timerS = 300;
+		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
+		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
+	}
 	var _collided = EnemyCollision();
 	if (_collided = true) or (timer1 < 0)
 	{
@@ -433,6 +449,8 @@ if (obj_game.gamePaused = false)
 	//Launch Missles
 	if (timer1 <= 0)
 	{
+		audio_sound_gain(snd_tortoiseTroll_missiles,global.volumeEffects,1);
+		audio_play_sound(snd_tortoiseTroll_missiles,0,false);
 		timer1 = 10;
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
 		{
@@ -501,13 +519,12 @@ if (obj_game.gamePaused = false)
 	//Launch Missles
 	if (timer1 <= 0)
 	{
-		timer1 = 30;
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
 			home_state = TrollTortoiseMound;
 			timer1 = 180;
-			timer2 = 90;
+			timer2 = 0;
 			path = -1;
 			entity_step = home_state;
 			invincible = false;
@@ -526,6 +543,7 @@ if (obj_game.gamePaused = false)
 			hit_script = EntityHitDestroy;
 			speed = enemy_spd;
 		}
+		timer1 = 29;
 	}
 	
 	
@@ -563,20 +581,21 @@ path = path_add();
 mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
 path_start(path, enemy_spd, 0, 0);
 
+if (timer2 <= 0)
+{
+	audio_sound_gain(snd_tortoiseTroll_mound_move,global.volumeEffects,1);
+	audio_play_sound(snd_tortoiseTroll_mound_move,0,false);
+	timer2 = 30;
+}
 //Collision		
 if (place_meeting(x,y,obj_player))
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_tortoiseTroll_blossom,global.volumeEffects,1);
+	audio_play_sound(snd_tortoiseTroll_blossom,0,false);
 	entity_step = TrollTortoiseBlossom;
 	timer1 = 55;
 	timer2 = 60;
-}
-if (place_meeting(x,y,break_object)) 
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	instance_destroy();
+	timer3 = 0;
 }
 }
 else
@@ -602,6 +621,8 @@ if (timer2 > 0) timer2 = timer2 - 1;
 
 if (timer1 <= 0)
 {
+	audio_sound_gain(snd_tortoiseTroll_blossomShoot,global.volumeEffects,1);
+	audio_play_sound(snd_tortoiseTroll_blossomShoot,0,false);
 	timer1 = 120;
 	for (var i = 0; i < 3; i = i + 1)
 	{	
@@ -646,9 +667,10 @@ function TrollTortoiseBlossomOrb(){
 if (obj_game.gamePaused = false)
 {
 
-if (point_in_circle(obj_player.x,obj_player.y,x,y,6))
+if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
 {
-	
+	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
+	audio_play_sound(snd_blossomOrb_explode,0,false);
 	exploded = true;
 	speed = 0;
 }
@@ -685,10 +707,10 @@ if (place_meeting(x,y,obj_player))
 		}
 	}
 }
-if (place_meeting(x,y,break_object)) 
+if (place_meeting(x,y,break_object)) and (exploded = false)
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
+	audio_play_sound(snd_blossomOrb_explode,0,false);
 	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
 	exploded = true;
 	speed = 0;
@@ -714,7 +736,7 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
-var _playerDis = abs (direction - point_direction(x,y,obj_player.x,obj_player.y));
+//var _playerDis = abs (direction - point_direction(x,y,obj_player.x,obj_player.y));
 var _playerDir = point_direction(x,y,obj_player.x,obj_player.y);
 //Direction
 if (timer2 > 0) direction = lerp(direction,_playerDir,.1);

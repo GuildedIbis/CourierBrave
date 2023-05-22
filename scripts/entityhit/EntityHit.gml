@@ -22,10 +22,11 @@ if (invincible = false)
 	hp = hp - other.damage;
 	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
 	audio_play_sound(snd_enemy_hit_all,10,false)
-	if (_sndChance = 1)
+	if (_sndChance = 1) and (dmg_snd_delay <= 0)
 	{
 		audio_sound_gain(damaged_snd,global.volumeEffects,1);
 		audio_play_sound(damaged_snd,10,false)
+		dmg_snd_delay = 15;
 	}
 }
 if (invincible = true)
