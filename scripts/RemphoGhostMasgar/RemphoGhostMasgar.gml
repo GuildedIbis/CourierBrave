@@ -27,7 +27,7 @@ image_speed = 0;
 image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 600;
+max_hp = 700;
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -59,7 +59,8 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 		timer1 = timer1 - 1;
 	}
 	if (flash > 0) entity_step = EnemyDamaged;
-
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -104,15 +105,37 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 		
 		script_execute(EnemyChase);
 		walk_snd_delay = walk_snd_delay - 1;
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
 		{
-			
+			path_end();
+			walk_snd_delay = 15;
+			sprite_index = enemy_idle;
+		}
+
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) and (timer1 <= 0)
+		{
+			path_end();
+			walk_snd_delay = 15;
+			sprite_index = enemy_idle;
+			entity_step = RemphoGhostMasgarSlash;
+		}
+		if (timer2 <= 0)
+		{
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
 			timer1 = 120;
 			timer2 = 23;
 			entity_step = RemphoGhostMasgarShadowShiftA;
+		}
+		if (timer3 <= 0)
+		{
+			path_end();
+			walk_snd_delay = 15;
+			sprite_index = enemy_idle;
+			timer1 = 120;
+			timer2 = 23;
+			entity_step = RemphoGhostMasgarPhantomBladeSummon;
 		}
 		//if (walk_snd_delay <= 0)
 		//{
@@ -187,6 +210,7 @@ if (obj_game.gamePaused = false)
 function RemphoGhostMasgarShadowShiftB(){
 if (obj_game.gamePaused = false)
 {
+	if (timer2 > 0) timer2 = timer2 - 1;
 	//Set
 	if (sprite_index != spr_enemy_ghostMasgar_shadowShiftB)
 	{
@@ -199,9 +223,9 @@ if (obj_game.gamePaused = false)
 	//Animation
 	damage = 70;
 	//Cacluate Attack
-	if (timer2 <= 0)
+	if (timer3 <= 0)
 	{	
-		timer2 = 84;
+		timer3 = 84;
 		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulSkull,0,false);
 	}
@@ -210,8 +234,12 @@ if (obj_game.gamePaused = false)
 	{
 		attack_counter = attack_counter + 1;
 		entity_step = RemphoGhostMasgarFree;
-		if (attack_counter < 3) timer1 = 0;
-		else timer1 = 300;
+		if (attack_counter < 3) timer2 = 0;
+		else 
+		{
+			attack_counter = 0;
+			timer2 = 180;
+		}
 		audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+22,y-8,"Instances",obj_enemy_projectile))
@@ -312,6 +340,204 @@ if (obj_game.gamePaused = false)
 		}
 
 	}
+}
+}
+//
+//
+//
+//
+//
+//Balurne Skirmisher Slash State
+function RemphoGhostMasgarSlash(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_ghostMasgar_slash)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_ghostMasgar_slash;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_play_sound(snd_slash01,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 80;
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_enemy_ghostMasgar_slash_hitbox)
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		timer1 = 60;
+		entity_step = RemphoGhostMasgarFree;
+		sprite_index = enemy_idle;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Rempho Ghost Masgar Phantom Blade
+function RemphoGhostMasgarPhantomBladeSummon(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_ghostMasgar_phantomBlade_summon)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_ghostMasgar_phantomBlade_summon;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_play_sound(snd_slash01,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		timer3 = 600;
+		entity_step = RemphoGhostMasgarFree;
+		sprite_index = enemy_idle;
+		with (instance_create_layer(x,y-4,"Instances",obj_enemy_projectile))
+		{
+			direction = (point_direction(x,y,obj_player.x,obj_player.y));
+			home_state = PhantomBlade;
+			attack_counter = 0;
+			timer1 = 300;
+			timer2 = 60;
+			timer3 = 30;
+			path = -1;
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_ghostMasgar_phantomBlade;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 3;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 80;
+			break_object = other.break_object;
+			fragment_count = 3;
+			fragment = obj_fragGold;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+			speed = enemy_spd;
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Masgar Phantom Blade
+function PhantomBlade(){
+if (obj_game.gamePaused = false)
+{
+
+//Set
+sprite_index = spr_enemy_ghostMasgar_phantomBlade;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer3 > 0) timer3 = timer3 - 1;
+
+if (timer3 <= 0)
+{
+	speed = .25;
+	direction = point_direction(x,y,obj_player.x,obj_player.y);
+	image_angle = direction;
+}
+if (timer2 <= 0)
+{
+	audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
+	audio_play_sound(snd_ghost_soulFlare,0,false);
+	timer2 = 30;
+	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
+	{
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		home_state = PhantomDagger;
+		exploded = false;
+		path = -1;
+		entity_step = home_state;
+		invincible = false;
+		inv_dur_timer = 0;
+		enemy_move = spr_enemy_ghostMasgar_phantomDagger;
+		aggro_drop = 300;
+		healthbar = false;
+		enemy_spd = 3;
+		local_frame = 0;
+		hit_by_attack = -1;
+		damage = 30;
+		break_object = other.break_object;
+		fragment_count = 1;
+		fragment = obj_fragGold;
+		bullet = true;
+		hit_script = EntityHitDestroy;
+		speed = enemy_spd;
+	}
+}
+
+if (timer1 <= 0) instance_destroy();
+
+if (place_meeting(x,y,break_object)) 
+{
+	speed = 0;
+}
+}
+}
+//
+//
+//
+//
+//
+//Phantom Dagger
+function PhantomDagger(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
+	audio_play_sound(snd_gorogKnife_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+			
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
+	audio_play_sound(snd_gorogKnife_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
 }
 }
 //
