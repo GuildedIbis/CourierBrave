@@ -827,6 +827,7 @@ if (_drop3 > 49)
 	
 }
 obj_inventory.beaowire_dungeon[10] = 2;
+obj_inventory.beaowire_dungeon[12] = 2;
 obj_inventory.beaowire_dungeon[14] = 2;
 obj_inventory.beaowire_dungeon[15] = 1;
 if (obj_inventory.quest_grid[# 14, 3] = false)

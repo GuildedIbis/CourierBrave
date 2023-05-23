@@ -64,7 +64,30 @@ if (variable_struct_exists(_loadEntity,"quest130")) obj_inventory.quest_grid[# 1
 if (variable_struct_exists(_loadEntity,"quest131")) obj_inventory.quest_grid[# 13, 1] = _loadEntity.quest131;
 if (variable_struct_exists(_loadEntity,"quest132")) obj_inventory.quest_grid[# 13, 2] = _loadEntity.quest132;
 if (variable_struct_exists(_loadEntity,"quest133")) obj_inventory.quest_grid[# 13, 3] = _loadEntity.quest133;
-
+if (variable_struct_exists(_loadEntity,"quest140")) obj_inventory.quest_grid[# 14, 0] = _loadEntity.quest140;
+if (variable_struct_exists(_loadEntity,"quest141")) obj_inventory.quest_grid[# 14, 1] = _loadEntity.quest141;
+if (variable_struct_exists(_loadEntity,"quest142")) obj_inventory.quest_grid[# 14, 2] = _loadEntity.quest142;
+if (variable_struct_exists(_loadEntity,"quest143")) obj_inventory.quest_grid[# 14, 3] = _loadEntity.quest143;
+if (variable_struct_exists(_loadEntity,"quest150")) obj_inventory.quest_grid[# 15, 0] = _loadEntity.quest150;
+if (variable_struct_exists(_loadEntity,"quest151")) obj_inventory.quest_grid[# 15, 1] = _loadEntity.quest151;
+if (variable_struct_exists(_loadEntity,"quest152")) obj_inventory.quest_grid[# 15, 2] = _loadEntity.quest152;
+if (variable_struct_exists(_loadEntity,"quest153")) obj_inventory.quest_grid[# 15, 3] = _loadEntity.quest153;
+if (variable_struct_exists(_loadEntity,"quest160")) obj_inventory.quest_grid[# 16, 0] = _loadEntity.quest160;
+if (variable_struct_exists(_loadEntity,"quest161")) obj_inventory.quest_grid[# 16, 1] = _loadEntity.quest161;
+if (variable_struct_exists(_loadEntity,"quest162")) obj_inventory.quest_grid[# 16, 2] = _loadEntity.quest162;
+if (variable_struct_exists(_loadEntity,"quest163")) obj_inventory.quest_grid[# 16, 3] = _loadEntity.quest163;
+if (variable_struct_exists(_loadEntity,"quest170")) obj_inventory.quest_grid[# 17, 0] = _loadEntity.quest170;
+if (variable_struct_exists(_loadEntity,"quest171")) obj_inventory.quest_grid[# 17, 1] = _loadEntity.quest171;
+if (variable_struct_exists(_loadEntity,"quest172")) obj_inventory.quest_grid[# 17, 2] = _loadEntity.quest172;
+if (variable_struct_exists(_loadEntity,"quest173")) obj_inventory.quest_grid[# 17, 3] = _loadEntity.quest173;
+if (variable_struct_exists(_loadEntity,"quest180")) obj_inventory.quest_grid[# 18, 0] = _loadEntity.quest180;
+if (variable_struct_exists(_loadEntity,"quest181")) obj_inventory.quest_grid[# 18, 1] = _loadEntity.quest181;
+if (variable_struct_exists(_loadEntity,"quest182")) obj_inventory.quest_grid[# 18, 2] = _loadEntity.quest182;
+if (variable_struct_exists(_loadEntity,"quest183")) obj_inventory.quest_grid[# 18, 3] = _loadEntity.quest183;
+if (variable_struct_exists(_loadEntity,"quest190")) obj_inventory.quest_grid[# 19, 0] = _loadEntity.quest190;
+if (variable_struct_exists(_loadEntity,"quest191")) obj_inventory.quest_grid[# 19, 1] = _loadEntity.quest191;
+if (variable_struct_exists(_loadEntity,"quest192")) obj_inventory.quest_grid[# 19, 2] = _loadEntity.quest192;
+if (variable_struct_exists(_loadEntity,"quest193")) obj_inventory.quest_grid[# 19, 3] = _loadEntity.quest193;
 }
 //
 //
@@ -136,6 +159,30 @@ quest130 : obj_inventory.quest_grid[# 13, 0],
 quest131 : obj_inventory.quest_grid[# 13, 1],
 quest132 : obj_inventory.quest_grid[# 13, 2],
 quest133 : obj_inventory.quest_grid[# 13, 3],
+quest140 : obj_inventory.quest_grid[# 14, 0],
+quest141 : obj_inventory.quest_grid[# 14, 1],
+quest142 : obj_inventory.quest_grid[# 14, 2],
+quest143 : obj_inventory.quest_grid[# 14, 3],
+quest150 : obj_inventory.quest_grid[# 15, 0],
+quest151 : obj_inventory.quest_grid[# 15, 1],
+quest152 : obj_inventory.quest_grid[# 15, 2],
+quest153 : obj_inventory.quest_grid[# 15, 3],
+quest160 : obj_inventory.quest_grid[# 16, 0],
+quest161 : obj_inventory.quest_grid[# 16, 1],
+quest162 : obj_inventory.quest_grid[# 16, 2],
+quest163 : obj_inventory.quest_grid[# 16, 3],
+quest170 : obj_inventory.quest_grid[# 17, 0],
+quest171 : obj_inventory.quest_grid[# 17, 1],
+quest172 : obj_inventory.quest_grid[# 17, 2],
+quest173 : obj_inventory.quest_grid[# 17, 3],
+quest180 : obj_inventory.quest_grid[# 18, 0],
+quest181 : obj_inventory.quest_grid[# 18, 1],
+quest182 : obj_inventory.quest_grid[# 18, 2],
+quest183 : obj_inventory.quest_grid[# 18, 3],
+quest190 : obj_inventory.quest_grid[# 19, 0],
+quest191 : obj_inventory.quest_grid[# 19, 1],
+quest192 : obj_inventory.quest_grid[# 19, 2],
+quest193 : obj_inventory.quest_grid[# 19, 3],
 }
 array_push(_saveData, _saveQuest);
 }

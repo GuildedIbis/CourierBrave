@@ -158,27 +158,27 @@ for (var i = 0; i < 6; i = i + 1)
 }
 if (obj_game.room_num != -1)
 {
-	var _x = (107 + obj_inventory.room_ary[room_num][1])
-	var _y = (45 + obj_inventory.room_ary[room_num][2])
+	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])
+	var _y = (45 + obj_inventory.room_ary[obj_game.room_num][2])
 	draw_sprite(spr_map_pointer,0,_x,_y);
 }
-//if (obj_inventory.camp_grid[# 0, 3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,0,160,48,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,156,44,164,52))
-//	{
-//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
-//		draw_set_halign(fa_left);
-//		draw_set_valign(fa_middle);
-//		draw_set_color(c_white);
-//		draw_set_font(fnt_text);
-//		draw_text_transformed(262,32,"CAMP",.5,.5,0);
-//		draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-//		draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-//		draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-//		draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-//	}
-//}
+if (obj_inventory.camp_grid[# 0, 3] = true) 
+{
+	draw_sprite_ext(spr_map_icon,0,66,107,1,1,0,c_white,1);
+	//if (point_in_rectangle(_mouseX,_mouseY,156,44,164,52))
+	//{
+	//	draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
+	//	draw_set_halign(fa_left);
+	//	draw_set_valign(fa_middle);
+	//	draw_set_color(c_white);
+	//	draw_set_font(fnt_text);
+	//	draw_text_transformed(262,32,"CAMP",.5,.5,0);
+	//	draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+	//	draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+	//	draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+	//	draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
+	//}
+}
 //if (obj_inventory.camp_grid[# 1, 3] = true) 
 //{
 //	draw_sprite_ext(spr_map_icon,0,215,48,1,1,0,c_white,1);
