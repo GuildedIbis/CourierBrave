@@ -167,18 +167,16 @@ if (key_attackM)
 }
 
 //Special Attack
-if (obj_inventory.form_grid[# form, 8] > 0)
+if (key_attackS) and (special_timer >= max_special_timer)
 {
-	if (key_attackS) and (special_timer >= max_special_timer)
-	{
-		//if (watervice = false)
-		//{
-		//	special_timer = 0;
-		//	attack_script = AdavioSpecial;
-		//	state_script = PlayerStateAttack;
-		//}
-	}
+	//if (watervice = false)
+	//{
+	//	special_timer = 0;
+	//	attack_script = AdavioSpecial;
+	//	state_script = PlayerStateAttack;
+	//}
 }
+
 
 //Roll State
 if (key_ability) and (stamina >= 50)

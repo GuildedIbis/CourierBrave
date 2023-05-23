@@ -35,6 +35,7 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerS = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -124,7 +125,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			timer1 = 120;
+			timerS = 0;
 			timer2 = 23;
 			entity_step = RemphoGhostMasgarShadowShiftA;
 		}
@@ -133,8 +134,6 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			timer1 = 120;
-			timer2 = 23;
 			entity_step = RemphoGhostMasgarPhantomBladeSummon;
 		}
 		//if (walk_snd_delay <= 0)
@@ -163,7 +162,9 @@ function RemphoGhostMasgarShadowShiftA(){
 if (obj_game.gamePaused = false)
 {
 	image_alpha = 1;
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_ghostMasgar_shadowShiftA)
 	{
 		//Start Animation From Beginning
@@ -194,6 +195,7 @@ if (obj_game.gamePaused = false)
 		//	hit_script = EntityHitDestroy;
 		//}
 		timer2 = 42;
+		timerS = 42;
 		x = obj_player.x;
 		y = obj_player.y;
 		entity_step = RemphoGhostMasgarShadowShiftB;
@@ -210,7 +212,10 @@ if (obj_game.gamePaused = false)
 function RemphoGhostMasgarShadowShiftB(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerS > 0) timerS = timerS - 1;
 	//Set
 	if (sprite_index != spr_enemy_ghostMasgar_shadowShiftB)
 	{
@@ -223,9 +228,9 @@ if (obj_game.gamePaused = false)
 	//Animation
 	damage = 70;
 	//Cacluate Attack
-	if (timer3 <= 0)
+	if (timerS <= 0)
 	{	
-		timer3 = 84;
+		timerS = 84;
 		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulSkull,0,false);
 	}
@@ -351,7 +356,9 @@ if (obj_game.gamePaused = false)
 function RemphoGhostMasgarSlash(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_ghostMasgar_slash)
 	{
 		//Start Animation From Beginning
@@ -386,7 +393,9 @@ if (obj_game.gamePaused = false)
 function RemphoGhostMasgarPhantomBladeSummon(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_ghostMasgar_phantomBlade_summon)
 	{
 		//Start Animation From Beginning
@@ -401,15 +410,19 @@ if (obj_game.gamePaused = false)
 
 
 	//Animate
-	EnemyAnimation();
+	EnemyAnimation1();
 	if (animation_end)
 	{
 		timer3 = 600;
 		entity_step = RemphoGhostMasgarFree;
 		sprite_index = enemy_idle;
+		audio_sound_gain(snd_ghost_phantomBlades,global.volumeEffects,1);
+		audio_play_sound(snd_ghost_phantomBlades,0,false);
 		with (instance_create_layer(x,y-4,"Instances",obj_enemy_projectile))
 		{
-			direction = (point_direction(x,y,obj_player.x,obj_player.y));
+			dir_x = obj_player.x;
+			dir_y = obj_player.y;
+			direction = (point_direction(x,y,dir_x,dir_y));
 			home_state = PhantomBlade;
 			attack_counter = 0;
 			timer1 = 300;
@@ -452,17 +465,17 @@ if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer3 > 0) timer3 = timer3 - 1;
 
-if (timer3 <= 0)
+if (timer3 <= 0) or (point_in_circle(dir_x,dir_y,x,y,8))
 {
-	speed = .25;
+	speed = .5;
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
 	image_angle = direction;
 }
 if (timer2 <= 0)
 {
-	audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
-	audio_play_sound(snd_ghost_soulFlare,0,false);
-	timer2 = 30;
+	audio_sound_gain(snd_ghost_phantomBlades,global.volumeEffects,1);
+	audio_play_sound(snd_ghost_phantomBlades,0,false);
+	timer2 = 10;
 	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 	{
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
@@ -478,7 +491,7 @@ if (timer2 <= 0)
 		enemy_spd = 3;
 		local_frame = 0;
 		hit_by_attack = -1;
-		damage = 30;
+		damage = 25;
 		break_object = other.break_object;
 		fragment_count = 1;
 		fragment = obj_fragGold;

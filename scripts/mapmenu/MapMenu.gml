@@ -117,12 +117,7 @@ if (map_selected != -1)
 	//draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
 	script_execute(map_selected)
 }
-if (room_num != -1)
-{
-	var _x = (107 + obj_inventory.room_ary[room_num][1])
-	var _y = (45 + obj_inventory.room_ary[room_num][2])
-	draw_sprite(spr_map_pointer,0,_x,_y);
-}
+
 
 
 
@@ -160,6 +155,12 @@ for (var i = 0; i < 6; i = i + 1)
 		draw_sprite_part(spr_map,i,0,55,139,78,107,45);
 		
 	}
+}
+if (obj_game.room_num != -1)
+{
+	var _x = (107 + obj_inventory.room_ary[room_num][1])
+	var _y = (45 + obj_inventory.room_ary[room_num][2])
+	draw_sprite(spr_map_pointer,0,_x,_y);
 }
 //if (obj_inventory.camp_grid[# 0, 3] = true) 
 //{

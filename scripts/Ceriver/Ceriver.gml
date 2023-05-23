@@ -170,17 +170,14 @@ if (key_attackM)
 }
 
 //Special Attack
-if (obj_inventory.form_grid[# form, 8] > 0)
+if (key_attackS) and (special_count > 0)
 {
-	if (key_attackS) and (special_count > 0)
-	{
-		//if (watervice = false)
-		//{
-		//	magic_timer = 30;
-		//	attack_script = CeriverDrainDartCast;
-		//	state_script = PlayerStateAttack;
-		//}
-	}
+	//if (watervice = false)
+	//{
+	//	magic_timer = 30;
+	//	attack_script = CeriverDrainDartCast;
+	//	state_script = PlayerStateAttack;
+	//}
 }
 
 //Roll State

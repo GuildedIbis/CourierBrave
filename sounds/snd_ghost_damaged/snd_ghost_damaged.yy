@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 3.2,
   "parent": {
-    "name": "LenkoMain",
-    "path": "folders/Sounds/Enemy/Lenko/LenkoMain.yy",
+    "name": "Ghost",
+    "path": "folders/Sounds/Enemy/Lenko/LenkoMain/Ghost.yy",
   },
   "preload": false,
   "sampleRate": 44100,

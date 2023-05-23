@@ -88,7 +88,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_sprite(spr_weapons_allGame,form,240,160);
 	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,197,160);
 	else draw_sprite(spr_magicAlt_allGame,form,197,160);
-	if (obj_inventory.form_grid[# form, 8] > 0) draw_sprite(spr_special_allGame,form,282,160);
+	draw_sprite(spr_special_allGame,form,282,160);
 	
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);

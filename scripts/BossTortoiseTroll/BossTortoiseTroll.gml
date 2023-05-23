@@ -133,7 +133,7 @@ if (obj_game.gamePaused = false)
 				break;
 			}
 		}
-		if (!point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (timer1 <= 0)
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,32)) and (timer1 <= 0)
 		{
 			
 			//walk_snd_delay = 15;
@@ -314,8 +314,8 @@ if (obj_game.gamePaused = false)
 	{
 		animation_end = false;
 		entity_step = home_state;
-		timer1 = 120;
-		timer2 = 120;
+		timer1 = 30;
+		timer2 = 30;
 	}
 }
 }
@@ -386,8 +386,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end) 
 	{
-		timer1 = 60;
-		timer2 = 60;
+		timer1 = 120;
+		timer2 = 120;
 		z = 0;
 		entity_step = home_state;
 		animation_end = false;
@@ -485,8 +485,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end) 
 	{
-		timer1 = 60;
-		timer2 = 60;
+		timer1 = 15;
+		timer2 = 15;
 		z = 0;
 		entity_step = home_state;
 		animation_end = false;
@@ -552,7 +552,7 @@ if (obj_game.gamePaused = false)
 	if (animation_end) 
 	{
 		timer1 = 120;
-		timer2 = 60;
+		timer2 = 120;
 		z = 0;
 		entity_step = home_state;
 		animation_end = false;
@@ -826,19 +826,21 @@ if (_drop3 > 49)
 	}
 	
 }
-//obj_inventory.yakflower_lair[4] = 1;
-//if (obj_inventory.quest_grid[# 8, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 8, 0] = true;
-//	obj_inventory.quest_grid[# 8, 1] = obj_inventory.quest_grid[# 8, 2];
-//	obj_inventory.quest_grid[# 8, 3] = true;
-//	with (obj_text)
-//	{
-//		text_script = ZerwerkVictoryText;
-//	}
-//	obj_game.gamePaused = !obj_game.gamePaused;
-//	obj_game.textPaused = !obj_game.textPaused;
-//}
+obj_inventory.beaowire_dungeon[10] = 2;
+obj_inventory.beaowire_dungeon[14] = 2;
+obj_inventory.beaowire_dungeon[15] = 1;
+if (obj_inventory.quest_grid[# 14, 3] = false)
+{
+	obj_inventory.quest_grid[# 14, 0] = true;
+	obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
+	obj_inventory.quest_grid[# 14, 3] = true;
+	//with (obj_text)
+	//{
+	//	text_script = ZerwerkVictoryText;
+	//}
+	//obj_game.gamePaused = !obj_game.gamePaused;
+	//obj_game.textPaused = !obj_game.textPaused;
+}
 
 	
 }
