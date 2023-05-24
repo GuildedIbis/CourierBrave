@@ -52,6 +52,7 @@ if (variable_struct_exists(_loadEntity,"camp00")) obj_inventory.camp_grid[# 0, 3
 if (variable_struct_exists(_loadEntity,"camp01")) obj_inventory.camp_grid[# 1, 3] = _loadEntity.camp01;
 if (variable_struct_exists(_loadEntity,"camp02")) obj_inventory.camp_grid[# 2, 3] = _loadEntity.camp02;
 if (variable_struct_exists(_loadEntity,"camp03")) obj_inventory.camp_grid[# 3, 3] = _loadEntity.camp03;
+if (variable_struct_exists(_loadEntity,"camp04")) obj_inventory.camp_grid[# 4, 3] = _loadEntity.camp04;
 
 }
 //
@@ -110,6 +111,7 @@ camp00 : obj_inventory.camp_grid[# 0, 3],
 camp01 : obj_inventory.camp_grid[# 1, 3],
 camp02 : obj_inventory.camp_grid[# 2, 3],
 camp03 : obj_inventory.camp_grid[# 3, 3],
+camp04 : obj_inventory.camp_grid[# 4, 3],
 
 }
 array_push(_saveData, _saveQuest);

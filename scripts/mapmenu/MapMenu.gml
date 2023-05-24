@@ -134,8 +134,8 @@ if (map_selected != -1)
 //
 //Lenk Map Menu Draw
 function LenkoMapMenuDraw(){
-//var _mouseX = device_mouse_x_to_gui(0);
-//var _mouseY = device_mouse_y_to_gui(0);
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 //0 Camp
 //1 Lair
 //2 Dungeon
@@ -146,45 +146,100 @@ function LenkoMapMenuDraw(){
 //7 Main Boss
 //Camps
 
+//Draw Map Backround and Rooms
 for (var i = 0; i < 6; i = i + 1)
 {
 	//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
 	if (obj_inventory.map_grid[# i, 1] = true)
 	{
 		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_part(spr_map,i,0,55,139,78,107,45);
+		draw_sprite_part(spr_map,i,0,63,139,78,107,45);
 		
 	}
 }
-if (obj_game.room_num != -1)
-{
-	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])
-	var _y = (45 + obj_inventory.room_ary[obj_game.room_num][2])
-	draw_sprite(spr_map_pointer,0,_x,_y);
-}
+
+//Draw Camps (Selectable for travel
 if (obj_inventory.camp_grid[# 0, 3] = true) 
 {
-	draw_sprite_ext(spr_map_icon,0,66,107,1,1,0,c_white,1);
-	//if (point_in_rectangle(_mouseX,_mouseY,156,44,164,52))
-	//{
-	//	draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
-	//	draw_set_halign(fa_left);
-	//	draw_set_valign(fa_middle);
-	//	draw_set_color(c_white);
-	//	draw_set_font(fnt_text);
-	//	draw_text_transformed(262,32,"CAMP",.5,.5,0);
-	//	draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-	//	draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-	//	draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-	//	draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	//}
+	draw_sprite_ext(spr_map_alter_icon,0,146,55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,143,52,148,56))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,146,55);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 1;
+			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+			obj_game.room_num = 1;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 0, 1];
+			global.targetY = obj_inventory.camp_grid[# 0, 2];
+			global.targetRoom = rm_lenko_farwayCamp;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+			
+		}
+		//draw_set_halign(fa_left);
+		//draw_set_valign(fa_middle);
+		//draw_set_color(c_white);
+		//draw_set_font(fnt_text);
+		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
+		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
+	}
 }
-//if (obj_inventory.camp_grid[# 1, 3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,0,215,48,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,211,44,219,52))
-//	{
-//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
+if (obj_inventory.camp_grid[# 1, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,174,60,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,171,57,176,61))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,174,60);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 1, 1];
+			global.targetY = obj_inventory.camp_grid[# 1, 2];
+			global.targetRoom = rm_yakflower_camp;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+		//draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
 //		draw_set_halign(fa_left);
 //		draw_set_valign(fa_middle);
 //		draw_set_color(c_white);
@@ -193,13 +248,42 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 //		draw_text_transformed(262,44,"- Yakflower Path",.35,.35,0);
 //		draw_text_transformed(262,54,"- Unknown the Browi",.35,.35,0);
 //		draw_text_transformed(262,64,"- Yakflower Path\nlair",.35,.35,0);
-//	}
-//}
-//if (obj_inventory.camp_grid[# 2, 3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,0,122,119,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,118,115,126,123))
-//	{
+	}
+}
+if (obj_inventory.camp_grid[# 2, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,125,90,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,122,87,127,91))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,125,90);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 2, 1];
+			global.targetY = obj_inventory.camp_grid[# 2, 2];
+			global.targetRoom = rm_habraf_camp;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
 //		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
 //		draw_set_halign(fa_left);
 //		draw_set_valign(fa_middle);
@@ -209,13 +293,42 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 //		draw_text_transformed(262,44,"- Habraf Lake",.35,.35,0);
 //		draw_text_transformed(262,54,"- Andor the Browi",.35,.35,0);
 //		draw_text_transformed(262,64,"- Habraf Lake lair",.35,.35,0);
-//	}
-//}
-//if (obj_inventory.camp_grid[# 3, 3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,0,160,100,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,156,96,164,104))
-//	{
+	}
+}
+if (obj_inventory.camp_grid[# 3, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,174,90,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,171,87,176,91))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,174,90);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 3, 1];
+			global.targetY = obj_inventory.camp_grid[# 3, 2];
+			global.targetRoom = rm_lenko_beaowireCamp;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
 //		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
 //		draw_set_halign(fa_left);
 //		draw_set_valign(fa_middle);
@@ -223,8 +336,51 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 //		draw_set_font(fnt_text);
 //		draw_text_transformed(262,32,"CAMP",.5,.5,0);
 //		draw_text_transformed(262,44,"- Zerwerk's Hideout",.35,.35,0);
-//	}
-//}
+	}
+}
+if (obj_inventory.camp_grid[# 4, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,188,110,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,185,107,190,111))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,188,110);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 18;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.room_num = 18;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 4, 1];
+			global.targetY = obj_inventory.camp_grid[# 4, 2];
+			global.targetRoom = rm_lenko_beaowireCamp_gate;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
+//		draw_set_halign(fa_left);
+//		draw_set_valign(fa_middle);
+//		draw_set_color(c_white);
+//		draw_set_font(fnt_text);
+//		draw_text_transformed(262,32,"CAMP",.5,.5,0);
+//		draw_text_transformed(262,44,"- Zerwerk's Hideout",.35,.35,0);
+	}
+}
 
 //if (obj_inventory.quest_grid[# 8,0] = true) 
 //{

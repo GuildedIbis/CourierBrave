@@ -39,18 +39,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	if (obj_inventory.quest_grid[# 14, 3] = false) 
-	{
-		text_string = "You will return here on death." 
-	}
-	else
-	{
-		text_script = AlterMenu;
-		alter_gui = AlterTravelMenu;
-		map_selected = -1;
-		text_gui = 0;
-		text_string = ""
-	}
+	text_string = "You will return here on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }

@@ -54,25 +54,25 @@ room_ary = farwayRoad_map_ary;
 //y spawn
 //discoverd
 
-camp_grid[# 0, 0] = "Kovalad's Smithy"
-camp_grid[# 0, 1] = 352;
-camp_grid[# 0, 2] = 288;
+camp_grid[# 0, 0] = "Farway Road Camp"
+camp_grid[# 0, 1] = 168;
+camp_grid[# 0, 2] = 104;
 camp_grid[# 0, 3] = false;
 camp_grid[# 1, 0] = "Yakflower Camp"
-camp_grid[# 1, 1] = 296;
-camp_grid[# 1, 2] = 88;
+camp_grid[# 1, 1] = 160;
+camp_grid[# 1, 2] = 96;
 camp_grid[# 1, 3] = false;
 camp_grid[# 2, 0] = "Habraf Lake Camp"
-camp_grid[# 2, 1] = 160;
-camp_grid[# 2, 2] = 48;
+camp_grid[# 2, 1] = 144;
+camp_grid[# 2, 2] = 96;
 camp_grid[# 2, 3] = false;
 camp_grid[# 3, 0] = "North Fortress Camp"
 camp_grid[# 3, 1] = 160;
-camp_grid[# 3, 2] = 88;
+camp_grid[# 3, 2] = 112;
 camp_grid[# 3, 3] = false;
 camp_grid[# 4, 0] = "Fortress Gate Camp"
 camp_grid[# 4, 1] = 160;
-camp_grid[# 4, 2] = 88;
+camp_grid[# 4, 2] = 136;
 camp_grid[# 4, 3] = false;
 
 
