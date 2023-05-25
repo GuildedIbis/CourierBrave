@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_enemy_tortoiseTroll_idle",
+  "name": "spr_enemy_tortoiseTroll_idle2",
   "bbox_bottom": 47,
   "bbox_left": 20,
   "bbox_right": 43,
@@ -29,14 +29,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Phase 1",
-    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise/Phase 1.yy",
+    "name": "Phase 2",
+    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise/Phase 2.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_enemy_tortoiseTroll_idle",
+    "name": "spr_enemy_tortoiseTroll_idle2",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -58,10 +58,10 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"10cf4ded-4f46-4088-90b4-2bf140f88309","path":"sprites/spr_enemy_tortoiseTroll_idle/spr_enemy_tortoiseTroll_idle.yy",},},},"Disabled":false,"id":"7d6f1fec-739d-4d3c-bea2-c518a99ce511","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"78c537e5-b2e4-45be-a730-0675540fc7d3","path":"sprites/spr_enemy_tortoiseTroll_idle/spr_enemy_tortoiseTroll_idle.yy",},},},"Disabled":false,"id":"b22e0a23-8855-4e33-acc7-176fe119310d","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"82173560-90c6-49b8-beb9-0eeafd105004","path":"sprites/spr_enemy_tortoiseTroll_idle/spr_enemy_tortoiseTroll_idle.yy",},},},"Disabled":false,"id":"eb5a0201-98e9-453e-bfd2-f3f9aebc2ab6","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b3c9ee45-e499-430c-93a7-c90a3f2f1e32","path":"sprites/spr_enemy_tortoiseTroll_idle/spr_enemy_tortoiseTroll_idle.yy",},},},"Disabled":false,"id":"8120f4dc-10b0-4ac7-a009-be58f122039f","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"10cf4ded-4f46-4088-90b4-2bf140f88309","path":"sprites/spr_enemy_tortoiseTroll_idle2/spr_enemy_tortoiseTroll_idle2.yy",},},},"Disabled":false,"id":"40953b84-e981-472e-9fb6-a709d16adf3c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"78c537e5-b2e4-45be-a730-0675540fc7d3","path":"sprites/spr_enemy_tortoiseTroll_idle2/spr_enemy_tortoiseTroll_idle2.yy",},},},"Disabled":false,"id":"ccd4bad0-d3b7-4fbf-ac0c-fa2b2f0a3658","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"82173560-90c6-49b8-beb9-0eeafd105004","path":"sprites/spr_enemy_tortoiseTroll_idle2/spr_enemy_tortoiseTroll_idle2.yy",},},},"Disabled":false,"id":"2403fc6e-d7eb-4187-9466-115f6678e657","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b3c9ee45-e499-430c-93a7-c90a3f2f1e32","path":"sprites/spr_enemy_tortoiseTroll_idle2/spr_enemy_tortoiseTroll_idle2.yy",},},},"Disabled":false,"id":"0e590b23-b98a-4502-822b-b508edc1b095","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

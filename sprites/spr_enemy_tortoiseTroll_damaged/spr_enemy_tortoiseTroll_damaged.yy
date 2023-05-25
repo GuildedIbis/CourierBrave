@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "TrollTortoise",
-    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise.yy",
+    "name": "Phase 1",
+    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise/Phase 1.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

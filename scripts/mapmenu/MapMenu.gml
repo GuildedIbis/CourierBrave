@@ -45,7 +45,7 @@ map_grid[# 4, 1] = "Yakflower Path";
 map_grid[# 4, 1] = false;
 map_grid[# 4, 2] = Idle;
 map_grid[# 5, 0] = "Beaowire Fortress";
-map_grid[# 5, 1] = true;
+map_grid[# 5, 1] = false;
 map_grid[# 5, 2] = Idle;
 }
 //
@@ -382,6 +382,13 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 	}
 }
 
+
+if (obj_game.room_num != -1)	
+{	//Draw Camps (Selectable for travel
+	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])	
+	var _y = (38 + obj_inventory.room_ary[obj_game.room_num][2])	
+	draw_sprite(spr_map_pointer,0,_x,_y);	
+}
 //if (obj_inventory.quest_grid[# 8,0] = true) 
 //{
 //	draw_sprite_ext(spr_map_icon,1,240,140,1,1,0,c_white,1);
