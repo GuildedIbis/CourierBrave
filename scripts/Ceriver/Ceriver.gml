@@ -170,14 +170,13 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special_count > 0)
+if (key_attackS) and (special > 100)
 {
-	//if (watervice = false)
-	//{
-	//	magic_timer = 30;
-	//	attack_script = CeriverDrainDartCast;
-	//	state_script = PlayerStateAttack;
-	//}
+	if (watervice = false)
+	{
+		attack_script = CeriverSteelorbCast;
+		state_script = PlayerStateAttack;
+	}
 }
 
 //Roll State
@@ -558,7 +557,8 @@ if (mouse_check_button(mb_left) = false) or (charge < 6)
 	animation_end = false;
 	atk_snd_delay = 0;
 }
-}//
+}
+//
 //
 //
 //
@@ -902,6 +902,166 @@ if (cast = true)
 		instance_destroy();
 	}
 }
+
+}
+//
+//
+//
+//
+//
+//Ceriver Steelorb Magic State
+function CeriverSteelorbCast(){
+//Set
+walk_spd = 1.2;
+attacking = true;
+casting = true;
+
+//Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
+}
+
+
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_ceriver_runCast;
+}
+else sprite_index = spr_player_ceriver_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+PlayerBulletSpawnPosition();
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (magic_timer <= 0)
+{	
+	special = special - 100;
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
+		audio_play_sound(snd_ceriver_dynorb,0,0);
+		break_object = obj_player.break_object;
+		fragment_count = 3;
+		fragment = obj_fragWater;
+		magic = true;
+		sd_timer = 60;
+		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
+		projectile_sprite = spr_ceriver_steelorb;
+		projectile_script = CeriverSteelorbFree;
+		idle_sprite = spr_ceriver_steelorb;
+		image_index = 0;
+		projectile_speed = 3;
+		hit_by_attack = -1;
+		speed = projectile_speed;
+		direction = point_direction(x,y,mouse_x,mouse_y);
+		image_angle = direction;
+	}
+	magic_timer = 30;
+}
+
+//Animate
+PlayerAnimationCast();
+
+//End State, Return to Free State
+if (keyboard_check(vk_shift) = false) or (special < 100)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
+}
+//
+//
+//
+//
+//
+//
+//Ceriver Steelorb Projectile Script
+function CeriverSteelorbFree(){
+//Set
+image_speed = 1;
+speed = projectile_speed;
+//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Timers
+if (sd_timer > 0) sd_timer = sd_timer - 1;
+if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculateStatus(projectile_sprite,self,2,-1,-1,-1,-1,-1);
+}
+if (place_meeting(x,y,obj_enemy_projectile)) 
+{
+	
+	AttackCalculateProjectile(projectile_sprite);
+}
+if (place_meeting(x,y,break_object))
+{
+	speed = 0;
+}
+if (sd_timer <= 0) instance_destroy();
 
 }
 //
