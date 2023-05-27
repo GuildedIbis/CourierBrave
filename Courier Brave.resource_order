@@ -625,6 +625,7 @@
     {"name":"RemphoGhost2","order":8,"path":"scripts/RemphoGhost2/RemphoGhost2.yy",},
     {"name":"obj_stair3","order":7,"path":"objects/obj_stair3/obj_stair3.yy",},
     {"name":"snd_endireKnight_damaged","order":1,"path":"sounds/snd_endireKnight_damaged/snd_endireKnight_damaged.yy",},
+    {"name":"spr_ceriver_aquaBarrier","order":19,"path":"sprites/spr_ceriver_aquaBarrier/spr_ceriver_aquaBarrier.yy",},
     {"name":"BeaowireEffects","order":4,"path":"scripts/BeaowireEffects/BeaowireEffects.yy",},
     {"name":"spr_adavio_voidBit","order":9,"path":"sprites/spr_adavio_voidBit/spr_adavio_voidBit.yy",},
     {"name":"Rhombail","order":6,"path":"scripts/Rhombail/Rhombail.yy",},

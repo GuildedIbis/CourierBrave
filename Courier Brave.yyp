@@ -707,6 +707,7 @@
     {"id":{"name":"obj_stair3","path":"objects/obj_stair3/obj_stair3.yy",},},
     {"id":{"name":"snd_endireKnight_damaged","path":"sounds/snd_endireKnight_damaged/snd_endireKnight_damaged.yy",},},
     {"id":{"name":"spr_enemy_pupae_hit","path":"sprites/spr_enemy_pupae_hit/spr_enemy_pupae_hit.yy",},},
+    {"id":{"name":"spr_ceriver_aquaBarrier","path":"sprites/spr_ceriver_aquaBarrier/spr_ceriver_aquaBarrier.yy",},},
     {"id":{"name":"BeaowireEffects","path":"scripts/BeaowireEffects/BeaowireEffects.yy",},},
     {"id":{"name":"spr_adavio_voidBit","path":"sprites/spr_adavio_voidBit/spr_adavio_voidBit.yy",},},
     {"id":{"name":"Rhombail","path":"scripts/Rhombail/Rhombail.yy",},},
