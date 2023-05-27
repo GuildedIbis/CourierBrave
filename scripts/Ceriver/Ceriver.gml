@@ -176,7 +176,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special > 250)
+if (key_attackS) and (special >= 200)
 {
 	if (watervice = false)
 	{
@@ -184,7 +184,7 @@ if (key_attackS) and (special > 250)
 		//audio_play_sound(snd_ceriver_orbDash,0,false);
 		//special = special - 250;
 		//magic_timer = 20;
-		attack_script = CeriverAquaBarrierCast;
+		attack_script = CeriverSteelorbCast;
 		state_script = PlayerStateAttack;
 		//direction = point_direction(x,y,mouse_x,mouse_y);
 	}
@@ -937,7 +937,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	special = special - 100;
+	special = special - 200;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -965,7 +965,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (special < 100)
+if (keyboard_check(vk_shift) = false) or (special < 200)
 {
 	attacking = false;
 	state_script = free_state;
@@ -1054,7 +1054,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	special = special - 250;
+	special = special - 100;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);

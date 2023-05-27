@@ -497,6 +497,7 @@
     {"name":"spr_enemy_gorogKnife","order":22,"path":"sprites/spr_enemy_gorogKnife/spr_enemy_gorogKnife.yy",},
     {"name":"FarwayRoadEffects","order":5,"path":"scripts/FarwayRoadEffects/FarwayRoadEffects.yy",},
     {"name":"spr_npc_nisma","order":9,"path":"sprites/spr_npc_nisma/spr_npc_nisma.yy",},
+    {"name":"spr_ceriver_steelorb2","order":20,"path":"sprites/spr_ceriver_steelorb2/spr_ceriver_steelorb2.yy",},
     {"name":"spr_enemy_skirmisher_run","order":3,"path":"sprites/spr_enemy_skirmisher_run/spr_enemy_skirmisher_run.yy",},
     {"name":"spr_frag_electric","order":1,"path":"sprites/spr_frag_electric/spr_frag_electric.yy",},
     {"name":"spr_npc_berglad","order":1,"path":"sprites/spr_npc_berglad/spr_npc_berglad.yy",},
