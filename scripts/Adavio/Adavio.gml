@@ -157,7 +157,7 @@ if (key_attackM)
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 25)
+		if (magic_primary = false) and (charge >= 30)
 		{
 			max_charge = 100 + (grace + round(grace/15));
 			attack_script = magicA_script;
@@ -493,7 +493,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 25;
+	charge = charge - 30;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
@@ -524,7 +524,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (charge < 25)
+if (mouse_check_button(mb_left) = false) or (charge < 30)
 {
 	attacking = false;
 	state_script = free_state;

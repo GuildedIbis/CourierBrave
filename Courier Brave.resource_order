@@ -1036,6 +1036,7 @@
     {"name":"spr_enemy_enragedWorm_explode_hitbox","order":9,"path":"sprites/spr_enemy_enragedWorm_explode_hitbox/spr_enemy_enragedWorm_explode_hitbox.yy",},
     {"name":"rm_lenko_farwayRoad_11","order":14,"path":"rooms/rm_lenko_farwayRoad_11/rm_lenko_farwayRoad_11.yy",},
     {"name":"rm_kovaladInside","order":10,"path":"rooms/rm_kovaladInside/rm_kovaladInside.yy",},
+    {"name":"spr_adavio_special","order":16,"path":"sprites/spr_adavio_special/spr_adavio_special.yy",},
     {"name":"rm_yakflowerPath_boss","order":5,"path":"rooms/rm_yakflowerPath_boss/rm_yakflowerPath_boss.yy",},
     {"name":"spr_chest_beaowire","order":38,"path":"sprites/spr_chest_beaowire/spr_chest_beaowire.yy",},
     {"name":"SaveLoadS","order":9,"path":"scripts/SaveLoadS/SaveLoadS.yy",},

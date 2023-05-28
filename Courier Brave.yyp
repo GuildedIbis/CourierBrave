@@ -1169,6 +1169,7 @@
     {"id":{"name":"spr_enemy_enragedWorm_explode_hitbox","path":"sprites/spr_enemy_enragedWorm_explode_hitbox/spr_enemy_enragedWorm_explode_hitbox.yy",},},
     {"id":{"name":"rm_lenko_farwayRoad_11","path":"rooms/rm_lenko_farwayRoad_11/rm_lenko_farwayRoad_11.yy",},},
     {"id":{"name":"rm_kovaladInside","path":"rooms/rm_kovaladInside/rm_kovaladInside.yy",},},
+    {"id":{"name":"spr_adavio_special","path":"sprites/spr_adavio_special/spr_adavio_special.yy",},},
     {"id":{"name":"rm_yakflowerPath_boss","path":"rooms/rm_yakflowerPath_boss/rm_yakflowerPath_boss.yy",},},
     {"id":{"name":"spr_chest_beaowire","path":"sprites/spr_chest_beaowire/spr_chest_beaowire.yy",},},
     {"id":{"name":"SaveLoadS","path":"scripts/SaveLoadS/SaveLoadS.yy",},},
