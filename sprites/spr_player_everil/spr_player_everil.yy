@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_npc_knightMono",
+  "name": "spr_player_everil",
   "bbox_bottom": 16,
   "bbox_left": 7,
   "bbox_right": 12,
@@ -28,14 +28,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "LenkoNPC",
-    "path": "folders/Sprites/NPC/LenkoNPC.yy",
+    "name": "Everil",
+    "path": "folders/Sprites/Player/Everil.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_npc_knightMono",
+    "name": "spr_player_everil",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -57,10 +57,10 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_npc_knightMono/spr_npc_knightMono.yy",},},},"Disabled":false,"id":"a1334d33-410f-40ef-a925-f17039524301","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_npc_knightMono/spr_npc_knightMono.yy",},},},"Disabled":false,"id":"6711e864-13a1-4061-92bc-b9e114bd6ee6","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5","path":"sprites/spr_npc_knightMono/spr_npc_knightMono.yy",},},},"Disabled":false,"id":"a2fcdcc7-ce4f-4552-98ec-9e4d4680f5d3","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_npc_knightMono/spr_npc_knightMono.yy",},},},"Disabled":false,"id":"e98ebca7-2639-4a09-aee6-edbd6d617379","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_player_everil/spr_player_everil.yy",},},},"Disabled":false,"id":"0cd094b6-2506-4406-b890-d6e602db92dd","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_player_everil/spr_player_everil.yy",},},},"Disabled":false,"id":"b764c649-4772-4abe-9ce4-92f4e395dfa4","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5","path":"sprites/spr_player_everil/spr_player_everil.yy",},},},"Disabled":false,"id":"f51e2b5c-8577-42b4-a02d-eb152a3bb222","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_player_everil/spr_player_everil.yy",},},},"Disabled":false,"id":"fc923ed9-871e-44af-886f-2a0734bdcef7","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

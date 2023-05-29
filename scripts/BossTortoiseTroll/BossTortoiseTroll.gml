@@ -12,7 +12,7 @@ bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
 home_state = BossTortoiseTrollFree;
-entity_step = home_state;
+entity_step = BossTortoiseTrollScene1;
 entity_drop = BossTortoiseTrollDrop;
 enemy_idle = spr_enemy_tortoiseTroll_idle;
 enemy_move = spr_enemy_tortoiseTroll_run;
@@ -46,6 +46,22 @@ path = -1;
 //
 //
 //Tortoise Troll Free
+function BossTortoiseTrollScene1(){
+if (obj_game.gamePaused = false)
+{
+	//Toggle Aggro 
+	if (targeted = false)
+	{
+		lit = false;
+		sprite_index = spr_enemy_tortoiseTroll_rest;
+	}
+}
+}//
+//
+//
+//
+//
+//Tortoise Troll Free
 function BossTortoiseTrollFree(){
 if (obj_game.gamePaused = false)
 {
@@ -56,25 +72,10 @@ if (obj_game.gamePaused = false)
 	if (targeted = false)
 	{
 		lit = false;
-		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
-		{
-			aggro_drop = 300;
-			targeted = true;
-			global.aggroCounter = global.aggroCounter + 1;
-			global.bossCounter = global.bossCounter + 1;
-		}
+		sprite_index = spr_enemy_tortoiseTroll_rest;
 	}
 	
-	if (aggro_drop <= 0)
-	{
-		image_speed = 0;
-		sprite_index = enemy_idle;
-		path_end();
-		aggro_drop = 300;
-		targeted = false;
-		global.aggroCounter = global.aggroCounter - 1;
-		global.bossCounter = global.bossCounter - 1;
-	}
+
 	//While Aggro is on
 	if (targeted = true)
 	{
@@ -167,11 +168,6 @@ if (obj_game.gamePaused = false)
 		//	timer1 = 15;
 		//	entity_step = BossTortoiseTrollHammerBlossom;
 		//}
-		
-		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
-		{
-			aggro_drop = aggro_drop - 1;
-		}
 	}
 	
 	//Animation

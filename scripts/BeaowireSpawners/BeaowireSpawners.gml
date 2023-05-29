@@ -259,8 +259,6 @@ if (obj_inventory.beaowire_dungeon[15] < 2)
 		beaowire_dungeon[15] = 0;
 		image_alpha = 1;
 		script_execute(BossTortoiseTrollCreate);
-		global.aggroCounter = global.aggroCounter + 1;
-		targeted = true;
 		break_object = obj_break;
 	}		
 			

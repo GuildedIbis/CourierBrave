@@ -463,20 +463,18 @@ if (place_meeting(x,y,obj_enemy))
 	instance_destroy();
 	
 }
-if (collision_circle(x,y,4,break_object,true,true))
+if (place_meeting(x,y,break_object))
 {
-	var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
-	if (_normal != -1)
-	{
-		direction = _normal;
-		image_angle = _normal;
-	}
+	instance_destroy();
 }
-//if (place_meeting(x,y,break_object))
+//Ricochet
+//var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
+//if (_normal != -1)
 //{
-//	instance_destroy();
+//	var _diff = direction - (_normal + 180);
+//	direction = _normal - _diff;
+//	image_angle = _normal - _diff;
 //}
-
 }
 //
 //
