@@ -136,6 +136,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"Pora","order":7,"path":"folders/Sprites/Player/Pora.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_chest","order":2,"path":"sprites/spr_chest/spr_chest.yy",},
@@ -227,7 +228,6 @@
     {"name":"spr_lenkoFortress_pillarBack","order":28,"path":"sprites/spr_lenkoFortress_pillarBack/spr_lenkoFortress_pillarBack.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerLunge2","order":4,"path":"sprites/spr_enemy_tortoiseTroll_hammerLunge2/spr_enemy_tortoiseTroll_hammerLunge2.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb","order":19,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},
-    {"name":"spr_player_pora_idle","order":6,"path":"sprites/spr_player_pora_idle/spr_player_pora_idle.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","order":22,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},
     {"name":"obj_effect_treeJelx","order":16,"path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},
     {"name":"ViceBomb","order":8,"path":"scripts/ViceBomb/ViceBomb.yy",},
