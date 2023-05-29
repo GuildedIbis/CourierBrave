@@ -33,7 +33,10 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"fragment","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"obj_fragWood","varType":0,},
   ],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_projectile",
+    "path": "sprites/spr_projectile/spr_projectile.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

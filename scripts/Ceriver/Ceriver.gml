@@ -940,8 +940,8 @@ if (magic_timer <= 0)
 	special = special - 200;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
-		audio_play_sound(snd_ceriver_dynorb,0,0);
+		audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
+		audio_play_sound(snd_ceriver_steelorb,0,0);
 		break_object = obj_player.break_object;
 		fragment_count = 3;
 		fragment = obj_fragWater;

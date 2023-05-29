@@ -167,14 +167,19 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special_timer >= max_special_timer)
+if (key_attackS) and (special >= 250)
 {
-	//if (watervice = false)
-	//{
-	//	special_timer = 0;
-	//	attack_script = AdavioSpecial;
-	//	state_script = PlayerStateAttack;
-	//}
+	if (watervice = false)
+	{
+		//audio_sound_gain(snd_ceriver_orbDash,global.volumeEffects,1);
+		//audio_play_sound(snd_ceriver_orbDash,0,false);
+		//special = special - 250;
+		//magic_timer = 20;
+		attack_script = AdavioRiftCrushFree;
+		state_script = PlayerStateAttack;
+		obj_cursor.curs_script = AdavioRiftCrushCursor;
+		//direction = point_direction(x,y,mouse_x,mouse_y);
+	}
 }
 
 
@@ -753,15 +758,31 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Adavio Special State
-function AdavioSpecial(){
-//
-//Timers
-if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
-if (atk_snd_delay <= 0)
+function AdavioDrainGrenadeCast(){
+//Set
+walk_spd = 1.2;
+attacking = true;
+casting = true;
+
+//Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0)
-	atk_snd_delay = 20;
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -772,16 +793,7 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
+if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
 }
@@ -789,41 +801,67 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//
-//State
-attacking = true;
-if (sprite_index != spr_player_regaliare_cast)
+
+
+//Movement 1: Speed
+if (knockback = false)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_player_regaliare_cast;
-	//sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 }
-//
-//Animation
-PlayerAnimation();
-if (animation_end)
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	inv_dur_timer = 120;
-	invincible = true;
-	with (instance_create_layer(x,y-6,"Instances",obj_projectile))
+	direction = input_dir;
+	sprite_index = spr_player_ceriver_runCast;
+}
+else sprite_index = spr_player_ceriver_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+PlayerBulletSpawnPosition();
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (magic_timer <= 0)
+{	
+	special = special - 200;
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldArcs,global.volumeEffects,1);
-		audio_play_sound(snd_goldArcs,0,0);
-		timer1 = 120;
+		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
+		audio_play_sound(snd_ceriver_dynorb,0,0);
 		break_object = obj_player.break_object;
-		damage = obj_player.grace + (6 * (obj_inventory.form_grid[# 0, 8] - 1));
-		idle_sprite = spr_goldArc;
-		projectile_sprite = spr_goldArc;
-		projectile_script = RegaliareGoldArcs;
+		fragment_count = 3;
+		fragment = obj_fragWater;
+		magic = true;
+		sd_timer = 60;
+		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
+		projectile_sprite = spr_ceriver_steelorb;
+		projectile_script = CeriverSteelorbFree;
+		idle_sprite = spr_ceriver_steelorb;
+		image_index = 0;
+		projectile_speed = 3;
 		hit_by_attack = -1;
-		direction = (floor(other.direction/90))*90;
+		speed = projectile_speed;
+		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 	}
+	magic_timer = 30;
+}
+
+//Animate
+PlayerAnimationCast();
+
+//End State, Return to Free State
+if (keyboard_check(vk_shift) = false) or (special < 200)
+{
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
@@ -836,39 +874,223 @@ if (animation_end)
 //
 //
 //
-//Regaliare Gold Arcs Projectile Script
-function AdavioSpecialProjectile(){
+//Adavio Rift Crush A Script
+function AdavioRiftCrushFree(){
 //
 //Timers
-if (timer1  > 0) timer1 = timer1  - 1;
-if (timer2  > 0) timer2 = timer2  - 1;
-//
-//State
-x = obj_player.x;
-y = obj_player.y - 6;
-if (sprite_index != spr_goldArc)
+//Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
-	//Start Animation From Beginning
-	timer1 = 120;
-	sprite_index = spr_goldArc;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
 }
-if (place_meeting(x,y,obj_enemy)) 
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
+}
+
+
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_adavio_riftCrush_freeRun;
+}
+else sprite_index = spr_player_adavio_riftCrush_free;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Cursor Effects
+if (!place_meeting(mouse_x,mouse_y,obj_wall))
+{
+	with (obj_cursor)
+	{
+		blocked = false;
+	}
+}
+else
+{
+	with (obj_cursor)
+	{
+		blocked = true;
+	}
+}
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (mouse_check_button_pressed(mb_left))
 {	
-	AttackCalculateStatus(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1);
+	//magic_count = magic_count - 1;
+	if (!place_meeting(mouse_x,mouse_y,obj_wall))
+	{
+		special = special - 250;
+		special_timer = 90;
+		dest_x = mouse_x;
+		dest_y = mouse_y;
+		state_script = AdavioRiftCrushCast;
+		//Attack Start
+		if (sprite_index != spr_player_adavio_riftCrushA)
+		{
+			sprite_index = spr_player_adavio_riftCrushA;
+			local_frame = 0;
+			image_index = 0;
+			//Clear Hit List
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+		}
+		audio_sound_gain(snd_adavio_riftCrush,global.volumeEffects,1);
+		audio_play_sound(snd_adavio_riftCrush,0,0);
+		with (obj_cursor)
+		{
+			obj_cursor.curs_script = AdavioCursor;
+		}
+	}
 }
-if (timer2 <= 0)
+
+//Animate
+PlayerAnimation();
+
+//Reset or return to free state
+if (mouse_check_button_pressed(vk_shift))
 {
-	timer2 = 15;
-	ds_list_clear(hit_by_attack);
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
 }
-if (timer1 <= 0)
+}
+//
+//
+//
+//
+//
+//Adavio Rift Crush Cast
+function AdavioRiftCrushCast(){
+//
+//Timers
+//Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
-	instance_destroy();
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between projectiles
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
+}
+if (special_timer > 0)//Time for special affects
+{
+	special_timer = special_timer - 1;
+}
+speed = 0;
+hor_spd = 0;
+ver_spd = 0;
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+if (special_timer > 45)
+{
+	sprite_index = spr_player_adavio_riftCrushA;
+}
+if (special_timer <= 45)
+{
+	x = dest_x;
+	y = dest_y;
+	sprite_index = spr_player_adavio_riftCrushB;
+	damage = round(obj_player.grace) + 6 + ((obj_inventory.form_grid[# 2, 7])*9)
+	if (special_timer <= 30)
+	{
+		AttackCalculateStatus(spr_player_adavio_riftCrushB_hitbox,obj_player,2,-1,-1,-1,-1,1)
+	}
+}
+
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+
+
+//Animate
+PlayerAnimation1();
+
+//Reset or return to free state
+if (special_timer <= 0)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
 }
 }
 //
@@ -907,6 +1129,47 @@ if (obj_game.gamePaused = false)
 	curs_height = 8 + (point_distance(x,y,obj_player.x,obj_player.y)/spread);
 
 }
+
+
+depth = -5000;
+}
+//
+//
+//
+//
+//
+//AdavioCursor
+function AdavioRiftCrushCursor(){
+//cursPlay_sprite = spr_cursor_play;
+//sprite_index = cursPlay_sprite;
+image_speed = 0;
+follow_x = mouse_x;
+follow_y = mouse_y;
+
+
+//Move toward variables set to player XY
+x = x + (follow_x - x) / 15;
+y = y + (follow_y - y) / 15;
+
+if (obj_game.gamePaused = false)
+{
+	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);
+	var _yClampF = clamp(window_mouse_get_y(),16,window_get_height()-32);
+	window_mouse_set(_xClampF,_yClampF)
+	curs_width = 8;
+	curs_height = 8;
+	curs_form = 2;
+	if (blocked = false)
+	{
+		curs_form = 2;
+	}
+	if (blocked = true)
+	{
+		curs_form = 6;
+	}
+}
+	
+
 
 
 depth = -5000;

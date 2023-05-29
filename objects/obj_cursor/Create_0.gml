@@ -6,6 +6,7 @@ curs_form = 0;
 curs_width = 8;
 curs_height = 8;
 spread = 0;
+blocked = false;
 cursMenu_sprite = spr_cursor;
 curs_script = PlayerCursor;
 curs_draw_script = PlayerCursorDraw;

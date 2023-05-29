@@ -4,7 +4,7 @@
   "name": "spr_magic_allGame",
   "bbox_bottom": 14,
   "bbox_left": 11,
-  "bbox_right": 19,
+  "bbox_right": 21,
   "bbox_top": 4,
   "bboxMode": 0,
   "collisionKind": 1,
