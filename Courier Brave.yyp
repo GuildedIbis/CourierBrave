@@ -264,6 +264,7 @@
     {"id":{"name":"spr_lenkoFortress_pillarBack","path":"sprites/spr_lenkoFortress_pillarBack/spr_lenkoFortress_pillarBack.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerLunge2","path":"sprites/spr_enemy_tortoiseTroll_hammerLunge2/spr_enemy_tortoiseTroll_hammerLunge2.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},},
+    {"id":{"name":"spr_player_pora_idle","path":"sprites/spr_player_pora_idle/spr_player_pora_idle.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},},
     {"id":{"name":"fnt_text","path":"fonts/fnt_text/fnt_text.yy",},},
     {"id":{"name":"obj_effect_treeJelx","path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},},

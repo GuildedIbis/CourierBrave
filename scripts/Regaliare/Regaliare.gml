@@ -463,10 +463,19 @@ if (place_meeting(x,y,obj_enemy))
 	instance_destroy();
 	
 }
-if (place_meeting(x,y,break_object))
+if (collision_circle(x,y,4,break_object,true,true))
 {
-	instance_destroy();
+	var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
+	if (_normal != -1)
+	{
+		direction = _normal;
+		image_angle = _normal;
+	}
 }
+//if (place_meeting(x,y,break_object))
+//{
+//	instance_destroy();
+//}
 
 }
 //
