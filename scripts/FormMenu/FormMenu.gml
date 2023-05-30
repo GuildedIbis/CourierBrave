@@ -17,40 +17,51 @@ form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 1; //Weapon
 form_grid[# 0, 6] = 1; //Armor
 form_grid[# 0, 7] = 1; //Magic
-form_grid[# 0, 8] = 0; //Special
+form_grid[# 0, 8] = 1; //Special
 
 //Ceriver
 form_grid[# 1, 0] = "CERIVER"
-form_grid[# 1, 1] = "Blue and Green Lizard with boomerang, bubbles, and sp (water cannon with push?)"
+form_grid[# 1, 1] = "Blue and Green Remphos with boomerang, bubbles, and sp (water cannon with push?)"
 form_grid[# 1, 2] = CeriverSet; //Player Script
 form_grid[# 1, 3] = CeriverSelectedMenu; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 1; //Weapon
 form_grid[# 1, 6] = 1; //Armor
 form_grid[# 1, 7] = 1; //Magic
-form_grid[# 1, 8] = 0; //Special
+form_grid[# 1, 8] = 1; //Special
 
 //Adavoid
 form_grid[# 2, 0] = "ADAVIO"
-form_grid[# 2, 1] = "Purple armor with white accents, bird, zerkrift hook, magic, and sp"
+form_grid[# 2, 1] = "Purple armored Moros."
 form_grid[# 2, 2] = AdavioSet; //Player Script
 form_grid[# 2, 3] = AdavioSelectedMenu; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
 form_grid[# 2, 5] = 1; //Weapon
 form_grid[# 2, 6] = 1; //Armor
 form_grid[# 2, 7] = 1; //Magic
-form_grid[# 2, 8] = 0; //Special
+form_grid[# 2, 8] = 1; //Special
 
 //Halofire
 form_grid[# 3, 0] = "HALOFIRE"
-form_grid[# 3, 1] = "White bird with fire hair and orange accents"
+form_grid[# 3, 1] = "White Lavos with fire hair and orange accents"
 form_grid[# 3, 2] = HalofireSet; //Player Script
 form_grid[# 3, 3] = HalofireSelectedMenu; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
 form_grid[# 3, 5] = 1; //Weapon
 form_grid[# 3, 6] = 1; //Armor
 form_grid[# 3, 7] = 1; //Magic
-form_grid[# 3, 8] = 0; //Special
+form_grid[# 3, 8] = 1; //Special
+
+//Evarel
+form_grid[# 4, 0] = "EVAREL"
+form_grid[# 4, 1] = "Grey-green Lavos with green and brown tunic."
+form_grid[# 4, 2] = EvarelSet; //Player Script
+form_grid[# 4, 3] = EvarelSelectedMenu; //Inventory Script
+form_grid[# 4, 4] = true; //Unlocked Status
+form_grid[# 4, 5] = 1; //Weapon
+form_grid[# 4, 6] = 1; //Armor
+form_grid[# 4, 7] = 1; //Magic
+form_grid[# 4, 8] = 1; //Special
 
 }
 //
