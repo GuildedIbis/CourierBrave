@@ -8,6 +8,9 @@
 function NecromancerCreate(){
 entity_step = NecromancerScene1Step;
 sound = snd_npc_mouse;
+timer1 = 0;
+idle_sprite = spr_necromancer;
+sprite_index = idle_sprite;
 }
 //
 //
@@ -16,8 +19,8 @@ sound = snd_npc_mouse;
 //
 //Necromancer Scene 1 Step
 function NecromancerScene1Step(){
-sprite_index = spr_necromancer;
 image_speed = 0;
+
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
 	if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)
@@ -26,7 +29,24 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		image_index = _cardinalDir
 	}
 }
-if (obj_inventory.quest_grid[# 14, 0] = true) instance_destroy();
+if (obj_inventory.quest_grid[# 14, 0] = true)
+{
+	image_alpha = image_alpha - .1;
+	if (image_alpha <= 0)
+	{
+		if (instance_exists(obj_enemy))
+		{
+			with (obj_enemy)
+			{
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				entity_step = home_state;
+			}
+		}
+		instance_destroy();
+	}
+}
+else sprite_index = idle_sprite;
 }
 //
 //

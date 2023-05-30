@@ -26,7 +26,7 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 1250;
+max_hp = 2500;
 hp = max_hp;
 boss = true;
 name = "Tortoise Troll";
@@ -45,10 +45,12 @@ path = -1;
 //
 //
 //
-//Tortoise Troll Free
+//Tortoise Troll Scene 1
 function BossTortoiseTrollScene1(){
 if (obj_game.gamePaused = false)
 {
+	invincible = true;
+	invincible_timer = 5;
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -56,7 +58,40 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_tortoiseTroll_rest;
 	}
 }
-}//
+}
+//
+//
+//
+//
+//
+//Tortoise Troll Scene 2
+function BossTortoiseTrollScene2(){
+if (obj_game.gamePaused = false)
+{
+	invincible = true;
+	invincible_timer = 5;
+	path_end();
+	hor_spd = 0;
+	ver_spd = 0;
+	speed = 0;
+	if (sprite_index != spr_enemy_tortoiseTroll_scene2)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_scene2;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	EnemyAnimation1();
+	if (animation_end)
+	{
+		script_execute(BossTortoiseTrollCreate2);
+		entity_step = home_state;
+	}
+}
+}
+//
 //
 //
 //
@@ -75,6 +110,14 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_tortoiseTroll_rest;
 	}
 	
+	if (hp <= (max_hp/2))
+	{
+		path_end();
+		hor_spd = 0;
+		ver_spd = 0;
+		speed = 0;
+		entity_step = BossTortoiseTrollScene2;
+	}
 
 	//While Aggro is on
 	if (targeted = true)
