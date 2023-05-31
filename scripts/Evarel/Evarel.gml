@@ -15,11 +15,11 @@ roll_sprite = spr_player_evarel_roll;
 crull_sprite = spr_player_evarel_crull;
 //recharge_sprite = spr_player_halofire_recharge;
 arm_sprite = spr_player_evarel_castArm;
-magicP_script = HalofireMeteorSling;
+magicP_script = EvarelBristlerodCast;
 magicA_script = HalofireFirespitCast;
 magic_primary = true;
 //weapon_aim = false
-obj_cursor.curs_script = HalofireCursor;
+obj_cursor.curs_script = EvarelCursor;
 
 weapon_draw = HalofireHamaxeMenu;
 magic_draw = HalofireMeteorMenu;
@@ -135,11 +135,11 @@ PlayerAnimation();
 //Weapon Attack
 if (key_attackW)
 {
-	if (thundux = false) and (stamina >= 25)
+	if (thundux = false) and (stamina >= 30)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		stamina = stamina - 25;
-		attack_script = HalofireHamaxe;
+		stamina = stamina - 30;
+		attack_script = EvarelDaggerDash;
 		state_script = PlayerStateAttack;
 		
 	}
@@ -150,8 +150,11 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 12)
+		if (magic_primary = true) and (charge >= 20)
 		{
+			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
+			audio_play_sound(snd_evarel_bristlerod,0,0);
+			magic_timer = 60;
 			max_charge = 100 + (grace + round(grace/15));
 			attack_script = EvarelBristlerodCast;
 			state_script = PlayerStateAttack;
@@ -167,12 +170,12 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 500)
+if (key_attackS) and (special >= 200)
 {
 	if (watervice = false)
 	{
-		special = special - 500;
-		attack_script = HalofireSpecial;
+		special = special - 200;
+		attack_script = EvarelThornriseCast;
 		state_script = PlayerStateAttack;
 	}
 }
@@ -207,7 +210,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 13, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 16, 3] = true)
 {
 	if (magic_primary = true)
 	{
@@ -232,6 +235,99 @@ if (keyboard_check_pressed(ord("Z")))
 	{
 		weapon_aim = true;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Ceriver Orb Rush State
+function EvarelDaggerDash(){
+//Set
+attacking = true;
+//casting = true;
+damage = might + (7 * obj_inventory.form_grid[# 4, 5]);
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	atk_snd_delay = 28;
+}
+if (charge < max_charge) and (watervice = false)//Charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1; 
+}
+if (weapon_timer > 0)
+{
+	weapon_timer = weapon_timer - 1;
+}
+
+
+
+//Attack Start
+if (sprite_index != spr_player_evarel_daggerDash)
+{
+	//Start Animation From Beginning
+	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
+	sprite_index = spr_player_evarel_daggerDash;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+hor_spd = lengthdir_x(3,direction);
+ver_spd = lengthdir_y(3,direction);
+var _collided = PlayerCollision();
+
+
+
+
+
+//Collision
+if (_collided = true)
+{
+	state_script = free_state;
+	ScreenShake(4,15);
+}
+
+//Calcuate Hit Entitites
+AttackCalculateStatus(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1);
+
+//Animate
+PlayerAnimation();
+
+if (animation_end = true)
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
 }
 }
 //
@@ -318,40 +414,225 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	//magic_count = magic_count - 1;
-	charge = charge - 12;
+	charge = charge - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
 		audio_play_sound(snd_goldBullet,0,0);
 		break_object = other.break_object;
 		magic = true;
-		fragment_count = 2;
-		fragment = obj_fragGold;
-		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
-		projectile_sprite = spr_goldBullet;
-		projectile_script = RegaliareGoldBullet;
-		idle_sprite = spr_goldBullet;
+		timer1 = 6;
+		distance = 0;
+		fragment_count = 1;
+		fragment = obj_fragPlant;
+		damage = obj_player.grace + ((obj_inventory.form_grid[# 4, 7])*(distance));
+		projectile_sprite = spr_evarel_bristlerod;
+		projectile_script = EvarelBristlerod;
+		idle_sprite = spr_evarel_bristlerod;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
+		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	magic_timer = 10;
+	if (mouse_check_button(mb_left) = false) or (charge < 20)
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
+	else
+	{
+		audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
+		audio_play_sound(snd_evarel_bristlerod,0,0);
+		magic_timer = 60;
+	}
 }
 
 //Animate
 PlayerAnimationCast();
 
-//Restart or Return to Free
-if (mouse_check_button(mb_left) = false) or (charge < 5)
+
+}
+//
+//
+//
+//
+//
+//Evarel Bristlerod Projectile Script
+function EvarelBristlerod(){
+//Set
+speed = projectile_speed;
+timer1 = timer1 - 1;
+if (timer1 <= 0)
 {
+	distance = distance + 1;
+	damage = obj_player.grace + ((obj_inventory.form_grid[# 4, 7])*(distance));
+	timer1 = 6;
+}
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
+	instance_destroy();
+	
+}
+if (place_meeting(x,y,break_object))
+{
+	instance_destroy();
+}
+//Ricochet
+//var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
+//if (_normal != -1)
+//{
+//	var _diff = direction - (_normal + 180);
+//	direction = _normal - _diff;
+//	image_angle = _normal - _diff;
+//}
+}
+//
+//
+//
+//
+//
+//Evarel Thornrise State
+function EvarelThornriseCast(){
+//Set
+attacking = true;
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	audio_play_sound(snd_slash01,0,0)
+	atk_snd_delay = 20;
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (charge < max_charge) and (watervice = false)//charge Recharge
+{
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 5;
+		charge = charge + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
+}
+
+//Initiate Attack
+if (sprite_index != spr_player_evarel_thornrise_cast)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_player_evarel_thornrise_cast;
+	//sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+
+//Animation
+PlayerAnimation();
+if (animation_end)
+{
+	with (instance_create_layer(x,y,"Instances",obj_projectile))
+	{
+		//audio_sound_gain(snd_goldArcs,global.volumeEffects,1);
+		//audio_play_sound(snd_goldArcs,0,0);
+		timer1 = 300;
+		timer3 = 30;
+		break_object = obj_player.break_object;
+		damage = round(obj_player.grace/3) + (4 * (obj_inventory.form_grid[# 4, 8]));
+		idle_sprite = spr_evarel_thornrise;
+		projectile_sprite = spr_evarel_thornrise;
+		projectile_script = EvarelThornrise;
+		hit_by_attack = -1;
+		image_speed = 1;
+	}
 	attacking = false;
 	state_script = free_state;
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
+}
+
+//End Regaliare Special State
+}
+//
+//
+//
+//
+//
+//Evarel Thornrise Projectile Script
+function EvarelThornrise(){
+//
+//Timers
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer3 > 0) timer3 = timer3 - 1;
+
+if (sprite_index != spr_evarel_thornrise)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_evarel_thornrise;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+if (place_meeting(x,y,obj_enemy)) 
+{	
+	AttackCalculateStatus(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1);
+}
+if (timer2 <= 0)
+{
+	timer2 = 15;
+	ds_list_clear(hit_by_attack);
+}
+if (timer1 <= 0)
+{
+	image_alpha = image_alpha - .05;
+	if (image_alpha <= 0)
+	{
+		instance_destroy();
+	}
+}
+if (timer3 <= 0)
+{
+	image_speed = 0;
 }
 }
 //
@@ -380,8 +661,8 @@ if (obj_game.gamePaused = false)
 	var _yClampF = clamp(window_mouse_get_y(),16,window_get_height()-32);
 	window_mouse_set(_xClampF,_yClampF)
 
-	curs_width = 8 + (point_distance(x,y,obj_player.x,obj_player.y)/spread);
-	curs_height = 8 + (point_distance(x,y,obj_player.x,obj_player.y)/spread);
+	curs_width = 8 //+ (point_distance(x,y,obj_player.x,obj_player.y)/spread);
+	curs_height = 8 //+ (point_distance(x,y,obj_player.x,obj_player.y)/spread);
 
 }
 
