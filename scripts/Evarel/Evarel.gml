@@ -16,7 +16,7 @@ crull_sprite = spr_player_evarel_crull;
 //recharge_sprite = spr_player_halofire_recharge;
 arm_sprite = spr_player_evarel_castArm;
 magicP_script = EvarelBristlerodCast;
-magicA_script = HalofireFirespitCast;
+magicA_script = EvarelReflexThornCast;
 magic_primary = true;
 //weapon_aim = false
 obj_cursor.curs_script = EvarelCursor;
@@ -159,11 +159,11 @@ if (key_attackM)
 			attack_script = EvarelBristlerodCast;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 5)
+		if (magic_primary = false) and (charge >= 10)
 		{
 			max_charge = 100 + (grace + round(grace/15));
-			max_attack_counter = floor(charge/20);
-			attack_script = HalofireFirespitCast;
+			attack_counter = 0;
+			attack_script = EvarelReflexThornCast;
 			state_script = PlayerStateAttack;
 		}
 	}
@@ -210,7 +210,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 16, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 13, 3] = true)
 {
 	if (magic_primary = true)
 	{
@@ -335,7 +335,7 @@ if (animation_end = true)
 //
 //
 //
-//Evarel Bristlerod State
+//Evarel Bristlerod Cast State
 function EvarelBristlerodCast(){
 //Set
 walk_spd = 1.2;
@@ -503,6 +503,183 @@ if (place_meeting(x,y,break_object))
 //	direction = _normal - _diff;
 //	image_angle = _normal - _diff;
 //}
+}
+//
+//
+//
+//
+//
+//Evarel Reflex Thorn Cast
+function EvarelReflexThornCast(){
+//Set
+walk_spd = 1.2;
+attacking = true;
+casting = true;
+
+//Standard Timers
+if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+{
+	walk_snd_delay = walk_snd_delay - 1;
+	if (walk_snd_delay <= 0)
+	{
+		walk_snd_delay = 15;
+		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		audio_play_sound(walk_snd,1,false);
+	}
+}
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+if (special < max_special) //Special Recharge
+{
+	if (special_timer > 0) special_timer = special_timer - 1;
+	if (special_timer <= 0)
+	{
+		special_timer = 5;
+		special = special + 1;
+	}
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (weapon_timer > 0)//Time between weapon uses
+{
+	weapon_timer = weapon_timer - 1;
+}
+//if (special_timer < max_special_timer) and (watervice = false)
+//{
+//	special_timer = special_timer + 1;
+//} //2/1/23
+
+//Movement 1: Speed
+if (knockback = false)
+{
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+}
+
+//Movement 2: Collision
+PlayerCollision();
+
+//Movement 3: Environtment
+PlayerEnvironment();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_evarel_runCast;
+}
+else sprite_index = spr_player_evarel_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+PlayerBulletSpawnPosition();
+
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (magic_timer <= 0)
+{	
+	attack_counter = attack_counter + 1;
+	charge = charge - 10;
+	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+		audio_play_sound(snd_goldBullet,0,0);
+		break_object = other.break_object;
+		magic = true;
+		fragment_count = 2;
+		fragment = obj_fragPlant;
+		timer1 = 120;
+		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		projectile_sprite = spr_evarel_reflexthorn;
+		projectile_script = EvarelReflexThorn;
+		idle_sprite = spr_evarel_reflexthorn;
+		hit_by_attack = -1;
+		//script_execute(LeafArcCreate);
+		direction = point_direction(x,y,mouse_x,mouse_y);
+		image_angle = direction;
+		projectile_speed = 4.0;
+	}
+	if (attack_counter <= 2)
+	{
+		magic_timer = 5;
+	}
+	if (attack_counter >= 3)
+	{
+		magic_timer = 30;
+		attack_counter = 0;
+	}
+}
+
+//Animate
+PlayerAnimationCast();
+
+//Restart or Return to Free
+if (mouse_check_button(mb_left) = false) and (attack_counter = 0) 
+{
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
+if (charge < 10)
+{
+
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
+}
+//
+//
+//
+//
+//
+//Evarel Reflex Thorn
+function EvarelReflexThorn(){
+//Set
+if (timer1 > 0) timer1 = timer1 - 1;
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
+	instance_destroy();
+	
+}
+//Ricochet
+var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
+if (_normal != -1)
+{
+	var _diff = direction - (_normal + 180);
+	direction = _normal - _diff;
+	image_angle = _normal - _diff;
+}
+if (timer1 <= 0) instance_destroy();
 }
 //
 //
