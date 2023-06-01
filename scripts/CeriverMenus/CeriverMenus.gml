@@ -212,7 +212,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _armor = string(9 + (5 * (obj_inventory.form_grid[# 1, 6] -1)));
+var _armor = string(11 + (6 * (obj_inventory.form_grid[# 1, 6] -1)));
 draw_set_color(c_black);
 draw_text_transformed(167,46,"HABRA ARMOR",.5,.5,0);
 draw_text_transformed(167,56,"Blue steel armor that negates " + _armor + "\ndamage of every hit taken.",.35,.35,0);  

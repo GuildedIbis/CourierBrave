@@ -19,7 +19,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,62,89,82))//Armor Skill
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		selected_info = HalofireFirewardArmorMenu;
+		selected_info = EvarelForestTunicMenu;
 		
 	}
 }
@@ -30,7 +30,7 @@ if (point_in_rectangle(_mouseX,_mouseY,112,62,132,82))//Weapon Skill
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		selected_info = HalofireHamaxeMenu;
+		selected_info = EvarelDaggerDashMenu;
 		
 	}
 }
@@ -41,7 +41,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,85,89,105))//Magic Skill
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		selected_info = HalofireMeteorMenu;
+		selected_info = EvarelBristlerodMenu;
 		
 	}
 }
@@ -52,7 +52,7 @@ if (point_in_rectangle(_mouseX,_mouseY,112,85,132,105)) and (obj_inventory.form_
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		selected_info = HalofireSpecialMenu;
+		selected_info = EvarelThornriseMenu;
 		
 	}
 }
@@ -71,19 +71,18 @@ else draw_text_transformed(89,113,"CURSED",.35,.35,0);
 draw_text_transformed(177,113,"LEVEL",.35,.35,0);
 
 //Skills sprites
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 6],89,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 5],132,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 7],89,90);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 3, 8],132,90);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 6],89,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 5],132,67);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 7],89,90);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 8],132,90);
 draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
 draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
 draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
 draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
-draw_sprite(spr_armor_allGame,3,63,61);
-draw_sprite(spr_weapons_allGame,3,106,62);
-draw_sprite(spr_magic_allGame,3,63,85);
-if (obj_inventory.form_grid[# 3, 8] > 0) draw_sprite(spr_special_allGame,3,106,85);
-else draw_sprite(spr_item_all,0,120,93);
+draw_sprite(spr_armor_allGame,4,63,61);
+draw_sprite(spr_weapons_allGame,4,106,62);
+draw_sprite(spr_magic_allGame,4,63,85);
+draw_sprite(spr_special_allGame,4,106,85);
 
 
 //Draw Right Hand Menu
@@ -95,7 +94,7 @@ if (selected_info != -1) script_execute(selected_info)
 //
 //
 //Draw Evarel Weapon Menu in Inventory
-function EvarelWeaponMenu(){
+function EvarelDaggerDashMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 	
@@ -104,19 +103,19 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _damage = string(obj_player.might + 3 + (14 * obj_inventory.form_grid[# 3, 5]));
-var _cost = string(25);
+var _damage = string(obj_player.might + (7 * obj_inventory.form_grid[# 4, 5]));
+var _cost = string(30);
 draw_set_color(c_black);
-draw_text_transformed(167,46,"HAMAXE",.5,.5,0);
-draw_text_transformed(167,56,"A slow, heavy axe that does " + _damage + "\ndamage per hit and costs " + _cost + "\nstamina per swing. Hold to charge a\nfire attack.",.35,.35,0); 
+draw_text_transformed(167,46,"DAGGER DASH",.5,.5,0);
+draw_text_transformed(167,56,"A quick short dash in a staight line\nthat deals " + _damage + " for" + _cost + "stamina\nper dash.",.35,.35,0); 
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
-draw_text_transformed(166,46,"HAMAXE",.5,.5,0);
-draw_text_transformed(166,56,"A slow, heavy axe that does " + _damage + "\ndamage per hit and costs " + _cost + "\nstamina per swing. Hold to charge a\nfire attack.",.35,.35,0); 
+draw_text_transformed(166,46,"DAGGER DASH",.5,.5,0);
+draw_text_transformed(166,56,"A quick short dash in a staight line\nthat deals " + _damage + " for" + _cost + "stamina\nper dash.",.35,.35,0); 
 
 //Level	
-switch (obj_inventory.form_grid[# 3, 5])
+switch (obj_inventory.form_grid[# 4, 5])
 {
 	case 1:
 		//draw large weapon sprite
@@ -132,7 +131,7 @@ switch (obj_inventory.form_grid[# 3, 5])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 5] = 2;
+						obj_inventory.form_grid[# 4, 5] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 5, 5);
 						ItemRemove(obj_inventory, 10, 1);
@@ -170,7 +169,7 @@ switch (obj_inventory.form_grid[# 3, 5])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 5] = 3;
+						obj_inventory.form_grid[# 4, 5] = 3;
 						ItemRemove(obj_inventory, 11, 5);
 						ItemRemove(obj_inventory, 11, 1);
 						ItemRemove(obj_inventory, 10, 5);
@@ -212,18 +211,18 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _armor = string(7 + (4 * (obj_inventory.form_grid[# 3, 6] -1)));
+var _armor = string(9 + (5 * (obj_inventory.form_grid[# 4, 6] -1)));
 draw_set_color(c_black);
-draw_text_transformed(167,46,"FIREWARD ARMOR",.5,.5,0);
-draw_text_transformed(167,56,"A magical ward that negates " + _armor + "\ndamage of every hit taken.",.35,.35,0);  
+draw_text_transformed(167,46,"FOREST TUNIC",.5,.5,0);
+draw_text_transformed(167,56,"A tough green tunic that negates\n" + _armor + "damage of every hit taken.",.35,.35,0);  
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
-draw_text_transformed(166,46,"FIREWARD ARMOR",.5,.5,0);
-draw_text_transformed(166,56,"A magical ward that negates " + _armor + "\ndamage of every hit taken.",.35,.35,0); 
+draw_text_transformed(166,46,"FOREST TUNIC",.5,.5,0);
+draw_text_transformed(166,56,"A tough green tunic that negates\n" + _armor + "damage of every hit taken.",.35,.35,0); 
 
 //Level	
-switch (obj_inventory.form_grid[# 3, 6])
+switch (obj_inventory.form_grid[# 4, 6])
 {
 	case 1:
 		//draw large weapon sprite
@@ -239,7 +238,7 @@ switch (obj_inventory.form_grid[# 3, 6])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 6] = 2;
+						obj_inventory.form_grid[# 4, 6] = 2;
 						ItemRemove(obj_inventory, 7, 10);
 						ItemRemove(obj_inventory, 5, 5);
 						ItemRemove(obj_inventory, 10, 1);
@@ -277,7 +276,7 @@ switch (obj_inventory.form_grid[# 3, 6])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 6] = 3;
+						obj_inventory.form_grid[# 4, 6] = 3;
 						ItemRemove(obj_inventory, 11, 5);
 						ItemRemove(obj_inventory, 11, 1);
 						ItemRemove(obj_inventory, 10, 5);
@@ -310,7 +309,7 @@ switch (obj_inventory.form_grid[# 3, 6])
 //
 //
 //Draw Halofire Meteor Menu in Inventory
-function EvarelMagicMenu(){
+function EvarelBristlerodMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 	
@@ -321,16 +320,16 @@ if (page = 0)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _damage = string(obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5)));
-	var _cost = string(24);
+	var _damage = string(obj_player.grace + ((obj_inventory.form_grid[# 4, 7])));
+	var _cost = string(20);
 	draw_set_color(c_black);
-	draw_text_transformed(167,46,"METEOR",.5,.5,0);
-	draw_text_transformed(167,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0);  
+	draw_text_transformed(167,46,"BRISTLEROD",.5,.5,0);
+	draw_text_transformed(167,56,"A projectile that does more damage\nthe further it travels, starting at\n" + _damage + " and costing " + _cost + " charge each.\nFires after a .5 sec windup.",.35,.35,0);  
 	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"METEOR",.5,.5,0);
-	draw_text_transformed(166,56,"Slowly fire high damage projec-\ntiles that deal " + _damage + " and cost " + _cost + "\ncharge each.",.35,.35,0); 
+	draw_text_transformed(166,46,"BRISTLEROD",.5,.5,0);
+	draw_text_transformed(166,56,"A projectile that does more damage\nthe further it travels, starting at\n" + _damage + " and costing " + _cost + " charge each.\nFires after a .5 sec windup.",.35,.35,0); 
 }
 if (page = 1)
 {
@@ -338,16 +337,16 @@ if (page = 1)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
-	var _damage = string(round(obj_player.grace/6) + (obj_inventory.form_grid[# 3, 7]));
-	var _cost = string(5);
+	var _damage = string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5)));
+	var _cost = string(10);
 	draw_set_color(c_black);
-	draw_text_transformed(167,46,"FIRESPIT",.5,.5,0);
-	draw_text_transformed(167,56,"Throw a wave of flames that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand leave the target ablaze for 1\nsecond.",.35,.35,0);  
+	draw_text_transformed(167,46,"REFLEX THORN",.5,.5,0);
+	draw_text_transformed(167,56,"A burst of three thorns that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand bounce off solid objects.",.35,.35,0);  
 	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"FIRESPIT",.5,.5,0);
-	draw_text_transformed(166,56,"Throw a wave of flames that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand leave the target ablaze for 1\nsecond.",.35,.35,0); 
+	draw_text_transformed(166,46,"REFLEX THORN",.5,.5,0);
+	draw_text_transformed(166,56,"A burst of three thorns that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand bounce off solid objects.",.35,.35,0); 
 }
 
 //Alt Magic
@@ -370,7 +369,7 @@ if (obj_inventory.quest_grid[# 13, 3] = true)
 else page = 0;
 
 //Level	
-switch (obj_inventory.form_grid[# 3, 7])
+switch (obj_inventory.form_grid[# 4, 7])
 {
 	case 1:
 		//draw large weapon sprite
@@ -386,7 +385,7 @@ switch (obj_inventory.form_grid[# 3, 7])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 7] = 2;
+						obj_inventory.form_grid[# 4, 7] = 2;
 						ItemRemove(obj_inventory, 1, 10);
 						ItemRemove(obj_inventory, 2, 5);
 						ItemRemove(obj_inventory, 10, 1);
@@ -424,7 +423,7 @@ switch (obj_inventory.form_grid[# 3, 7])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 7] = 3;
+						obj_inventory.form_grid[# 4, 7] = 3;
 						ItemRemove(obj_inventory, 11, 5);
 						ItemRemove(obj_inventory, 11, 1);
 						ItemRemove(obj_inventory, 10, 5);
@@ -457,7 +456,7 @@ switch (obj_inventory.form_grid[# 3, 7])
 //
 //
 //Draw Halofire Special Menu in Inventory
-function EvarelSpecialMenu(){
+function EvarelThornriseMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 	
@@ -466,18 +465,18 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
-var _damage = string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 3, 8]-1)*(5)));
+var _damage = string(round(obj_player.grace/3) + (4 * (obj_inventory.form_grid[# 4, 8])));
 draw_set_color(c_black);
-draw_text_transformed(167,46,"SPECIAL",.5,.5,0);
-draw_text_transformed(167,56,"Summon 2 golden arcs that encircle\nthe courier, granting them invicibility\nand dealing " + _damage + "on contact",.35,.35,0);  
+draw_text_transformed(167,46,"THORN RISE",.5,.5,0);
+draw_text_transformed(167,56,"Summon thorns in an area around\nthe courier, dealing " + _damage + "up to 4 times\na second",.35,.35,0);  
 //draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
 //draw_text_transformed(167,95,_health,.35,.35,0); 
 draw_set_color(c_white);
-draw_text_transformed(166,46,"SPECIAL",.5,.5,0);
-draw_text_transformed(166,56,"Summon 2 golden arcs that encircle\nthe courier, granting them invicibility\nand dealing " + _damage + "on contact",.35,.35,0); 
+draw_text_transformed(166,46,"THORN RISE",.5,.5,0);
+draw_text_transformed(166,56,"Summon thorns in an area around\nthe courier, dealing " + _damage + "up to 4 times\na second",.35,.35,0); 
 
 //Level	
-switch (obj_inventory.form_grid[# 3, 8])
+switch (obj_inventory.form_grid[# 4, 8])
 {
 	case 1:
 		//draw large weapon sprite
@@ -493,7 +492,7 @@ switch (obj_inventory.form_grid[# 3, 8])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 8] = 2;
+						obj_inventory.form_grid[# 4, 8] = 2;
 						ItemRemove(obj_inventory, 7, 10);
 						ItemRemove(obj_inventory, 15, 5);
 						ItemRemove(obj_inventory, 10, 1);
@@ -531,7 +530,7 @@ switch (obj_inventory.form_grid[# 3, 8])
 					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 3, 8] = 3;
+						obj_inventory.form_grid[# 4, 8] = 3;
 						ItemRemove(obj_inventory, 11, 5);
 						ItemRemove(obj_inventory, 11, 1);
 						ItemRemove(obj_inventory, 10, 5);
