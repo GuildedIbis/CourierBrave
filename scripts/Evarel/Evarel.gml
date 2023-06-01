@@ -417,8 +417,8 @@ if (magic_timer <= 0)
 	charge = charge - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
+		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+		//audio_play_sound(snd_goldBullet,0,0);
 		break_object = other.break_object;
 		magic = true;
 		timer1 = 6;
@@ -592,8 +592,8 @@ if (magic_timer <= 0)
 	charge = charge - 10;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
+		audio_sound_gain(snd_evarel_reflexthorn,global.volumeEffects,1);
+		audio_play_sound(snd_evarel_reflexthorn,0,0);
 		break_object = other.break_object;
 		magic = true;
 		fragment_count = 2;
@@ -746,8 +746,8 @@ if (animation_end)
 {
 	with (instance_create_layer(x,y,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_goldArcs,global.volumeEffects,1);
-		//audio_play_sound(snd_goldArcs,0,0);
+		audio_sound_gain(snd_evarel_thornrise,global.volumeEffects,1);
+		audio_play_sound(snd_evarel_thornrise,0,0);
 		timer1 = 300;
 		timer3 = 30;
 		break_object = obj_player.break_object;

@@ -6,7 +6,7 @@
 //
 //Form Array
 function FormCreate(){
-form_grid = ds_grid_create(16,9);
+form_grid = ds_grid_create(18,9);
 
 //Regaliare 
 form_grid[# 0, 0] = "REGALIARE"
@@ -57,7 +57,7 @@ form_grid[# 4, 0] = "EVAREL"
 form_grid[# 4, 1] = "Grey-green Lavos with green and brown tunic."
 form_grid[# 4, 2] = EvarelSet; //Player Script
 form_grid[# 4, 3] = EvarelSelectedMenu; //Inventory Script
-form_grid[# 4, 4] = true; //Unlocked Status
+form_grid[# 4, 4] = false; //Unlocked Status
 form_grid[# 4, 5] = 1; //Weapon
 form_grid[# 4, 6] = 1; //Armor
 form_grid[# 4, 7] = 1; //Magic

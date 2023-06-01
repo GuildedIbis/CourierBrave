@@ -29,6 +29,11 @@ if (variable_struct_exists(_loadEntity,"form35")) obj_inventory.form_grid[# 3, 5
 if (variable_struct_exists(_loadEntity,"form36")) obj_inventory.form_grid[# 3, 6] = _loadEntity.form36;
 if (variable_struct_exists(_loadEntity,"form37")) obj_inventory.form_grid[# 3, 7] = _loadEntity.form37;
 if (variable_struct_exists(_loadEntity,"form38")) obj_inventory.form_grid[# 3, 8] = _loadEntity.form38;
+if (variable_struct_exists(_loadEntity,"form44")) obj_inventory.form_grid[# 4, 4] = _loadEntity.form44;
+if (variable_struct_exists(_loadEntity,"form45")) obj_inventory.form_grid[# 4, 5] = _loadEntity.form45;
+if (variable_struct_exists(_loadEntity,"form46")) obj_inventory.form_grid[# 4, 6] = _loadEntity.form46;
+if (variable_struct_exists(_loadEntity,"form47")) obj_inventory.form_grid[# 4, 7] = _loadEntity.form47;
+if (variable_struct_exists(_loadEntity,"form48")) obj_inventory.form_grid[# 4, 8] = _loadEntity.form48;
 }
 //
 //
@@ -65,6 +70,11 @@ form35 : obj_inventory.form_grid[# 3, 5],
 form36 : obj_inventory.form_grid[# 3, 6],
 form37 : obj_inventory.form_grid[# 3, 7],
 form38 : obj_inventory.form_grid[# 3, 8],
+form44 : obj_inventory.form_grid[# 4, 4],
+form45 : obj_inventory.form_grid[# 4, 5],
+form46 : obj_inventory.form_grid[# 4, 6],
+form47 : obj_inventory.form_grid[# 4, 7],
+form48 : obj_inventory.form_grid[# 4, 8],
 
 	
 }
