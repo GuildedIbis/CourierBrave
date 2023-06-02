@@ -97,15 +97,14 @@ if (obj_game.gamePaused = false)
 					{
 						audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
 						audio_play_sound(snd_tortoiseTroll_hammer,0,false);
-						timer1 = 7;
+						timer1 = 45;
 						attack_counter = attack_counter + 1;
 						if (attack_counter >= 2)
 						{
 							attack_counter = 0;
 							timer1 = 60;
 						}
-						timer2 = 23;
-						entity_step = BossTortoiseTrollHammerSlam2;
+						entity_step = BossTortoiseTrollSpikedVineToss2;
 					}
 				break;
 			}
@@ -114,7 +113,7 @@ if (obj_game.gamePaused = false)
 		{
 			
 			//walk_snd_delay = 15;
-			attack_chose = irandom_range(0,1)
+			attack_chose = irandom_range(0,2)
 			switch (attack_chose)
 			{
 				case 0:
@@ -130,6 +129,13 @@ if (obj_game.gamePaused = false)
 					timer1 = 14;
 					timer2 = 90;
 					entity_step = BossTortoiseTrollHammerBlossom2;
+				break;
+				
+				case 2:
+					path_end();
+					sprite_index = enemy_idle;
+					timer1 = 55;
+					entity_step = BossTortoiseTrollHammerVineErupt2;
 				break;
 			}
 				
@@ -261,7 +267,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Tortoise Troll Hammer Slam
+//Tortoise Troll Hammer Backslam
 function BossTortoiseTrollHammerBackslam2(){
 if (obj_game.gamePaused = false)
 {
@@ -364,6 +370,86 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		animation_end = false;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Tortoise Troll Spiked Vine Toss
+function BossTortoiseTrollSpikedVineToss2(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (sprite_index != spr_enemy_tortoiseTroll_vineToss2)
+	{
+		//Start Animation From Beginning
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		sprite_index = spr_enemy_tortoiseTroll_vineToss2;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+
+	if (timer1 <= 0)
+	{
+		timer1 = 120;
+		audio_sound_gain(snd_gorogKnife_throw,global.volumeEffects,1);
+		audio_play_sound(snd_gorogKnife_throw,0,false);
+		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		{
+			script_execute(TortoiseTrollSpikedVineCreate);
+			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
+			image_angle = direction;
+			enemy_spd = 4.5;
+			parent = other;
+			break_object = other.break_object;
+			fragment_count = 3;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+		}
+	}
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{	
+		attack_counter = 0;
+		entity_step = BossTortoiseTrollVineTossWait;
+		animation_end = false;
+		
+	}
+}
+}
+//
+//
+//
+//
+//
+//Boss Tortoise Troll Vine Toss Wait
+function BossTortoiseTrollVineTossWait(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (sprite_index != spr_enemy_tortoiseTroll_vineToss_wait)
+	{
+		//Start Animation From Beginning
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		sprite_index = spr_enemy_tortoiseTroll_vineToss_wait;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+
+	//Animate
+	EnemyAnimation();
 }
 }
 //
@@ -516,6 +602,77 @@ if (obj_game.gamePaused = false)
 			speed = enemy_spd;
 		}
 		timer1 = 29;
+	}
+	
+	
+	//Animate
+	EnemyAnimation1();
+	if (animation_end) 
+	{
+		timer1 = 120;
+		timer2 = 120;
+		z = 0;
+		entity_step = home_state;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Hammer Blossom
+function BossTortoiseTrollHammerVineErupt2(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+
+	if (sprite_index != spr_enemy_tortoiseTroll_vineErupt2)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_tortoiseTroll_vineErupt2;
+		sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	
+	//Launch Missles
+	if (timer1 <= 0)
+	{
+		for (var i = 0; i < 32; i = i + 1)
+		{
+			with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
+			{
+				direction = (point_direction(x,y,obj_player.x,obj_player.y)) + round(11.25 * i);
+				image_angle = direction;
+				home_state = TrollTortoiseVineShot;
+				timer1 = 180;
+				path = -1;
+				entity_step = home_state;
+				invincible = false;
+				inv_dur_timer = 0;
+				enemy_move = spr_enemy_tortoiseTroll_vineShot;
+				aggro_drop = 300;
+				healthbar = false;
+				enemy_spd = 2.5;
+				local_frame = 0;
+				hit_by_attack = -1;
+				damage = 90;
+				break_object = other.break_object;
+				fragment_count = 2;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+				speed = enemy_spd;
+				image_speed = 0;
+				image_index = irandom_range(0,4);
+			}
+			timer1 = 60;
+		}
 	}
 	
 	

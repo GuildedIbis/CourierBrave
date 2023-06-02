@@ -8,9 +8,11 @@
 function NecromancerCreate(){
 entity_step = NecromancerScene1Step;
 sound = snd_npc_mouse;
-timer1 = 0;
+timer1 = 40;
 idle_sprite = spr_necromancer;
+scene = false;
 sprite_index = idle_sprite;
+image_speed = 0;
 }
 //
 //
@@ -19,7 +21,7 @@ sprite_index = idle_sprite;
 //
 //Necromancer Scene 1 Step
 function NecromancerScene1Step(){
-image_speed = 0;
+
 
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
@@ -31,22 +33,28 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 }
 if (obj_inventory.quest_grid[# 14, 0] = true)
 {
-	image_alpha = image_alpha - .1;
-	if (image_alpha <= 0)
+	if (sprite_index != spr_necromancer_scene1)
 	{
-		if (instance_exists(obj_enemy))
-		{
-			with (obj_enemy)
-			{
-				global.aggroCounter = global.aggroCounter + 1;
-				targeted = true;
-				entity_step = home_state;
-			}
-		}
-		instance_destroy();
+		sprite_index = spr_necromancer_scene1;
+		image_index = 0;
+		image_speed = 1;
 	}
+	timer1 = timer1 - 1;
+	if (timer1 <= 0) obj_inventory.quest_grid[# 14, 1] = 1;
+} 
+if (obj_inventory.quest_grid[# 14, 1] > 0)
+{
+	if (instance_exists(obj_enemy))
+	{
+		with (obj_enemy)
+		{
+			global.aggroCounter = global.aggroCounter + 1;
+			targeted = true;
+			entity_step = home_state;
+		}
+	}
+	instance_destroy();
 }
-else sprite_index = idle_sprite;
 }
 //
 //
@@ -75,14 +83,14 @@ if (obj_inventory.quest_grid[# 14, 0] = false)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Welcome Courier!" 
+		text_string = "Greetings Courier!" 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "It is truly an honor to meet you, Captain of Omlio Couriers."
+		text_string = "It is truly an honor to meet you, Captain of\nOmlio Couriers."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -106,7 +114,7 @@ if (obj_inventory.quest_grid[# 14, 0] = false)
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "I know I cannot keep you away from him for long,\nbut I must do everything I can to slow you."
+		text_string = "I know I cannot keep you away from Him for long,\nbut I must do everything I can to slow you."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
@@ -118,7 +126,7 @@ if (obj_inventory.quest_grid[# 14, 0] = false)
 	if (string_counter = 4)
 	{
 		speaker = 1;
-		text_string = "With deepest respect Courier…"
+		text_string = "With deepest respect Courier. . .\nUntil we meet again."
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);

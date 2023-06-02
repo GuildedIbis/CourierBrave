@@ -77,6 +77,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_tortoiseTroll_scene2)
 	{
 		//Start Animation From Beginning
+		audio_sound_gain(snd_tortoiseTroll_damaged02,global.volumeEffects,1);
+		audio_play_sound(snd_tortoiseTroll_damaged02,0,false);
 		sprite_index = spr_enemy_tortoiseTroll_scene2;
 		local_frame = 0;
 		image_index = 0;
@@ -88,6 +90,7 @@ if (obj_game.gamePaused = false)
 	{
 		script_execute(BossTortoiseTrollCreate2);
 		entity_step = home_state;
+		sprite_index = spr_enemy_tortoiseTroll_idle2;
 	}
 }
 }
@@ -496,7 +499,7 @@ if (obj_game.gamePaused = false)
 			direction = other.direction;
 			image_angle = direction;
 			home_state = TrollTortoiseMissile;
-			timer1 = 150;
+			timer1 = 180;
 			timer2 = 30;
 			path = -1;
 			entity_step = home_state;
@@ -596,225 +599,6 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		animation_end = false;
 	}
-}
-}
-//
-//
-//
-//
-//
-//Troll Tortoise Mound
-function TrollTortoiseMound(){
-if (obj_game.gamePaused = false)
-{
-
-//Set
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
-
-//Direction
-if (path_exists(path)) path_delete(path);
-path = path_add();
-mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
-path_start(path, enemy_spd, 0, 0);
-
-if (timer2 <= 0)
-{
-	audio_sound_gain(snd_tortoiseTroll_mound_move,global.volumeEffects,1);
-	audio_play_sound(snd_tortoiseTroll_mound_move,0,false);
-	timer2 = 30;
-}
-//Collision		
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_tortoiseTroll_blossom,global.volumeEffects,1);
-	audio_play_sound(snd_tortoiseTroll_blossom,0,false);
-	entity_step = TrollTortoiseBlossom;
-	timer1 = 55;
-	timer2 = 60;
-	timer3 = 0;
-}
-}
-else
-{
-	speed = 0;
-}
-}
-//
-//
-//
-//
-//
-//Troll Tortoise Blossom
-function TrollTortoiseBlossom(){
-if (obj_game.gamePaused = false)
-{
-
-//Set
-sprite_index = spr_enemy_tortoiseTroll_blossom;
-speed = 0;
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
-
-if (timer1 <= 0)
-{
-	audio_sound_gain(snd_tortoiseTroll_blossomShoot,global.volumeEffects,1);
-	audio_play_sound(snd_tortoiseTroll_blossomShoot,0,false);
-	timer1 = 120;
-	for (var i = 0; i < 3; i = i + 1)
-	{	
-		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
-		{
-			direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
-			home_state = TrollTortoiseBlossomOrb;
-			exploded = false;
-			timer1 = 19;
-			path = -1;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_tortoiseTroll_blossomOrb;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 3;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 100;
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragPlant;
-			bullet = true;
-			hit_script = EntityHitDestroy;
-			speed = enemy_spd;
-		}
-	}
-
-}
-
-if (timer2 <= 0) instance_destroy();
-}
-}
-//
-//
-//
-//
-//
-//Troll Tortoise Blossom Orb
-function TrollTortoiseBlossomOrb(){
-if (obj_game.gamePaused = false)
-{
-
-if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
-{
-	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-	audio_play_sound(snd_blossomOrb_explode,0,false);
-	exploded = true;
-	speed = 0;
-}
-if (exploded = true)
-{
-	timer1 = timer1 - 1;
-	if (timer1 <= 0) instance_destroy();
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
-}
-else
-{
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb;
-}
-	
-
-//Collision		
-if (place_meeting(x,y,obj_player))
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	with (obj_player)
-	{
-		if (invincible = false)
-		{
-			if (dmg_snd_delay <= 0)
-			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			inv_dur_timer = 30;
-			flash = .35;
-			hp = hp - (other.damage - armor);
-		}
-	}
-}
-if (place_meeting(x,y,break_object)) and (exploded = false)
-{
-	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-	audio_play_sound(snd_blossomOrb_explode,0,false);
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
-	exploded = true;
-	speed = 0;
-}
-}
-else
-{
-	speed = 0;
-}
-}
-//
-//
-//
-//
-//
-//Troll Tortoise Missile
-function TrollTortoiseMissile(){
-if (obj_game.gamePaused = false)
-{
-
-//Set
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
-//var _playerDis = abs (direction - point_direction(x,y,obj_player.x,obj_player.y));
-var _playerDir = point_direction(x,y,obj_player.x,obj_player.y);
-//Direction
-if (timer2 > 0) direction = lerp(direction,_playerDir,.1);
-image_angle = direction;
-
-//Collision		
-if (place_meeting(x,y,obj_player))
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	with (obj_player)
-	{
-		if (invincible = false)
-		{
-			if (dmg_snd_delay <= 0)
-			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			inv_dur_timer = 30;
-			flash = .35;
-			hp = hp - (other.damage - armor);
-		}
-	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	instance_destroy();
-}
-if (timer1 <= 0) instance_destroy();
-
-}
-else
-{
-	speed = 0;
 }
 }
 //
