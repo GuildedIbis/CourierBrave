@@ -932,6 +932,7 @@
     {"name":"snd_simpleA","order":2,"path":"sounds/snd_simpleA/snd_simpleA.yy",},
     {"name":"spr_enemy_cultistZealot_waterSlash_back_hitbox","order":10,"path":"sprites/spr_enemy_cultistZealot_waterSlash_back_hitbox/spr_enemy_cultistZealot_waterSlash_back_hitbox.yy",},
     {"name":"spr_enemy_bioBolt","order":9,"path":"sprites/spr_enemy_bioBolt/spr_enemy_bioBolt.yy",},
+    {"name":"spr_motherLily_scissorLeaf","order":11,"path":"sprites/spr_motherLily_scissorLeaf/spr_motherLily_scissorLeaf.yy",},
     {"name":"spr_enemy_eliteSkirmisher_damaged","order":6,"path":"sprites/spr_enemy_eliteSkirmisher_damaged/spr_enemy_eliteSkirmisher_damaged.yy",},
     {"name":"spr_enemy_cultistBacwire_shoot","order":4,"path":"sprites/spr_enemy_cultistBacwire_shoot/spr_enemy_cultistBacwire_shoot.yy",},
     {"name":"spr_player_adavio_cast_ultimate","order":13,"path":"sprites/spr_player_adavio_cast_ultimate/spr_player_adavio_cast_ultimate.yy",},

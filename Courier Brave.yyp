@@ -1059,6 +1059,7 @@
     {"id":{"name":"snd_simpleA","path":"sounds/snd_simpleA/snd_simpleA.yy",},},
     {"id":{"name":"spr_enemy_cultistZealot_waterSlash_back_hitbox","path":"sprites/spr_enemy_cultistZealot_waterSlash_back_hitbox/spr_enemy_cultistZealot_waterSlash_back_hitbox.yy",},},
     {"id":{"name":"spr_enemy_bioBolt","path":"sprites/spr_enemy_bioBolt/spr_enemy_bioBolt.yy",},},
+    {"id":{"name":"spr_motherLily_scissorLeaf","path":"sprites/spr_motherLily_scissorLeaf/spr_motherLily_scissorLeaf.yy",},},
     {"id":{"name":"spr_enemy_eliteSkirmisher_damaged","path":"sprites/spr_enemy_eliteSkirmisher_damaged/spr_enemy_eliteSkirmisher_damaged.yy",},},
     {"id":{"name":"spr_enemy_cultistBacwire_shoot","path":"sprites/spr_enemy_cultistBacwire_shoot/spr_enemy_cultistBacwire_shoot.yy",},},
     {"id":{"name":"spr_player_adavio_cast_ultimate","path":"sprites/spr_player_adavio_cast_ultimate/spr_player_adavio_cast_ultimate.yy",},},

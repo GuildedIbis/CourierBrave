@@ -4,7 +4,7 @@
 //
 //
 //
-//MOther Lily Create
+//Mother Lily Create
 function BossMotherLilyCreate(){
 name = "Mother Lily"
 targeted = false;
@@ -51,6 +51,8 @@ if (obj_game.gamePaused = false)
 	
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 
 	//While Aggro if off
 	if (targeted = false)
@@ -77,53 +79,89 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Vulnerable State after 3 attacks
-	if (attack_counter >= 3)
-	{
-		entity_step = BossMotherLilyExposed;
-	}
+	//if (attack_counter >= 3)
+	//{
+	//	entity_step = BossMotherLilyExposed;
+	//}
 	
 	//While Aggro is on
-	if (targeted = true) and (attack_counter < 3)
+	if (targeted = true) //and (attack_counter < 3)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		EnemyChaseSpecial(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
+		
+		//Slash Attack
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
 			walk_snd_delay = 45;
 			path_end();
 			sprite_index = enemy_idle;
+			if (timer1 <= 0)
+			{
+				audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
+				audio_play_sound(snd_motherLily_leafSlash,0,false);
+				timer1 = 23;
+				entity_step = BossMotherLilyLeafSlash;
+			}
+		}
+
+		//Mid Range Attacks - Razer Sprouts and Scissor Leaf
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer2 <= 0)
+		{
+			var _atkChoose = irandom_range(0,1);
+			switch(_atkChoose)
+			{
+				case 0:
+					walk_snd_delay = 15;
+					path_end();
+					sprite_index = enemy_idle;
+					timer2 = 23;
+					entity_step = BossMotherLilyRazerSprout;
+					break;
+					
+				case 1:
+					walk_snd_delay = 15;
+					//audio_sound_gain(snd_motherLily_viceBomb,global.volumeEffects,1);
+					//audio_play_sound(snd_motherLily_viceBomb,0,false);
+					path_end();
+					direction = point_direction(x,y,obj_player.x,obj_player.y);
+					sprite_index = enemy_idle;
+					timer2 = 30;
+					hor_spd = 0;
+					ver_spd = 0;
+					entity_step = BossMotherLilyScissorLeaf;
+					with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+					{
+						home_state = ScissorLeafFree;
+						timer1 = 30;
+						timer2 = 10;
+						entity_step = home_state;
+						invincible = false;
+						inv_dur_timer = 0;
+						enemy_move = spr_motherLily_scissorLeaf;
+						aggro_drop = 300;
+						healthbar = false;
+						enemy_spd = 4.0;
+						local_frame = 0;
+						hit_by_attack = -1;
+						damage = 65;
+						break_object = other.break_object;
+						parent = other;
+						fragment_count = 3;
+						fragment = obj_fragPlant;
+						bullet = true;
+						hit_script = EntityHitDestroy;
+						image_angle = other.direction;
+					}
+				break;
+			}
 		}
 		
-		//Slash Attack
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,32)) and (timer1 <= 0)
+		//Long Ragne Attack - Vice Bomb:
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer3 <= 0)
 		{
 			walk_snd_delay = 15;
-			path_end();
-			sprite_index = enemy_idle;
-			audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
-			audio_play_sound(snd_motherLily_leafSlash,0,false);
-			attack_counter = attack_counter + 1;
-			timer1 = 23;
-			entity_step = BossMotherLilyLeafSlash;
-		}
-		
-		//Razer Sprout: Circle of Green Projectiles
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (timer1 <= 0)
-		{
-			walk_snd_delay = 15;
-			path_end();
-			sprite_index = enemy_idle;
-			attack_counter = attack_counter + 1;
-			timer1 = 23;
-			entity_step = BossMotherLilyRazerSprout;
-		}
-		
-		//Vice Bomb: Large Fast Bubble that inflicts Watervice
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timer1 <= 0)
-		{
-			walk_snd_delay = 15;
-			attack_counter = attack_counter + 1;
 			audio_sound_gain(snd_motherLily_viceBomb,global.volumeEffects,1);
 			audio_play_sound(snd_motherLily_viceBomb,0,false);
 			path_end();
@@ -181,14 +219,103 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 55;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_motherLily_leafSlash_hitbox)
+	EnemyAttackCalculate(spr_enemy_motherLily_leafSlash_hitbox);
 
 	//Animate
 	EnemyAnimation();
 	if (animation_end)
 	{
+		timer1 = 90;
 		entity_step = home_state;
 		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Mother Lily Scissor Leaf 
+function BossMotherLilyScissorLeaf(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_motherLily_move)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_motherLily_move;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 50;
+	EnemyAttackCalculate(spr_motherLily_scissorLeaf);
+	
+	
+	var _collided = EnemyCollision();
+	if (_collided = false)
+	{
+		//speed = enemy_spd * 1.5;
+		hor_spd = lengthdir_x(2.25,direction);
+		ver_spd = lengthdir_y(2.25,direction);
+	}
+	if (_collided = true)
+	{
+		hor_spd = 0;
+		ver_spd = 0;
+	}
+
+
+	//Animate
+	EnemyAnimation();
+	if (timer2 <= 0)
+	{
+		//audio_play_sound(snd_viceBubble,0,false);
+		timer2 = 120;
+		entity_step = home_state;
+		animation_end = false;
+	}
+
+}
+}
+//
+//
+//
+//
+//
+//Scissor Leaf Free
+function ScissorLeafFree(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_motherLily_scissorLeaf)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_motherLily_scissorLeaf;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	//damage = 60;
+	
+	x = parent.x;
+	y = parent.y - 8;
+	
+	EnemyAnimation1();
+	//Animate
+	if (timer2 <= 0)
+	{
+		timer2 = 60;
+		audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
+		audio_play_sound(snd_motherLily_leafSlash,0,false);
+	}
+	if (timer1 <= 0)
+	{
+		instance_destroy();
 	}
 }
 }
@@ -201,7 +328,7 @@ if (obj_game.gamePaused = false)
 function BossMotherLilyRazerSprout(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -237,6 +364,7 @@ if (obj_game.gamePaused = false)
 				speed = enemy_spd;
 			}
 		}
+		timer2 = 120;
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -251,7 +379,7 @@ if (obj_game.gamePaused = false)
 function BossMotherLilyViceBomb(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -291,6 +419,7 @@ if (obj_game.gamePaused = false)
 			image_angle = direction;
 			speed = enemy_spd;
 		}
+		timer3 = 30;
 		entity_step = home_state;
 		animation_end = false;
 	}

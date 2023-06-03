@@ -908,7 +908,7 @@
 -840,0,-80,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -9,0,5,50,52,0,0,534,-15,0,2,53,50,-13,0,14,51,165,12,0,
-53,52,50,53,53,0,11,10,50,140,-5,0,13,52,53,50,52,0,33,53,
+53,52,50,53,53,0,11,10,50,140,-5,0,13,52,53,50,52,0,0,53,
 0,10,13,13,53,51,-7,0,13,12,51,52,52,13,10,11,13,11,12,10,
 50,52,-6,0,15,10,50,52,0,13,12,13,11,13,12,12,13,10,12,52,
 -6,0,13,51,53,256,53,11,10,13,10,11,11,12,11,11,-8,0,12,53,
