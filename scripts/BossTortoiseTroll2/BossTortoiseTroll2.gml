@@ -19,7 +19,7 @@ enemy_move = spr_enemy_tortoiseTroll_run2;
 damaged_snd = snd_tortoiseTroll_damaged;
 walk_snd = snd_walk_regular;
 shadow = 2;
-lit = false;
+lit = true;
 light_size = 48;
 aggro_drop = 300;
 attack_counter = 0;
@@ -27,7 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 max_hp = 2500;
-hp = 1250;
+hp = round(max_hp * .75);
 boss = true;
 name = "Tortoise Troll";
 enemy_spd = 1.3;
@@ -91,21 +91,11 @@ if (obj_game.gamePaused = false)
 				
 				case 1:
 					path_end();
+					audio_sound_gain(snd_tortoiseTroll_damaged02,global.volumeEffects,1);
+					audio_play_sound(snd_tortoiseTroll_damaged02,0,false);
 					sprite_index = enemy_idle;
-					image_index = 0;
-					if (timer1 <= 0)
-					{
-						audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
-						audio_play_sound(snd_tortoiseTroll_hammer,0,false);
-						timer1 = 45;
-						attack_counter = attack_counter + 1;
-						if (attack_counter >= 2)
-						{
-							attack_counter = 0;
-							timer1 = 60;
-						}
-						entity_step = BossTortoiseTrollSpikedVineToss2;
-					}
+					timer1 = 55;
+					entity_step = BossTortoiseTrollHammerVineErupt2;
 				break;
 			}
 		}
@@ -134,8 +124,20 @@ if (obj_game.gamePaused = false)
 				case 2:
 					path_end();
 					sprite_index = enemy_idle;
-					timer1 = 55;
-					entity_step = BossTortoiseTrollHammerVineErupt2;
+					image_index = 0;
+					if (timer1 <= 0)
+					{
+						audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
+						audio_play_sound(snd_tortoiseTroll_hammer,0,false);
+						timer1 = 45;
+						attack_counter = attack_counter + 1;
+						if (attack_counter >= 2)
+						{
+							attack_counter = 0;
+							timer1 = 60;
+						}
+						entity_step = BossTortoiseTrollSpikedVineToss2;
+					}
 				break;
 			}
 				
@@ -400,18 +402,21 @@ if (obj_game.gamePaused = false)
 		timer1 = 120;
 		audio_sound_gain(snd_gorogKnife_throw,global.volumeEffects,1);
 		audio_play_sound(snd_gorogKnife_throw,0,false);
-		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		for (var i = 0; i < 3; i = i + 1)
 		{
-			script_execute(TortoiseTrollSpikedVineCreate);
-			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
-			image_angle = direction;
-			enemy_spd = 4.5;
-			parent = other;
-			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragPlant;
-			bullet = true;
-			hit_script = EntityHitDestroy;
+			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+			{
+				script_execute(TortoiseTrollSpikedVineCreate);
+				direction = (point_direction(x,y,obj_player.x,obj_player.y-4)) - 15 + (15 * i);
+				image_angle = direction;
+				enemy_spd = 4.5;
+				parent = other;
+				break_object = other.break_object;
+				fragment_count = 3;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+			}
 		}
 	}
 	//Animate

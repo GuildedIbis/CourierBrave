@@ -259,7 +259,7 @@ else
 	speed = 0;
 }
 }
-	//
+//
 //
 //
 //
@@ -329,7 +329,8 @@ if (place_meeting(x,y,obj_player))
 		}
 	}
 	contacted = true;
-	speed = 0;
+	direction = point_direction(x,y,parent.x,parent.y);
+	returning = true;
 }
 if (place_meeting(x,y,break_object)) 
 {
@@ -345,6 +346,14 @@ if (timer1 <= 0)
 }
 if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,parent.y,x,y,16))
 {
+	if (returning = true)
+	{
+		with (parent) 
+		{
+			entity_step = BossTortoiseTrollFree2;
+		}
+		instance_destroy();
+	}
 	if (contacted = true)
 	{
 		with (parent) 
@@ -360,14 +369,7 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 		}
 		instance_destroy();
 	}
-	if (returning = true)
-	{
-		with (parent) 
-		{
-			entity_step = BossTortoiseTrollFree2;
-		}
-		instance_destroy();
-	}
+	
 }
 
 }
@@ -383,8 +385,7 @@ else
 //
 //Tortoise Troll Spiked Vine Rope
 function TortoiseTrollSpikedVineRope(){
-	draw_sprite_ext(spr_tortoiseTroll_vineRope,0,x,y,round(point_distance(x,y,parent.x,parent.y)/6),1,image_angle,c_white,1.0);
-
+draw_sprite_ext(spr_tortoiseTroll_vineRope,0,x,y,round(point_distance(x,y,parent.x,parent.y)/7),1,image_angle,c_white,1.0);
 }
 
 

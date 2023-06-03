@@ -8,16 +8,16 @@
 //Set on the Enemy Object in the hit_script variable definition
 function EntityHitEnemy(){
 var _sndChance = irandom_range(0,1)
-aggro_drop = 300;
-if (targeted = false) 
-{
-	targeted = true;
-	global.aggroCounter = global.aggroCounter + 1;
-	if (boss = true) global.bossCounter = global.bossCounter + 1;
-}
 
 if (invincible = false)
 {
+	aggro_drop = 300;
+	if (targeted = false) 
+	{
+		targeted = true;
+		global.aggroCounter = global.aggroCounter + 1;
+		if (boss = true) global.bossCounter = global.bossCounter + 1;
+	}
 	flash = .35;
 	hp = hp - other.damage;
 	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);

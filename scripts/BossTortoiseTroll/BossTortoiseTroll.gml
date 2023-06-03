@@ -27,7 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 max_hp = 2500;
-hp = max_hp;
+hp = 2500;
 boss = true;
 name = "Tortoise Troll";
 enemy_spd = 1.3;
@@ -113,7 +113,7 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_tortoiseTroll_rest;
 	}
 	
-	if (hp <= (max_hp/2))
+	if (hp <= (max_hp*.75))
 	{
 		path_end();
 		hor_spd = 0;

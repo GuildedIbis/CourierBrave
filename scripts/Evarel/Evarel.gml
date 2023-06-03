@@ -470,7 +470,7 @@ if (timer1 <= 0)
 {
 	distance = distance + 1;
 	damage = obj_player.grace + ((obj_inventory.form_grid[# 4, 7])*(distance));
-	timer1 = 6;
+	timer1 = 3;
 }
 if (sprite_index != projectile_sprite)
 {
@@ -487,7 +487,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
+	AttackCalculateStatus(projectile_sprite,obj_player,1,-1,-1,-1,-1,-1);
 	instance_destroy();
 	
 }
