@@ -479,6 +479,7 @@ if (timer2 <= 0)
 	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 	{
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		sprite_index = spr_enemy_ghostMasgar_phantomDagger;
 		home_state = PhantomDagger;
 		exploded = false;
 		path = -1;

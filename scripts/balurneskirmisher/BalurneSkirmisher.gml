@@ -81,7 +81,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
-		lit = false;
+		lit = true;
 		if (timer1 <= 0) script_execute(EnemyChase);
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
 		{

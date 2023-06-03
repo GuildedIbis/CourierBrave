@@ -6,6 +6,7 @@
 //
 //Tortoise Troll Create
 function BossTortoiseTrollCreate(){
+activate_args = 0;
 targeted = false;
 invincible = false;
 bullet = false;

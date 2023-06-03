@@ -82,7 +82,8 @@ if (knockback = false)
 	{
 		if (path_exists(path)) path_delete(path);
 		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, object_stuck);
+		if (return_x != -1) and (return_y != -1) mp_potential_path_object(path, return_x, return_y, 1, 2, object_stuck);
+		else mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, object_stuck);
 		path_start(path, enemy_spd, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;

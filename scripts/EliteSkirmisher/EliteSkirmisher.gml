@@ -37,6 +37,8 @@ timer2 = 0;
 timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
+return_x = -1;
+return_y = -1;
 }
 //
 //
@@ -105,6 +107,8 @@ if (obj_game.gamePaused = false)
 					timer2 = 20;
 					hor_spd = 0;
 					ver_spd = 0;
+					return_x = x;
+					return_y = y;
 					direction = (point_direction(x,y,obj_player.x,obj_player.y));
 					entity_step = EliteSkirmisherSpinSlash;
 				}
