@@ -36,7 +36,7 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 	}
 }
 
-//Player Inventory
+//Player Inventory - Main
 if (keyboard_check_pressed(vk_tab))
 {
 	if (global.home = false) and (global.transition = false)
@@ -50,6 +50,45 @@ if (keyboard_check_pressed(vk_tab))
 			}
 			gamePaused = !gamePaused;
 			invPaused = !invPaused;
+			if (gamePaused)
+			{
+			
+				with (all)
+				{
+					game_paused_image_speed = image_speed;
+					image_speed = 0;
+				}
+			}
+			else
+			{
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
+			}
+		
+		}
+	}
+}
+
+//Player Inventory - Quick Swap (Weapon Wheel)
+if (keyboard_check_pressed(ord("R")))
+{
+	if (global.home = false) and (global.transition = false)
+	{
+		if (textPaused = false) and (menuPaused = false)
+		{
+			if (invPaused = false) 
+			{
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+			}
+			gamePaused = !gamePaused;
+			invPaused = !invPaused;
+			with (obj_inventory)
+			{
+				quick_swap = !quick_swap;
+			}
 			if (gamePaused)
 			{
 			

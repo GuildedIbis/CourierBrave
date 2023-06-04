@@ -2,6 +2,7 @@
 
 menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
+quick_swap = false;
 inv_gui = -1;
 item_id = -1;
 

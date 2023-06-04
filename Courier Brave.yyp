@@ -977,6 +977,7 @@
     {"id":{"name":"snd_ceriver_boomerang","path":"sounds/snd_ceriver_boomerang/snd_ceriver_boomerang.yy",},},
     {"id":{"name":"snd_endire_sparkfire","path":"sounds/snd_endire_sparkfire/snd_endire_sparkfire.yy",},},
     {"id":{"name":"spr_environment","path":"sprites/spr_environment/spr_environment.yy",},},
+    {"id":{"name":"QuickSwap","path":"scripts/QuickSwap/QuickSwap.yy",},},
     {"id":{"name":"tile_lenko_8","path":"tilesets/tile_lenko_8/tile_lenko_8.yy",},},
     {"id":{"name":"spr_scroll_bar1b","path":"sprites/spr_scroll_bar1b/spr_scroll_bar1b.yy",},},
     {"id":{"name":"spr_lock","path":"sprites/spr_lock/spr_lock.yy",},},
