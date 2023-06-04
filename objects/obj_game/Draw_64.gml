@@ -14,7 +14,7 @@ if (global.home = true)
 }
 
 //Day Cycle
-GameDayCycle();
+//GameDayCycle();
 
 //Room Transistion
 GameRoomTransition();

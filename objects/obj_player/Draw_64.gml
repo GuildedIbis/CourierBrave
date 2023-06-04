@@ -23,6 +23,12 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_color(c_white);
 	draw_text_transformed(7,166,hp,.5,.5,0);
 
+	//Day Cycle
+	with (obj_game)
+	{
+		GameDayCycle();
+	}
+
 	//Beans
 	draw_sprite(spr_bean_hud,0,50,6);
 	draw_set_font(fnt_text)

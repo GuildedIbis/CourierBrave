@@ -140,6 +140,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"Quickswap","order":29,"path":"folders/Sprites/Game/Menu/Quickswap.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_chest","order":2,"path":"sprites/spr_chest/spr_chest.yy",},
@@ -599,6 +600,7 @@
     {"name":"spr_solarSabi3_active","order":22,"path":"sprites/spr_solarSabi3_active/spr_solarSabi3_active.yy",},
     {"name":"spr_enemy_bossZerwerk_voidBlade","order":17,"path":"sprites/spr_enemy_bossZerwerk_voidBlade/spr_enemy_bossZerwerk_voidBlade.yy",},
     {"name":"Camera","order":2,"path":"scripts/Camera/Camera.yy",},
+    {"name":"spr_menu_background","order":9,"path":"sprites/spr_menu_background/spr_menu_background.yy",},
     {"name":"rm_init2","order":3,"path":"rooms/rm_init2/rm_init2.yy",},
     {"name":"snd_lenko_themeMain","order":2,"path":"sounds/snd_lenko_themeMain/snd_lenko_themeMain.yy",},
     {"name":"obj_fragGold","order":10,"path":"objects/obj_fragGold/obj_fragGold.yy",},
