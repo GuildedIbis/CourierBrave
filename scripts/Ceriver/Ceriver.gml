@@ -7,6 +7,7 @@
 //Ceriver Set (create)
 function CeriverSet(){
 form = 1;
+form_type = 1;
 home_state = CeriverSet;
 free_state = CeriverFree;
 state_script = CeriverFree;
@@ -38,6 +39,14 @@ armor = 11 + (6 * (obj_inventory.form_grid[# 1, 6] -1));
 max_charge = 50 + (3* (grace + round(grace/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
+
+//Max Charges
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
 }
 //
 //
@@ -85,7 +94,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -147,16 +156,14 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (charge >= 6)
+		if (magic_primary = true) and (blue_charge >= 6)
 		{
-			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		//Dynorb
-		if (magic_primary = false) and (charge >= 3)
+		if (magic_primary = false) and (blue_charge >= 3)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}
@@ -176,7 +183,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 200)
+if (key_attackS) and (blue_charge >= 20)
 {
 	if (watervice = false)
 	{
@@ -267,7 +274,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -415,7 +422,7 @@ if (returning = false)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
 		returning = true;
 	}
 	if (place_meeting(x,y,break_object)) or (return_timer <= 0)
@@ -439,7 +446,7 @@ if (returning = true)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
 		returning = true;
 	}
 }
@@ -530,7 +537,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 6;
+	blue_charge = blue_charge - 6;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -560,7 +567,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 6)
+if (mouse_check_button(mb_left) = false) or (blue_charge < 6)
 {
 	attacking = false;
 	state_script = free_state;
@@ -783,7 +790,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 3;
+	blue_charge = blue_charge - 3;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -811,7 +818,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 3)
+if (mouse_check_button(mb_left) = false) or (blue_charge < 3)
 {
 	attacking = false;
 	state_script = free_state;
@@ -937,7 +944,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	special = special - 200;
+	blue_charge = blue_charge - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
@@ -965,7 +972,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (special < 200)
+if (keyboard_check(vk_shift) = false) or (blue_charge < 20)
 {
 	attacking = false;
 	state_script = free_state;

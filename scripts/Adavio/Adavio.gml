@@ -7,6 +7,7 @@
 //Adavio Set (create)
 function AdavioSet(){
 form = 2;
+form_type = 2;
 home_state = AdavioSet;
 free_state = AdavioFree;
 state_script = AdavioFree;
@@ -27,7 +28,6 @@ armor_draw = AdavioVoidSpreadMenu;
 special_draw = AdavioSpecialMenu;
 
 
-
 //Dynamic Variables
 magic_timer = 0;
 walk_spd = 1.75;
@@ -36,13 +36,13 @@ max_charge = 50 + (3* (grace + round(grace/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
-//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
-//magic_count = 0;
-//special_count = -1;
-//max_special_count = -1;
-//if (magic_count > max_magic_count) magic_count = max_magic_count;
-//weapon_count = -1;
-//max_weapon_count = -1;
+//Max Charges
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
 }
 //
 //
@@ -55,6 +55,7 @@ function AdavioFree(){
 walk_spd = 1.75;
 attacking = false;
 casting = false;
+
 
 //Movement 1: Speed
 if (knockback = false)
@@ -83,13 +84,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//yellow_charge = yellow_charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -151,15 +152,13 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 25)
+		if (magic_primary = true) and (purple_charge >= 25)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 30)
+		if (magic_primary = false) and (purple_charge >= 30)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}
@@ -167,7 +166,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 250)
+if (key_attackS) and (purple_charge >= 25)
 {
 	if (watervice = false)
 	{
@@ -307,7 +306,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
@@ -498,7 +497,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 30;
+	purple_charge = purple_charge - 30;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
@@ -529,7 +528,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (charge < 30)
+if (mouse_check_button(mb_left) = false) or (purple_charge < 30)
 {
 	attacking = false;
 	state_script = free_state;
@@ -651,7 +650,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 25;
+	purple_charge = purple_charge - 25;
 	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidCycle,0,0);
 	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -679,7 +678,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or Return to free state
-if (mouse_check_button(mb_left) = false) or (charge < 25)
+if (mouse_check_button(mb_left) = false) or (purple_charge < 25)
 {
 	attacking = false;
 	state_script = free_state;
@@ -895,7 +894,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -962,7 +961,7 @@ if (mouse_check_button_pressed(mb_left))
 	//magic_count = magic_count - 1;
 	if (!place_meeting(mouse_x,mouse_y,obj_wall))
 	{
-		special = special - 250;
+		purple_charge = purple_charge - 25;
 		special_timer = 90;
 		dest_x = mouse_x;
 		dest_y = mouse_y;

@@ -10,6 +10,8 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _rowLength = 6;
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+
+QuickSwapMenuMeters();
 draw_sprite(spr_quickswap_groupMeter,1,32,48);
 draw_sprite(spr_quickswap_groupMeter,1,75,48);
 draw_sprite(spr_quickswap_groupMeter,1,118,48);
@@ -62,4 +64,25 @@ for (var i = 0; i < 18; i = i + 1)
 	}
 }
 
+}
+//
+//
+//
+//
+//Quick Swap Meters
+function QuickSwapMenuMeters(){
+var _max = 50 + (3 * (obj_player.grace + round(obj_player.grace/15)))
+var _yellow = (obj_player.yellow_charge/_max) * 100;
+var _blue = (obj_player.blue_charge/_max) * 100;
+var _purple = (obj_player.purple_charge/_max) * 100;
+var _red = (obj_player.red_charge/_max) * 100;
+var _green = (obj_player.green_charge/_max) * 100;
+var _orange = (obj_player.orange_charge/_max) * 100;
+
+draw_healthbar(58,51,67,111,_yellow,c_black,c_yellow,c_yellow,3,true,true);
+draw_healthbar(101,51,110,111,_blue,c_black,c_blue,c_blue,3,true,true);
+draw_healthbar(144,51,153,111,_purple,c_black,c_purple,c_purple,3,true,true);
+draw_healthbar(187,51,196,111,_red,c_black,c_red,c_red,3,true,true);
+draw_healthbar(230,51,239,111,_green,c_black,c_green,c_green,3,true,true);
+draw_healthbar(273,51,282,111,_orange,c_black,c_orange,c_orange,3,true,true);
 }

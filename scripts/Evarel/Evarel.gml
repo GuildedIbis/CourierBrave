@@ -7,6 +7,7 @@
 //Evarel Set (create)
 function EvarelSet(){
 form = 4;
+form_type = 4;
 home_state = EvarelSet;
 free_state = EvarelFree;
 state_script = EvarelFree;
@@ -41,6 +42,14 @@ armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
 max_charge = 50 + (3* (grace + round(grace/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
+
+//Max Charges
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
 }
 //
 //
@@ -87,7 +96,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -150,18 +159,16 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 20)
+		if (magic_primary = true) and (green_charge >= 20)
 		{
 			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
 			audio_play_sound(snd_evarel_bristlerod,0,0);
 			magic_timer = 60;
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = EvarelBristlerodCast;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 10)
+		if (magic_primary = false) and (green_charge >= 10)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_counter = 0;
 			attack_script = EvarelReflexThornCast;
 			state_script = PlayerStateAttack;
@@ -170,11 +177,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 200)
+if (key_attackS) and (green_charge >= 20)
 {
 	if (watervice = false)
 	{
-		special = special - 200;
+		green_charge = green_charge - 20;
 		attack_script = EvarelThornriseCast;
 		state_script = PlayerStateAttack;
 	}
@@ -263,7 +270,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -316,7 +323,7 @@ if (_collided = true)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1);
 
 //Animate
 PlayerAnimation();
@@ -414,7 +421,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 20;
+	green_charge = green_charge - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -435,7 +442,7 @@ if (magic_timer <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	if (mouse_check_button(mb_left) = false) or (charge < 20)
+	if (mouse_check_button(mb_left) = false) or (green_charge < 20)
 	{
 		attacking = false;
 		state_script = free_state;
@@ -589,7 +596,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
-	charge = charge - 10;
+	green_charge = green_charge - 10;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_evarel_reflexthorn,global.volumeEffects,1);
@@ -632,7 +639,7 @@ if (mouse_check_button(mb_left) = false) and (attack_counter = 0)
 	animation_end = false;
 	atk_snd_delay = 0;
 }
-if (charge < 10)
+if (green_charge < 10)
 {
 
 	attacking = false;

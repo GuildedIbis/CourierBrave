@@ -7,6 +7,7 @@
 //Halofire Set (create)
 function HalofireSet(){
 form = 3;
+form_type = 3;
 home_state = HalofireSet;
 free_state = HalofireFree;
 state_script = HalofireFree;
@@ -26,8 +27,6 @@ magic_draw = HalofireMeteorMenu;
 armor_draw = HalofireFirewardArmorMenu;
 special_draw = HalofireSpecialMenu;
 
-
-
 //Dynamic Variables
 weapon_count = -1;
 max_weapon_count = -1;
@@ -41,6 +40,14 @@ armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
 max_charge = 50 + (3* (grace + round(grace/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
+
+//Max Charges
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
 }
 //
 //
@@ -87,7 +94,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -150,16 +157,13 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 24)
+		if (magic_primary = true) and (red_charge >= 24)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 5)
+		if (magic_primary = false) and (red_charge >= 5)
 		{
-			max_charge = 100 + (grace + round(grace/15));
-			max_attack_counter = floor(charge/20);
 			attack_script = HalofireFirespitCast;
 			state_script = PlayerStateAttack;
 		}
@@ -167,11 +171,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 500)
+if (key_attackS) and (red_charge >= 50)
 {
 	if (watervice = false)
 	{
-		special = special - 500;
+		red_charge = red_charge - 50;
 		attack_script = HalofireSpecial;
 		state_script = PlayerStateAttack;
 	}
@@ -261,7 +265,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -288,7 +292,7 @@ if (sprite_index != spr_player_halofire_hamaxe)
 
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_halofire_hamaxe_hitbox,obj_player,2,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_halofire_hamaxe_hitbox,obj_player,2,-1,-1,-1,-1,-1);
 
 //Animate
 PlayerAnimation();
@@ -341,7 +345,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -428,7 +432,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -506,7 +510,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -543,7 +547,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1);
 
 //Animate
 PlayerAnimationFixed();
@@ -621,7 +625,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
 if (timer1 <= 0)
 {
 	timer1 = 24;
@@ -739,8 +743,8 @@ PlayerBulletSpawnPosition();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
-{	
-	charge = charge - 24;
+{
+	red_charge = red_charge - 24;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
@@ -771,7 +775,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (charge < 24)
+if (mouse_check_button(mb_left) = false) or (red_charge < 24)
 {
 	attacking = false;
 	state_script = free_state;
@@ -860,7 +864,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 5;
+	red_charge = red_charge - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
@@ -893,7 +897,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (charge < 5)
+if (mouse_check_button(mb_left) = false) or (red_charge < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -1131,7 +1135,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles

@@ -484,7 +484,7 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 }
 
-var _objects = 3;
+var _objects = 4;
 var _dropBean = 95;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)	
@@ -497,6 +497,13 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 	drop_amount = _dropBean;
 	sprite_index = spr_bean;
 	direction = _angle/_objects;	
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	direction = _angle/_objects;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop1 > 50) //White String

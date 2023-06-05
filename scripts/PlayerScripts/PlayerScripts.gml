@@ -173,39 +173,30 @@ if (animation_end)
 //
 //
 //Recharge State
-function PlayerStateRecharge(){
-invincible = false;
-if (stamina < max_stamina) //Roll Recharge
+function PlayerRecharge(_yellow,_blue,_purple,_red,_green,_orange){
+if (_yellow = false) and (yellow_charge < max_yellow_charge)
 {
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
+	yellow_charge = yellow_charge + 1;
 }
-if (obj_inventory.form_grid[# form, 8] > 0)
+if (_blue = false) and (blue_charge < max_blue_charge)
 {
-	if (special_timer < max_special_timer) special_timer = special_timer + 1;
+	blue_charge = blue_charge + 1;
 }
-
-//Animation Start
-if (sprite_index != recharge_sprite)
+if (_purple = false) and (purple_charge < max_purple_charge)
 {
-	//Start Animation From Beginning
-	sprite_index = recharge_sprite;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
+	purple_charge = purple_charge + 1;
 }
-
-//Animate
-PlayerAnimation();
-
-if (animation_end)
+if (_red = false) and (red_charge < max_red_charge)
 {
-	state_script = free_state;
-	animation_end = false;
+	red_charge = red_charge + 1;
+}
+if (_green = false) and (green_charge < max_green_charge)
+{
+	green_charge = green_charge + 1;
+}
+if (_orange = false) and (orange_charge < max_orange_charge)
+{
+	orange_charge = orange_charge + 1;
 }
 }
 //

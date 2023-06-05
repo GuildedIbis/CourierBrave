@@ -76,7 +76,21 @@ max_special = 1000;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 hp = max_hp;
 crull_stone = max_crull_stone;
-//magic_count = max_magic_count;
+
+//Color Specific Charge
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
+yellow_charge = 50 + (3* (grace + round(grace/15)));
+blue_charge = 50 + (3* (grace + round(grace/15)));
+purple_charge = 50 + (3* (grace + round(grace/15)));
+red_charge = 50 + (3* (grace + round(grace/15)));
+green_charge = 50 + (3* (grace + round(grace/15)));
+orange_charge = 50 + (3* (grace + round(grace/15)));
+
 
 //Status
 status_animate_timer = 0;

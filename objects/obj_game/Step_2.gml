@@ -37,7 +37,7 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 }
 
 //Player Inventory - Main
-if (keyboard_check_pressed(vk_tab))
+if (keyboard_check_pressed(vk_tab)) and (obj_inventory.quick_swap = false)
 {
 	if (global.home = false) and (global.transition = false)
 	{
@@ -66,44 +66,54 @@ if (keyboard_check_pressed(vk_tab))
 					image_speed = game_paused_image_speed;
 				}
 			}
-		
 		}
 	}
 }
 
 //Player Inventory - Quick Swap (Weapon Wheel)
-if (keyboard_check_pressed(ord("R")))
+if (keyboard_check_pressed(ord("R"))) 
 {
 	if (global.home = false) and (global.transition = false)
 	{
 		if (textPaused = false) and (menuPaused = false)
 		{
-			if (invPaused = false) 
+			switch (invPaused) 
 			{
-				audio_sound_gain(snd_menu,global.volumeMenu,1);
-				audio_play_sound(snd_menu,0,false);
-			}
-			gamePaused = !gamePaused;
-			invPaused = !invPaused;
-			with (obj_inventory)
-			{
-				quick_swap = !quick_swap;
-			}
-			if (gamePaused)
-			{
-			
-				with (all)
-				{
-					game_paused_image_speed = image_speed;
-					image_speed = 0;
-				}
-			}
-			else
-			{
-				with (all)
-				{
-					image_speed = game_paused_image_speed;
-				}
+				case true:
+					if (obj_inventory.quick_swap = true)
+					{
+						gamePaused = false;
+						invPaused = false;
+						with (obj_inventory)
+						{
+							quick_swap = false;
+						}
+						with (all)
+						{
+							image_speed = game_paused_image_speed;
+						}
+					}
+				break;
+				
+				case false:
+					if (obj_inventory.quick_swap = false)
+					{
+						audio_sound_gain(snd_menu,global.volumeMenu,1);
+						audio_play_sound(snd_menu,0,false);
+						gamePaused = true;
+						invPaused = true;
+						with (obj_inventory)
+						{
+							quick_swap = true;
+						}
+						with (all)
+						{
+							game_paused_image_speed = image_speed;
+							image_speed = 0;
+						}
+					}
+				break;
+
 			}
 		
 		}

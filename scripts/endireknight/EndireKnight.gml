@@ -379,7 +379,7 @@ if (obj_game.gamePaused = false)
 //Tnaks Drop
 function EndireKnightTnaksDrop(){
 
-var _objects = 2;
+var _objects = 3;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
 var _angle = random(360);
@@ -397,6 +397,13 @@ if (_drop1 > 0)
 		spd = .75 + (.3) + random(0.1);
 	}
 	
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	//drop_amount = _dropBean;
+	sprite_index = spr_charge_drop;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
 {
@@ -438,7 +445,7 @@ if (obj_inventory.quest_grid[# 3, 3] = false)
 //Obor Drop
 function EndireKnightOborDrop(){
 
-var _objects = 2;
+var _objects = 3;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
 var _angle = random(360);
@@ -456,6 +463,13 @@ if (_drop1 > 0)
 		spd = .75 + (.3) + random(0.1);
 	}
 	
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	//drop_amount = _dropBean;
+	sprite_index = spr_charge_drop;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
 {
@@ -495,7 +509,7 @@ if (obj_inventory.quest_grid[# 4, 3] = false)
 //Ghafate Drop
 function EndireKnightGhafateDrop(){
 
-var _objects = 2;
+var _objects = 3;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = random(360);
@@ -513,6 +527,13 @@ if (_drop1 > 0)
 		spd = .75 + (.3) + random(0.1);
 	}
 	
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	//drop_amount = _dropBean;
+	sprite_index = spr_charge_drop;
+	direction = _angle/_objects;
+	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
 {

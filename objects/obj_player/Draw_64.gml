@@ -81,8 +81,44 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_font(fnt_text)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	var _chargePerc = (charge/max_charge) * 100;
-	draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
+	switch (form_type)
+	{
+		case 0:
+			var _chargePerc = (yellow_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
+			selected_charge = yellow_charge;
+		break;
+		
+		case 1:
+			var _chargePerc = (blue_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
+			selected_charge = blue_charge;
+		break;
+		
+		case 2:
+			var _chargePerc = (purple_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
+			selected_charge = purple_charge;
+		break;
+		
+		case 3:
+			var _chargePerc = (red_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
+			selected_charge = red_charge;
+		break;
+		
+		case 4:
+			var _chargePerc = (green_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
+			selected_charge = green_charge;
+		break;
+		
+		case 5:
+			var _chargePerc = (orange_charge/max_charge) * 100;
+			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
+			selected_charge = orange_charge;
+		break;
+	}
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	//if (obj_inventory.form_grid[# form, 8] > 0)
@@ -99,9 +135,9 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 	draw_set_color(c_black);
-	draw_text_transformed(220,159,charge,.5,.5,0);
+	draw_text_transformed(220,159,selected_charge,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(219,159,charge,.5,.5,0);
+	draw_text_transformed(219,159,selected_charge,.5,.5,0);
 	draw_set_color(c_black);
 	draw_text_transformed(262,159,stamina,.5,.5,0);
 	draw_set_color(c_white);

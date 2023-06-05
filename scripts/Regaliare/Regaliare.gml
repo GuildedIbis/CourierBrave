@@ -7,6 +7,7 @@
 //Regaliare Set (create)
 function RegaliareSet(){
 form = 0;
+form_type = 0;
 home_state = RegaliareSet;
 free_state = RegaliareFree;
 state_script = RegaliareFree;
@@ -38,12 +39,14 @@ armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
 max_charge = 50 + (3* (grace + round(grace/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
-//max_magic_count = 20 + (obj_inventory.form_grid[# 0, 7] * 2);
-//magic_count = 0;
-//special_count = -1;
-//max_special_count = -1;
-//if (magic_count > max_magic_count) magic_count = max_magic_count;
 
+//Max Charges
+max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+max_blue_charge = 50 + (3* (grace + round(grace/15)));
+max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_red_charge = 50 + (3* (grace + round(grace/15)));
+max_green_charge = 50 + (3* (grace + round(grace/15)));
+max_orange_charge = 50 + (3* (grace + round(grace/15)));
 }
 //
 //
@@ -90,7 +93,7 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -151,15 +154,13 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (charge >= 5)
+		if (magic_primary = true) and (yellow_charge >= 5)
 		{
-			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (charge >= 10)
+		if (magic_primary = false) and (yellow_charge >= 10)
 		{
-			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
 		}
@@ -167,16 +168,15 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (special >= 500)
+if (key_attackS) and (yellow_charge >= 50)
 {
 	if (watervice = false)
 	{
-		special = special - 500;
+		yellow_charge = yellow_charge - 50;
 		attack_script = RegaliareSpecial;
 		state_script = PlayerStateAttack;
 	}
 }
-
 
 //Roll State
 if (key_ability) and (stamina >= 50)
@@ -189,12 +189,6 @@ if (key_ability) and (stamina >= 50)
 		state_script = PlayerStateRoll;
 		remain_dist = roll_dist;
 	}
-}
-
-//Recharge Magic State
-if (keyboard_check_pressed(ord("R"))) 
-{
-
 }
 
 //Crull Stone State
@@ -259,7 +253,7 @@ if (charge < max_charge) and (watervice = false)//Charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (special < max_special) //Special Recharge
@@ -301,7 +295,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-AttackCalculateStatus(spr_fayaniBlade_hitbox,obj_player,1.5,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_fayaniBlade_hitbox,obj_player,1.5,-1,-1,-1,-1,-1);
 
 //Animate
 PlayerAnimation();
@@ -400,7 +394,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	charge = charge - 7;
+	yellow_charge = yellow_charge - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -426,7 +420,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Restart or Return to Free
-if (mouse_check_button(mb_left) = false) or (charge < 5)
+if (mouse_check_button(mb_left) = false) or (yellow_charge < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -660,7 +654,7 @@ if (charge < max_charge) and (watervice = false)//charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 5;
-		charge = charge + 1;
+		//charge = charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots
