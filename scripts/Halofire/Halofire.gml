@@ -37,14 +37,14 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
-max_charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 100;
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
-max_yellow_charge = 50 + (3* (grace + round(grace/15)));
-max_blue_charge = 50 + (3* (grace + round(grace/15)));
-max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_yellow_charge = 100;
+max_blue_charge = 100;
+max_purple_charge = 100;
 max_red_charge = 50 + (3* (grace + round(grace/15)));
 max_green_charge = 50 + (3* (grace + round(grace/15)));
 max_orange_charge = 50 + (3* (grace + round(grace/15)));
@@ -88,24 +88,24 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -171,11 +171,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (red_charge >= 50)
+if (key_attackS) and (red_special >= 50)
 {
 	if (watervice = false)
 	{
-		red_charge = red_charge - 50;
+		red_special = red_special - 50;
 		attack_script = HalofireSpecial;
 		state_script = PlayerStateAttack;
 	}
@@ -259,15 +259,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -339,24 +348,24 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -426,24 +435,24 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -504,24 +513,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -584,24 +593,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -696,15 +705,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -816,15 +825,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (red_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		red_special = red_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -991,122 +1000,6 @@ if (place_meeting(x,y,break_object))
 //
 //
 //
-//Halofire Tri-Rock Magic State
-function HalofireTriRock(){
-//Set
-walk_spd = 1.2;
-attacking = true;
-casting = true;
-
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
-
-//Movement 1: Speed
-if (knockback = false)
-{
-	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-}
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_halofire_runCast;
-}
-else sprite_index = spr_player_halofire_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Bullet Spawn Position
-PlayerBulletSpawnPosition();
-
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (magic_timer <= 0)
-{	
-	attack_counter = attack_counter + 1;
-	charge = charge - 24;
-	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
-	{
-		audio_sound_gain(snd_halofire_trirock,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_trirock,0,0,global.volumeEffects);
-		break_object = obj_player.break_object;
-		magic = true;
-		follow_timer = 28;
-		fragment_count = 2;
-		fragment = obj_fragFire;
-		damage = obj_player.grace + 10 + ((obj_inventory.form_grid[# 3, 7])*(5));//
-		projectile_sprite = spr_meteor;
-		projectile_script = HalofireMeteor;
-		idle_sprite = spr_meteor;
-		hit_by_attack = -1;
-		direction = irandom_range(-12,12) + (point_direction(x,y,mouse_x,mouse_y));
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else inv_timer = 15;
-		image_angle = direction;
-		projectile_speed = 4.0;
-	}
-	magic_timer = 6;
-}
-
-//Animate
-PlayerAnimationCast();
-
-//Restart or return to free state
-if (attack_counter >= max_attack_counter)
-{
-	attack_counter = 0;
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
-}
-//
-//
-//
-//
-//
 //Halofire Special State
 function HalofireSpecial(){
 //Set
@@ -1129,13 +1022,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (red_charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		red_charge = red_charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -1344,7 +1237,6 @@ if (magic = true)
 	}
 }
 }
-
 //
 //
 //

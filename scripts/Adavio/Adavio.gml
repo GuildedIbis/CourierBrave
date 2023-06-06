@@ -32,14 +32,14 @@ special_draw = AdavioSpecialMenu;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
-max_charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 100;
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
-max_yellow_charge = 50 + (3* (grace + round(grace/15)));
-max_blue_charge = 50 + (3* (grace + round(grace/15)));
-max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_yellow_charge = 100;
+max_blue_charge = 100;
+max_purple_charge = 100;
 max_red_charge = 50 + (3* (grace + round(grace/15)));
 max_green_charge = 50 + (3* (grace + round(grace/15)));
 max_orange_charge = 50 + (3* (grace + round(grace/15)));
@@ -84,24 +84,24 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (watervice = false)//charge Recharge
+if (purple_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//yellow_charge = yellow_charge + 1;
+		charge_timer = 6;
+		purple_charge = purple_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (purple_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		purple_special = purple_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -166,7 +166,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (purple_charge >= 25)
+if (key_attackS) and (purple_special >= 25)
 {
 	if (watervice = false)
 	{
@@ -258,24 +258,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_adavio_hookThrust,0,0);
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (purple_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
+		charge_timer = 6;
+		purple_charge = purple_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (purple_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		purple_special = purple_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -447,15 +447,15 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (purple_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		purple_special = purple_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -601,15 +601,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (purple_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		purple_special = purple_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -750,124 +750,6 @@ if (place_meeting(x,y,break_object))
 }
 
 }
-
-//
-//
-//
-//
-//
-//Adavio Special State
-function AdavioDrainGrenadeCast(){
-//Set
-walk_spd = 1.2;
-attacking = true;
-casting = true;
-
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (charge < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-
-
-//Movement 1: Speed
-if (knockback = false)
-{
-	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-}
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_ceriver_runCast;
-}
-else sprite_index = spr_player_ceriver_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Bullet Spawn Position
-PlayerBulletSpawnPosition();
-
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (magic_timer <= 0)
-{	
-	special = special - 200;
-	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
-	{
-		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
-		audio_play_sound(snd_ceriver_dynorb,0,0);
-		break_object = obj_player.break_object;
-		fragment_count = 3;
-		fragment = obj_fragWater;
-		magic = true;
-		sd_timer = 60;
-		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
-		projectile_sprite = spr_ceriver_steelorb;
-		projectile_script = CeriverSteelorbFree;
-		idle_sprite = spr_ceriver_steelorb;
-		image_index = 0;
-		projectile_speed = 3;
-		hit_by_attack = -1;
-		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y);
-		image_angle = direction;
-	}
-	magic_timer = 30;
-}
-
-//Animate
-PlayerAnimationCast();
-
-//End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (special < 200)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
-}
 //
 //
 //
@@ -888,13 +770,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (purple_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		purple_charge = purple_charge + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -961,7 +843,7 @@ if (mouse_check_button_pressed(mb_left))
 	//magic_count = magic_count - 1;
 	if (!place_meeting(mouse_x,mouse_y,obj_wall))
 	{
-		purple_charge = purple_charge - 25;
+		purple_special = purple_special - 25;
 		special_timer = 90;
 		dest_x = mouse_x;
 		dest_y = mouse_y;

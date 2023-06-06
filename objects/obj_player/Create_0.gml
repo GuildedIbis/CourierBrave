@@ -68,11 +68,11 @@ walk_spd = 1.75;
 roll_spd = 3;
 roll_dist = 64;
 charge = 50 + (3* (grace + round(grace/15)));
-max_charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 100; //50 + (3* (grace + round(grace/15)));
 stamina = 50 + (3* (might + round(might/15)));
 max_stamina = 50 + (3* (might + round(might/15)));
-special = 1000;
-max_special = 1000;
+special = 100;
+max_special = 100;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 hp = max_hp;
 crull_stone = max_crull_stone;
@@ -90,6 +90,14 @@ purple_charge = 50 + (3* (grace + round(grace/15)));
 red_charge = 50 + (3* (grace + round(grace/15)));
 green_charge = 50 + (3* (grace + round(grace/15)));
 orange_charge = 50 + (3* (grace + round(grace/15)));
+//Color Specific Special
+yellow_special = 100;
+blue_special = 100;
+purple_special = 100;
+red_special = 100;
+green_special = 100;
+orange_special = 100;
+
 
 
 //Status

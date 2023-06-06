@@ -788,6 +788,7 @@
     {"id":{"name":"snd_arrow","path":"sounds/snd_arrow/snd_arrow.yy",},},
     {"id":{"name":"spr_npc_knightAvita","path":"sprites/spr_npc_knightAvita/spr_npc_knightAvita.yy",},},
     {"id":{"name":"OfaMoth","path":"scripts/OfaMoth/OfaMoth.yy",},},
+    {"id":{"name":"RetiredSkills","path":"scripts/RetiredSkills/RetiredSkills.yy",},},
     {"id":{"name":"snd_solarSabi","path":"sounds/snd_solarSabi/snd_solarSabi.yy",},},
     {"id":{"name":"BioBolt","path":"scripts/BioBolt/BioBolt.yy",},},
     {"id":{"name":"obj_surface","path":"objects/obj_surface/obj_surface.yy",},},

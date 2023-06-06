@@ -696,6 +696,7 @@
     {"name":"PlayerAttackCalculate","order":3,"path":"scripts/PlayerAttackCalculate/PlayerAttackCalculate.yy",},
     {"name":"spr_npc_knightAvita","order":4,"path":"sprites/spr_npc_knightAvita/spr_npc_knightAvita.yy",},
     {"name":"OfaMoth","order":4,"path":"scripts/OfaMoth/OfaMoth.yy",},
+    {"name":"RetiredSkills","order":8,"path":"scripts/RetiredSkills/RetiredSkills.yy",},
     {"name":"BioBolt","order":7,"path":"scripts/BioBolt/BioBolt.yy",},
     {"name":"obj_surface","order":8,"path":"objects/obj_surface/obj_surface.yy",},
     {"name":"spr_enemy_trapLily_open","order":1,"path":"sprites/spr_enemy_trapLily_open/spr_enemy_trapLily_open.yy",},

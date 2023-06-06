@@ -39,14 +39,17 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
-max_charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 100;
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
-max_yellow_charge = 50 + (3* (grace + round(grace/15)));
-max_blue_charge = 50 + (3* (grace + round(grace/15)));
-max_purple_charge = 50 + (3* (grace + round(grace/15)));
+max_yellow_charge = 100;
+max_blue_charge = 100;
+max_purple_charge = 100;
+//max_yellow_charge = 50 + (3* (grace + round(grace/15)));
+//max_blue_charge = 50 + (3* (grace + round(grace/15)));
+//max_purple_charge = 50 + (3* (grace + round(grace/15)));
 max_red_charge = 50 + (3* (grace + round(grace/15)));
 max_green_charge = 50 + (3* (grace + round(grace/15)));
 max_orange_charge = 50 + (3* (grace + round(grace/15)));
@@ -90,24 +93,24 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (green_charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		green_charge = green_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		special = special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -264,24 +267,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (green_charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		green_charge = green_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		special = special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -369,15 +372,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		special = special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -543,15 +546,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 5;
+//		special = special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -715,13 +718,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (green_charge < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
+		charge_timer = 6;
+		green_charge = green_charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots

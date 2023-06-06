@@ -86,46 +86,59 @@ if (scene = false) and (obj_game.textPaused = false)
 		case 0:
 			var _chargePerc = (yellow_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
+			var _specialPerc = (yellow_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = yellow_charge;
+			selected_special = yellow_special;
 		break;
 		
 		case 1:
 			var _chargePerc = (blue_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
+			var _specialPerc = (blue_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = blue_charge;
+			selected_special = blue_special;
 		break;
 		
 		case 2:
 			var _chargePerc = (purple_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
+			var _specialPerc = (purple_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = purple_charge;
+			selected_special = purple_special;
 		break;
 		
 		case 3:
 			var _chargePerc = (red_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
+			var _specialPerc = (red_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = red_charge;
+			selected_special = red_special;
 		break;
 		
 		case 4:
 			var _chargePerc = (green_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
+			var _specialPerc = (green_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = green_charge;
+			selected_special = green_special;
 		break;
 		
 		case 5:
 			var _chargePerc = (orange_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
+			var _specialPerc = (orange_special/max_special) * 100;
+			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = orange_charge;
+			selected_special = orange_special;
 		break;
 	}
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
-	//if (obj_inventory.form_grid[# form, 8] > 0)
-	//{
-	var _magicSPerc = (special/max_special) * 100;
-	draw_healthbar(280,168,316,171,_magicSPerc,c_black,c_white,c_white,0,true,true);
-	//}
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,240,160);
 	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,197,160);
@@ -143,9 +156,9 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_color(c_white);
 	draw_text_transformed(261,159,stamina,.5,.5,0);
 	draw_set_color(c_black);
-	draw_text_transformed(305,159,round(special/10),.5,.5,0);
+	draw_text_transformed(305,159,selected_special,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(304,159,round(special/10),.5,.5,0);
+	draw_text_transformed(304,159,selected_special,.5,.5,0);
 
 	
 	

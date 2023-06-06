@@ -36,17 +36,19 @@ max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
-max_charge = 50 + (3* (grace + round(grace/15)));
+max_charge = 100;
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
-//Max Charges
-max_yellow_charge = 50 + (3* (grace + round(grace/15)));
-max_blue_charge = 50 + (3* (grace + round(grace/15)));
-max_purple_charge = 50 + (3* (grace + round(grace/15)));
+//Max Magic Charge
+max_yellow_charge = 100;
+max_blue_charge = 100;
+max_purple_charge = 100;
 max_red_charge = 50 + (3* (grace + round(grace/15)));
 max_green_charge = 50 + (3* (grace + round(grace/15)));
 max_orange_charge = 50 + (3* (grace + round(grace/15)));
+
+
 }
 //
 //
@@ -87,24 +89,24 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (yellow_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		yellow_charge = yellow_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (yellow_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		yellow_special = yellow_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -168,11 +170,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (yellow_charge >= 50)
+if (key_attackS) and (yellow_special >= 50)
 {
 	if (watervice = false)
 	{
-		yellow_charge = yellow_charge - 50;
+		yellow_special = yellow_special - 50;
 		attack_script = RegaliareSpecial;
 		state_script = PlayerStateAttack;
 	}
@@ -247,24 +249,24 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (yellow_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		yellow_charge = yellow_charge + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (yellow_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		yellow_special = yellow_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -341,15 +343,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (yellow_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		yellow_special = yellow_special + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -358,10 +360,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
+
 
 //Movement 1: Speed
 if (knockback = false)
@@ -506,23 +505,20 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//if (yellow_special < max_special) //Special Recharge
+//{
+//	if (special_timer > 0) special_timer = special_timer - 1;
+//	if (special_timer <= 0)
+//	{
+//		special_timer = 12;
+//		yellow_special = yellow_special + 1;
+//	}
+//}
 if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
+
 
 //Movement 1: Speed
 if (knockback = false)
@@ -648,13 +644,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
+if (yellow_charge < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		//charge = charge + 1;
+		charge_timer = 6;
+		yellow_charge = yellow_charge + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots
