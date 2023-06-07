@@ -297,7 +297,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_fayaniBlade_hitbox,obj_player,1.5,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_fayaniBlade_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
 
 //Animate
 PlayerAnimation();
