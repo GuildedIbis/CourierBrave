@@ -26,6 +26,7 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
+form_type = 2;
 max_hp = 870;
 hp = max_hp;
 boss = true;

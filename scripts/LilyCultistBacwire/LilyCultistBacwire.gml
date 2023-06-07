@@ -27,6 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 1;
 max_hp = 135;
 hp = max_hp;
 enemy_spd = 1.5;
@@ -439,20 +440,48 @@ function LilyCultistDrop(){
 //{
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
 //}
-var _objects = 2;
+var _objects = 6;
 var _dropBean = irandom_range(20,40);
 var _drop1 = irandom_range(0,99)	
-var _angle = random(360);
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
 	drop_amount = _dropBean;
 	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	direction = 360/_objects;	
 	spd = .75 + (.3) + random(0.1);
 }
-
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
 if (_drop1 > 89) //Jeweled Root
 {
 	with (instance_create_layer(x,y,"Instances",obj_item))
@@ -461,7 +490,7 @@ if (_drop1 > 89) //Jeweled Root
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 1;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	

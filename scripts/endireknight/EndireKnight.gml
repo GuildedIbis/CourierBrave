@@ -27,6 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 3;
 max_hp = 500;
 hp = max_hp;
 boss = true;
@@ -379,30 +380,46 @@ if (obj_game.gamePaused = false)
 //Tnaks Drop
 function EndireKnightTnaksDrop(){
 
-var _objects = 3;
+var _objects = 6;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
-var _angle = random(360);
 
 
-if (_drop1 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = 360/_objects;	
+	spd = .75 + (.3) + random(0.1);
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	//drop_amount = _dropBean;
+	drop_amount = 10;
 	sprite_index = spr_charge_drop;
-	direction = _angle/_objects;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
@@ -413,7 +430,7 @@ if (_drop2 > 24)
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
@@ -445,30 +462,46 @@ if (obj_inventory.quest_grid[# 3, 3] = false)
 //Obor Drop
 function EndireKnightOborDrop(){
 
-var _objects = 3;
+var _objects = 6;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);
-var _angle = random(360);
 
 
-if (_drop1 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = 360/_objects;	
+	spd = .75 + (.3) + random(0.1);
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	//drop_amount = _dropBean;
+	drop_amount = 10;
 	sprite_index = spr_charge_drop;
-	direction = _angle/_objects;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
@@ -479,7 +512,7 @@ if (_drop2 > 24)
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
@@ -509,30 +542,46 @@ if (obj_inventory.quest_grid[# 4, 3] = false)
 //Ghafate Drop
 function EndireKnightGhafateDrop(){
 
-var _objects = 3;
+var _objects = 6;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
-var _angle = random(360);
 
 
-if (_drop1 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = 360/_objects;	
+	spd = .75 + (.3) + random(0.1);
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	//drop_amount = _dropBean;
+	drop_amount = 10;
 	sprite_index = spr_charge_drop;
-	direction = _angle/_objects;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop2 > 24) 
@@ -543,7 +592,7 @@ if (_drop2 > 24)
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	

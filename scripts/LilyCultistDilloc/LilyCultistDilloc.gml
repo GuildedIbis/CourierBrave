@@ -27,6 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 2;
 max_hp = 120;
 hp = max_hp;
 enemy_spd = 1.5;

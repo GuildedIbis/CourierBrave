@@ -27,6 +27,7 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
+form_type = 4;
 max_hp = 2500;
 hp = 2500;
 boss = true;
@@ -609,19 +610,48 @@ if (obj_game.gamePaused = false)
 //
 //Troll Tortoise Drop
 function BossTortoiseTrollDrop(){
-var _objects = 3;
+var _objects = 7;
 var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)
 var _drop3 = irandom_range(0,99)
-var _angle = random(360);
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
 	drop_amount = _dropBean;
 	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	direction = 360/_objects;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop1 > 0) 
@@ -632,7 +662,7 @@ if (_drop1 > 0)
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	

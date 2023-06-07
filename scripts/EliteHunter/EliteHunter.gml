@@ -27,6 +27,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 3;
 max_hp = 300;
 hp = max_hp;
 enemy_spd = 1.75;
@@ -484,11 +485,10 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 }
 
-var _objects = 4;
+var _objects = 6;
 var _dropBean = 95;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99)	
-var _angle = random(360);
 
 
 
@@ -496,14 +496,37 @@ with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
 	drop_amount = _dropBean;
 	sprite_index = spr_bean;
-	direction = _angle/_objects;	
+	direction = 360/_objects;	
 	spd = .75 + (.3) + random(0.1);
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = 10;
 	sprite_index = spr_charge_drop;
-	direction = _angle/_objects;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
 if (_drop1 > 50) //White String
@@ -514,7 +537,7 @@ if (_drop1 > 50) //White String
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 1;
+		direction = 360/_objects * 1;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
@@ -527,7 +550,7 @@ if (_drop2 > 75) //Rat Teeth
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 1;
+		direction = 360/_objects * 1;
 		spd = .75 + (.3) + random(0.1);
 	}
 	

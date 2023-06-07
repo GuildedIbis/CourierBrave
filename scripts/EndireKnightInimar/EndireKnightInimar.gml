@@ -26,6 +26,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 3;
 max_hp = 900;
 hp = max_hp;
 boss = true;
@@ -415,10 +416,9 @@ if (obj_game.gamePaused = false)
 //Inimar Drop
 function EndireKnightInimarDrop(){
 
-var _objects = 2;
+var _objects = 6;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
-var _angle = random(360);
 
 
 if (_drop1 > 0) 
@@ -429,23 +429,50 @@ if (_drop1 > 0)
 		amount = 1;
 		sprite_index = spr_item_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 4;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = 360/_objects * 5;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
 if (obj_inventory.form_grid[# 13, 3] = false)

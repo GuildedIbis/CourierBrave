@@ -124,12 +124,38 @@ if (_hits > 0)
 							knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
 							knockback_dur = _kbDur
 						}
-						with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+						if (form_type != -1)
 						{
-							drop_amount = 10;
-							sprite_index = spr_charge_drop;
-							direction = irandom_range(0,360);
-							spd = .75 + (.3) + random(0.1);
+							with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+							{
+								drop_amount = 10;
+								sprite_index = spr_charge_drop;
+								image_index = other.form_type;
+								image_speed = 0;
+								direction = irandom_range(0,360);
+								image_angle = direction;
+								spd = .75 + (.3) + random(0.1);
+							}
+							with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+							{
+								drop_amount = 10;
+								sprite_index = spr_charge_drop;
+								image_index = irandom_range(0,5);
+								image_speed = 0;
+								direction = irandom_range(0,360);
+								image_angle = direction;
+								spd = .75 + (.3) + random(0.1);
+							}
+							with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+							{
+								drop_amount = 10;
+								sprite_index = spr_charge_drop;
+								image_index = 6;
+								image_speed = 0;
+								direction = irandom_range(0,360);
+								image_angle = direction;
+								spd = .75 + (.3) + random(0.1);
+							}
 						}
 					}
 				}

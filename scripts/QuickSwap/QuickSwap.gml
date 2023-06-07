@@ -12,17 +12,17 @@ var _rowLength = 6;
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 
 QuickSwapMenuMeters();
-draw_sprite(spr_quickswap_groupMeter,1,32,48);
-draw_sprite(spr_quickswap_groupMeter,1,75,48);
-draw_sprite(spr_quickswap_groupMeter,1,118,48);
+draw_sprite(spr_quickswap_groupMeter,1,23,48);
+draw_sprite(spr_quickswap_groupMeter,1,69,48);
+draw_sprite(spr_quickswap_groupMeter,1,115,48);
 draw_sprite(spr_quickswap_groupMeter,1,161,48);
-draw_sprite(spr_quickswap_groupMeter,1,204,48);
-draw_sprite(spr_quickswap_groupMeter,1,247,48);
+draw_sprite(spr_quickswap_groupMeter,1,207,48);
+draw_sprite(spr_quickswap_groupMeter,1,253,48);
 
 //Button Mechanics
 for (var i = 0; i < 18; i = i + 1)
 {
-	var _x2 = 35 + (i mod _rowLength) * 43;
+	var _x2 = 26 + (i mod _rowLength) * 46;
 	var _y2 = 51 + (i div _rowLength) * 22;
 	//draw_sprite_stretched(spr_menu_circle16,1,_x2,_y2,20,20)
 	if (obj_inventory.form_grid[# i, 4] = true) 
@@ -72,17 +72,32 @@ for (var i = 0; i < 18; i = i + 1)
 //Quick Swap Meters
 function QuickSwapMenuMeters(){
 var _max = 100
-var _yellow = (obj_player.yellow_special/_max) * 100;
-var _blue = (obj_player.blue_special/_max) * 100;
-var _purple = (obj_player.purple_special/_max) * 100;
-var _red = (obj_player.red_special/_max) * 100;
-var _green = (obj_player.green_special/_max) * 100;
-var _orange = (obj_player.orange_special/_max) * 100;
 
-draw_healthbar(58,51,67,111,_yellow,c_black,c_yellow,c_yellow,3,true,true);
-draw_healthbar(101,51,110,111,_blue,c_black,c_blue,c_blue,3,true,true);
-draw_healthbar(144,51,153,111,_purple,c_black,c_purple,c_purple,3,true,true);
-draw_healthbar(187,51,196,111,_red,c_black,c_red,c_red,3,true,true);
-draw_healthbar(230,51,239,111,_green,c_black,c_green,c_green,3,true,true);
-draw_healthbar(273,51,282,111,_orange,c_black,c_orange,c_orange,3,true,true);
+//Magic
+var _yellow = (obj_player.yellow_charge/_max) * 100;
+var _blue = (obj_player.blue_charge/_max) * 100;
+var _purple = (obj_player.purple_charge/_max) * 100;
+var _red = (obj_player.red_charge/_max) * 100;
+var _green = (obj_player.green_charge/_max) * 100;
+var _orange = (obj_player.orange_charge/_max) * 100;
+draw_healthbar(48,51,51,111,_yellow,c_black,c_yellow,c_yellow,3,true,true);
+draw_healthbar(95,51,98,111,_blue,c_black,c_blue,c_blue,3,true,true);
+draw_healthbar(141,51,144,111,_purple,c_black,c_purple,c_purple,3,true,true);
+draw_healthbar(187,51,190,111,_red,c_black,c_red,c_red,3,true,true);
+draw_healthbar(233,51,236,111,_green,c_black,c_green,c_green,3,true,true);
+draw_healthbar(279,51,282,111,_orange,c_black,c_orange,c_orange,3,true,true);
+
+//Special
+var _yellowS = (obj_player.yellow_special/_max) * 100;
+var _blueS = (obj_player.blue_special/_max) * 100;
+var _purpleS = (obj_player.purple_special/_max) * 100;
+var _redS = (obj_player.red_special/_max) * 100;
+var _greenS = (obj_player.green_special/_max) * 100;
+var _orangeS = (obj_player.orange_special/_max) * 100;
+draw_healthbar(55,51,58,111,_yellowS,c_black,c_yellow,c_yellow,3,true,true);
+draw_healthbar(102,51,105,111,_blueS,c_black,c_blue,c_blue,3,true,true);
+draw_healthbar(148,51,151,111,_purpleS,c_black,c_purple,c_purple,3,true,true);
+draw_healthbar(194,51,197,111,_redS,c_black,c_red,c_red,3,true,true);
+draw_healthbar(240,51,243,111,_greenS,c_black,c_green,c_green,3,true,true);
+draw_healthbar(286,51,289,111,_orangeS,c_black,c_orange,c_orange,3,true,true);
 }

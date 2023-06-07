@@ -4,7 +4,7 @@
   "name": "spr_quickswap_groupMeter",
   "bbox_bottom": 67,
   "bbox_left": 0,
-  "bbox_right": 35,
+  "bbox_right": 40,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -56,8 +56,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"43990102-f699-4529-8d97-4b9bbfa0edd2","path":"sprites/spr_quickswap_groupMeter/spr_quickswap_groupMeter.yy",},},},"Disabled":false,"id":"f6f964a1-565c-4133-953b-1c3395ee12e6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"857cc9e0-2bb9-4d76-9753-e1acc84009ec","path":"sprites/spr_quickswap_groupMeter/spr_quickswap_groupMeter.yy",},},},"Disabled":false,"id":"2b2ec04a-885f-4f06-8a15-2a8f63c9ecd8","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"43990102-f699-4529-8d97-4b9bbfa0edd2","path":"sprites/spr_quickswap_groupMeter/spr_quickswap_groupMeter.yy",},},},"Disabled":false,"id":"b338aa0a-8fca-4e24-bc25-385eb643aaee","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"857cc9e0-2bb9-4d76-9753-e1acc84009ec","path":"sprites/spr_quickswap_groupMeter/spr_quickswap_groupMeter.yy",},},},"Disabled":false,"id":"1d75c2c1-14a1-4a2f-bab7-c1a6b137684c","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -73,5 +73,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 36,
+  "width": 41,
 }
