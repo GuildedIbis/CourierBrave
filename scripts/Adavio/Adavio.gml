@@ -306,7 +306,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1,4);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
@@ -406,7 +406,7 @@ if (timer1 <= 0)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateWeapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,3);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
@@ -561,7 +561,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object))
@@ -741,7 +741,7 @@ if (timer1 <= 0)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateMagic(projectile_sprite,self,1,-1,-1,-1,-1,-1,2);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
@@ -953,7 +953,7 @@ if (special_timer <= 45)
 	damage = round(obj_player.grace) + 6 + ((obj_inventory.form_grid[# 2, 7])*9)
 	if (special_timer <= 30)
 	{
-		AttackCalculateStatus(spr_player_adavio_riftCrushB_hitbox,obj_player,2,-1,-1,-1,-1,1)
+		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,2,-1,-1,-1,-1,1,5)
 	}
 }
 

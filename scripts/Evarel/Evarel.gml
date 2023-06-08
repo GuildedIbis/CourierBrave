@@ -184,7 +184,7 @@ if (key_attackS) and (green_charge >= 20)
 {
 	if (watervice = false)
 	{
-		green_charge = green_charge - 20;
+		green_special = green_special - 20;
 		attack_script = EvarelThornriseCast;
 		state_script = PlayerStateAttack;
 	}
@@ -326,7 +326,7 @@ if (_collided = true)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1,6);
 
 //Animate
 PlayerAnimation();
@@ -497,7 +497,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,obj_player,1,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,self,2,-1,-1,-1,-1,-1,5);
 	instance_destroy();
 	
 }
@@ -677,7 +677,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	instance_destroy();
 	
 }
@@ -802,7 +802,7 @@ if (sprite_index != spr_evarel_thornrise)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	AttackCalculateStatus(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {

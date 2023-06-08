@@ -124,6 +124,21 @@ if (_hits > 0)
 							knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
 							knockback_dur = _kbDur
 						}
+						with (obj_player)
+						{
+							yellow_special = yellow_special + _charge;
+							if (yellow_special > max_special) yellow_special = max_special;
+							blue_special = blue_special + _charge;
+							if (blue_special > max_special) blue_special = max_special;
+							purple_special = purple_special + _charge;
+							if (purple_special > max_special) purple_special = max_special;
+							red_special = red_special + _charge;
+							if (red_special > max_special) red_special = max_special;
+							green_special = green_special + _charge;
+							if (green_special > max_special) green_special = max_special;
+							orange_special = orange_special + _charge;
+							if (orange_special > max_special) orange_special = max_special;
+						}
 					}
 				}
 			}
@@ -197,7 +212,7 @@ if (_hits > 0)
 							}
 						}
 					}
-					with (_hitBy)
+					with (obj_player)
 					{
 						yellow_special = yellow_special + _charge;
 						if (yellow_special > max_special) yellow_special = max_special;

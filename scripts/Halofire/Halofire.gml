@@ -301,7 +301,7 @@ if (sprite_index != spr_player_halofire_hamaxe)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_halofire_hamaxe_hitbox,obj_player,2,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_halofire_hamaxe_hitbox,obj_player,2,-1,-1,-1,-1,-1,5);
 
 //Animate
 PlayerAnimation();
@@ -556,7 +556,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1,6);
 
 //Animate
 PlayerAnimationFixed();
@@ -634,7 +634,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1);
+AttackCalculateWeapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1,7);
 if (timer1 <= 0)
 {
 	timer1 = 24;
@@ -940,7 +940,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,2);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object))
@@ -985,7 +985,7 @@ if (timer2 <= 0)
 if (place_meeting(x,y,obj_enemy))
 {
 	
-	AttackCalculateStatus(projectile_sprite,obj_player,-1,60,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,self,-1,60,-1,-1,-1,-1,.5);
 	timer2 = 0;
 	//instance_destroy();
 }
@@ -1148,7 +1148,7 @@ if (sprite_index != projectile_sprite)
 
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object)) or (keyboard_check(vk_shift) = false)
 {
@@ -1216,7 +1216,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 

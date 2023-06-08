@@ -422,7 +422,7 @@ if (returning = false)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 	if (place_meeting(x,y,break_object)) or (return_timer <= 0)
@@ -446,7 +446,7 @@ if (returning = true)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		AttackCalculateWeapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 }

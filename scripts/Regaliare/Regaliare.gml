@@ -452,7 +452,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);
 	instance_destroy();
 	
 }
@@ -608,7 +608,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
-	AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object))
 {
@@ -733,7 +733,7 @@ if (sprite_index != spr_goldArc)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	AttackCalculateStatus(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {
