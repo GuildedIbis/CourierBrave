@@ -4,7 +4,7 @@
   "name": "spr_frag_flesh",
   "bbox_bottom": 7,
   "bbox_left": 0,
-  "bbox_right": 7,
+  "bbox_right": 6,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,

@@ -400,13 +400,9 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 }
 
-var _objects = 8;
+var _objects = 6;
 var _dropBean = 89;
 var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);
-var _drop3 = irandom_range(0,99);
-var _angle = random(360);
-
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
@@ -436,51 +432,26 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+if (_drop1 < 40)//Form Specific Rog Stone
 {
-	drop_amount = 10;
-	sprite_index = spr_charge_drop;
-	image_index = 6;
-	image_speed = 0;
-	direction = 360/_objects * 4;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-if (_drop1 > 90) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 3;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 75) 
+if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 1;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = 360/_objects * 6;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop3 > 89) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = irandom_range(14,19);
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = 360/_objects * 7;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	

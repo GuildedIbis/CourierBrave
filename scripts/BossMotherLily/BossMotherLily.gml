@@ -496,12 +496,10 @@ if (place_meeting(x,y,obj_player))
 //
 //Mother Lily Drop
 function BossMotherLilyDrop(){
-var _objects = 7;
+var _objects = 6;
 var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
-var _drop3 = irandom_range(0,99)
-var _angle = random(360);
+
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
@@ -531,55 +529,32 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+if (_drop1 < 50)//Form Specific Rog Stone
 {
-	drop_amount = 10;
-	sprite_index = spr_charge_drop;
-	image_index = 6;
-	image_speed = 0;
-	direction = 360/_objects * 4;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-if (_drop1 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 2;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 0) 
+if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 4;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = 360/_objects * 6;
+		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop3 > 50) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 16;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 3;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
+
+
 //else instance_create_layer(x,y,"Instances",_objects[0])
 obj_inventory.habraf_lair[4] = 2;
 if (obj_inventory.quest_grid[# 9, 3] = false)

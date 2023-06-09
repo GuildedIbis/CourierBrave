@@ -457,7 +457,6 @@ function EnragedMothDrop(){
 var _objects = 6;
 var _dropBean = 600;
 var _drop1 = irandom_range(0,99)	
-var _angle = random(360);
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
@@ -487,23 +486,24 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+if (_drop1 < 25)//Form Specific Rog Stone
 {
-	drop_amount = 10;
-	sprite_index = spr_charge_drop;
-	image_index = 6;
-	image_speed = 0;
-	direction = 360/_objects * 4;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-if (_drop1 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 8;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = 360/_objects * 5;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);

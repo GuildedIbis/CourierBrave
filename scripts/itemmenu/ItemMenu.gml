@@ -1,7 +1,7 @@
 //Item Menu 
 function ItemSlotsCreate(){
 //Items
-item_slots = 10;
+item_slots = 40;
 max_item_slots = 40;
 item_grid = ds_grid_create(max_item_slots,4); //Item ID, Item Script, Quantity, Unlocked
 storage_array = array_create(41,0); //Same as global.items, with 0 being beans
@@ -25,6 +25,9 @@ item_grid[# 8, 3] = true;
 item_grid[# 9, 3] = true;
 
 
+//New Inventory
+rog_array = array_create(6,0);
+ps_array = array_create(10,0);
 }
 //
 //
@@ -79,7 +82,13 @@ for (var i = 0; i < 40; i = i + 1)
 
 //Spacer Line
 //draw_line_width_color(217,36,217,136,1,c_black,c_black)
-
+draw_text(32,32,_object.rog_array[0]);
+draw_text(48,32,_object.rog_array[1]);
+draw_text(64,32,_object.rog_array[2]);
+draw_text(80,32,_object.rog_array[3]);
+draw_text(96,32,_object.rog_array[4]);
+draw_text(112,32,_object.rog_array[5]);
+draw_text(128,32,_object.ps_array[0]);
 //Draw Selected Item
 DrawSelectedItem(item_grid,spr_item_all);
 

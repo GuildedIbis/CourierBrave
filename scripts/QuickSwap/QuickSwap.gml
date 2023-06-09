@@ -100,4 +100,91 @@ draw_healthbar(148,51,151,111,_purpleS,c_black,c_purple,c_purple,3,true,true);
 draw_healthbar(194,51,197,111,_redS,c_black,c_red,c_red,3,true,true);
 draw_healthbar(240,51,243,111,_greenS,c_black,c_green,c_green,3,true,true);
 draw_healthbar(286,51,289,111,_orangeS,c_black,c_orange,c_orange,3,true,true);
+draw_ring_healthbar(85,30,obj_player.yellow_charge,_max,c_yellow,12,1,4);
+}
+//
+//
+//
+//
+//
+//Draw Pie Healthbar
+function draw_pie_healthbar(_x,_y,_value,_max,_color,_radius,_alpha){
+	if (_value > 0)
+	{
+		var i, len, tx, ty, val;
+		var numOfSections = 60;
+		var sizeOfSection = 360/numOfSections;
+		
+		val = (_value/_max) * numOfSections;
+		
+		if (val > 1) 
+		{
+			draw_set_color(_color);
+			draw_set_alpha(_alpha);
+			draw_primitive_begin(pr_trianglefan);
+			draw_vertex(_x,_y);
+				
+			for (i = 0; i < val; i = i + 1)
+			{
+				len = (i * sizeOfSection) + 90;	
+				tx = lengthdir_x(_radius,len);
+				ty = lengthdir_y(_radius,len);
+				draw_vertex(_x + tx,_y + ty);
+			}
+			draw_primitive_end();
+				
+		}
+		draw_set_alpha(1);
+	}
+}
+//
+//
+//
+//
+//
+//Draw Ring Healthbar
+function draw_ring_healthbar(_x,_y,_value,_max,_color,_radius,_alpha,_width){
+	if (_value > 0)
+	{
+		var i, len, tx, ty, val;
+		var numOfSections = 60;
+		var sizeOfSection = 360/numOfSections;
+		
+		val = (_value/_max) * numOfSections;
+		
+		if (val > 1) 
+		{
+			pie_surf = surface_create(_radius*2,_radius*2);
+			
+			draw_set_color(_color);
+			draw_set_alpha(_alpha);
+			surface_set_target(pie_surf);
+			draw_clear_alpha(c_blue,0.7);
+			draw_clear_alpha(c_black,0);
+			
+			draw_primitive_begin(pr_trianglefan);
+			draw_vertex(_radius,_radius);
+				
+			for (i = 0; i <= val; i = i + 1)
+			{
+				len = (i * sizeOfSection) + 90;	
+				tx = lengthdir_x(_radius,len);
+				ty = lengthdir_y(_radius,len);
+				draw_vertex(_radius + tx,_radius + ty);
+			}
+			draw_primitive_end();
+			draw_set_alpha(1);
+			
+			gpu_set_blendmode(bm_subtract);
+			draw_set_colour(c_black);
+			draw_circle(_radius-1,_radius-1,_radius - _width, false);
+			gpu_set_blendmode(bm_normal);
+			
+			surface_reset_target();
+			draw_surface(pie_surf,_x-_radius,_y-_radius);
+			surface_free(pie_surf);
+				
+		}
+		
+	}
 }

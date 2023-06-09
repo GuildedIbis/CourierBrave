@@ -381,8 +381,8 @@ if (obj_game.gamePaused = false)
 function EndireKnightTnaksDrop(){
 
 var _objects = 6;
+var _dropBean = 200;
 var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
@@ -412,23 +412,24 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+if (_drop1 < 50)//Form Specific Rog Stone
 {
-	drop_amount = 10;
-	sprite_index = spr_charge_drop;
-	image_index = 6;
-	image_speed = 0;
-	direction = 360/_objects * 4;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-if (_drop2 > 24) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = 360/_objects * 5;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = 360/_objects * 5;
 		spd = .75 + (.3) + random(0.1);
@@ -463,8 +464,8 @@ if (obj_inventory.quest_grid[# 3, 3] = false)
 function EndireKnightOborDrop(){
 
 var _objects = 6;
+var _dropBean = 200;
 var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
@@ -543,8 +544,8 @@ if (obj_inventory.quest_grid[# 4, 3] = false)
 function EndireKnightGhafateDrop(){
 
 var _objects = 6;
+var _dropBean = 200;
 var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);	
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
