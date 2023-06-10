@@ -104,7 +104,7 @@ if (scene = false) and (obj_game.textPaused = false)
 		case 2:
 			var _chargePerc = (purple_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
-			var _specialPerc = (purple_special/max_special) * 100;
+			var _specialPerc = round((purple_special/max_special) * 100);
 			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = purple_charge;
 			selected_special = purple_special;
@@ -113,7 +113,7 @@ if (scene = false) and (obj_game.textPaused = false)
 		case 3:
 			var _chargePerc = (red_charge/max_charge) * 100;
 			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
-			var _specialPerc = (red_special/max_special) * 100;
+			var _specialPerc = round((red_special/max_special) * 100);
 			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = red_charge;
 			selected_special = red_special;

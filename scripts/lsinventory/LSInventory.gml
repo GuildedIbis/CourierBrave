@@ -193,6 +193,26 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"storage17")) obj_inventory.storage_array[17] = _loadEntity.storage17;
 		if (variable_struct_exists(_loadEntity,"storage18")) obj_inventory.storage_array[18] = _loadEntity.storage18;
 		if (variable_struct_exists(_loadEntity,"storage19")) obj_inventory.storage_array[19] = _loadEntity.storage19;
+		
+		//Load Rog Stones
+		if (variable_struct_exists(_loadEntity,"rogArray0")) obj_inventory.rog_array[0] = _loadEntity.rogArray0;
+		if (variable_struct_exists(_loadEntity,"rogArray1")) obj_inventory.rog_array[1] = _loadEntity.rogArray1;
+		if (variable_struct_exists(_loadEntity,"rogArray2")) obj_inventory.rog_array[2] = _loadEntity.rogArray2;
+		if (variable_struct_exists(_loadEntity,"rogArray3")) obj_inventory.rog_array[3] = _loadEntity.rogArray3;
+		if (variable_struct_exists(_loadEntity,"rogArray4")) obj_inventory.rog_array[4] = _loadEntity.rogArray4;
+		if (variable_struct_exists(_loadEntity,"rogArray5")) obj_inventory.rog_array[5] = _loadEntity.rogArray5;
+		
+		//Load Power Stones
+		if (variable_struct_exists(_loadEntity,"psArray0")) obj_inventory.ps_array[0] = _loadEntity.psArray0;
+		if (variable_struct_exists(_loadEntity,"psArray1")) obj_inventory.ps_array[1] = _loadEntity.psArray1;
+		if (variable_struct_exists(_loadEntity,"psArray2")) obj_inventory.ps_array[2] = _loadEntity.psArray2;
+		if (variable_struct_exists(_loadEntity,"psArray3")) obj_inventory.ps_array[3] = _loadEntity.psArray3;
+		if (variable_struct_exists(_loadEntity,"psArray4")) obj_inventory.ps_array[4] = _loadEntity.psArray4;
+		if (variable_struct_exists(_loadEntity,"psArray5")) obj_inventory.ps_array[5] = _loadEntity.psArray5;
+		if (variable_struct_exists(_loadEntity,"psArray6")) obj_inventory.ps_array[6] = _loadEntity.psArray6;
+		if (variable_struct_exists(_loadEntity,"psArray7")) obj_inventory.ps_array[7] = _loadEntity.psArray7;
+		if (variable_struct_exists(_loadEntity,"psArray8")) obj_inventory.ps_array[8] = _loadEntity.psArray8;
+		if (variable_struct_exists(_loadEntity,"psArray9")) obj_inventory.ps_array[9] = _loadEntity.psArray9;
 
 }
 //
@@ -392,6 +412,26 @@ var _saveInv =
 	storage17 : obj_inventory.storage_array[17],
 	storage18 : obj_inventory.storage_array[18],
 	storage19 : obj_inventory.storage_array[19],
+	
+	//Save Rog Stone
+	rogArray0 : obj_inventory.rog_array[0],
+	rogArray1 : obj_inventory.rog_array[1],
+	rogArray2 : obj_inventory.rog_array[2],
+	rogArray3 : obj_inventory.rog_array[3],
+	rogArray4 : obj_inventory.rog_array[4],
+	rogArray5 : obj_inventory.rog_array[5],
+	
+	//Save Power Stone
+	psArray0 : obj_inventory.ps_array[0],
+	psArray1 : obj_inventory.ps_array[1],
+	psArray2 : obj_inventory.ps_array[2],
+	psArray3 : obj_inventory.ps_array[3],
+	psArray4 : obj_inventory.ps_array[4],
+	psArray5 : obj_inventory.ps_array[5],
+	psArray6 : obj_inventory.ps_array[6],
+	psArray7 : obj_inventory.ps_array[7],
+	psArray8 : obj_inventory.ps_array[8],
+	psArray9 : obj_inventory.ps_array[9],
 }
 array_push(_saveData, _saveInv);
 }

@@ -161,16 +161,17 @@ if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 
 {
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 }
-var _objects = 6;
-var _dropBean = 31;
-var _drop1 = irandom_range(0,99)		
-
+var _objects = 7;
+var _dropBean = 70;
+var _drop1 = irandom_range(0,99)	
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
 with (instance_create_layer(x,y,"Instances",obj_itemBean))
 {
 	drop_amount = _dropBean;
 	sprite_index = spr_bean;
-	direction = 360/_objects;	
+	direction = (360/_objects) + _angle;
 	spd = .75 + (.3) + random(0.1);
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
@@ -179,7 +180,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	sprite_index = spr_charge_drop;
 	image_index = other.form_type;
 	image_speed = 0;
-	direction = 360/_objects * 2;
+	direction = (360/_objects * 2) + _angle;
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
@@ -189,7 +190,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;
-	direction = 360/_objects * 3;
+	direction = (360/_objects * 3) + _angle;
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
@@ -200,7 +201,7 @@ if (_drop1 < 25)//Form Specific Rog Stone
 		item_id = other.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = 360/_objects * 5;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
@@ -212,13 +213,22 @@ if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
 		item_id = irandom_range(0,5);
 		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = 360/_objects * 5;
+		direction = (360/_objects * 5) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-
+if (_drop2 < 10)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl - 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
 }
 
 
