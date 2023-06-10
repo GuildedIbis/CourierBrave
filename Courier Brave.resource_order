@@ -181,6 +181,7 @@
     {"name":"spr_player_halofire_cast_special","order":30,"path":"sprites/spr_player_halofire_cast_special/spr_player_halofire_cast_special.yy",},
     {"name":"NPCVendor","order":7,"path":"scripts/NPCVendor/NPCVendor.yy",},
     {"name":"spr_collisionBreak3","order":6,"path":"sprites/spr_collisionBreak3/spr_collisionBreak3.yy",},
+    {"name":"spr_map_farwayRoad","order":7,"path":"sprites/spr_map_farwayRoad/spr_map_farwayRoad.yy",},
     {"name":"StatsMenu","order":4,"path":"scripts/StatsMenu/StatsMenu.yy",},
     {"name":"spr_enemy_endireKnight_inimar_heatacer","order":17,"path":"sprites/spr_enemy_endireKnight_inimar_heatacer/spr_enemy_endireKnight_inimar_heatacer.yy",},
     {"name":"spr_enemy_folioBulb_rootRise2_hitbox","order":6,"path":"sprites/spr_enemy_folioBulb_rootRise2_hitbox/spr_enemy_folioBulb_rootRise2_hitbox.yy",},
