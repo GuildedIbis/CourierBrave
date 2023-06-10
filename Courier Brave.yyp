@@ -272,6 +272,7 @@
     {"id":{"name":"spr_enemy_duskLeech_bioBolt_hitbox","path":"sprites/spr_enemy_duskLeech_bioBolt_hitbox/spr_enemy_duskLeech_bioBolt_hitbox.yy",},},
     {"id":{"name":"spr_lenkoFortress_pillarBack","path":"sprites/spr_lenkoFortress_pillarBack/spr_lenkoFortress_pillarBack.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerLunge2","path":"sprites/spr_enemy_tortoiseTroll_hammerLunge2/spr_enemy_tortoiseTroll_hammerLunge2.yy",},},
+    {"id":{"name":"rm_lenko_tutorial86","path":"rooms/rm_lenko_tutorial86/rm_lenko_tutorial86.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},},
     {"id":{"name":"spr_player_pora_idle","path":"sprites/spr_player_pora_idle/spr_player_pora_idle.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},},
@@ -1376,6 +1377,7 @@
     {"roomId":{"name":"rm_lenko_beaowire_08","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_16","path":"rooms/rm_lenko_beaowire_16/rm_lenko_beaowire_16.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_17","path":"rooms/rm_lenko_beaowire_17/rm_lenko_beaowire_17.yy",},},
+    {"roomId":{"name":"rm_lenko_tutorial86","path":"rooms/rm_lenko_tutorial86/rm_lenko_tutorial86.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

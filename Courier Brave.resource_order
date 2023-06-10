@@ -235,6 +235,7 @@
     {"name":"spr_enemy_duskLeech_bioBolt_hitbox","order":10,"path":"sprites/spr_enemy_duskLeech_bioBolt_hitbox/spr_enemy_duskLeech_bioBolt_hitbox.yy",},
     {"name":"spr_lenkoFortress_pillarBack","order":28,"path":"sprites/spr_lenkoFortress_pillarBack/spr_lenkoFortress_pillarBack.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerLunge2","order":4,"path":"sprites/spr_enemy_tortoiseTroll_hammerLunge2/spr_enemy_tortoiseTroll_hammerLunge2.yy",},
+    {"name":"rm_lenko_tutorial86","order":16,"path":"rooms/rm_lenko_tutorial86/rm_lenko_tutorial86.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb","order":19,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","order":22,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},
     {"name":"obj_effect_treeJelx","order":16,"path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},
