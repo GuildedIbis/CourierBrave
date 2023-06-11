@@ -54,15 +54,15 @@ room_ary = farwayRoad_map_ary;
 //y spawn
 //discoverd
 
-camp_grid[# 0, 0] = "Farway Road Camp"
+camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 168;
 camp_grid[# 0, 2] = 104;
 camp_grid[# 0, 3] = false;
-camp_grid[# 1, 0] = "Yakflower Camp"
+camp_grid[# 1, 0] = "Farway Road 05"
 camp_grid[# 1, 1] = 160;
 camp_grid[# 1, 2] = 96;
 camp_grid[# 1, 3] = false;
-camp_grid[# 2, 0] = "Habraf Lake Camp"
+camp_grid[# 2, 0] = "Farway Road 07"
 camp_grid[# 2, 1] = 144;
 camp_grid[# 2, 2] = 96;
 camp_grid[# 2, 3] = false;
@@ -77,25 +77,25 @@ camp_grid[# 4, 3] = false;
 
 
 //Farway Road Map
-farwayRoad_map_ary[0][0] = "LENKO\nTutorial";
+farwayRoad_map_ary[0][0] = "Farway Road 00";
 farwayRoad_map_ary[0][1] = 31;
 farwayRoad_map_ary[0][2] = 15;
-farwayRoad_map_ary[1][0] = "LENKO\nFarway Camp";
+farwayRoad_map_ary[1][0] = "Farway Road 01";
 farwayRoad_map_ary[1][1] = 38;
 farwayRoad_map_ary[1][2] = 17;
-farwayRoad_map_ary[2][0] = "LENKO\nKovalad's Smithy";
+farwayRoad_map_ary[2][0] = "Farway Road 02";
 farwayRoad_map_ary[2][1] = 38;
 farwayRoad_map_ary[2][2] = 12;
-farwayRoad_map_ary[3][0] = "LENKO\nFarway Road 1";
+farwayRoad_map_ary[3][0] = "Farway Road 03";
 farwayRoad_map_ary[3][1] = 38;
 farwayRoad_map_ary[3][2] = 22;
-farwayRoad_map_ary[4][0] = "LENKO\nFarway Road 2";
+farwayRoad_map_ary[4][0] = "Farway Road 04";
 farwayRoad_map_ary[4][1] = 41;
 farwayRoad_map_ary[4][2] = 30;
-farwayRoad_map_ary[5][0] = "LENKO\nFarway Road 3";
+farwayRoad_map_ary[5][0] = "Farway Road 05";
 farwayRoad_map_ary[5][1] = 38;
 farwayRoad_map_ary[5][2] = 37;
-farwayRoad_map_ary[6][0] = "LENKO\nFarway Road 4";
+farwayRoad_map_ary[6][0] = "Farway Road 06";
 farwayRoad_map_ary[6][1] = 45;
 farwayRoad_map_ary[6][2] = 22;
 farwayRoad_map_ary[7][0] = "LENKO\nFarway Road 5";

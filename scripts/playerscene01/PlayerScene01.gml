@@ -66,7 +66,7 @@ if (string_counter >= 5)
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
-	room_goto(rm_lenko_tutorial);
+	room_goto(rm_lenko_farwayRoad_00);
 	obj_player.x = 88;
 	obj_player.y = 92;
 	//Reset Buy/Sell Menu
