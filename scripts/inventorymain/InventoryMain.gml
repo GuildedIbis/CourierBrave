@@ -11,17 +11,17 @@ var _mouseY = device_mouse_y_to_gui(0);
 	
 	
 //Draw Sprites
-//draw_sprite_stretched(menu_sprite,4,0,0,320,180);	
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 
 
-draw_sprite_stretched(button_sprite,3,66,128,21,24);
-draw_sprite_stretched(button_sprite,3,89,128,21,24);
-draw_sprite_stretched(button_sprite,3,112,128,21,24);
-draw_sprite_stretched(button_sprite,3,135,128,21,24);
-draw_sprite_stretched(button_sprite,3,158,128,21,24);
-draw_sprite_stretched(button_sprite,3,181,128,21,24);
-draw_sprite_stretched(button_sprite,3,204,128,21,24);
-draw_sprite_stretched(button_sprite,3,227,128,21,24);
+draw_sprite_stretched(button_sprite,3,66,8,21,24);
+draw_sprite_stretched(button_sprite,3,89,8,21,24);
+draw_sprite_stretched(button_sprite,3,112,8,21,24);
+draw_sprite_stretched(button_sprite,3,135,8,21,24);
+draw_sprite_stretched(button_sprite,3,158,8,21,24);
+draw_sprite_stretched(button_sprite,3,181,8,21,24);
+draw_sprite_stretched(button_sprite,3,204,8,21,24);
+draw_sprite_stretched(button_sprite,3,227,8,21,24);
 //draw_sprite(spr_lock,0,160,108);
 //draw_sprite(spr_lock,0,224,108);
 
@@ -30,9 +30,9 @@ draw_sprite_stretched(button_sprite,3,227,128,21,24);
 
 
 //Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,66,128,87,156))//Player Menu
+if (point_in_rectangle(_mouseX,_mouseY,66,8,87,156))//Player Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,64,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,64,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -44,9 +44,9 @@ if (point_in_rectangle(_mouseX,_mouseY,66,128,87,156))//Player Menu
 			
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,89,128,110,156)) //Forms Menu
+if (point_in_rectangle(_mouseX,_mouseY,89,8,110,156)) //Forms Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,87,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,87,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -65,9 +65,9 @@ if (point_in_rectangle(_mouseX,_mouseY,89,128,110,156)) //Forms Menu
 		//unlocked = true;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,112,128,133,156)) //Items Menu
+if (point_in_rectangle(_mouseX,_mouseY,112,8,133,156)) //Items Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,110,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,110,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -77,9 +77,9 @@ if (point_in_rectangle(_mouseX,_mouseY,112,128,133,156)) //Items Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,135,128,156,156)) //Quest Menu
+if (point_in_rectangle(_mouseX,_mouseY,135,8,156,156)) //Quest Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,133,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,133,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -89,9 +89,9 @@ if (point_in_rectangle(_mouseX,_mouseY,135,128,156,156)) //Quest Menu
 		inv_gui = QuestMenuGUI;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,158,128,179,156)) //Map Menu
+if (point_in_rectangle(_mouseX,_mouseY,158,8,179,36)) //Map Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,156,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,156,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -102,9 +102,9 @@ if (point_in_rectangle(_mouseX,_mouseY,158,128,179,156)) //Map Menu
 		item_id = -1;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,181,128,202,156)) //Treasure Menu
+if (point_in_rectangle(_mouseX,_mouseY,181,8,202,36)) //Treasure Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,179,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,179,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -114,9 +114,9 @@ if (point_in_rectangle(_mouseX,_mouseY,181,128,202,156)) //Treasure Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Treasure Menu
+if (point_in_rectangle(_mouseX,_mouseY,204,8,225,36)) //Treasure Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,202,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,202,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -126,9 +126,9 @@ if (point_in_rectangle(_mouseX,_mouseY,204,128,225,156)) //Treasure Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Info Menu
+if (point_in_rectangle(_mouseX,_mouseY,227,8,248,36)) //Info Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,225,126,25,28);
+	draw_sprite_stretched(spr_highlight_nineslice,0,225,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -141,7 +141,7 @@ if (point_in_rectangle(_mouseX,_mouseY,227,128,248,156)) //Info Menu
 
 
 
-draw_sprite_stretched(menu_sprite,3,64,36,192,96);
+//draw_sprite_stretched(menu_sprite,3,64,36,192,96);
 //Set Text
 draw_set_font(fnt_text);
 draw_set_color(c_white);
@@ -151,7 +151,7 @@ draw_set_valign(fa_middle);
 //Draw Text
 draw_text_transformed(64,28,"TAB to resume",.5,.5,0);
 draw_set_halign(fa_center);
-draw_sprite(spr_inventory_tabs,0,66,132)
+draw_sprite(spr_inventory_tabs,0,66,12)
 //draw_text_transformed(80,142,"MAP",.35,.35,0);	
 //draw_text_transformed(106,142,"ITEMS",.35,.35,0);	
 //draw_text_transformed(132,142,"PLAYER",.35,.35,0);

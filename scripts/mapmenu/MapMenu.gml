@@ -61,7 +61,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Slider
-draw_sprite(spr_scroll_bar1b,page,68,43);
+draw_sprite(spr_scroll_bar1b,page,24,43);
 //if (point_in_rectangle(_mouseX,_mouseY,69,41,77,47))
 //{
 //	draw_sprite(spr_scroll_highlight,0,69,41);
@@ -89,19 +89,19 @@ draw_sprite(spr_scroll_bar1b,page,68,43);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-draw_sprite_stretched(menu_sprite,3,103,41,147,86);
-draw_sprite_part(spr_mapBackground,0,0,55,139,78,107,45);
+//draw_sprite_stretched(menu_sprite,3,103,41,147,86);
+draw_sprite(spr_map_farwayRoad,0,66,34);
 
 for (var i = 0; i < 5; i = i + 1)
 {
-	draw_sprite_stretched(button_sprite,3,80,42 + (i * 17),15,15);
+	draw_sprite_stretched(button_sprite,3,36,42 + (i * 17),15,15);
 	if (obj_inventory.region_grid[# i, 1] = true)
 	{
 		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_ext(spr_map_button,i,80,42+(i*17),1.0,1.0,0,c_white,1.0);
-		if (point_in_rectangle(_mouseX,_mouseY,80,42 + (i * 15),94,57 + (i * 15)))
+		draw_sprite_ext(spr_map_button,i,36,42+(i*17),1.0,1.0,0,c_white,1.0);
+		if (point_in_rectangle(_mouseX,_mouseY,36,42 + (i * 15),50,57 + (i * 15)))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,78,40 + (i * 17),19,19);
+			draw_sprite_stretched(spr_highlight_nineslice,0,34,40 + (i * 17),19,19);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -110,12 +110,12 @@ for (var i = 0; i < 5; i = i + 1)
 			}
 		}
 	}
-	else draw_sprite_ext(spr_lock,1,85,50+(i*17),1,1,0,c_white,1.0);
+	else draw_sprite_ext(spr_lock,1,41,50+(i*17),1,1,0,c_white,1.0);
 }
 if (map_selected != -1)
 {
 	//draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
-	script_execute(map_selected)
+	//script_execute(map_selected)
 }
 
 
@@ -153,7 +153,7 @@ for (var i = 0; i < 6; i = i + 1)
 	if (obj_inventory.map_grid[# i, 1] = true)
 	{
 		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_part(spr_map,i,0,63,139,78,107,45);
+		//draw_sprite_part(spr_map,i,0,63,139,78,107,45);
 		
 	}
 }
