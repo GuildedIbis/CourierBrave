@@ -25,9 +25,10 @@ image_speed = 0;
 image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 0;
 max_hp = 180;
 hp = max_hp;
-enemy_spd = 1.5;
+enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -44,12 +45,12 @@ path = -1;
 //
 //Rempho Ghost 2 Free
 function RemphoGhost2Free(){
-if (global.dayPhase != 2)
-{
-	invincible = true;
-	inv_dur_timer = 30;
-}
-if (obj_game.gamePaused = false) and (global.dayPhase = 2)
+//if (global.dayPhase != 2)
+//{
+//	invincible = true;
+//	inv_dur_timer = 30;
+//}
+if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 {
 	//Timers
 	if (timer1 > 0) and (watervice = false)
@@ -65,6 +66,7 @@ if (obj_game.gamePaused = false) and (global.dayPhase = 2)
 		{
 			if (image_alpha != 1) image_alpha = 1;
 			EnemyAlert();
+			timer1 = 60;
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -95,8 +97,8 @@ if (obj_game.gamePaused = false) and (global.dayPhase = 2)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			timer1 = 120;
-			timer2 = 23;
+			timer1 = 36;
+			timer2 = 120;
 			entity_step = RemphoGhost2ShadowShiftA;
 		}
 		//if (walk_snd_delay <= 0)
@@ -120,55 +122,73 @@ else path_end();
 //
 //
 //
-//Rempho Ghost
+//Rempho Ghost 2 Shadow Shift A
 function RemphoGhost2ShadowShiftA(){
 if (obj_game.gamePaused = false)
 {
-	image_alpha = 1;
+	lit = false;
+	healthbar = false;
+	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer1 > 0) timer1 = timer1 - 1;
+	
+	//Set
 	if (sprite_index != spr_enemy_ghost2_shadowShiftA)
 	{
 		//Start Animation From Beginning
+		image_alpha = 1;
 		sprite_index = spr_enemy_ghost2_shadowShiftA;
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	
-	
 
-	//Animate
-	EnemyAnimation1();
-	if (animation_end)
+	
+	//Collision Damage
+	if (timer1 <= 0)
 	{
-		//audio_play_sound(snd_arrow,0,false);
-		//with (instance_create_layer(x,y-8,"Instances",obj_enemy))
-		//{
-		//	script_execute(RatArrowCreate);
-		//	direction = point_direction(x,y,obj_player.x,obj_player.y);
-		//	image_angle = direction;
-		//	speed = enemy_spd;
-		//	break_object = other.break_object;
-		//	fragment_count = 3;
-		//	fragment = obj_fragWood;
-		//	bullet = true;
-		//	hit_script = EntityHitDestroy;
-		//}
+		//Chase: create and execute a path towards player
+		shadow = false;
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+		path_start(path, enemy_spd * 2, 0, 0);
+		walk_snd_delay = walk_snd_delay - 1;
+		if (timer2 <= 0)
+		{
+			walk_snd_delay = 15;
+			path_end();
+		}
+	}
+	else 
+	{
+		shadow = 1;
+		path_end();
+	}
+	
+	//Animation
+	script_execute(EnemyAnimation1);
+	if (animation_end = true)
+	{
+		lit = true;
+		shadow = 1;
+		healthbar = true;
+		path_end();
 		timer2 = 42;
-		x = obj_player.x;
-		y = obj_player.y;
 		entity_step = RemphoGhost2ShadowShiftB;
 		animation_end = false;
 	}
+	
+	
 }
+else path_end();
 }
 //
 //
 //
 //
 //
-//Rempho Ghost
+//Rempho Ghost 2 Shadow Shift B
 function RemphoGhost2ShadowShiftB(){
 if (obj_game.gamePaused = false)
 {
@@ -198,7 +218,11 @@ if (obj_game.gamePaused = false)
 		attack_counter = attack_counter + 1;
 		entity_step = RemphoGhost2Free;
 		if (attack_counter < 3) timer1 = 0;
-		else timer1 = 300;
+		else
+		{
+			timer1 = 300;
+			attack_counter = 0;
+		}
 		audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+16,y+6,"Instances",obj_enemy_projectile))

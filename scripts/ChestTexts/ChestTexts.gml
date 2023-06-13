@@ -718,15 +718,15 @@ if (string_counter >= 1)
 	{
 		image_speed = game_paused_image_speed;
 	}
-	with (instance_create_layer(319,73,"Instances",obj_enemy))
-	{
-		script_execute(RemphoGhostCreate);
-		timer1 = 300;
-	}
-	with (instance_create_layer(319,112,"Instances",obj_enemy))
-	{
-		script_execute(RemphoGhost2Create);
-	}
+	//with (instance_create_layer(319,73,"Instances",obj_enemy))
+	//{
+	//	script_execute(RemphoGhostCreate);
+	//	timer1 = 300;
+	//}
+	//with (instance_create_layer(319,112,"Instances",obj_enemy))
+	//{
+	//	script_execute(RemphoGhost2Create);
+	//}
 	//Reset Buy/Sell Menu
 	page = 0;
 	slot = -1;
