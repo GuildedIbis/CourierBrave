@@ -90,7 +90,8 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 //draw_sprite_stretched(menu_sprite,3,103,41,147,86);
-draw_sprite(spr_map_farwayRoad,0,66,34);
+//draw_sprite(spr_map_farwayRoad,0,66,34);
+
 
 for (var i = 0; i < 5; i = i + 1)
 {
@@ -115,7 +116,7 @@ for (var i = 0; i < 5; i = i + 1)
 if (map_selected != -1)
 {
 	//draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
-	//script_execute(map_selected)
+	script_execute(map_selected)
 }
 
 
@@ -132,7 +133,7 @@ if (map_selected != -1)
 //
 //
 //
-//Lenk Map Menu Draw
+//Lenko Overworld Map Menu
 function LenkoMapMenuDraw(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -145,18 +146,159 @@ var _mouseY = device_mouse_y_to_gui(0);
 //6	Lair Boss
 //7 Main Boss
 //Camps
+var _xPos = 66;
+var _yPos = 34
+
+draw_sprite(spr_map_full,0,66,34);
 
 //Draw Map Backround and Rooms
-for (var i = 0; i < 6; i = i + 1)
-{
-	//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-	if (obj_inventory.map_grid[# i, 1] = true)
-	{
-		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		//draw_sprite_part(spr_map,i,0,63,139,78,107,45);
+//for (var i = 0; i < 6; i = i + 1)
+//{
+//	if (obj_inventory.map_grid[# i, 1] = true)
+//	{
+//		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
+//		//draw_sprite_part(spr_map,i,0,63,139,78,107,45);
 		
+//	}
+//}
+
+//Draw Selectable Levels
+if (obj_inventory.level_ary[0] = true) 
+{
+	draw_sprite_ext(spr_map_icon,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 69,_yPos + 25,_xPos + 77,_yPos + 32))
+	{
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
+		if (mouse_check_button_pressed(mb_left)) 
+		{
+			map_selected = FarwayRoadMapMenuDraw;
+		}
+		//draw_set_halign(fa_left);
+		//draw_set_valign(fa_middle);
+		//draw_set_color(c_white);
+		//draw_set_font(fnt_text);
+		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
+		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
 	}
 }
+if (obj_inventory.level_ary[1] = true) 
+{
+	draw_sprite_ext(spr_map_icon,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 102,_yPos + 33,_xPos + 110,_yPos + 41))
+	{
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
+		if (mouse_check_button_pressed(mb_left)) 
+		{
+			map_selected = FarwayRoadMapMenuDraw;
+		}
+		//draw_set_halign(fa_left);
+		//draw_set_valign(fa_middle);
+		//draw_set_color(c_white);
+		//draw_set_font(fnt_text);
+		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
+		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
+	}
+}
+if (obj_inventory.level_ary[2] = true) 
+{
+	draw_sprite_ext(spr_map_icon,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 77,_yPos + 53,_xPos + 85,_yPos + 61))
+	{
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
+		if (mouse_check_button_pressed(mb_left)) 
+		{
+			map_selected = FarwayRoadMapMenuDraw;
+		}
+		//draw_set_halign(fa_left);
+		//draw_set_valign(fa_middle);
+		//draw_set_color(c_white);
+		//draw_set_font(fnt_text);
+		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
+		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
+	}
+}
+if (obj_inventory.level_ary[3] = true) 
+{
+	draw_sprite_ext(spr_map_icon,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 41,_yPos + 33,_xPos + 49,_yPos + 41))
+	{
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
+		if (mouse_check_button_pressed(mb_left)) 
+		{
+			map_selected = FarwayRoadMapMenuDraw;
+		}
+		//draw_set_halign(fa_left);
+		//draw_set_valign(fa_middle);
+		//draw_set_color(c_white);
+		//draw_set_font(fnt_text);
+		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
+		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
+		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
+		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
+		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
+	}
+}
+
+
+//if (obj_game.room_num != -1)	
+//{	//Draw Camps (Selectable for travel
+//	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])	
+//	var _y = (38 + obj_inventory.room_ary[obj_game.room_num][2])	
+//	draw_sprite(spr_map_pointer,0,_x,_y);	
+//}
+//if (obj_inventory.quest_grid[# 8,0] = true) 
+//{
+//	draw_sprite_ext(spr_map_icon,1,240,140,1,1,0,c_white,1);
+//}
+//if (obj_inventory.quest_grid[# 8,3] = true) 
+//{
+//	draw_sprite_ext(spr_map_icon,1,250,140,1,1,0,c_white,1);
+//}
+//if (obj_inventory.quest_grid[# 8,3] = true) 
+//{
+//	draw_sprite_ext(spr_map_icon,1,260,140,1,1,0,c_white,1);
+//}
+}
+//
+//
+//
+//
+//
+//Farway Road Map Menu Draw
+function FarwayRoadMapMenuDraw(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+//0 Camp
+//1 Lair
+//2 Dungeon
+//3 Chest
+//4 Moon Chest
+//5 Mini-Boss
+//6	Lair Boss
+//7 Main Boss
+//Camps
+
+draw_sprite_ext(spr_map_farwayRoad,0,66,34,1.0,1.0,0,c_white,1.0);
+
+//Draw Map Backround and Rooms
+//for (var i = 0; i < 6; i = i + 1)
+//{
+//	if (obj_inventory.map_grid[# i, 1] = true)
+//	{
+//		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
+//		//draw_sprite_part(spr_map,i,0,63,139,78,107,45);
+		
+//	}
+//}
 
 //Draw Camps (Selectable for travel
 if (obj_inventory.camp_grid[# 0, 3] = true) 
@@ -381,7 +523,6 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 //		draw_text_transformed(262,44,"- Zerwerk's Hideout",.35,.35,0);
 	}
 }
-
 
 if (obj_game.room_num != -1)	
 {	//Draw Camps (Selectable for travel

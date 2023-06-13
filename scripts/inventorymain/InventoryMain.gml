@@ -30,7 +30,7 @@ draw_sprite_stretched(button_sprite,3,227,8,21,24);
 
 
 //Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,66,8,87,156))//Player Menu
+if (point_in_rectangle(_mouseX,_mouseY,66,8,87,36))//Player Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,64,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
@@ -44,7 +44,7 @@ if (point_in_rectangle(_mouseX,_mouseY,66,8,87,156))//Player Menu
 			
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,89,8,110,156)) //Forms Menu
+if (point_in_rectangle(_mouseX,_mouseY,89,8,110,36)) //Forms Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,87,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
@@ -65,7 +65,7 @@ if (point_in_rectangle(_mouseX,_mouseY,89,8,110,156)) //Forms Menu
 		//unlocked = true;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,112,8,133,156)) //Items Menu
+if (point_in_rectangle(_mouseX,_mouseY,112,8,133,36)) //Items Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,110,6,25,28);
 	if (mouse_check_button_pressed(mb_left))
@@ -77,7 +77,7 @@ if (point_in_rectangle(_mouseX,_mouseY,112,8,133,156)) //Items Menu
 		page = 0;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,135,8,156,156)) //Quest Menu
+if (point_in_rectangle(_mouseX,_mouseY,135,8,156,36)) //Quest Menu
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,133,6,25,28);
 	if (mouse_check_button_pressed(mb_left))

@@ -41,7 +41,7 @@ crullM_list = array_create(50,false);
 //Room Lists
 function CampRooms(){ 
 camp_grid = ds_grid_create(20,4);
-roomName_ary = array_create(100,-1);
+level_ary = array_create(100,-1);
 farwayRoad_map_ary = array_create(15,-1);
 yakflowerPath_map_ary = array_create(7,-1);
 lakePath_map_ary = array_create(13,-1);
@@ -53,6 +53,10 @@ room_ary = farwayRoad_map_ary;
 //x spawn
 //y spawn
 //discoverd
+level_ary[0] = true;
+level_ary[1] = true;
+level_ary[2] = true;
+level_ary[3] = true;
 
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 168;
