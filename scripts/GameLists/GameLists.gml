@@ -54,9 +54,9 @@ room_ary = farwayRoad_map_ary;
 //y spawn
 //discoverd
 level_ary[0] = true;
-level_ary[1] = true;
-level_ary[2] = true;
-level_ary[3] = true;
+level_ary[1] = false;
+level_ary[2] = false;
+level_ary[3] = false;
 
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 168;
@@ -70,11 +70,11 @@ camp_grid[# 2, 0] = "Farway Road 07"
 camp_grid[# 2, 1] = 144;
 camp_grid[# 2, 2] = 96;
 camp_grid[# 2, 3] = false;
-camp_grid[# 3, 0] = "North Fortress Camp"
+camp_grid[# 3, 0] = "Farway Road 10"
 camp_grid[# 3, 1] = 160;
 camp_grid[# 3, 2] = 112;
 camp_grid[# 3, 3] = false;
-camp_grid[# 4, 0] = "Fortress Gate Camp"
+camp_grid[# 4, 0] = "Farwat Road 14"
 camp_grid[# 4, 1] = 160;
 camp_grid[# 4, 2] = 136;
 camp_grid[# 4, 3] = false;

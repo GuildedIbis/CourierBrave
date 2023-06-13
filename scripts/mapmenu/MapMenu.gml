@@ -89,7 +89,7 @@ draw_sprite(spr_scroll_bar1b,page,24,43);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-//draw_sprite_stretched(menu_sprite,3,103,41,147,86);
+draw_sprite_stretched(menu_sprite,3,72,35,170,100);
 //draw_sprite(spr_map_farwayRoad,0,66,34);
 
 
@@ -146,10 +146,10 @@ var _mouseY = device_mouse_y_to_gui(0);
 //6	Lair Boss
 //7 Main Boss
 //Camps
-var _xPos = 66;
-var _yPos = 34
+var _xPos = 77
+var _yPos = 40
 
-draw_sprite(spr_map_full,0,66,34);
+draw_sprite(spr_map_full,0,77,40);
 
 //Draw Map Backround and Rooms
 //for (var i = 0; i < 6; i = i + 1)
@@ -287,7 +287,10 @@ var _mouseY = device_mouse_y_to_gui(0);
 //7 Main Boss
 //Camps
 
-draw_sprite_ext(spr_map_farwayRoad,0,66,34,1.0,1.0,0,c_white,1.0);
+var _xPos = 77
+var _yPos = 40
+
+draw_sprite_ext(spr_map_farwayRoad,0,77,40,1.0,1.0,0,c_white,1.0);
 
 //Draw Map Backround and Rooms
 //for (var i = 0; i < 6; i = i + 1)
@@ -301,9 +304,54 @@ draw_sprite_ext(spr_map_farwayRoad,0,66,34,1.0,1.0,0,c_white,1.0);
 //}
 
 //Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 0, 3] = true) 
+if (obj_inventory.camp_grid[# 1, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,146,55,1,1,0,c_white,1);
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,122,87,127,91))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,125,90);
+		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 2, 1];
+			global.targetY = obj_inventory.camp_grid[# 2, 2];
+			global.targetRoom = rm_habraf_camp;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
+//		draw_set_halign(fa_left);
+//		draw_set_valign(fa_middle);
+//		draw_set_color(c_white);
+//		draw_set_font(fnt_text);
+//		draw_text_transformed(262,32,"CAMP",.5,.5,0);
+//		draw_text_transformed(262,44,"- Habraf Lake",.35,.35,0);
+//		draw_text_transformed(262,54,"- Andor the Browi",.35,.35,0);
+//		draw_text_transformed(262,64,"- Habraf Lake lair",.35,.35,0);
+	}
+}
+if (obj_inventory.camp_grid[# 2, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,143,52,148,56))
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,146,55);
@@ -347,99 +395,9 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
 	}
 }
-if (obj_inventory.camp_grid[# 1, 3] = true) 
-{
-	draw_sprite_ext(spr_map_alter_icon,0,174,60,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,171,57,176,61))
-	{
-		draw_sprite(spr_map_alter_icon_highlight,0,174,60);
-		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
-		{
-			obj_inventory.room_num = 0;
-			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.room_num = 0;
-			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
-			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 1, 1];
-			global.targetY = obj_inventory.camp_grid[# 1, 2];
-			global.targetRoom = rm_yakflower_camp;
-			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
-			global.transition = true;
-			global.fadeOut = true;
-			obj_game.gamePaused = false;
-			obj_game.invPaused = false;
-			with (obj_player)
-			{
-				if (max_weapon_count != -1)
-				{
-					weapon_count = max_weapon_count;
-				}
-			}
-		}
-		//draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
-//		draw_set_halign(fa_left);
-//		draw_set_valign(fa_middle);
-//		draw_set_color(c_white);
-//		draw_set_font(fnt_text);
-//		draw_text_transformed(262,32,"CAMP",.5,.5,0);
-//		draw_text_transformed(262,44,"- Yakflower Path",.35,.35,0);
-//		draw_text_transformed(262,54,"- Unknown the Browi",.35,.35,0);
-//		draw_text_transformed(262,64,"- Yakflower Path\nlair",.35,.35,0);
-	}
-}
-if (obj_inventory.camp_grid[# 2, 3] = true) 
-{
-	draw_sprite_ext(spr_map_alter_icon,0,125,90,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,122,87,127,91))
-	{
-		draw_sprite(spr_map_alter_icon_highlight,0,125,90);
-		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
-		{
-			obj_inventory.room_num = 0;
-			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.room_num = 0;
-			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
-			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 2, 1];
-			global.targetY = obj_inventory.camp_grid[# 2, 2];
-			global.targetRoom = rm_habraf_camp;
-			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
-			global.transition = true;
-			global.fadeOut = true;
-			obj_game.gamePaused = false;
-			obj_game.invPaused = false;
-			with (obj_player)
-			{
-				if (max_weapon_count != -1)
-				{
-					weapon_count = max_weapon_count;
-				}
-			}
-		}
-//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
-//		draw_set_halign(fa_left);
-//		draw_set_valign(fa_middle);
-//		draw_set_color(c_white);
-//		draw_set_font(fnt_text);
-//		draw_text_transformed(262,32,"CAMP",.5,.5,0);
-//		draw_text_transformed(262,44,"- Habraf Lake",.35,.35,0);
-//		draw_text_transformed(262,54,"- Andor the Browi",.35,.35,0);
-//		draw_text_transformed(262,64,"- Habraf Lake lair",.35,.35,0);
-	}
-}
 if (obj_inventory.camp_grid[# 3, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,174,90,1,1,0,c_white,1);
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 31,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,171,87,176,91))
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,174,90);
@@ -482,21 +440,21 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 }
 if (obj_inventory.camp_grid[# 4, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,188,110,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,185,107,190,111))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,171,57,176,61))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,188,110);
+		draw_sprite(spr_map_alter_icon_highlight,0,174,60);
 		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 14, 3] = true)
 		{
-			obj_inventory.room_num = 18;
-			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.room_num = 18;
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
+			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 4, 1];
-			global.targetY = obj_inventory.camp_grid[# 4, 2];
-			global.targetRoom = rm_lenko_beaowireCamp_gate;
+			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 1, 1];
+			global.targetY = obj_inventory.camp_grid[# 1, 2];
+			global.targetRoom = rm_yakflower_camp;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -514,16 +472,17 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 				}
 			}
 		}
-//		draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
+		//draw_sprite_stretched(spr_menu_beveled,3,258,36,60,96);
 //		draw_set_halign(fa_left);
 //		draw_set_valign(fa_middle);
 //		draw_set_color(c_white);
 //		draw_set_font(fnt_text);
 //		draw_text_transformed(262,32,"CAMP",.5,.5,0);
-//		draw_text_transformed(262,44,"- Zerwerk's Hideout",.35,.35,0);
+//		draw_text_transformed(262,44,"- Yakflower Path",.35,.35,0);
+//		draw_text_transformed(262,54,"- Unknown the Browi",.35,.35,0);
+//		draw_text_transformed(262,64,"- Yakflower Path\nlair",.35,.35,0);
 	}
 }
-
 if (obj_game.room_num != -1)	
 {	//Draw Camps (Selectable for travel
 	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])	
