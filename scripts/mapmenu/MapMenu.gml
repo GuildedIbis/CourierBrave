@@ -166,9 +166,10 @@ draw_sprite(spr_map_full,0,77,40);
 if (obj_inventory.level_ary[0] = true) 
 {
 	draw_sprite_ext(spr_map_icon,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 69,_yPos + 25,_xPos + 77,_yPos + 32))
+	if (obj_game.level_num = 0) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 73,_yPos + 29,.5,.5,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 69,_yPos + 25,_xPos + 77,_yPos + 33))
 	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 68,_yPos + 24,1,1,0,c_white,1);
 		if (mouse_check_button_pressed(mb_left)) 
 		{
 			map_selected = FarwayRoadMapMenuDraw;
@@ -187,6 +188,7 @@ if (obj_inventory.level_ary[0] = true)
 if (obj_inventory.level_ary[1] = true) 
 {
 	draw_sprite_ext(spr_map_icon,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
+	if (obj_game.level_num = 1) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 106,_yPos + 37,.5,.5,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 102,_yPos + 33,_xPos + 110,_yPos + 41))
 	{
 		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
@@ -208,6 +210,7 @@ if (obj_inventory.level_ary[1] = true)
 if (obj_inventory.level_ary[2] = true) 
 {
 	draw_sprite_ext(spr_map_icon,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
+	if (obj_game.level_num = 2) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 81,_yPos + 57,.5,.5,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 77,_yPos + 53,_xPos + 85,_yPos + 61))
 	{
 		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
@@ -229,6 +232,7 @@ if (obj_inventory.level_ary[2] = true)
 if (obj_inventory.level_ary[3] = true) 
 {
 	draw_sprite_ext(spr_map_icon,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
+	if (obj_game.level_num = 3) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 45,_yPos + 37,.5,.5,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 41,_yPos + 33,_xPos + 49,_yPos + 41))
 	{
 		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
@@ -289,9 +293,13 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 77
 var _yPos = 40
+var _mapRoomX = obj_inventory.farwayRoad_map_ary[obj_game.room_num][1] 
+var _mapRoomY = obj_inventory.farwayRoad_map_ary[obj_game.room_num][2]
+var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
+var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
 
 draw_sprite_ext(spr_map_farwayRoad,0,77,40,1.0,1.0,0,c_white,1.0);
-
+if (obj_game.level_num = 0) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
 //Draw Map Backround and Rooms
 //for (var i = 0; i < 6; i = i + 1)
 //{

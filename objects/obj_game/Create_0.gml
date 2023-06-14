@@ -21,6 +21,7 @@ event_live = false;
 day_timer = 0;
 max_day_timer = 18000;
 transition_timer = 0;
+level_num = 0;
 room_num = 0;
 room_name = -1;
 room_name_timer = 0;
