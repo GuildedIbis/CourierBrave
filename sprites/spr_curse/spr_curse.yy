@@ -5,8 +5,8 @@
   "bbox_bottom": 22,
   "bbox_left": 2,
   "bbox_right": 14,
-  "bbox_top": 6,
-  "bboxMode": 0,
+  "bbox_top": 12,
+  "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
   "DynamicTexturePage": false,
@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sprites/World/Effects/Other.yy",
+    "name": "Interactables",
+    "path": "folders/Sprites/World/Interactables.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

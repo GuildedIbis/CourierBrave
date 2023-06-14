@@ -29,7 +29,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"279566d5-8775-4af0-8be7-b99436d6d88e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 9,
+  "origin": 4,
   "parent": {
     "name": "Fragments",
     "path": "folders/Sprites/World/Fragments.yy",
@@ -72,7 +72,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 4,
-    "yorigin": 7,
+    "yorigin": 4,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
