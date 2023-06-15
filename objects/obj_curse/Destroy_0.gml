@@ -2,10 +2,13 @@
 // Inherit the parent event
 event_inherited();
 
-if (level_unlock != -1)
-with (obj_inventory) 
+if (level_unlock != -1) and (camp_unlock != -1)
 {
-	level_ary[other.level_unlock] = true;
+	with (obj_inventory) 
+	{
+		level_ary[other.level_unlock] = true;
+		camp_grid[# other.camp_unlock, 3] = true;
+	}
 }
 with (obj_inventory)
 {

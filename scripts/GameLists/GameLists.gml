@@ -78,6 +78,14 @@ camp_grid[# 4, 0] = "Farway Road 14"
 camp_grid[# 4, 1] = 160;
 camp_grid[# 4, 2] = 136;
 camp_grid[# 4, 3] = false;
+camp_grid[# 5, 0] = "Yakflower Path 00"
+camp_grid[# 5, 1] = 120;
+camp_grid[# 5, 2] = 88;
+camp_grid[# 5, 3] = false;
+camp_grid[# 6, 0] = "Yakflower Path 05"
+camp_grid[# 6, 1] = 160;
+camp_grid[# 6, 2] = 136;
+camp_grid[# 6, 3] = false;
 
 
 //Farway Road Map
@@ -134,22 +142,22 @@ farwayRoad_map_ary[16][1] = 64;
 farwayRoad_map_ary[16][2] = 36;
 
 //Yakflower Path Map
-yakflowerPath_map_ary[0][0] = "LENKO\nYakflower Camp";
+yakflowerPath_map_ary[0][0] = "Yakflower Path 00";
 yakflowerPath_map_ary[0][1] = 66;
 yakflowerPath_map_ary[0][2] = 22;
-yakflowerPath_map_ary[1][0] = "LENKO\nYakflower Path 1";
+yakflowerPath_map_ary[1][0] = "Yakflower Path 01";
 yakflowerPath_map_ary[1][1] = 73;
 yakflowerPath_map_ary[1][2] = 22;
-yakflowerPath_map_ary[2][0] = "LENKO\nYakflower Path 2";
+yakflowerPath_map_ary[2][0] = "Yakflower Path 02";
 yakflowerPath_map_ary[2][1] = 73;
 yakflowerPath_map_ary[2][2] = 30;
-yakflowerPath_map_ary[3][0] = "LENKO\nYakflower Path 3";
+yakflowerPath_map_ary[3][0] = "Yakflower Path 03";
 yakflowerPath_map_ary[3][1] = 84;
 yakflowerPath_map_ary[3][2] = 30;
-yakflowerPath_map_ary[4][0] = "LENKO\nYakflower Path 4";
+yakflowerPath_map_ary[4][0] = "Yakflower Path 04";
 yakflowerPath_map_ary[4][1] = 84;
 yakflowerPath_map_ary[4][2] = 37;
-yakflowerPath_map_ary[5][0] = "LENKO\nYakflower Path 5";
+yakflowerPath_map_ary[5][0] = "Yakflower Path 05";
 yakflowerPath_map_ary[5][1] = 73;
 yakflowerPath_map_ary[5][2] = 17;
 yakflowerPath_map_ary[6][0] = "LENKO\nZerwerk";

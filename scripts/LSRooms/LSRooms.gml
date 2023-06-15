@@ -53,6 +53,19 @@ if (variable_struct_exists(_loadEntity,"camp01")) obj_inventory.camp_grid[# 1, 3
 if (variable_struct_exists(_loadEntity,"camp02")) obj_inventory.camp_grid[# 2, 3] = _loadEntity.camp02;
 if (variable_struct_exists(_loadEntity,"camp03")) obj_inventory.camp_grid[# 3, 3] = _loadEntity.camp03;
 if (variable_struct_exists(_loadEntity,"camp04")) obj_inventory.camp_grid[# 4, 3] = _loadEntity.camp04;
+if (variable_struct_exists(_loadEntity,"camp05")) obj_inventory.camp_grid[# 5, 3] = _loadEntity.camp05;
+if (variable_struct_exists(_loadEntity,"camp06")) obj_inventory.camp_grid[# 6, 3] = _loadEntity.camp06;
+if (variable_struct_exists(_loadEntity,"camp07")) obj_inventory.camp_grid[# 7, 3] = _loadEntity.camp07;
+if (variable_struct_exists(_loadEntity,"camp08")) obj_inventory.camp_grid[# 8, 3] = _loadEntity.camp08;
+if (variable_struct_exists(_loadEntity,"camp09")) obj_inventory.camp_grid[# 9, 3] = _loadEntity.camp09;
+
+
+//Load Level Array
+if (variable_struct_exists(_loadEntity,"level00")) obj_inventory.level_ary[0] = _loadEntity.level00;
+if (variable_struct_exists(_loadEntity,"level01")) obj_inventory.level_ary[1] = _loadEntity.level01;
+if (variable_struct_exists(_loadEntity,"level02")) obj_inventory.level_ary[2] = _loadEntity.level02;
+if (variable_struct_exists(_loadEntity,"level03")) obj_inventory.level_ary[3] = _loadEntity.level03;
+
 
 }
 //
@@ -112,6 +125,17 @@ camp01 : obj_inventory.camp_grid[# 1, 3],
 camp02 : obj_inventory.camp_grid[# 2, 3],
 camp03 : obj_inventory.camp_grid[# 3, 3],
 camp04 : obj_inventory.camp_grid[# 4, 3],
+camp05 : obj_inventory.camp_grid[# 5, 3],
+camp06 : obj_inventory.camp_grid[# 6, 3],
+camp07 : obj_inventory.camp_grid[# 7, 3],
+camp08 : obj_inventory.camp_grid[# 8, 3],
+camp09 : obj_inventory.camp_grid[# 9, 3],
+
+//Save Levels
+level00: obj_inventory.level_ary[0],
+level01: obj_inventory.level_ary[1],
+level02: obj_inventory.level_ary[2],
+level03: obj_inventory.level_ary[3],
 
 }
 array_push(_saveData, _saveQuest);
