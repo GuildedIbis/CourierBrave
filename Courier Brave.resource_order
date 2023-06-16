@@ -885,6 +885,7 @@
     {"name":"rm_lenko_farwayRoad_04","order":17,"path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"spr_enemy_ofaMoth","order":8,"path":"sprites/spr_enemy_ofaMoth/spr_enemy_ofaMoth.yy",},
     {"name":"rm_lenko_greyrock_12","order":15,"path":"rooms/rm_lenko_greyrock_12/rm_lenko_greyrock_12.yy",},
+    {"name":"rm_lenko_yakflowerPath_06","order":9,"path":"rooms/rm_lenko_yakflowerPath_06/rm_lenko_yakflowerPath_06.yy",},
     {"name":"snd_endire_sparkfire","order":1,"path":"sounds/snd_endire_sparkfire/snd_endire_sparkfire.yy",},
     {"name":"QuickSwap","order":6,"path":"scripts/QuickSwap/QuickSwap.yy",},
     {"name":"tile_lenko_8","order":5,"path":"tilesets/tile_lenko_8/tile_lenko_8.yy",},

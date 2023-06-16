@@ -190,8 +190,8 @@ if (obj_inventory.yakflower_lair[1] < 20)
 //
 //
 //
-//Yakflower Spawn Create 1
-function YakflowerSpawnCreate3(){
+//Yakflower Path Spawn Create Room 02
+function YakflowerSpawnCreate02(){
 spawn_timer = 180;
 x_spawn1 = 80;
 y_spawn1 = 304;
@@ -255,8 +255,8 @@ if (obj_inventory.yakflower_lair[2] < 3)
 //
 //
 //
-//Habfaf Lair: Escort 3 Spawner
-function YakflowerSpawner3(){
+//Yakflower Path Spawner Room 02
+function YakflowerSpawn02(){
 
 //First Totem
 if (obj_inventory.yakflower_lair[2] < 1) 
@@ -307,18 +307,6 @@ if (obj_inventory.yakflower_lair[2] < 1)
 				break_object = obj_break2;
 			}
 			spawn_timer = 180;
-		}
-	}
-	if (spawn1 = false)
-	{
-		spawn1 = true;
-		with (instance_create_layer(288,280,"Instances",obj_enemy))
-		{
-			image_alpha = 1;
-			script_execute(OfaMothCreate);
-			global.aggroCounter = global.aggroCounter + 1;
-			targeted = true;
-			break_object = obj_break2;
 		}
 	}	
 }
