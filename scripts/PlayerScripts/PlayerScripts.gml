@@ -206,7 +206,7 @@ if (_orange = false) and (orange_charge < max_orange_charge)
 //
 //Roll State
 function PlayerStateRoll(){
-max_stamina = 50 + (3* (might + round(might/15)));
+//max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
 if (charge < max_charge) and (watervice = false)//charge Recharge
 {

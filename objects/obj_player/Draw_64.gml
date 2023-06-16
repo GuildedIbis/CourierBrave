@@ -84,81 +84,93 @@ if (scene = false) and (obj_game.textPaused = false)
 	switch (form_type)
 	{
 		case 0:
-			var _chargePerc = (yellow_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
-			var _specialPerc = (yellow_special/max_special) * 100;
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (yellow_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
+			//var _specialPerc = (yellow_special/max_special) * 100;
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = yellow_charge;
 			selected_special = yellow_special;
+			draw_ring_healthbar(286,170,yellow_charge,max_charge,c_yellow,9,1,3);
+			draw_ring_healthbar(308,170,yellow_special,max_special,c_yellow,9,1,3);
 		break;
 		
 		case 1:
-			var _chargePerc = (blue_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
-			var _specialPerc = (blue_special/max_special) * 100;
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (blue_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
+			//var _specialPerc = (blue_special/max_special) * 100;
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = blue_charge;
 			selected_special = blue_special;
+			draw_ring_healthbar(286,170,blue_charge,max_charge,c_blue,9,1,3);
+			draw_ring_healthbar(308,170,blue_special,max_special,c_blue,9,1,3);
 		break;
 		
 		case 2:
-			var _chargePerc = (purple_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
-			var _specialPerc = round((purple_special/max_special) * 100);
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (purple_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
+			//var _specialPerc = round((purple_special/max_special) * 100);
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = purple_charge;
 			selected_special = purple_special;
+			draw_ring_healthbar(286,170,purple_charge,max_charge,c_purple,9,1,3);
+			draw_ring_healthbar(308,170,purple_special,max_special,c_purple,9,1,3);
 		break;
 		
 		case 3:
-			var _chargePerc = (red_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
-			var _specialPerc = round((red_special/max_special) * 100);
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (red_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
+			//var _specialPerc = round((red_special/max_special) * 100);
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = red_charge;
 			selected_special = red_special;
+			draw_ring_healthbar(286,170,red_charge,max_charge,c_red,9,1,3);
+			draw_ring_healthbar(308,170,red_special,max_special,c_red,9,1,3);
 		break;
 		
 		case 4:
-			var _chargePerc = (green_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
-			var _specialPerc = (green_special/max_special) * 100;
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (green_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
+			//var _specialPerc = (green_special/max_special) * 100;
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = green_charge;
 			selected_special = green_special;
+			draw_ring_healthbar(286,170,green_charge,max_charge,c_green,9,1,3);
+			draw_ring_healthbar(308,170,green_special,max_special,c_green,9,1,3);
 		break;
 		
 		case 5:
-			var _chargePerc = (orange_charge/max_charge) * 100;
-			draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
-			var _specialPerc = (orange_special/max_special) * 100;
-			draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
+			//var _chargePerc = (orange_charge/max_charge) * 100;
+			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
+			//var _specialPerc = (orange_special/max_special) * 100;
+			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
 			selected_charge = orange_charge;
 			selected_special = orange_special;
+			draw_ring_healthbar(286,170,orange_charge,max_charge,c_orange,9,1,3);
+			draw_ring_healthbar(308,170,orange_special,max_special,c_orange,9,1,3);
 		break;
 	}
 	var _rollPerc = (stamina/max_stamina) * 100;
-	draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
+	//draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	draw_sprite(spr_hud_skills,1,192,154);
-	draw_sprite(spr_weapons_allGame,form,240,160);
-	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,197,160);
-	else draw_sprite(spr_magicAlt_allGame,form,197,160);
-	draw_sprite(spr_special_allGame,form,282,160);
+	draw_sprite(spr_weapons_allGame,form,249,160);
+	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,270,160);
+	else draw_sprite(spr_magicAlt_allGame,form,270,160);
+	draw_sprite(spr_special_allGame,form,292,160);
 	
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 	draw_set_color(c_black);
-	draw_text_transformed(220,159,selected_charge,.5,.5,0);
+	draw_text_transformed(282,152,selected_charge,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(219,159,selected_charge,.5,.5,0);
+	draw_text_transformed(281,152,selected_charge,.5,.5,0);
 	draw_set_color(c_black);
-	draw_text_transformed(262,159,stamina,.5,.5,0);
+	//draw_text_transformed(262,159,stamina,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(261,159,stamina,.5,.5,0);
+	//draw_text_transformed(261,159,stamina,.5,.5,0);
 	draw_set_color(c_black);
-	draw_text_transformed(305,159,selected_special,.5,.5,0);
+	draw_text_transformed(305,152,selected_special,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(304,159,selected_special,.5,.5,0);
+	draw_text_transformed(304,152,selected_special,.5,.5,0);
 
 	
 	

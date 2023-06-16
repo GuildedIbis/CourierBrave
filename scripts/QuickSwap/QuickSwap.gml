@@ -100,7 +100,7 @@ draw_healthbar(148,51,151,111,_purpleS,c_black,c_purple,c_purple,3,true,true);
 draw_healthbar(194,51,197,111,_redS,c_black,c_red,c_red,3,true,true);
 draw_healthbar(240,51,243,111,_greenS,c_black,c_green,c_green,3,true,true);
 draw_healthbar(286,51,289,111,_orangeS,c_black,c_orange,c_orange,3,true,true);
-draw_ring_healthbar(85,30,obj_player.yellow_charge,_max,c_yellow,12,1,4);
+//draw_ring_healthbar(85,30,obj_player.yellow_charge,_max,c_yellow,12,1,4);
 }
 //
 //

@@ -33,7 +33,7 @@ magic_timer = 0;
 walk_spd = 1.75;
 armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
 max_charge = 100;
-max_stamina = 50 + (3* (might + round(might/15)));
+max_stamina = 100;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
@@ -136,11 +136,11 @@ PlayerAnimation();
 //Melee Attack
 if (key_attackW)
 {
-	if (thundux = false) and (stamina >= 15)
+	if (thundux = false)// and (stamina >= 15)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		if (weapon_aim = false) direction = round(obj_player.direction/90) * 90;
-		stamina = stamina - 15;
+		//stamina = stamina - 15;
 		timer1 = 12;
 		attack_script = AdavioHookThrust;
 		state_script = PlayerStateAttack;

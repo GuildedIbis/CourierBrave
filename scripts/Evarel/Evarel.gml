@@ -40,7 +40,7 @@ special_count = -1;
 max_special_count = -1;
 armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
 max_charge = 100;
-max_stamina = 50 + (3* (might + round(might/15)));
+max_stamina = 100;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
@@ -192,13 +192,13 @@ if (key_attackS) and (green_charge >= 20)
 
 
 //Roll State
-if (key_ability) and (stamina >= 50)
+if (key_ability)// and (stamina >= 50)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		stamina = stamina - 50;
+		//stamina = stamina - 50;
 		state_script = PlayerStateRoll;
 		remain_dist = roll_dist;
 	}

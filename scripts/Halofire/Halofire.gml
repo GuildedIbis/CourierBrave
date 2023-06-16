@@ -38,7 +38,7 @@ special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
 max_charge = 100;
-max_stamina = 50 + (3* (might + round(might/15)));
+max_stamina = 100;
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
 //Max Charges
@@ -142,10 +142,10 @@ PlayerAnimation();
 //Weapon Attack
 if (key_attackW)
 {
-	if (thundux = false) and (stamina >= 25)
+	if (thundux = false)// and (stamina >= 25)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		stamina = stamina - 25;
+		//stamina = stamina - 25;
 		attack_script = HalofireHamaxe;
 		state_script = PlayerStateAttack;
 		
@@ -309,9 +309,9 @@ PlayerAnimation();
 //Return to Free State or enter Charging state
 if (animation_end)
 {
-	if (mouse_check_button(mb_right)) and (stamina >= 15)
+	if (mouse_check_button(mb_right))// and (stamina >= 15)
 	{
-		stamina = stamina - 15;
+		//stamina = stamina - 15;
 		weapon_timer = 45;
 		fixed_dir = _cardinalDir
 		state_script = HalofireHamaxeCharging;
