@@ -78,6 +78,7 @@ hp = max_hp;
 crull_stone = max_crull_stone;
 
 //Color Specific Charge
+selected_charge = -1;
 max_yellow_charge = 50 + (3* (grace + round(grace/15)));
 max_blue_charge = 50 + (3* (grace + round(grace/15)));
 max_purple_charge = 50 + (3* (grace + round(grace/15)));
@@ -90,7 +91,9 @@ purple_charge = 50 + (3* (grace + round(grace/15)));
 red_charge = 50 + (3* (grace + round(grace/15)));
 green_charge = 50 + (3* (grace + round(grace/15)));
 orange_charge = 50 + (3* (grace + round(grace/15)));
+
 //Color Specific Special
+selected_special = -1;
 yellow_special = 100;
 blue_special = 100;
 purple_special = 100;

@@ -394,6 +394,13 @@ if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
 	yellow_charge = yellow_charge - 5;
+	with (obj_cursor)
+	{
+		if (kick_spread < 10)
+		{
+			kick_spread = kick_spread + 3;
+		}
+	}
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -408,7 +415,7 @@ if (magic_timer <= 0)
 		idle_sprite = spr_goldBullet;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-(obj_cursor.kick_spread),obj_cursor.kick_spread);
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -758,20 +765,22 @@ image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
 curs_form = 0;
+if (kick_spread > 0) kick_spread = kick_spread - (kick_spread/20);
 
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 if (obj_player.magic_primary = true) spread = 5;
 if (obj_player.magic_primary = false) spread = 5;
+
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);
 	var _yClampF = clamp(window_mouse_get_y(),16,window_get_height()-32);
 	window_mouse_set(_xClampF,_yClampF)
 
-	curs_width = 8 + (point_distance(x,y,obj_player.x,obj_player.y)/spread);
-	curs_height = 8 + (point_distance(x,y,obj_player.x,obj_player.y)/spread);
+	curs_width = 8 + (kick_spread*2)//(point_distance(x,y,obj_player.x,obj_player.y)/spread);
+	curs_height = 8 + (kick_spread*2)//(point_distance(x,y,obj_player.x,obj_player.y)/spread);
 
 }
 

@@ -11,4 +11,8 @@ else
 	{
 		script_execute(curs_script);
 	}
+	if (keyboard_check_pressed(ord("X")))
+	{
+		curs_meter = !curs_meter;
+	}
 }

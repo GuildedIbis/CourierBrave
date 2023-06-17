@@ -5,7 +5,7 @@
 if (scene = false) and (obj_game.textPaused = false)
 {
 	
-	//Player Health and Crull Stones
+	//Player Health, Crull Stones, and Rolling
 	var _hpPerc = (hp/max_hp) * 100;
 	draw_healthbar(22,166,64,169,_hpPerc,c_black,c_maroon,c_red,0,1,0);
 	draw_sprite(spr_health_hud,(max_crull_stone - 1),4,156);
@@ -22,6 +22,14 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_text_transformed(8,166,hp,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(7,166,hp,.5,.5,0);
+	
+	var _rollPerc = (stamina/max_stamina) * 100;
+	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
+	draw_sprite(spr_roll_hud,0,4,156);
+	draw_set_color(c_black);
+	draw_text_transformed(262,159,stamina,.5,.5,0);
+	draw_set_color(c_white);
+	draw_text_transformed(261,159,stamina,.5,.5,0);
 
 	//Day Cycle
 	with (obj_game)
@@ -149,7 +157,7 @@ if (scene = false) and (obj_game.textPaused = false)
 			draw_ring_healthbar(308,170,orange_special,max_special,c_orange,9,1,3);
 		break;
 	}
-	var _rollPerc = (stamina/max_stamina) * 100;
+	
 	//draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,249,160);
@@ -163,10 +171,6 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_text_transformed(282,152,selected_charge,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(281,152,selected_charge,.5,.5,0);
-	draw_set_color(c_black);
-	//draw_text_transformed(262,159,stamina,.5,.5,0);
-	draw_set_color(c_white);
-	//draw_text_transformed(261,159,stamina,.5,.5,0);
 	draw_set_color(c_black);
 	draw_text_transformed(305,152,selected_special,.5,.5,0);
 	draw_set_color(c_white);
