@@ -335,12 +335,15 @@ beaowireFortress_map_ary[18][2] = 77;
 //
 //Room Enemies
 function RoomEnemies(){
-farwayRoad_enemy_grid = ds_grid_create(20,20);
-yakflowerPath_enemy_grid = ds_grid_create(20,20);
-lakePath_enemy_grid = ds_grid_create(20,20);
-habrafLake_enemy_grid = ds_grid_create(20,20);
-greyrock_enemy_grid = ds_grid_create(20,20);
-beaowireFortress_enemy_grid = ds_grid_create(20,20);
+//The X value represents the room, the y value represents the individual enemy.
+//Enemies have their "activate_args" set to a number that is unique the them within the room.
+//So if I want to have more than 30 enemies in a room, increase y value.
+farwayRoad_enemy_grid = ds_grid_create(20,30);
+yakflowerPath_enemy_grid = ds_grid_create(20,30);
+lakePath_enemy_grid = ds_grid_create(20,30);
+habrafLake_enemy_grid = ds_grid_create(20,30);
+greyrock_enemy_grid = ds_grid_create(20,30);
+beaowireFortress_enemy_grid = ds_grid_create(20,30);
 room_enemy_grid = farwayRoad_enemy_grid;
 
 for (var i = 0; i < 20; i = i + 1)
