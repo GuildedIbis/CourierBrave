@@ -195,7 +195,6 @@
     {"name":"inst_2BC94075","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
     {"name":"inst_6A60619B","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
     {"name":"inst_42A99C83","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
-    {"name":"inst_24875274","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
     {"name":"inst_101E8F1B","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
     {"name":"inst_466F261C","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
     {"name":"inst_46AE16B5","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
@@ -463,11 +462,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3FC2F099","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"propertyId":{"name":"pos","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"value":"3",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":280.0,"y":307.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24875274","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"EliteHunterCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":192.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_101E8F1B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"EliteHunterCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
