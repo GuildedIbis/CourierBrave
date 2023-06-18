@@ -518,7 +518,9 @@ if (obj_player.selected_charge != -1) and (curs_meter = true)
 {
 	draw_pie_healthbar(x + xOff,y + yOff,obj_player.selected_charge,obj_player.max_charge,c_yellow,3,1);
 }
-draw_sprite_stretched(spr_cursor_play,curs_form,x-xOff,y-yOff,curs_width,curs_height)
+draw_sprite_stretched(spr_cursor_play,curs_form,x,y,8,8);
+draw_sprite_stretched(spr_cursor_play,curs_form,x-xOff+4,y-yOff+4,curs_width,curs_height);
+
 
 }
 //
