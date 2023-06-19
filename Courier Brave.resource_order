@@ -432,6 +432,7 @@
     {"name":"spr_weapon_endiresFlame","order":7,"path":"sprites/spr_weapon_endiresFlame/spr_weapon_endiresFlame.yy",},
     {"name":"spr_player_halofire_runCast","order":18,"path":"sprites/spr_player_halofire_runCast/spr_player_halofire_runCast.yy",},
     {"name":"spr_spiritGuide_meteor","order":2,"path":"sprites/spr_spiritGuide_meteor/spr_spiritGuide_meteor.yy",},
+    {"name":"rm_lenko_yakflowerPath_10","order":13,"path":"rooms/rm_lenko_yakflowerPath_10/rm_lenko_yakflowerPath_10.yy",},
     {"name":"spr_enemy_tortoiseTroll_vineShot","order":10,"path":"sprites/spr_enemy_tortoiseTroll_vineShot/spr_enemy_tortoiseTroll_vineShot.yy",},
     {"name":"spr_weapon_zerkriftHook_fourRift","order":5,"path":"sprites/spr_weapon_zerkriftHook_fourRift/spr_weapon_zerkriftHook_fourRift.yy",},
     {"name":"spr_necromancer_scene1","order":2,"path":"sprites/spr_necromancer_scene1/spr_necromancer_scene1.yy",},

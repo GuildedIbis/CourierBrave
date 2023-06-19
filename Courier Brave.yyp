@@ -493,6 +493,7 @@
     {"id":{"name":"spr_weapon_endiresFlame","path":"sprites/spr_weapon_endiresFlame/spr_weapon_endiresFlame.yy",},},
     {"id":{"name":"spr_player_halofire_runCast","path":"sprites/spr_player_halofire_runCast/spr_player_halofire_runCast.yy",},},
     {"id":{"name":"spr_spiritGuide_meteor","path":"sprites/spr_spiritGuide_meteor/spr_spiritGuide_meteor.yy",},},
+    {"id":{"name":"rm_lenko_yakflowerPath_10","path":"rooms/rm_lenko_yakflowerPath_10/rm_lenko_yakflowerPath_10.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_vineShot","path":"sprites/spr_enemy_tortoiseTroll_vineShot/spr_enemy_tortoiseTroll_vineShot.yy",},},
     {"id":{"name":"spr_weapon_zerkriftHook_fourRift","path":"sprites/spr_weapon_zerkriftHook_fourRift/spr_weapon_zerkriftHook_fourRift.yy",},},
     {"id":{"name":"spr_necromancer_scene1","path":"sprites/spr_necromancer_scene1/spr_necromancer_scene1.yy",},},
@@ -1418,6 +1419,7 @@
     {"roomId":{"name":"rm_lenko_farwayRoad_17","path":"rooms/rm_lenko_farwayRoad_17/rm_lenko_farwayRoad_17.yy",},},
     {"roomId":{"name":"rm_lenko_yakflowerPath_19","path":"rooms/rm_lenko_yakflowerPath_19/rm_lenko_yakflowerPath_19.yy",},},
     {"roomId":{"name":"rm_lenko_yakflowerPath_18","path":"rooms/rm_lenko_yakflowerPath_18/rm_lenko_yakflowerPath_18.yy",},},
+    {"roomId":{"name":"rm_lenko_yakflowerPath_10","path":"rooms/rm_lenko_yakflowerPath_10/rm_lenko_yakflowerPath_10.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

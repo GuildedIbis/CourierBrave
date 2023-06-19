@@ -39,10 +39,10 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.yakflower_lair[2] < 1)
+if (obj_inventory.yakflowerPath_map_ary[18][3] < 1)
 {
 	image_index = floor((timer1/900) * 5)
-	if (timer1 >= 900) obj_inventory.yakflower_lair[2] = 1;
+	if (timer1 >= 900) obj_inventory.yakflowerPath_map_ary[18][3] = 1;
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
 		active = true;
@@ -57,6 +57,7 @@ if (obj_inventory.yakflower_lair[2] < 1)
 }
 else
 {
+	active = false;
 	image_index = 5;
 	sprite_index = spr_effect_yakflower_totemActive;
 }
