@@ -42,6 +42,7 @@ crullM_list = array_create(50,false);
 function CampRooms(){ 
 camp_grid = ds_grid_create(20,4);
 level_ary = array_create(100,-1);
+level_name = array_create(100,-1);
 farwayRoad_map_ary = array_create(20,-1);
 yakflowerPath_map_ary = array_create(20,-1);
 lakePath_map_ary = array_create(13,-1);
@@ -53,10 +54,18 @@ room_ary = farwayRoad_map_ary;
 //x spawn
 //y spawn
 //discoverd
+
+//Levels Unlocked
 level_ary[0] = true;
 level_ary[1] = false;
 level_ary[2] = false;
 level_ary[3] = false;
+
+//Levels Name
+level_name[0] = "Farway Road";
+level_name[1] = "Yakflower Path";
+level_name[2] = "Habraf Lake";
+level_name[3] = "Beaowire Fortress";
 
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 88;
@@ -137,7 +146,7 @@ farwayRoad_map_ary[8][1] = 128;
 farwayRoad_map_ary[8][2] = 45;
 farwayRoad_map_ary[8][3] = 0;
 farwayRoad_map_ary[9][0] = "Farway Road 09";
-farwayRoad_map_ary[9][1] = 112;
+farwayRoad_map_ary[9][1] = 128;
 farwayRoad_map_ary[9][2] = 54;
 farwayRoad_map_ary[9][3] = 0;
 farwayRoad_map_ary[10][0] = "Farway Road 10";

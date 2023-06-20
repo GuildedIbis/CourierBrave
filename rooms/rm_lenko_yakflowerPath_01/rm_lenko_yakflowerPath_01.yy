@@ -637,7 +637,7 @@
 133,-11,0,1,290,-51,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 1,0,-8,162,2,161,163,-11,162,1,0,-6,162,2,161,163,-18,162,2,161,
-163,-15,162,3,121,122,122,-3,0,2,122,209,-11,162,1,206,-6,0,2,125,
+163,-15,162,8,121,122,122,0,0,122,122,209,-11,162,1,206,-6,0,2,125,
 164,-8,122,4,123,162,162,161,-4,0,-2,202,-8,0,-2,202,7,203,162,162,
 201,202,202,203,-3,162,1,207,-7,202,-28,162,5,161,162,162,164,209,-7,162,
 -2,0,-3,162,8,82,0,0,161,80,80,0,163,-11,162,1,0,-35,162,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

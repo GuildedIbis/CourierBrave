@@ -25,6 +25,7 @@ level_num = 0;
 room_num = 0;
 room_name = -1;
 room_name_timer = 0;
+level_name_timer = 0;
 game_paused_image_speed = 0;
 //home_song = snd_theme_main;
 
