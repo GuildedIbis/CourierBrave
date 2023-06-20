@@ -79,13 +79,17 @@ camp_grid[# 4, 1] = 160;
 camp_grid[# 4, 2] = 136;
 camp_grid[# 4, 3] = false;
 camp_grid[# 5, 0] = "Yakflower Path 00"
-camp_grid[# 5, 1] = 120;
-camp_grid[# 5, 2] = 88;
+camp_grid[# 5, 1] = 160;
+camp_grid[# 5, 2] = 112;
 camp_grid[# 5, 3] = false;
-camp_grid[# 6, 0] = "Yakflower Path 05"
-camp_grid[# 6, 1] = 160;
-camp_grid[# 6, 2] = 136;
+camp_grid[# 6, 0] = "Yakflower Path 04"
+camp_grid[# 6, 1] = 112;
+camp_grid[# 6, 2] = 104;
 camp_grid[# 6, 3] = false;
+camp_grid[# 7, 0] = "Yakflower Path 06"
+camp_grid[# 7, 1] = 160;
+camp_grid[# 7, 2] = 136;
+camp_grid[# 7, 3] = false;
 
 //Room Array Column 1 Assignments
 //0: Name
@@ -179,24 +183,24 @@ farwayRoad_map_ary[19][3] = 0;
 
 //Yakflower Path Map
 yakflowerPath_map_ary[0][0] = "Yakflower Path 00";
-yakflowerPath_map_ary[0][1] = 66;
-yakflowerPath_map_ary[0][2] = 22;
+yakflowerPath_map_ary[0][1] = 32;
+yakflowerPath_map_ary[0][2] = 9;
 yakflowerPath_map_ary[0][3] = 0;
 yakflowerPath_map_ary[1][0] = "Yakflower Path 01";
-yakflowerPath_map_ary[1][1] = 73;
-yakflowerPath_map_ary[1][2] = 22;
+yakflowerPath_map_ary[1][1] = 32;
+yakflowerPath_map_ary[1][2] = 18;
 yakflowerPath_map_ary[1][3] = 0;
 yakflowerPath_map_ary[2][0] = "Yakflower Path 02";
-yakflowerPath_map_ary[2][1] = 73;
-yakflowerPath_map_ary[2][2] = 30;
+yakflowerPath_map_ary[2][1] = 48;
+yakflowerPath_map_ary[2][2] = 9;
 yakflowerPath_map_ary[2][3] = 0;
 yakflowerPath_map_ary[3][0] = "Yakflower Path 03";
-yakflowerPath_map_ary[3][1] = 84;
-yakflowerPath_map_ary[3][2] = 30;
+yakflowerPath_map_ary[3][1] = 65;
+yakflowerPath_map_ary[3][2] = 27;
 yakflowerPath_map_ary[3][3] = 0;
 yakflowerPath_map_ary[4][0] = "Yakflower Path 04";
-yakflowerPath_map_ary[4][1] = 84;
-yakflowerPath_map_ary[4][2] = 37;
+yakflowerPath_map_ary[4][1] = 48;
+yakflowerPath_map_ary[4][2] = 27;
 yakflowerPath_map_ary[4][3] = 0;
 yakflowerPath_map_ary[5][0] = "Yakflower Path 05";
 yakflowerPath_map_ary[5][1] = 73;

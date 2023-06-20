@@ -610,10 +610,10 @@ if (obj_game.level_num = 1)
 //Draw Camps (Selectable for travel
 if (obj_inventory.camp_grid[# 5, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 102, _yPos + 75,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 99,_yPos + 73,_xPos + 105,_yPos + 76))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 39, _yPos + 14,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 12,_xPos + 41,_yPos + 15))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 102,_yPos + 75);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 39,_yPos + 14);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_inventory.room_num = 0;
@@ -656,10 +656,10 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 }
 if (obj_inventory.camp_grid[# 6, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 47,_xPos + 106,_yPos + 50))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 53, _yPos + 31,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 50,_yPos + 29,_xPos + 55,_yPos + 32))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 53,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 4;
@@ -702,10 +702,10 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 }
 if (obj_inventory.camp_grid[# 7, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 59,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 57,_xPos + 43,_yPos + 60))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 59);
 		if (mouse_check_button_pressed(mb_left)) and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 7;
