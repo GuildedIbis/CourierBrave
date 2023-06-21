@@ -173,6 +173,7 @@ image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
+image_index = obj_inventory.yakflowerPath_map_ary[5][3];
 sprite_index = spr_statue_moth;
 if (place_meeting(x,y,obj_player))
 {
@@ -190,6 +191,7 @@ else
 	if (image_alpha < 1) image_alpha = image_alpha + .05;
 }
 depth = -y;
+
 }
 
 //

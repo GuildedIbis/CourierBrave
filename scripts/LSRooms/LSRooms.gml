@@ -18,12 +18,26 @@ if (variable_struct_exists(_loadEntity,"habraf02")) obj_inventory.habraf_lair[2]
 if (variable_struct_exists(_loadEntity,"habraf03")) obj_inventory.habraf_lair[3] = _loadEntity.habraf03;
 if (variable_struct_exists(_loadEntity,"habraf04")) obj_inventory.habraf_lair[4] = _loadEntity.habraf04;
 //Yakflower
-if (variable_struct_exists(_loadEntity,"yakflower00")) obj_inventory.yakflower_lair[0] = _loadEntity.yakflower00;
-if (variable_struct_exists(_loadEntity,"yakflower01")) obj_inventory.yakflower_lair[1] = _loadEntity.yakflower01;
-if (variable_struct_exists(_loadEntity,"yakflower02")) obj_inventory.yakflower_lair[2] = _loadEntity.yakflower02;
-if (variable_struct_exists(_loadEntity,"yakflower03")) obj_inventory.yakflower_lair[3] = _loadEntity.yakflower03;
-if (variable_struct_exists(_loadEntity,"yakflower04")) obj_inventory.yakflower_lair[4] = _loadEntity.yakflower04;
-
+if (variable_struct_exists(_loadEntity,"yakflower00")) obj_inventory.yakflowerPath_map_ary[0][3] = _loadEntity.yakflower00;
+if (variable_struct_exists(_loadEntity,"yakflower01")) obj_inventory.yakflowerPath_map_ary[1][3] = _loadEntity.yakflower01;
+if (variable_struct_exists(_loadEntity,"yakflower02")) obj_inventory.yakflowerPath_map_ary[2][3] = _loadEntity.yakflower02;
+if (variable_struct_exists(_loadEntity,"yakflower03")) obj_inventory.yakflowerPath_map_ary[3][3] = _loadEntity.yakflower03;
+if (variable_struct_exists(_loadEntity,"yakflower04")) obj_inventory.yakflowerPath_map_ary[4][3] = _loadEntity.yakflower04;
+if (variable_struct_exists(_loadEntity,"yakflower05")) obj_inventory.yakflowerPath_map_ary[5][3] = _loadEntity.yakflower05;
+if (variable_struct_exists(_loadEntity,"yakflower06")) obj_inventory.yakflowerPath_map_ary[6][3] = _loadEntity.yakflower06;
+if (variable_struct_exists(_loadEntity,"yakflower07")) obj_inventory.yakflowerPath_map_ary[7][3] = _loadEntity.yakflower07;
+if (variable_struct_exists(_loadEntity,"yakflower08")) obj_inventory.yakflowerPath_map_ary[8][3] = _loadEntity.yakflower08;
+if (variable_struct_exists(_loadEntity,"yakflower09")) obj_inventory.yakflowerPath_map_ary[9][3] = _loadEntity.yakflower09;
+if (variable_struct_exists(_loadEntity,"yakflower10")) obj_inventory.yakflowerPath_map_ary[10][3] = _loadEntity.yakflower10;
+if (variable_struct_exists(_loadEntity,"yakflower11")) obj_inventory.yakflowerPath_map_ary[11][3] = _loadEntity.yakflower11;
+if (variable_struct_exists(_loadEntity,"yakflower12")) obj_inventory.yakflowerPath_map_ary[12][3] = _loadEntity.yakflower12;
+if (variable_struct_exists(_loadEntity,"yakflower13")) obj_inventory.yakflowerPath_map_ary[13][3] = _loadEntity.yakflower13;
+if (variable_struct_exists(_loadEntity,"yakflower14")) obj_inventory.yakflowerPath_map_ary[14][3] = _loadEntity.yakflower14;
+if (variable_struct_exists(_loadEntity,"yakflower15")) obj_inventory.yakflowerPath_map_ary[15][3] = _loadEntity.yakflower15;
+if (variable_struct_exists(_loadEntity,"yakflower16")) obj_inventory.yakflowerPath_map_ary[16][3] = _loadEntity.yakflower16;
+if (variable_struct_exists(_loadEntity,"yakflower17")) obj_inventory.yakflowerPath_map_ary[17][3] = _loadEntity.yakflower17;
+if (variable_struct_exists(_loadEntity,"yakflower18")) obj_inventory.yakflowerPath_map_ary[18][3] = _loadEntity.yakflower18;
+if (variable_struct_exists(_loadEntity,"yakflower19")) obj_inventory.yakflowerPath_map_ary[19][3] = _loadEntity.yakflower19;
 
 
 //Load Dungeons
@@ -91,12 +105,28 @@ habraf01 : obj_inventory.habraf_lair[1],
 habraf02 : obj_inventory.habraf_lair[2],
 habraf03 : obj_inventory.habraf_lair[3],
 habraf04 : obj_inventory.habraf_lair[4],
+
 //Yakflower
-yakflower00 : obj_inventory.yakflower_lair[0],
-yakflower01 : obj_inventory.yakflower_lair[1],
-yakflower02 : obj_inventory.yakflower_lair[2],
-yakflower03 : obj_inventory.yakflower_lair[3],
-yakflower04 : obj_inventory.yakflower_lair[4],
+yakflower00 : obj_inventory.yakflowerPath_map_ary[0][3],
+yakflower01 : obj_inventory.yakflowerPath_map_ary[1][3],
+yakflower02 : obj_inventory.yakflowerPath_map_ary[2][3],
+yakflower03 : obj_inventory.yakflowerPath_map_ary[3][3],
+yakflower04 : obj_inventory.yakflowerPath_map_ary[4][3],
+yakflower05 : obj_inventory.yakflowerPath_map_ary[5][3],
+yakflower06 : obj_inventory.yakflowerPath_map_ary[6][3],
+yakflower07 : obj_inventory.yakflowerPath_map_ary[7][3],
+yakflower08 : obj_inventory.yakflowerPath_map_ary[8][3],
+yakflower09 : obj_inventory.yakflowerPath_map_ary[9][3],
+yakflower10 : obj_inventory.yakflowerPath_map_ary[10][3],
+yakflower11 : obj_inventory.yakflowerPath_map_ary[11][3],
+yakflower12 : obj_inventory.yakflowerPath_map_ary[12][3],
+yakflower13 : obj_inventory.yakflowerPath_map_ary[13][3],
+yakflower14 : obj_inventory.yakflowerPath_map_ary[14][3],
+yakflower15 : obj_inventory.yakflowerPath_map_ary[15][3],
+yakflower16 : obj_inventory.yakflowerPath_map_ary[16][3],
+yakflower17 : obj_inventory.yakflowerPath_map_ary[17][3],
+yakflower18 : obj_inventory.yakflowerPath_map_ary[18][3],
+yakflower19 : obj_inventory.yakflowerPath_map_ary[19][3],
 
 //Save Dungeons
 beaowire00 : obj_inventory.beaowire_dungeon[0],
