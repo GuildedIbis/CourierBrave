@@ -899,6 +899,7 @@
     {"id":{"name":"MapMenu","path":"scripts/MapMenu/MapMenu.yy",},},
     {"id":{"name":"obj_escort","path":"objects/obj_escort/obj_escort.yy",},},
     {"id":{"name":"rm_lenko_yakflowerPath_03","path":"rooms/rm_lenko_yakflowerPath_03/rm_lenko_yakflowerPath_03.yy",},},
+    {"id":{"name":"rm_lenko_yakflowerPath_09","path":"rooms/rm_lenko_yakflowerPath_09/rm_lenko_yakflowerPath_09.yy",},},
     {"id":{"name":"spr_enemy_enragedMoth_dustStep","path":"sprites/spr_enemy_enragedMoth_dustStep/spr_enemy_enragedMoth_dustStep.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_scene2","path":"sprites/spr_enemy_tortoiseTroll_scene2/spr_enemy_tortoiseTroll_scene2.yy",},},
     {"id":{"name":"rm_house_template","path":"rooms/rm_house_template/rm_house_template.yy",},},
@@ -1435,6 +1436,7 @@
     {"roomId":{"name":"rm_lenko_yakflowerPath_06","path":"rooms/rm_lenko_yakflowerPath_06/rm_lenko_yakflowerPath_06.yy",},},
     {"roomId":{"name":"rm_lenko_yakflowerPath_07","path":"rooms/rm_lenko_yakflowerPath_07/rm_lenko_yakflowerPath_07.yy",},},
     {"roomId":{"name":"rm_lenko_yakflowerPath_08","path":"rooms/rm_lenko_yakflowerPath_08/rm_lenko_yakflowerPath_08.yy",},},
+    {"roomId":{"name":"rm_lenko_yakflowerPath_09","path":"rooms/rm_lenko_yakflowerPath_09/rm_lenko_yakflowerPath_09.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

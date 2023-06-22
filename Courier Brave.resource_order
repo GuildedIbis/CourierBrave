@@ -797,6 +797,7 @@
     {"name":"MapMenu","order":3,"path":"scripts/MapMenu/MapMenu.yy",},
     {"name":"obj_escort","order":7,"path":"objects/obj_escort/obj_escort.yy",},
     {"name":"rm_lenko_yakflowerPath_03","order":1,"path":"rooms/rm_lenko_yakflowerPath_03/rm_lenko_yakflowerPath_03.yy",},
+    {"name":"rm_lenko_yakflowerPath_09","order":17,"path":"rooms/rm_lenko_yakflowerPath_09/rm_lenko_yakflowerPath_09.yy",},
     {"name":"spr_enemy_enragedMoth_dustStep","order":1,"path":"sprites/spr_enemy_enragedMoth_dustStep/spr_enemy_enragedMoth_dustStep.yy",},
     {"name":"spr_enemy_tortoiseTroll_scene2","order":9,"path":"sprites/spr_enemy_tortoiseTroll_scene2/spr_enemy_tortoiseTroll_scene2.yy",},
     {"name":"rm_house_template","order":1,"path":"rooms/rm_house_template/rm_house_template.yy",},

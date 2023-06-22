@@ -136,7 +136,7 @@ if (obj_game.gamePaused = false)
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timer1 <= 0)
 		{
 			walk_snd_delay = 15;
-			attack_chose = irandom_range(0,1)
+			attack_chose = irandom_range(0,3)
 			switch (attack_chose)
 			{
 				case 0:
@@ -151,6 +151,28 @@ if (obj_game.gamePaused = false)
 				break;
 				
 				case 1:
+					audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+					audio_play_sound(snd_zerwerk_voidRift,0,false);
+					path_end();
+					sprite_index = enemy_idle;
+					timer1 = 120;
+					timer2 = 23;
+					attack_counter = 0;
+					entity_step = BossZerwerkRiftSlash;
+				break;
+				
+				case 2:
+					audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
+					audio_play_sound(snd_zerwerk_voidRift,0,false);
+					path_end();
+					sprite_index = enemy_idle;
+					timer1 = 180;
+					timer2 = 23;
+					attack_counter = 0;
+					entity_step = BossZerwerkRiftSlamUp;
+				break;
+				
+				case 3:
 					audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
 					audio_play_sound(snd_zerwerk_voidRift,0,false);
 					path_end();
@@ -272,7 +294,7 @@ if (obj_game.gamePaused = false)
 	{
 		audio_sound_gain(snd_zerwerk_voidRift,global.volumeEffects,1);
 		audio_play_sound(snd_zerwerk_voidRift,0,false);
-		with (instance_create_layer(x,y,"Instances",obj_enemy))
+		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
 			script_execute(RiftSlashTailCreate);
 			x = obj_player.x;

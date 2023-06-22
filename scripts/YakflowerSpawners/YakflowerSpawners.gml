@@ -143,9 +143,9 @@ if (obj_inventory.yakflower_lair[1] < 20)
 //
 //
 //Habfaf Lair: Escort 1 Spawner
-function YakflowerSpawner2(){
+function YakflowerSpawner18(){
 
-if (obj_inventory.yakflower_lair[1] < 20) 
+if (obj_inventory.yakflowerPath_map_ary[18][3] < 1) 
 {
 	
 	if (spawn_timer > 0) 
@@ -157,21 +157,67 @@ if (obj_inventory.yakflower_lair[1] < 20)
 			//Decide Spawn Position
 			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
 			{
-				x_spawn1 = 80;
-				y_spawn1 = 304;
-				x_spawn2 = 160;
-				y_spawn2 = 296;
+				x_spawn1 = 488;
+				y_spawn1 = 88;
+				x_spawn2 = 520;
+				y_spawn2 = 104;
 			}
 			else
 			{
-				x_spawn1 = 72;
-				y_spawn1 = 72;
-				x_spawn2 = 232;
-				y_spawn2 = 80;
+				x_spawn1 = 104;
+				y_spawn1 = 88;
+				x_spawn2 = 152;
+				y_spawn2 = 72;
 			}
 			
 			//Spawn, Tally, Reset
-			obj_inventory.yakflower_lair[1] = obj_inventory.yakflower_lair[1] + 1;
+			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				script_execute(OfaWormCreate);
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break2;
+			}
+			spawn_timer = 180;
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Habfaf Lair: Escort 1 Spawner
+function YakflowerSpawner19(){
+
+if (obj_inventory.yakflowerPath_map_ary[19][3] < 1) 
+{
+	
+	if (spawn_timer > 0) 
+	{
+		spawn_timer = spawn_timer -1;
+		if (spawn_timer <= 0)
+		{
+			
+			//Decide Spawn Position
+			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
+			{
+				x_spawn1 = 488;
+				y_spawn1 = 88;
+				x_spawn2 = 520;
+				y_spawn2 = 104;
+			}
+			else
+			{
+				x_spawn1 = 104;
+				y_spawn1 = 88;
+				x_spawn2 = 152;
+				y_spawn2 = 72;
+			}
+			
+			//Spawn, Tally, Reset
 			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
