@@ -90,7 +90,7 @@ var _savePlayer =
 	crullLevel : obj_player.crull_level,
 	hp : obj_player.max_hp,
 	armor : obj_player.armor,
-	breakObject : obj_player.break_object,
+	//breakObject : obj_player.break_object,
 	
 	//Loadout
 	form : obj_player.form,

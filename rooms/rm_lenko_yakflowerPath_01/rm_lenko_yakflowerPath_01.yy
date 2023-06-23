@@ -26,8 +26,6 @@
     {"name":"inst_4FC8334_3_4_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
     {"name":"inst_1C28A6C5_3_4_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
     {"name":"inst_6CA28D43_2_4_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
-    {"name":"inst_786A7619_3_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
-    {"name":"inst_754B320A_3_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
     {"name":"inst_29BBE12C_2_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
     {"name":"inst_2305697C_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
     {"name":"inst_77A90B9D_1","path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},
@@ -620,10 +618,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":200.0,"y":16.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_786A7619_3_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair2","path":"objects/obj_stair2/obj_stair2.yy",},"properties":[],"rotation":0.0,"scaleX":6.0,"scaleY":1.0,"x":136.0,"y":8.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_754B320A_3_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair2","path":"objects/obj_stair2/obj_stair2.yy",},"properties":[],"rotation":0.0,"scaleX":6.0,"scaleY":1.0,"x":136.0,"y":160.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
 -840,0,-80,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[

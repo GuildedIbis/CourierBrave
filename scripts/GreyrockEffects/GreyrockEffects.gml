@@ -7,7 +7,7 @@
 //Effect Lekno Lake Path Rat Tent Create
 function EffectRatTentCreate(){
 image_speed = 0;
-with (instance_create_layer(x-20,y-16,"Wall",obj_wall))
+with (instance_create_layer(x-20,y-12,"Wall",obj_wall))
 {
 	image_xscale = 5;
 	image_yscale = 2.5;
@@ -15,7 +15,7 @@ with (instance_create_layer(x-20,y-16,"Wall",obj_wall))
 }
 if (break_object != -1)
 {
-	with (instance_create_layer(x-20,y-16,"Break",break_object))
+	with (instance_create_layer(x-20,y-12,"Break",break_object))
 	{
 		image_xscale = 5;
 		image_yscale = 1.25;

@@ -97,8 +97,16 @@ camp_grid[# 6, 2] = 104;
 camp_grid[# 6, 3] = false;
 camp_grid[# 7, 0] = "Yakflower Path 06"
 camp_grid[# 7, 1] = 160;
-camp_grid[# 7, 2] = 136;
+camp_grid[# 7, 2] = 96;
 camp_grid[# 7, 3] = false;
+camp_grid[# 8, 0] = "Yakflower Path 09"
+camp_grid[# 8, 1] = 168;
+camp_grid[# 8, 2] = 80;
+camp_grid[# 8, 3] = false;
+camp_grid[# 9, 0] = "Yakflower Path 13"
+camp_grid[# 9, 1] = 160;
+camp_grid[# 9, 2] = 96;
+camp_grid[# 9, 3] = false;
 
 //Room Array Column 1 Assignments
 //0: Name
