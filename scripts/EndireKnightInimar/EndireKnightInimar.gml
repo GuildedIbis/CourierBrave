@@ -27,7 +27,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-max_hp = 900;
+max_hp = 700;
 hp = max_hp;
 boss = true;
 name = "Endire Knight Inimar";
@@ -172,7 +172,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 90;
+	damage = 70;
 	//Cacluate Attack
 	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
@@ -196,7 +196,7 @@ if (obj_game.gamePaused = false)
 {
 	
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer2 <= 0) speed = 2.5;
+	if (timer2 <= 0) speed = 3;
 	if (sprite_index != spr_enemy_endireKnight_inimar_cinderDash)
 	{
 		//Start Animation From Beginning
@@ -208,7 +208,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 110;
+	damage = 80;
 	//Cacluate Attack
 	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
@@ -226,6 +226,9 @@ if (obj_game.gamePaused = false)
 		entity_step = home_state;
 		animation_end = false;
 	}
+}
+else{
+	speed = 0;
 }
 }
 //
@@ -250,7 +253,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 90;
+	damage = 60;
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
@@ -324,7 +327,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 90;
+	damage = 60;
 	if (timer2 <= 0) 
 	{
 		speed = 0;
@@ -406,6 +409,9 @@ if (obj_game.gamePaused = false)
 		}
 		
 	}
+}
+else{
+	speed = 0;
 }
 }
 //

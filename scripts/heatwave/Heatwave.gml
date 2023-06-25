@@ -96,7 +96,7 @@ timer1 = 30;
 enemy_spd = 3.0
 local_frame = 0;
 hit_by_attack = -1;
-damage = 50;
+damage = 30;
 dir_wave = false;
 }
 //

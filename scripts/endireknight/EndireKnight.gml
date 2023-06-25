@@ -4,6 +4,49 @@
 //
 //
 //
+//Endire Knight Create
+function EndireKnightCreate(){
+home_state = EndireKnightFree;
+entity_step = home_state;
+entity_drop = EndireKnightDrop;
+enemy_idle = spr_enemy_endireKnight_idle;
+enemy_move = spr_enemy_endireKnight_run;
+enemy_damaged = spr_enemy_endireKnight_damaged;
+damaged_snd = snd_endireKnight_damaged;
+walk_snd = snd_walk_regular;
+shadow = 1;
+lit = false;
+light_size = 32;
+targeted = false;
+invincible = false;
+bullet = false;
+healthbar = true;
+inv_dur_timer = 0;
+aggro_drop = 400;
+sprite_index = enemy_idle;
+image_speed = 0;
+var _startDir = irandom_range(0,3);
+direction = _startDir * 90;
+form_type = 3;
+max_hp = 300;
+hp = max_hp;
+boss = false;
+name = "Endire Knight";
+enemy_spd = 1.2;
+local_frame = 0;
+hit_by_attack = -1;
+attack_counter = 0;
+timer1 = 0;
+timer2 = 0;
+timer3 = 0;
+walk_snd_delay = 0;
+path = -1;
+}
+//
+//
+//
+//
+//
 //Endire Tnaks Create
 function EndireKnightTnaksCreate(){
 home_state = EndireKnightFree;
@@ -190,17 +233,17 @@ if (obj_game.gamePaused = false)
 				attack_counter = attack_counter + 1;
 				entity_step = EndireKnightHeatwave;
 			}
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
-			{
-				path_end();
-				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,obj_player.x,obj_player.y);
-				timer2 = 23;
-				entity_step = EndireKnightCinderDash;
-			}
+			//if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
+			//{
+			//	path_end();
+			//	walk_snd_delay = 15;
+			//	sprite_index = enemy_idle;
+			//	audio_sound_gain(snd_slash01,global.volumeEffects,1);
+			//	audio_play_sound(snd_slash01,0,false);
+			//	direction =  point_direction(x,y,obj_player.x,obj_player.y);
+			//	timer2 = 23;
+			//	entity_step = EndireKnightCinderDash;
+			//}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
 			{
 				path_end();
@@ -251,7 +294,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 70;
 	//Cacluate Attack
 	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
@@ -329,7 +372,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70;
+	damage = 60;
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
@@ -373,6 +416,88 @@ if (obj_game.gamePaused = false)
 	}
 }
 }//
+//
+//
+//
+//
+//Tnaks Drop
+function EndireKnightDrop(){
+
+var _objects = 6;
+var _dropBean = 200;
+var _drop1 = irandom_range(0,99);	
+
+
+with (instance_create_layer(x,y,"Instances",obj_itemBean))
+{
+	drop_amount = _dropBean;
+	sprite_index = spr_bean;
+	direction = 360/_objects;	
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 2;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 3;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 50)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = 360/_objects * 5;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = 360/_objects * 5;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+//else instance_create_layer(x,y,"Instances",_objects[0])
+if (obj_inventory.quest_grid[# 3, 3] = false)
+{
+	obj_player.beans = obj_player.beans + 250;
+	
+	obj_inventory.quest_grid[# 3, 0] = true;
+	obj_inventory.quest_grid[# 3, 1] = 1;
+	obj_inventory.quest_grid[# 3, 3] = true;
+	
+	//with (obj_text)
+	//{
+	//	text_script = EndireKnightTnaksVictoryText;
+	//}
+	//obj_game.gamePaused = !obj_game.gamePaused;
+	//obj_game.textPaused = !obj_game.textPaused;
+}
+
+
+}
 //
 //
 //
