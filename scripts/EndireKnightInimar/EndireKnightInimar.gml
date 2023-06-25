@@ -27,7 +27,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-max_hp = 700;
+max_hp = 1100;
 hp = max_hp;
 boss = true;
 name = "Endire Knight Inimar";
@@ -40,6 +40,8 @@ timer2 = 0;
 timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
+target_x = 0;
+target_y = 0;
 projectile_dir = 0;
 }
 	//
@@ -95,23 +97,32 @@ if (obj_game.gamePaused = false)
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
 		{
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) //Heatacer > Heatwave
+			if (point_in_circle(obj_player.x,obj_player.y,x,y,24))
 			{
 				path_end();
 				walk_snd_delay = 15;
 				sprite_index = enemy_idle;
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,room_width/2,room_height/2);
+				timer2 = 48;
+				entity_step = EndireKnightInimarFireStrike;
+			}
+			if (!point_in_circle(obj_player.x,obj_player.y,x,y,24))
+			{
+				path_end();
+				walk_snd_delay = 15;
+				sprite_index = enemy_idle;
+				audio_sound_gain(snd_slash01,global.volumeEffects,1);
+				audio_play_sound(snd_slash01,0,false);
+				target_x = obj_player.x;
+				target_y = obj_player.y;
+				direction =  point_direction(x,y,target_x,target_y);
 				projectile_dir = irandom_range(0,360);
 				timer2 = 24;
 				timer3 = 24;
-				attack_counter = attack_counter + 1;
-				inv_dur_timer = 96;
 				entity_step = EndireKnightInimarHeatacer;
-				
 			}
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
+			if (!point_in_circle(obj_player.x,obj_player.y,x,y,64))
 			{
 				path_end();
 				walk_snd_delay = 15;
@@ -122,17 +133,7 @@ if (obj_game.gamePaused = false)
 				timer2 = 23;
 				entity_step = EndireKnightInimarCinderDash;
 			}
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
-			{
-				path_end();
-				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				timer2 = 48;
-				entity_step = EndireKnightInimarFireStrike;
-			}
-			
+				
 		}
 		if (walk_snd_delay <= 0)
 		{
@@ -159,6 +160,7 @@ else path_end();
 function EndireKnightInimarFireStrike(){
 if (obj_game.gamePaused = false)
 {
+	speed = 0;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_enemy_endireKnight_inimar_fireStrike)
 	{
@@ -180,6 +182,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end)
 	{
+		timer1 = 0;
+		attack_counter = attack_counter + 1;
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -223,6 +227,8 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end)
 	{
+		timer1 = 0;
+		attack_counter = attack_counter + 1;
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -292,6 +298,7 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation1();
 	if (animation_end)
 	{
+		attack_counter = attack_counter + 1;
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -310,7 +317,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0)
 	{
 		timer2 = timer2 - 1;
-		speed = 2.5;
+		//speed = 2;
 	}
 	if (timer3 > 0)
 	{
@@ -383,31 +390,17 @@ if (obj_game.gamePaused = false)
 	{speed = 0}
 	
 	//Stop at center
-	if (point_distance(x,y,room_width/2,room_height/2) <= 5) speed = 0;
+	if (point_distance(x,y,target_x,target_y) <= 8) speed = 0;
 	
 	//Animate
 	EnemyAnimation1();
 	if (animation_end)
 	{
-		if (attack_counter <= 2)
-		{
-			audio_sound_gain(snd_slash01,global.volumeEffects,1);
-			audio_play_sound(snd_slash01,0,false);
-			local_frame = 0;
-			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-			ds_list_clear(hit_by_attack);
-			attack_counter = attack_counter + 1;
-			direction =  point_direction(x,y,obj_player.x,obj_player.y);
-			timer2 = 40;
-			entity_step = EndireKnightInimarHeatwave;
-			animation_end = false;
-		}
-		else
-		{
-			entity_step = home_state;
-			animation_end = false;
-		}
-		
+		speed = 0;
+		timer1 = 60;
+		attack_counter = attack_counter + 1;
+		entity_step = home_state;
+		animation_end = false;
 	}
 }
 else{

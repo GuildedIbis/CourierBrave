@@ -1119,6 +1119,7 @@
     {"name":"snd_ceriver_steelorb","order":4,"path":"sounds/snd_ceriver_steelorb/snd_ceriver_steelorb.yy",},
     {"name":"snd_menu03","order":2,"path":"sounds/snd_menu03/snd_menu03.yy",},
     {"name":"spr_enemy_cultistZealot_damaged","order":5,"path":"sprites/spr_enemy_cultistZealot_damaged/spr_enemy_cultistZealot_damaged.yy",},
+    {"name":"rm_lenko_yakflowerPath_12","order":21,"path":"rooms/rm_lenko_yakflowerPath_12/rm_lenko_yakflowerPath_12.yy",},
     {"name":"snd_arrow_hit","order":1,"path":"sounds/snd_arrow_hit/snd_arrow_hit.yy",},
     {"name":"spr_player_ironPlate_recharge","order":10,"path":"sprites/spr_player_ironPlate_recharge/spr_player_ironPlate_recharge.yy",},
     {"name":"spr_keyClaw_active","order":12,"path":"sprites/spr_keyClaw_active/spr_keyClaw_active.yy",},
