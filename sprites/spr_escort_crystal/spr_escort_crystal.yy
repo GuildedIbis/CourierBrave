@@ -35,8 +35,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Interactables",
-    "path": "folders/Sprites/World/Interactables.yy",
+    "name": "Escort",
+    "path": "folders/Sprites/World/Interactables/Escort.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
