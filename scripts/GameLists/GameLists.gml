@@ -127,6 +127,26 @@ camp_grid[# 14, 0] = "Habraf Lake 13"
 camp_grid[# 14, 1] = 160;
 camp_grid[# 14, 2] = 136;
 camp_grid[# 14, 3] = false;
+camp_grid[# 15, 0] = "Beaowire Fortress 00"
+camp_grid[# 15, 1] = 160;
+camp_grid[# 15, 2] = 112;
+camp_grid[# 15, 3] = false;
+camp_grid[# 16, 0] = "Beaowire Fortress 04"
+camp_grid[# 16, 1] = 112;
+camp_grid[# 16, 2] = 104;
+camp_grid[# 16, 3] = false;
+camp_grid[# 17, 0] = "Beaowire Fortress 07"
+camp_grid[# 17, 1] = 160;
+camp_grid[# 17, 2] = 96;
+camp_grid[# 17, 3] = false;
+camp_grid[# 18, 0] = "Beaowire Fortress 10"
+camp_grid[# 18, 1] = 168;
+camp_grid[# 18, 2] = 80;
+camp_grid[# 18, 3] = false;
+camp_grid[# 19, 0] = "Beaowire Fortress 12"
+camp_grid[# 19, 1] = 160;
+camp_grid[# 19, 2] = 96;
+camp_grid[# 19, 3] = false;
 
 //Room Array Column 1 Assignments
 //0: Name
