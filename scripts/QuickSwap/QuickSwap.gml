@@ -71,15 +71,15 @@ for (var i = 0; i < 18; i = i + 1)
 //
 //Quick Swap Meters
 function QuickSwapMenuMeters(){
-var _max = 100
+var _max = obj_player.max_charge
 
 //Magic
-var _yellow = (obj_player.yellow_charge/_max) * 100;
-var _blue = (obj_player.blue_charge/_max) * 100;
-var _purple = (obj_player.purple_charge/_max) * 100;
-var _red = (obj_player.red_charge/_max) * 100;
-var _green = (obj_player.green_charge/_max) * 100;
-var _orange = (obj_player.orange_charge/_max) * 100;
+var _yellow = (obj_player.yellow_crystal/_max) * 100;
+var _blue = (obj_player.blue_crystal/_max) * 100;
+var _purple = (obj_player.purple_crystal/_max) * 100;
+var _red = (obj_player.red_crystal/_max) * 100;
+var _green = (obj_player.green_crystal/_max) * 100;
+var _orange = (obj_player.orange_crystal/_max) * 100;
 draw_healthbar(48,51,51,111,_yellow,c_black,c_yellow,c_yellow,3,true,true);
 draw_healthbar(95,51,98,111,_blue,c_black,c_blue,c_blue,3,true,true);
 draw_healthbar(141,51,144,111,_purple,c_black,c_purple,c_purple,3,true,true);

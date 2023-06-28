@@ -15,60 +15,80 @@ draw_set_color(c_white);
 
 
 //Buttons
-draw_sprite_stretched(spr_menu_beveled,3,69,42,90,28);
-draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
-draw_sprite_stretched(spr_menu,3,69,72,90,16);
-draw_sprite_stretched(spr_menu,3,69,90,90,16);
-draw_sprite_stretched(spr_menu,3,69,108,90,16);
+draw_sprite_stretched(spr_menu_beveled,3,39,35,120,16);
+draw_sprite_stretched(spr_menu_beveled,3,161,35,120,64);
+
+//Draw Selected Form Menu Sprites (Right Hand Side) //Drawn Regardless if form is selected
+draw_sprite_stretched(spr_menu_circle16,1,43,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.vitality,42,77);
+draw_sprite_stretched(spr_menu_circle16,1,73,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.iteration,72,77);
+draw_sprite_stretched(spr_menu_circle16,1,103,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.conviction,102,77);
+draw_sprite_stretched(spr_menu_circle16,1,133,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.grace,132,77);
+draw_sprite_stretched(spr_menu_circle16,1,43,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.might,42,113);
+draw_sprite_stretched(spr_menu_circle16,1,73,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.divinity,72,113);
+draw_sprite_stretched(spr_menu_circle16,1,103,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.energy,102,113);
+draw_sprite_stretched(spr_menu_circle16,1,133,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,132,113);
+//draw_sprite_stretched(spr_menu,3,216,97,32,11);
+//draw_sprite_stretched(spr_menu,3,199,110,32,16);
+//draw_sprite_stretched(spr_menu,3,69,72,90,16);
+//draw_sprite_stretched(spr_menu,3,69,90,90,16);
+//draw_sprite_stretched(spr_menu,3,69,108,90,16);
 
 
 //Button Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,69,72,159,88))//Vitality
-{
-	draw_sprite_stretched(spr_highlight_nineslice,0,67,70,94,20);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 0;
+//if (point_in_rectangle(_mouseX,_mouseY,69,72,159,88))//Vitality
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,67,70,94,20);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		page = 0;
 		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,69,90,159,106))//Might
-{
-	draw_sprite_stretched(spr_highlight_nineslice,0,67,88,94,20);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 1;
+//	}
+//}
+//if (point_in_rectangle(_mouseX,_mouseY,69,90,159,106))//Might
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,67,88,94,20);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		page = 1;
 		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,69,108,159,124))//Grace
-{
-	draw_sprite_stretched(spr_highlight_nineslice,0,67,106,94,20);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 2;
+//	}
+//}
+//if (point_in_rectangle(_mouseX,_mouseY,69,108,159,124))//Grace
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,67,106,94,20);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		page = 2;
 		
-	}
-}
+//	}
+//}
 
 //Button Text
-var _vitalityTitle = "VITALITY | LVL: " + string(obj_player.vitality);
-var _mightTitle = "MIGHT | LVL: " + string(obj_player.might);
-var _graceTitle = "GRACE | LVL: " + string(obj_player.grace);
-draw_text_transformed(75,77,_vitalityTitle,.35,.35,0);
-draw_text_transformed(75,95,_mightTitle,.35,.35,0);
-draw_text_transformed(75,113,_graceTitle,.35,.35,0);
+//var _vitalityTitle = "VITALITY | LVL: " + string(obj_player.vitality);
+//var _mightTitle = "MIGHT | LVL: " + string(obj_player.might);
+//var _graceTitle = "GRACE | LVL: " + string(obj_player.grace);
+//draw_text_transformed(75,77,_vitalityTitle,.35,.35,0);
+//draw_text_transformed(75,95,_mightTitle,.35,.35,0);
+//draw_text_transformed(75,113,_graceTitle,.35,.35,0);
 draw_set_halign(fa_center);
 draw_set_color(c_black);
-draw_text_transformed(114,46,"COURIER\nSTATS",.6,.6,0);
+draw_text_transformed(88,38,"COURIER STATS",.6,.6,0);
 draw_set_color(c_white);
-draw_text_transformed(113,46,"COURIER\nSTATS",.6,.6,0);
+draw_text_transformed(87,38,"COURIER STATS",.6,.6,0);
 
 //Draw Vitality
 if (page = 0)

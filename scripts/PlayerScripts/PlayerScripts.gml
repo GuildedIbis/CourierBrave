@@ -116,24 +116,7 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//Charge Crystal?
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -208,24 +191,7 @@ if (_orange = false) and (orange_charge < max_orange_charge)
 function PlayerStateRoll(){
 //max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
-if (charge < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
+//Charge Crystal??
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -514,9 +480,9 @@ depth = -5000;
 function PlayerCursorDraw(){
 var xOff = ((curs_width/2))
 var yOff = ((curs_height/2))
-if (obj_player.selected_charge != -1) and (curs_meter = true)
+if (obj_player.selected_crystal != -1) and (curs_meter = true)
 {
-	draw_pie_healthbar(x + xOff,y + yOff,obj_player.selected_charge,obj_player.max_charge,c_yellow,3,1);
+	draw_pie_healthbar(x + xOff,y + yOff,obj_player.selected_crystal,obj_player.max_charge,c_yellow,3,1);
 }
 draw_sprite_stretched(spr_cursor_play,curs_form,x,y,8,8);
 draw_sprite_stretched(spr_cursor_play,curs_form,x-xOff+4,y-yOff+4,curs_width,curs_height);

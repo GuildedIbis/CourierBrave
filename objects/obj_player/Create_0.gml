@@ -33,7 +33,7 @@ dmg_snd = snd_player_hit;
 dmg_snd_delay = 0;
 
 
-//Scripts
+//Scripts and Movement
 state_script = Idle;
 free_script = Idle;
 attack_script = Idle;
@@ -43,6 +43,9 @@ hit_by_attack = -1;
 hor_spd = 0;
 ver_spd = 0;
 damage = 0;
+walk_spd = 1.75;
+roll_spd = 3;
+roll_dist = 64;
 
 //Standard Timers
 stamina_timer = 0;
@@ -53,53 +56,43 @@ weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats
-vitality = 20; //added to health
-//energy = 20; //max_roll_timer = 180 - stamina
-might = 20; //added to weapon damage
-grace = 20; //the base to weapon damage
-max_crull_stone = 1;
-crull_level = 1;
-armor = 0; //negates damage in enemy damage calc
+vitality = 0; //HTH 
+iteration = 0; //CRL
+conviction = 1; //CRG
+might = 0; //WPN
+grace = 0; //CST
+divinity = 0; //SPC
+energy = 0; //RLL
+receptivity = 0; //AMT
 
-//Other Stats 
-beans = 0;
-max_hp = 150;
-walk_spd = 1.75;
-roll_spd = 3;
-roll_dist = 64;
-charge = 100; //50 + (3* (grace + round(grace/15)));
-max_charge = 100; //50 + (3* (grace + round(grace/15)));
-stamina = 100; //50 + (3* (might + round(might/15)));
-max_stamina = 100; //50 + (3* (might + round(might/15)));
-special = 100;
-max_special = 100;
+//Effected Max Stats
+beans = 0; //Move to Inventory...
+max_crull_stone = 1 + (iteration);
 max_hp = 150 + (3* (vitality + round(vitality/15)));
-hp = max_hp;
+max_charge = 100 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
+max_stamina = 100 + (50 * energy);
+
+//Set Player Current Stats
+hp = max_hp
 crull_stone = max_crull_stone;
-
-//Color Specific Charge
-selected_charge = -1;
-max_yellow_charge = 50 + (3* (grace + round(grace/15)));
-max_blue_charge = 50 + (3* (grace + round(grace/15)));
-max_purple_charge = 50 + (3* (grace + round(grace/15)));
-max_red_charge = 50 + (3* (grace + round(grace/15)));
-max_green_charge = 50 + (3* (grace + round(grace/15)));
-max_orange_charge = 50 + (3* (grace + round(grace/15)));
-yellow_charge = 50 + (3* (grace + round(grace/15)));
-blue_charge = 50 + (3* (grace + round(grace/15)));
-purple_charge = 50 + (3* (grace + round(grace/15)));
-red_charge = 50 + (3* (grace + round(grace/15)));
-green_charge = 50 + (3* (grace + round(grace/15)));
-orange_charge = 50 + (3* (grace + round(grace/15)));
-
+stamina = max_stamina;
+armor = 0; //negates damage in enemy damage calc
+//Color Specific Crystal
+selected_crystal = -1;
+yellow_crystal = max_charge;
+blue_crystal = max_charge;
+purple_crystal = max_charge;
+red_crystal = max_charge;
+green_crystal = max_charge;
+orange_crystal = max_charge;
 //Color Specific Special
 selected_special = -1;
-yellow_special = 100;
-blue_special = 100;
-purple_special = 100;
-red_special = 100;
-green_special = 100;
-orange_special = 100;
+yellow_special = max_charge;
+blue_special = max_charge;
+purple_special = max_charge;
+red_special = max_charge;
+green_special = max_charge;
+orange_special = max_charge;
 
 
 

@@ -36,17 +36,11 @@ magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
 armor = 11 + (6 * (obj_inventory.form_grid[# 1, 6] -1));
-max_charge = 100;
+max_charge = 100 + (10 * obj_player.conviction);
 max_stamina = 50 + (3* (might + round(might/15)));
 max_hp = 150 + (3* (vitality + round(vitality/15)));
 
-//Max Charges
-max_yellow_charge = 100;
-max_blue_charge = 100;
-max_purple_charge = 100;
-max_red_charge = 50 + (3* (grace + round(grace/15)));
-max_green_charge = 50 + (3* (grace + round(grace/15)));
-max_orange_charge = 50 + (3* (grace + round(grace/15)));
+
 }
 //
 //
@@ -88,13 +82,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (blue_charge < max_charge) and (watervice = false)//charge Recharge
+if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_charge = blue_charge + 1;
+		blue_crystal = blue_crystal + 1;
 	}
 }
 //if (blue_special < max_special) //Special Recharge
@@ -156,13 +150,13 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (blue_charge >= 6)
+		if (magic_primary = true) and (blue_crystal >= 6)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		//Dynorb
-		if (magic_primary = false) and (blue_charge >= 3)
+		if (magic_primary = false) and (blue_crystal >= 3)
 		{
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -268,13 +262,13 @@ damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
-if (blue_charge < max_charge) and (watervice = false)//charge Recharge
+if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_charge = blue_charge + 1;
+		blue_crystal = blue_crystal + 1;
 	}
 }
 //if (blue_special < max_special) //Special Recharge
@@ -537,7 +531,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_charge = blue_charge - 6;
+	blue_crystal = blue_crystal - 6;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -567,7 +561,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_charge < 6)
+if (mouse_check_button(mb_left) = false) or (blue_crystal < 6)
 {
 	attacking = false;
 	state_script = free_state;
@@ -694,7 +688,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_charge = blue_charge - 3;
+	blue_crystal = blue_crystal - 3;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -722,7 +716,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_charge < 3)
+if (mouse_check_button(mb_left) = false) or (blue_crystal < 3)
 {
 	attacking = false;
 	state_script = free_state;
@@ -791,13 +785,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (blue_charge < max_charge) and (watervice = false)//charge Recharge
+if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_charge = blue_charge + 1;
+		blue_crystal = blue_crystal + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge

@@ -26,10 +26,10 @@ if (scene = false) and (obj_game.textPaused = false)
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
 	draw_sprite(spr_roll_hud,0,4,156);
-	draw_set_color(c_black);
-	draw_text_transformed(262,159,stamina,.5,.5,0);
-	draw_set_color(c_white);
-	draw_text_transformed(261,159,stamina,.5,.5,0);
+	//draw_set_color(c_black);
+	//draw_text_transformed(262,159,stamina,.5,.5,0);
+	//draw_set_color(c_white);
+	//draw_text_transformed(261,159,stamina,.5,.5,0);
 
 	//Day Cycle
 	with (obj_game)
@@ -96,10 +96,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
 			//var _specialPerc = (yellow_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = yellow_charge;
+			selected_crystal = yellow_crystal;
 			selected_special = yellow_special;
-			draw_ring_healthbar(286,170,yellow_charge,max_charge,c_yellow,9,1,3);
-			draw_ring_healthbar(308,170,yellow_special,max_special,c_yellow,9,1,3);
+			draw_ring_healthbar(286,170,yellow_crystal,max_charge,c_yellow,9,1,3);
+			draw_ring_healthbar(308,170,yellow_special,max_charge,c_yellow,9,1,3);
 		break;
 		
 		case 1:
@@ -107,10 +107,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
 			//var _specialPerc = (blue_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = blue_charge;
+			selected_crystal = blue_crystal;
 			selected_special = blue_special;
-			draw_ring_healthbar(286,170,blue_charge,max_charge,c_blue,9,1,3);
-			draw_ring_healthbar(308,170,blue_special,max_special,c_blue,9,1,3);
+			draw_ring_healthbar(286,170,blue_crystal,max_charge,c_blue,9,1,3);
+			draw_ring_healthbar(308,170,blue_special,max_charge,c_blue,9,1,3);
 		break;
 		
 		case 2:
@@ -118,10 +118,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
 			//var _specialPerc = round((purple_special/max_special) * 100);
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = purple_charge;
+			selected_crystal = purple_crystal;
 			selected_special = purple_special;
-			draw_ring_healthbar(286,170,purple_charge,max_charge,c_purple,9,1,3);
-			draw_ring_healthbar(308,170,purple_special,max_special,c_purple,9,1,3);
+			draw_ring_healthbar(286,170,purple_crystal,max_charge,c_purple,9,1,3);
+			draw_ring_healthbar(308,170,purple_special,max_charge,c_purple,9,1,3);
 		break;
 		
 		case 3:
@@ -129,10 +129,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
 			//var _specialPerc = round((red_special/max_special) * 100);
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = red_charge;
+			selected_crystal = red_crystal;
 			selected_special = red_special;
-			draw_ring_healthbar(286,170,red_charge,max_charge,c_red,9,1,3);
-			draw_ring_healthbar(308,170,red_special,max_special,c_red,9,1,3);
+			draw_ring_healthbar(286,170,red_crystal,max_charge,c_red,9,1,3);
+			draw_ring_healthbar(308,170,red_special,max_charge,c_red,9,1,3);
 		break;
 		
 		case 4:
@@ -140,10 +140,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
 			//var _specialPerc = (green_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = green_charge;
+			selected_crystal = green_crystal;
 			selected_special = green_special;
-			draw_ring_healthbar(286,170,green_charge,max_charge,c_green,9,1,3);
-			draw_ring_healthbar(308,170,green_special,max_special,c_green,9,1,3);
+			draw_ring_healthbar(286,170,green_crystal,max_charge,c_green,9,1,3);
+			draw_ring_healthbar(308,170,green_special,max_charge,c_green,9,1,3);
 		break;
 		
 		case 5:
@@ -151,10 +151,10 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
 			//var _specialPerc = (orange_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_charge = orange_charge;
+			selected_crystal = orange_crystal;
 			selected_special = orange_special;
-			draw_ring_healthbar(286,170,orange_charge,max_charge,c_orange,9,1,3);
-			draw_ring_healthbar(308,170,orange_special,max_special,c_orange,9,1,3);
+			draw_ring_healthbar(286,170,orange_crystal,max_charge,c_orange,9,1,3);
+			draw_ring_healthbar(308,170,orange_special,max_charge,c_orange,9,1,3);
 		break;
 	}
 	
@@ -168,9 +168,9 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 	draw_set_color(c_black);
-	draw_text_transformed(282,152,selected_charge,.5,.5,0);
+	draw_text_transformed(282,152,selected_crystal,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(281,152,selected_charge,.5,.5,0);
+	draw_text_transformed(281,152,selected_crystal,.5,.5,0);
 	draw_set_color(c_black);
 	draw_text_transformed(305,152,selected_special,.5,.5,0);
 	draw_set_color(c_white);

@@ -252,6 +252,7 @@
     {"id":{"name":"rm_lenko_yakflowerPath_09","path":"rooms/rm_lenko_yakflowerPath_09/rm_lenko_yakflowerPath_09.yy",},},
     {"id":{"name":"spr_player_evarel_crull","path":"sprites/spr_player_evarel_crull/spr_player_evarel_crull.yy",},},
     {"id":{"name":"snd_chest","path":"sounds/snd_chest/snd_chest.yy",},},
+    {"id":{"name":"spr_menu_playerStat_level","path":"sprites/spr_menu_playerStat_level/spr_menu_playerStat_level.yy",},},
     {"id":{"name":"spr_enemy_folioBulb_rootRise2","path":"sprites/spr_enemy_folioBulb_rootRise2/spr_enemy_folioBulb_rootRise2.yy",},},
     {"id":{"name":"spr_fayaniBlade_goldArc_hitbox","path":"sprites/spr_fayaniBlade_goldArc_hitbox/spr_fayaniBlade_goldArc_hitbox.yy",},},
     {"id":{"name":"spr_shatterfield_hitbox","path":"sprites/spr_shatterfield_hitbox/spr_shatterfield_hitbox.yy",},},
@@ -1103,6 +1104,7 @@
     {"id":{"name":"Kovalad","path":"scripts/Kovalad/Kovalad.yy",},},
     {"id":{"name":"rm_lenko_farwayRoad_12","path":"rooms/rm_lenko_farwayRoad_12/rm_lenko_farwayRoad_12.yy",},},
     {"id":{"name":"spr_enemy_cultistZealot_waterSlash_back","path":"sprites/spr_enemy_cultistZealot_waterSlash_back/spr_enemy_cultistZealot_waterSlash_back.yy",},},
+    {"id":{"name":"rm_lenko_farwayRoad_19","path":"rooms/rm_lenko_farwayRoad_19/rm_lenko_farwayRoad_19.yy",},},
     {"id":{"name":"rm_lenko_beaowire_07","path":"rooms/rm_lenko_beaowire_07/rm_lenko_beaowire_07.yy",},},
     {"id":{"name":"spr_enemy_ghost_move","path":"sprites/spr_enemy_ghost_move/spr_enemy_ghost_move.yy",},},
     {"id":{"name":"spr_enemy_trapLily","path":"sprites/spr_enemy_trapLily/spr_enemy_trapLily.yy",},},
@@ -1484,6 +1486,7 @@
     {"roomId":{"name":"rm_lenko_beaowire_06","path":"rooms/rm_lenko_beaowire_06/rm_lenko_beaowire_06.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_08","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_03","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},},
+    {"roomId":{"name":"rm_lenko_farwayRoad_19","path":"rooms/rm_lenko_farwayRoad_19/rm_lenko_farwayRoad_19.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
