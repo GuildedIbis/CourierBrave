@@ -15,16 +15,22 @@ draw_set_color(c_white);
 
 
 //Buttons
-draw_sprite_stretched(spr_menu_beveled,3,39,35,120,16);
-draw_sprite_stretched(spr_menu_beveled,3,161,35,120,64);
+draw_sprite_stretched(spr_menu_beveled,3,45,35,108,87);
+draw_sprite_stretched(spr_menu_beveled,1,39,35,120,16);
+draw_set_halign(fa_center);
+draw_set_color(c_black);
+draw_text_transformed(88,38,"COURIER STATS",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(87,38,"COURIER STATS",.6,.6,0);
+
 
 //Vitality
-draw_sprite_stretched(spr_menu_circle16,1,43,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.vitality,42,77);
-draw_sprite(spr_menu_player_stat,0,46,58);
-if (point_in_rectangle(_mouseX,_mouseY,43,55,64,76))//Vitality
+draw_sprite_stretched(spr_menu_circle16,1,49,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.vitality,48,77);
+draw_sprite(spr_menu_player_stat,0,52,58);
+if (point_in_rectangle(_mouseX,_mouseY,49,55,70,76))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,42,54,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,48,54,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -34,13 +40,13 @@ if (point_in_rectangle(_mouseX,_mouseY,43,55,64,76))//Vitality
 	}
 }
 
-
-draw_sprite_stretched(spr_menu_circle16,1,73,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.iteration,72,77);
-draw_sprite(spr_menu_player_stat,1,76,58);
-if (point_in_rectangle(_mouseX,_mouseY,73,55,94,76))//Vitality
+//Iteration
+draw_sprite_stretched(spr_menu_circle16,1,76,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.iteration,75,77);
+draw_sprite(spr_menu_player_stat,1,79,58);
+if (point_in_rectangle(_mouseX,_mouseY,76,55,97,76))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,72,54,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,75,54,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -50,13 +56,13 @@ if (point_in_rectangle(_mouseX,_mouseY,73,55,94,76))//Vitality
 	}
 }
 
-
-draw_sprite_stretched(spr_menu_circle16,1,103,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.conviction,102,77);
-draw_sprite(spr_menu_player_stat,2,106,58);
-if (point_in_rectangle(_mouseX,_mouseY,103,55,124,76))//Vitality
+//Conviction
+draw_sprite_stretched(spr_menu_circle16,1,100,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.conviction,99,77);
+draw_sprite(spr_menu_player_stat,2,103,58);
+if (point_in_rectangle(_mouseX,_mouseY,100,55,121,76))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,102,54,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,99,54,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -66,85 +72,47 @@ if (point_in_rectangle(_mouseX,_mouseY,103,55,124,76))//Vitality
 	}
 }
 
-draw_sprite_stretched(spr_menu_circle16,1,133,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.grace,132,77);
-draw_sprite(spr_menu_player_stat,3,136,58);
-
-
-draw_sprite_stretched(spr_menu_circle16,1,43,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.might,42,113);
-draw_sprite(spr_menu_player_stat,4,46,94);
-
-
-draw_sprite_stretched(spr_menu_circle16,1,73,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.divinity,72,113);
-draw_sprite(spr_menu_player_stat,5,76,94);
-
-
-draw_sprite_stretched(spr_menu_circle16,1,103,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.energy,102,113);
-draw_sprite(spr_menu_player_stat,6,106,94);
-
-
-draw_sprite_stretched(spr_menu_circle16,1,133,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,132,113);
-draw_sprite(spr_menu_player_stat,7,136,94);
-//draw_sprite_stretched(spr_menu,3,216,97,32,11);
-//draw_sprite_stretched(spr_menu,3,199,110,32,16);
-//draw_sprite_stretched(spr_menu,3,69,72,90,16);
-//draw_sprite_stretched(spr_menu,3,69,90,90,16);
-//draw_sprite_stretched(spr_menu,3,69,108,90,16);
-
-
-//Button Mechanics
-//if (point_in_rectangle(_mouseX,_mouseY,69,72,159,88))//Vitality
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,70,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 0;
+//Grace
+draw_sprite_stretched(spr_menu_circle16,1,127,55,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.grace,126,77);
+draw_sprite(spr_menu_player_stat,3,130,58);
+if (point_in_rectangle(_mouseX,_mouseY,127,55,148,76))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,129,54,23,23);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		page = 3;
 		
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,90,159,106))//Might
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,88,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 1;
-		
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,108,159,124))//Grace
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,67,106,94,20);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		audio_play_sound(snd_menu,0,false);
-//		page = 2;
-		
-//	}
-//}
+	}
+}
 
-//Button Text
-//var _vitalityTitle = "VITALITY | LVL: " + string(obj_player.vitality);
-//var _mightTitle = "MIGHT | LVL: " + string(obj_player.might);
-//var _graceTitle = "GRACE | LVL: " + string(obj_player.grace);
-//draw_text_transformed(75,77,_vitalityTitle,.35,.35,0);
-//draw_text_transformed(75,95,_mightTitle,.35,.35,0);
-//draw_text_transformed(75,113,_graceTitle,.35,.35,0);
-draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(88,38,"COURIER STATS",.6,.6,0);
-draw_set_color(c_white);
-draw_text_transformed(87,38,"COURIER STATS",.6,.6,0);
+//Might
+draw_sprite_stretched(spr_menu_circle16,1,49,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.might,48,113);
+draw_sprite(spr_menu_player_stat,4,52,94);
 
-//Right Hand Side
+//Divinity
+draw_sprite_stretched(spr_menu_circle16,1,79,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.divinity,75,113);
+draw_sprite(spr_menu_player_stat,5,79,94);
+
+//Energy
+draw_sprite_stretched(spr_menu_circle16,1,100,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.energy,99,113);
+draw_sprite(spr_menu_player_stat,6,103,94);
+
+//Receptivity
+draw_sprite_stretched(spr_menu_circle16,1,127,91,21,21);
+draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,126,113);
+draw_sprite(spr_menu_player_stat,7,130,94);
+
+//Orb Quantity
+draw_sprite_stretched(spr_menu_beveled,3,103,127,21,16);
+
+
+//Right Side of Menu
 DrawSelectedStat();
 
 
@@ -159,6 +127,10 @@ function DrawSelectedStat(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
+draw_sprite_stretched(spr_menu_beveled,3,167,35,108,87);
+draw_sprite_stretched(spr_menu_beveled,1,161,35,120,16);
+
+
 switch(page)
 {
 	
@@ -171,43 +143,42 @@ switch(page)
 		var _vitLevel = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
 		var _health = "Max health: " + string(150 + (3* ((obj_player.vitality) + round((obj_player.vitality)/15)))) + ">" + string(150 + (3* ((obj_player.vitality + 1) + round((obj_player.vitality+1)/15))));
 		draw_set_color(c_black);
-		draw_text_transformed(167,46,"VITALITY",.5,.5,0);
+		draw_text_transformed(167,42,"VITALITY",.5,.5,0);
 		draw_text_transformed(167,56,"Increases max health.\nBase health 150.",.35,.35,0); 
-		draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-		draw_text_transformed(167,95,_health,.35,.35,0); 
+		draw_text_transformed(167,105,_vitLevel,.35,.35,0); 
+		draw_text_transformed(167,113,_health,.35,.35,0); 
 		draw_set_color(c_white);
-		draw_text_transformed(166,46,"VITALITY",.5,.5,0);
+		draw_text_transformed(166,42,"VITALITY",.5,.5,0);
 		draw_text_transformed(166,56,"Increases max health.\nBase health 150.",.35,.35,0); 
-		draw_text_transformed(166,87,_vitLevel,.35,.35,0); 
-		draw_text_transformed(166,95,_health,.35,.35,0);
+		draw_text_transformed(166,105,_vitLevel,.35,.35,0); 
+		draw_text_transformed(166,113,_health,.35,.35,0);
 	
 		//Cost Button
-		draw_sprite_stretched(spr_menu,3,161,108,90,16);
-		draw_sprite(spr_bean,0,243,117)
+		draw_sprite_stretched(spr_menu,3,161,127,90,16);
+		draw_sprite(spr_bean,0,243,131)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_color(c_black);
-		draw_text_transformed(167,113,"Level up:",.35,.35,0);
+		draw_text_transformed(167,131,"Level up:",.35,.35,0);
 		draw_set_color(c_white);
-		draw_text_transformed(166,113,"Level up:",.35,.35,0);
+		draw_text_transformed(166,131,"Level up:",.35,.35,0);
 		draw_set_halign(fa_right);
 		draw_set_valign(fa_top);
 		var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.might + obj_player.grace;
 		draw_set_color(c_black);
-		draw_text_transformed(235,113,_cost,.35,.35,0);
+		draw_text_transformed(235,131,_cost,.35,.35,0);
 		draw_set_color(c_white);
-		draw_text_transformed(234,113,_cost,.35,.35,0);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,251,124))//Level
+		draw_text_transformed(234,131,_cost,.35,.35,0);
+		if (point_in_rectangle(_mouseX,_mouseY,161,127,251,143))//Level
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,94,20);
-			if (mouse_check_button_pressed(mb_left)) and (obj_player.beans >= _cost)
+			draw_sprite_stretched(spr_highlight_nineslice,0,159,126,94,20);
+			if (mouse_check_button_pressed(mb_left)) and (obj_player.star_orb > 0)
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				obj_player.beans = obj_player.beans - _cost;
+				obj_player.star_orb = obj_player.star_orb - 1;
 				obj_player.vitality = obj_player.vitality + 1;
-				obj_player.max_hp = 150 + (3* (obj_player.vitality + round(obj_player.vitality/15)));
-			
+				//obj_player.max_hp = ????
 		
 			}
 		}

@@ -485,7 +485,6 @@ if (point_in_rectangle(_mouseX,_mouseY,68,36,124,124))//Resume Game 1
 		obj_player.x = global.lastCampX;
 		obj_player.y = global.lastCampY;
 		audio_stop_all();
-		show_debug_message(obj_player.crull_level);
 			
 	}
 }
