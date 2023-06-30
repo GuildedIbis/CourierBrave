@@ -13,12 +13,12 @@ chest_list = array_create(50,false)
 //
 //
 //
-//Crull Stones and Flower Lists
-function CrullList(){
-crullStone_list = array_create(18,false);
-crullStone_list[0] = true;
-crullUpgrade_list = array_create(5,false);
-crullUpgrade_list[0] = true;
+//Star Orb and Crull Flower Lists
+function StarOrbList(){
+starOrb_list = array_create(72,false);
+//starOrb_list[0] = true;
+//crullUpgrade_list = array_create(5,false);
+//crullUpgrade_list[0] = true;
 
 crullS_list = array_create(50,false);
 crullM_list = array_create(50,false);

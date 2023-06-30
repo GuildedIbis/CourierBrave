@@ -36,9 +36,9 @@ max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
-max_charge = 100 + (10 * obj_player.conviction);
-max_stamina = 100; //50 + (3* (might + round(might/15)));
-max_hp = 150 + (3* (vitality + round(vitality/15)));
+max_charge = 100 + (10 * conviction);
+max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
+max_hp = 200 + (20 * vitality);
 
 
 }
@@ -680,7 +680,7 @@ if (animation_end)
 		audio_play_sound(snd_goldArcs,0,0);
 		timer1 = 120;
 		break_object = obj_player.break_object;
-		damage = obj_player.grace + (6 * (obj_inventory.form_grid[# 0, 8] - 1));
+		damage = 22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8] - 1));
 		idle_sprite = spr_goldArc;
 		projectile_sprite = spr_goldArc;
 		projectile_script = RegaliareGoldArcs;

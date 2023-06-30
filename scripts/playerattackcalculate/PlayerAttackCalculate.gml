@@ -127,17 +127,17 @@ if (_hits > 0)
 						with (obj_player)
 						{
 							yellow_special = yellow_special + _charge;
-							if (yellow_special > max_special) yellow_special = max_special;
+							if (yellow_special > max_charge) yellow_special = max_charge;
 							blue_special = blue_special + _charge;
-							if (blue_special > max_special) blue_special = max_special;
+							if (blue_special > max_charge) blue_special = max_charge;
 							purple_special = purple_special + _charge;
-							if (purple_special > max_special) purple_special = max_special;
+							if (purple_special > max_charge) purple_special = max_charge;
 							red_special = red_special + _charge;
-							if (red_special > max_special) red_special = max_special;
+							if (red_special > max_charge) red_special = max_charge;
 							green_special = green_special + _charge;
-							if (green_special > max_special) green_special = max_special;
+							if (green_special > max_charge) green_special = max_charge;
 							orange_special = orange_special + _charge;
-							if (orange_special > max_special) orange_special = max_special;
+							if (orange_special > max_charge) orange_special = max_charge;
 						}
 					}
 				}
@@ -215,17 +215,17 @@ if (_hits > 0)
 					with (obj_player)
 					{
 						yellow_special = yellow_special + _charge;
-						if (yellow_special > max_special) yellow_special = max_special;
+						if (yellow_special > max_charge) yellow_special = max_charge;
 						blue_special = blue_special + _charge;
-						if (blue_special > max_special) blue_special = max_special;
+						if (blue_special > max_charge) blue_special = max_charge;
 						purple_special = purple_special + _charge;
-						if (purple_special > max_special) purple_special = max_special;
+						if (purple_special > max_charge) purple_special = max_charge;
 						red_special = red_special + _charge;
-						if (red_special > max_special) red_special = max_special;
+						if (red_special > max_charge) red_special = max_charge;
 						green_special = green_special + _charge;
-						if (green_special > max_special) green_special = max_special;
+						if (green_special > max_charge) green_special = max_charge;
 						orange_special = orange_special + _charge;
-						if (orange_special > max_special) orange_special = max_special;
+						if (orange_special > max_charge) orange_special = max_charge;
 					}
 				}
 			}

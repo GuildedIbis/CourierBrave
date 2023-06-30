@@ -36,9 +36,9 @@ magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
 armor = 11 + (6 * (obj_inventory.form_grid[# 1, 6] -1));
-max_charge = 100 + (10 * obj_player.conviction);
-max_stamina = 50 + (3* (might + round(might/15)));
-max_hp = 150 + (3* (vitality + round(vitality/15)));
+max_charge = 100 + (10 * conviction);
+max_stamina = 100 + (50 * energy);
+max_hp = 200 + (20 * vitality);
 
 
 }

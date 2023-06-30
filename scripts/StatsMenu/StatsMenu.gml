@@ -116,42 +116,58 @@ switch(page)
 		draw_set_font(fnt_text);
 		var _vitLevel = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
 		var _health = "Max health: " + string(150 + (3* ((obj_player.vitality) + round((obj_player.vitality)/15)))) + ">" + string(150 + (3* ((obj_player.vitality + 1) + round((obj_player.vitality+1)/15))));
+		var _title = "VITALITY";
+		var _describe = "Increases max health.\nBase health 150.";
 		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,"VITALITY",.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,"Increases max health.\nBase health 150.",.35,.35,0); 
+		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
+		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
 		draw_text_transformed(_midX+1,_lvlY,_vitLevel,.35,.35,0); 
 		draw_text_transformed(_midX+1,_statY,_health,.35,.35,0); 
 		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,"VITALITY",.6,.6,0);
-		draw_text_transformed(_midX,_descY,"Increases max health.\nBase health 150.",.35,.35,0); 
+		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
+		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 		draw_text_transformed(_midX,_lvlY,_vitLevel,.35,.35,0); 
 		draw_text_transformed(_midX,_statY,_health,.35,.35,0);
 	
 		//Cost Button
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-		draw_set_color(c_black);
-		draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-		draw_set_halign(fa_right);
-		draw_set_valign(fa_top);
-		draw_set_color(c_black);
-		draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
-		if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+		if (obj_player.vitality < 10)
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-			if (mouse_check_button_pressed(mb_left)) and (obj_player.star_orb > 0)
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
-				audio_sound_gain(snd_menu,global.volumeMenu,1);
-				audio_play_sound(snd_menu,0,false);
-				obj_player.star_orb = obj_player.star_orb - 1;
-				obj_player.vitality = obj_player.vitality + 1;
-				//obj_player.max_hp = ????
+				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				if (mouse_check_button_pressed(mb_left)) and (obj_player.star_orb > 0)
+				{
+					audio_sound_gain(snd_menu,global.volumeMenu,1);
+					audio_play_sound(snd_menu,0,false);
+					obj_player.star_orb = obj_player.star_orb - 1;
+					obj_player.vitality = obj_player.vitality + 1;
+					if (obj_player.vitality > 10) obj_player.vitality = 1;
+					obj_player.max_hp = 200 + (20 * obj_player.vitality);
+					obj_player.hp = obj_player.max_hp;
 		
+				}
 			}
+		}
+		else
+		{
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
 		}
 	break;
 	

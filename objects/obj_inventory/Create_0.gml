@@ -14,7 +14,7 @@ script_execute(CampRooms);
 script_execute(MapsCreate);
 script_execute(ChestList);
 script_execute(KephraStoneList);
-script_execute(CrullList);
+script_execute(StarOrbList);
 
 room_ary = farwayRoad_map_ary;
 

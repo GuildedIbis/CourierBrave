@@ -4,8 +4,8 @@ switch (image_index)
 	case 0:
 		with (obj_player)
 		{
-			yellow_charge = yellow_charge + other.drop_amount;
-			if (yellow_charge > max_charge) yellow_charge = max_charge;
+			yellow_crystal = yellow_crystal + other.drop_amount;
+			if (yellow_crystal > max_charge) yellow_crystal = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -13,8 +13,8 @@ switch (image_index)
 	case 1:
 		with (obj_player)
 		{
-			blue_charge = blue_charge + other.drop_amount;
-			if (blue_charge > max_charge) blue_charge = max_charge;
+			blue_crystal = blue_crystal + other.drop_amount;
+			if (blue_crystal > max_charge) blue_crystal = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -22,8 +22,8 @@ switch (image_index)
 	case 2:
 		with (obj_player)
 		{
-			purple_charge = purple_charge + other.drop_amount;
-			if (purple_charge > max_charge) purple_charge = max_charge;
+			purple_crystal = purple_crystal + other.drop_amount;
+			if (purple_crystal > max_charge) purple_crystal = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -31,8 +31,8 @@ switch (image_index)
 	case 3:
 		with (obj_player)
 		{
-			red_charge = red_charge + other.drop_amount;
-			if (red_charge > max_charge) red_charge = max_charge;
+			red_crystal = red_crystal + other.drop_amount;
+			if (red_crystal > max_charge) red_crystal = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -40,8 +40,8 @@ switch (image_index)
 	case 4:
 		with (obj_player)
 		{
-			green_charge = green_charge + other.drop_amount;
-			if (green_charge > max_charge) green_charge = max_charge;
+			green_crystal = green_crystal + other.drop_amount;
+			if (green_crystal > max_charge) green_crystal = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -49,8 +49,8 @@ switch (image_index)
 	case 5:
 		with (obj_player)
 		{
-			orange_charge = orange_charge + other.drop_amount;
-			if (orange_charge > max_charge) orange_charge = max_charge;
+			orange_crystal = orange_crystal + other.drop_amount;
+			if (orange_crystal > max_charge) orange_crystal = max_charge;
 		}
 		instance_destroy();
 	break;

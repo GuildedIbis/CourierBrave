@@ -24,24 +24,27 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		{
 			text_string = ""
 			string_counter = 0;
-			text_script = other.activate_script;
+			if (other.activate_script != -1) text_script = other.activate_script;
 			if (other.activate_args != -1) quest_num = other.activate_args;
 		}
-		obj_game.gamePaused = true;
-		obj_game.textPaused = true;
-		if (obj_game.gamePaused)
+		if (activate_script != -1)
 		{
-			with (all)
+			obj_game.gamePaused = true;
+			obj_game.textPaused = true;
+			if (obj_game.gamePaused)
 			{
-				game_paused_image_speed = image_speed;
-				image_speed = 0;
+				with (all)
+				{
+					game_paused_image_speed = image_speed;
+					image_speed = 0;
+				}
 			}
-		}
-		else
-		{
-			with (all)
+			else
 			{
-				image_speed = game_paused_image_speed;
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
 			}
 		}
 	}

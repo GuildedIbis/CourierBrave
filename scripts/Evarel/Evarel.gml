@@ -39,9 +39,9 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
-max_charge = 100 + (10 * obj_player.conviction);
-max_stamina = 100;
-max_hp = 150 + (3* (vitality + round(vitality/15)));
+max_charge = 100 + (10 * conviction);
+max_stamina = 100 + (50 * energy);
+max_hp = 200 + (20 * vitality);
 
 }
 //
