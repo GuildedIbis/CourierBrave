@@ -9,7 +9,7 @@ function StarOrbPedestalCreate(){
 entity_step = StarOrbPedestalStep;
 sound = -1;
 active_sprite = spr_starOrb_pedestal;
-idle_sprite = spr_starOrb_pedestal_empty;
+idle_sprite = spr_starOrb_pedestal_stone;
 }
 
 //
@@ -21,13 +21,14 @@ idle_sprite = spr_starOrb_pedestal_empty;
 function StarOrbPedestalStep(){
 if (obj_inventory.starOrb_list[activate_args] = false)
 {
-	sprite_index = active_sprite;
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) sprite_index = active_sprite;
+	else sprite_index = idle_sprite;
 	image_speed = 1;
 	activate_script = StarOrbPedestalText;
 }
 else
 {
-	sprite_index = idle_sprite;
+	sprite_index = spr_starOrb_pedestal_empty;
 	image_speed = 0;
 	activate_script = -1;
 }
@@ -61,7 +62,7 @@ if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;
-	obj_player.star_orb = obj_player.star_orb + 1;
+	obj_inventory.star_orb = obj_inventory.star_orb + 1;
 	obj_inventory.starOrb_list[quest_num] = true;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;

@@ -41,7 +41,7 @@ draw_sprite_stretched(spr_menu_circle16,3,230,8,21,24);
 //Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,8,90,36))//Player Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,67,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,68,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -55,7 +55,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,8,90,36))//Player Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,92,8,113,36)) //Forms Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,90,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,91,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -76,7 +76,7 @@ if (point_in_rectangle(_mouseX,_mouseY,92,8,113,36)) //Forms Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,115,8,139,36)) //Items Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,116,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,114,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -88,7 +88,7 @@ if (point_in_rectangle(_mouseX,_mouseY,115,8,139,36)) //Items Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,138,8,159,36)) //Quest Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,136,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,137,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -100,7 +100,7 @@ if (point_in_rectangle(_mouseX,_mouseY,138,8,159,36)) //Quest Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,159,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,160,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -113,7 +113,7 @@ if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,184,8,205,36)) //Treasure Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,182,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,183,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -125,7 +125,7 @@ if (point_in_rectangle(_mouseX,_mouseY,184,8,205,36)) //Treasure Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,207,8,228,36)) //Treasure Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,205,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,206,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -137,7 +137,7 @@ if (point_in_rectangle(_mouseX,_mouseY,207,8,228,36)) //Treasure Menu
 }
 if (point_in_rectangle(_mouseX,_mouseY,230,8,251,36)) //Info Menu
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,228,6,25,28);
+	draw_sprite_stretched(spr_highlight_circle,0,229,7,23,26);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);

@@ -66,8 +66,6 @@ energy = 0; //RLL
 receptivity = 0; //AMT
 
 //Effected Max Stats
-beans = 0; //Move to Inventory...
-star_orb = 0; //Move to Inventory...
 max_crull_stone = 1 + (iteration);
 max_hp = 200 + (20 * vitality);
 max_charge = 100 + (10 * conviction); //50 + (3* (grace + round(grace/15)));

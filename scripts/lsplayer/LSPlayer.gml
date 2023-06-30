@@ -8,7 +8,8 @@
 //Path: obj_game > event Key Pressed "L"
 function LoadPlayer(_loadEntity){
 		//Load Beans
-		if (variable_struct_exists(_loadEntity,"beans")) obj_player.beans = _loadEntity.beans;
+		//if (variable_struct_exists(_loadEntity,"beans")) obj_player.beans = _loadEntity.beans;
+		//if (variable_struct_exists(_loadEntity,"beans")) obj_player.star_orb = _loadEntity.star_orb;
 		
 		//Load Room
 		if (variable_struct_exists(_loadEntity,"camp")) global.lastCamp = _loadEntity.camp;
@@ -66,7 +67,7 @@ var _savePlayer =
 	lastCampY: global.lastCampY, //CONCEPT: NOT FINAL
 	
 	//Save Beans
-	beans : obj_player.beans,
+	//beans : obj_player.beans,
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,  //1

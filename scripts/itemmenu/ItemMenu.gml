@@ -26,8 +26,11 @@ item_grid[# 9, 3] = true;
 
 
 //New Inventory
+beans = 0;
+star_orb = 0;
 rog_array = array_create(6,0);
 ps_array = array_create(10,0);
+fish_array = array_create(20,0);
 }
 //
 //
