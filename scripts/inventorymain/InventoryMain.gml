@@ -14,16 +14,25 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 
 
-draw_sprite_stretched(button_sprite,3,69,8,21,24);
-draw_sprite_stretched(button_sprite,3,92,8,21,24);
-draw_sprite_stretched(button_sprite,3,115,8,21,24);
-draw_sprite_stretched(button_sprite,3,138,8,21,24);
-draw_sprite_stretched(button_sprite,3,161,8,21,24);
-draw_sprite_stretched(button_sprite,3,184,8,21,24);
-draw_sprite_stretched(button_sprite,3,207,8,21,24);
-draw_sprite_stretched(button_sprite,3,230,8,21,24);
+//draw_sprite_stretched(button_sprite,3,69,8,21,24);
+//draw_sprite_stretched(button_sprite,3,92,8,21,24);
+//draw_sprite_stretched(button_sprite,3,115,8,21,24);
+//draw_sprite_stretched(button_sprite,3,138,8,21,24);
+//draw_sprite_stretched(button_sprite,3,161,8,21,24);
+//draw_sprite_stretched(button_sprite,3,184,8,21,24);
+//draw_sprite_stretched(button_sprite,3,207,8,21,24);
+//draw_sprite_stretched(button_sprite,3,230,8,21,24);
 //draw_sprite(spr_lock,0,160,108);
 //draw_sprite(spr_lock,0,224,108);
+
+draw_sprite_stretched(spr_menu_circle16,3,69,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,92,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,115,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,138,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,161,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,184,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,207,8,21,24);
+draw_sprite_stretched(spr_menu_circle16,3,230,8,21,24);
 
 	
 
@@ -145,11 +154,11 @@ if (point_in_rectangle(_mouseX,_mouseY,230,8,251,36)) //Info Menu
 //Set Text
 draw_set_font(fnt_text);
 draw_set_color(c_white);
-draw_set_halign(fa_left);
+draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 	
 //Draw Text
-draw_text_transformed(64,28,"TAB to resume",.5,.5,0);
+draw_text_transformed(160,160,"TAB\nto resume",.5,.5,0);
 draw_set_halign(fa_center);
 draw_sprite(spr_inventory_tabs,0,69,12)
 //draw_text_transformed(80,142,"MAP",.35,.35,0);	

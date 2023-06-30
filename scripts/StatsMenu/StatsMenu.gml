@@ -9,107 +9,55 @@ function StatsMenuGUI(){
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_white);
 
 
-//Buttons
-draw_sprite_stretched(spr_menu_beveled,3,45,35,108,87);
-draw_sprite_stretched(spr_menu_beveled,1,39,35,120,16);
+//Menu Base and Buttons
+draw_sprite_stretched(spr_menu_beveled,3,44,35,110,89);
+draw_sprite_stretched(spr_menu_beveled,3,76,127,47,16);
+draw_sprite_stretched(spr_menu,8,39,35,120,16);
+
+//Static Text
 draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 draw_set_color(c_black);
-draw_text_transformed(88,38,"COURIER STATS",.6,.6,0);
+draw_text_transformed(102,38,"COURIER STATS",.6,.6,0);
+draw_text_transformed(98,131,"STAR ORBS:",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(87,38,"COURIER STATS",.6,.6,0);
+draw_text_transformed(101,38,"COURIER STATS",.6,.6,0);
+draw_text_transformed(97,131,"STAR ORBS:",.35,.35,0);
 
-
-//Vitality
-draw_sprite_stretched(spr_menu_circle16,1,49,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.vitality,48,77);
-draw_sprite(spr_menu_player_stat,0,52,58);
-if (point_in_rectangle(_mouseX,_mouseY,49,55,70,76))
+//Left Side Button Grid
+for(var i = 0; i < 8; i = i + 1)
 {
-	draw_sprite_stretched(spr_highlight_circle,0,48,54,23,23);
-	if (mouse_check_button_pressed(mb_left))
+	var _row = (i div 4);
+	var _column = (i mod 4);
+	var _originX = 50 + (26 * _column);
+	var _originY = 53 + (35 * _row);
+	draw_sprite_stretched(spr_menu_circle16,1,_originX,_originY,21,21);
+	draw_sprite(spr_menu_player_stat,i,_originX + 3,_originY+ 3);
+	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))
 	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 0;
+		draw_sprite_stretched(spr_highlight_circle,0,_originX - 1,_originY - 1,23,23);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			page = i;
 		
+		}
+	}
+	switch (i)
+	{
+		case 0: draw_sprite(spr_menu_playerStat_level,obj_player.vitality,_originX - 1,_originY + 22); break;
+		case 1: draw_sprite(spr_menu_playerStat_level,obj_player.iteration,_originX - 1,_originY + 22); break;
+		case 2: draw_sprite(spr_menu_playerStat_level,obj_player.conviction,_originX - 1,_originY + 22); break;
+		case 3: draw_sprite(spr_menu_playerStat_level,obj_player.grace,_originX - 1,_originY + 22); break;
+		case 4: draw_sprite(spr_menu_playerStat_level,obj_player.might,_originX - 1,_originY + 22); break;
+		case 5: draw_sprite(spr_menu_playerStat_level,obj_player.divinity,_originX - 1,_originY + 22); break;
+		case 6: draw_sprite(spr_menu_playerStat_level,obj_player.energy,_originX - 1,_originY + 22); break;
+		case 7: draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,_originX - 1,_originY + 22); break;
 	}
 }
-
-//Iteration
-draw_sprite_stretched(spr_menu_circle16,1,76,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.iteration,75,77);
-draw_sprite(spr_menu_player_stat,1,79,58);
-if (point_in_rectangle(_mouseX,_mouseY,76,55,97,76))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,75,54,23,23);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 1;
-		
-	}
-}
-
-//Conviction
-draw_sprite_stretched(spr_menu_circle16,1,100,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.conviction,99,77);
-draw_sprite(spr_menu_player_stat,2,103,58);
-if (point_in_rectangle(_mouseX,_mouseY,100,55,121,76))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,99,54,23,23);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 2;
-		
-	}
-}
-
-//Grace
-draw_sprite_stretched(spr_menu_circle16,1,127,55,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.grace,126,77);
-draw_sprite(spr_menu_player_stat,3,130,58);
-if (point_in_rectangle(_mouseX,_mouseY,127,55,148,76))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,129,54,23,23);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		page = 3;
-		
-	}
-}
-
-//Might
-draw_sprite_stretched(spr_menu_circle16,1,49,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.might,48,113);
-draw_sprite(spr_menu_player_stat,4,52,94);
-
-//Divinity
-draw_sprite_stretched(spr_menu_circle16,1,79,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.divinity,75,113);
-draw_sprite(spr_menu_player_stat,5,79,94);
-
-//Energy
-draw_sprite_stretched(spr_menu_circle16,1,100,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.energy,99,113);
-draw_sprite(spr_menu_player_stat,6,103,94);
-
-//Receptivity
-draw_sprite_stretched(spr_menu_circle16,1,127,91,21,21);
-draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,126,113);
-draw_sprite(spr_menu_player_stat,7,130,94);
-
-//Orb Quantity
-draw_sprite_stretched(spr_menu_beveled,3,103,127,21,16);
 
 
 //Right Side of Menu
@@ -126,52 +74,75 @@ DrawSelectedStat();
 function DrawSelectedStat(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 38;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
 
-draw_sprite_stretched(spr_menu_beveled,3,167,35,108,87);
-draw_sprite_stretched(spr_menu_beveled,1,161,35,120,16);
-
+draw_sprite(spr_menu_rope,3,176,77);
+draw_sprite(spr_menu_rope,3,262,77);
+draw_sprite(spr_menu_rope,3,176,99);
+draw_sprite(spr_menu_rope,3,262,99);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,44);
+draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
+draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
+draw_sprite_stretched(spr_menu,8,161,35,120,16);
+draw_sprite_stretched(spr_menu_player_stat,page,260,35,16,16);
+draw_sprite_stretched(spr_menu_circle16,3,186,127,70,16);
+draw_sprite(spr_bean,0,248,136);
+	
 
 switch(page)
 {
+	case -1:
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		draw_set_font(fnt_text);
+		draw_set_color(c_black);
+		draw_text_transformed(167,42,"SELECT A STAT",.5,.5,0);
+		draw_text_transformed(167,56,"Level up your stats with Star Orbs",.35,.35,0); 
+		draw_set_color(c_white);
+		draw_text_transformed(166,42,"SELECT A STAT",.5,.5,0);
+		draw_text_transformed(166,56,"Level up your stats with Star Orbs",.35,.35,0); 
+	break;
 	
 	case 0:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-		draw_set_halign(fa_left);
+		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
 		var _vitLevel = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
 		var _health = "Max health: " + string(150 + (3* ((obj_player.vitality) + round((obj_player.vitality)/15)))) + ">" + string(150 + (3* ((obj_player.vitality + 1) + round((obj_player.vitality+1)/15))));
 		draw_set_color(c_black);
-		draw_text_transformed(167,42,"VITALITY",.5,.5,0);
-		draw_text_transformed(167,56,"Increases max health.\nBase health 150.",.35,.35,0); 
-		draw_text_transformed(167,105,_vitLevel,.35,.35,0); 
-		draw_text_transformed(167,113,_health,.35,.35,0); 
+		draw_text_transformed(_midX+1,_titleY,"VITALITY",.6,.6,0);
+		draw_text_transformed(_midX+1,_descY,"Increases max health.\nBase health 150.",.35,.35,0); 
+		draw_text_transformed(_midX+1,_lvlY,_vitLevel,.35,.35,0); 
+		draw_text_transformed(_midX+1,_statY,_health,.35,.35,0); 
 		draw_set_color(c_white);
-		draw_text_transformed(166,42,"VITALITY",.5,.5,0);
-		draw_text_transformed(166,56,"Increases max health.\nBase health 150.",.35,.35,0); 
-		draw_text_transformed(166,105,_vitLevel,.35,.35,0); 
-		draw_text_transformed(166,113,_health,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,"VITALITY",.6,.6,0);
+		draw_text_transformed(_midX,_descY,"Increases max health.\nBase health 150.",.35,.35,0); 
+		draw_text_transformed(_midX,_lvlY,_vitLevel,.35,.35,0); 
+		draw_text_transformed(_midX,_statY,_health,.35,.35,0);
 	
 		//Cost Button
-		draw_sprite_stretched(spr_menu,3,161,127,90,16);
-		draw_sprite(spr_bean,0,243,131)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_color(c_black);
-		draw_text_transformed(167,131,"Level up:",.35,.35,0);
+		draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
 		draw_set_color(c_white);
-		draw_text_transformed(166,131,"Level up:",.35,.35,0);
+		draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
 		draw_set_halign(fa_right);
 		draw_set_valign(fa_top);
-		var _cost = (obj_player.vitality * round(obj_player.vitality/2)) + obj_player.might + obj_player.grace;
 		draw_set_color(c_black);
-		draw_text_transformed(235,131,_cost,.35,.35,0);
+		draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
 		draw_set_color(c_white);
-		draw_text_transformed(234,131,_cost,.35,.35,0);
-		if (point_in_rectangle(_mouseX,_mouseY,161,127,251,143))//Level
+		draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+		if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,126,94,20);
+			draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
 			if (mouse_check_button_pressed(mb_left)) and (obj_player.star_orb > 0)
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -186,7 +157,6 @@ switch(page)
 	
 	case 1:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -238,7 +208,6 @@ switch(page)
 	
 	case 2:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,1,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -291,7 +260,6 @@ switch(page)
 	
 	case 3:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -343,7 +311,6 @@ switch(page)
 	
 	case 4:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -395,7 +362,6 @@ switch(page)
 	
 	case 5:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -447,7 +413,6 @@ switch(page)
 	
 	case 6:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);
@@ -465,7 +430,6 @@ switch(page)
 		draw_text_transformed(166,95,_charge,.35,.35,0);
 	
 		//Cost Button
-		draw_sprite_stretched(spr_menu,3,161,108,90,16);
 		draw_sprite(spr_bean,0,243,117)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
@@ -499,7 +463,6 @@ switch(page)
 	
 	case 7:
 		//Main Text
-		draw_sprite_stretched(spr_menu_player_stat,2,196,64,30,30);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_set_font(fnt_text);

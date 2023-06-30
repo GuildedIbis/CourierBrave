@@ -38,14 +38,14 @@ if (scene = false) and (obj_game.textPaused = false)
 	}
 
 	//Beans
-	draw_sprite(spr_bean_hud,0,50,6);
+	draw_sprite(spr_bean_hud,0,302,6);
 	draw_set_font(fnt_text)
-	draw_set_halign(fa_left);
+	draw_set_halign(fa_right);
 	draw_set_valign(fa_middle);
 	draw_set_color(c_black);
-	draw_text_transformed(66,12,beans,.5,.5,0)
+	draw_text_transformed(300,12,beans,.5,.5,0)
 	draw_set_color(c_white);
-	draw_text_transformed(65,12,beans,.5,.5,0)
+	draw_text_transformed(299,12,beans,.5,.5,0)
 
 
 	
@@ -75,7 +75,7 @@ if (scene = false) and (obj_game.textPaused = false)
 		//	draw_text_transformed(163,26,global.bossCounter,.5,.5,0);
 		//}
 		//Active Quest
-		draw_sprite(spr_activeQuest_hud,0,303,6);
+		//draw_sprite(spr_activeQuest_hud,0,303,6);
 		draw_set_font(fnt_text)
 		draw_set_halign(fa_right);
 		draw_set_valign(fa_top);

@@ -1231,6 +1231,7 @@
     {"id":{"name":"SaveLoad2","path":"scripts/SaveLoad2/SaveLoad2.yy",},},
     {"id":{"name":"obj_door_quest_halofire","path":"objects/obj_door_quest_halofire/obj_door_quest_halofire.yy",},},
     {"id":{"name":"spr_trollTortoise_missile","path":"sprites/spr_trollTortoise_missile/spr_trollTortoise_missile.yy",},},
+    {"id":{"name":"spr_menu_rope","path":"sprites/spr_menu_rope/spr_menu_rope.yy",},},
     {"id":{"name":"spr_enemy_hitbox_riftSlamDownB","path":"sprites/spr_enemy_hitbox_riftSlamDownB/spr_enemy_hitbox_riftSlamDownB.yy",},},
     {"id":{"name":"spr_escort_beaowire_attack","path":"sprites/spr_escort_beaowire_attack/spr_escort_beaowire_attack.yy",},},
     {"id":{"name":"spr_collisionWater","path":"sprites/spr_collisionWater/spr_collisionWater.yy",},},
