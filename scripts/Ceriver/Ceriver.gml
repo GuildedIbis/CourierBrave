@@ -271,15 +271,6 @@ if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
 		blue_crystal = blue_crystal + 1;
 	}
 }
-//if (blue_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		blue_special = blue_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -310,31 +301,6 @@ if (sprite_index != spr_player_ceriver_boomerangThrow)
 //Animate
 PlayerAnimation();
 
-//Create Boomerange Projectile
-//if (melee_timer <= 0)
-//{
-//	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
-//	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-//	melee_timer = 15;
-//	weapon_count = weapon_count - 1;
-//	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
-//	{
-//		return_timer = 35;
-//		sd_timer = 120;
-//		break_object = obj_player.break_object;
-//		magic = false;
-//		damage = obj_player.might + ((obj_inventory.form_grid[# 1, 6])*2);//
-//		projectile_sprite = spr_ceriver_boomerang;
-//		projectile_script = CeriverBoomerangFree;
-//		idle_sprite = spr_ceriver_boomerang;
-//		hit_by_attack = -1;
-//		//script_execute(LeafArcCreate);
-//		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
-//		image_angle = direction;
-//		projectile_speed = 2.5;
-//		returning = false;
-//	}
-//}
 
 //Return to Free State or Continue Throwing Boomerangs (if possible)
 if (animation_end)
@@ -350,7 +316,7 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = obj_player.might + ((obj_inventory.form_grid[# 1, 6])*2);//
+		damage = 18 + (9 * obj_player.might) + ((obj_inventory.form_grid[# 1, 6])*2);//
 		projectile_sprite = spr_ceriver_boomerang;
 		projectile_script = CeriverBoomerangFree;
 		idle_sprite = spr_ceriver_boomerang;
@@ -483,15 +449,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (blue_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		blue_special = blue_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -542,7 +499,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (_bubbleRand));//
+		damage = 7 + (5 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -640,15 +597,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (blue_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		blue_special = blue_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -698,7 +646,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 15;
-		damage = round(obj_player.grace/5) + ((obj_inventory.form_grid[# 1, 7]));//
+		damage = 6 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7]) * 2);//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverLineorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -852,7 +800,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 60;
-		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
+		damage = 20 + (17 * obj_player.divinity) + ((obj_inventory.form_grid[# 1, 8]) * (14));//
 		projectile_sprite = spr_ceriver_steelorb;
 		projectile_script = CeriverSteelorbFree;
 		idle_sprite = spr_ceriver_steelorb;

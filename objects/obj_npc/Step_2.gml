@@ -10,7 +10,7 @@ if (entity_step != -1) script_execute(entity_step);
 
 
 //Activate NPC: sprite index, text script, game pause
-if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
+if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (global.aggroCounter < 1)
 {
 	
 	if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)

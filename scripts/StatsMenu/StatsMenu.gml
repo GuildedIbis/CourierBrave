@@ -147,17 +147,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.vitality + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.vitality + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.vitality)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.vitality + 1);
 					obj_player.vitality = obj_player.vitality + 1;
 					if (obj_player.vitality > 10) obj_player.vitality = 1;
 					obj_player.max_hp = 200 + (20 * obj_player.vitality);
@@ -210,17 +210,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.iteration + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.iteration + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.iteration)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.iteration + 1);
 					obj_player.iteration = obj_player.iteration + 1;
 					obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
 					obj_player.crull_stone = obj_player.crull_stone + 1;
@@ -271,17 +271,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.conviction + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.conviction + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.conviction)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.conviction + 1);
 					obj_player.conviction = obj_player.conviction + 1;
 					obj_player.max_charge = 100 + (obj_player.conviction * 10)
 				}
@@ -332,17 +332,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.grace + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.grace + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.grace)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.grace + 1);
 					obj_player.grace = obj_player.grace + 1;
 				}
 			}
@@ -391,17 +391,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.might + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.might + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.might)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.might + 1);
 					obj_player.might = obj_player.might + 1;
 				}
 			}
@@ -450,17 +450,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.divinity + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.divinity + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.divinity)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.divinity + 1);
 					obj_player.divinity = obj_player.divinity + 1;
 				}
 			}
@@ -509,17 +509,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.energy + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.energy + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.energy)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.energy + 1);
 					obj_player.energy = obj_player.energy + 1;
 					obj_player.max_stamina = 100 + (obj_player.energy * 50);
 				}
@@ -569,17 +569,17 @@ switch(page)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.receptivity + 1),.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,"1",.35,.35,0);
+			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.receptivity + 1),.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
-				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > 0)
+				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.receptivity)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
-					obj_inventory.star_orb = obj_inventory.star_orb - 1;
+					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.receptivity + 1);
 					obj_player.receptivity = obj_player.receptivity + 1;
 				}
 			}

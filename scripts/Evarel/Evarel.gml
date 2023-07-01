@@ -247,7 +247,7 @@ function EvarelDaggerDash(){
 //Set
 attacking = true;
 //casting = true;
-damage = might + (7 * obj_inventory.form_grid[# 4, 5]);
+damage = 19 + (12 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -362,15 +362,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 5;
-//		special = special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -379,10 +370,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//} //2/1/23
+
 
 //Movement 1: Speed
 if (knockback = false)
@@ -469,7 +457,7 @@ timer1 = timer1 - 1;
 if (timer1 <= 0)
 {
 	distance = distance + 1;
-	damage = obj_player.grace + ((obj_inventory.form_grid[# 4, 7])*(distance));
+	damage = 30 + (18 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(distance));
 	timer1 = 3;
 }
 if (sprite_index != projectile_sprite)
@@ -599,7 +587,7 @@ if (magic_timer <= 0)
 		fragment_count = 2;
 		fragment = obj_fragPlant;
 		timer1 = 120;
-		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		damage = 10 + (4 * obj_player.grace) + (obj_inventory.form_grid[# 0, 7]-1)*(5);//
 		projectile_sprite = spr_evarel_reflexthorn;
 		projectile_script = EvarelReflexThorn;
 		idle_sprite = spr_evarel_reflexthorn;
@@ -751,7 +739,7 @@ if (animation_end)
 		timer1 = 300;
 		timer3 = 30;
 		break_object = obj_player.break_object;
-		damage = round(obj_player.grace/3) + (4 * (obj_inventory.form_grid[# 4, 8]));
+		damage = 7 + (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
 		idle_sprite = spr_evarel_thornrise;
 		projectile_sprite = spr_evarel_thornrise;
 		projectile_script = EvarelThornrise;
