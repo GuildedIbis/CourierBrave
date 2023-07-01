@@ -6,8 +6,8 @@
 //
 //Halofire Set (create)
 function HalofireSet(){
-form = 3;
-form_type = 3;
+form = 1;
+form_type = 1;
 home_state = HalofireSet;
 free_state = HalofireFree;
 state_script = HalofireFree;
@@ -36,7 +36,7 @@ max_attack_counter = 0;
 walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
-armor = 7 + (4 * (obj_inventory.form_grid[# 3, 6] -1));
+armor = 7 + (4 * (obj_inventory.form_grid[# 1, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
@@ -80,13 +80,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (red_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -149,12 +149,12 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (red_crystal >= 24)
+		if (magic_primary = true) and (orange_crystal >= 24)
 		{
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (red_crystal >= 5)
+		if (magic_primary = false) and (orange_crystal >= 5)
 		{
 			attack_script = HalofireFirespitCast;
 			state_script = PlayerStateAttack;
@@ -163,7 +163,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (red_special >= 50)
+if (key_attackS) and (orange_special >= 50)
 {
 	if (watervice = false)
 	{
@@ -239,7 +239,7 @@ if (keyboard_check_pressed(ord("Z")))
 function HalofireHamaxe(){
 //Set
 attacking = true;
-damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 
 //Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -251,13 +251,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (red_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -340,13 +340,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (red_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -427,13 +427,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (red_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -495,7 +495,7 @@ if (mouse_check_button_released(mb_right))
 function HalofireHamaxeBackswing(){
 //Set
 attacking = true;
-damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -505,13 +505,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (red_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -574,7 +574,7 @@ if (animation_end)
 function HalofireHamaxeBackswingCharged(){
 //Set
 attacking = true;
-damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
@@ -585,13 +585,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (red_crystal < max_charge) and (watervice = false)//Charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -638,7 +638,7 @@ if (timer1 <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = round(obj_player.grace/6) + ((obj_inventory.form_grid[# 3, 7]));//
+		damage = 20 + (9 * obj_player.might) + (12 * obj_inventory.form_grid[# 1, 5]);//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = HalofireFirespit;
 		idle_sprite = spr_halofire_firespit;
@@ -745,7 +745,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {
-	red_crystal = red_crystal - 24;
+	orange_crystal = orange_crystal - 24;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
@@ -755,7 +755,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = 20 + (15 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7])*(7));//
+		damage = 27 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(7));//
 		projectile_sprite = spr_meteor;
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
@@ -776,7 +776,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (red_crystal < 24)
+if (mouse_check_button(mb_left) = false) or (orange_crystal < 24)
 {
 	attacking = false;
 	state_script = free_state;
@@ -865,7 +865,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	red_crystal = red_crystal - 5;
+	orange_crystal = orange_crystal - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
@@ -874,7 +874,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = 2 + obj_player.grace + ((obj_inventory.form_grid[# 3, 7]));//
+		damage = 2 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = HalofireFirespit;
 		idle_sprite = spr_halofire_firespit;
@@ -898,7 +898,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (red_crystal < 5)
+if (mouse_check_button(mb_left) = false) or (orange_crystal < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -1014,13 +1014,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (red_crystal < max_charge) and (watervice = false)//Charge Recharge
+if (orange_crystal < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		red_crystal = red_crystal + 1;
+		orange_crystal = orange_crystal + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -1089,7 +1089,7 @@ if (animation_end)
 		timer1 = 30;
 		target = -1;
 		break_object = obj_player.break_object;
-		damage = 22 + (22 * obj_player.divinity) + (10 * obj_inventory.form_grid[# 3, 8]);
+		damage = 32 + (12 * obj_player.divinity) + (9 * obj_inventory.form_grid[# 3, 8]);
 		idle_sprite = spr_flameSeed;
 		projectile_sprite = spr_flameSeed;
 		projectile_script = HalofireFlameSeed;
@@ -1241,7 +1241,7 @@ function HalofireCursor(){
 image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
-curs_form = 3;
+curs_form = 1;
 
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;

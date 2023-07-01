@@ -247,7 +247,7 @@ function EvarelDaggerDash(){
 //Set
 attacking = true;
 //casting = true;
-damage = 19 + (12 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+damage = 19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -413,7 +413,7 @@ if (magic_timer <= 0)
 		distance = 0;
 		fragment_count = 1;
 		fragment = obj_fragPlant;
-		damage = obj_player.grace + ((obj_inventory.form_grid[# 4, 7])*(distance));
+		damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 		projectile_sprite = spr_evarel_bristlerod;
 		projectile_script = EvarelBristlerod;
 		idle_sprite = spr_evarel_bristlerod;
@@ -457,7 +457,7 @@ timer1 = timer1 - 1;
 if (timer1 <= 0)
 {
 	distance = distance + 1;
-	damage = 30 + (18 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(distance));
+	damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 	timer1 = 3;
 }
 if (sprite_index != projectile_sprite)
@@ -587,7 +587,7 @@ if (magic_timer <= 0)
 		fragment_count = 2;
 		fragment = obj_fragPlant;
 		timer1 = 120;
-		damage = 10 + (4 * obj_player.grace) + (obj_inventory.form_grid[# 0, 7]-1)*(5);//
+		damage = 10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
 		projectile_sprite = spr_evarel_reflexthorn;
 		projectile_script = EvarelReflexThorn;
 		idle_sprite = spr_evarel_reflexthorn;
@@ -739,7 +739,7 @@ if (animation_end)
 		timer1 = 300;
 		timer3 = 30;
 		break_object = obj_player.break_object;
-		damage = 7 + (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
+		damage = 11 + (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
 		idle_sprite = spr_evarel_thornrise;
 		projectile_sprite = spr_evarel_thornrise;
 		projectile_script = EvarelThornrise;

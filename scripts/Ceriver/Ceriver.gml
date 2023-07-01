@@ -6,8 +6,8 @@
 //
 //Ceriver Set (create)
 function CeriverSet(){
-form = 1;
-form_type = 1;
+form = 3;
+form_type = 3;
 home_state = CeriverSet;
 free_state = CeriverFree;
 state_script = CeriverFree;
@@ -35,7 +35,7 @@ max_weapon_count = 2;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
-armor = 11 + (6 * (obj_inventory.form_grid[# 1, 6] -1));
+armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
@@ -316,7 +316,7 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = 18 + (9 * obj_player.might) + ((obj_inventory.form_grid[# 1, 6])*2);//
+		damage = 18 + (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*4);//
 		projectile_sprite = spr_ceriver_boomerang;
 		projectile_script = CeriverBoomerangFree;
 		idle_sprite = spr_ceriver_boomerang;
@@ -499,7 +499,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = 7 + (5 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (_bubbleRand));//
+		damage = 8 + (5 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * (2) + (_bubbleRand));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -646,7 +646,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 15;
-		damage = 6 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7]) * 2);//
+		damage = 7 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 3);//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverLineorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -800,7 +800,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 60;
-		damage = 20 + (17 * obj_player.divinity) + ((obj_inventory.form_grid[# 1, 8]) * (14));//
+		damage = 35 + (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
 		projectile_sprite = spr_ceriver_steelorb;
 		projectile_script = CeriverSteelorbFree;
 		idle_sprite = spr_ceriver_steelorb;
@@ -883,7 +883,7 @@ function CeriverCursor(){
 image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
-curs_form = 1;
+curs_form = 3;
 
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;

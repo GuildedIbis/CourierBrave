@@ -36,9 +36,9 @@ else
 //
 //
 //Ceriver's Form Stone Pedestal Text
-function FormStonePedestal1Text(){
+function FormStonePedestal3Text(){
 //Stone
-if (obj_inventory.form_grid[# 1, 4] = false)
+if (obj_inventory.form_grid[# 3, 4] = false)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -61,7 +61,7 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.form_grid[# 1, 4] = true;
+		obj_inventory.form_grid[# 3, 4] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -84,7 +84,7 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 }
 
 //Active
-if (obj_inventory.form_grid[# 1, 4] = true)
+if (obj_inventory.form_grid[# 3, 4] = true)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -234,9 +234,9 @@ if (obj_inventory.form_grid[# 2, 4] = true)
 //
 //
 //Halofire's Form Stone Pedestal Text
-function FormStonePedestal3Text(){
+function FormStonePedestal1Text(){
 //Stone
-if (obj_inventory.form_grid[# 3, 4] = false)
+if (obj_inventory.form_grid[# 1, 4] = false)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -259,7 +259,7 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.form_grid[# 3, 4] = true;
+		obj_inventory.form_grid[# 1, 4] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -282,7 +282,7 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 }
 
 //Active
-if (obj_inventory.form_grid[# 3, 4] = true)
+if (obj_inventory.form_grid[# 1, 4] = true)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)

@@ -35,7 +35,7 @@ casting = false;
 max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
-armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6] -1));
+armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
 max_hp = 200 + (20 * vitality);
@@ -231,7 +231,7 @@ if (keyboard_check_pressed(ord("Z")))
 function RegaliareRegalBlade(){
 //Set
 attacking = true;
-damage = 20 + (14 * might) + (11 * obj_inventory.form_grid[# 0, 5]);
+damage = 31 + (7 * might) + (6 * obj_inventory.form_grid[# 0, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -394,7 +394,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 5 + (6 * obj_player.grace) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		damage = 11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_goldBullet;
 		projectile_script = RegaliareGoldBullet;
 		idle_sprite = spr_goldBullet;
@@ -550,7 +550,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 6 + (8 * obj_player.grace) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		damage = 13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_heavyBullet;
 		projectile_script = RegaliareHeavyBullet;
 		idle_sprite = spr_heavyBullet;
@@ -680,7 +680,7 @@ if (animation_end)
 		audio_play_sound(snd_goldArcs,0,0);
 		timer1 = 120;
 		break_object = obj_player.break_object;
-		damage = 22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8] - 1));
+		damage = 22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));
 		idle_sprite = spr_goldArc;
 		projectile_sprite = spr_goldArc;
 		projectile_script = RegaliareGoldArcs;

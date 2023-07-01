@@ -656,18 +656,18 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_50ABD90A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":5.5,"scaleY":1.0,"x":120.0,"y":48.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
 -840,0,-80,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -10,0,4,11,0,0,534,-14,0,3,11,13,12,-13,0,4,12,165,0,4,
 -3,0,7,5,0,253,0,10,12,140,-5,0,12,10,165,53,52,0,0,10,
-12,12,331,0,50,-8,0,11,12,0,293,0,13,0,0,13,10,0,51,-8,
-0,6,13,0,0,51,13,12,-3,0,-2,12,-2,0,1,50,-6,0,7,12,
-0,0,50,12,11,13,-3,0,6,11,0,13,0,53,13,-4,0,2,13,50,
--3,0,7,13,10,11,0,53,0,52,-11,0,8,332,0,0,11,13,13,0,
-292,-15,0,3,12,10,11,-18,0,1,13,-17,0,4,80,0,0,10,-9,0,
-],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+12,12,331,0,50,-8,0,11,12,0,293,212,13,0,0,13,10,0,51,-8,
+0,6,13,0,0,51,13,12,-3,0,-2,12,-2,0,1,50,-6,0,16,12,
+0,0,50,12,11,13,210,0,0,11,0,13,0,53,13,-4,0,2,13,50,
+-3,0,10,13,10,11,0,53,0,52,0,0,211,-8,0,8,332,0,0,11,
+13,13,0,292,-15,0,3,12,10,11,-18,0,1,13,-17,0,4,80,0,0,
+10,-9,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -23,0,-3,162,-8,0,3,209,162,162,-5,0,-2,162,4,206,86,2,2,-3,
 48,-3,2,4,3,209,162,162,-4,0,16,162,206,86,45,4,88,202,202,0,

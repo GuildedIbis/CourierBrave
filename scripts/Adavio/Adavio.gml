@@ -242,7 +242,7 @@ function AdavioHookThrust(){
 //Set
 attacking = true;
 casting = false;
-damage = 15 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
+damage = 20 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -350,7 +350,7 @@ if (timer1 <= 0)
 		fragment = obj_fragGold;
 		timer1 = 10;
 		//bounces = 0;
-		damage = 20 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+		damage = 15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
 		projectile_sprite = spr_adavio_hook_blast;
 		projectile_script = AdavioHookBlast;
 		idle_sprite = spr_adavio_hook_blast;
@@ -503,7 +503,7 @@ if (magic_timer <= 0)
 			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 11 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7]-1)*8);//
+			damage = 11 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -688,7 +688,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28; //2/5/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 15 + (obj_player.grace * 12) + ((obj_inventory.form_grid[# 2, 7])*(7));//
+		damage = 22 + (obj_player.grace * 9) + ((obj_inventory.form_grid[# 2, 7])*(7));//
 		projectile_sprite = spr_adavio_voidCycle;
 		projectile_script = AdavioVoidCycle;
 		timer1 = 20;
@@ -751,7 +751,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7]-1)*8);////
+			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -918,6 +918,8 @@ function AdavioRiftCrushCast(){
 //
 //Timers
 //Standard Timers
+inv_dur_timer = 30;
+invincible = true;
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -999,7 +1001,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 7]-1)*8);////
+			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 7])*8);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBitSpecial;
 			timer1 = 15;

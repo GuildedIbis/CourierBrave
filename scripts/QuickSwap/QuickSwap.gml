@@ -81,11 +81,11 @@ var _red = (obj_player.red_crystal/_max) * 100;
 var _green = (obj_player.green_crystal/_max) * 100;
 var _orange = (obj_player.orange_crystal/_max) * 100;
 draw_healthbar(48,51,51,111,_yellow,c_black,c_yellow,c_yellow,3,true,true);
-draw_healthbar(95,51,98,111,_blue,c_black,c_blue,c_blue,3,true,true);
+draw_healthbar(95,51,98,111,_orange,c_black,c_orange,c_orange,3,true,true);
 draw_healthbar(141,51,144,111,_purple,c_black,c_purple,c_purple,3,true,true);
-draw_healthbar(187,51,190,111,_red,c_black,c_red,c_red,3,true,true);
+draw_healthbar(187,51,190,111,_blue,c_black,c_blue,c_blue,3,true,true);
 draw_healthbar(233,51,236,111,_green,c_black,c_green,c_green,3,true,true);
-draw_healthbar(279,51,282,111,_orange,c_black,c_orange,c_orange,3,true,true);
+draw_healthbar(279,51,282,111,_red,c_black,c_red,c_red,3,true,true);
 
 //Special
 var _yellowS = (obj_player.yellow_special/_max) * 100;
@@ -95,11 +95,11 @@ var _redS = (obj_player.red_special/_max) * 100;
 var _greenS = (obj_player.green_special/_max) * 100;
 var _orangeS = (obj_player.orange_special/_max) * 100;
 draw_healthbar(55,51,58,111,_yellowS,c_black,c_yellow,c_yellow,3,true,true);
-draw_healthbar(102,51,105,111,_blueS,c_black,c_blue,c_blue,3,true,true);
+draw_healthbar(102,51,105,111,_orangeS,c_black,c_orange,c_orange,3,true,true);
 draw_healthbar(148,51,151,111,_purpleS,c_black,c_purple,c_purple,3,true,true);
-draw_healthbar(194,51,197,111,_redS,c_black,c_red,c_red,3,true,true);
+draw_healthbar(194,51,197,111,_blueS,c_black,c_blue,c_blue,3,true,true);
 draw_healthbar(240,51,243,111,_greenS,c_black,c_green,c_green,3,true,true);
-draw_healthbar(286,51,289,111,_orangeS,c_black,c_orange,c_orange,3,true,true);
+draw_healthbar(286,51,289,111,_redS,c_black,c_red,c_red,3,true,true);
 //draw_ring_healthbar(85,30,obj_player.yellow_charge,_max,c_yellow,12,1,4);
 }
 //
