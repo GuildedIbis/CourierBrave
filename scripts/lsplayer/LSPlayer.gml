@@ -24,7 +24,7 @@ function LoadPlayer(_loadEntity){
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
-		if (variable_struct_exists(_loadEntity,"iteration")) obj_player.conviction = _loadEntity.iteration; 
+		if (variable_struct_exists(_loadEntity,"iteration")) obj_player.iteration = _loadEntity.iteration; 
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
 		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_stone = _loadEntity.crull;
 		if (variable_struct_exists(_loadEntity,"conviction")) obj_player.conviction = _loadEntity.conviction; 

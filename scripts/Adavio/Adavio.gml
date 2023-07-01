@@ -167,6 +167,7 @@ if (key_attackS) and (purple_special >= 25)
 		//audio_play_sound(snd_ceriver_orbDash,0,false);
 		//special = special - 250;
 		//magic_timer = 20;
+		timer1 = 35;
 		attack_script = AdavioRiftCrushFree;
 		state_script = PlayerStateAttack;
 		obj_cursor.curs_script = AdavioRiftCrushCursor;
@@ -241,7 +242,7 @@ function AdavioHookThrust(){
 //Set
 attacking = true;
 casting = false;
-damage = might - 6 + (5 * obj_inventory.form_grid[# 2, 5]);
+damage = 15 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -349,7 +350,7 @@ if (timer1 <= 0)
 		fragment = obj_fragGold;
 		timer1 = 10;
 		//bounces = 0;
-		damage = round(obj_player.might) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+		damage = 20 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
 		projectile_sprite = spr_adavio_hook_blast;
 		projectile_script = AdavioHookBlast;
 		idle_sprite = spr_adavio_hook_blast;
@@ -502,7 +503,7 @@ if (magic_timer <= 0)
 			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(obj_player.grace/2) + 3 + ((obj_inventory.form_grid[# 2, 7]-1)*8);//
+			damage = 11 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7]-1)*8);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -550,6 +551,40 @@ if (sprite_index != projectile_sprite)
 	ds_list_clear(hit_by_attack);
 }
 
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object))
+{
+	instance_destroy();
+}
+}
+//
+//
+//
+//
+//
+//Special Void Bit
+function AdavioVoidBitSpecial(){
+//Set
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+//SD
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer1 <= 0) instance_destroy();
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
@@ -653,7 +688,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28; //2/5/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = round(obj_player.grace) - 5 + ((obj_inventory.form_grid[# 2, 7])*(7));//
+		damage = 15 + (obj_player.grace * 12) + ((obj_inventory.form_grid[# 2, 7])*(7));//
 		projectile_sprite = spr_adavio_voidCycle;
 		projectile_script = AdavioVoidCycle;
 		timer1 = 20;
@@ -716,7 +751,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = round(obj_player.grace/2) - 3 + ((obj_inventory.form_grid[# 2, 7]-1)*5);////
+			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7]-1)*8);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -815,7 +850,7 @@ else sprite_index = spr_player_adavio_riftCrush_free;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Cursor Effects
-if (!place_meeting(mouse_x,mouse_y,obj_wall))
+if (!place_meeting(mouse_x,mouse_y,obj_wall)) and (!collision_line(mouse_x,mouse_y,obj_player.x,obj_player.y,obj_wall,false,false))
 {
 	with (obj_cursor)
 	{
@@ -942,14 +977,41 @@ if (special_timer <= 45)
 {
 	x = dest_x;
 	y = dest_y;
+	if (timer1 > 0) timer1 = timer1 - 1;
 	sprite_index = spr_player_adavio_riftCrushB;
-	damage = round(obj_player.grace) + 6 + ((obj_inventory.form_grid[# 2, 7])*9)
+	damage = 26 + (obj_player.divinity * 22) + ((obj_inventory.form_grid[# 2, 7])*9);
 	if (special_timer <= 30)
 	{
 		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,2,-1,-1,-1,-1,1,5)
 	}
 }
 
+if (timer1 <= 0) 
+{
+	timer1 = 90;
+	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
+	audio_play_sound(snd_adavio_voidBits,0,0);
+	for (var i = 0; i < 8; i = i + 1)
+	{
+		with (instance_create_layer(x,y,"Instances",obj_projectile))
+		{
+			break_object = obj_player.break_object;
+			magic = true;
+			fragment_count = 2;
+			fragment = obj_fragGold;
+			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 7]-1)*8);////
+			projectile_sprite = spr_adavio_voidBit;
+			projectile_script = AdavioVoidBitSpecial;
+			timer1 = 15;
+			idle_sprite = spr_adavio_voidBit;
+			hit_by_attack = -1;
+			direction = 0 + (45 * i);
+			image_angle = direction;
+			projectile_speed = 3.0;
+		}
+	}
+}
+	
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 

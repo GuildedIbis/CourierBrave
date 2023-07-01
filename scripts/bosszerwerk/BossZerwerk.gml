@@ -601,7 +601,7 @@ if (string_counter = 1)
 if (string_counter >= 2)
 {
 
-	obj_player.beans = obj_player.beans + 1000;
+	obj_inventory.beans = obj_inventory.beans + 1000;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);

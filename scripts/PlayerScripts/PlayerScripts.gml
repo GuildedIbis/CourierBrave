@@ -521,7 +521,10 @@ if (iAlpha <= 0)
 	state_script = free_state;
 	attacking = false;
 	//obj_inventory.depth = depth + 1;
-	if (beans >= 100) beans = beans - round(beans*.05);
+	with (obj_inventory)
+	{
+		if (beans >= 100) beans = beans - round(beans*.05);
+	}
 }
 	
 }

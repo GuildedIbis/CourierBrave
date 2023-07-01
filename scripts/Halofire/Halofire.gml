@@ -239,7 +239,7 @@ if (keyboard_check_pressed(ord("Z")))
 function HalofireHamaxe(){
 //Set
 attacking = true;
-damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
 
 //Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -495,7 +495,7 @@ if (mouse_check_button_released(mb_right))
 function HalofireHamaxeBackswing(){
 //Set
 attacking = true;
-damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -574,7 +574,7 @@ if (animation_end)
 function HalofireHamaxeBackswingCharged(){
 //Set
 attacking = true;
-damage = might + 3 + (14 * obj_inventory.form_grid[# 3, 5]);
+damage = 23 + (16 * obj_player.might) + (14 * obj_inventory.form_grid[# 3, 5]);
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
@@ -755,7 +755,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = obj_player.grace + ((obj_inventory.form_grid[# 3, 7])*(7));//
+		damage = 20 + (15 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7])*(7));//
 		projectile_sprite = spr_meteor;
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
@@ -874,7 +874,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = round(obj_player.grace/8) + ((obj_inventory.form_grid[# 3, 7]));//
+		damage = 2 + obj_player.grace + ((obj_inventory.form_grid[# 3, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = HalofireFirespit;
 		idle_sprite = spr_halofire_firespit;
@@ -1089,7 +1089,7 @@ if (animation_end)
 		timer1 = 30;
 		target = -1;
 		break_object = obj_player.break_object;
-		damage = obj_player.grace + (10 * obj_inventory.form_grid[# 3, 8]);
+		damage = 22 + (22 * obj_player.divinity) + (10 * obj_inventory.form_grid[# 3, 8]);
 		idle_sprite = spr_flameSeed;
 		projectile_sprite = spr_flameSeed;
 		projectile_script = HalofireFlameSeed;
@@ -1158,7 +1158,7 @@ if (timer2 <= 0)
 	{
 		
 		break_object = obj_player.break_object;
-		damage = round(obj_player.grace/2);
+		damage = 10 + (5 * obj_player.divinity);
 		projectile_sprite = spr_fireSpark;
 		projectile_script = HalofireFireSpark;
 		idle_sprite = spr_fireSpark;

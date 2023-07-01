@@ -231,7 +231,7 @@ if (keyboard_check_pressed(ord("Z")))
 function RegaliareRegalBlade(){
 //Set
 attacking = true;
-damage = might + (11 * obj_inventory.form_grid[# 0, 5]);
+damage = 20 + (14 * might) + (11 * obj_inventory.form_grid[# 0, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -394,7 +394,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		damage = 5 + (6 * obj_player.grace) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
 		projectile_sprite = spr_goldBullet;
 		projectile_script = RegaliareGoldBullet;
 		idle_sprite = spr_goldBullet;
@@ -550,7 +550,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
+		damage = 6 + (8 * obj_player.grace) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5));//
 		projectile_sprite = spr_heavyBullet;
 		projectile_script = RegaliareHeavyBullet;
 		idle_sprite = spr_heavyBullet;
