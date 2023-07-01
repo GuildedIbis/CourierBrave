@@ -7,6 +7,7 @@
 //Effect Lekno Lake Path Well Create
 function EffectWellCreate(){
 image_speed = 0;
+sprite_index = spr_well;
 with (instance_create_layer(x-8,y-12,"Wall",obj_wall))
 {
 	image_xscale = 2;
@@ -45,7 +46,7 @@ image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-sprite_index = spr_well;
+
 if (place_meeting(x,y,obj_player))
 {
 	if (depth < obj_player.depth)
