@@ -137,30 +137,10 @@ if (map_selected != -1)
 function LenkoMapMenuDraw(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-//0 Camp
-//1 Lair
-//2 Dungeon
-//3 Chest
-//4 Moon Chest
-//5 Mini-Boss
-//6	Lair Boss
-//7 Main Boss
-//Camps
 var _xPos = 77
 var _yPos = 40
 
 draw_sprite(spr_map_full,0,77,40);
-
-//Draw Map Backround and Rooms
-//for (var i = 0; i < 6; i = i + 1)
-//{
-//	if (obj_inventory.map_grid[# i, 1] = true)
-//	{
-//		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-//		//draw_sprite_part(spr_map,i,0,63,139,78,107,45);
-		
-//	}
-//}
 
 //Draw Selectable Levels
 if (obj_inventory.level_ary[0] = true) 
@@ -213,10 +193,10 @@ if (obj_inventory.level_ary[2] = true)
 	if (obj_game.level_num = 2) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 81,_yPos + 57,.5,.5,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 77,_yPos + 53,_xPos + 85,_yPos + 61))
 	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
+		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 76,_yPos + 52,1,1,0,c_white,1);
 		if (mouse_check_button_pressed(mb_left)) 
 		{
-			map_selected = FarwayRoadMapMenuDraw;
+			map_selected = HabrafLakeMapMenuDraw;
 		}
 		//draw_set_halign(fa_left);
 		//draw_set_valign(fa_middle);
@@ -252,25 +232,6 @@ if (obj_inventory.level_ary[3] = true)
 	}
 }
 
-
-//if (obj_game.room_num != -1)	
-//{	//Draw Camps (Selectable for travel
-//	var _x = (107 + obj_inventory.room_ary[obj_game.room_num][1])	
-//	var _y = (38 + obj_inventory.room_ary[obj_game.room_num][2])	
-//	draw_sprite(spr_map_pointer,0,_x,_y);	
-//}
-//if (obj_inventory.quest_grid[# 8,0] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,1,240,140,1,1,0,c_white,1);
-//}
-//if (obj_inventory.quest_grid[# 8,3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,1,250,140,1,1,0,c_white,1);
-//}
-//if (obj_inventory.quest_grid[# 8,3] = true) 
-//{
-//	draw_sprite_ext(spr_map_icon,1,260,140,1,1,0,c_white,1);
-//}
 }
 //
 //
@@ -710,11 +671,11 @@ var _xPos = 77
 var _yPos = 40
 
 
-draw_sprite_ext(spr_map_level,0,77,40,1.0,1.0,0,c_white,1.0);
-if (obj_game.level_num = 0)
+draw_sprite_ext(spr_map_level,2,77,40,1.0,1.0,0,c_white,1.0);
+if (obj_game.level_num = 2)
 {
-	var _mapRoomX = obj_inventory.farwayRoad_map_ary[obj_game.room_num][1] 
-	var _mapRoomY = obj_inventory.farwayRoad_map_ary[obj_game.room_num][2]
+	var _mapRoomX = obj_inventory.habrafLake_map_ary[obj_game.room_num][1] 
+	var _mapRoomY = obj_inventory.habrafLake_map_ary[obj_game.room_num][2]
 	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
 	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
 	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
@@ -722,24 +683,24 @@ if (obj_game.level_num = 0)
 
 
 //Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 0, 3] = true) 
+if (obj_inventory.camp_grid[# 10, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 119, _yPos + 13,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 11,_xPos + 121,_yPos + 14))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 119,_yPos + 13);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 5;
-			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
-			obj_game.room_num = 5;
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.level_num = 2;
+			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 1, 1];
-			global.targetY = obj_inventory.camp_grid[# 1, 2];
-			global.targetRoom = rm_lenko_farwayRoad_05;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 10, 1];
+			global.targetY = obj_inventory.camp_grid[# 10, 2];
+			global.targetRoom = rm_lenko_habrafLake_00;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -759,24 +720,24 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 1, 3] = true) 
+if (obj_inventory.camp_grid[# 11, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 23,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 21,_xPos + 90,_yPos + 24))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 23);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 5;
-			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
-			obj_game.room_num = 5;
+			obj_inventory.room_num = 4;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.level_num = 2;
+			obj_game.room_num = 4;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 1, 1];
-			global.targetY = obj_inventory.camp_grid[# 1, 2];
-			global.targetRoom = rm_lenko_farwayRoad_05;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 11, 1];
+			global.targetY = obj_inventory.camp_grid[# 11, 2];
+			global.targetRoom = rm_lenko_habrafLake_04;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -796,24 +757,24 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 2, 3] = true) 
+if (obj_inventory.camp_grid[# 12, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 31,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 7;
-			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
-			obj_game.room_num = 7;
+			obj_inventory.room_num = 6;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.level_num = 2;
+			obj_game.room_num = 6;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 2, 1];
-			global.targetY = obj_inventory.camp_grid[# 2, 2];
-			global.targetRoom = rm_lenko_farwayRoad_07;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 12, 1];
+			global.targetY = obj_inventory.camp_grid[# 12, 2];
+			global.targetRoom = rm_lenko_habrafLake_06;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -834,24 +795,24 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 3, 3] = true) 
+if (obj_inventory.camp_grid[# 13, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 31,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 29,_xPos + 89,_yPos + 32))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 103, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 31);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 10;
-			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
-			obj_game.room_num = 10;
+			obj_inventory.room_num = 9;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.level_num = 2;
+			obj_game.room_num = 9;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 3, 1];
-			global.targetY = obj_inventory.camp_grid[# 3, 2];
-			global.targetRoom = rm_lenko_farwayRoad_10;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 13, 1];
+			global.targetY = obj_inventory.camp_grid[# 13, 2];
+			global.targetRoom = rm_lenko_habrafLake_09;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -871,24 +832,24 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 4, 3] = true) 
+if (obj_inventory.camp_grid[# 14, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 40, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 18,_yPos + 67);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 14;
-			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 0;
-			obj_game.room_num = 14
+			obj_inventory.room_num = 13;
+			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
+			obj_game.level_num = 2;
+			obj_game.room_num = 13;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 4, 1];
-			global.targetY = obj_inventory.camp_grid[# 4, 2];
-			global.targetRoom = rm_lenko_farwayRoad_14;
+			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 14, 1];
+			global.targetY = obj_inventory.camp_grid[# 14, 2];
+			global.targetRoom = rm_lenko_farwayRoad_13;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
