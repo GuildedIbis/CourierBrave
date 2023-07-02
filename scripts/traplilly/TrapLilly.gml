@@ -27,7 +27,7 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 105;
+max_hp = 80;
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -142,6 +142,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			script_execute(ViceBubbleCreate);
+			damage = 45;
 			direction =  point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

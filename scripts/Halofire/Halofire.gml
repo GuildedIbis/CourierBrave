@@ -167,7 +167,7 @@ if (key_attackS) and (orange_special >= 50)
 {
 	if (watervice = false)
 	{
-		red_special = red_special - 50;
+		orange_special = orange_special - 50;
 		attack_script = HalofireSpecial;
 		state_script = PlayerStateAttack;
 	}

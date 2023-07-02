@@ -555,7 +555,7 @@ if (sd_timer > 0) sd_timer = sd_timer - 1;
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
+	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object))
@@ -818,7 +818,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (blue_charge < 20)
+if (keyboard_check(vk_shift) = false) or (blue_crystal < 20)
 {
 	attacking = false;
 	state_script = free_state;
