@@ -45,9 +45,9 @@ level_ary = array_create(100,-1);
 level_name = array_create(100,-1);
 farwayRoad_map_ary = array_create(20,-1);
 yakflowerPath_map_ary = array_create(20,-1);
-lakePath_map_ary = array_create(13,-1);
+//lakePath_map_ary = array_create(13,-1);
 habrafLake_map_ary = array_create(20,-1);
-greyrock_map_ary = array_create(12,-1);
+//greyrock_map_ary = array_create(12,-1);
 beaowireFortress_map_ary = array_create(20,-1);
 room_ary = farwayRoad_map_ary;
 //name
