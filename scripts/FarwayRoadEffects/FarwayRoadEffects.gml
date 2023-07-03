@@ -4,6 +4,33 @@
 //
 //
 //
+//Effect Lekno Lake Path Rat Tent Create
+function EffectRatCampfireCreate(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_campFire_rat;
+}
+	//
+//
+//
+//
+//
+//Effect Statue Moth
+function EffectRatCampfireStep(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_campFire_rat;
+
+}
+//
+//
+//
+//
+//
 //Effect Lekno AbandonedHouse Rear Create
 function EffectLenkoAbandonedHouseRearCreate(){
 sprite_index = spr_house_abandonedBack;

@@ -558,7 +558,7 @@
     {"id":{"name":"rm_habrafLake_05","path":"rooms/rm_habrafLake_05/rm_habrafLake_05.yy",},},
     {"id":{"name":"spr_fortress_key_pedestal","path":"sprites/spr_fortress_key_pedestal/spr_fortress_key_pedestal.yy",},},
     {"id":{"name":"spr_player_halofire_runCast_ultimate","path":"sprites/spr_player_halofire_runCast_ultimate/spr_player_halofire_runCast_ultimate.yy",},},
-    {"id":{"name":"spr_furnaceFire","path":"sprites/spr_furnaceFire/spr_furnaceFire.yy",},},
+    {"id":{"name":"spr_light_campFire_rat","path":"sprites/spr_light_campFire_rat/spr_light_campFire_rat.yy",},},
     {"id":{"name":"rm_lenko_habrafLake_01","path":"rooms/rm_lenko_habrafLake_01/rm_lenko_habrafLake_01.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_idle","path":"sprites/spr_enemy_tortoiseTroll_idle/spr_enemy_tortoiseTroll_idle.yy",},},
     {"id":{"name":"spr_crull_pedestal_empty","path":"sprites/spr_crull_pedestal_empty/spr_crull_pedestal_empty.yy",},},

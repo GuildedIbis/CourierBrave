@@ -486,7 +486,7 @@
     {"name":"rm_habrafLake_05","order":4,"path":"rooms/rm_habrafLake_05/rm_habrafLake_05.yy",},
     {"name":"spr_fortress_key_pedestal","order":9,"path":"sprites/spr_fortress_key_pedestal/spr_fortress_key_pedestal.yy",},
     {"name":"spr_player_halofire_runCast_ultimate","order":27,"path":"sprites/spr_player_halofire_runCast_ultimate/spr_player_halofire_runCast_ultimate.yy",},
-    {"name":"spr_furnaceFire","order":2,"path":"sprites/spr_furnaceFire/spr_furnaceFire.yy",},
+    {"name":"spr_light_campFire_rat","order":2,"path":"sprites/spr_light_campFire_rat/spr_light_campFire_rat.yy",},
     {"name":"rm_lenko_habrafLake_01","order":10,"path":"rooms/rm_lenko_habrafLake_01/rm_lenko_habrafLake_01.yy",},
     {"name":"spr_crull_pedestal_empty","order":4,"path":"sprites/spr_crull_pedestal_empty/spr_crull_pedestal_empty.yy",},
     {"name":"rm_lenko_habrafLake_06","order":13,"path":"rooms/rm_lenko_habrafLake_06/rm_lenko_habrafLake_06.yy",},
