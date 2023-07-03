@@ -150,7 +150,7 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (blue_crystal >= 6)
+		if (magic_primary = true) and (blue_crystal >= 5)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
@@ -488,7 +488,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_crystal = blue_crystal - 6;
+	blue_crystal = blue_crystal - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -518,7 +518,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_crystal < 6)
+if (mouse_check_button(mb_left) = false) or (blue_crystal < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -818,7 +818,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (blue_crystal < 20)
+if (keyboard_check(vk_shift) = false) or (blue_special < 20)
 {
 	attacking = false;
 	state_script = free_state;

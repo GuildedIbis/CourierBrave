@@ -28,7 +28,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 1;
-max_hp = 1050;
+max_hp = 1450;
 hp = max_hp;
 boss = true;
 enemy_spd = 1.1;
@@ -174,10 +174,11 @@ if (obj_game.gamePaused = false)
 		//Walk Sound
 		if (walk_snd_delay <= 0)
 		{
-			walk_snd_delay = 60;
+			walk_snd_delay = 600;
 			audio_play_sound(walk_snd,1,0);
 			with (instance_create_layer(x,y,"Instances",obj_effect))
 			{
+				timer1 = 1200;
 				sprite_index = spr_enemy_motherLily_viceEffect;
 				effect_script = EffectWaterVice;
 				image_xscale = choose(-1,1);
@@ -467,6 +468,8 @@ if (obj_game.gamePaused = false)
 //Effect Water Vice
 function EffectWaterVice(){
 damage = 5 + obj_player.might;
+timer1 = timer1 - 1;
+if (timer1 <= 0) instance_destroy();
 if (sprite_index != spr_enemy_motherLily_viceEffect)
 {
 	sprite_index = spr_enemy_motherLily_viceEffect;
@@ -484,9 +487,9 @@ if (place_meeting(x,y,obj_player))
 			audio_play_sound(snd_player_hit,0,false);
 			flash = .35;
 			hp = hp - other.damage;
-			with (other) instance_destroy();
 		}
 	}
+	instance_destroy();
 }
 }
 //
@@ -570,7 +573,7 @@ if (_drop2 > 49)
 obj_inventory.habraf_lair[4] = 2;
 if (obj_inventory.quest_grid[# 9, 3] = false)
 {
-	obj_player.beans = obj_player.beans + 1000;
+	obj_inventory.beans = obj_inventory.beans + 1000;
 	obj_inventory.quest_grid[# 9, 0] = true;
 	obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
 	obj_inventory.quest_grid[# 9, 3] = true;
@@ -625,7 +628,7 @@ if (string_counter = 1)
 if (string_counter >= 2)
 {
 
-	obj_player.beans = obj_player.beans + 1000;
+	obj_inventory.beans = obj_inventory.beans + 1000;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);

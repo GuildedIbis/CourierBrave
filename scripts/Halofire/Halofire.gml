@@ -149,7 +149,7 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (orange_crystal >= 24)
+		if (magic_primary = true) and (orange_crystal >= 16)
 		{
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
@@ -745,7 +745,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {
-	orange_crystal = orange_crystal - 24;
+	orange_crystal = orange_crystal - 16;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
@@ -755,7 +755,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = 27 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(7));//
+		damage = 20 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(7));//
 		projectile_sprite = spr_meteor;
 		projectile_script = HalofireMeteor;
 		idle_sprite = spr_meteor;
@@ -769,14 +769,14 @@ if (magic_timer <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	magic_timer = 30;
+	magic_timer = 25;
 }
 
 //Animate
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_crystal < 24)
+if (mouse_check_button(mb_left) = false) or (orange_crystal < 16)
 {
 	attacking = false;
 	state_script = free_state;

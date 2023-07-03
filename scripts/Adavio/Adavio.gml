@@ -145,12 +145,12 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (purple_crystal >= 25)
+		if (magic_primary = true) and (purple_crystal >= 20)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (purple_crystal >= 30)
+		if (magic_primary = false) and (purple_crystal >= 20)
 		{
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -491,7 +491,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_crystal = purple_crystal - 30;
+	purple_crystal = purple_crystal - 20;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
@@ -503,7 +503,7 @@ if (magic_timer <= 0)
 			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 11 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
+			damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -515,14 +515,14 @@ if (magic_timer <= 0)
 			projectile_speed = 4.0;
 		}
 	}
-	magic_timer = 45;
+	magic_timer = 35;
 }
 
 //Animate
 PlayerAnimationCast();
 
 //Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (purple_crystal < 30)
+if (mouse_check_button(mb_left) = false) or (purple_crystal < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -678,7 +678,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_crystal = purple_crystal - 25;
+	purple_crystal = purple_crystal - 20;
 	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidCycle,0,0);
 	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -699,14 +699,14 @@ if (magic_timer <= 0)
 		image_angle = direction;
 		projectile_speed = 2.0;
 	}
-	magic_timer = 45;
+	magic_timer = 35;
 }
 
 //Animate
 PlayerAnimationCast();
 
 //Reset or Return to free state
-if (mouse_check_button(mb_left) = false) or (purple_crystal < 25)
+if (mouse_check_button(mb_left) = false) or (purple_crystal < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -981,10 +981,10 @@ if (special_timer <= 45)
 	y = dest_y;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	sprite_index = spr_player_adavio_riftCrushB;
-	damage = 26 + (obj_player.divinity * 22) + ((obj_inventory.form_grid[# 2, 7])*9);
+	damage = 39 + (obj_player.divinity * 22) + ((obj_inventory.form_grid[# 2, 7])*9);
 	if (special_timer <= 30)
 	{
-		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,2,-1,-1,-1,-1,1,5)
+		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
 	}
 }
 
