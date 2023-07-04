@@ -80,17 +80,36 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 
 
-//Buttons
-draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
-draw_sprite_stretched(spr_menu_beveled,3,161,42,90,64);
-draw_sprite_stretched(spr_menu,3,69,108,44,16);
-draw_sprite_stretched(spr_menu,3,115,108,44,16);
-draw_sprite_stretched(spr_menu,3,161,108,32,16);
+//Menu Base and Buttons
+draw_sprite_stretched(spr_menu_beveled,3,44,35,110,89);
+draw_sprite_stretched(spr_menu_beveled,3,80,127,39,16);
+draw_sprite_stretched(spr_menu,8,39,35,120,16);
+
+//Static Text
+//var _starOrbs = string(obj_inventory.star_orb);
+
+//draw_set_valign(fa_top);
+//draw_set_color(c_black);
+//draw_set_halign(fa_center);
+//draw_text_transformed(102,38,"COURIER STATS",.6,.6,0);
+//draw_set_halign(fa_right);
+//draw_text_transformed(104,131,_starOrbs,.35,.35,0);
+//draw_set_color(c_white);
+//draw_set_halign(fa_center);
+//draw_text_transformed(101,38,"COURIER STATS",.6,.6,0);
+//draw_set_halign(fa_right);
+//draw_text_transformed(103,131,_starOrbs,.35,.35,0);
+//draw_sprite(spr_starOrb,0,106,131);
+
+//Button
+//draw_sprite_stretched(spr_menu,3,69,108,44,16);
+//draw_sprite_stretched(spr_menu,3,115,108,44,16);
+//draw_sprite_stretched(spr_menu,3,161,108,32,16);
 draw_set_halign(fa_center);
 draw_set_color(c_black);
-draw_text_transformed(138,113,"SWITCH",.35,.35,0);
+draw_text_transformed(138,127,"SWITCH",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(137,113,"SWITCH",.35,.35,0);
+draw_text_transformed(137,127,"SWITCH",.35,.35,0);
 
 //Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Equip
