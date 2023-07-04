@@ -610,8 +610,8 @@
 52,52,53,11,91,11,12,13,10,12,12,13,12,13,11,0,0,52,50,51,
 51,52,53,10,11,12,253,12,11,12,53,51,52,50,50,0,0,13,50,52,
 53,291,10,11,12,13,10,12,13,52,53,51,52,50,-8,0,4,51,10,92,
-52,-8,0,1,12,-7,0,7,52,12,11,53,50,0,12,-5,0,1,11,-6,
-0,5,33,53,11,10,51,-9,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+52,-8,0,1,12,-7,0,7,52,161,163,53,50,0,12,-5,0,1,11,-6,
+0,5,33,53,161,163,51,-9,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -2,162,-3,0,-2,162,-2,0,2,161,163,-3,0,-15,162,2,161,163,-16,162,
 -2,122,-2,206,-2,122,1,209,-5,162,1,122,-8,162,1,121,-5,0,2,122,

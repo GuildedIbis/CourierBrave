@@ -981,7 +981,7 @@ if (special_timer <= 45)
 	y = dest_y;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	sprite_index = spr_player_adavio_riftCrushB;
-	damage = 39 + (obj_player.divinity * 22) + ((obj_inventory.form_grid[# 2, 7])*9);
+	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 7])*17);
 	if (special_timer <= 30)
 	{
 		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)

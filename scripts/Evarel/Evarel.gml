@@ -137,10 +137,10 @@ PlayerAnimation();
 //Weapon Attack
 if (key_attackW)
 {
-	if (thundux = false) and (stamina >= 30)
+	if (thundux = false) and (stamina >= 50)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		stamina = stamina - 30;
+		stamina = stamina - 50;
 		attack_script = EvarelDaggerDash;
 		state_script = PlayerStateAttack;
 		
@@ -170,7 +170,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (green_charge >= 20)
+if (key_attackS) and (green_special >= 20)
 {
 	if (watervice = false)
 	{
@@ -248,6 +248,8 @@ function EvarelDaggerDash(){
 attacking = true;
 //casting = true;
 damage = 19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+invincible = true;
+inv_dur_timer = 5;
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
