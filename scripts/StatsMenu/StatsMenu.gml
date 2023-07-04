@@ -12,7 +12,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Menu Base and Buttons
-draw_sprite_stretched(spr_menu_beveled,3,44,35,110,89);
+draw_sprite_stretched(spr_menu_beveled,3,44,35,110,88);
 draw_sprite_stretched(spr_menu_beveled,3,80,127,39,16);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
 
@@ -38,7 +38,7 @@ for(var i = 0; i < 8; i = i + 1)
 	var _row = (i div 4);
 	var _column = (i mod 4);
 	var _originX = 50 + (26 * _column);
-	var _originY = 53 + (35 * _row);
+	var _originY = 53 + (34 * _row);
 	draw_sprite_stretched(spr_menu_circle16,1,_originX,_originY,21,21);
 	draw_sprite(spr_menu_player_stat,i,_originX + 3,_originY+ 3);
 	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))

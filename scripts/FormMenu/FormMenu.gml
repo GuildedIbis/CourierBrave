@@ -80,61 +80,66 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 
 
-//Menu Base and Buttons
-draw_sprite_stretched(spr_menu_beveled,3,44,35,110,89);
-draw_sprite_stretched(spr_menu_beveled,3,80,127,39,16);
+
+
+//Left-hand Menu
+draw_sprite(spr_menu_rope,3,54,88);
+draw_sprite(spr_menu_rope,3,140,88);
+draw_sprite_stretched(spr_menu_beveled,3,44,35,110,55);
+draw_sprite_stretched(spr_menu_beveled,3,44,96,110,27);
+for (var i = 0; i < 4; i = i + 1)
+{
+	var _originX = 50 + (26 * i);
+	var _originY = 53;
+	draw_sprite_stretched(spr_menu_circle16,1,_originX,_originY,21,21);
+}
+for (var j = 0; j < 5; j = j + 1)
+{
+	var _originX2 = 50 + (20 * j)
+	var _originY2 = 102;
+	draw_sprite_stretched(spr_menu_circle16,1,_originX2,_originY2,16,16);
+}
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
-
-//Static Text
-//var _starOrbs = string(obj_inventory.star_orb);
-
-//draw_set_valign(fa_top);
-//draw_set_color(c_black);
-//draw_set_halign(fa_center);
-//draw_text_transformed(102,38,"COURIER STATS",.6,.6,0);
-//draw_set_halign(fa_right);
-//draw_text_transformed(104,131,_starOrbs,.35,.35,0);
-//draw_set_color(c_white);
-//draw_set_halign(fa_center);
-//draw_text_transformed(101,38,"COURIER STATS",.6,.6,0);
-//draw_set_halign(fa_right);
-//draw_text_transformed(103,131,_starOrbs,.35,.35,0);
-//draw_sprite(spr_starOrb,0,106,131);
-
-//Button
-//draw_sprite_stretched(spr_menu,3,69,108,44,16);
-//draw_sprite_stretched(spr_menu,3,115,108,44,16);
-//draw_sprite_stretched(spr_menu,3,161,108,32,16);
+draw_sprite_stretched(spr_menu_circle16,3,48,127,50,16);
+draw_sprite_stretched(spr_menu_circle16,3,102,127,50,16);
 draw_set_halign(fa_center);
 draw_set_color(c_black);
-draw_text_transformed(138,127,"SWITCH",.35,.35,0);
+draw_text_transformed(76,132,"EQUIP",.35,.35,0);
+draw_text_transformed(128,132,"SWITCH",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(137,127,"SWITCH",.35,.35,0);
+draw_text_transformed(75,132,"EQUIP",.35,.35,0);
+draw_text_transformed(127,132,"SWITCH",.35,.35,0);
+
+//Right-hand Menu
+draw_sprite(spr_menu_rope,3,176,77);
+draw_sprite(spr_menu_rope,3,262,77);
+draw_sprite(spr_menu_rope,3,176,99);
+draw_sprite(spr_menu_rope,3,262,99);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,44);
+draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
+draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
+draw_sprite_stretched(spr_menu,8,161,35,120,16);
+draw_sprite_stretched(spr_menu_circle16,3,186,127,70,16);
+
+
 
 //Button Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,69,108,113,124))//Equip
+if (point_in_rectangle(_mouseX,_mouseY,48,127,98,143))//Equip
 {
-	if (obj_player.cursed = false)
+	draw_sprite_stretched(spr_highlight_circle,0,47,126,52,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,67,106,48,20);
-		if (mouse_check_button_pressed(mb_left))
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		with (obj_player)
 		{
-			audio_sound_gain(snd_menu,global.volumeMenu,1);
-			audio_play_sound(snd_menu,0,false);
-			with (obj_player)
-			{
-				script_execute(obj_inventory.form_grid[# other.slot, 2]);
-			}
+			script_execute(obj_inventory.form_grid[# other.slot, 2]);
 		}
 	}
-	else 
-	{
-		draw_sprite_stretched_ext(spr_highlight_nineslice,0,67,106,48,20,c_red,1.0);
-	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,115,108,161,124))//Switch
+if (point_in_rectangle(_mouseX,_mouseY,102,127,152,143))//Switch
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,113,106,48,20);
+	draw_sprite_stretched(spr_highlight_circle,0,101,126,52,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -155,21 +160,32 @@ script_execute(form_menu);
 function FormSwitchMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _rowLength = 4;
-draw_sprite_stretched(spr_menu_beveled,3,69,42,90,18);
-draw_sprite_stretched(spr_menu_beveled,3,82,62,64,64);
+var _rowLength = 6;
+draw_sprite_stretched(spr_menu_beveled,3,87,35,146,98);
+draw_sprite_stretched(spr_menu,8,82,35,156,16);
+
+
+
+//draw_sprite_stretched(spr_menu_circle16,3,92,8,21,24);
+//draw_sprite_stretched(spr_menu_circle16,3,115,8,21,24);
+//draw_sprite_stretched(spr_menu_circle16,3,138,8,21,24);
+//draw_sprite_stretched(spr_menu_circle16,3,161,8,21,24);
+//draw_sprite_stretched(spr_menu_circle16,3,184,8,21,24);
+//draw_sprite_stretched(spr_menu_circle16,3,207,8,21,24);
+
+
 //Button Mechanics
-for (var i = 0; i < 16; i = i + 1)
+for (var i = 0; i < 18; i = i + 1)
 {
-	var _x2 = 164 + (i mod _rowLength) * 22;
-	var _y2 = 41 + (i div _rowLength) * 22;
-	draw_sprite_stretched(spr_menu_circle16,1,_x2,_y2,20,20)
+	var _x2 = 92 + (i mod _rowLength) * 23;
+	var _y2 = 52 + (i div _rowLength) * 26;
+	draw_sprite_stretched(spr_menu_circle16,1,_x2,_y2,21,24)
 	if (obj_inventory.form_grid[# i, 4] = true) 
 	{
-		draw_sprite(spr_formSelect_icons,i,_x2 + 10,_y2 + 12);
-		if (point_in_rectangle(_mouseX,_mouseY,_x2,_y2,_x2+20,_y2+20))
+		draw_sprite(spr_formSelect_icons,i,_x2 + 10,_y2 + 13);
+		if (point_in_rectangle(_mouseX,_mouseY,_x2,_y2,_x2+21,_y2+24))
 		{
-			draw_sprite_stretched_ext(spr_highlight_circle,1,_x2-1,_y2-1,22,22,c_white,1.0)
+			draw_sprite_stretched_ext(spr_highlight_circle,1,_x2-1,_y2-1,23,26,c_white,1.0)
 			if (mouse_check_button_pressed(mb_left))
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -196,15 +212,15 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 //Draw Selected Form Menu Sprites (Right Hand Side) //Drawn Regardless if form is selected
-draw_sprite_stretched(spr_menu_circle16,1,182,42,32,32);
-draw_sprite_stretched(spr_menu,3,182,63,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,216,42,32,32);
-draw_sprite_stretched(spr_menu,3,216,63,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,182,76,32,32);
-draw_sprite_stretched(spr_menu,3,182,97,32,11);
-draw_sprite_stretched(spr_menu_circle16,1,216,76,32,32);
-draw_sprite_stretched(spr_menu,3,216,97,32,11);
-draw_sprite_stretched(spr_menu,3,199,110,32,16);
+//draw_sprite_stretched(spr_menu_circle16,1,182,42,32,32);
+//draw_sprite_stretched(spr_menu,3,182,63,32,11);
+//draw_sprite_stretched(spr_menu_circle16,1,216,42,32,32);
+//draw_sprite_stretched(spr_menu,3,216,63,32,11);
+//draw_sprite_stretched(spr_menu_circle16,1,182,76,32,32);
+//draw_sprite_stretched(spr_menu,3,182,97,32,11);
+//draw_sprite_stretched(spr_menu_circle16,1,216,76,32,32);
+//draw_sprite_stretched(spr_menu,3,216,97,32,11);
+//draw_sprite_stretched(spr_menu,3,199,110,32,16);
 
 //Draw the selected form
 if (item_id != -1)

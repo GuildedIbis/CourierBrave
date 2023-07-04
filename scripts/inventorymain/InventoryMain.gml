@@ -61,7 +61,7 @@ if (point_in_rectangle(_mouseX,_mouseY,92,8,113,36)) //Forms Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
-		inv_gui = FormMenuGUI;
+		inv_gui = FormSwitchMenu;
 		form_menu = obj_inventory.form_grid[# obj_player.form, 3];
 		//gear_sprite = spr_armor_allGame;
 		//stat_script = obj_inventory.form_grid[# obj_player.form, 3];

@@ -9,51 +9,26 @@ function RegaliareSelectedMenu(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _scriptList = array_create(4,-1)
+_scriptList[0] = RegaliareRegalArmorMenu;
+_scriptList[1] = RegaliareRegalBladeMenu;
+_scriptList[2] = RegaliareGoldBurstMenu;
+_scriptList[3] = RegaliareGoldArcMenu;
 
-
-//Skill Select Buttons Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,69,62,89,82))//Armor Skill
+for (var i = 0; i < 4; i = i + 1)
 {
-	draw_sprite_stretched(spr_highlight_circle,1,68,61,22,22)
-	if (mouse_check_button_pressed(mb_left))
+	var _originX = 50 + (26 * i);
+	var _originY = 53;
+	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))
 	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = RegaliareRegalArmorMenu;
+		draw_sprite_stretched(spr_highlight_circle,1,_originX-1,_originY-1,23,23)
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			selected_info = _scriptList[i];
 		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,112,62,132,82))//Weapon Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,111,61,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = RegaliareRegalBladeMenu;
-		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,69,85,89,105))//Magic Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,68,84,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = RegaliareGoldBurstMenu;
-		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,112,85,132,105)) and (obj_inventory.form_grid[# 0, 8] > 0)//Special Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,111,84,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = RegaliareGoldArcMenu;
-		
+		}
 	}
 }
 
@@ -61,29 +36,23 @@ if (point_in_rectangle(_mouseX,_mouseY,112,85,132,105)) and (obj_inventory.form_
 draw_set_halign(fa_center);
 draw_set_color(c_black);
 draw_text_transformed(102,38,"REGALIARE",.6,.6,0);
-if (obj_player.cursed = false) draw_text_transformed(90,113,"EQUIP",.35,.35,0);
-else draw_text_transformed(90,113,"CURSED",.35,.35,0);
-draw_text_transformed(178,113,"LEVEL",.35,.35,0);
+
+//draw_text_transformed(178,132,"LEVEL",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(102,38,"REGALIARE",.6,.6,0);
-if (obj_player.cursed = false) draw_text_transformed(89,113,"EQUIP",.35,.35,0);
-else draw_text_transformed(89,113,"CURSED",.35,.35,0);
-draw_text_transformed(177,113,"LEVEL",.35,.35,0);
+draw_text_transformed(101,38,"REGALIARE",.6,.6,0);
+
+//draw_text_transformed(177,132,"LEVEL",.35,.35,0);
 
 //Skills sprites
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 6],89,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 5],132,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 7],89,90);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 8],132,90);
-draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
-draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
-draw_sprite(spr_armor_allGame,0,63,61);
-draw_sprite(spr_weapons_allGame,0,106,62);
-draw_sprite(spr_magic_allGame,0,63,85);
-if (obj_inventory.form_grid[# 0, 8] > 0) draw_sprite(spr_special_allGame,0,106,85);
-else draw_sprite(spr_item_all,0,120,93);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 6],49,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 5],75,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 7],101,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 0, 8],127,75);
+
+draw_sprite(spr_armor_allGame,0,45,52);
+draw_sprite(spr_weapons_allGame,0,72,53);
+draw_sprite(spr_magic_allGame,0,97,53);
+draw_sprite(spr_special_allGame,0,123,53);
 
 
 //Draw Right Hand Menu
@@ -99,22 +68,50 @@ if (selected_info != -1) script_execute(selected_info)
 function RegaliareRegalBladeMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 38;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
+
+//New Main Text
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+var _level = "Level: " + string(obj_inventory.form_grid[# 0, 5]) + " > " + string(obj_inventory.form_grid[# 0, 5]+1);
+var _stat = "Damage: " + string(31 + (7 * obj_player.might) + (6 * obj_inventory.form_grid[# 0, 5])) + " > " + string(31 + (7 * obj_player.might) + (6 * (obj_inventory.form_grid[# 0, 5] + 1)));
+var _title = "REGAL BLADE";
+var _describe = "A fast swinging sword that does\naverage damage and slight knockback";
+draw_set_color(c_black);
+draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
+draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
+draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
+draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
+draw_set_color(c_white);
+draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
+draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
+draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
+draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+	
+	
 	
 //Main Text
 //draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _damage = string(obj_player.might + (11 * obj_inventory.form_grid[# 0, 5]));
-var _cost = string(20);
-draw_set_color(c_black);
-draw_text_transformed(167,46,"REGAL BLADE",.5,.5,0);
-draw_text_transformed(167,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"REGAL BLADE",.5,.5,0);
-draw_text_transformed(166,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+//draw_set_halign(fa_left);
+//draw_set_valign(fa_top);
+//draw_set_font(fnt_text);
+//var _damage = string(obj_player.might + (11 * obj_inventory.form_grid[# 0, 5]));
+//var _cost = string(20);
+//draw_set_color(c_black);
+//draw_text_transformed(167,46,"REGAL BLADE",.5,.5,0);
+//draw_text_transformed(167,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
+////draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
+////draw_text_transformed(167,95,_health,.35,.35,0); 
+//draw_set_color(c_white);
+//draw_text_transformed(166,46,"REGAL BLADE",.5,.5,0);
+//draw_text_transformed(166,56,"A fast swinging sword that does\n" + _damage + " damage per hit and costs\n" + _cost + " stamina per swing",.35,.35,0); 
 
 //Level	
 switch (obj_inventory.form_grid[# 0, 5])
