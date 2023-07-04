@@ -164,14 +164,13 @@ var _rowLength = 6;
 draw_sprite_stretched(spr_menu_beveled,3,87,35,146,98);
 draw_sprite_stretched(spr_menu,8,82,35,156,16);
 
-
-
-//draw_sprite_stretched(spr_menu_circle16,3,92,8,21,24);
-//draw_sprite_stretched(spr_menu_circle16,3,115,8,21,24);
-//draw_sprite_stretched(spr_menu_circle16,3,138,8,21,24);
-//draw_sprite_stretched(spr_menu_circle16,3,161,8,21,24);
-//draw_sprite_stretched(spr_menu_circle16,3,184,8,21,24);
-//draw_sprite_stretched(spr_menu_circle16,3,207,8,21,24);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(160,39,"SELECT A FORM",.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(159,39,"SELECT A FORM",.5,.5,0);
 
 
 //Button Mechanics
