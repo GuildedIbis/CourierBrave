@@ -71,7 +71,6 @@ form_grid[# 4, 8] = 0; //Special
 //
 //Form Menu GUI
 function FormMenuGUI(){
-
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -79,14 +78,12 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 
-
-
-
-//Left-hand Menu
+//Skills and unlocks
 draw_sprite(spr_menu_rope,3,54,88);
 draw_sprite(spr_menu_rope,3,140,88);
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,55);
 draw_sprite_stretched(spr_menu_beveled,3,44,96,110,27);
+draw_sprite_stretched(spr_menu,8,39,35,120,16);
 for (var i = 0; i < 4; i = i + 1)
 {
 	var _originX = 50 + (26 * i);
@@ -99,7 +96,16 @@ for (var j = 0; j < 5; j = j + 1)
 	var _originY2 = 102;
 	draw_sprite_stretched(spr_menu_circle16,1,_originX2,_originY2,16,16);
 }
-draw_sprite_stretched(spr_menu,8,39,35,120,16);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 6],49,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 5],75,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 7],101,75);
+draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 8],127,75);
+draw_sprite(spr_armor_allGame,slot,45,52);
+draw_sprite(spr_weapons_allGame,slot,72,53);
+draw_sprite(spr_magic_allGame,slot,97,53);
+draw_sprite(spr_special_allGame,slot,123,53);
+
+//Equip and Switch Buttons
 draw_sprite_stretched(spr_menu_circle16,3,48,127,50,16);
 draw_sprite_stretched(spr_menu_circle16,3,102,127,50,16);
 draw_set_halign(fa_center);
@@ -109,21 +115,6 @@ draw_text_transformed(128,132,"SWITCH",.35,.35,0);
 draw_set_color(c_white);
 draw_text_transformed(75,132,"EQUIP",.35,.35,0);
 draw_text_transformed(127,132,"SWITCH",.35,.35,0);
-
-//Right-hand Menu
-draw_sprite(spr_menu_rope,3,176,77);
-draw_sprite(spr_menu_rope,3,262,77);
-draw_sprite(spr_menu_rope,3,176,99);
-draw_sprite(spr_menu_rope,3,262,99);
-draw_sprite_stretched(spr_menu_beveled,3,166,35,110,44);
-draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
-draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
-draw_sprite_stretched(spr_menu,8,161,35,120,16);
-draw_sprite_stretched(spr_menu_circle16,3,186,127,70,16);
-
-
-
-//Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,48,127,98,143))//Equip
 {
 	draw_sprite_stretched(spr_highlight_circle,0,47,126,52,18);
@@ -148,7 +139,10 @@ if (point_in_rectangle(_mouseX,_mouseY,102,127,152,143))//Switch
 	}
 }
 
-script_execute(form_menu);
+
+
+//Form Specific Menus and Button Programming
+script_execute(form_menu); 
 
 }
 //

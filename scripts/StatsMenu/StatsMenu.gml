@@ -97,7 +97,7 @@ draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
 draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
 draw_sprite_stretched(spr_menu,8,161,35,120,16);
 draw_sprite_stretched(spr_menu_player_stat,page,260,35,16,16);
-draw_sprite_stretched(spr_menu_circle16,3,186,127,70,16);
+draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 	
 
 switch(page)
@@ -137,22 +137,22 @@ switch(page)
 		//Cost Button
 		if (obj_player.vitality < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.vitality + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.vitality + 1),.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.vitality + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.vitality + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.vitality)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -200,19 +200,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.iteration < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.iteration + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.iteration + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -261,19 +261,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.conviction < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.conviction + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.conviction + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -322,19 +322,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.grace < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.grace + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.grace + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -381,19 +381,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.might < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.might + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.might + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -440,19 +440,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.divinity < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.divinity + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.divinity + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -499,19 +499,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.energy < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.energy + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.energy + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
@@ -559,19 +559,19 @@ switch(page)
 		//Cost Button
 		if (obj_player.receptivity < 10)
 		{
-			draw_sprite(spr_starOrb,0,245,131);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX - 29,_buttonY + 5,"Level up:",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 30,_buttonY + 5,"Level up:",.35,.35,0);
+			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
 			draw_set_color(c_black);
-			draw_text_transformed(_midX + 22,_buttonY + 5,string(obj_player.receptivity + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_midX + 21,_buttonY + 5,string(obj_player.receptivity + 1),.35,.35,0);
+			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
+			draw_set_valign(fa_top);
+			draw_set_color(c_black);
+			draw_text_transformed(264,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_set_color(c_white);
+			draw_text_transformed(263,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);

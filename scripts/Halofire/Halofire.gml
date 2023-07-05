@@ -1158,7 +1158,7 @@ if (timer2 <= 0)
 	{
 		
 		break_object = obj_player.break_object;
-		damage = 10 + (5 * obj_player.divinity);
+		damage = 10 + (3 * obj_player.divinity) + (3 * obj_inventory.form_grid[# 3, 8]);
 		projectile_sprite = spr_fireSpark;
 		projectile_script = HalofireFireSpark;
 		idle_sprite = spr_fireSpark;
