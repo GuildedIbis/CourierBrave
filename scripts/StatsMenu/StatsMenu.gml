@@ -213,9 +213,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.iteration)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -274,9 +274,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.conviction)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -335,9 +335,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.grace)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -394,9 +394,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.might)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -453,9 +453,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.divinity)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -512,9 +512,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.energy)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -572,9 +572,9 @@ switch(page)
 			draw_text_transformed(264,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
 			draw_set_color(c_white);
 			draw_text_transformed(263,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_midX - 35,_buttonY,_midX + 35,_buttonY + 16))//Level
+			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,_midX - 37,_buttonY - 1,72,18);
+				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
 				if (mouse_check_button_pressed(mb_left)) and (obj_inventory.star_orb > obj_player.receptivity)
 				{
 					audio_sound_gain(snd_menu,global.volumeMenu,1);

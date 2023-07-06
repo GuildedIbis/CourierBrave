@@ -10,10 +10,10 @@ function RegaliareSelectedMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _scriptList = array_create(4,-1)
-_scriptList[0] = RegaliareRegalArmorMenu;
-_scriptList[1] = RegaliareRegalBladeMenu;
-_scriptList[2] = RegaliareGoldBurstMenu;
-_scriptList[3] = RegaliareGoldArcMenu;
+_scriptList[0] = RegaliareArmorMenu;
+_scriptList[1] = RegaliareWeaponMenu;
+_scriptList[2] = RegaliareCrystalMenu;
+_scriptList[3] = RegaliareSpecialMenu;
 
 //Right-hand Menu and Buttons
 draw_sprite(spr_menu_rope,3,176,77);
@@ -64,7 +64,7 @@ if (selected_info != -1) script_execute(selected_info)
 //
 //
 //Draw Regal Blade Menu in Inventory
-function RegaliareRegalBladeMenu(){
+function RegaliareWeaponMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -171,7 +171,7 @@ switch (obj_inventory.form_grid[# 0, 5])
 //
 //
 //Draw Regaliare's Armor Menu in Inventory
-function RegaliareRegalArmorMenu(){
+function RegaliareArmorMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -277,7 +277,7 @@ switch (obj_inventory.form_grid[# 0, 6])
 //
 //
 //Draw Gold Burst Menu in Inventory
-function RegaliareGoldBurstMenu(){
+function RegaliareCrystalMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -319,7 +319,7 @@ if (page = 1)
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
 	var _stat = "Damage: " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "HEAVY BURST";
-	var _describe = "Fire larger projectiles at a slower rate\that pass through enemies instead of breaking.\nEach costs 10 charge.";
+	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead of breaking.\nEach costs 10 charge.";
 	draw_set_color(c_black);
 	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
@@ -427,7 +427,7 @@ switch (obj_inventory.form_grid[# 0, 7])
 //
 //
 //Draw Gold Arc Menu in Inventory
-function RegaliareGoldArcMenu(){  
+function RegaliareSpecialMenu(){  
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;

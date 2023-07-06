@@ -22,10 +22,10 @@ recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_regaliare_castArm;
 obj_cursor.curs_script = RegaliareCursor;
 
-weapon_draw = RegaliareRegalBladeMenu;
-magic_draw = RegaliareGoldBurstMenu;
-armor_draw = RegaliareRegalArmorMenu;
-special_draw = RegaliareGoldArcMenu;
+//weapon_draw = RegaliareRegalBladeMenu;
+//magic_draw = RegaliareGoldBurstMenu;
+//armor_draw = RegaliareRegalArmorMenu;
+//special_draw = RegaliareGoldArcMenu;
 
 
 

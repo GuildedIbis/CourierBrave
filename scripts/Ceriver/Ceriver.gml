@@ -22,10 +22,10 @@ magic_primary = true;
 //weapon_aim = true;
 obj_cursor.curs_script = CeriverCursor;
 
-weapon_draw = CeriverTurnbladesMenu;
-magic_draw = CeriverHabraArmorMenu;
-armor_draw = CeriverPolyorbMenu;
-special_draw = CeriverSpecialMenu;
+//weapon_draw = CeriverTurnbladesMenu;
+//magic_draw = CeriverHabraArmorMenu;
+//armor_draw = CeriverPolyorbMenu;
+//special_draw = CeriverSpecialMenu;
 
 
 
@@ -316,7 +316,7 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = 18 + (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*4);//
+		damage = 18 + (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
 		projectile_sprite = spr_ceriver_boomerang;
 		projectile_script = CeriverBoomerangFree;
 		idle_sprite = spr_ceriver_boomerang;
@@ -499,7 +499,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = 8 + (5 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * (2) + (_bubbleRand));//
+		damage = 8 + (5 * obj_player.grace) + (((obj_inventory.form_grid[# 3, 7])+ (_bubbleRand)) * (4));//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverPolyorbFree;
 		idle_sprite = spr_ceriver_polyorb;
@@ -646,7 +646,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 15;
-		damage = 7 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 3);//
+		damage = 7 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 4);//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = CeriverLineorbFree;
 		idle_sprite = spr_ceriver_polyorb;

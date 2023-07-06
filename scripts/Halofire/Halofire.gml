@@ -22,10 +22,10 @@ magic_primary = true;
 //weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
 
-weapon_draw = HalofireHamaxeMenu;
-magic_draw = HalofireMeteorMenu;
-armor_draw = HalofireFirewardArmorMenu;
-special_draw = HalofireSpecialMenu;
+//weapon_draw = HalofireHamaxeMenu;
+//magic_draw = HalofireMeteorMenu;
+//armor_draw = HalofireFirewardArmorMenu;
+//special_draw = HalofireSpecialMenu;
 
 //Dynamic Variables
 weapon_count = -1;

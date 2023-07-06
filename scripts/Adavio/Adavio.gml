@@ -22,10 +22,10 @@ recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_adavio_castArm;
 obj_cursor.curs_script = AdavioCursor;
 
-weapon_draw = AdavioPowerHookMenu;
-magic_draw = AdavioVioletArmorMenu;
-armor_draw = AdavioVoidSpreadMenu;
-special_draw = AdavioSpecialMenu;
+//weapon_draw = AdavioPowerHookMenu;
+//magic_draw = AdavioVioletArmorMenu;
+//armor_draw = AdavioVoidSpreadMenu;
+//special_draw = AdavioSpecialMenu;
 
 
 //Dynamic Variables
@@ -751,7 +751,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);////
+			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*6);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBit;
 			timer1 = 30;
@@ -981,7 +981,7 @@ if (special_timer <= 45)
 	y = dest_y;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	sprite_index = spr_player_adavio_riftCrushB;
-	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 7])*17);
+	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
 		AttackCalculateMagic(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
@@ -1001,7 +1001,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 7])*8);////
+			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 8])*6);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = AdavioVoidBitSpecial;
 			timer1 = 15;

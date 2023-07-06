@@ -22,10 +22,10 @@ magic_primary = true;
 //weapon_aim = false
 obj_cursor.curs_script = EvarelCursor;
 
-weapon_draw = HalofireHamaxeMenu;
-magic_draw = HalofireMeteorMenu;
-armor_draw = HalofireFirewardArmorMenu;
-special_draw = HalofireSpecialMenu;
+//weapon_draw = HalofireHamaxeMenu;
+//magic_draw = HalofireMeteorMenu;
+//armor_draw = HalofireFirewardArmorMenu;
+//special_draw = HalofireSpecialMenu;
 
 
 
