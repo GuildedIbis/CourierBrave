@@ -10,9 +10,9 @@ function HalofireSelectedMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _scriptList = array_create(4,-1)
-_scriptList[0] = HalofireFirewardArmorMenu;
-_scriptList[1] = HalofireHamaxeMenu;
-_scriptList[2] = HalofireMeteorMenu;
+_scriptList[0] = HalofireArmorMenu;
+_scriptList[1] = HalofireWeaponMenu;
+_scriptList[2] = HalofireCrystalMenu;
 _scriptList[3] = HalofireSpecialMenu;
 
 //Right-hand Menu and Buttons
@@ -63,7 +63,7 @@ if (selected_info != -1) script_execute(selected_info)
 //
 //
 //Draw Halofire Hamaxe Menu in Inventory
-function HalofireHamaxeMenu(){
+function HalofireWeaponMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -170,7 +170,7 @@ switch (obj_inventory.form_grid[# 1, 5])
 //
 //
 //Draw Halofire Fireward Armor Menu in Inventory
-function HalofireFirewardArmorMenu(){
+function HalofireArmorMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -276,7 +276,7 @@ switch (obj_inventory.form_grid[# 1, 6])
 //
 //
 //Draw Halofire Meteor Menu in Inventory
-function HalofireMeteorMenu(){
+function HalofireCrystalMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -297,7 +297,7 @@ if (page = 0)
 	var _level = "Level: " + string(obj_inventory.form_grid[# 1, 7]) + " > " + string(obj_inventory.form_grid[# 1, 7]+1);
 	var _stat = "Damage: " + string(20 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(7))) + " > " + string(20 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7] + 1)*(7)));
 	var _title = "METEOR SLING";
-	var _describe = "Slowly fire inaccurate meteors\nthat deal high damage and\ncost 20 charge each.";
+	var _describe = "Slowly fire meteors that have low accuracy\nbut deal high damage.";
 	draw_set_color(c_black);
 	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 

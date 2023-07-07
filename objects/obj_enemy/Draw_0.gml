@@ -5,11 +5,15 @@ if (bullet = true)
 }
 else
 {
+	
 	//Draw Shadow
 	if (shadow != false)
 	{
 		draw_sprite(spr_enemy_shadow,shadow,x,y);
 	}
+	
+	//Flash, Shader, Self
+	event_inherited();
 	
 	//Health
 	if (healthbar = true)
@@ -22,8 +26,7 @@ else
 		}
 	}
 	
-	//Flash, Shader, Self
-	event_inherited();
+	
 }
 
 StatusEffectsDraw();

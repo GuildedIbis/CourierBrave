@@ -165,17 +165,18 @@ if (scene = false) and (obj_game.textPaused = false)
 	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,270,160);
 	else draw_sprite(spr_magicAlt_allGame,form,270,160);
 	draw_sprite(spr_special_allGame,form,292,160);
-	
+	var _crystalUses = string(selected_crystal div crystal_cost)
+	var _specialUses = string(selected_special div special_cost)
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 	draw_set_color(c_black);
-	draw_text_transformed(282,152,selected_crystal,.5,.5,0);
+	draw_text_transformed(282,152,_crystalUses,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(281,152,selected_crystal,.5,.5,0);
+	draw_text_transformed(281,152,_crystalUses,.5,.5,0);
 	draw_set_color(c_black);
-	draw_text_transformed(305,152,selected_special,.5,.5,0);
+	draw_text_transformed(305,152,_specialUses,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(304,152,selected_special,.5,.5,0);
+	draw_text_transformed(304,152,_specialUses,.5,.5,0);
 
 	
 	

@@ -39,7 +39,8 @@ armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
 max_hp = 200 + (20 * vitality);
-
+crystal_cost = 5;
+special_cost = 50;
 
 }
 //
@@ -201,11 +202,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 10, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
+		crystal_cost = 10;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+		crystal_cost = 5;
 	}
 }
 

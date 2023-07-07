@@ -28,7 +28,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 150;
+max_hp = 300;
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -54,6 +54,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (flash > 0) entity_step = EnemyDamaged;
+	knockback = false;
+	knockback_dur = 0;
 	
 	
 	//Toggle Aggro 
@@ -82,7 +84,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,32))
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (timer1 <= 0)
 			{
@@ -98,7 +100,6 @@ if (obj_game.gamePaused = false)
 			{	
 				timer2 = 60;
 				sprite_index = enemy_idle;
-				
 				entity_step = OfaPupaCocoonWad;
 			}
 		}
@@ -120,6 +121,7 @@ if (obj_game.gamePaused = false)
 function OfaPupaCocoonSpike(){
 if (obj_game.gamePaused = false)
 {
+	knockback = false;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_enemy_ofaPupa_cocoonSpike)
@@ -132,13 +134,13 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	//Cacluate Attack
-	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	knockback = false;
+	knockback_dur = 0;
 
 	if (timer1 <= 0)
 	{
 		proj_dir = proj_dir + (irandom_range(30,180))
-		timer1 = 5;
+		timer1 = 3;
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			entity_drop = Idle;
@@ -186,6 +188,7 @@ if (obj_game.gamePaused = false)
 function OfaPupaCocoonWad(){
 if (obj_game.gamePaused = false)
 {
+	knockback = false;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_enemy_ofaPupa_cocoonWad)
@@ -199,45 +202,47 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	damage = 35;
-	//Cacluate Attack
-	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	knockback = false;
+	knockback_dur = 0;
 
 	if (timer2 <= 0)
 	{
+		audio_sound_gain(snd_arrow,global.volumeEffects,1);
+		audio_play_sound(snd_arrow,0,false);
 		timer2 = 60;
-		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+		for (var i = 0; i < 8; i = i + 1)
 		{
-			
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_proj_ofaPupa_cocoonSpike;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 4.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
-			audio_sound_gain(snd_arrow,global.volumeEffects,1);
-			audio_play_sound(snd_arrow,0,false);
-			direction = point_direction(x,y,obj_player.x,obj_player.y);
-			image_angle = direction;
-			speed = enemy_spd;
-			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = EntityHitDestroy;
-			home_state = OfaPupaWadFree;
-			entity_step = home_state;
+			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
+			{
+				entity_drop = Idle;
+				invincible = false;
+				inv_dur_timer = 0;
+				enemy_move = spr_proj_ofaPupa_cocoonSpike;
+				aggro_drop = 300;
+				healthbar = false;
+				bullet = true;
+				enemy_spd = 4.0;
+				local_frame = 0;
+				hit_by_attack = -1;
+				damage = 35;
+				direction = (point_direction(x,y,obj_player.x,obj_player.y)- 60) + (15*i) ;
+				image_angle = direction;
+				speed = enemy_spd;
+				break_object = other.break_object;
+				fragment_count = 0;
+				fragment = obj_fragWood;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+				home_state = OfaPupaWadFree;
+				entity_step = home_state;
+			}
 		}
 	}
 	//Animate
 	EnemyAnimation1();
 	if (animation_end)
 	{
-		timer2 = 120;
+		timer2 = 60;
 		entity_step = home_state;
 		sprite_index = enemy_idle;
 		animation_end = false;

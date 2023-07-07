@@ -40,7 +40,8 @@ max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
-
+crystal_cost = 5;
+special_cost = 20;
 }
 //
 //
@@ -226,11 +227,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 12, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
+		crystal_cost = 3;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+		crystal_cost = 5;
 	}
 }
 

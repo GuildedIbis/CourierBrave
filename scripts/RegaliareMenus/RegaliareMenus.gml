@@ -298,7 +298,7 @@ if (page = 0)
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
 	var _stat = "Damage: " + string(11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "GOLD BURST";
-	var _describe = "Rapidly fire small golden projec-\ntiles that deal damage and\ncost 5 charge each.";
+	var _describe = "Rapidly fire small golden projec-\ntiles that deal average damage.";
 	draw_set_color(c_black);
 	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
@@ -319,7 +319,7 @@ if (page = 1)
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
 	var _stat = "Damage: " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "HEAVY BURST";
-	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead of breaking.\nEach costs 10 charge.";
+	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead of breaking.";
 	draw_set_color(c_black);
 	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 

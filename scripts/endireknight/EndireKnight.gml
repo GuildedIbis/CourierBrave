@@ -354,21 +354,21 @@ if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
 	
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.quest_grid[# 3, 3] = false)
-{
-	obj_player.beans = obj_player.beans + 250;
+//if (obj_inventory.quest_grid[# 3, 3] = false)
+//{
+//	obj_player.beans = obj_player.beans + 250;
 	
-	obj_inventory.quest_grid[# 3, 0] = true;
-	obj_inventory.quest_grid[# 3, 1] = 1;
-	obj_inventory.quest_grid[# 3, 3] = true;
+//	obj_inventory.quest_grid[# 3, 0] = true;
+//	obj_inventory.quest_grid[# 3, 1] = 1;
+//	obj_inventory.quest_grid[# 3, 3] = true;
 	
-	//with (obj_text)
-	//{
-	//	text_script = EndireKnightTnaksVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
+//	//with (obj_text)
+//	//{
+//	//	text_script = EndireKnightTnaksVictoryText;
+//	//}
+//	//obj_game.gamePaused = !obj_game.gamePaused;
+//	//obj_game.textPaused = !obj_game.textPaused;
+//}
 
 
 }

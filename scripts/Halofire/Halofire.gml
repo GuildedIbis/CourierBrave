@@ -22,10 +22,7 @@ magic_primary = true;
 //weapon_aim = false
 obj_cursor.curs_script = HalofireCursor;
 
-//weapon_draw = HalofireHamaxeMenu;
-//magic_draw = HalofireMeteorMenu;
-//armor_draw = HalofireFirewardArmorMenu;
-//special_draw = HalofireSpecialMenu;
+
 
 //Dynamic Variables
 weapon_count = -1;
@@ -40,6 +37,9 @@ armor = 7 + (4 * (obj_inventory.form_grid[# 1, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
+
+crystal_cost = 16;
+special_cost = 50;
 }
 //
 //
@@ -209,11 +209,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 13, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
+		crystal_cost = 5;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+		crystal_cost = 16;
 	}
 }
 

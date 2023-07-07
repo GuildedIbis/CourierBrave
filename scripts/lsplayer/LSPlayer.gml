@@ -19,7 +19,7 @@ function LoadPlayer(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"lastCampX")) global.targetX = _loadEntity.lastCampX;
 		if (variable_struct_exists(_loadEntity,"lastCampY")) global.targetY = _loadEntity.lastCampY;
 		if (variable_struct_exists(_loadEntity,"breakObject")) obj_player.break_object = _loadEntity.breakObject;
-
+		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
 		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
@@ -65,6 +65,7 @@ var _savePlayer =
 	camp : global.lastCamp, //CONCEPT: NOT FINAL
 	lastCampX : global.lastCampX, //CONCEPT: NOT FINAL
 	lastCampY: global.lastCampY, //CONCEPT: NOT FINAL
+	level: obj_game.level_num, //CONCEPT: NOT FINAL
 	
 	//Save Beans
 	//beans : obj_player.beans,
