@@ -27,15 +27,14 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "CHEST OPENED:\n200 Beans\n1x Inventory Pouch"
+	text_string = "CHEST OPENED:\n200 Beans\n1x Yellow Rog Stone"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter >= 1)
 {
-	obj_player.beans = obj_player.beans + 200;
-	obj_inventory.item_grid[# obj_inventory.item_slots, 3] = true;
-	obj_inventory.item_slots = obj_inventory.item_slots + 1;
+	obj_inventory.beans = obj_inventory.beans + 200;
+	obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
 	obj_inventory.chest_list[activate_args] = true;
 	text_string = ""
 	string_counter = 0;
