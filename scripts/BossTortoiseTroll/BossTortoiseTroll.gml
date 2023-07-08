@@ -678,22 +678,22 @@ if (_drop2 >= 0)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-obj_inventory.beaowire_dungeon[10] = 2;
-obj_inventory.beaowire_dungeon[12] = 2;
-obj_inventory.beaowire_dungeon[14] = 2;
-obj_inventory.beaowire_dungeon[15] = 1;
-if (obj_inventory.quest_grid[# 14, 3] = false)
-{
-	obj_inventory.quest_grid[# 14, 0] = true;
-	obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
-	obj_inventory.quest_grid[# 14, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = ZerwerkVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
+//obj_inventory.beaowire_dungeon[10] = 2;
+//obj_inventory.beaowire_dungeon[12] = 2;
+//obj_inventory.beaowire_dungeon[14] = 2;
+//obj_inventory.beaowire_dungeon[15] = 1;
+//if (obj_inventory.quest_grid[# 14, 3] = false)
+//{
+//	obj_inventory.quest_grid[# 14, 0] = true;
+//	obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
+//	obj_inventory.quest_grid[# 14, 3] = true;
+//	//with (obj_text)
+//	//{
+//	//	text_script = ZerwerkVictoryText;
+//	//}
+//	//obj_game.gamePaused = !obj_game.gamePaused;
+//	//obj_game.textPaused = !obj_game.textPaused;
+//}
 
 	
 }

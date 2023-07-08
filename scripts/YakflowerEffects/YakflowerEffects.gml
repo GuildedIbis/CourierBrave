@@ -39,13 +39,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.yakflowerPath_map_ary[18][3] < 1)
+if (obj_inventory.quest_grid[# 8, 1] < 1)
 {
 	image_index = floor((timer1/900) * 5)
 	if (timer1 >= 900) 
 	{
-		obj_inventory.yakflowerPath_map_ary[18][3] = 1;
-		obj_inventory.yakflowerPath_map_ary[5][3] = obj_inventory.yakflowerPath_map_ary[5][3] + 1;
+		obj_inventory.quest_grid[# 8, 1] = 1;
 	}
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
@@ -95,13 +94,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.yakflowerPath_map_ary[19][3] < 1)
+if (obj_inventory.quest_grid[# 8, 1] = 1)
 {
 	image_index = floor((timer1/900) * 5)
 	if (timer1 >= 900) 
 	{
-		obj_inventory.yakflowerPath_map_ary[19][3] = 1;
-		obj_inventory.yakflowerPath_map_ary[5][3] = obj_inventory.yakflowerPath_map_ary[5][3] + 1;
+		obj_inventory.quest_grid[# 8, 1] = 2;
 	}
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
@@ -117,9 +115,18 @@ if (obj_inventory.yakflowerPath_map_ary[19][3] < 1)
 }
 else
 {
-	active = false;
-	image_index = 5;
-	sprite_index = spr_effect_yakflower_totemActive;
+	if (obj_inventory.quest_grid[# 8, 1] = 2)
+	{
+		active = false;
+		image_index = 5;
+		sprite_index = spr_effect_yakflower_totemActive;
+	}
+	else
+	{
+		active = false;
+		image_index = 0;
+		sprite_index = spr_effect_yakflower_totem
+	}
 }
 if (place_meeting(x,y,obj_player))
 {

@@ -143,9 +143,9 @@ if (obj_inventory.yakflower_lair[1] < 20)
 //
 //
 //Habfaf Lair: Escort 1 Spawner
-function YakflowerSpawner18(){
+function YakflowerSpawner14(){
 
-if (obj_inventory.yakflowerPath_map_ary[18][3] < 1) 
+if (obj_inventory.quest_grid[# 8, 1] < 2) 
 {
 	
 	if (spawn_timer > 0) 
@@ -155,19 +155,19 @@ if (obj_inventory.yakflowerPath_map_ary[18][3] < 1)
 		{
 			
 			//Decide Spawn Position
-			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
+			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,356))
 			{
-				x_spawn1 = 488;
+				x_spawn1 = 440;
 				y_spawn1 = 88;
-				x_spawn2 = 520;
-				y_spawn2 = 104;
+				x_spawn2 = 504;
+				y_spawn2 = 88;
 			}
 			else
 			{
 				x_spawn1 = 104;
 				y_spawn1 = 88;
-				x_spawn2 = 152;
-				y_spawn2 = 72;
+				x_spawn2 = 200;
+				y_spawn2 = 88;
 			}
 			
 			//Spawn, Tally, Reset
@@ -177,7 +177,7 @@ if (obj_inventory.yakflowerPath_map_ary[18][3] < 1)
 				script_execute(OfaWormCreate);
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
-				break_object = obj_break2;
+				break_object = obj_break;
 			}
 			spawn_timer = 180;
 		}

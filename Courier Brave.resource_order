@@ -251,7 +251,7 @@
     {"name":"spr_chestMoon_stone","order":5,"path":"sprites/spr_chestMoon_stone/spr_chestMoon_stone.yy",},
     {"name":"spr_escort_beaowireEnd","order":40,"path":"sprites/spr_escort_beaowireEnd/spr_escort_beaowireEnd.yy",},
     {"name":"spr_enemy_tortoiseTroll_vineErupt2","order":9,"path":"sprites/spr_enemy_tortoiseTroll_vineErupt2/spr_enemy_tortoiseTroll_vineErupt2.yy",},
-    {"name":"rm_lenko_yakflowerPath_18","order":12,"path":"rooms/rm_lenko_yakflowerPath_18/rm_lenko_yakflowerPath_18.yy",},
+    {"name":"rm_lenko_yakflowerPath_14","order":12,"path":"rooms/rm_lenko_yakflowerPath_14/rm_lenko_yakflowerPath_14.yy",},
     {"name":"Environment","order":1,"path":"scripts/Environment/Environment.yy",},
     {"name":"spr_player_adavio_riftCrushA","order":17,"path":"sprites/spr_player_adavio_riftCrushA/spr_player_adavio_riftCrushA.yy",},
     {"name":"spr_npc_andor","order":11,"path":"sprites/spr_npc_andor/spr_npc_andor.yy",},
