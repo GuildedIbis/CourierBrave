@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_escort_crystal",
-    "path": "sprites/spr_escort_crystal/spr_escort_crystal.yy",
+    "name": "spr_escort_habraf_crystal",
+    "path": "sprites/spr_escort_habraf_crystal/spr_escort_habraf_crystal.yy",
   },
   "spriteMaskId": null,
   "visible": true,

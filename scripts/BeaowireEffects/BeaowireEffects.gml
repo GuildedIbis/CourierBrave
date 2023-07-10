@@ -18,6 +18,7 @@ escort_spd = .4;
 escort_rad = 32;
 escort_timer = 300;
 atk_timer = 20;
+proj_dir = 0;
 path = -1;
 shadow_sprite = -1;
 shadow = false;
@@ -37,7 +38,7 @@ if (obj_game.gamePaused = false)
 		if (atk_timer > 0)atk_timer = atk_timer - 1;
 		if (escort_timer <= 0)
 		{
-			escort_timer = 45;
+			escort_timer = 40;
 			escort_step = EffectBeaowireEscortCharge;
 			audio_sound_gain(snd_escort_beaowire_charging,global.volumeEffects,1);
 			audio_play_sound(snd_escort_beaowire_charging,0,false);
@@ -63,7 +64,8 @@ if (obj_game.gamePaused = false)
 		if (atk_timer > 0)atk_timer = atk_timer - 1;
 		if (escort_timer <= 0)
 		{
-			escort_timer = 11;
+			atk_timer = 0;
+			escort_timer = 40;
 			escort_step = EffectBeaowireEscortAttackBurst;
 			sprite_index = spr_escort_beaowire_attack;
 			image_index = 0;
@@ -101,7 +103,7 @@ if (obj_game.gamePaused = false)
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
-				enemy_move = spr_escort_beaowire_burst;
+				enemy_move = spr_escort_habraf_burst;
 				aggro_drop = 300;
 				healthbar = false;
 				enemy_spd = 4;
