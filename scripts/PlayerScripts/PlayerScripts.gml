@@ -508,6 +508,16 @@ if (iAlpha <= 0)
 	watervice_dur_timer = 0;
 	hp = max_hp;
 	crull_stone = max_crull_stone;
+	yellow_crystal = max_charge;
+	orange_crystal = max_charge;
+	purple_crystal = max_charge;
+	blue_crystal = max_charge;
+	red_crystal = max_charge;
+	yellow_special = max_charge;
+	orange_special = max_charge;
+	purple_special = max_charge;
+	blue_special = max_charge;
+	red_special = max_charge;
 	dead = false;
 	(room_goto(global.lastCamp));
 	iAlpha = 1;

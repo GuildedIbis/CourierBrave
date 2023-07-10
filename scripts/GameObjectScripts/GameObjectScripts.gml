@@ -26,8 +26,21 @@ if (global.transition = true)
 				global.lastCampX = global.targetX;
 				global.lastCampY = global.targetY;
 				global.lastCamp = global.targetRoom;
-				obj_player.hp = obj_player.max_hp;
-				obj_player.crull_stone = obj_player.max_crull_stone;
+				with (obj_player)
+				{
+					hp = max_hp;
+					crull_stone = max_crull_stone;
+					yellow_crystal = max_charge;
+					orange_crystal = max_charge;
+					purple_crystal = max_charge;
+					blue_crystal = max_charge;
+					red_crystal = max_charge;
+					yellow_special = max_charge;
+					orange_special = max_charge;
+					purple_special = max_charge;
+					blue_special = max_charge;
+					red_special = max_charge;
+				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
 			global.fadeOut = false;
