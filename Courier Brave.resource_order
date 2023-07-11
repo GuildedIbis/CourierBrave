@@ -779,6 +779,7 @@
     {"name":"Andor","order":8,"path":"scripts/Andor/Andor.yy",},
     {"name":"spr_map_lenko_0110","order":1,"path":"sprites/spr_map_lenko_0110/spr_map_lenko_0110.yy",},
     {"name":"spr_weapon_regaliare_slash","order":9,"path":"sprites/spr_weapon_regaliare_slash/spr_weapon_regaliare_slash.yy",},
+    {"name":"rm_lenko_habrafLake_15","order":22,"path":"rooms/rm_lenko_habrafLake_15/rm_lenko_habrafLake_15.yy",},
     {"name":"spr_enemy_endireKnight_fireStrike","order":3,"path":"sprites/spr_enemy_endireKnight_fireStrike/spr_enemy_endireKnight_fireStrike.yy",},
     {"name":"obj_layerControl","order":3,"path":"objects/obj_layerControl/obj_layerControl.yy",},
     {"name":"spr_enemy_ofaPupa_idle","order":12,"path":"sprites/spr_enemy_ofaPupa_idle/spr_enemy_ofaPupa_idle.yy",},
