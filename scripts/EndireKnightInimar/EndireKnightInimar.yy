@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "EnemyBeaowire",
-    "path": "folders/Scripts/Enemy/EnemyBeaowire.yy",
+    "name": "EnemyYakflowerPath",
+    "path": "folders/Scripts/Enemy/EnemyYakflowerPath.yy",
   },
 }

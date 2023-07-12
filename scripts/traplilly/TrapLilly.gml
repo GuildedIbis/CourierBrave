@@ -231,7 +231,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 25)//Form Specific Rog Stone
+if (_drop1 < 3)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
@@ -243,7 +243,7 @@ if (_drop1 < 25)//Form Specific Rog Stone
 	}
 	
 }
-if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
+if (_drop1 >= 3) and (_drop1 < 6)//Random Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
@@ -255,7 +255,7 @@ if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 10)
+if (_drop2 < 3)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{

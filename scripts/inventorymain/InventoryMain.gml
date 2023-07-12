@@ -82,7 +82,7 @@ if (point_in_rectangle(_mouseX,_mouseY,115,8,139,36)) //Items Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
-		inv_gui = ItemsMenuGUI;	
+		inv_gui = scr_menu_item_gui;	
 		page = 0;
 	}
 }

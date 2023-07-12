@@ -38,7 +38,67 @@ fish_array = array_create(20,0);
 //
 //
 //Items GUI
-function ItemsMenuGUI(){
+function scr_menu_item_gui(){
+//Variable Declaration
+var _object = obj_inventory;
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _rowLength = 5;
+
+//Text
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_sprite(spr_menu_rope,3,91,75);
+draw_sprite(spr_menu_rope,3,188,75);
+draw_sprite(spr_menu_rope,3,219,75);
+draw_sprite_stretched(spr_menu_beveled,3,70,35,179,42);
+draw_sprite_stretched(spr_menu,8,65,35,189,16);
+draw_sprite_stretched(spr_menu_beveled,3,86,83,111,42);
+draw_sprite_stretched(spr_menu,8,81,83,121,16);
+draw_sprite_stretched(spr_menu_beveled,3,208,83,26,42);
+draw_sprite_stretched(spr_menu,8,203,83,36,16);
+draw_set_color(c_black)
+draw_text_transformed(160,43,"POWER STONE",.5,.5,0);	
+draw_text_transformed(141,91,"ROG STONE",.5,.5,0);	
+draw_text_transformed(221,91,"STAR ORB",.35,.35,0);	
+draw_set_color(c_white)
+draw_text_transformed(159,43,"POWER STONE",.5,.5,0);	
+draw_text_transformed(140,91,"ROG STONE",.5,.5,0);	
+draw_text_transformed(220,91,"STAR ORB",.35,.35,0);	
+//Item Grid
+for (var i = 0; i < 10; i = i + 1)
+{
+	var _x = 75 + (i * 17);
+	var _y = 53;
+	draw_sprite(spr_item_box,0,_x,_y)
+	draw_sprite(spr_powerstone_all,i, _x + 8, _y + 8);
+	draw_text_transformed(_x + 8,_y + 18,_object.ps_array[i],.35,.35,0);		
+}
+for (var j = 0; j < 6; j = j + 1)
+{
+	var _x2 = 91 + (j  * 17);
+	var _y2 = 101;
+	draw_sprite(spr_item_box,0,_x2,_y2)
+	draw_sprite(spr_rog_all,j, _x2 + 8, _y2 + 8);
+	draw_text_transformed(_x2 + 8,_y2 + 18,_object.rog_array[j],.35,.35,0);		
+}
+draw_sprite(spr_item_box,0,213,101)
+draw_sprite(spr_starOrb,0, 217, 105);
+draw_text_transformed(221,119,_object.star_orb,.35,.35,0);	
+//Spacer Line
+//draw_line_width_color(217,36,217,136,1,c_black,c_black)
+
+//Draw Selected Item
+//DrawSelectedItem(item_grid,spr_item_all);
+
+}
+//
+//
+//
+//
+//
+//Items GUI
+function xItemsMenuGUI(){
 //Variable Declaration
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
