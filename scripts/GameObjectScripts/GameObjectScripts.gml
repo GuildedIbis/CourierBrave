@@ -34,12 +34,15 @@ if (global.transition = true)
 					orange_crystal = max_charge;
 					purple_crystal = max_charge;
 					blue_crystal = max_charge;
+					green_crystal = max_charge;
 					red_crystal = max_charge;
 					yellow_special = max_charge;
 					orange_special = max_charge;
 					purple_special = max_charge;
 					blue_special = max_charge;
+					green_special = max_charge;
 					red_special = max_charge;
+					
 				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
