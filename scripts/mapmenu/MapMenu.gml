@@ -218,7 +218,7 @@ if (obj_inventory.level_ary[3] = true)
 		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
 		if (mouse_check_button_pressed(mb_left)) 
 		{
-			map_selected = FarwayRoadMapMenuDraw;
+			map_selected = BeaowireFortressMapMenuDraw;
 		}
 		//draw_set_halign(fa_left);
 		//draw_set_valign(fa_middle);
@@ -850,6 +850,219 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 			global.targetX = obj_inventory.camp_grid[# 14, 1];
 			global.targetY = obj_inventory.camp_grid[# 14, 2];
 			global.targetRoom = rm_lenko_habrafLake_13;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Beaowire Fortress Map Menu Draw
+function BeaowireFortressMapMenuDraw(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _xPos = 77
+var _yPos = 40
+
+
+draw_sprite_ext(spr_map_level,3,77,40,1.0,1.0,0,c_white,1.0);
+if (obj_game.level_num = 3)
+{
+	var _mapRoomX = obj_inventory.beaowireFortress_map_ary[obj_game.room_num][1] 
+	var _mapRoomY = obj_inventory.beaowireFortress_map_ary[obj_game.room_num][2]
+	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
+	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
+	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
+}
+
+
+//Draw Camps (Selectable for travel
+if (obj_inventory.camp_grid[# 15, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 136, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 39,_xPos + 138,_yPos + 42))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 136,_yPos + 40);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 15, 1];
+			global.targetY = obj_inventory.camp_grid[# 15, 2];
+			global.targetRoom = rm_lenko_beaowire_00;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.camp_grid[# 16, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 4;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 4;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 16, 1];
+			global.targetY = obj_inventory.camp_grid[# 16, 2];
+			global.targetRoom = rm_lenko_beaowire_04;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.camp_grid[# 17, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 6;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 6;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 17, 1];
+			global.targetY = obj_inventory.camp_grid[# 17, 2];
+			global.targetRoom = rm_lenko_beaowire_06;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+			
+		}
+	}
+}
+if (obj_inventory.camp_grid[# 18, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 50,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 9;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 9;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 18, 1];
+			global.targetY = obj_inventory.camp_grid[# 18, 2];
+			global.targetRoom = rm_lenko_beaowire_09;
+			global.targetCamp = true;
+			script_execute(RoomEnemiesReset);
+			global.lastCamp = global.targetRoom;
+			global.lastCampX = global.targetX;
+			global.lastCampY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			with (obj_player)
+			{
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.camp_grid[# 19, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 76,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50))
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 13;
+			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 13;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
+			global.targetX = obj_inventory.camp_grid[# 19, 1];
+			global.targetY = obj_inventory.camp_grid[# 19, 2];
+			global.targetRoom = rm_lenko_beaowire_13;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
