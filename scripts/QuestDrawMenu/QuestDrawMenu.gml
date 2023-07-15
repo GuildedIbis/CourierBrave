@@ -5,7 +5,7 @@
 //
 //
 //Quest 00: The Courier
-function TheCourierMenuDraw(){
+function scr_menu_quest_selected(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

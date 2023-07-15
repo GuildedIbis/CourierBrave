@@ -35,10 +35,8 @@ draw_sprite(spr_starOrb,0,106,131);
 //Left Side Button Grid
 for(var i = 0; i < 8; i = i + 1)
 {
-	var _row = (i div 4);
-	var _column = (i mod 4);
-	var _originX = 50 + (26 * _column);
-	var _originY = 53 + (34 * _row);
+	var _originX = 50 + (26 * (i mod 4));
+	var _originY = 53 + (34 * (i div 4));
 	draw_sprite_stretched(spr_menu_circle16,1,_originX,_originY,21,21);
 	draw_sprite(spr_menu_player_stat,i,_originX + 3,_originY+ 3);
 	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))

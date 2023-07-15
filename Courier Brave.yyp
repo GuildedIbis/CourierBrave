@@ -746,6 +746,7 @@
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},},
     {"id":{"name":"spr_menu_beveled","path":"sprites/spr_menu_beveled/spr_menu_beveled.yy",},},
     {"id":{"name":"spr_enemy_endireKnight_inimar_fireStrike","path":"sprites/spr_enemy_endireKnight_inimar_fireStrike/spr_enemy_endireKnight_inimar_fireStrike.yy",},},
+    {"id":{"name":"spr_scroll_bar5b","path":"sprites/spr_scroll_bar5b/spr_scroll_bar5b.yy",},},
     {"id":{"name":"spr_lightWindow_beaowire","path":"sprites/spr_lightWindow_beaowire/spr_lightWindow_beaowire.yy",},},
     {"id":{"name":"spr_tree_lakebirch","path":"sprites/spr_tree_lakebirch/spr_tree_lakebirch.yy",},},
     {"id":{"name":"BossTortoiseTroll2","path":"scripts/BossTortoiseTroll2/BossTortoiseTroll2.yy",},},

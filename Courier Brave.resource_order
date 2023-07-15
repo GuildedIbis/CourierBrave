@@ -654,6 +654,7 @@
     {"name":"obj_platform","order":3,"path":"objects/obj_platform/obj_platform.yy",},
     {"name":"spr_menu_beveled","order":7,"path":"sprites/spr_menu_beveled/spr_menu_beveled.yy",},
     {"name":"spr_enemy_endireKnight_inimar_fireStrike","order":18,"path":"sprites/spr_enemy_endireKnight_inimar_fireStrike/spr_enemy_endireKnight_inimar_fireStrike.yy",},
+    {"name":"spr_scroll_bar5b","order":10,"path":"sprites/spr_scroll_bar5b/spr_scroll_bar5b.yy",},
     {"name":"spr_lightWindow_beaowire","order":34,"path":"sprites/spr_lightWindow_beaowire/spr_lightWindow_beaowire.yy",},
     {"name":"spr_tree_lakebirch","order":31,"path":"sprites/spr_tree_lakebirch/spr_tree_lakebirch.yy",},
     {"name":"BossTortoiseTroll2","order":7,"path":"scripts/BossTortoiseTroll2/BossTortoiseTroll2.yy",},
