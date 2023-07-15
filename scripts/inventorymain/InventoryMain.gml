@@ -95,6 +95,7 @@ if (point_in_rectangle(_mouseX,_mouseY,138,8,159,36)) //Quest Menu
 		audio_play_sound(snd_menu,0,false);
 		selected_info = Idle;
 		page = 0;
+		slot = -1
 		inv_gui = QuestMenuGUI;
 	}
 }

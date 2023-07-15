@@ -22,7 +22,7 @@ quest_grid = ds_grid_create(100,7);
 //Darkening Lands: The player must kill 10 skirmisher rats.
 quest_grid[# 0, 0] = false;//Main Quest
 quest_grid[# 0, 1] = 0;
-quest_grid[# 0, 2] = 6;//Conversation Parts
+quest_grid[# 0, 2] = 1;//Conversation Parts
 quest_grid[# 0, 3] = false;
 quest_grid[# 0, 4] = Idle;
 quest_grid[# 0, 5] = scr_menu_quest_selected;

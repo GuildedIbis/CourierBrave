@@ -250,7 +250,7 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Halofire's Form Stone Found" 
+		text_string = "Halofire's Form Stone Found.\nComplete: Lavos of Star Fire"
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -260,6 +260,9 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 		text_string = ""
 		string_counter = 0;
 		obj_inventory.form_grid[# 1, 4] = true;
+		obj_inventory.quest_grid[# 0, 0] = true;
+		obj_inventory.quest_grid[# 0, 1] = obj_inventory.quest_grid[# 0, 2];
+		obj_inventory.quest_grid[# 0, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -303,6 +306,9 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 0, 0] = true;
+		obj_inventory.quest_grid[# 0, 1] = obj_inventory.quest_grid[# 0, 2];
+		obj_inventory.quest_grid[# 0, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

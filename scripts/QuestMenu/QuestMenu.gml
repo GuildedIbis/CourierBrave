@@ -69,14 +69,15 @@ for (var i = 0; i < 20; i = i + 1)
 			draw_set_color(c_green);
 			draw_text_transformed(_originX + 8,_originY + 8,"O",.5,.5,0);
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,80,42+(17*i),159,59+(17*i)))
+		if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+16,_originY+16))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,78,40+(17*i),83,19);
+			draw_sprite_stretched(spr_highlight_circle,0,_originX-1,_originY-1,18,18);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				selected_info = obj_inventory.quest_grid[# _iPage, 5];
+				slot = _iPage
+				//selected_info = obj_inventory.quest_grid[# _iPage, 5];
 			}
 		}
 	}
@@ -91,6 +92,7 @@ for (var i = 0; i < 20; i = i + 1)
 }
 
 //Draw Selected Quest
-script_execute(selected_info);
+//script_execute(selected_info);
+scr_menu_quest_selected(slot);
 
 }	
