@@ -196,7 +196,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 }
 
 //Switch Magic Fire Mode
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 10, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 2, 3] = true)
 {
 	if (magic_primary = true)
 	{

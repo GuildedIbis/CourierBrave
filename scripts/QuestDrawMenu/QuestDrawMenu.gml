@@ -11,11 +11,12 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 35;
+var _titleY = 38;
 var _descY = 56;
+var _compY = 111;
 
 //Draw
-draw_sprite_stretched(spr_menu_beveled,3,166,35,110,66);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,96);
 draw_sprite_stretched(spr_menu,8,161,35,120,16);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -23,20 +24,21 @@ draw_set_valign(fa_top);
 if (slot = -1)
 {
 	var _headerText = "SELECT A QUEST"
-	var _desc = "O marks a quest you've started,\nV marks a quest you've completed."
+	var _desc = "\"O\" marks a quest you've started,\n\"V\" marks a quest you've completed."
+
 }
 else
 {
-	if (quest_grid[# _questNum, 1] < quest_grid[# _questNum, 2]) var _headerText = "LAVOS OF STARFIRE"
-	if (quest_grid[# _questNum, 1] >= quest_grid[# _questNum, 2]) var _headerText = "LAVOS OF STARFIRE (COMPLETE)"
-	var _desc = "Find the form of Halofire,\nthe Courier of Star Fire."
+	
+	var _headerText = quest_grid[# _questNum, 6]
+	var _desc = quest_grid[# _questNum, 5]
 }
 draw_set_color(c_black);
-draw_text_transformed(_midX,_titleY,_headerText,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_headerText,.5,.5,0);
 draw_text_transformed(_midX,_descY,_desc,.35,.35,0);
 //draw_text_transformed(169,114,"TRACK",.35,.35,0);
 draw_set_color(c_white);
-draw_text_transformed(_midX-1,_titleY,_headerText,.35,.35,0);
+draw_text_transformed(_midX-1,_titleY,_headerText,.5,.5,0);
 draw_text_transformed(_midX-1,_descY,_desc,.35,.35,0);
 //draw_text_transformed(168,114,"TRACK",.35,.35,0);
 

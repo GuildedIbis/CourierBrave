@@ -552,8 +552,18 @@ if (_drop2 < 25)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-//obj_inventory.beaowire_dungeon[2] = 1;
+
+//Complete Quest
+obj_inventory.quest_grid[# 1, 0] = true;
+obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 2];
+obj_inventory.quest_grid[# 1, 3] = true;
+	//with (obj_text)
+	//{
+	//	text_script = ZerwerkVictoryText;
+	//}
+	//obj_game.gamePaused = !obj_game.gamePaused;
+	//obj_game.textPaused = !obj_game.textPaused;
+
 
 }
 
