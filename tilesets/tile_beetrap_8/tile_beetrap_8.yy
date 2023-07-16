@@ -1,7 +1,7 @@
 {
   "resourceType": "GMTileSet",
   "resourceVersion": "1.0",
-  "name": "tile_tundra8",
+  "name": "tile_beetrap_8",
   "autoTileSets": [],
   "macroPageTiles": {
     "SerialiseHeight": 0,
@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets/BeetrapTile.yy",
   },
   "spriteId": {
-    "name": "spr_tileset_tundra",
-    "path": "sprites/spr_tileset_tundra/spr_tileset_tundra.yy",
+    "name": "spr_tileset_beetrap",
+    "path": "sprites/spr_tileset_beetrap/spr_tileset_beetrap.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
