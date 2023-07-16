@@ -70,19 +70,19 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 		}
-		if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
-		{
-			script_execute(EnemyChaseEscort);
-		}
-		else
-		{
-			script_execute(EnemyChaseCustom);
-		}
-		if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
-		{
-			path_end();
-			sprite_index = enemy_idle;
-		}
+		//if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
+		//{
+		//	script_execute(EnemyChaseEscort);
+		//}
+		//else
+		//{
+		//	script_execute(EnemyChaseCustom);
+		//}
+		//if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
+		//{
+		//	path_end();
+		//	sprite_index = enemy_idle;
+		//}
 	}
 	if (aggro_drop <= 0)
 	{

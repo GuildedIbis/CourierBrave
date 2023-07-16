@@ -250,7 +250,7 @@ if (obj_inventory.beaowire_dungeon[14] < 2)
 //Yakflower Spawn Create Boss
 function BeaowireFortressSpawnBossCreate(){
 
-if (obj_inventory.beaowire_dungeon[15] < 2)
+if (obj_inventory.quest_grid[15] < 2)
 {
 
 	//Spawn 1
