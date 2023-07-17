@@ -179,7 +179,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 60;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
@@ -284,7 +284,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 60;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
@@ -322,7 +322,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 110;
+	damage = 80;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	if (timer3 > 0)
@@ -532,7 +532,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65;
+			damage = 45;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -598,7 +598,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.25;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65;
+			damage = 55;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -666,7 +666,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 2.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 90;
+				damage = 70;
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragPlant;

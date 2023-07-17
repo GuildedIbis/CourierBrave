@@ -82,7 +82,7 @@ if (timer1 <= 0)
 			enemy_spd = 3;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 100;
+			damage = 70;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -285,7 +285,7 @@ enemy_spd = 4.5;
 timer1 = 30;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 80;
+damage = 65;
 returning = false;
 special_draw = TortoiseTrollSpikedVineRope;
 }

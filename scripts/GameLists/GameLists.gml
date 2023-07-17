@@ -49,6 +49,7 @@ yakflowerPath_map_ary = array_create(20,-1);
 habrafLake_map_ary = array_create(20,-1);
 //greyrock_map_ary = array_create(12,-1);
 beaowireFortress_map_ary = array_create(20,-1);
+northerPass_map_ary = array_create(20,-1);
 room_ary = farwayRoad_map_ary;
 //name
 //x spawn
@@ -60,12 +61,14 @@ level_ary[0] = true;
 level_ary[1] = false;
 level_ary[2] = false;
 level_ary[3] = false;
+level_ary[4] = false;
 
 //Levels Name
 level_name[0] = "Farway Road";
 level_name[1] = "Yakflower Path";
 level_name[2] = "Habraf Lake";
 level_name[3] = "Beaowire Fortress";
+level_name[4] = "Northern Pass";
 
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 88;
@@ -147,6 +150,46 @@ camp_grid[# 19, 0] = "Beaowire Fortress 12"
 camp_grid[# 19, 1] = 160;
 camp_grid[# 19, 2] = 96;
 camp_grid[# 19, 3] = false;
+camp_grid[# 20, 0] = "Norther Pass 00"
+camp_grid[# 20, 1] = 136;
+camp_grid[# 20, 2] = 96;
+camp_grid[# 20, 3] = false;
+camp_grid[# 21, 0] = "Norther Pass 04"
+camp_grid[# 21, 1] = 168;
+camp_grid[# 21, 2] = 112;
+camp_grid[# 21, 3] = false;
+camp_grid[# 22, 0] = "Norther Pass 06"
+camp_grid[# 22, 1] = 128;
+camp_grid[# 22, 2] = 88;
+camp_grid[# 22, 3] = false;
+camp_grid[# 23, 0] = "Norther Pass 9"
+camp_grid[# 23, 1] = 184;
+camp_grid[# 23, 2] = 112;
+camp_grid[# 23, 3] = false;
+camp_grid[# 24, 0] = "Norther Pass 13"
+camp_grid[# 24, 1] = 160;
+camp_grid[# 24, 2] = 136;
+camp_grid[# 24, 3] = false;
+camp_grid[# 25, 0] = "? 00"
+camp_grid[# 25, 1] = 160;
+camp_grid[# 25, 2] = 112;
+camp_grid[# 25, 3] = false;
+camp_grid[# 26, 0] = "? 04"
+camp_grid[# 26, 1] = 112;
+camp_grid[# 26, 2] = 104;
+camp_grid[# 26, 3] = false;
+camp_grid[# 27, 0] = "? 07"
+camp_grid[# 27, 1] = 160;
+camp_grid[# 27, 2] = 96;
+camp_grid[# 27, 3] = false;
+camp_grid[# 28, 0] = "? 10"
+camp_grid[# 28, 1] = 168;
+camp_grid[# 28, 2] = 80;
+camp_grid[# 28, 3] = false;
+camp_grid[# 29, 0] = "? 12"
+camp_grid[# 29, 1] = 160;
+camp_grid[# 29, 2] = 96;
+camp_grid[# 29, 3] = false;
 
 //Room Array Column 1 Assignments
 //0: Name
@@ -401,145 +444,100 @@ habrafLake_map_ary[19][0] = "Habraf Lake 19";
 habrafLake_map_ary[19][1] = 10;
 habrafLake_map_ary[19][2] = 65;
 habrafLake_map_ary[19][3] = 0;
-////Lake Path Map
-//lakePath_map_ary[0][0] = "LENKO\nLake Path 1";
-//lakePath_map_ary[0][1] = 27;
-//lakePath_map_ary[0][2] = 25;
-//lakePath_map_ary[1][0] = "LENKO\nLake Path 2";
-//lakePath_map_ary[1][1] = 17;
-//lakePath_map_ary[1][2] = 22;
-//lakePath_map_ary[2][0] = "LENKO\nLake Path 3";
-//lakePath_map_ary[2][1] = 17;
-//lakePath_map_ary[2][2] = 30;
-//lakePath_map_ary[3][0] = "LENKO\nLake Path 4";
-//lakePath_map_ary[3][1] = 17;
-//lakePath_map_ary[3][2] = 37;
-//lakePath_map_ary[4][0] = "LENKO\nLake Path 5";
-//lakePath_map_ary[4][1] = 21;
-//lakePath_map_ary[4][2] = 45;
-//lakePath_map_ary[5][0] = "LENKO\nLake Path 6";
-//lakePath_map_ary[5][1] = 31;
-//lakePath_map_ary[5][2] = 45;
-//lakePath_map_ary[6][0] = "LENKO\nLake Path 7";
-//lakePath_map_ary[6][1] = 27;
-//lakePath_map_ary[6][2] = 52;
-//lakePath_map_ary[7][0] = "LENKO\nLake Path 8";
-//lakePath_map_ary[7][1] = 28;
-//lakePath_map_ary[7][2] = 35;
-//lakePath_map_ary[8][0] = "LENKO\nLake Path 9";
-//lakePath_map_ary[8][1] = 10;
-//lakePath_map_ary[8][2] = 32;
-//lakePath_map_ary[9][0] = "LENKO\nLake Path 10";
-//lakePath_map_ary[9][1] = 10;
-//lakePath_map_ary[9][2] = 37;
-//lakePath_map_ary[10][0] = "LENKO\nLake Path 11";
-//lakePath_map_ary[10][1] = 10;
-//lakePath_map_ary[10][2] = 42;
-//lakePath_map_ary[11][0] = "LENKO\nLake Path 12";
-//lakePath_map_ary[11][1] = 10;
-//lakePath_map_ary[11][2] = 47;
-//lakePath_map_ary[12][0] = "LENKO\nLake Path 13";
-//lakePath_map_ary[12][1] = 10;
-//lakePath_map_ary[12][2] = 52;
 
 
-
-//Greyrock Map
-greyrock_map_ary[0][0] = "LENKO\nGreyrock 1";
-greyrock_map_ary[0][1] = 63;
-greyrock_map_ary[0][2] = 37;
-greyrock_map_ary[1][0] = "LENKO\nGreyrock 2";
-greyrock_map_ary[1][1] = 63;
-greyrock_map_ary[1][2] = 45;
-greyrock_map_ary[2][0] = "LENKO\nGreyrock 3";
-greyrock_map_ary[2][1] = 56;
-greyrock_map_ary[2][2] = 52;
-greyrock_map_ary[3][0] = "LENKO\nGreyrock 4";
-greyrock_map_ary[3][1] = 42;
-greyrock_map_ary[3][2] = 50;
-greyrock_map_ary[4][0] = "LENKO\nGreyrock 5";
-greyrock_map_ary[4][1] = 52;
-greyrock_map_ary[4][2] = 47;
-greyrock_map_ary[5][0] = "LENKO\nGreyrock 6";
-greyrock_map_ary[5][1] = 52;
-greyrock_map_ary[5][2] = 42;
-greyrock_map_ary[6][0] = "LENKO\nGreyrock 7";
-greyrock_map_ary[6][1] = 45;
-greyrock_map_ary[6][2] = 42;
-greyrock_map_ary[7][0] = "LENKO\nGreyrock 8";
-greyrock_map_ary[7][1] = 38;
-greyrock_map_ary[7][2] = 42;
-greyrock_map_ary[8][0] = "LENKO\nGreyrock 9";
-greyrock_map_ary[8][1] = 59;
-greyrock_map_ary[8][2] = 57;
-greyrock_map_ary[9][1] = "LENKO\Greyrock 10";
-greyrock_map_ary[9][1] = 73;
-greyrock_map_ary[9][2] = 37;
-greyrock_map_ary[10][0] = "LENKO\Greyrock 11";
-greyrock_map_ary[10][1] = 73;
-greyrock_map_ary[10][2] = 42;
-greyrock_map_ary[11][0] = "LENKO\Greyrock 12";
-greyrock_map_ary[11][1] = 80;
-greyrock_map_ary[11][2] = 42;
 
 //Beaowire Fortress Map
-beaowireFortress_map_ary[0][0] = "LENKO\nNorth Fortress Camp";
+beaowireFortress_map_ary[0][0] = "Beaowire Fortress 00";
 beaowireFortress_map_ary[0][1] = 66;
 beaowireFortress_map_ary[0][2] = 52;
-beaowireFortress_map_ary[1][0] = "LENKO\nBeaowire Fortress 1";
+beaowireFortress_map_ary[1][0] = "Beaowire Fortress 01";
 beaowireFortress_map_ary[1][1] = 66;
 beaowireFortress_map_ary[1][2] = 57;
-beaowireFortress_map_ary[2][0] = "LENKO\nBeaowire Fortress 2";
+beaowireFortress_map_ary[2][0] = "Beaowire Fortress 02";
 beaowireFortress_map_ary[2][1] = 66;
 beaowireFortress_map_ary[2][2] = 65;
-beaowireFortress_map_ary[3][0] = "LENKO\nBeaowire Fortress 3";
+beaowireFortress_map_ary[3][0] = "Beaowire Fortress 03";
 beaowireFortress_map_ary[3][1] = 59;
 beaowireFortress_map_ary[3][2] = 70;
-beaowireFortress_map_ary[4][0] = "LENKO\nBeaowire Fortress 4";
+beaowireFortress_map_ary[4][0] = "Beaowire Fortress 04";
 beaowireFortress_map_ary[4][1] = 66;
 beaowireFortress_map_ary[4][2] = 72;
-beaowireFortress_map_ary[5][0] = "LENKO\nBeaowire Fortress 5";
+beaowireFortress_map_ary[5][0] = "Beaowire Fortress 05";
 beaowireFortress_map_ary[5][1] = 72;
 beaowireFortress_map_ary[5][2] = 77;
-beaowireFortress_map_ary[6][0] = "LENKO\nBeaowire Fortress 6";
+beaowireFortress_map_ary[6][0] = "Beaowire Fortress 06";
 beaowireFortress_map_ary[6][1] = 66;
 beaowireFortress_map_ary[6][2] = 42;
-beaowireFortress_map_ary[7][0] = "LENKO\nBeaowire Fortress 7";
+beaowireFortress_map_ary[7][0] = "Beaowire Fortress 07";
 beaowireFortress_map_ary[7][1] = 66;
 beaowireFortress_map_ary[7][2] = 42;
-beaowireFortress_map_ary[8][0] = "LENKO\nBeaowire Fortress 8";
+beaowireFortress_map_ary[8][0] = "Beaowire Fortress 08";
 beaowireFortress_map_ary[8][1] = 66;
 beaowireFortress_map_ary[8][2] = 42;
-beaowireFortress_map_ary[9][0] = "LENKO\nBeaowire Fortress 9";
+beaowireFortress_map_ary[9][0] = "Beaowire Fortress 09";
 beaowireFortress_map_ary[9][1] = 66;
 beaowireFortress_map_ary[9][2] = 42;
-beaowireFortress_map_ary[10][0] = "LENKO\nBeaowire Fortress 10";
+beaowireFortress_map_ary[10][0] = "Beaowire Fortress 10";
 beaowireFortress_map_ary[10][1] = 66;
 beaowireFortress_map_ary[10][2] = 42;
-beaowireFortress_map_ary[11][0] = "LENKO\nBeaowire Fortress 11";
+beaowireFortress_map_ary[11][0] = "Beaowire Fortress 11";
 beaowireFortress_map_ary[11][1] = 66;
 beaowireFortress_map_ary[11][2] = 42;
-beaowireFortress_map_ary[12][0] = "LENKO\nBeaowire Fortress 12";
+beaowireFortress_map_ary[12][0] = "Beaowire Fortress 12";
 beaowireFortress_map_ary[12][1] = 66;
 beaowireFortress_map_ary[12][2] = 42;
-beaowireFortress_map_ary[13][0] = "LENKO\nBeaowire Fortress 13";
+beaowireFortress_map_ary[13][0] = "Beaowire Fortress 13";
 beaowireFortress_map_ary[13][1] = 66;
 beaowireFortress_map_ary[13][2] = 42;
-beaowireFortress_map_ary[14][0] = "LENKO\nBeaowire Fortress 14";
+beaowireFortress_map_ary[14][0] = "Beaowire Fortress 14";
 beaowireFortress_map_ary[14][1] = 66;
 beaowireFortress_map_ary[14][2] = 42;
-beaowireFortress_map_ary[15][0] = "LENKO\nBeaowire Fortress 15";
+beaowireFortress_map_ary[15][0] = "Beaowire Fortress 15";
 beaowireFortress_map_ary[15][1] = 66;
 beaowireFortress_map_ary[15][2] = 42;
-beaowireFortress_map_ary[16][0] = "LENKO\nBeaowire Fortress 16";
+beaowireFortress_map_ary[16][0] = "Beaowire Fortress 16";
 beaowireFortress_map_ary[16][1] = 66;
 beaowireFortress_map_ary[16][2] = 42;
-beaowireFortress_map_ary[17][0] = "LENKO\nBeaowire Fortress 17";
+beaowireFortress_map_ary[17][0] = "Beaowire Fortress 17";
 beaowireFortress_map_ary[17][1] = 66;
 beaowireFortress_map_ary[17][2] = 42;
-beaowireFortress_map_ary[18][0] = "LENKO\nBeaowire Gate Camp";
+beaowireFortress_map_ary[18][0] = "Beaowire Fortress 18";
 beaowireFortress_map_ary[18][1] = 80;
 beaowireFortress_map_ary[18][2] = 77;
+
+
+//Norther Pass Map
+northernPass_map_ary[0][0] = "Northern Pass 00";
+northernPass_map_ary[0][1] = 66;
+northernPass_map_ary[0][2] = 52;
+northernPass_map_ary[1][0] = "Northern Pass 01";
+northernPass_map_ary[1][1] = 66;
+northernPass_map_ary[1][2] = 57;
+northernPass_map_ary[2][0] = "Northern Pass 02";
+northernPass_map_ary[2][1] = 66;
+northernPass_map_ary[2][2] = 65;
+northernPass_map_ary[3][0] = "Northern Pass 03";
+northernPass_map_ary[3][1] = 59;
+northernPass_map_ary[3][2] = 70;
+northernPass_map_ary[4][0] = "Northern Pass 04";
+northernPass_map_ary[4][1] = 66;
+northernPass_map_ary[4][2] = 72;
+northernPass_map_ary[5][0] = "Northern Pass 05";
+northernPass_map_ary[5][1] = 72;
+northernPass_map_ary[5][2] = 77;
+northernPass_map_ary[6][0] = "Northern Pass 06";
+northernPass_map_ary[6][1] = 66;
+northernPass_map_ary[6][2] = 42;
+northernPass_map_ary[7][0] = "Northern Pass 07";
+northernPass_map_ary[7][1] = 66;
+northernPass_map_ary[7][2] = 42;
+northernPass_map_ary[8][0] = "Northern Pass 08";
+northernPass_map_ary[8][1] = 66;
+northernPass_map_ary[8][2] = 42;
+northernPass_map_ary[9][0] = "Northern Pass 09";
+northernPass_map_ary[9][1] = 66;
+northernPass_map_ary[9][2] = 42;
 }
 //
 //
@@ -557,6 +555,7 @@ lakePath_enemy_grid = ds_grid_create(20,30);
 habrafLake_enemy_grid = ds_grid_create(20,30);
 greyrock_enemy_grid = ds_grid_create(20,30);
 beaowireFortress_enemy_grid = ds_grid_create(20,30);
+northernPass_enemy_grid = ds_grid_create(20,30);
 room_enemy_grid = farwayRoad_enemy_grid;
 
 for (var i = 0; i < 20; i = i + 1)
@@ -587,7 +586,13 @@ for (var i = 0; i < 20; i = i + 1)
 		beaowireFortress_enemy_grid[# i, j] = false;
 	}
 }
-
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		northernPass_enemy_grid[# i, j] = false;
+	}
+}
 }
 //
 //
@@ -626,7 +631,13 @@ for (var i = 0; i < 20; i = i + 1)
 		obj_game.beaowireFortress_enemy_grid[# i, j] = false;
 	}
 }
-
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.northernPass_enemy_grid[# i, j] = false;
+	}
+}
 }
 	
 //

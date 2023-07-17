@@ -17,6 +17,7 @@
     {"name":"Player","order":2,"path":"folders/Objects/Player.yy",},
     {"name":"Rooms","order":7,"path":"folders/Rooms.yy",},
     {"name":"Beetrap","order":6,"path":"folders/Rooms/Beetrap.yy",},
+    {"name":"NorthernPass","order":2,"path":"folders/Rooms/Beetrap/NorthernPass.yy",},
     {"name":"Lenko","order":11,"path":"folders/Rooms/Lenko.yy",},
     {"name":"BeaowireFortress","order":3,"path":"folders/Rooms/Lenko/BeaowireFortress.yy",},
     {"name":"FarwayRoad","order":1,"path":"folders/Rooms/Lenko/FarwayRoad.yy",},
@@ -143,7 +144,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"group1","order":2,"path":"folders/Rooms/Beetrap/group1.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},
@@ -205,6 +205,7 @@
     {"name":"spr_grassTall","order":3,"path":"sprites/spr_grassTall/spr_grassTall.yy",},
     {"name":"spr_attack_icon2","order":6,"path":"sprites/spr_attack_icon2/spr_attack_icon2.yy",},
     {"name":"spr_player_adavio_run","order":4,"path":"sprites/spr_player_adavio_run/spr_player_adavio_run.yy",},
+    {"name":"rm_lenko_beaowire_09","order":28,"path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"rm_lenko_yakflowerPath_09","order":17,"path":"rooms/rm_lenko_yakflowerPath_09/rm_lenko_yakflowerPath_09.yy",},
     {"name":"spr_player_evarel_crull","order":5,"path":"sprites/spr_player_evarel_crull/spr_player_evarel_crull.yy",},
     {"name":"spr_menu_playerStat_level","order":4,"path":"sprites/spr_menu_playerStat_level/spr_menu_playerStat_level.yy",},
