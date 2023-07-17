@@ -144,6 +144,9 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"BeetrapSolidFX","order":4,"path":"folders/Objects/Effects/SolidEffects/BeetrapSolidFX.yy",},
+    {"name":"BeetrapEfEn","order":3,"path":"folders/Sprites/World/Effects/BeetrapEfEn.yy",},
+    {"name":"BeetrapEffects","order":3,"path":"folders/Scripts/World/Effects/BeetrapEffects.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},
