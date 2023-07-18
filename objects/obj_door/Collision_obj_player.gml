@@ -24,6 +24,10 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 			obj_game.level_name_timer = 180;
 			obj_inventory.level_ary[level_num] = true;
 		}
+		if (region_num != -1) 
+		{
+			obj_inventory.region_grid[# region_num, 1] = true;
+		}
 		global.targetX = target_x;
 		global.targetY = target_y;
 		global.targetRoom = target_room;

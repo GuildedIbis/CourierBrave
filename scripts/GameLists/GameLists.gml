@@ -62,6 +62,9 @@ level_ary[1] = false;
 level_ary[2] = false;
 level_ary[3] = false;
 level_ary[4] = false;
+level_ary[5] = false;
+level_ary[6] = false;
+level_ary[7] = false;
 
 //Levels Name
 level_name[0] = "Farway Road";
@@ -69,6 +72,10 @@ level_name[1] = "Yakflower Path";
 level_name[2] = "Habraf Lake";
 level_name[3] = "Beaowire Fortress";
 level_name[4] = "Northern Pass";
+level_name[5] = "?";
+level_name[6] = "?";
+level_name[7] = "?";
+
 
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 88;
