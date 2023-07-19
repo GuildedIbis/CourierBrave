@@ -92,11 +92,11 @@ if (variable_struct_exists(_loadEntity,"level03")) obj_inventory.level_ary[3] = 
 if (variable_struct_exists(_loadEntity,"level04")) obj_inventory.level_ary[4] = _loadEntity.level04;
 
 //Save Region
-if (variable_struct_exists(_loadEntity,"region00")) obj_inventory.region_grid[# 0, 0] = _loadEntity.region00;
-if (variable_struct_exists(_loadEntity,"region01")) obj_inventory.region_grid[# 1, 0] = _loadEntity.region01;
-if (variable_struct_exists(_loadEntity,"region02")) obj_inventory.region_grid[# 2, 0] = _loadEntity.region02;
-if (variable_struct_exists(_loadEntity,"region03")) obj_inventory.region_grid[# 3, 0] = _loadEntity.region03;
-if (variable_struct_exists(_loadEntity,"region04")) obj_inventory.region_grid[# 4, 0] = _loadEntity.region04;
+//if (variable_struct_exists(_loadEntity,"region00")) obj_inventory.region_grid[# 0, 0] = _loadEntity.region00;
+//if (variable_struct_exists(_loadEntity,"region01")) obj_inventory.region_grid[# 1, 0] = _loadEntity.region01;
+//if (variable_struct_exists(_loadEntity,"region02")) obj_inventory.region_grid[# 2, 0] = _loadEntity.region02;
+//if (variable_struct_exists(_loadEntity,"region03")) obj_inventory.region_grid[# 3, 0] = _loadEntity.region03;
+//if (variable_struct_exists(_loadEntity,"region04")) obj_inventory.region_grid[# 4, 0] = _loadEntity.region04;
 
 
 }
@@ -197,11 +197,11 @@ level03: obj_inventory.level_ary[3],
 level04: obj_inventory.level_ary[4],
 
 //Save Regions
-region00: obj_inventory.region_grid[# 0, 1],
-region01: obj_inventory.region_grid[# 1, 1],
-region02: obj_inventory.region_grid[# 2, 1],
-region03: obj_inventory.region_grid[# 3, 1],
-region04: obj_inventory.region_grid[# 4, 1],
+//region00: obj_inventory.region_grid[# 0, 1],
+//region01: obj_inventory.region_grid[# 1, 1],
+//region02: obj_inventory.region_grid[# 2, 1],
+//region03: obj_inventory.region_grid[# 3, 1],
+//region04: obj_inventory.region_grid[# 4, 1],
 
 
 }

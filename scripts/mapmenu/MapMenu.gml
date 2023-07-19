@@ -6,27 +6,27 @@
 //
 //Maps
 function MapsCreate(){
-map_selected = LenkoMapMenuDraw;
+map_selected = FarwayRoadMapMenuDraw;
 map_grid = ds_grid_create(6,3);
-region_grid = ds_grid_create(6,3);
-region_grid[# 0, 0] = "Lenko Woodlands"
-region_grid[# 0, 1] = true;
-region_grid[# 0, 2] = LenkoMapMenuDraw;
-region_grid[# 1, 0] = "Beetrap Tundra"
-region_grid[# 1, 1] = false;
-region_grid[# 1, 2] = BeetrapMapMenuDraw;
-region_grid[# 2, 0] = "Lenko Woodlands"
-region_grid[# 2, 1] = false;
-region_grid[# 2, 2] = LenkoMapMenuDraw;
-region_grid[# 3, 0] = "Lenko Woodlands"
-region_grid[# 3, 1] = false;
-region_grid[# 3, 2] = LenkoMapMenuDraw;
-region_grid[# 4, 0] = "Lenko Woodlands"
-region_grid[# 4, 1] = false;
-region_grid[# 4, 2] = LenkoMapMenuDraw;
-region_grid[# 5, 0] = "Lenko Woodlands"
-region_grid[# 5, 1] = false;
-region_grid[# 5, 2] = LenkoMapMenuDraw;
+//region_grid = ds_grid_create(6,3);
+//region_grid[# 0, 0] = "Lenko Woodlands"
+//region_grid[# 0, 1] = true;
+//region_grid[# 0, 2] = LenkoMapMenuDraw;
+//region_grid[# 1, 0] = "Beetrap Tundra"
+//region_grid[# 1, 1] = false;
+//region_grid[# 1, 2] = BeetrapMapMenuDraw;
+//region_grid[# 2, 0] = "Lenko Woodlands"
+//region_grid[# 2, 1] = false;
+//region_grid[# 2, 2] = LenkoMapMenuDraw;
+//region_grid[# 3, 0] = "Lenko Woodlands"
+//region_grid[# 3, 1] = false;
+//region_grid[# 3, 2] = LenkoMapMenuDraw;
+//region_grid[# 4, 0] = "Lenko Woodlands"
+//region_grid[# 4, 1] = false;
+//region_grid[# 4, 2] = LenkoMapMenuDraw;
+//region_grid[# 5, 0] = "Lenko Woodlands"
+//region_grid[# 5, 1] = false;
+//region_grid[# 5, 2] = LenkoMapMenuDraw;
 
 
 map_grid[# 0, 0] = "Farway Road"
@@ -98,7 +98,7 @@ draw_sprite_stretched(spr_menu,8,39,35,180,16);
 for (var i = 0; i < 5; i = i + 1)
 {
 	draw_sprite_stretched(button_sprite,3,36,42 + (i * 17),15,15);
-	if (obj_inventory.region_grid[# i, 1] = true)
+	if (obj_inventory.level_ary[0] = true)
 	{
 		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
 		draw_sprite_ext(spr_map_button,i,36,42+(i*17),1.0,1.0,0,c_white,1.0);
@@ -109,7 +109,7 @@ for (var i = 0; i < 5; i = i + 1)
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				map_selected = obj_inventory.region_grid[# i, 2];
+				map_selected = FarwayRoadMapMenuDraw;
 			}
 		}
 	}
