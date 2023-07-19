@@ -89,7 +89,9 @@ draw_sprite(spr_scroll_bar1b,page,24,43);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-draw_sprite_stretched(menu_sprite,3,72,35,170,100);
+draw_sprite_stretched(spr_menu_beveled,3,44,39,170,100);
+draw_sprite_ext(spr_map_level,0,49,44,1.0,1.0,0,c_white,1.0);
+draw_sprite_stretched(spr_menu,8,39,35,180,16);
 //draw_sprite(spr_map_farwayRoad,0,66,34);
 
 
@@ -137,7 +139,7 @@ if (map_selected != -1)
 function LenkoMapMenuDraw(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _xPos = 77
+var _xPos = 49
 var _yPos = 40
 
 draw_sprite(spr_map_full,0,77,40);
@@ -348,11 +350,11 @@ function FarwayRoadMapMenuDraw(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-var _xPos = 77
-var _yPos = 40
+var _xPos = 49
+var _yPos = 44
 
 
-draw_sprite_ext(spr_map_level,0,77,40,1.0,1.0,0,c_white,1.0);
+
 if (obj_game.level_num = 0)
 {
 	var _mapRoomX = obj_inventory.farwayRoad_map_ary[obj_game.room_num][1] 
