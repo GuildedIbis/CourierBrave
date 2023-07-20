@@ -110,7 +110,6 @@
     {"name":"inst_6C8B3479_2","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_40739548_2","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_6CA28D43_1","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
-    {"name":"inst_3D795787_1","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_2D005DF7","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_33481CD","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_3A20496C","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
@@ -121,7 +120,6 @@
     {"name":"inst_2369578D","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_443AACFE","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_228EEAE0","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
-    {"name":"inst_5E5F83BA","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_20A207A2","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_6BCF9E5F","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
     {"name":"inst_B198E95","path":"rooms/rm_lenko_kovaladsHouse/rm_lenko_kovaladsHouse.yy",},
@@ -192,20 +190,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"room_song","path":"objects/obj_song/obj_song.yy",},"value":"snd_lenko_themeCamp",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_EB13C6F_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":16.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3D795787_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_farwayCamp",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"160",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_y","path":"objects/obj_door/obj_door.yy",},"value":"24",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_camp","path":"objects/obj_door/obj_door.yy",},"value":"True",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"1",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"camp_num","path":"objects/obj_door/obj_door.yy",},"value":"0",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.farwayRoad_map_ary",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":168.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E5F83BA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_kovaladInside",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"112",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_y","path":"objects/obj_door/obj_door.yy",},"value":"128",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":96.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_250DE68F_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLenko","path":"objects/obj_effect_treeLenko/obj_effect_treeLenko.yy",},"properties":[
