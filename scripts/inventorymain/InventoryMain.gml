@@ -110,6 +110,7 @@ if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu
 		room_num = obj_game.room_num;
 		page = 0;
 		item_id = -1;
+		slot = obj_game.level_num;
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,184,8,205,36)) //Treasure Menu

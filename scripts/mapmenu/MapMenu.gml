@@ -6,7 +6,7 @@
 //
 //Maps
 function MapsCreate(){
-map_selected = FarwayRoadMapMenuDraw;
+slot = obj_game.level_num;
 map_grid = ds_grid_create(6,3);
 //region_grid = ds_grid_create(6,3);
 //region_grid[# 0, 0] = "Lenko Woodlands"
@@ -31,22 +31,27 @@ map_grid = ds_grid_create(6,3);
 
 map_grid[# 0, 0] = "Farway Road"
 map_grid[# 0, 1] = false;
-map_grid[# 0, 2] = Idle;
-map_grid[# 1, 0] = "Lake Path"
+map_grid[# 0, 2] = scr_menu_map_farway_road;
+map_grid[# 1, 0] = "Yakflower Path"
 map_grid[# 1, 1] = false;
-map_grid[# 1, 2] = Idle;
-map_grid[# 2, 0] = "Greyrock"
+map_grid[# 1, 2] = scr_menu_map_yakflower_path;
+map_grid[# 2, 0] = "Habraf Lake"
 map_grid[# 2, 1] = false;
-map_grid[# 2, 2] = Idle;
-map_grid[# 3, 0] = "Habraf Lake"
+map_grid[# 2, 2] = scr_menu_map_habraf_lake;
+map_grid[# 3, 0] = "Beaowire Fortress"
 map_grid[# 3, 1] = false;
-map_grid[# 3, 2] = Idle;
-map_grid[# 4, 1] = "Yakflower Path";
+map_grid[# 3, 2] = scr_menu_map_beaowire_fortress;
+map_grid[# 4, 1] = "Northern Pass";
 map_grid[# 4, 1] = false;
-map_grid[# 4, 2] = Idle;
-map_grid[# 5, 0] = "Beaowire Fortress";
+map_grid[# 4, 2] = scr_menu_map_farway_road;
+map_grid[# 5, 0] = "Beetrap 2";
 map_grid[# 5, 1] = false;
-map_grid[# 5, 2] = Idle;
+map_grid[# 5, 2] = scr_menu_map_farway_road;
+
+if (slot != -1)
+{
+	map_selected = map_grid[# slot, 2]
+}
 }
 //
 //
@@ -59,27 +64,36 @@ function MapMenuGUI(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-
+draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
+draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
+draw_sprite_stretched(spr_menu,8,54,35,210,16)
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(249,53,"MAP",.4,.4,0);
+draw_set_color(c_white);
+draw_text_transformed(248,53,"MAP",.4,.4,0);
 //Slider
-draw_sprite(spr_scroll_bar1b,page,24,43);
-//if (point_in_rectangle(_mouseX,_mouseY,69,41,77,47))
-//{
-//	draw_sprite(spr_scroll_highlight,0,69,41);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page > 0) page = page - 1;
-//		else page = 1;
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,114,77,119))
-//{
-//	draw_sprite(spr_scroll_highlight,1,69,114);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page < 1) page = page + 1;
-//		else page = 0;
-//	}
-//}
+draw_sprite(spr_scroll_bar5b,page,245,61);
+if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))
+{
+	draw_sprite(spr_scroll_highlight,0,245,60);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page > 0) page = page - 1;
+		else page = 4;
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,245,129,253,135))
+{
+	draw_sprite(spr_scroll_highlight,1,245,128);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page < 4) page = page + 1;
+		else page = 0;
+	}
+}
 
 //Buttons
 //draw_sprite_stretched(button_sprite,2,70,41,14,14);
@@ -89,31 +103,31 @@ draw_sprite(spr_scroll_bar1b,page,24,43);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-draw_sprite_stretched(spr_menu_beveled,3,44,39,170,100);
-draw_sprite_ext(spr_map_level,0,49,44,1.0,1.0,0,c_white,1.0);
-draw_sprite_stretched(spr_menu,8,39,35,180,16);
+
 //draw_sprite(spr_map_farwayRoad,0,66,34);
 
 
-for (var i = 0; i < 5; i = i + 1)
+for (var i = 0; i < 4; i = i + 1)
 {
-	draw_sprite_stretched(button_sprite,3,36,42 + (i * 17),15,15);
-	if (obj_inventory.level_ary[0] = true)
+	var _iPage = i + (4 * page)
+	draw_sprite_stretched(spr_menu_circle16,3,228,63 + (i * 18),16,16);
+	if (obj_inventory.level_ary[_iPage] = true)
 	{
 		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_ext(spr_map_button,i,36,42+(i*17),1.0,1.0,0,c_white,1.0);
-		if (point_in_rectangle(_mouseX,_mouseY,36,42 + (i * 15),50,57 + (i * 15)))
+		draw_sprite_ext(spr_map_button,_iPage,228,63+(i*18),1.0,1.0,0,c_white,1.0);
+		if (point_in_rectangle(_mouseX,_mouseY,228,63 + (i * 18),244,79 + (i * 18)))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,34,40 + (i * 17),19,19);
+			draw_sprite_stretched(spr_highlight_circle,0,227,62 + (i * 18),18,18);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				map_selected = FarwayRoadMapMenuDraw;
+				slot = _iPage;
+				map_selected = map_grid[# _iPage, 2];
 			}
 		}
 	}
-	else draw_sprite_ext(spr_lock,1,41,50+(i*17),1,1,0,c_white,1.0);
+	else draw_sprite_ext(spr_lock,1,235,71+(i*18),1,1,0,c_white,1.0);
 }
 if (map_selected != -1)
 {
@@ -346,14 +360,20 @@ if (obj_inventory.level_ary[7] = true)
 //
 //
 //Farway Road Map Menu Draw
-function FarwayRoadMapMenuDraw(){
+function scr_menu_map_farway_road(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-var _xPos = 49
-var _yPos = 44
+var _xPos = 64;
+var _yPos = 44;
 
-
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(160,38,"FARWAY ROAD",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(159,38,"FARWAY ROAD",.6,.6,0);
 
 if (obj_game.level_num = 0)
 {
@@ -362,6 +382,7 @@ if (obj_game.level_num = 0)
 	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
 	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
 	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
+	
 }
 
 
@@ -559,15 +580,21 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 //
 //
 //Yakflower Path Map Menu Draw
-function YakflowerPathMapMenuDraw(){
+function scr_menu_map_yakflower_path(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-var _xPos = 77
-var _yPos = 40
+var _xPos = 64;
+var _yPos = 44;
 
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(160,38,"YAKFLOWER PATH",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(159,38,"YAKFLOWER PATH",.6,.6,0);
 
-draw_sprite_ext(spr_map_level,1,77,40,1.0,1.0,0,c_white,1.0);
 if (obj_game.level_num = 1)
 {
 	var _mapRoomX = obj_inventory.yakflowerPath_map_ary[obj_game.room_num][1] 
@@ -770,15 +797,21 @@ if (obj_inventory.camp_grid[# 9, 3] = true)
 //
 //
 //Habraf Lake Map Menu Draw
-function HabrafLakeMapMenuDraw(){
+function scr_menu_map_habraf_lake(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-var _xPos = 77
-var _yPos = 40
+var _xPos = 64;
+var _yPos = 44;
 
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(160,38,"HABRAF LAKE",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(159,38,"HABRAF LAKE",.6,.6,0);
 
-draw_sprite_ext(spr_map_level,2,77,40,1.0,1.0,0,c_white,1.0);
 if (obj_game.level_num = 2)
 {
 	var _mapRoomX = obj_inventory.habrafLake_map_ary[obj_game.room_num][1] 
@@ -983,15 +1016,22 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 //
 //
 //Beaowire Fortress Map Menu Draw
-function BeaowireFortressMapMenuDraw(){
+function scr_menu_map_beaowire_fortress(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-var _xPos = 77
-var _yPos = 40
+var _xPos = 64;
+var _yPos = 44;
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(fnt_text);
+draw_set_color(c_black);
+draw_text_transformed(160,38,"BEAOWIRE FORTRESS",.6,.6,0);
+draw_set_color(c_white);
+draw_text_transformed(159,38,"BEAOWIRE FORTRESS",.6,.6,0);
 
 
-draw_sprite_ext(spr_map_level,3,77,40,1.0,1.0,0,c_white,1.0);
 if (obj_game.level_num = 3)
 {
 	var _mapRoomX = obj_inventory.beaowireFortress_map_ary[obj_game.room_num][1] 
