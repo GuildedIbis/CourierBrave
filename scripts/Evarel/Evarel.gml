@@ -39,7 +39,7 @@ max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
-crystal_cost = 20;
+crystal_cost = 15;
 special_cost = 20;
 }
 //
@@ -150,7 +150,7 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (green_crystal >= 20)
+		if (magic_primary = true) and (green_crystal >= 15)
 		{
 			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
 			audio_play_sound(snd_evarel_bristlerod,0,0);
@@ -158,7 +158,7 @@ if (key_attackM)
 			attack_script = EvarelBristlerodCast;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (green_crystal >= 10)
+		if (magic_primary = false) and (green_crystal >= 15)
 		{
 			attack_counter = 0;
 			attack_script = EvarelReflexThornCast;
@@ -208,19 +208,19 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 22, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 0, 3] = true)
 {
 	if (magic_primary = true)
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 10;
+		crystal_cost = 15;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		crystal_cost = 20;
+		crystal_cost = 15;
 	}
 }
 
@@ -404,7 +404,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	green_crystal = green_crystal - 20;
+	green_crystal = green_crystal - 15;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -423,7 +423,7 @@ if (magic_timer <= 0)
 		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
-		projectile_speed = 4.0;
+		projectile_speed = 7.0;
 	}
 	if (mouse_check_button(mb_left) = false) or (green_crystal < 20)
 	{
@@ -455,13 +455,10 @@ PlayerAnimationCast();
 function EvarelBristlerod(){
 //Set
 speed = projectile_speed;
-timer1 = timer1 - 1;
-if (timer1 <= 0)
-{
-	distance = distance + 1;
-	damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
-	timer1 = 3;
-}
+distance = distance + 1;
+damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
+
+
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -579,7 +576,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	attack_counter = attack_counter + 1;
-	green_crystal = green_crystal - 10;
+	green_crystal = green_crystal - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_evarel_reflexthorn,global.volumeEffects,1);
@@ -589,7 +586,7 @@ if (magic_timer <= 0)
 		fragment_count = 2;
 		fragment = obj_fragPlant;
 		timer1 = 120;
-		damage = 10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
+		damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
 		projectile_sprite = spr_evarel_reflexthorn;
 		projectile_script = EvarelReflexThorn;
 		idle_sprite = spr_evarel_reflexthorn;

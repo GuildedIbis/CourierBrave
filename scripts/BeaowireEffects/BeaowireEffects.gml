@@ -266,35 +266,35 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.beaowire_dungeon[14] < 2)
+if (obj_inventory.quest_grid[# 18, 1] < 2)
 {
 	sprite_index = spr_escort_beaowireEnd_idle;
 	if (instance_exists(obj_escort))
 	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,187,75,2))
+		if (point_in_circle(obj_escort.x,obj_escort.y,512,267,2))
 		{
 			sprite_index = spr_escort_beaowireEnd;
 			image_speed = 1;
-			obj_inventory.beaowire_dungeon[14] = 2;
-			obj_inventory.beaowire_dungeon[12] = obj_inventory.beaowire_dungeon[12] + 1;
+			obj_inventory.quest_grid[# 18, 1] = 2;
+			obj_inventory.quest_grid[# 18, 3] = true;
 		}
 		else 
 		{
 			sprite_index = spr_escort_beaowireEnd_idle;
 			image_speed = 1;
-			obj_inventory.beaowire_dungeon[14] = 1;
+			obj_inventory.quest_grid[# 18, 1] = 1;
 		}
 	}
 }
-if (obj_inventory.beaowire_dungeon[14] >= 2)
+if (obj_inventory.quest_grid[# 18, 1] >= 2)
 {
 	sprite_index = spr_escort_beaowireEnd;
 	if (instance_exists(obj_escort))
 	{
 		with (obj_escort)
 		{
-			x = 187;
-			y = 75;
+			x = 512;
+			y = 267;
 		}
 	}
 }
