@@ -82,6 +82,16 @@ if (variable_struct_exists(_loadEntity,"camp16")) obj_inventory.camp_grid[# 16, 
 if (variable_struct_exists(_loadEntity,"camp17")) obj_inventory.camp_grid[# 17, 3] = _loadEntity.camp17;
 if (variable_struct_exists(_loadEntity,"camp18")) obj_inventory.camp_grid[# 18, 3] = _loadEntity.camp18;
 if (variable_struct_exists(_loadEntity,"camp19")) obj_inventory.camp_grid[# 19, 3] = _loadEntity.camp19;
+if (variable_struct_exists(_loadEntity,"camp20")) obj_inventory.camp_grid[# 20, 3] = _loadEntity.camp20;
+if (variable_struct_exists(_loadEntity,"camp21")) obj_inventory.camp_grid[# 21, 3] = _loadEntity.camp21;
+if (variable_struct_exists(_loadEntity,"camp22")) obj_inventory.camp_grid[# 22, 3] = _loadEntity.camp22;
+if (variable_struct_exists(_loadEntity,"camp23")) obj_inventory.camp_grid[# 23, 3] = _loadEntity.camp23;
+if (variable_struct_exists(_loadEntity,"camp24")) obj_inventory.camp_grid[# 24, 3] = _loadEntity.camp24;
+if (variable_struct_exists(_loadEntity,"camp25")) obj_inventory.camp_grid[# 25, 3] = _loadEntity.camp25;
+if (variable_struct_exists(_loadEntity,"camp26")) obj_inventory.camp_grid[# 26, 3] = _loadEntity.camp26;
+if (variable_struct_exists(_loadEntity,"camp27")) obj_inventory.camp_grid[# 27, 3] = _loadEntity.camp27;
+if (variable_struct_exists(_loadEntity,"camp28")) obj_inventory.camp_grid[# 28, 3] = _loadEntity.camp28;
+if (variable_struct_exists(_loadEntity,"camp29")) obj_inventory.camp_grid[# 29, 3] = _loadEntity.camp29;
 
 
 //Load Level Array
@@ -188,6 +198,17 @@ camp16 : obj_inventory.camp_grid[# 16, 3],
 camp17 : obj_inventory.camp_grid[# 17, 3],
 camp18 : obj_inventory.camp_grid[# 18, 3],
 camp19 : obj_inventory.camp_grid[# 19, 3],
+camp20 : obj_inventory.camp_grid[# 20, 3],
+camp21 : obj_inventory.camp_grid[# 21, 3],
+camp22 : obj_inventory.camp_grid[# 22, 3],
+camp23 : obj_inventory.camp_grid[# 23, 3],
+camp24 : obj_inventory.camp_grid[# 24, 3],
+camp25 : obj_inventory.camp_grid[# 25, 3],
+camp26 : obj_inventory.camp_grid[# 26, 3],
+camp27 : obj_inventory.camp_grid[# 27, 3],
+camp28 : obj_inventory.camp_grid[# 28, 3],
+camp29 : obj_inventory.camp_grid[# 29, 3],
+
 
 //Save Levels
 level00: obj_inventory.level_ary[0],

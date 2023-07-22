@@ -7,7 +7,7 @@
 //Maps
 function MapsCreate(){
 slot = obj_game.level_num;
-map_grid = ds_grid_create(6,3);
+map_grid = ds_grid_create(19,3);
 //region_grid = ds_grid_create(6,3);
 //region_grid[# 0, 0] = "Lenko Woodlands"
 //region_grid[# 0, 1] = true;
@@ -59,7 +59,7 @@ if (slot != -1)
 //
 //
 //Map GUI
-function MapMenuGUI(){
+function scr_menu_map_base(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -135,223 +135,6 @@ if (map_selected != -1)
 	script_execute(map_selected)
 }
 
-
-
-
-
-
-
-
-
-}
-//
-//
-//
-//
-//
-//Lenko Overworld Map Menu
-function LenkoMapMenuDraw(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-var _xPos = 49
-var _yPos = 40
-
-draw_sprite(spr_map_full,0,77,40);
-
-//Draw Selectable Levels
-if (obj_inventory.level_ary[0] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
-	if (obj_game.level_num = 0) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 73,_yPos + 29,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 69,_yPos + 25,_xPos + 77,_yPos + 33))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 68,_yPos + 24,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = FarwayRoadMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[1] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
-	if (obj_game.level_num = 1) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 106,_yPos + 37,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 102,_yPos + 33,_xPos + 110,_yPos + 41))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 101,_yPos + 32,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = YakflowerPathMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[2] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
-	if (obj_game.level_num = 2) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 81,_yPos + 57,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 77,_yPos + 53,_xPos + 85,_yPos + 61))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 76,_yPos + 52,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = HabrafLakeMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[3] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
-	if (obj_game.level_num = 3) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 45,_yPos + 37,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 41,_yPos + 33,_xPos + 49,_yPos + 41))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = BeaowireFortressMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-
-}
-//
-//
-//
-//
-//
-//Beetrap Overworld Map Menu
-function BeetrapMapMenuDraw(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-var _xPos = 77
-var _yPos = 40
-
-draw_sprite(spr_map_full,1,77,40);
-
-//Draw Selectable Levels
-if (obj_inventory.level_ary[4] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 69,_yPos + 25,1,1,0,c_white,1);
-	if (obj_game.level_num = 0) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 73,_yPos + 29,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 69,_yPos + 25,_xPos + 77,_yPos + 33))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 68,_yPos + 24,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = FarwayRoadMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[5] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 102,_yPos + 33,1,1,0,c_white,1);
-	if (obj_game.level_num = 1) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 106,_yPos + 37,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 102,_yPos + 33,_xPos + 110,_yPos + 41))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 101,_yPos + 32,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = YakflowerPathMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[6] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 77,_yPos + 53,1,1,0,c_white,1);
-	if (obj_game.level_num = 2) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 81,_yPos + 57,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 77,_yPos + 53,_xPos + 85,_yPos + 61))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 76,_yPos + 52,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = HabrafLakeMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
-if (obj_inventory.level_ary[7] = true) 
-{
-	draw_sprite_ext(spr_map_icon,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
-	if (obj_game.level_num = 3) draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + 45,_yPos + 37,.5,.5,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 41,_yPos + 33,_xPos + 49,_yPos + 41))
-	{
-		draw_sprite_ext(spr_map_icon_highlight,0,_xPos + 41,_yPos + 33,1,1,0,c_white,1);
-		if (mouse_check_button_pressed(mb_left)) 
-		{
-			map_selected = BeaowireFortressMapMenuDraw;
-		}
-		//draw_set_halign(fa_left);
-		//draw_set_valign(fa_middle);
-		//draw_set_color(c_white);
-		//draw_set_font(fnt_text);
-		//draw_text_transformed(262,32,"CAMP",.5,.5,0);
-		//draw_text_transformed(262,44,"- Kovalad's Smithy",.35,.35,0);
-		//draw_text_transformed(262,54,"- Kovalad the Smith",.35,.35,0);
-		//draw_text_transformed(262,64,"- Nisma the Browi",.35,.35,0);
-		//draw_text_transformed(262,74,"- Courier Crash Site",.35,.35,0);
-	}
-}
 
 }
 //
@@ -1263,12 +1046,12 @@ if (obj_game.level_num = 4)
 
 
 //Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 20, 3] = true) 
+if (obj_inventory.camp_grid[# 20, 3] = true)
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 23, _yPos + 76,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 20,_yPos + 74,_xPos + 25,_yPos + 77))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 22, _yPos + 76,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 23,_yPos + 76);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 22,_yPos + 76);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 0;
@@ -1315,8 +1098,8 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 16, 1];
-			global.targetY = obj_inventory.camp_grid[# 16, 2];
+			global.targetX = obj_inventory.camp_grid[# 21, 1];
+			global.targetY = obj_inventory.camp_grid[# 21, 2];
 			global.targetRoom = rm_lenko_beaowire_04;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);

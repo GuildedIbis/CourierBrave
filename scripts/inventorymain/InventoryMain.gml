@@ -106,7 +106,7 @@ if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		inv_gui = MapMenuGUI;
+		inv_gui = scr_menu_map_base;
 		room_num = obj_game.room_num;
 		page = 0;
 		item_id = -1;

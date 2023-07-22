@@ -40,7 +40,7 @@ crullM_list = array_create(50,false);
 //
 //Room Lists
 function CampRooms(){ 
-camp_grid = ds_grid_create(20,4);
+camp_grid = ds_grid_create(100,4);
 level_ary = array_create(100,-1);
 level_name = array_create(100,-1);
 farwayRoad_map_ary = array_create(20,-1);
