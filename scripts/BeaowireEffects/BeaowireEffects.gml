@@ -38,7 +38,7 @@ if (obj_game.gamePaused = false)
 		if (atk_timer > 0)atk_timer = atk_timer - 1;
 		if (escort_timer <= 0)
 		{
-			escort_timer = 40;
+			escort_timer = 45;
 			escort_step = EffectBeaowireEscortCharge;
 			audio_sound_gain(snd_escort_beaowire_charging,global.volumeEffects,1);
 			audio_play_sound(snd_escort_beaowire_charging,0,false);
@@ -65,7 +65,7 @@ if (obj_game.gamePaused = false)
 		if (escort_timer <= 0)
 		{
 			atk_timer = 0;
-			escort_timer = 40;
+			escort_timer = 15;
 			escort_step = EffectBeaowireEscortAttackBurst;
 			sprite_index = spr_escort_beaowire_attack;
 			image_index = 0;
@@ -103,7 +103,7 @@ if (obj_game.gamePaused = false)
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
-				enemy_move = spr_escort_habraf_burst;
+				enemy_move = spr_escort_beaowire_burst;
 				aggro_drop = 300;
 				healthbar = false;
 				enemy_spd = 4;
@@ -321,7 +321,7 @@ if (obj_inventory.quest_grid[# 18, 1] < 2)
 }
 if (obj_inventory.quest_grid[# 18, 1] >= 2)
 {
-	sprite_index = spr_door_beaowire_stone;
+	sprite_index = spr_door_beaowire_stone_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
