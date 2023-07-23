@@ -295,6 +295,45 @@ if (obj_inventory.quest_grid[# 18, 1] >= 2)
 		{
 			x = 512;
 			y = 267;
+			escort_end = true;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door Room 14
+function scr_effect_door_beaowire_stone(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.quest_grid[# 18, 1] < 2)
+{
+	sprite_index = spr_door_beaowire_stone;
+
+}
+if (obj_inventory.quest_grid[# 18, 1] >= 2)
+{
+	sprite_index = spr_door_beaowire_stone;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
 		}
 	}
 }

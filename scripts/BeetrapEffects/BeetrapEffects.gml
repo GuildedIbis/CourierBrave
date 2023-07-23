@@ -5,7 +5,7 @@
 //
 //
 //Effect Molen Snowy Trees Create
-function scr_tree_create(){
+function scr_effect_tree_create(){
 image_index = variant;
 image_speed = 0;
 with (instance_create_layer(x-8,y-15,"Wall",obj_wall))
@@ -49,7 +49,7 @@ sy4 = y + 3;
 //
 //
 //Effect Molen Trees Step
-function scr_tree_molen_snowy_step(){
+function scr_effect_tree_molen_snowy_step(){
 frag = false
 image_speed = 0;
 image_index = variant;

@@ -5,7 +5,7 @@
 //
 //
 //Effect Regaliare Quest Door Create
-function EffectStandardDoorCreate(){
+function scr_effect_door_create(){
 frag = false
 image_speed = 0;
 depth = -y;
