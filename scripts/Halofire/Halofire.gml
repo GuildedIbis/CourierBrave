@@ -154,7 +154,7 @@ if (key_attackM)
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (orange_crystal >= 5)
+		if (magic_primary = false) and (orange_crystal >= 4)
 		{
 			attack_script = HalofireFirespitCast;
 			state_script = PlayerStateAttack;
@@ -209,7 +209,7 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 7, 3] = tr
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 5;
+		crystal_cost = 4;
 	}
 	else
 	{
@@ -867,7 +867,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	orange_crystal = orange_crystal - 5;
+	orange_crystal = orange_crystal - 4;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
@@ -876,7 +876,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = 2 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
+		damage = 3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = HalofireFirespit;
 		idle_sprite = spr_halofire_firespit;
@@ -900,7 +900,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_crystal < 5)
+if (mouse_check_button(mb_left) = false) or (orange_crystal < 4)
 {
 	attacking = false;
 	state_script = free_state;

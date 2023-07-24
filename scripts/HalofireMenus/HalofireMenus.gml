@@ -316,7 +316,7 @@ if (page = 1)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 1, 7]) + " > " + string(obj_inventory.form_grid[# 1, 7]+1);
-	var _stat = "Damage: " + string(2 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]))) + " > " + string(2 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]+1)));
+	var _stat = "Damage: " + string(3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]))) + " > " + string(3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]+1)));
 	var _title = "FIRE SPIT";
 	var _describe = "Rapidly spit flames that linger for\na brief period, and leave\nthe target burned";
 	draw_set_color(c_black);
