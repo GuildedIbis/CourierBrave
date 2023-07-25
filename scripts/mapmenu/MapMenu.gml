@@ -148,7 +148,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 64;
-var _yPos = 44;
+var _yPos = 47;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -173,21 +173,21 @@ if (obj_game.level_num = 0)
 if (obj_inventory.camp_grid[# 0, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 5;
+			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 0;
-			obj_game.room_num = 5;
+			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 1, 1];
-			global.targetY = obj_inventory.camp_grid[# 1, 2];
-			global.targetRoom = rm_lenko_farwayRoad_05;
+			global.targetX = obj_inventory.camp_grid[# 0, 1];
+			global.targetY = obj_inventory.camp_grid[# 0, 2];
+			global.targetRoom = rm_lenko_farwayRoad_00;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -324,7 +324,7 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 18,_yPos + 67);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 14;
@@ -356,6 +356,19 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 		}
 	}
 }
+if (obj_inventory.level_ary[1] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 137, _yPos + 67,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 134,_yPos + 64,_xPos + 140,_yPos + 70))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 137,_yPos + 67);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 1;
+			map_selected = obj_inventory.map_grid[# 1, 2];
+		}
+	}
+}
 }
 //
 //
@@ -368,7 +381,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 64;
-var _yPos = 44;
+var _yPos = 47;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -573,6 +586,32 @@ if (obj_inventory.camp_grid[# 9, 3] = true)
 		}
 	}
 }
+if (obj_inventory.level_ary[0] = true)
+{
+	draw_sprite_ext(spr_map_arrow,2,_xPos + 39, _yPos + 6,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 3,_xPos + 42,_yPos + 9))
+	{
+		draw_sprite(spr_map_arrow_highlight,2,_xPos + 39,_yPos + 6);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 0;
+			map_selected = obj_inventory.map_grid[# 0, 2];
+		}
+	}
+}
+if (obj_inventory.level_ary[2] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 39, _yPos + 83,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 80,_xPos + 42,_yPos + 86))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 39,_yPos + 83);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 2;
+			map_selected = obj_inventory.map_grid[# 2, 2];
+		}
+	}
+}
 }
 //
 //
@@ -585,7 +624,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 64;
-var _yPos = 44;
+var _yPos = 47;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -792,6 +831,32 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 		}
 	}
 }
+if (obj_inventory.level_ary[1] = true)
+{
+	draw_sprite_ext(spr_map_arrow,2,_xPos + 119, _yPos + 6,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 3,_xPos + 122,_yPos + 9))
+	{
+		draw_sprite(spr_map_arrow_highlight,2,_xPos + 119,_yPos + 6);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 1;
+			map_selected = obj_inventory.map_grid[# 1, 2];
+		}
+	}
+}
+if (obj_inventory.level_ary[3] = true)
+{
+	draw_sprite_ext(spr_map_arrow,3,_xPos + 12, _yPos + 39,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 9,_yPos + 36,_xPos + 15,_yPos + 42))
+	{
+		draw_sprite(spr_map_arrow_highlight,3,_xPos + 12,_yPos + 39);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 3;
+			map_selected = obj_inventory.map_grid[# 3, 2];
+		}
+	}
+}
 }
 //
 //
@@ -804,7 +869,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 64;
-var _yPos = 44;
+var _yPos = 47;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -828,10 +893,10 @@ if (obj_game.level_num = 3)
 //Draw Camps (Selectable for travel
 if (obj_inventory.camp_grid[# 15, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 136, _yPos + 44,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 43,_xPos + 138,_yPos + 45))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 136, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 38,_xPos + 138,_yPos + 41))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 136,_yPos + 44);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 136,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 0;
@@ -865,10 +930,10 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 }
 if (obj_inventory.camp_grid[# 16, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 72,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 71,_xPos + 106,_yPos + 74))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 66,_xPos + 106,_yPos + 69))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 72);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 4;
@@ -902,10 +967,10 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 }
 if (obj_inventory.camp_grid[# 17, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 44,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 68,_yPos + 42,_xPos + 73,_yPos + 45))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 68,_yPos + 38,_xPos + 73,_yPos + 41))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 71,_yPos + 44);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 71,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 7;
@@ -940,10 +1005,10 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 }
 if (obj_inventory.camp_grid[# 18, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 62,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 35,_yPos + 60,_xPos + 40,_yPos +63))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 58,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 35,_yPos + 56,_xPos + 40,_yPos +59))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 38,_yPos + 62);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 38,_yPos + 58);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 10;
@@ -977,10 +1042,10 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 }
 if (obj_inventory.camp_grid[# 19, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 44,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 42,_xPos + 90,_yPos + 45))
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 38,_xPos + 90,_yPos + 41))
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 44);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 14;
@@ -1012,6 +1077,32 @@ if (obj_inventory.camp_grid[# 19, 3] = true)
 		}
 	}
 }
+if (obj_inventory.level_ary[2] = true)
+{
+	draw_sprite_ext(spr_map_arrow,2,_xPos + 136, _yPos + 33,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 30,_xPos + 139,_yPos + 36))
+	{
+		draw_sprite(spr_map_arrow_highlight,2,_xPos + 136,_yPos + 33);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 2;
+			map_selected = obj_inventory.map_grid[# 2, 2];
+		}
+	}
+}
+if (obj_inventory.level_ary[4] = true)
+{
+	draw_sprite_ext(spr_map_arrow,3,_xPos + 61, _yPos + 12,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 58,_yPos + 9,_xPos + 64,_yPos + 15))
+	{
+		draw_sprite(spr_map_arrow_highlight,3,_xPos + 61,_yPos + 12);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			slot = 4;
+			map_selected = obj_inventory.map_grid[# 4, 2];
+		}
+	}
+}
 }
 //
 //
@@ -1024,7 +1115,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _xPos = 64;
-var _yPos = 44;
+var _yPos = 47;
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);

@@ -441,18 +441,18 @@ function LilyCultistDrop(){
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
 //}
 var _objects = 6;
-var _dropBean = irandom_range(20,40);
+//var _dropBean = irandom_range(20,40);
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
-{
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = (360/_objects) + _angle;
-	spd = .75 + (.3) + random(0.1);
-}
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = 10;

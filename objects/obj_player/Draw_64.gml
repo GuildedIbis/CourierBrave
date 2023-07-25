@@ -38,14 +38,14 @@ if (scene = false) and (obj_game.textPaused = false)
 	}
 
 	//Beans
-	draw_sprite(spr_bean_hud,0,302,6);
-	draw_set_font(fnt_text)
-	draw_set_halign(fa_right);
-	draw_set_valign(fa_middle);
-	draw_set_color(c_black);
-	draw_text_transformed(300,12,obj_inventory.beans,.5,.5,0)
-	draw_set_color(c_white);
-	draw_text_transformed(299,12,obj_inventory.beans,.5,.5,0)
+	//draw_sprite(spr_bean_hud,0,302,6);
+	//draw_set_font(fnt_text)
+	//draw_set_halign(fa_right);
+	//draw_set_valign(fa_middle);
+	//draw_set_color(c_black);
+	//draw_text_transformed(300,12,obj_inventory.beans,.5,.5,0)
+	//draw_set_color(c_white);
+	//draw_text_transformed(299,12,obj_inventory.beans,.5,.5,0)
 
 
 	
