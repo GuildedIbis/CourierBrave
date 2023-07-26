@@ -399,14 +399,14 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
 
-//draw_sprite_stretched(menu_sprite,0,4,128,56,32);
-draw_set_font(fnt_title);
-draw_set_color(c_black);
+draw_sprite_stretched(spr_menu_beveled,3,85,16,150,104);
+draw_sprite_stretched(spr_menu,8,80,16,160,24);
+draw_sprite_stretched(spr_menu_circle16,1,90,44,140,20);
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_text_transformed(161,20,"COURIER BRAVE",.5,.5,0);
-draw_set_color(c_yellow);
-draw_text_transformed(160,20,"COURIER BRAVE",.5,.5,0);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(160,20,"COURIER BRAVE",2,2,0);
 
 if (sub_menu = -1) 
 {
@@ -414,7 +414,7 @@ if (sub_menu = -1)
 	draw_sprite_stretched(menu_sprite,2,4,128,56,32); //Settings 
 	draw_set_color(c_black);
 	draw_text_transformed(32,144,"SETTINGS/\nCONTROLS",.5,.5,0);
-	script_execute(SaveSelectMenu)
+	//script_execute(SaveSelectMenu)
 	if (point_in_rectangle(_mouseX,_mouseY,4,128,60,160))//Settings Menu
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,2,126,60,36);

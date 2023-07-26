@@ -103,7 +103,26 @@ if (level_name_timer > 0)
 function GameDayCycle(){
 if (scene = false)
 {
-	if (day_timer < max_day_timer) day_timer = day_timer + 1;
+	if (day_timer < max_day_timer)
+	{
+		day_timer = day_timer + 1;
+		if (global.dayPhase = 2)
+		{
+			if (day_timer < 1000)
+			{
+				night_fade = night_fade + 1;
+			}
+			if (day_timer >= 17000)
+			{
+				night_fade = night_fade - 1;
+			}
+			if (day_timer > 1000) and (day_timer < 17000)
+			{
+				night_fade = 1000;
+			}
+		}
+		else night_fade = 0;
+	}
 	if (day_timer >= max_day_timer)
 	{
 		if (global.dayPhase = 2)
@@ -128,7 +147,7 @@ if (scene = false)
 			day_timer = 0;
 		}
 	}
-	if (global.home = false)
+	if (obj_game.invPaused = true)
 	{
 		var _dayPerc = (day_timer/max_day_timer) * 100;
 		draw_healthbar(15,9,41,11,_dayPerc,c_black,c_white,c_white,0,true,true);

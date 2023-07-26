@@ -5,6 +5,7 @@ randomize();
 script_execute(AllItems);
 script_execute(RoomEnemies);
 
+
 version = "Version: 0.2.7.0"
 menu_sprite = spr_menu;
 pause_menu = GamePauseMenu;
@@ -19,6 +20,7 @@ invPaused = false;
 textPaused = false;
 event_live = false;
 day_timer = 0;
+night_fade = 0;
 max_day_timer = 18000;
 transition_timer = 0;
 level_num = 0;
@@ -50,6 +52,8 @@ global.dayPhase = 0;
 global.volumeMusic = .75;
 global.volumeMenu = .30;
 global.volumeEffects = .6;
+global.fnt_main_white = font_add_sprite_ext(spr_font_main_white," !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",true,1);
+global.fnt_main_gold = font_add_sprite_ext(spr_font_main_gold," !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",true,1);
 script_execute(LoadGameSettings);
 
 display_set_gui_size(_resolutionWidth,_resolutionHeight);
