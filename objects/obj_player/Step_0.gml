@@ -1,4 +1,10 @@
 //Step
+gameplay_timer = gameplay_timer - 1;
+if (gameplay_timer <= 0)
+{
+	gameplay_timer = 60;
+	time_played = time_played = 1;
+}
 
 //Update Controls
 key_left = keyboard_check(ord("A"));

@@ -1,5 +1,6 @@
 //Create
-
+gameplay_timer = 60;
+time_played = 0;
 
 //Initialize Controls
 key_left = keyboard_check(ord("A"));

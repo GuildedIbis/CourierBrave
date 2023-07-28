@@ -20,6 +20,7 @@ SaveChests(_saveData);
 SaveKephra(_saveData);
 SaveGameState(_saveData);
 SaveCrull(_saveData);
+SaveSettings(_saveData);
 	
 
 	
