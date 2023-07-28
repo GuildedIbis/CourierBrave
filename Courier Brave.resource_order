@@ -299,6 +299,7 @@
     {"name":"snd_ceriver_orbDash","order":3,"path":"sounds/snd_ceriver_orbDash/snd_ceriver_orbDash.yy",},
     {"name":"rm_lenko_beaowire_13","order":30,"path":"rooms/rm_lenko_beaowire_13/rm_lenko_beaowire_13.yy",},
     {"name":"spr_enemy_rat_slash","order":13,"path":"sprites/spr_enemy_rat_slash/spr_enemy_rat_slash.yy",},
+    {"name":"MenuToggle","order":6,"path":"scripts/MenuToggle/MenuToggle.yy",},
     {"name":"InventoryMain","order":2,"path":"scripts/InventoryMain/InventoryMain.yy",},
     {"name":"spr_door_questHalofire_open","order":43,"path":"sprites/spr_door_questHalofire_open/spr_door_questHalofire_open.yy",},
     {"name":"obj_spawner","order":4,"path":"objects/obj_spawner/obj_spawner.yy",},

@@ -185,6 +185,15 @@ draw_sprite_stretched(spr_menu_beveled,3,115,16,90,78);
 draw_sprite_stretched(spr_menu,8,110,16,100,24);
 draw_sprite_stretched(spr_menu_beveled,3,217,16,90,78);
 draw_sprite_stretched(spr_menu,8,212,16,100,24);
+draw_sprite_stretched(spr_menu_beveled,3,13,96,90,20);
+draw_sprite_stretched(spr_menu_beveled,3,115,96,90,20);
+draw_sprite_stretched(spr_menu_beveled,3,217,96,90,20);	
+var _timePlayed = string(obj_game.time_played div 3600) + ":" + string(obj_game.time_played div 60)
+var _timePlayed2 = string(obj_game.time_played2 div 3600) + ":" + string(obj_game.time_played2 div 60)
+var _timePlayed3 = string(obj_game.time_played3 div 3600) + ":" + string(obj_game.time_played3 div 60)
+draw_text_transformed(58,100,_timePlayed,1,1,0);
+draw_text_transformed(160,100,_timePlayed2,1,1,0);
+draw_text_transformed(262,100,_timePlayed3,1,1,0);
 //Set Text
 draw_set_font(global.fnt_main_white)
 draw_set_color(c_white);
@@ -207,6 +216,7 @@ if (restart = false)
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 0;
 			global.current_save = SaveGame;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -243,6 +253,8 @@ else
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 0;
+			obj_game.time_played = 0;
 			global.current_save = SaveGame;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -297,6 +309,7 @@ if (restart2 = false)
 		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 1;
 			global.current_save = SaveGame2;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -332,6 +345,8 @@ else
 		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 1;
+			obj_game.time_played2 = 0;
 			global.current_save = SaveGame2;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -385,6 +400,7 @@ if (restart3 = false)
 		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 2;
 			global.current_save = SaveGame3;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -419,6 +435,8 @@ else
 		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_game.save_num = 2;
+			obj_game.time_played3 = 0;
 			global.current_save = SaveGame3;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
@@ -461,6 +479,9 @@ else
 	}
 }
 
+//Display Timers
+
+
 //Home
 draw_sprite_stretched(spr_menu_circle16,1,16,148,16,16);
 if (point_in_rectangle(_mouseX,_mouseY,16,148,32,164))//Home
@@ -472,3 +493,4 @@ if (point_in_rectangle(_mouseX,_mouseY,16,148,32,164))//Home
 	}
 }
 }
+	

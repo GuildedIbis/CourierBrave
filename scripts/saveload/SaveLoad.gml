@@ -62,6 +62,7 @@ if (file_exists("savedgame.save"))
 		LoadKephra(_loadEntity);
 		LoadGameState(_loadEntity);
 		LoadCrull(_loadEntity);
+		LoadSettings(_loadEntity);
 		
 	}
 	show_debug_message("Game Loaded!" + _string);

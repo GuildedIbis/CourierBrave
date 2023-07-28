@@ -20,6 +20,7 @@ SaveChests(_saveData);
 SaveKephra(_saveData);
 SaveGameState(_saveData);
 SaveCrull(_saveData);
+SaveSettings(_saveData);
 
 	
 //
@@ -60,6 +61,7 @@ if (file_exists("savedgame3.save"))
 		LoadKephra(_loadEntity);
 		LoadGameState(_loadEntity);
 		LoadCrull(_loadEntity);
+		LoadSettings(_loadEntity);
 		
 	}
 	show_debug_message("Game Loaded!" + _string);
