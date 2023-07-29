@@ -62,6 +62,8 @@ if (point_in_rectangle(_mouseX,_mouseY,196,36,252,124))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
+		script_execute(SaveGameSettings);
+		script_execute(LoadGameSettings);
 		if (global.current_save != -1) script_execute(global.current_save);
 		game_restart();
 	}

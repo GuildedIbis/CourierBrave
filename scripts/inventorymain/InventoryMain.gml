@@ -111,6 +111,7 @@ if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu
 		page = 0;
 		item_id = -1;
 		slot = obj_game.level_num;
+		map_selected = map_grid[# obj_game.level_num, 2];
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,184,8,205,36)) //Treasure Menu

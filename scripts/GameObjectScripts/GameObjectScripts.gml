@@ -46,6 +46,8 @@ if (global.transition = true)
 				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
+			script_execute(SaveGameSettings);
+			script_execute(LoadGameSettings);
 			global.fadeOut = false;
 		}
 	}
