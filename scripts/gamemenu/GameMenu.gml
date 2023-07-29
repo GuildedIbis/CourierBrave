@@ -178,9 +178,8 @@ else
 function scr_menu_save_select(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+
 //Draw Sprites
-
-
 draw_sprite_stretched(spr_menu_beveled,3,13,16,90,78);
 draw_sprite_stretched(spr_menu,8,8,16,100,24);
 draw_sprite_stretched(spr_menu_beveled,3,115,16,90,78);
@@ -190,29 +189,29 @@ draw_sprite_stretched(spr_menu,8,212,16,100,24);
 draw_sprite_stretched(spr_menu_beveled,3,13,96,90,20);
 draw_sprite_stretched(spr_menu_beveled,3,115,96,90,20);
 draw_sprite_stretched(spr_menu_beveled,3,217,96,90,20);	
-var _timePlayed = string(obj_game.time_played div 3600) + ":" + string(obj_game.time_played div 60)
-var _timePlayed2 = string(obj_game.time_played2 div 3600) + ":" + string(obj_game.time_played2 div 60)
-var _timePlayed3 = string(obj_game.time_played3 div 3600) + ":" + string(obj_game.time_played3 div 60)
-draw_text_transformed(58,100,_timePlayed,1,1,0);
-draw_text_transformed(160,100,_timePlayed2,1,1,0);
-draw_text_transformed(262,100,_timePlayed3,1,1,0);
+
+//Time Played
+var _timePlayed = "TIME:" + string(obj_game.time_played div 3600) + "h " + string((obj_game.time_played div 60) mod 60) + "m";
+var _timePlayed2 = "TIME:" + string(obj_game.time_played2 div 3600) + "h " + string((obj_game.time_played2 div 60) mod 60) + "m";
+var _timePlayed3 = "TIME:" + string(obj_game.time_played3 div 3600) + "h " + string((obj_game.time_played3 div 60) mod 60) + "m";
+draw_text_transformed(58,101,_timePlayed,1,1,0);
+draw_text_transformed(160,101,_timePlayed2,1,1,0);
+draw_text_transformed(262,101,_timePlayed3,1,1,0);
+
 //Set Text
 draw_set_font(global.fnt_main_white)
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 
-
-
-//Mechanics
 if (restart = false)
 {
 	//Buttons and Text
 	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-	draw_text_transformed(58,20,"SAVE 1",2,2,0);	
-	draw_text_transformed(58,48,"RESUME",1,1,0);	
-	draw_text_transformed(58,70,"RESTART",1,1,0);	
+	draw_text_transformed(58,21,"SAVE 1",2,2,0);	
+	draw_text_transformed(58,49,"RESUME",1,1,0);	
+	draw_text_transformed(58,71,"RESTART",1,1,0);	
 	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Resume Game 1
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
@@ -247,9 +246,9 @@ else
 	
 	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-	draw_text_transformed(58,20,"RESTART?",2,2,0);
-	draw_text_transformed(58,48,"YES",1,1,0);	
-	draw_text_transformed(58,70,"NO",1,1,0);
+	draw_text_transformed(58,21,"RESTART?",2,2,0);
+	draw_text_transformed(58,49,"YES",1,1,0);	
+	draw_text_transformed(58,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
@@ -303,9 +302,9 @@ if (restart2 = false)
 	//Buttons and Text
 	draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-	draw_text_transformed(160,20,"SAVE 1",2,2,0);	
-	draw_text_transformed(160,48,"RESUME",1,1,0);	
-	draw_text_transformed(160,70,"RESTART",1,1,0);
+	draw_text_transformed(160,21,"SAVE 1",2,2,0);	
+	draw_text_transformed(160,49,"RESUME",1,1,0);	
+	draw_text_transformed(160,71,"RESTART",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Resume Game 1
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
@@ -339,9 +338,9 @@ else
 {
 	draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-	draw_text_transformed(160,20,"RESTART?",2,2,0);
-	draw_text_transformed(160,48,"YES",1,1,0);	
-	draw_text_transformed(160,70,"NO",1,1,0);
+	draw_text_transformed(160,21,"RESTART?",2,2,0);
+	draw_text_transformed(160,49,"YES",1,1,0);	
+	draw_text_transformed(160,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Restart
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
@@ -394,9 +393,9 @@ if (restart3 = false)
 	//Buttons and Text
 	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-	draw_text_transformed(262,20,"SAVE 3",2,2,0);	
-	draw_text_transformed(262,48,"RESUME",1,1,0);	
-	draw_text_transformed(262,70,"RESTART",1,1,0);
+	draw_text_transformed(262,21,"SAVE 3",2,2,0);	
+	draw_text_transformed(262,49,"RESUME",1,1,0);	
+	draw_text_transformed(262,71,"RESTART",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Resume Game 3
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
@@ -429,9 +428,9 @@ else
 {
 	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
 	draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-	draw_text_transformed(262,20,"RESTART?",2,2,0);
-	draw_text_transformed(262,48,"YES",1,1,0);	
-	draw_text_transformed(262,70,"NO",1,1,0);
+	draw_text_transformed(262,21,"RESTART?",2,2,0);
+	draw_text_transformed(262,49,"YES",1,1,0);	
+	draw_text_transformed(262,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Confirm Restart 3
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);

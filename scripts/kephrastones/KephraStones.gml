@@ -6,14 +6,14 @@
 //
 //Kephra Stone Main
 function KephraStoneList(){
-kephra_grid = ds_grid_create(60,3);
+kephra_grid = ds_grid_create(60,2);
 
 kephra_grid[# 0, 0] = KephraStoneIntroA;
 kephra_grid[# 0, 1] = false;
-kephra_grid[# 0, 2] = "Press C to use a Crull Stone. It heals damage the\nCourier has taken.\nLeft click to use the Courier's magic skill."
+kephra_grid[# 0, 2] = "MOVEMENT"
 kephra_grid[# 1, 0] = KephraStoneIntroB;
 kephra_grid[# 1, 1] = false
-kephra_grid[# 1, 2] = "Right click to user the Couriers weapon skill.\nPress Space to roll. It grans breif invincibility."
+kephra_grid[# 1, 2] = "WEAPON ATTACK"
 kephra_grid[# 2, 0] = KephraStoneIntroC;
 kephra_grid[# 2, 1] = false
 kephra_grid[# 2, 2] = "Press Shift to use the Courier's special skill.\nPress R to use a potion (coming soon)"
@@ -40,35 +40,21 @@ kephra_grid[# 6, 2] = "Escort the crystal to the alter and get the key.\nEnemies
 //Kephra Stone Main
 function KephraStoneMain(){
 //Format
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(spr_menu,3,64,36,192,96);
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+draw_sprite_stretched(spr_menu_beveled,2,112,32,96,84);
+draw_sprite_stretched(spr_menu_beveled,2,112,118,96,30);
+draw_sprite_stretched(spr_menu,7,107,32,106,20);
 
 
-draw_set_color(c_white);
-var _name = "Kephra Stone";
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
 
-//Draw Based on String Counter
-var _SubString
 if (string_counter = 0)
 {
-	speaker = 1;
-	text_string = string(obj_inventory.kephra_grid[# activate_args, 2])
-	_SubString = string_copy(text_string,1,letter_counter);
-	
-	script_execute(obj_inventory.kephra_grid[# activate_args, 0],0,0);
+	script_execute(obj_inventory.kephra_grid[# activate_args, 0])
 }
-
 if (string_counter >= 1)
 {
 	//_feeling = 0;
 	text_string = ""
 	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
 	
@@ -80,15 +66,9 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-draw_text_transformed(259,130,_name,.35,.35,0);
-draw_sprite(spr_kephraStone,0,280,164);
+
+
+
 }
 
 //
@@ -97,25 +77,25 @@ draw_sprite(spr_kephraStone,0,280,164);
 //
 //
 //Kephra Stone: Intro A
-function KephraStoneIntroA(_shiftX,_shiftY){
+function KephraStoneIntroA(){
 //Convert Mouse to GUI
-//var _mouseX = device_mouse_x_to_gui(0);
-//var _mouseY = device_mouse_y_to_gui(0);
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
 //Sprite
-draw_sprite(spr_kephraStone_infograph,0,64 + _shiftX,36 + _shiftY)
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_text_transformed(160,37,"MOVEMENT",1,1,0)
 
-
-//Text
-draw_set_font(fnt_text);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
-draw_text_transformed(69 + _shiftX,107 + _shiftY,"Crull Stone Heal - Heal 100 damage.\nReturn to a camp room to restore\nCrull Stones.",.35,.35,0);
-draw_text_transformed(164 + _shiftX,107 + _shiftY,"Magic skills use up charge that refills\nover time. Effectiveness determined\n by Grace stat.",.35,.35,0);
-//draw_set_color(c_white);
-//draw_text_transformed(68 + _shiftX,107 + _shiftY,"Roll Dodge - Move faster and become\ninvincible for a breif window.\nAutomatically recharges with time.",.35,.35,0);
-//draw_text_transformed(163 + _shiftX,107 + _shiftY,"Crull Stone Heal - Heal 100 damage.\nReturn to a camp room to restore\nCrull Stones.",.35,.35,0);
+switch (page)
+{
+	case 0:
+		draw_sprite(spr_kephraStone_infograph_00,0,112,52)
+		draw_text_transformed(160,127,"Move with W, S, A, D.",.75,.75,0);
+	break;
+}
 }
 //
 //
