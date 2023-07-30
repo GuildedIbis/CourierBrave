@@ -302,6 +302,7 @@
     {"id":{"name":"rm_lenko_yakflowerPath_14","path":"rooms/rm_lenko_yakflowerPath_14/rm_lenko_yakflowerPath_14.yy",},},
     {"id":{"name":"Environment","path":"scripts/Environment/Environment.yy",},},
     {"id":{"name":"spr_player_adavio_riftCrushA","path":"sprites/spr_player_adavio_riftCrushA/spr_player_adavio_riftCrushA.yy",},},
+    {"id":{"name":"spr_kephraStone_menu","path":"sprites/spr_kephraStone_menu/spr_kephraStone_menu.yy",},},
     {"id":{"name":"spr_npc_andor","path":"sprites/spr_npc_andor/spr_npc_andor.yy",},},
     {"id":{"name":"obj_leverBeaowire","path":"objects/obj_leverBeaowire/obj_leverBeaowire.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerLunge_hitbox","path":"sprites/spr_enemy_tortoiseTroll_hammerLunge_hitbox/spr_enemy_tortoiseTroll_hammerLunge_hitbox.yy",},},

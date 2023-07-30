@@ -8,7 +8,7 @@
 function KephraStoneList(){
 kephra_grid = ds_grid_create(60,2);
 
-kephra_grid[# 0, 0] = KephraStoneIntroA;
+kephra_grid[# 0, 0] = scr_menu_kephra_00;
 kephra_grid[# 0, 1] = false;
 kephra_grid[# 0, 2] = "MOVEMENT"
 kephra_grid[# 1, 0] = KephraStoneIntroB;
@@ -40,9 +40,10 @@ kephra_grid[# 6, 2] = "Escort the crystal to the alter and get the key.\nEnemies
 //Kephra Stone Main
 function KephraStoneMain(){
 //Format
-draw_sprite_stretched(spr_menu_beveled,2,112,32,96,84);
-draw_sprite_stretched(spr_menu_beveled,2,112,118,96,30);
-draw_sprite_stretched(spr_menu,7,107,32,106,20);
+draw_sprite(spr_kephraStone_menu,2,64,32)
+//draw_sprite_stretched(spr_menu_beveled,2,161,32,95,84);
+//draw_sprite_stretched(spr_menu_beveled,2,112,118,96,30);
+draw_sprite_stretched(spr_menu,7,59,32,202,20);
 
 
 
@@ -77,25 +78,50 @@ if (string_counter >= 1)
 //
 //
 //Kephra Stone: Intro A
-function KephraStoneIntroA(){
+function scr_menu_kephra_00(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
+var _text = array_create(3,-1)
+_text[0] = "Move with W, S, A, D."
+_text[1] = "Roll with SPACE.\n\nBecome briefly invincible."
+_text[2] = "Rolling costs stamina which\nregenerates over time and is\ndisplayed beneath the health\nbar."
 //Sprite
 draw_set_font(global.fnt_main_white);
-draw_set_halign(fa_center)
-draw_set_valign(fa_top)
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,37,"MOVEMENT",1,1,0)
+draw_text_transformed(160,39,"MOVEMENT",1,1,0);
+draw_set_halign(fa_left);
+draw_sprite(spr_kephraStone_infograph_00,page,64,52);
+draw_text_transformed(167,56,_text[page],.5,.5,0);
 
-switch (page)
+
+if (page < 2)
 {
-	case 0:
-		draw_sprite(spr_kephraStone_infograph_00,0,112,52)
-		draw_text_transformed(160,127,"Move with W, S, A, D.",.75,.75,0);
-	break;
+	draw_sprite_stretched(spr_menu_circle16,0,258,84,16,16);
+	if (point_in_rectangle(_mouseX,_mouseY,258,84,274,100))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,257,83,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page + 1;
+		}
+	}
 }
+if (page > 0)
+{
+	draw_sprite_stretched(spr_menu_circle16,0,46,84,16,16);
+	if (point_in_rectangle(_mouseX,_mouseY,46,84,62,100))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page - 1;
+		}
+	}
+}
+
 }
 //
 //

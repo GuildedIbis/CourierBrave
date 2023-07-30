@@ -258,6 +258,7 @@
     {"name":"rm_lenko_yakflowerPath_14","order":12,"path":"rooms/rm_lenko_yakflowerPath_14/rm_lenko_yakflowerPath_14.yy",},
     {"name":"Environment","order":1,"path":"scripts/Environment/Environment.yy",},
     {"name":"spr_player_adavio_riftCrushA","order":17,"path":"sprites/spr_player_adavio_riftCrushA/spr_player_adavio_riftCrushA.yy",},
+    {"name":"spr_kephraStone_menu","order":8,"path":"sprites/spr_kephraStone_menu/spr_kephraStone_menu.yy",},
     {"name":"spr_npc_andor","order":11,"path":"sprites/spr_npc_andor/spr_npc_andor.yy",},
     {"name":"obj_leverBeaowire","order":18,"path":"objects/obj_leverBeaowire/obj_leverBeaowire.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerLunge_hitbox","order":9,"path":"sprites/spr_enemy_tortoiseTroll_hammerLunge_hitbox/spr_enemy_tortoiseTroll_hammerLunge_hitbox.yy",},
