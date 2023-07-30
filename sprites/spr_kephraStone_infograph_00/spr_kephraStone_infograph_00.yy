@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_kephraStone_infograph_00",
-  "bbox_bottom": 40,
+  "bbox_bottom": 48,
   "bbox_left": 16,
   "bbox_right": 79,
   "bbox_top": 24,
@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "OtherMenu",
-    "path": "folders/Sprites/Game/Menu/OtherMenu.yy",
+    "name": "Kephra",
+    "path": "folders/Sprites/Game/Menu/Kephra.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

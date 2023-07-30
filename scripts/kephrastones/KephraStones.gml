@@ -191,8 +191,9 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Right click to use the Courier's\nweapon skill."
-_text[1] = "Swap aiming mode with Z;\n\nAttack in the direction of the\ncursor or attack in the direction\nthe Courier is facing."
+_text[0] = "Left click to use the Courier's\nmagic skill."
+_text[1] = "Press \"F\" to swap to an alternate\nfire mode.\n\nAlternate fire modes must be\nunlocked."
+_text[2] = "Magic charge regenerates over\ntime.\n\nPicking up essence also regen-\nerates charge of the same type."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -200,11 +201,11 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text_transformed(160,39,"KEPHRA STONE 2: MAGIC",1,1,0);
 draw_set_halign(fa_left);
-draw_sprite(spr_kephraStone_infograph_01,page,64,52);
+draw_sprite(spr_kephraStone_infograph_02,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 
-if (page < 1)
+if (page < 2)
 {
 	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
@@ -244,16 +245,16 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Right click to use the Courier's\nweapon skill."
-_text[1] = "Swap aiming mode with Z;\n\nAttack in the direction of the\ncursor or attack in the direction\nthe Courier is facing."
+_text[0] = "Press \"SHIFT\" to use the Courier's\nspecial skill."
+_text[1] = "Special charge regenerates only\nwhen damage is dealt."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 1: WEAPONS",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 3: SPECIAL",1,1,0);
 draw_set_halign(fa_left);
-draw_sprite(spr_kephraStone_infograph_01,page,64,52);
+draw_sprite(spr_kephraStone_infograph_03,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 
@@ -297,20 +298,20 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Right click to use the Courier's\nweapon skill."
-_text[1] = "Swap aiming mode with Z;\n\nAttack in the direction of the\ncursor or attack in the direction\nthe Courier is facing."
+_text[0] = "Press \"C\" to use a Crull Stone."
+_text[1] = "Crull Stones heal à base of 100\nhealth to the Courier."
+_text[2] = "Visiting an alter (or dying)\nrestores Crull Stones, as well as\nhealth and charge."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 1: WEAPONS",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 4: CRULL STONES",1,1,0);
 draw_set_halign(fa_left);
-draw_sprite(spr_kephraStone_infograph_01,page,64,52);
+draw_sprite(spr_kephraStone_infograph_04,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 
-
-if (page < 1)
+if (page < 2)
 {
 	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
@@ -350,16 +351,17 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Right click to use the Courier's\nweapon skill."
-_text[1] = "Swap aiming mode with Z;\n\nAttack in the direction of the\ncursor or attack in the direction\nthe Courier is facing."
+_text[0] = "Enemies drop essence (magic\ncharge) when they are damaged by\nweapons and when they die."
+_text[1] = "When an enemy is slain, they can\nalso drop items used for upgrad-\ning the Courier's skills."
+_text[2] = "Enemies respawn when the Courier\nvisits and alter or dies."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 1: WEAPONS",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 5: ENEMIES",1,1,0);
 draw_set_halign(fa_left);
-draw_sprite(spr_kephraStone_infograph_01,page,64,52);
+draw_sprite(spr_kephraStone_infograph_05,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 
@@ -403,20 +405,24 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Right click to use the Courier's\nweapon skill."
-_text[1] = "Swap aiming mode with Z;\n\nAttack in the direction of the\ncursor or attack in the direction\nthe Courier is facing."
+_text[0] = "Press \"TAB\" to open/close the\nCourier's inventory."
+_text[1] = "From the \"STATS\" menu, the\nCourier's stats can be leveled up\nwith Star Orbs."
+_text[2] = "From the \"FORMS\" menu, the\nindividual skills of different\nCourier forms can be leveled up\nwith Rog Stones and Power Stones."
+_text[3] = "From the \"ITEMS\" menu, the\nplayer can view the Couriers\ncurrently held number of items like\nRog Stones."
+_text[4] = "From the \"OBJECTIVES\" menu, the\nplayer can see the current status\ndifferent questions."
+_text[5] = "From the \"MAP\" menu, the\nplayer can see where the Courier\nis and fast travel to alters\nthey've visited."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 1: WEAPONS",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 6: INVENTORY",1,1,0);
 draw_set_halign(fa_left);
-draw_sprite(spr_kephraStone_infograph_01,page,64,52);
+draw_sprite(spr_kephraStone_infograph_06,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 
-if (page < 1)
+if (page < 5)
 {
 	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
