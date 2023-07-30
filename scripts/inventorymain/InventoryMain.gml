@@ -161,7 +161,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 	
 //Draw Text
-draw_text_transformed(160,160,"TAB\nto resume",.5,.5,0);
+draw_text_transformed(160,160,"PRESS \"TAB\"\nTO RESUME",.5,.5,0);
 draw_set_halign(fa_center);
 draw_sprite(spr_inventory_tabs,0,69,12)
 //draw_text_transformed(80,142,"MAP",.35,.35,0);	

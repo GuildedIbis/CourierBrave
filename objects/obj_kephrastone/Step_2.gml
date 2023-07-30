@@ -20,7 +20,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		{
 			text_string = ""
 			string_counter = 0;
-			text_script = KephraStoneMain;
+			text_script = scr_kephra_stone;
 			activate_args = other.activate_args;
 		}
 		obj_game.gamePaused = true;
