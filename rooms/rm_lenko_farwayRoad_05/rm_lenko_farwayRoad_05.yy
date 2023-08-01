@@ -26,7 +26,6 @@
     {"name":"inst_1ECC1B0_5","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_BBEEB9B_3","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_5E66BBCF","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
-    {"name":"inst_CEA8146","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_74BB7801","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_1A538144","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_2C5FDB14","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
@@ -194,10 +193,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterText",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":168.0,"y":96.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_CEA8146","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kephraStone","path":"objects/obj_kephraStone/obj_kephraStone.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"KephraStoneMain",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":240.0,"y":40.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_74BB7801","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_farwayRoad_06",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"24",},

@@ -29,6 +29,9 @@ kephra_grid[# 5, 2] = "ENEMIES"
 kephra_grid[# 6, 0] = scr_menu_kephra_06;
 kephra_grid[# 6, 1] = false
 kephra_grid[# 6, 2] = "INVENTORY"
+kephra_grid[# 7, 0] = scr_menu_kephra_07;
+kephra_grid[# 7, 1] = false
+kephra_grid[# 7, 2] = "QUICK SWAP"
 						
 }
 //
@@ -423,6 +426,61 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 
 if (page < 5)
+{
+	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite(spr_menu_arrow,0,266,84);
+	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,257,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page + 1;
+		}
+	}
+}
+if (page > 0)
+{
+	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite(spr_menu_arrow,2,54,84);
+	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,45,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page - 1;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Kephra Stone 07: Quick Swap
+function scr_menu_kephra_07(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _text = array_create(2,-1)
+_text[0] = "Press \"R\" to open the Quick Swap\nmenu and quickly change Form."
+_text[1] = "Each Form is one of six types,\neach type having it's own charge meters."
+_text[2] = "Don't leave the Courier defenseless.\n\nA quick Form swap can be a matter of life\nor death."
+
+//Sprite
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(160,39,"KEPHRA STONE 7: FORM SWAPPING",1,1,0);
+draw_set_halign(fa_left);
+draw_sprite(spr_kephraStone_infograph_07,page,64,52);
+draw_text_transformed(165,56,_text[page],.5,.5,0);
+
+
+if (page < 2)
 {
 	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);

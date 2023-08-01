@@ -149,6 +149,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"Scene","order":6,"path":"folders/Sprites/Game/Scene.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},
@@ -424,6 +425,7 @@
     {"name":"spr_player_shadow","order":3,"path":"sprites/spr_player_shadow/spr_player_shadow.yy",},
     {"name":"spr_enemy_Giantcharger","order":2,"path":"sprites/spr_enemy_Giantcharger/spr_enemy_Giantcharger.yy",},
     {"name":"rm_lenko_beaowire_03","order":27,"path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},
+    {"name":"spr_kephraStone_infograph_07","order":10,"path":"sprites/spr_kephraStone_infograph_07/spr_kephraStone_infograph_07.yy",},
     {"name":"spr_trollTortoise_flower_crush","order":15,"path":"sprites/spr_trollTortoise_flower_crush/spr_trollTortoise_flower_crush.yy",},
     {"name":"LSCrull","order":14,"path":"scripts/LSCrull/LSCrull.yy",},
     {"name":"snd_npc_mouse","order":1,"path":"sounds/snd_npc_mouse/snd_npc_mouse.yy",},
@@ -756,6 +758,7 @@
     {"name":"rm_lenko_farwayRoad_07","order":19,"path":"rooms/rm_lenko_farwayRoad_07/rm_lenko_farwayRoad_07.yy",},
     {"name":"spr_enemy_endireKnight_run","order":8,"path":"sprites/spr_enemy_endireKnight_run/spr_enemy_endireKnight_run.yy",},
     {"name":"spr_enemy_duskMoga","order":3,"path":"sprites/spr_enemy_duskMoga/spr_enemy_duskMoga.yy",},
+    {"name":"spr_scene_01","order":1,"path":"sprites/spr_scene_01/spr_scene_01.yy",},
     {"name":"spr_enemy_rat_arrowShatter","order":12,"path":"sprites/spr_enemy_rat_arrowShatter/spr_enemy_rat_arrowShatter.yy",},
     {"name":"snd_lekno_5","order":5,"path":"sounds/snd_lekno_5/snd_lekno_5.yy",},
     {"name":"spr_enemy_ghostMasgar_slash","order":7,"path":"sprites/spr_enemy_ghostMasgar_slash/spr_enemy_ghostMasgar_slash.yy",},
