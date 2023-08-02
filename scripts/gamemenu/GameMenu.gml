@@ -444,29 +444,31 @@ else
 			global.home = false;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				sprite_index = spr_player_scene01;
-				state_script = PlayerScene01;
+				//sprite_index = spr_player_scene01;
+				//state_script = PlayerScene01;
+				x = 112;
+				y = 240;
 				image_speed = 1;
 			}
 		
-			room_goto(rm_scene01);
+			room_goto(rm_scene_00);
 		
 			SaveGame3();
-			with (obj_text)
-			{
-				text_string = ""
-				string_counter = 0;
-				text_script = PlayerSceneText01;
-			}
-			obj_game.scene = true;
-			obj_player.scene = true;
-			obj_game.gamePaused = true;
-			obj_game.textPaused = true;
-			gamePaused = true;
-			textPaused = true;
+			//with (obj_text)
+			//{
+			//	text_string = ""
+			//	string_counter = 0;
+			//	text_script = PlayerSceneText01;
+			//}
+			//obj_game.scene = true;
+			//obj_player.scene = true;
+			//obj_game.gamePaused = true;
+			//obj_game.textPaused = true;
+			//gamePaused = true;
+			//textPaused = true;
 		
-			obj_player.x = 159;
-			obj_player.y = 63;
+			//obj_player.x = 159;
+			//obj_player.y = 63;
 			audio_stop_all();
 		}
 	}
