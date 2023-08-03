@@ -107,3 +107,36 @@ depth = -y;
 
 
 }
+//
+//
+//
+//
+//
+//Effect Yok Trees Step
+function scr_effect_tree_elderJelx_step(){
+frag = false
+image_speed = 0;
+image_index = variant;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_tree_elderjelx;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+
+
+}
