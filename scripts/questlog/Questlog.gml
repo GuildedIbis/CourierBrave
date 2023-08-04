@@ -160,6 +160,15 @@ quest_grid[# 19, 3] = false;
 quest_grid[# 19, 4] = Idle;
 quest_grid[# 19, 5] = "";
 quest_grid[# 19, 6] = "Beaowire Fortress NPC";
+
+//Final Main Quest
+quest_grid[# 89, 0] = false;
+quest_grid[# 89, 1] = 0;
+quest_grid[# 89, 2] = 1; 
+quest_grid[# 89, 3] = false;
+quest_grid[# 89, 4] = Idle;
+quest_grid[# 89, 5] = "Stop the Necromancer from restoring the Great Evil.";
+quest_grid[# 89, 6] = "The Necromancer";
 }
 //
 //
