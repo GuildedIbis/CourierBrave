@@ -112,6 +112,50 @@ depth = -y;
 //
 //
 //
+//Effect Molen Snowy Trees Create
+function scr_effect_tree_large_create(){
+image_index = variant;
+image_speed = 0;
+with (instance_create_layer(x-12,y-15,"Wall",obj_wall))
+{
+	image_xscale = 3;
+	image_yscale = 2.5;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-12,y-15,"Break",break_object))
+	{
+		image_xscale = 3;
+		image_yscale = 1.5;
+		game_paused_image_speed = image_speed;
+	}
+}
+
+//Shadow
+shadow = true;
+//sx1 = x - 6;
+//sy1 = y - 30;
+//sx2 = x + 32;
+//sy2 = y - 30;
+//sx3 = x + 16;
+//sy3 = y + 8;
+//sx4 = x - 16;
+//sy4 = y + 8;
+sx1 = x - (sprite_width/2) + 12;
+sy1 = y - 24;
+sx2 = x + (sprite_width/2) + 12;
+sy2 = y - 24
+sx3 = x + (sprite_width/2);
+sy3 = y + 3;
+sx4 = x - (sprite_width/2);
+sy4 = y + 3;
+}
+//
+//
+//
+//
+//
 //Effect Yok Trees Step
 function scr_effect_tree_elderJelx_step(){
 frag = false
