@@ -22,7 +22,7 @@ image_speed = 0;
 //Necromancer Scene 1 Step
 function scr_npc_emissary_scene_0(){
 //Interaction Script
-scr_npc_interact_unprompted(12);
+scr_npc_interact(12);
 
 //Animate
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
@@ -33,32 +33,6 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		image_index = _cardinalDir
 	}
 }
-
-//Move to next room
-if (obj_inventory.quest_grid[# 89, 0] = true)
-{
-	obj_inventory.room_num = 0;
-	obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-	obj_game.room_num = 0;
-	obj_game.room_name = obj_inventory.room_ary[0][0];
-	obj_game.room_name_timer = 180;
-	obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-	obj_game.level_num = 0;
-	obj_game.level_name = obj_inventory.level_name[0];
-	obj_game.level_name_timer = 180;
-	obj_inventory.level_ary[0] = true;
-	global.targetX = 88;
-	global.targetY = 88;
-	global.targetRoom = rm_lenko_farwayRoad_00;
-	global.targetCamp = true;
-	script_execute(RoomEnemiesReset);
-	global.lastCamp = rm_lenko_farwayRoad_00;
-	global.lastCampX = 88;
-	global.lastCampY = 88;
-	obj_inventory.camp_grid[# 0, 3] = true;
-	global.transition = true;
-	global.fadeOut = true;
-} 
 
 }
 //
@@ -125,6 +99,30 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
+	
+		//Room Transition
+		scr_room_transition(88,88,rm_lenko_farwayRoad_00,0,0,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0)
+		//obj_inventory.room_num = 0;
+		//obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+		//obj_game.room_num = 0;
+		//obj_game.room_name = obj_inventory.room_ary[0][0];
+		//obj_game.room_name_timer = 180;
+		//obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+		//obj_game.level_num = 0;
+		//obj_game.level_name = obj_inventory.level_name[0];
+		//obj_game.level_name_timer = 180;
+		//obj_inventory.level_ary[0] = true;
+		//global.targetX = 88;
+		//global.targetY = 88;
+		//global.targetRoom = rm_lenko_farwayRoad_00;
+		//global.targetCamp = true;
+		//script_execute(RoomEnemiesReset);
+		//global.lastCamp = rm_lenko_farwayRoad_00;
+		//global.lastCampX = 88;
+		//global.lastCampY = 88;
+		//obj_inventory.camp_grid[# 0, 3] = true;
+		//global.transition = true;
+		//global.fadeOut = true;
 	
 		//Reset Buy/Sell Menu
 		text_gui = 0

@@ -434,6 +434,7 @@
     {"name":"spr_trollTortoise_flower_crush","order":15,"path":"sprites/spr_trollTortoise_flower_crush/spr_trollTortoise_flower_crush.yy",},
     {"name":"LSCrull","order":14,"path":"scripts/LSCrull/LSCrull.yy",},
     {"name":"snd_npc_mouse","order":1,"path":"sounds/snd_npc_mouse/snd_npc_mouse.yy",},
+    {"name":"RoomTransition","order":4,"path":"scripts/RoomTransition/RoomTransition.yy",},
     {"name":"EscortLillyShrineSpawner","order":5,"path":"scripts/EscortLillyShrineSpawner/EscortLillyShrineSpawner.yy",},
     {"name":"spr_enemy_lilyCultist_idle","order":7,"path":"sprites/spr_enemy_lilyCultist_idle/spr_enemy_lilyCultist_idle.yy",},
     {"name":"spr_map_small","order":3,"path":"sprites/spr_map_small/spr_map_small.yy",},

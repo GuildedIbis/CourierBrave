@@ -446,8 +446,10 @@ else
 			{
 				//sprite_index = spr_player_scene01;
 				//state_script = PlayerScene01;
-				x = 112;
-				y = 240;
+				global.dayPhase = 2;
+				obj_game.day_timer = 17000;
+				x = 144;
+				y = 160;
 				image_speed = 1;
 			}
 		

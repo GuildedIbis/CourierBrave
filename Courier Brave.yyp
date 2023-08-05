@@ -502,6 +502,7 @@
     {"id":{"name":"spr_trollTortoise_flower_crush","path":"sprites/spr_trollTortoise_flower_crush/spr_trollTortoise_flower_crush.yy",},},
     {"id":{"name":"LSCrull","path":"scripts/LSCrull/LSCrull.yy",},},
     {"id":{"name":"snd_npc_mouse","path":"sounds/snd_npc_mouse/snd_npc_mouse.yy",},},
+    {"id":{"name":"RoomTransition","path":"scripts/RoomTransition/RoomTransition.yy",},},
     {"id":{"name":"EscortLillyShrineSpawner","path":"scripts/EscortLillyShrineSpawner/EscortLillyShrineSpawner.yy",},},
     {"id":{"name":"spr_enemy_lilyCultist_idle","path":"sprites/spr_enemy_lilyCultist_idle/spr_enemy_lilyCultist_idle.yy",},},
     {"id":{"name":"spr_map_small","path":"sprites/spr_map_small/spr_map_small.yy",},},
