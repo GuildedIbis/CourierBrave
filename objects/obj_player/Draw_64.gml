@@ -31,11 +31,6 @@ if (scene = false) and (obj_game.textPaused = false)
 	//draw_set_color(c_white);
 	//draw_text_transformed(261,159,stamina,.5,.5,0);
 
-	//Day Cycle
-	with (obj_game)
-	{
-		GameDayCycle();
-	}
 
 	//Beans
 	//draw_sprite(spr_bean_hud,0,302,6);

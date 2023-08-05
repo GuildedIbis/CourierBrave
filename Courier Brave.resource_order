@@ -1077,6 +1077,7 @@
     {"name":"spr_activator","order":1,"path":"sprites/spr_activator/spr_activator.yy",},
     {"name":"spr_button2","order":44,"path":"sprites/spr_button2/spr_button2.yy",},
     {"name":"rm_lenko_beaowire_15","order":13,"path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
+    {"name":"PlayerScene00","order":2,"path":"scripts/PlayerScene00/PlayerScene00.yy",},
     {"name":"spr_npc_rhombail","order":10,"path":"sprites/spr_npc_rhombail/spr_npc_rhombail.yy",},
     {"name":"spr_door_questAdavio_open","order":22,"path":"sprites/spr_door_questAdavio_open/spr_door_questAdavio_open.yy",},
     {"name":"snd_viceBubble_hit","order":7,"path":"sounds/snd_viceBubble_hit/snd_viceBubble_hit.yy",},

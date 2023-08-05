@@ -11,7 +11,7 @@ sound = snd_npc_mouse;
 timer1 = 40;
 idle_sprite = spr_npc_emissary;
 scene = false;
-sprite_index = idle_sprite;
+sprite_index = spr_npc_emissary_scene_00;
 image_speed = 0;
 }
 //
@@ -21,7 +21,37 @@ image_speed = 0;
 //
 //Necromancer Scene 1 Step
 function scr_npc_emissary_scene_0(){
+if (global.dayPhase = 2)
+{
+	image_alpha = 0;
+	image_index = 0;
+	image_speed = 0;
+}
+else
+{
+	image_alpha = 1;
+	image_speed = 1;
+	sprite_index = spr_npc_emissary_scene_00;
+	timer1 = timer1 - 1;
+	if (timer1 <= 0)
+	{
+		entity_step = scr_npc_emissary_idle;
+		obj_player.scene = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Necromancer Scene 1 Step
+function scr_npc_emissary_idle(){
 //Interaction Script
+image_alpha = 1;
+image_index = 1;
+image_speed = 0;
+sprite_index = spr_npc_emissary;
 scr_npc_interact(12);
 
 //Animate
@@ -33,7 +63,6 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		image_index = _cardinalDir
 	}
 }
-
 }
 //
 //

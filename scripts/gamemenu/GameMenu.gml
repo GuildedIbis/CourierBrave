@@ -442,12 +442,15 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.dayPhase = 2;
+			obj_game.night_fade = 1000;
+			obj_game.day_timer = 17000;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				//sprite_index = spr_player_scene01;
-				//state_script = PlayerScene01;
-				global.dayPhase = 2;
-				obj_game.day_timer = 17000;
+				scene = true;
+				sprite_index = spr_player_regaliare_idle;
+				image_index = 3;
+				state_script = scr_player_scene_00;
 				x = 144;
 				y = 160;
 				image_speed = 1;
