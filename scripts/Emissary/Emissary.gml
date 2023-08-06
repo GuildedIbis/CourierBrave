@@ -47,6 +47,8 @@ else
 //
 //Necromancer Scene 1 Step
 function scr_npc_emissary_idle(){
+if (obj_game.gamePaused = false)
+{
 //Interaction Script
 image_alpha = 1;
 image_index = 1;
@@ -57,11 +59,39 @@ scr_npc_interact(12);
 //Animate
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
-	if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)
+	if (keyboard_check_pressed(ord("E"))) 
 	{
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
-		image_index = _cardinalDir
+		image_index = _cardinalDir;
+		sprite_index = spr_npc_emissary;
+		entity_step = scr_npc_emissary_scene_1;
+		timer1 = 120;
+		
 	}
+}
+}
+}
+//
+//
+//
+//
+//
+//Necromancer Scene 1 Step
+function scr_npc_emissary_scene_1(){
+if (obj_game.gamePaused = false)
+{
+//Interaction Script
+image_alpha = 1;
+image_speed = 1;
+sprite_index = spr_npc_emissary_scene_01;
+
+
+//Animate
+timer1 = timer1 - 1;
+if (timer1 <= 0)
+{
+	scr_room_transition(88,88,rm_lenko_farwayRoad_00,0,0,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0);
+}
 }
 }
 //
@@ -130,7 +160,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 		obj_game.textPaused = false;
 	
 		//Room Transition
-		scr_room_transition(88,88,rm_lenko_farwayRoad_00,0,0,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0)
+		
 		//obj_inventory.room_num = 0;
 		//obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 		//obj_game.room_num = 0;

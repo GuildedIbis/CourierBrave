@@ -262,7 +262,7 @@ else
 			global.home = false;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				sprite_index = spr_player_scene01;
+				sprite_index = spr_player_scene01_old;
 				state_script = PlayerScene01;
 				image_speed = 1;
 			}
@@ -354,7 +354,7 @@ else
 			global.home = false;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				sprite_index = spr_player_scene01;
+				sprite_index = spr_player_scene01_old;
 				state_script = PlayerScene01;
 				image_speed = 1;
 			}
@@ -451,6 +451,8 @@ else
 				sprite_index = spr_player_regaliare_idle;
 				image_index = 3;
 				state_script = scr_player_scene_00;
+				scene_script = scr_player_scene_00_text;
+				timer1 = 0;
 				x = 144;
 				y = 160;
 				image_speed = 1;
