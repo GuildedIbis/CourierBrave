@@ -9,22 +9,10 @@ function InventoryMain(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
-	
-//Draw Sprites
+
+//Tinted Background
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
-
-
-//draw_sprite_stretched(button_sprite,3,69,8,21,24);
-//draw_sprite_stretched(button_sprite,3,92,8,21,24);
-//draw_sprite_stretched(button_sprite,3,115,8,21,24);
-//draw_sprite_stretched(button_sprite,3,138,8,21,24);
-//draw_sprite_stretched(button_sprite,3,161,8,21,24);
-//draw_sprite_stretched(button_sprite,3,184,8,21,24);
-//draw_sprite_stretched(button_sprite,3,207,8,21,24);
-//draw_sprite_stretched(button_sprite,3,230,8,21,24);
-//draw_sprite(spr_lock,0,160,108);
-//draw_sprite(spr_lock,0,224,108);
-
+//Menu Sprites
 draw_sprite_stretched(spr_menu_circle16,3,69,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,92,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,115,8,21,24);
@@ -33,12 +21,24 @@ draw_sprite_stretched(spr_menu_circle16,3,161,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,184,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,207,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,230,8,21,24);
+draw_sprite(spr_inventory_tabs,0,69,12);
 
-	
+//Overlayed Text
+draw_set_font(fnt_text);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_text_transformed(160,160,"PRESS \"TAB\"\nTO RESUME",.5,.5,0);
 
+//Day Meter
+if (obj_game.invPaused = true)
+{
+	var _dayPerc = (obj_game.day_timer/18000) * 100;
+	draw_healthbar(15,9,41,11,_dayPerc,c_black,c_white,c_white,0,true,true);
+	draw_sprite_ext(spr_lighting_phase,global.dayPhase,12,7,1,1,0,c_white,1.0);
+}
 
-
-//Mechanics
+//Button Mechanics
 if (point_in_rectangle(_mouseX,_mouseY,69,8,90,36))//Player Menu
 {
 	draw_sprite_stretched(spr_highlight_circle,0,68,7,23,26);
@@ -149,26 +149,6 @@ if (point_in_rectangle(_mouseX,_mouseY,230,8,251,36)) //Info Menu
 		obj_game.invPaused = false;
 	}
 }
-
-
-
-
-//draw_sprite_stretched(menu_sprite,3,64,36,192,96);
-//Set Text
-draw_set_font(fnt_text);
-draw_set_color(c_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-	
-//Draw Text
-draw_text_transformed(160,160,"PRESS \"TAB\"\nTO RESUME",.5,.5,0);
-draw_set_halign(fa_center);
-draw_sprite(spr_inventory_tabs,0,69,12)
-//draw_text_transformed(80,142,"MAP",.35,.35,0);	
-//draw_text_transformed(106,142,"ITEMS",.35,.35,0);	
-//draw_text_transformed(132,142,"PLAYER",.35,.35,0);
-//draw_text_transformed(158,142,"EQUIPMENT",.35,.35,0);
-//draw_text_transformed(184,142,"EXIT",.35,.35,0);
 
 }
 //

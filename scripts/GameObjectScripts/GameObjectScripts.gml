@@ -150,10 +150,5 @@ if (gamePaused = false)
 		}
 	}
 }
-if (obj_game.invPaused = true)
-{
-	var _dayPerc = (day_timer/max_day_timer) * 100;
-	draw_healthbar(15,9,41,11,_dayPerc,c_black,c_white,c_white,0,true,true);
-	draw_sprite_ext(spr_lighting_phase,global.dayPhase,12,7,1,1,0,c_white,1.0);
-}
+
 }

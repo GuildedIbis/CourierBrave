@@ -38,6 +38,7 @@ dmg_snd_delay = 0;
 state_script = Idle;
 free_script = Idle;
 attack_script = Idle;
+scene_script = -1;
 tracking_quest = Idle;
 attacking = false;
 hit_by_attack = -1;
