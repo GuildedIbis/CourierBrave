@@ -131,6 +131,7 @@
     {"name":"Pora","order":6,"path":"folders/Sprites/Player/Pora.yy",},
     {"name":"Regaliare","order":1,"path":"folders/Sprites/Player/Regaliare.yy",},
     {"name":"Scenes","order":2,"path":"folders/Sprites/Player/Scenes.yy",},
+    {"name":"RetiredScene","order":4,"path":"folders/Sprites/Player/Scenes/RetiredScene.yy",},
     {"name":"World","order":1,"path":"folders/Sprites/World.yy",},
     {"name":"Effects","order":5,"path":"folders/Sprites/World/Effects.yy",},
     {"name":"BeetrapEfEn","order":3,"path":"folders/Sprites/World/Effects/BeetrapEfEn.yy",},
@@ -151,7 +152,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"RetiredScene","order":4,"path":"folders/Sprites/Player/Scenes/RetiredScene.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},

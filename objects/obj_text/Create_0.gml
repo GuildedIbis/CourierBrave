@@ -15,6 +15,7 @@ button_sprite = spr_menu;
 
 
 //Paging and Buttons
+e_page = true;
 page = 0;
 slot = -1;
 text_gui = 0;
