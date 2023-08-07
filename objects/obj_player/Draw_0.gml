@@ -13,7 +13,10 @@ if (flash != 0)
 }
 
 //Shadow
-draw_sprite(spr_player_shadow,0,x+1,y)
+if (shadow = true)
+{
+	draw_sprite(spr_player_shadow,0,x+1,y)
+}
 //if (dead = false)
 //{
 //	var _x1 = x - 4 + 6;

@@ -1,9 +1,30 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function PlayerScene01(){
-sprite_index = spr_player_scene01_old;
-scene = true;
+function scr_player_scene_01(){
+if (obj_game.gamePaused = false)
+{
+	image_speed = 1;
+	sprite_index = spr_player_scene01;
+	scene = true;
+	timer1 = timer1 - 1;
+	timer2 = timer2 - 1;
+	if (timer1 <= 0)
+	{
+		image_alpha = 0;
+		image_speed = 0;
+		shadow = false;
+	}
+	if (timer2 <= 0)
+	{
+		image_alpha = 1;
+		shadow = true;
+		state_script = home_state;
+		scene = false;
+		
+	}
+	
 //Convert Mouse to GUI
+}
 }
 //
 //

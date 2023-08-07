@@ -100,6 +100,7 @@ orange_special = max_charge;
 //Status
 status_animate_timer = 0;
 status_animate_index = 0;
+shadow = true;
 scene = false;
 dead = false;
 ablaze = false;

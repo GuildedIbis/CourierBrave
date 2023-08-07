@@ -65,7 +65,16 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		image_index = _cardinalDir;
 		sprite_index = spr_npc_emissary;
 		entity_step = scr_npc_emissary_scene_1;
-		timer1 = 120;
+		timer1 = 160;
+		with (obj_player)
+		{
+			scene = true;
+			sprite_index = idle_sprite;
+			image_speed = 0;
+			state_script = scr_player_scene_01;
+			timer1 = 40;
+			timer2 = 170;
+		}
 		
 	}
 }
@@ -81,10 +90,12 @@ function scr_npc_emissary_scene_1(){
 if (obj_game.gamePaused = false)
 {
 //Interaction Script
-image_alpha = 1;
-image_speed = 1;
-sprite_index = spr_npc_emissary_scene_01;
-
+if (timer1 < 120)
+{
+	image_alpha = 1;
+	image_speed = 1;
+	sprite_index = spr_npc_emissary_scene_01;
+}
 
 //Animate
 timer1 = timer1 - 1;
@@ -101,7 +112,8 @@ if (timer1 <= 0)
 //
 //Necromancer Scene 1 Text
 function scr_text_emissary_scene_0(){
-
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 //
 //
 //
@@ -114,7 +126,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
 	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "The Necromancer"
+	var _name = "The Emissary"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -128,7 +140,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "You haven't forgotten what it means then? You are prepared to return?"
+		text_string = "You haven't forgotten what it means then?\nYou are prepared to return?"
 		_SubString = string_copy(text_string,1,letter_counter);
 		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);

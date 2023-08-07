@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Scenes",
-    "path": "folders/Sprites/Player/Scenes.yy",
+    "name": "RetiredScene",
+    "path": "folders/Sprites/Player/Scenes/RetiredScene.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
