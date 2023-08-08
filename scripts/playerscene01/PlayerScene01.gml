@@ -8,7 +8,9 @@ if (obj_game.gamePaused = false)
 	scene = true;
 	timer1 = timer1 - 1;
 	timer2 = timer2 - 1;
-	if (timer1 <= 0)
+	//Animation
+	PlayerAnimation1();
+	if (timer1 <= 0) or (animation_end = true)
 	{
 		image_alpha = 0;
 		image_speed = 0;

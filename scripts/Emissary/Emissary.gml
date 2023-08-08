@@ -199,13 +199,10 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 		//DrawBuyMenu();
 		//DrawSelectedMenu(obj_inventory);
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
 	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }
@@ -228,14 +225,14 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "This is Kephra's Decree" 
+		text_string = "Without delay then...\nThis decree was presented to the accused three days ago..." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "The relevent events leading to this."
+		text_string = "By decree of Kephra, goddess and protector of the planet\nand realm we call Omlio, the usurper king of the East, known\nas the Necromancer, is banished from this realm."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
@@ -243,11 +240,74 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "This ends Kephra's decree."
+		text_string = "Should the accused be found in this realm by this time\ntomorrow, they will be given the oppurtunity to submit\nthemselves to Kephra's authority."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
-	if (string_counter >= 3)
+	if (string_counter = 3)
+	{
+		speaker = 1;
+		text_string = "Should the accused be found and refuse submission, they\nwill be subject to whatever means deemed necessary, not\nwithholding any act of war, to detain the accused."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 4)
+	{
+		speaker = 1;
+		text_string = "It is on these specific acts the accused is charged...\nfour acts of conspiracy in murder, including Ulav Fir,\nKing of the Beetre..."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 5)
+	{
+		speaker = 1;
+		text_string = "...seven acts of murder, including the murders of Persio\nYoth, Queen of the Mountain, and her heir Princess Thesio..."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 6)
+	{
+		speaker = 1;
+		text_string = "...and the wrongful destruction of the kingdom of the\nsouth, including the burning of those lands."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 7)
+	{
+		speaker = 1;
+		text_string = "This decree comes with a message from Kephra to the\ngood creatures of this realm..."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 8)
+	{
+		speaker = 1;
+		text_string = "Take courage, those of the east whose kingdoms have fallen\nto ruin. The dark age you endured draws to it's end and your\nhomes will be rebuilt..."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 9)
+	{
+		speaker = 1;
+		text_string = "Take strength, those of the west, where war has never\nceased. The head of the snake is soon crushed, and you will\nhave rest."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 10)
+	{
+		speaker = 1;
+		text_string = "Justice rides out today, by court or sword."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter = 11)
+	{
+		speaker = 1;
+		text_string = "...\n...\nThis ends the 11th Decree of Kephra, and for you Regaliare,\nshe sends her regards."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	}
+	if (string_counter >= 12)
 	{
 		speaker = 1;
 		text_string = ""
@@ -257,13 +317,10 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 		page = 1;
 	
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
 	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }
@@ -287,19 +344,43 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Regaliare, Captain of the Couriers..." 
+		text_string = "Regaliare, Captain of the Couriers...\nfortunate are the good creatures of Omlio to have such\nguardians as the Couriers. Now comes a day when they are\nagain in need." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Motherly concern and Your mission\nGo now and protect the good creatures..."
+		text_string = "The Necromancer is a mortal- but weilds the power not only\nto avoid death, but perhaps also to summon the great evil\nthe Courier's destroyed ages ago."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
 	}
-	if (string_counter >= 2)
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "The return of the Great Evil would bring a war to this realm,\nthe likes of which no good creature could survive...\nThe Necromancer must be stopped, and you alone have the\npower to stop him."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+
+	}
+	if (string_counter = 3)
+	{
+		speaker = 1;
+		text_string = "It is time Regaliare, most brave and honorable of Kephra's\nwarriors. Go now, without weariness until your objective is\ncomplete."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+
+	}
+	if (string_counter = 4)
+	{
+		speaker = 1;
+		text_string = "With the command of Kephra, I awaken the stones of power.\nMay they aid you on your journey."
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+
+	}
+	if (string_counter >= 5)
 	{
 		text_script = Idle;
 		text_string = ""
@@ -317,13 +398,10 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 		buy_price = 0;
 		
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
 	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }

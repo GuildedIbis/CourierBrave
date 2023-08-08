@@ -260,31 +260,25 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.dayPhase = 2;
+			obj_game.night_fade = 1000;
+			obj_game.day_timer = 17000;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				sprite_index = spr_player_scene01_old;
-				state_script = PlayerScene01;
+				scene = true;
+				sprite_index = spr_player_regaliare_idle;
+				image_index = 3;
+				state_script = scr_player_scene_00;
+				scene_script = scr_player_scene_00_text;
+				timer1 = 0;
+				x = 144;
+				y = 160;
 				image_speed = 1;
 			}
-
-			room_goto(rm_scene01);
+		
+			room_goto(rm_scene_00);
 		
 			SaveGame();
-			with (obj_text)
-			{
-				text_string = ""
-				string_counter = 0;
-				text_script = PlayerSceneText01;
-			}
-			obj_game.scene = true;
-			obj_player.scene = true;
-			obj_game.gamePaused = true;
-			obj_game.textPaused = true;
-			gamePaused = true;
-			textPaused = true;
-		
-			obj_player.x = 159;
-			obj_player.y = 63;
 			audio_stop_all();
 		}
 	}
@@ -352,30 +346,25 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.dayPhase = 2;
+			obj_game.night_fade = 1000;
+			obj_game.day_timer = 17000;
 			with (instance_create_layer(x,y,"Instances",obj_player))
 			{
-				sprite_index = spr_player_scene01_old;
-				state_script = PlayerScene01;
+				scene = true;
+				sprite_index = spr_player_regaliare_idle;
+				image_index = 3;
+				state_script = scr_player_scene_00;
+				scene_script = scr_player_scene_00_text;
+				timer1 = 0;
+				x = 144;
+				y = 160;
 				image_speed = 1;
 			}
-			room_goto(rm_scene01);
+		
+			room_goto(rm_scene_00);
 		
 			SaveGame2();
-			with (obj_text)
-			{
-				text_string = ""
-				string_counter = 0;
-				text_script = PlayerSceneText01;
-			}
-			obj_game.scene = true;
-			obj_player.scene = true;
-			obj_game.gamePaused = true;
-			obj_game.textPaused = true;
-			gamePaused = true;
-			textPaused = true;
-		
-			obj_player.x = 159;
-			obj_player.y = 63;
 			audio_stop_all();
 		}
 	}
