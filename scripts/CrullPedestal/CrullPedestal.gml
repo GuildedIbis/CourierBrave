@@ -19,15 +19,19 @@ idle_sprite = spr_crull_pedestal_empty;
 //
 //Crull Stone Pedestal Step
 function CrullStonePedestalStep(){
-if (obj_inventory.crullStone_list[activate_args] = false)
+if (obj_game.gamePaused = false)
 {
-		sprite_index = active_sprite;
-		image_speed = 1;
-}
-else
-{
-	sprite_index = idle_sprite;
-	image_speed = 0;
+	scr_npc_interact(12);
+	if (obj_inventory.crullStone_list[activate_args] = false)
+	{
+			sprite_index = active_sprite;
+			image_speed = 1;
+	}
+	else
+	{
+		sprite_index = idle_sprite;
+		image_speed = 0;
+	}
 }
 }
 //

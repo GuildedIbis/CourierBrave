@@ -19,18 +19,22 @@ idle_sprite = spr_starOrb_pedestal_stone;
 //
 //Star Orb Pedestal Step
 function StarOrbPedestalStep(){
-if (obj_inventory.starOrb_list[activate_args] = false)
+if (obj_game.gamePaused = false)
 {
-	if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) sprite_index = active_sprite;
-	else sprite_index = idle_sprite;
-	image_speed = 1;
-	activate_script = StarOrbPedestalText;
-}
-else
-{
-	sprite_index = spr_starOrb_pedestal_empty;
-	image_speed = 0;
-	activate_script = -1;
+	scr_npc_interact(12);
+	if (obj_inventory.starOrb_list[activate_args] = false)
+	{
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) sprite_index = active_sprite;
+		else sprite_index = idle_sprite;
+		image_speed = 1;
+		activate_script = StarOrbPedestalText;
+	}
+	else
+	{
+		sprite_index = spr_starOrb_pedestal_empty;
+		image_speed = 0;
+		activate_script = -1;
+	}
 }
 }
 //

@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 48.0,
   "parent": {
-    "name": "Lenko",
-    "path": "folders/Sounds/World/Music/Lenko.yy",
+    "name": "Other",
+    "path": "folders/Sounds/World/Music/Other.yy",
   },
   "preload": false,
   "sampleRate": 44100,

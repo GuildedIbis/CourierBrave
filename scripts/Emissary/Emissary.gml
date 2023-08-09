@@ -66,6 +66,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		sprite_index = spr_npc_emissary;
 		entity_step = scr_npc_emissary_scene_01;
 		timer1 = 160;
+		timer2 = 40;
 		with (obj_player)
 		{
 			scene = true;
@@ -99,9 +100,16 @@ if (timer1 < 120)
 
 //Animate
 timer1 = timer1 - 1;
+timer2 = timer2 - 1;
 if (timer1 <= 0)
 {
 	scr_room_transition(88,88,rm_lenko_farwayRoad_00,0,0,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0);
+}
+if (timer2 <= 0)
+{
+	timer2 = 600;
+	audio_sound_gain(snd_npc_emissary_scene_01,global.volumeEffects,1);
+	audio_play_sound(snd_npc_emissary_scene_01,1,false);
 }
 }
 }
@@ -174,7 +182,8 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 				{
 					obj_inventory.quest_grid[# 89, 0] = true;
 					e_page = true;
-					text_string = ""
+					text_string = "";
+					letter_counter = 0;
 					string_counter = 0;
 					page = 0;
 				}
@@ -186,7 +195,8 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 				{
 					obj_inventory.quest_grid[# 89, 0] = true;
 					e_page = true;
-					text_string = ""
+					text_string = "";
+					letter_counter = 0;
 					string_counter = 0;
 					page = 1;
 				}

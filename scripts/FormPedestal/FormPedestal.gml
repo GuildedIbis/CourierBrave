@@ -18,16 +18,20 @@ idle_sprite = spr_form_pedestal_empty;
 //
 //Form Stone Pedestal Step
 function FormStonePedestalStep(){
-if (obj_inventory.form_grid[# activate_args, 4] = false)
+if (obj_game.gamePaused = false)
 {
-		sprite_index = active_sprite;
+	scr_npc_interact(12);
+	if (obj_inventory.form_grid[# activate_args, 4] = false)
+	{
+			sprite_index = active_sprite;
+			image_speed = 0;
+			image_index = activate_args;
+	}
+	else
+	{
+		sprite_index = idle_sprite;
 		image_speed = 0;
-		image_index = activate_args;
-}
-else
-{
-	sprite_index = idle_sprite;
-	image_speed = 0;
+	}
 }
 }
 //
