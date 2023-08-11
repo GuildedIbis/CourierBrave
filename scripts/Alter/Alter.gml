@@ -18,6 +18,7 @@ sound = snd_text01;
 //Alter Step
 function AlterStep(){
 sprite_index = spr_alter;
+scr_npc_interact(12);
 }
 //
 //
