@@ -133,7 +133,6 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 	var _name = "Emissary Theeda"
 
 	//Draw Based on String Counter
@@ -214,7 +213,6 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 	draw_set_color(c_white);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }
 //
 //
@@ -227,7 +225,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 	var _name = "Emissary Theeda"
 
 	//Draw Based on String Counter
@@ -332,7 +329,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	draw_set_color(c_white);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }
 
 //
@@ -346,7 +342,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 	var _name = "Emissary Theeda"
 
 	//Draw Based on String Counter
@@ -413,7 +408,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 	draw_set_color(c_white);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
 	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 }
 
 }

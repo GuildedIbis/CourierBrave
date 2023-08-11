@@ -8,6 +8,7 @@ function scr_npc_interact(radius){
 //Activate NPC: sprite index, text script, game pause
 if (point_in_circle(obj_player.x,obj_player.y,x,y,radius)) and (global.aggroCounter < 1)
 {	
+	obj_cursor.interact = true;
 	if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)
 	{
 		//show_debug_message(string(instance_number(obj_inventory)));
@@ -44,5 +45,5 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,radius)) and (global.aggroCoun
 		}
 	}
 }
-
+else obj_cursor.interact = false;
 }

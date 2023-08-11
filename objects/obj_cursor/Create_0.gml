@@ -9,6 +9,7 @@ curs_height = 8;
 spread = 0;
 kick_spread = 0;
 blocked = false;
+interact = false;
 cursMenu_sprite = spr_cursor;
 curs_script = PlayerCursor;
 curs_draw_script = PlayerCursorDraw;
