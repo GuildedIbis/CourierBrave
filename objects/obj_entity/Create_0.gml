@@ -20,6 +20,7 @@ shadow_sprite = -1;
 lit = false;
 light_size = 0;
 shadow = false;
+shadow_size = 0;
 form_type = -1;
 
 //Init

@@ -168,6 +168,7 @@ if (break_object != -1)
 
 //Shadow
 shadow = true;
+shadow_size = 3;
 //sx1 = x - 6;
 //sy1 = y - 30;
 //sx2 = x + 32;
@@ -245,6 +246,7 @@ if (break_object != -1)
 
 //Shadow
 shadow = true;
+shadow_size = 2;
 //sx1 = x - 6;
 //sy1 = y - 30;
 //sx2 = x + 32;
@@ -322,6 +324,7 @@ if (break_object != -1)
 
 //Shadow
 shadow = true;
+shadow_size = 4;
 //sx1 = x - 6;
 //sy1 = y - 30;
 //sx2 = x + 32;

@@ -9,6 +9,7 @@
 function AlterCreate(){
 entity_step = AlterStep;
 sound = snd_text01;
+
 }
 //
 //
@@ -27,20 +28,15 @@ scr_npc_interact(12);
 //
 //Alter Text
 function AlterText(){
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
+//Background
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-var _name = "Courier Shrine"
-
-//Draw Based on String Counter
 var _SubString
+
+
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "You will return here on death." 
+	text_string = "You will return here when on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
@@ -66,15 +62,15 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+
+//Draw Text
+draw_set_font(global.fnt_main_white)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-draw_text_transformed(259,130,_name,.35,.35,0);
-draw_sprite(spr_npc_alter36,0,258+6,136+6);
+draw_text_transformed(69,140,_SubString,.6,.6,0);
+//draw_text_transformed(259,130,_name,.5,.5,0);
+//draw_sprite(spr_npc_alter36,0,258+6,136+6);
 }
 //
 //

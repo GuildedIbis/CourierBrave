@@ -532,6 +532,7 @@
     {"id":{"name":"spr_shroom","path":"sprites/spr_shroom/spr_shroom.yy",},},
     {"id":{"name":"spr_weapon_endiresFlame","path":"sprites/spr_weapon_endiresFlame/spr_weapon_endiresFlame.yy",},},
     {"id":{"name":"spr_player_halofire_runCast","path":"sprites/spr_player_halofire_runCast/spr_player_halofire_runCast.yy",},},
+    {"id":{"name":"spr_entity_shadow","path":"sprites/spr_entity_shadow/spr_entity_shadow.yy",},},
     {"id":{"name":"spr_spiritGuide_meteor","path":"sprites/spr_spiritGuide_meteor/spr_spiritGuide_meteor.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_vineShot","path":"sprites/spr_enemy_tortoiseTroll_vineShot/spr_enemy_tortoiseTroll_vineShot.yy",},},
     {"id":{"name":"spr_weapon_zerkriftHook_fourRift","path":"sprites/spr_weapon_zerkriftHook_fourRift/spr_weapon_zerkriftHook_fourRift.yy",},},

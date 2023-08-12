@@ -7,7 +7,11 @@ if (flash != 0)
 	shader_set_uniform_f(uni_flash,flash);
 }
 
-
+//Draw Shadow
+if (shadow = true)
+{
+	draw_sprite(spr_entity_shadow,shadow_size,x,y);
+}
 //Draw Self
 draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 
