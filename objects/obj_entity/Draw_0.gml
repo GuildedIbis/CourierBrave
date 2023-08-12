@@ -15,6 +15,20 @@ if (shadow = true)
 //Draw Self
 draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 
+if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (interact != -1)
+{
+	interact_timer = interact_timer - 1;
+	if (interact_timer <= 0)
+	{
+		interact_index = interact_index + 1;
+		interact_timer = 15;
+		if (interact_index > 7)
+		{
+			interact_index = 0;
+		}
+	}
+	draw_sprite(spr_player_interact,interact_index,x,y-interact);
+}
 //??? Investigate
 if (shader_current != -1)
 {

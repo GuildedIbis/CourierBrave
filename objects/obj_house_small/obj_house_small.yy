@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Interactable",
-    "path": "folders/Objects/Entities/Interactable.yy",
+    "name": "Collision",
+    "path": "folders/Objects/Entities/Collision.yy",
   },
   "parentObjectId": {
     "name": "obj_entity",

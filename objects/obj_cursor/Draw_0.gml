@@ -2,11 +2,6 @@
 
 if (obj_game.gamePaused = false) and (global.home = false)
 {
-	if (collision_circle(obj_player.x,obj_player.y,12,obj_interactable,false,true))
-	{
-		interact = true;
-	}
-	else interact = false;
 	if (interact = false)
 	{
 		script_execute(curs_draw_script)

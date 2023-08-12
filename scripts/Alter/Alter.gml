@@ -9,7 +9,7 @@
 function AlterCreate(){
 entity_step = AlterStep;
 sound = snd_text01;
-
+interact = 30;
 }
 //
 //

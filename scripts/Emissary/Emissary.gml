@@ -11,6 +11,7 @@ sound = snd_npc_mouse;
 timer1 = 40;
 idle_sprite = spr_npc_emissary;
 scene = false;
+interact = 20;
 sprite_index = spr_npc_emissary_scene_00;
 image_speed = 0;
 }

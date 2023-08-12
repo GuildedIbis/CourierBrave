@@ -48,7 +48,6 @@ if (obj_game.gamePaused = false)
 	//Activate NPC: sprite index, text script, game pause
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (global.aggroCounter < 1)
 	{	
-		//obj_cursor.interact = true;
 		if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)
 		{
 			//show_debug_message(string(instance_number(obj_inventory)));

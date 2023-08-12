@@ -8,6 +8,7 @@
 function CrullStonePedestalCreate(){
 entity_step = CrullStonePedestalStep;
 sound = -1;
+interact = 30;
 active_sprite = spr_crull_pedestal;
 idle_sprite = spr_crull_pedestal_empty;
 }
