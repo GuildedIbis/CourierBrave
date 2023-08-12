@@ -55,6 +55,7 @@ if (casting = true) and (_castDepth = false)
 	draw_sprite_ext(arm_sprite,0,x + dir_offX,y + dir_offY,1.0,_armY,_castDir,c_white,1.0);
 }
 
+
 //Shader
 if (shader_current != -1)
 {
