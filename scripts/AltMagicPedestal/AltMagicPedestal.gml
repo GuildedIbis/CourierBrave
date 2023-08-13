@@ -9,7 +9,7 @@ function AltMagicPedestalCreate(){
 entity_step = AltMagicPedestalStep;
 sound = -1;
 shadow = true;
-shadow_size = 1;
+shadow_size = 2;
 active_sprite = spr_form_pedestal;
 idle_sprite = spr_form_pedestal_empty;
 pedestal_index = obj_player.form;
@@ -21,6 +21,7 @@ pedestal_index = obj_player.form;
 //
 //Alt magic Pedestal Step
 function AltMagicPedestalStep(){
+scr_npc_interact(12);
 if (obj_inventory.quest_grid[# activate_args, 3] = false)
 {
 		sprite_index = active_sprite;

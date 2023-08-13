@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_frag_flesh",
-  "bbox_bottom": 7,
+  "bbox_bottom": 6,
   "bbox_left": 0,
   "bbox_right": 6,
   "bbox_top": 0,

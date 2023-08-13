@@ -466,8 +466,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Press \"R\" to open the Quick Swap\nmenu and quickly change Form."
-_text[1] = "Each Form is one of six types,\neach type having it's own charge meters."
-_text[2] = "Don't leave the Courier defenseless.\n\nA quick Form swap can be a matter of life\nor death."
+_text[1] = "Each Form is one of six types,\neach type having it's own charge\nmeters."
+_text[2] = "Don't leave the Courier defense-\nless.\n\nA quick Form swap can be a matter\nof life or death."
 
 //Sprite
 draw_set_font(global.fnt_main_white);

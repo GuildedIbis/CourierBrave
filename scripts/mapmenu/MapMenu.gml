@@ -224,7 +224,7 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
 			global.targetX = obj_inventory.camp_grid[# 1, 1];
 			global.targetY = obj_inventory.camp_grid[# 1, 2];
-			global.targetRoom = rm_lenko_farwayRoad_05;
+			global.targetRoom = rm_lenko_farwayRoad_04;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -261,7 +261,7 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
 			global.targetX = obj_inventory.camp_grid[# 2, 1];
 			global.targetY = obj_inventory.camp_grid[# 2, 2];
-			global.targetRoom = rm_lenko_farwayRoad_07;
+			global.targetRoom = rm_lenko_farwayRoad_06;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -299,7 +299,7 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
 			global.targetX = obj_inventory.camp_grid[# 3, 1];
 			global.targetY = obj_inventory.camp_grid[# 3, 2];
-			global.targetRoom = rm_lenko_farwayRoad_10;
+			global.targetRoom = rm_lenko_farwayRoad_09;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;
@@ -336,7 +336,7 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
 			global.targetX = obj_inventory.camp_grid[# 4, 1];
 			global.targetY = obj_inventory.camp_grid[# 4, 2];
-			global.targetRoom = rm_lenko_farwayRoad_14;
+			global.targetRoom = rm_lenko_farwayRoad_13;
 			global.targetCamp = true;
 			script_execute(RoomEnemiesReset);
 			global.lastCamp = global.targetRoom;

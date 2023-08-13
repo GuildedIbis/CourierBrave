@@ -9,7 +9,7 @@
 function AlterCreate(){
 entity_step = AlterStep;
 shadow = true;
-shadow_size = 1;
+shadow_size = 2;
 sound = snd_text01;
 interact = 32;
 }
