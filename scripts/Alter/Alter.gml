@@ -8,8 +8,10 @@
 //Alter Create
 function AlterCreate(){
 entity_step = AlterStep;
+shadow = true;
+shadow_size = 1;
 sound = snd_text01;
-interact = 30;
+interact = 32;
 }
 //
 //

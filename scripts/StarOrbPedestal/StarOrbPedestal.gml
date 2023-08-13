@@ -7,6 +7,8 @@
 //Star Orb Pedestal Create
 function StarOrbPedestalCreate(){
 entity_step = StarOrbPedestalStep;
+shadow = true;
+shadow_size = 1;
 sound = -1;
 interact = 30;
 active_sprite = spr_starOrb_pedestal;

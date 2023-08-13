@@ -7,6 +7,8 @@
 //Form Pedestal Create
 function FormStonePedestalCreate(){
 entity_step = FormStonePedestalStep;
+shadow = true;
+shadow_size = 1;
 sound = -1;
 interact = 30;
 active_sprite = spr_form_pedestal;

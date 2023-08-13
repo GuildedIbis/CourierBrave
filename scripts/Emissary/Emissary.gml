@@ -7,6 +7,8 @@
 //Necromancer Create
 function scr_npc_emissary_create(){
 entity_step = scr_npc_emissary_scene_00;
+shadow = true;
+shadow_size = 1;
 sound = snd_npc_mouse;
 timer1 = 40;
 idle_sprite = spr_npc_emissary;

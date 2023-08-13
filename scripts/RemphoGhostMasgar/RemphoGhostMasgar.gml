@@ -21,6 +21,7 @@ enemy_damaged = spr_enemy_balurneHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
 shadow = false;
+shadow_size = 1;
 aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;

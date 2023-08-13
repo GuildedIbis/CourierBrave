@@ -7,6 +7,8 @@
 //Crull Stone Pedestal Create
 function CrullStonePedestalCreate(){
 entity_step = CrullStonePedestalStep;
+shadow = true;
+shadow_size = 1;
 sound = -1;
 interact = 30;
 active_sprite = spr_crull_pedestal;

@@ -8,6 +8,8 @@
 function AltMagicPedestalCreate(){
 entity_step = AltMagicPedestalStep;
 sound = -1;
+shadow = true;
+shadow_size = 1;
 active_sprite = spr_form_pedestal;
 idle_sprite = spr_form_pedestal_empty;
 pedestal_index = obj_player.form;
