@@ -27,7 +27,7 @@ image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 180;
+max_hp = 180 + (20 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 local_frame = 0;
@@ -228,7 +228,21 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+16,y+6,"Instances",obj_enemy_projectile))
 		{
-			SoulFlareCreate();
+			invincible = false;
+			inv_dur_timer = 0;
+			home_state = SoulFlareFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			lit = true;
+			light_size = 16;
+			enemy_move = spr_ghost_soulFlare;
+			sprite_index = spr_ghost_soulFlare;
+			aggro_drop = 300;
+
+			enemy_spd = 4.2;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 50 + (7 * other.enemy_lvl);
 			direction = 315;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -240,7 +254,21 @@ if (obj_game.gamePaused = false)
 		}
 		with (instance_create_layer(x+16,y-21,"Instances",obj_enemy_projectile))
 		{
-			SoulFlareCreate();
+			invincible = false;
+			inv_dur_timer = 0;
+			home_state = SoulFlareFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			lit = true;
+			light_size = 16;
+			enemy_move = spr_ghost_soulFlare;
+			sprite_index = spr_ghost_soulFlare;
+			aggro_drop = 300;
+
+			enemy_spd = 4.2;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 50 + (7 * other.enemy_lvl);
 			direction = 45;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -252,7 +280,21 @@ if (obj_game.gamePaused = false)
 		}
 		with (instance_create_layer(x-16,y-21,"Instances",obj_enemy_projectile))
 		{
-			SoulFlareCreate();
+			invincible = false;
+			inv_dur_timer = 0;
+			home_state = SoulFlareFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			lit = true;
+			light_size = 16;
+			enemy_move = spr_ghost_soulFlare;
+			sprite_index = spr_ghost_soulFlare;
+			aggro_drop = 300;
+
+			enemy_spd = 4.2;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 50 + (7 * other.enemy_lvl);
 			direction = 135;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -264,7 +306,21 @@ if (obj_game.gamePaused = false)
 		}
 		with (instance_create_layer(x-16,y+6,"Instances",obj_enemy_projectile))
 		{
-			SoulFlareCreate();
+			invincible = false;
+			inv_dur_timer = 0;
+			home_state = SoulFlareFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			lit = true;
+			light_size = 16;
+			enemy_move = spr_ghost_soulFlare;
+			sprite_index = spr_ghost_soulFlare;
+			aggro_drop = 300;
+
+			enemy_spd = 4.2;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 50 + (7 * other.enemy_lvl);
 			direction = 225;
 			image_angle = direction;
 			speed = enemy_spd;

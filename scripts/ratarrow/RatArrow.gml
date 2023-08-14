@@ -18,7 +18,7 @@ bullet = true;
 enemy_spd = 4.0
 local_frame = 0;
 hit_by_attack = -1;
-damage = 40;
+damage = 40 + (5 * enemy_lvl);
 }
 //
 //

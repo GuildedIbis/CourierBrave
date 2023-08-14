@@ -1,14 +1,14 @@
-//Belurne Skirmisher
+//Balurne Skirmisher
 //
 //
 //
 //
 //
-//Belurne Skirmisher Create
+//Balurne Skirmisher Create
 function BalurneSkirmisherCreate(){
-home_state = BalurneSkirmisherFree;
+home_state = scr_enemy_balurne_skirmisher_free;
 entity_step = home_state;
-entity_drop = BalurneSkirmisherDrop;
+entity_drop = scr_enemy_balurne_skirmisher_drop;
 bullet = false;
 healthbar = true;
 enemy_idle = spr_enemy_skirmisher_idle;
@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 90;
+max_hp = 90 + (17 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -46,7 +46,7 @@ path = -1;
 //
 //
 //Belurne Skirmisher Free State
-function BalurneSkirmisherFree(){
+function scr_enemy_balurne_skirmisher_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -93,7 +93,7 @@ if (obj_game.gamePaused = false)
 			if (timer1 <= 0) 
 			{
 				timer1 = 120;
-				entity_step = BalurneSkirmisherSlash;
+				entity_step = scr_enemy_balurne_skirmisher_slash;
 				
 			}
 		}
@@ -114,7 +114,7 @@ else path_end();
 //
 //
 //Balurne Skirmisher Slash State
-function BalurneSkirmisherSlash(){
+function scr_enemy_balurne_skirmisher_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -129,7 +129,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 45 + (5 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
 
@@ -157,7 +157,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Belurne Skirmisher Drop
-function BalurneSkirmisherDrop(){
+function scr_enemy_balurne_skirmisher_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;

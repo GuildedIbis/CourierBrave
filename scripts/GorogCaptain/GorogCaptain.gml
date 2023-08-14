@@ -31,7 +31,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 650;
+max_hp = 650 + (90 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -206,7 +206,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65;
+	damage = 65 + (8 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_A_hitbox)
 
@@ -250,7 +250,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_B_hitbox)
 

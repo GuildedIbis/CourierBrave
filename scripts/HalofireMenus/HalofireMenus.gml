@@ -295,7 +295,7 @@ if (page = 0)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 1, 7]) + " > " + string(obj_inventory.form_grid[# 1, 7]+1);
-	var _stat = "Damage: " + string(20 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(7))) + " > " + string(20 + (8 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7] + 1)*(7)));
+	var _stat = "Damage: " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14))) + " > " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7] + 1)*(14)));
 	var _title = "METEOR SLING";
 	var _describe = "Slowly fire meteors that have low accuracy\nbut deal high damage.";
 	draw_set_color(c_black);

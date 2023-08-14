@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 150;
+max_hp = 150 + (20 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -187,7 +187,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65;
+	damage = 65 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_A_hitbox)
 
@@ -231,7 +231,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 50 + (6 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_B_hitbox)
 
@@ -282,7 +282,19 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(GorogKnifeCreate);
+			home_state = GorogKnifeFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_gorogKnife;
+			aggro_drop = 300;
+			healthbar = false;
+			bullet = true;
+			enemy_spd = 3.0
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 35 + (6 * other.enemy_lvl);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) - 5;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -294,7 +306,19 @@ if (obj_game.gamePaused = false)
 		}
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(GorogKnifeCreate);
+			home_state = GorogKnifeFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_gorogKnife;
+			aggro_drop = 300;
+			healthbar = false;
+			bullet = true;
+			enemy_spd = 3.0
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 35 + (6 * other.enemy_lvl);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) + 5;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -472,7 +496,50 @@ if (_drop2 < 10)
 	}
 }
 }
-
+//
+//
+//
+//
+//
+//Gorog Knife Free
+function GorogKnifeFree(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
+	audio_play_sound(snd_gorogKnife_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+			
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
+	audio_play_sound(snd_gorogKnife_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
+}
+}
 
 
 

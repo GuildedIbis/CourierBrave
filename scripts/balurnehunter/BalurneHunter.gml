@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 70;
+max_hp = 70 + (15 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -146,7 +146,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
+	damage = 35 + (5 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox)
 
@@ -187,7 +187,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
+	damage = 35 + (5 * enemy_lvl);
 	//Cacluate Attack
 	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
 
@@ -200,7 +200,19 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(RatArrowCreate);
+			home_state = RatArrowFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_rat_arrow;
+			aggro_drop = 300;
+			healthbar = false;
+			bullet = true;
+			enemy_spd = 4.0
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 40 + (5 * other.enemy_lvl);
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
