@@ -8,7 +8,8 @@ script_execute(RoomEnemies);
 
 version = "Version: 0.2.7.0"
 menu_sprite = spr_menu;
-pause_menu = GamePauseMenu;
+pause_menu = scr_menu_game_pause;
+home_menu = scr_menu_game_home;
 timer1 = 300;
 timer2 = 5;
 sub_menu = -1;

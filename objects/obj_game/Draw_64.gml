@@ -10,7 +10,7 @@ if (gamePaused = true) and (menuPaused = true)
 if (global.home = true)
 {
 	depth = 1;
-	scr_menu_game_home();
+	script_execute(home_menu)
 }
 
 //Day Cycle

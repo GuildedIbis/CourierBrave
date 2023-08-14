@@ -5,64 +5,65 @@
 //
 //
 //Game Settings Menu
-function GameSettingsMenu(){
+function scr_menu_game_settings(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
 //Draw Sprites
-draw_sprite_stretched(menu_sprite,0,64,32,192,96);
-draw_sprite_stretched(menu_sprite,2,68,36,32,16);
-draw_sprite_stretched(menu_sprite,2,68,54,32,16);
-draw_sprite_stretched(menu_sprite,2,68,72,32,16);
-draw_sprite_stretched(menu_sprite,2,68,90,32,16);
-draw_sprite_stretched(menu_sprite,2,68,108,32,16);
+draw_sprite_stretched(spr_menu_beveled,3,64,28,192,100);
+draw_sprite_stretched(spr_menu,8,59,14,202,20);
+draw_sprite_stretched(spr_menu_circle16,1,69,37,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,54,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,71,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,88,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,105,32,16);
 
 //Set Text
-draw_set_font(fnt_text);
-draw_set_color(c_black);
+draw_set_font(global.fnt_main_white);
+draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 	
 //Draw Text
-draw_text_transformed(64,28,"ESC to resume",.5,.5,0);
+draw_text_transformed(160,26,"SETTINGS",1,1,0);
 draw_text_transformed(84,44,"Volume",.35,.35,0);
 draw_text_transformed(84,62,"Controls",.35,.35,0);
 draw_text_transformed(84,116,"Return",.35,.35,0);
 
 //Button Mechanics
 //Volume
-if (point_in_rectangle(_mouseX,_mouseY,68,36,100,52))
+if (point_in_rectangle(_mouseX,_mouseY,69,37,101,53))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,34,36,20)
+	draw_sprite_stretched(spr_highlight_circle,0,68,36,34,18)
 	if(mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		sub_menu = GameVolumeMenu;
+		sub_menu = scr_menu_game_volume;
 	}
 }
 //Controls
-if (point_in_rectangle(_mouseX,_mouseY,68,54,100,70))
+if (point_in_rectangle(_mouseX,_mouseY,69,54,101,70))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,52,36,20)
+	draw_sprite_stretched(spr_highlight_circle,0,68,53,34,18)
 	if(mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		sub_menu = PlayerControlsMenu;
+		sub_menu = scr_menu_player_controls;
 		page = 0;
 	}
 }
 //Return
-if (point_in_rectangle(_mouseX,_mouseY,68,108,100,124))
+if (point_in_rectangle(_mouseX,_mouseY,69,105,101,121))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,106,36,20);
+	draw_sprite_stretched(spr_highlight_circle,0,68,104,34,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		script_execute(SaveGameSettings);
-		pause_menu = GamePauseMenu;
+		pause_menu = scr_menu_game_pause;
 
 	}
 }
@@ -77,44 +78,26 @@ if (sub_menu != -1)
 //
 //
 //Game Volume Menu
-function GameVolumeMenu(){
+function scr_menu_game_volume(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
-	
-
-
-
 //Set Text
-draw_set_font(fnt_text);
+draw_set_font(global.fnt_main_white);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 	
-
-//Draw Text
-//draw_text_transformed(64,28,"ESC to resume",.5,.5,0);
-draw_set_color(c_black);
-draw_set_halign(fa_center);
-draw_text_transformed(232,44,"MUSIC",.35,.35,0);
-draw_text_transformed(232,62,"MENU",.35,.35,0);
-draw_text_transformed(232,80,"GAME",.35,.35,0);
-draw_text_transformed(114,44,"<",1,1,0);
-draw_text_transformed(202,44,">",1,1,0);
-draw_text_transformed(114,62,"<",1,1,0);
-draw_text_transformed(202,62,">",1,1,0);
-draw_text_transformed(114,80,"<",1,1,0);
-draw_text_transformed(202,80,">",1,1,0);
-
-
-//Music Volume
-//Draw Sprites
-draw_sprite_stretched(menu_sprite,2,106,36,16,16);
-draw_sprite_stretched(menu_sprite,2,194,36,16,16);
-//Buttons
-if (point_in_rectangle(_mouseX,_mouseY,106,36,122,52))
+//Music Volume Sprites
+draw_sprite_stretched(spr_menu_circle16,1,106,37,16,16);
+draw_sprite_stretched(spr_menu_circle16,1,194,37,16,16);
+draw_text_transformed(112,46,"<",.75,.75,0);
+draw_text_transformed(201,46,">",.75,.75,0);
+draw_text_transformed(216,46,"MUSIC",.75,.75,0);
+//Music Volume Buttons
+if (point_in_rectangle(_mouseX,_mouseY,106,37,122,52))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,104,34,20,20)
+	draw_sprite_stretched(spr_highlight_circle,0,105,36,18,18)
 	if(mouse_check_button_pressed(mb_left)) and (global.volumeMusic >= .05)
 	{
 		global.volumeMusic = global.volumeMusic - .05;
@@ -126,9 +109,9 @@ if (point_in_rectangle(_mouseX,_mouseY,106,36,122,52))
 		audio_play_sound(snd_menu,0,false);
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,194,36,210,52))
+if (point_in_rectangle(_mouseX,_mouseY,194,37,210,52))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,192,34,20,20);
+	draw_sprite_stretched(spr_highlight_circle,0,193,36,18,18);
 	if (mouse_check_button_pressed(mb_left)) and (global.volumeMusic <= .95)
 	{
 		global.volumeMusic = global.volumeMusic + .05;
@@ -140,19 +123,20 @@ if (point_in_rectangle(_mouseX,_mouseY,194,36,210,52))
 		audio_play_sound(snd_menu,0,false);
 	}
 }
-//Slider
+//Music Volume Slider
 var _volumeMusicPerc = (global.volumeMusic/1.00) * 100;
-draw_healthbar(124,38,191,50,_volumeMusicPerc,c_black,c_white,c_white,0,true,true);
+draw_healthbar(124,39,191,51,_volumeMusicPerc,c_black,c_white,c_white,0,true,true);
 
-
-//Menu Volume
-//Draw Sprites
-draw_sprite_stretched(menu_sprite,2,106,54,16,16);
-draw_sprite_stretched(menu_sprite,2,194,54,16,16);
-//Buttons
+//Menu Volume Sprites
+draw_sprite_stretched(spr_menu_circle16,1,106,54,16,16);
+draw_sprite_stretched(spr_menu_circle16,1,194,54,16,16);
+draw_text_transformed(112,62,"<",.75,.75,0);
+draw_text_transformed(201,62,">",.75,.75,0);
+draw_text_transformed(216,62,"MENU",.75,.75,0);
+//Menu Volume Buttons
 if (point_in_rectangle(_mouseX,_mouseY,106,54,122,70))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,104,52,20,20)
+	draw_sprite_stretched(spr_highlight_circle,0,105,53,18,18)
 	if(mouse_check_button_pressed(mb_left)) and (global.volumeMenu >= .02)
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -162,7 +146,7 @@ if (point_in_rectangle(_mouseX,_mouseY,106,54,122,70))
 }
 if (point_in_rectangle(_mouseX,_mouseY,194,54,210,70))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,192,52,20,20);
+	draw_sprite_stretched(spr_highlight_circle,0,193,53,18,18);
 	if (mouse_check_button_pressed(mb_left)) and (global.volumeMenu <= .38)
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -170,19 +154,21 @@ if (point_in_rectangle(_mouseX,_mouseY,194,54,210,70))
 		global.volumeMenu = global.volumeMenu + .02;
 	}
 }
-//Slider
+//Menu Volume Slider
 var _volumeMenuPerc = (global.volumeMenu/.4) * 100;
-draw_healthbar(124,56,191,68,_volumeMenuPerc,c_black,c_white,c_white,0,true,true);
+draw_healthbar(124,55,191,67,_volumeMenuPerc,c_black,c_white,c_white,0,true,true);
 
 
-//Effects Volume
-//Draw Sprites
-draw_sprite_stretched(menu_sprite,2,106,72,16,16);
-draw_sprite_stretched(menu_sprite,2,194,72,16,16);
-//Buttons
-if (point_in_rectangle(_mouseX,_mouseY,106,72,122,88))
+//Effects Volume Sprites
+draw_sprite_stretched(spr_menu_circle16,1,106,71,16,16);
+draw_sprite_stretched(spr_menu_circle16,1,194,71,16,16);
+draw_text_transformed(216,80,"GAME",.75,.75,0)
+draw_text_transformed(112,80,"<",.75,.75,0)
+draw_text_transformed(201,80,">",.75,.75,0)
+//Effects Volume Buttons
+if (point_in_rectangle(_mouseX,_mouseY,106,71,122,87))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,104,70,20,20)
+	draw_sprite_stretched(spr_highlight_circle,0,105,70,18,18)
 	if(mouse_check_button_pressed(mb_left)) and (global.volumeEffects >= .04)
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -190,9 +176,9 @@ if (point_in_rectangle(_mouseX,_mouseY,106,72,122,88))
 		global.volumeEffects = global.volumeEffects - .04;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,194,72,210,88))
+if (point_in_rectangle(_mouseX,_mouseY,194,71,210,87))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,192,70,20,20);
+	draw_sprite_stretched(spr_highlight_circle,0,193,70,18,18);
 	if (mouse_check_button_pressed(mb_left)) and (global.volumeEffects <= .76)
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -200,9 +186,9 @@ if (point_in_rectangle(_mouseX,_mouseY,194,72,210,88))
 		global.volumeEffects = global.volumeEffects + .04;
 	}
 }
-//Slider
+//Effects Volume Slider
 var _volumeFXPerc = (global.volumeEffects/.8) * 100;
-draw_healthbar(124,74,191,86,_volumeFXPerc,c_black,c_white,c_white,0,true,true);
+draw_healthbar(124,73,191,85,_volumeFXPerc,c_black,c_white,c_white,0,true,true);
 }
 //
 //
@@ -210,7 +196,7 @@ draw_healthbar(124,74,191,86,_volumeFXPerc,c_black,c_white,c_white,0,true,true);
 //
 //
 //Player Controls 
-function PlayerControlsMenu(){
+function scr_menu_player_controls(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -281,7 +267,7 @@ if (page = 1)
 	draw_text_transformed(104,82,"Z - Switch melee aim style, face current direction\nor face cursor.",.35,.35,0);
 
 }
-draw_sprite(spr_scroll_bar2,page,242,41)
+draw_sprite(spr_scroll_bar2b,page,242,41)
 if (point_in_rectangle(_mouseX,_mouseY,243,41,251,47))
 {
 	draw_sprite(spr_scroll_highlight,0,243,41);
@@ -307,62 +293,71 @@ if (point_in_rectangle(_mouseX,_mouseY,243,114,251,119))
 //
 //
 //Game Home Settings Menu
-function GameHomeSettingsMenu(){
+function scr_menu_home_settings(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
 //Draw Sprites
-draw_sprite_stretched(menu_sprite,0,64,32,192,96);
-draw_sprite_stretched(menu_sprite,2,68,36,32,16);
-draw_sprite_stretched(menu_sprite,2,68,54,32,16);
-draw_sprite_stretched(menu_sprite,2,68,72,32,16);
-draw_sprite_stretched(menu_sprite,2,68,90,32,16);
-draw_sprite_stretched(menu_sprite,2,68,108,32,16);
+draw_sprite_stretched(spr_menu_beveled,3,64,28,192,100);
+draw_sprite_stretched(spr_menu,8,59,14,202,20);
+draw_sprite_stretched(spr_menu_circle16,1,69,37,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,54,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,71,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,88,32,16);
+draw_sprite_stretched(spr_menu_circle16,1,69,105,32,16);
 
 //Set Text
-draw_set_font(fnt_text);
-draw_set_color(c_black);
+draw_set_font(global.fnt_main_white);
+draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 	
 //Draw Text
+draw_text_transformed(160,26,"SETTINGS",1,1,0);
 draw_text_transformed(84,44,"Volume",.35,.35,0);
 draw_text_transformed(84,62,"Controls",.35,.35,0);
 draw_text_transformed(84,116,"Return",.35,.35,0);
 
-//Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,68,36,100,52))
+//Button Mechanics
+//Volume
+if (point_in_rectangle(_mouseX,_mouseY,69,37,101,53))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,34,36,20)
+	draw_sprite_stretched(spr_highlight_circle,0,68,36,34,18)
 	if(mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		sub_menu = GameHomeVolumeMenu;
+		sub_menu = scr_menu_home_volume;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,68,54,100,70))
+//Controls
+if (point_in_rectangle(_mouseX,_mouseY,69,54,101,70))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,52,36,20)
+	draw_sprite_stretched(spr_highlight_circle,0,68,53,34,18)
 	if(mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
+		sub_menu = scr_menu_home_controls;
 		page = 0;
-		sub_menu = PlayerHomeControlsMenu;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,68,108,100,124))
+//Return
+if (point_in_rectangle(_mouseX,_mouseY,69,105,101,121))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,66,106,36,20);
+	draw_sprite_stretched(spr_highlight_circle,0,68,104,34,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		script_execute(SaveGameSettings);
-		sub_menu = -1;
+		home_menu = scr_menu_game_home;
 
 	}
+}
+if (sub_menu != -1)
+{
+	script_execute(sub_menu);
 }
 }
 //
@@ -371,7 +366,7 @@ if (point_in_rectangle(_mouseX,_mouseY,68,108,100,124))
 //
 //
 //Game Home Volume Menu
-function GameHomeVolumeMenu(){
+function scr_menu_home_volume(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
@@ -498,7 +493,7 @@ draw_healthbar(124,74,191,86,_volumeFXPerc,c_black,c_white,c_white,0,true,true);
 //
 //
 //Player Controls 
-function PlayerHomeControlsMenu(){
+function scr_menu_home_controls(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
