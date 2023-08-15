@@ -31,7 +31,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 650 + (90 * enemy_lvl);
+max_hp = 660 + (330 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -206,7 +206,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (8 * enemy_lvl);
+	damage = 70 + (10 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_A_hitbox)
 
@@ -250,7 +250,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50 + (7 * enemy_lvl);
+	damage = 90 + (12 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_B_hitbox)
 
@@ -301,6 +301,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			script_execute(EliteGorogChainHookCreate);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
 			image_angle = direction;
@@ -381,6 +382,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			script_execute(EliteGorogKnifeCreate);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y))+irandom_range(-3,3);
 			image_angle = direction;
@@ -542,11 +544,22 @@ if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 25)
+if (_drop2 <= 5)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl + 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
+if (_drop2 > 5) and (_drop2 < 25)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

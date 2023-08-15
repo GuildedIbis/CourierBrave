@@ -29,7 +29,7 @@ image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 700 + (20 * enemy_lvl);
+max_hp = 700 + (335 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -265,7 +265,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);
 			direction = 0;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -291,7 +291,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);
 			direction = 90;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -317,7 +317,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 180;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -343,7 +343,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 270;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -369,7 +369,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 315;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -395,7 +395,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 45;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -421,7 +421,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 135;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -447,7 +447,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 60 + (10 * other.enemy_lvl);;
 			direction = 225;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -484,7 +484,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80 + (10 * other.enemy_lvl);
+	damage = 80 + (11 * other.enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_ghostMasgar_slash_hitbox)
 
@@ -553,7 +553,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 80 + (10 * enemy_lvl);
+			damage = 85 + (12 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 3;
 			fragment = obj_fragGold;
@@ -608,7 +608,7 @@ if (timer2 <= 0)
 		enemy_spd = 3;
 		local_frame = 0;
 		hit_by_attack = -1;
-		damage = 25 + (5 * other.enemy_lvl;
+		damage = 25 + (6 * other.enemy_lvl);
 		break_object = other.break_object;
 		fragment_count = 1;
 		fragment = obj_fragGold;
@@ -739,11 +739,22 @@ if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 25)
+if (_drop2 <= 5)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl + 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
+if (_drop2 > 5) and (_drop2 < 25)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

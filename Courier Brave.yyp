@@ -556,7 +556,6 @@
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"spr_crullUpgrade_pedestal","path":"sprites/spr_crullUpgrade_pedestal/spr_crullUpgrade_pedestal.yy",},},
     {"id":{"name":"spr_magic_all","path":"sprites/spr_magic_all/spr_magic_all.yy",},},
-    {"id":{"name":"VoidCast","path":"scripts/VoidCast/VoidCast.yy",},},
     {"id":{"name":"spr_player_crull","path":"sprites/spr_player_crull/spr_player_crull.yy",},},
     {"id":{"name":"Halofire","path":"scripts/Halofire/Halofire.yy",},},
     {"id":{"name":"LilyGuard","path":"scripts/LilyGuard/LilyGuard.yy",},},

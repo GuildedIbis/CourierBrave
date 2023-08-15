@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 150 + (20 * enemy_lvl);
+max_hp = 150 + (75 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -187,7 +187,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (7 * enemy_lvl);
+	damage = 65 + (10 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_A_hitbox)
 
@@ -231,7 +231,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50 + (6 * enemy_lvl);
+	damage = 85 + (12 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_B_hitbox)
 
@@ -282,6 +282,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			home_state = GorogKnifeFree;
 			entity_step = home_state;
 			entity_drop = Idle;
@@ -294,7 +295,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 35 + (6 * other.enemy_lvl);
+			damage = 60 + (10 * enemy_lvl);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) - 5;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -306,6 +307,7 @@ if (obj_game.gamePaused = false)
 		}
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			home_state = GorogKnifeFree;
 			entity_step = home_state;
 			entity_drop = Idle;
@@ -318,7 +320,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 35 + (6 * other.enemy_lvl);
+			damage = 60 + (10 * enemy_lvl);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) + 5;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -484,11 +486,22 @@ if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 10)
+if (_drop2 <= 2)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl + 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
+if (_drop2 > 2) and (_drop2 < 10)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

@@ -80,7 +80,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_font(fnt_text);
 var _level = "Level: " + string(obj_inventory.form_grid[# 0, 5]) + " > " + string(obj_inventory.form_grid[# 0, 5]+1);
-var _stat = "Damage: " + string(31 + (7 * obj_player.might) + (6 * obj_inventory.form_grid[# 0, 5])) + " > " + string(31 + (7 * obj_player.might) + (6 * (obj_inventory.form_grid[# 0, 5] + 1)));
+var _stat = "Damage: " + string(30 + (7 * obj_player.might) + (8 * obj_inventory.form_grid[# 0, 5])) + " > " + string(30 + (7 * obj_player.might) + (8 * (obj_inventory.form_grid[# 0, 5] + 1)));
 var _title = "REGAL BLADE";
 var _describe = "A fast swinging sword that does\naverage damage and slight knockback";
 draw_set_color(c_black);
@@ -296,7 +296,7 @@ if (page = 0)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
-	var _stat = "Damage: " + string(11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7] + 1)));
+	var _stat = "Damage: " + string(10 + (5 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(10 + (5 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "GOLD BURST";
 	var _describe = "Rapidly fire small golden projec-\ntiles that deal average damage.";
 	draw_set_color(c_black);
@@ -317,7 +317,7 @@ if (page = 1)
 	draw_set_valign(fa_top);
 	draw_set_font(fnt_text);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
-	var _stat = "Damage: " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7] + 1)));
+	var _stat = "Damage: " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "HEAVY BURST";
 	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead of breaking.";
 	draw_set_color(c_black);

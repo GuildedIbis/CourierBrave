@@ -28,7 +28,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 2;
-max_hp = 900;
+max_hp = 1200 + (110 * enemy_lvl);
 hp = max_hp;
 boss = true;
 name = "Zerwerk";
@@ -222,7 +222,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65;
+	damage = 65 + (6 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_tailLash)
 
@@ -255,7 +255,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65;
+	damage = 65 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_voidBlade)
 
@@ -287,7 +287,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 45 + (5 * enemy_lvl);
 
 	//Animate
 	EnemyAnimation1();
@@ -388,7 +388,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 115;
+	damage = 115 + (11 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_riftSlamDownA)
 
@@ -434,7 +434,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60;
+	damage = 60 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_hitbox_riftSlamDownB)
 	if (timer1 <= 0)
@@ -444,7 +444,20 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y+8,"Instances",obj_enemy_projectile))
 			{
-				VoidCastCreate(75);
+				enemy_lvl = other.enemy_lvl;
+				home_state = VoidCastFree;
+				entity_step = home_state;
+				entity_drop = Idle;
+				invincible = false;
+				inv_dur_timer = 0;
+				enemy_move = spr_enemy_voidCast;
+				aggro_drop = 300;
+				healthbar = false;
+				bullet = true;
+				enemy_spd = 1.8;
+				local_frame = 0;
+				hit_by_attack = -1;
+				damage = 75 + (9 * enemy_lvl)
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-22,22);
 				image_angle = direction;
 				speed = enemy_spd;
@@ -468,6 +481,39 @@ if (obj_game.gamePaused = false)
 	}
 }
 	
+}
+//
+//
+//
+//
+//
+//Zerwerk Void Cast Free
+function VoidCastFree(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+			with (other) instance_destroy();
+		}
+	}
+	
+}
+if (place_meeting(x,y,break_object)) instance_destroy();
+}
 }
 //
 //

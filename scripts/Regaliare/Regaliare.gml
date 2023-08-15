@@ -35,7 +35,7 @@ casting = false;
 max_weapon_count = -1;
 magic_timer = 0;
 walk_spd = 1.75;
-armor = 12 + (6 * (obj_inventory.form_grid[# 0, 6]));
+armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
 max_hp = 200 + (20 * vitality);
@@ -234,7 +234,7 @@ if (keyboard_check_pressed(ord("Z")))
 function RegaliareRegalBlade(){
 //Set
 attacking = true;
-damage = 31 + (7 * might) + (6 * obj_inventory.form_grid[# 0, 5]);
+damage = 30 + (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -397,7 +397,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 11 + (6 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]));//
+		damage = 10 + (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_goldBullet;
 		projectile_script = RegaliareGoldBullet;
 		idle_sprite = spr_goldBullet;
@@ -553,7 +553,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 13 + (8 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 0, 7]));//
+		damage = 18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_heavyBullet;
 		projectile_script = RegaliareHeavyBullet;
 		idle_sprite = spr_heavyBullet;

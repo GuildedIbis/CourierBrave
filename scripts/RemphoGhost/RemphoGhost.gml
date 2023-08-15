@@ -27,7 +27,7 @@ image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 180 + (20 * enemy_lvl);
+max_hp = 180 + (90 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 local_frame = 0;
@@ -252,7 +252,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 50 + (9 * other.enemy_lvl);
 			direction = 0;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -278,7 +278,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 50 + (9 * other.enemy_lvl);
 			direction = 90;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -304,7 +304,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 50 + (9 * other.enemy_lvl);
 			direction = 180;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -330,7 +330,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.2;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (7 * other.enemy_lvl);
+			damage = 50 + (9 * other.enemy_lvl);
 			direction = 270;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -448,11 +448,22 @@ if (_drop1 >= 5) and (_drop1 < 10)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 5)
+if (_drop2 <= 1)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl + 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
+if (_drop2 > 1) and (_drop2 < 5)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

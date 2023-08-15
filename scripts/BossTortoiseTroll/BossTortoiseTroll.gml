@@ -29,8 +29,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 4;
-max_hp = 2000;
-hp = 2000;
+max_hp = 1700 + (110 * enemy_lvl);
+hp = max_hp;
 boss = true;
 name = "Tortoise Troll";
 enemy_spd = 1.3;
@@ -244,7 +244,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60;
+	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
@@ -301,7 +301,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 	

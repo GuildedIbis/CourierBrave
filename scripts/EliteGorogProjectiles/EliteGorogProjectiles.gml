@@ -18,7 +18,7 @@ bullet = true;
 enemy_spd = 3.5
 local_frame = 0;
 hit_by_attack = -1;
-damage = 50;
+damage = 55 + (10 * enemy_lvl);
 }
 //
 //
@@ -85,7 +85,7 @@ enemy_spd = 4.5;
 timer1 = 30;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 65;
+damage = 65 + (11 * enemy_lvl);
 returning = false;
 special_draw = EliteGorogChainHookChain;
 }
