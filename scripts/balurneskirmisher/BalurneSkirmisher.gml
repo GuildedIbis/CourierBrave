@@ -129,7 +129,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55 + (9 * enemy_lvl);
+	damage = 35 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
 

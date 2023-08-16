@@ -146,7 +146,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55 + (9 * enemy_lvl);
+	damage = 40 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox)
 
@@ -212,7 +212,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.0
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 40 + (5 * other.enemy_lvl);
+			damage = 30 + (7 * other.enemy_lvl);
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

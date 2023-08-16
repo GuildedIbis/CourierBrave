@@ -206,7 +206,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70 + (10 * enemy_lvl);
+	damage = 60 + (9 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_A_hitbox)
 
@@ -250,7 +250,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 90 + (12 * enemy_lvl);
+	damage = 70 + (10 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_gorogE_heavySlash_B_hitbox)
 

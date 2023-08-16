@@ -190,6 +190,7 @@ shadow_size = 4;
 
 //event_inherited();
 }
+
 //
 //
 //
@@ -221,8 +222,60 @@ else
 depth = -y;
 
 }
-
 //
+//
+//
+//
+//
+//Effect Zerwerk's Tent (Create)
+function scr_efffect_tent_zerwerk_create(){
+image_speed = 0;
+sprite_index = spr_effect_tent_zerwerk;
+//Create Collision
+with (instance_create_layer(x-24,y-24,"Wall",obj_wall))
+{
+	image_xscale = 6;
+	image_yscale = 4;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-24,y-24,"Break",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 3;
+		game_paused_image_speed = image_speed;
+	}
+}
+
+//Set Shadow
+shadow = false;
+shadow_size = 4;
+//sx1 = x - 6;
+//sy1 = y - 30;
+//sx2 = x + 32;
+//sy2 = y - 30;
+//sx3 = x + 16;
+//sy3 = y + 8;
+//sx4 = x - 16;
+//sy4 = y + 8;
+
+
+//event_inherited();
+}
+//
+//
+//
+//
+//
+//Effect Zerwerk's Tent (Step)
+function scr_efffect_tent_zerwerk(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_effect_tent_zerwerk;
+}//
 //
 //
 //
