@@ -446,10 +446,8 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
-	
-	AttackCalculateMagic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);
-	instance_destroy();
-	
+	AttackCalculateMagic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
+
 }
 if (place_meeting(x,y,break_object))
 {
@@ -709,6 +707,7 @@ if (animation_end)
 function RegaliareGoldArcs(){
 //
 //Timers
+destructable = false;
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
 //

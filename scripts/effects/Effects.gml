@@ -57,6 +57,7 @@ if (inv_dur_timer <= 0)
 	invincible = false;
 }
 
+
 //Knockback
 if (knockback_dur > 0)
 {

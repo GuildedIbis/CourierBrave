@@ -1121,6 +1121,7 @@ if (animation_end)
 //Halofire Gold Arcs Projectile Script
 function HalofireFlameSeed(){
 //Step
+destructable = false;
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
 if (inv_timer  > 0) inv_timer = inv_timer  - 1;

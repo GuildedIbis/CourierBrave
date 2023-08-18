@@ -108,36 +108,45 @@ if (_hits > 0)
 			ds_list_add(hit_by_attack,_hitID);
 			with (_hitID)
 			{
-				//image_blend = c_red;
-				if (hit_script != -1) and (bullet = false)
+				if (passable = false)
 				{
-					script_execute(hit_script); 
-					if (invincible = false) and (npc = false)
+					//image_blend = c_red;
+					if (hit_script != -1) and (bullet = false)
 					{
-						if (_azDur != -1) ablaze_dur_timer = _azDur;
-						if (_txDur != -1) thundux_dur_timer = _txDur;
-						if (_vsDur != -1) voidsick_dur_timer = _vsDur;
-						if (_wvDur != -1) watervice_dur_timer = _wvDur;
-						if (_drainPerc != -1) obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
-						if (boss = false) and (_kbDur != -1) 
+						script_execute(hit_script); 
+						if (invincible = false) and (npc = false)
 						{
-							knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
-							knockback_dur = _kbDur
-						}
-						with (obj_player)
-						{
-							yellow_special = yellow_special + _charge;
-							if (yellow_special > max_charge) yellow_special = max_charge;
-							blue_special = blue_special + _charge;
-							if (blue_special > max_charge) blue_special = max_charge;
-							purple_special = purple_special + _charge;
-							if (purple_special > max_charge) purple_special = max_charge;
-							red_special = red_special + _charge;
-							if (red_special > max_charge) red_special = max_charge;
-							green_special = green_special + _charge;
-							if (green_special > max_charge) green_special = max_charge;
-							orange_special = orange_special + _charge;
-							if (orange_special > max_charge) orange_special = max_charge;
+							if (_azDur != -1) ablaze_dur_timer = _azDur;
+							if (_txDur != -1) thundux_dur_timer = _txDur;
+							if (_vsDur != -1) voidsick_dur_timer = _vsDur;
+							if (_wvDur != -1) watervice_dur_timer = _wvDur;
+							if (_drainPerc != -1) obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
+							if (boss = false) and (_kbDur != -1) 
+							{
+								knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+								knockback_dur = _kbDur
+							}
+							with (obj_player)
+							{
+								yellow_special = yellow_special + _charge;
+								if (yellow_special > max_charge) yellow_special = max_charge;
+								blue_special = blue_special + _charge;
+								if (blue_special > max_charge) blue_special = max_charge;
+								purple_special = purple_special + _charge;
+								if (purple_special > max_charge) purple_special = max_charge;
+								red_special = red_special + _charge;
+								if (red_special > max_charge) red_special = max_charge;
+								green_special = green_special + _charge;
+								if (green_special > max_charge) green_special = max_charge;
+								orange_special = orange_special + _charge;
+								if (orange_special > max_charge) orange_special = max_charge;
+							}
+						
+							with (other) 
+							{
+								if (destructable = true) instance_destroy();
+							}
+						
 						}
 					}
 				}

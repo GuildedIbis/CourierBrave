@@ -48,6 +48,7 @@ invincible = false;
 inv_dur_timer = 0;
 cursed = false;
 cursed_dur_timer = 0;
+passable = false;
 interact = -1;
 interact_timer = 0;
 interact_index = 0;

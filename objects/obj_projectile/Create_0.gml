@@ -1,6 +1,7 @@
 //
 magic = false;
 lit = false;
+destructable = true;
 immune_timer = 7;
 follow_timer = 0;
 timer1 = 0;

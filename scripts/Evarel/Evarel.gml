@@ -763,6 +763,7 @@ if (animation_end)
 function EvarelThornrise(){
 //
 //Timers
+destructable = false;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer3 > 0) timer3 = timer3 - 1;
