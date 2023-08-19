@@ -141,12 +141,10 @@ if (_hits > 0)
 								orange_special = orange_special + _charge;
 								if (orange_special > max_charge) orange_special = max_charge;
 							}
-						
-							with (other) 
-							{
-								if (destructable = true) instance_destroy();
-							}
-						
+						}
+						with (other) 
+						{
+							if (destructable = true) instance_destroy();
 						}
 					}
 				}

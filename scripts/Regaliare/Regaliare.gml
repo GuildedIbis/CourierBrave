@@ -444,7 +444,7 @@ if (sprite_index != projectile_sprite)
 }
 
 //Collision
-if (place_meeting(x,y,obj_enemy)) 
+if (place_meeting(x,y,obj_interactable)) 
 {
 	AttackCalculateMagic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
 
@@ -599,7 +599,7 @@ if (sprite_index != projectile_sprite)
 }
 
 //Collision
-if (place_meeting(x,y,obj_enemy)) 
+if (place_meeting(x,y,obj_interactable)) 
 {
 	AttackCalculateMagic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
 }

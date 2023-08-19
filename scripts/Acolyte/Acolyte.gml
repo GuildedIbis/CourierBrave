@@ -6,12 +6,6 @@
 //
 //Acolyte Create
 function scr_enemy_acolyte_create(){
-//if (obj_inventory.quest_grid[# 1, 3] = true)
-//{
-//	instance_destroy();
-//}
-obj_inventory.quest_grid[# 1, 0] = true;
-obj_inventory.quest_grid[# 1, 1] = 1;
 
 sound = snd_npc_mouse;
 timer1 = 40;
@@ -46,7 +40,7 @@ direction = 180;
 form_type = 0;
 max_hp = 900 + (105 * enemy_lvl);
 hp = max_hp;
-enemy_spd = 1.75;
+enemy_spd = 1.5;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -54,6 +48,11 @@ timer2 = 0;
 timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
+
+if (obj_inventory.quest_grid[# 1, 3] = true)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -272,108 +271,103 @@ obj_inventory.quest_grid[# 1, 3] = true;
 //
 //
 //Necromancer Scene 1 Text
-function scr_text_acolyte_scene_text(){
+function scr_text_acolyte_scene(){
 
-//
-//
-//
-//Nisma after intiation
-if (obj_inventory.quest_grid[# 14, 0] = false)
+
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_set_color(c_white);
+draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+var _name = "The Acolyte"
+
+//Draw Based on String Counter
+var _SubString
+if (string_counter = 0)
 {
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "The Necromancer"
-
-	//Draw Based on String Counter
-	var _SubString
-	if (string_counter = 0)
-	{
-		speaker = 1;
-		text_string = "Greetings Courier!" 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
-	}
-	if (string_counter = 1)
-	{
-		speaker = 1;
-		text_string = "It is truly an honor to meet you, Captain of\nOmlio Couriers."
-		_SubString = string_copy(text_string,1,letter_counter);
-		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
-		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
-		//DrawSellMenu(obj_inventory);
-		//DrawBuyMenu();
-		//DrawSelectedMenu(obj_inventory);
-	}
-	if (string_counter = 2)
-	{
-		speaker = 1;
-		text_string = "I'm sorry, but I have sworn my service to Him.\nYour mission is in direct conflict with His commands."
-		_SubString = string_copy(text_string,1,letter_counter);
-		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
-		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
-		//DrawSellMenu(obj_inventory);
-		//DrawBuyMenu();
-		//DrawSelectedMenu(obj_inventory);
-	}
-	if (string_counter = 3)
-	{
-		speaker = 1;
-		text_string = "I know I cannot keep you away from Him for long,\nbut I must do everything I can to slow you."
-		_SubString = string_copy(text_string,1,letter_counter);
-		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
-		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
-		//DrawSellMenu(obj_inventory);
-		//DrawBuyMenu();
-		//DrawSelectedMenu(obj_inventory);
-	}
-	if (string_counter = 4)
-	{
-		speaker = 1;
-		text_string = "With deepest respect Courier. . .\nUntil we meet again."
-		_SubString = string_copy(text_string,1,letter_counter);
-		//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
-		//DrawAlterMenu(obj_player.magic_id,obj_inventory);
-		//DrawSellMenu(obj_inventory);
-		//DrawBuyMenu();
-		//DrawSelectedMenu(obj_inventory);
-	}
-	if (string_counter >= 5)
-	{
-		//text_script = NismaMenu;
-		obj_inventory.quest_grid[# 14, 0] = true;
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
-	
-		//Reset Buy/Sell Menu
-		text_gui = 0
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
-		
-	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
-	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
+	speaker = 1;
+	text_string = "Greetings Courier." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 }
+if (string_counter = 1)
+{
+	speaker = 1;
+	text_string = "It is truly an honor to meet you, Captain of\nOmlio Couriers."
+	_SubString = string_copy(text_string,1,letter_counter);
+	//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+	draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+	//DrawSellMenu(obj_inventory);
+	//DrawBuyMenu();
+	//DrawSelectedMenu(obj_inventory);
+}
+if (string_counter = 2)
+{
+	speaker = 1;
+	text_string = "If you are here it is to bring me to justice...\nI am sorry for the destruction I have caused here,\nbut I cannot abandon my mission."
+	_SubString = string_copy(text_string,1,letter_counter);
+	//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+	draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+	//DrawSellMenu(obj_inventory);
+	//DrawBuyMenu();
+	//DrawSelectedMenu(obj_inventory);
+}
+if (string_counter = 3)
+{
+	speaker = 1;
+	text_string = "Soon I will fulfill my purpose\nand I cannot let you stand in my way."
+	_SubString = string_copy(text_string,1,letter_counter);
+	//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+	draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+	//DrawSellMenu(obj_inventory);
+	//DrawBuyMenu();
+	//DrawSelectedMenu(obj_inventory);
+}
+if (string_counter = 4)
+{
+	speaker = 1;
+	text_string = "With deepest respect Courier. . ."
+	_SubString = string_copy(text_string,1,letter_counter);
+	//draw_sprite_stretched(menu_sprite,3,32,36,256,96);
+	draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
+	//DrawAlterMenu(obj_player.magic_id,obj_inventory);
+	//DrawSellMenu(obj_inventory);
+	//DrawBuyMenu();
+	//DrawSelectedMenu(obj_inventory);
+}
+if (string_counter >= 5)
+{
+	//text_script = NismaMenu;
+	obj_inventory.quest_grid[# 1, 0] = true;
+	obj_inventory.quest_grid[# 1, 1] = 1;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	text_gui = 0
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+		
+}
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+draw_text_transformed(259,130,_name,.35,.35,0);
+draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 
 }
