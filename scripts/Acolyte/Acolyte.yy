@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Necromancer",
+  "name": "Acolyte",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Characters",
-    "path": "folders/Scripts/NPC/Characters.yy",
+    "name": "EnemyFarwayRoad",
+    "path": "folders/Scripts/Enemy/EnemyFarwayRoad.yy",
   },
 }

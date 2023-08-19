@@ -242,7 +242,7 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "By decree of Kephra, goddess and protector of the planet\nand realm we call Omlio, the usurper king of the East, known\nas the Necromancer, is banished from this realm."
+		text_string = "By decree of Kephra, goddess and protector of the planet\nand realm we call Omlio, the usurper king of the East, known\nas the Acolyte, is banished from this realm."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
@@ -359,7 +359,7 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "The Necromancer is a mortal- but weilds the power not only\nto avoid death, but perhaps also to summon the great evil\nthe Courier's destroyed ages ago."
+		text_string = "The Acolyte is a mortal- but weilds the power not only\nto avoid death, but perhaps also to summon the great evil\nthe Courier's destroyed ages ago."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
@@ -367,7 +367,7 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "The return of the Great Evil would bring a war to this realm,\nthe likes of which no good creature could survive...\nThe Necromancer must be stopped, and you alone have the\npower to stop him."
+		text_string = "The return of the Great Evil would bring a war to this realm,\nthe likes of which no good creature could survive...\nThe Acolyte must be stopped, and you alone have the\npower to stop him."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
