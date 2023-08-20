@@ -474,8 +474,8 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,2,-1,-1,-1,-1,-1,5);
-	instance_destroy();
+	AttackCalculateMagic(projectile_sprite,self,3,-1,-1,-1,-1,-1,5);
+	//instance_destroy();
 	
 }
 if (place_meeting(x,y,break_object))
@@ -655,7 +655,7 @@ if (place_meeting(x,y,obj_enemy))
 {
 	
 	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
-	instance_destroy();
+	//instance_destroy();
 	
 }
 //Ricochet
