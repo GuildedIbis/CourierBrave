@@ -147,6 +147,12 @@ if (obj_game.gamePaused = false)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
+			if (timer1 <= 0) 
+			{
+				timer1 = 120;
+				entity_step = scr_enemy_acolyte_slash;
+				
+			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -158,6 +164,48 @@ if (obj_game.gamePaused = false)
 	script_execute(EnemyAnimation);
 }
 else path_end();	
+}
+//
+//
+//
+//
+//
+//Acolyte Slash State
+function scr_enemy_acolyte_slash(){
+if (obj_game.gamePaused = false)
+{
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (sprite_index != spr_enemy_acolyte_slash)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_acolyte_slash;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_play_sound(snd_slash01,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 45 + (8 * enemy_lvl);
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_hitbox_acolyte_slash)
+
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		timer1 = 60;
+		hor_spd = irandom_range(-1,1);
+		ver_spd = irandom_range(-1,1);
+		if (hor_spd = 0) and (ver_spd = 0)
+		{
+			hor_spd = choose(-1,1)
+			ver_spd = choose(-1,1)
+		}
+		entity_step = EnemyReposition;
+		animation_end = false;
+	}
+}
 }
 //
 //
