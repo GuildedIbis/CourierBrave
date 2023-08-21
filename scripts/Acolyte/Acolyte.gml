@@ -43,6 +43,7 @@ hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
 hit_by_attack = -1;
+remain_dist = 64;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
@@ -141,17 +142,24 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timer1 <= 0) script_execute(EnemyChase);
-		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
+		if (timer1 <= 0)
 		{
-			path_end();
-			walk_snd_delay = 15;
-			sprite_index = enemy_idle;
-			if (timer1 <= 0) 
+			script_execute(EnemyChase);
+			if (point_in_rectangle(obj_player.x,obj_player.y,x-32,y-32,x+32,y+32))
 			{
+				audio_sound_gain(snd_player_roll,global.volumeEffects,1);
+				audio_play_sound(snd_player_roll,0,false);
+				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
+				entity_step = scr_enemy_acolyte_roll;
+				remain_dist = 64;
+			}
+			if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
+			{
+				path_end();
+				walk_snd_delay = 15;
+				sprite_index = enemy_idle;
 				timer1 = 120;
 				entity_step = scr_enemy_acolyte_slash;
-				
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -205,6 +213,42 @@ if (obj_game.gamePaused = false)
 		entity_step = EnemyReposition;
 		animation_end = false;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Roll State
+function scr_enemy_acolyte_roll(){
+//max_stamina = 50 + (3* (might + round(might/15)));
+inv_dur_timer = 30;
+timer1 = timer1 - 1;
+
+hor_spd = lengthdir_x(3,direction);
+ver_spd = lengthdir_y(3,direction);
+remain_dist = max(0, remain_dist - 3);
+var _collided = EnemyCollision();
+
+//Update Sprite
+sprite_index = spr_enemy_acolyte_roll;
+var _totalFrames = sprite_get_number(sprite_index)/4;
+image_index = (_cardinalDir * _totalFrames) + min(((1 - (remain_dist / 64)) * _totalFrames), _totalFrames - 1);
+
+
+//Free State
+if (remain_dist <= 0)
+{
+	entity_step = home_state;
+	sprite_index = spr_enemy_acolyte_idle;
+}
+
+//Collision
+if (_collided = true)
+{
+	entit_step = home_state;
+	sprite_index = spr_enemy_acolyte_idle;
 }
 }
 //

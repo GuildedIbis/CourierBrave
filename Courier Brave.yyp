@@ -648,6 +648,7 @@
     {"id":{"name":"spr_enemy_skirmisher_run","path":"sprites/spr_enemy_skirmisher_run/spr_enemy_skirmisher_run.yy",},},
     {"id":{"name":"spr_kephraStone_infograph_04","path":"sprites/spr_kephraStone_infograph_04/spr_kephraStone_infograph_04.yy",},},
     {"id":{"name":"spr_frag_electric","path":"sprites/spr_frag_electric/spr_frag_electric.yy",},},
+    {"id":{"name":"spr_enemy_acolyte_roll","path":"sprites/spr_enemy_acolyte_roll/spr_enemy_acolyte_roll.yy",},},
     {"id":{"name":"spr_npc_berglad","path":"sprites/spr_npc_berglad/spr_npc_berglad.yy",},},
     {"id":{"name":"obj_text","path":"objects/obj_text/obj_text.yy",},},
     {"id":{"name":"spr_enemy_enragedMoth","path":"sprites/spr_enemy_enragedMoth/spr_enemy_enragedMoth.yy",},},
