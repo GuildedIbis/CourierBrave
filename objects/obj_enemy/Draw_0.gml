@@ -13,8 +13,29 @@ else
 	//}
 	
 	//Flash, Shader, Self
-	event_inherited();
 	
+	var _castDir = (point_direction(x,y-7,obj_player.x,obj_player.y - 4));
+	var _castDepth
+	var _armY 
+	if (_castDir > 315) or (_castDir <= 135)
+	{
+		_castDepth = true;
+	}
+	else _castDepth = false;
+	if (_castDir >= 90) and (_castDir < 329)
+	{
+		_armY = -1;
+	}
+	else _armY = 1;
+	if (casting = true) and (_castDepth = true)
+	{
+		draw_sprite_ext(enemy_arm,0,x + dir_offX,y + dir_offY,1.0,_armY,_castDir,c_white,1.0);
+	}
+	event_inherited();
+	if (casting = true) and (_castDepth = false)
+	{
+		draw_sprite_ext(enemy_arm,0,x + dir_offX,y + dir_offY,1.0,_armY,_castDir,c_white,1.0);
+	}
 	//Health
 	if (healthbar = true)
 	{

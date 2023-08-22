@@ -268,6 +268,28 @@ else animation_end = false;
 //
 //
 //
+//Animation 
+function scr_enemy_animation_cast(){
+var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4)/90);
+//direction = _aimDir * 90;
+var _totalFrames = sprite_get_number(sprite_index) / 4;
+image_index = local_frame + (_aimDir * _totalFrames);
+local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+//Cuts the degree by 90 to give you a number between 0 and 3
+//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+//Local frame then increments in the speed of the animation
+if (local_frame >= _totalFrames)
+{
+	animation_end = true;
+	local_frame = local_frame - _totalFrames;
+}
+else animation_end = false;
+}
+//
+//
+//
+//
+//
 //Animation 1 Direction 
 function EnemyAnimation1(){
 var _totalFrames = sprite_get_number(sprite_index);
@@ -501,6 +523,44 @@ y += ver_spd;
 ds_list_destroy(_entityList);
 
 return _collision;
+}
+//
+//
+//
+//
+//
+function EnemyBulletSpawnPosition(){
+var _aimAngle = point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4);
+var _dirPos = round(_aimAngle/90);
+ldX = x + lengthdir_x(6, _aimAngle);
+ldY = y + lengthdir_y(6, _aimAngle);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 4:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 1:
+		dir_offX = -2;
+		dir_offY = -7;
+	break;
+		
+	case 2:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 3:
+		dir_offX = 2;
+		dir_offY = -7;
+	break;	
+}
 }
 //
 //

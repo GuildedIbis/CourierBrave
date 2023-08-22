@@ -24,6 +24,7 @@ healthbar = true;
 enemy_idle = spr_enemy_acolyte_idle;
 enemy_move = spr_enemy_acolyte_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
+enemy_arm = spr_enemy_acolyte_castArm;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
 shadow = true;
@@ -299,6 +300,8 @@ if (obj_game.gamePaused = false)
 function scr_enemy_acolyte_magic(){
 if (obj_game.gamePaused = false)
 {
+	casting = true;
+	
 	//Timer
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -314,7 +317,8 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation_cast();
+	EnemyBulletSpawnPosition();
 
 
 	//Move
@@ -340,6 +344,7 @@ if (obj_game.gamePaused = false)
 	//End
 	if (timer2 <= 0)
 	{
+		casting = false;
 		entity_step = scr_enemy_acolyte_free;
 		timer2 = 240;
 	}
