@@ -1154,6 +1154,7 @@
     {"name":"snd_fireball","order":2,"path":"sounds/snd_fireball/snd_fireball.yy",},
     {"name":"spr_npc_knightTheedix","order":7,"path":"sprites/spr_npc_knightTheedix/spr_npc_knightTheedix.yy",},
     {"name":"EnragedWorm","order":6,"path":"scripts/EnragedWorm/EnragedWorm.yy",},
+    {"name":"spr_enemy_acolyte_castArm","order":6,"path":"sprites/spr_enemy_acolyte_castArm/spr_enemy_acolyte_castArm.yy",},
     {"name":"spr_enemy_duskDurOc_run","order":2,"path":"sprites/spr_enemy_duskDurOc_run/spr_enemy_duskDurOc_run.yy",},
     {"name":"spr_statue_lily","order":17,"path":"sprites/spr_statue_lily/spr_statue_lily.yy",},
     {"name":"spr_npc_kovalad36","order":2,"path":"sprites/spr_npc_kovalad36/spr_npc_kovalad36.yy",},

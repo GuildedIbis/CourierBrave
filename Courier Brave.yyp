@@ -1306,6 +1306,7 @@
     {"id":{"name":"snd_fireball","path":"sounds/snd_fireball/snd_fireball.yy",},},
     {"id":{"name":"spr_npc_knightTheedix","path":"sprites/spr_npc_knightTheedix/spr_npc_knightTheedix.yy",},},
     {"id":{"name":"EnragedWorm","path":"scripts/EnragedWorm/EnragedWorm.yy",},},
+    {"id":{"name":"spr_enemy_acolyte_castArm","path":"sprites/spr_enemy_acolyte_castArm/spr_enemy_acolyte_castArm.yy",},},
     {"id":{"name":"spr_enemy_duskDurOc_run","path":"sprites/spr_enemy_duskDurOc_run/spr_enemy_duskDurOc_run.yy",},},
     {"id":{"name":"spr_statue_lily","path":"sprites/spr_statue_lily/spr_statue_lily.yy",},},
     {"id":{"name":"spr_npc_kovalad36","path":"sprites/spr_npc_kovalad36/spr_npc_kovalad36.yy",},},

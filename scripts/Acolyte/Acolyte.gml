@@ -47,6 +47,7 @@ remain_dist = 64;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
 
@@ -114,6 +115,8 @@ if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (flash > 0) entity_step = EnemyDamaged;
 	
 	
@@ -142,25 +145,33 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timer1 <= 0)
+		script_execute(EnemyChase);
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
-			script_execute(EnemyChase);
-			if (point_in_rectangle(obj_player.x,obj_player.y,x-32,y-32,x+32,y+32))
+			path_end();
+			sprite_index = enemy_idle;
+			if (timer1 <= 0)
 			{
-				audio_sound_gain(snd_player_roll,global.volumeEffects,1);
-				audio_play_sound(snd_player_roll,0,false);
-				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
-				entity_step = scr_enemy_acolyte_roll;
-				remain_dist = 64;
-			}
-			if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
-			{
-				path_end();
 				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
 				timer1 = 120;
+				attack_counter = irandom_range(1,3);
 				entity_step = scr_enemy_acolyte_slash;
 			}
+		}
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,16)) and (timer2 <= 0)
+		{
+			path_end();
+			sprite_index = enemy_idle;
+			timer2 = 120;
+			hor_spd = irandom_range(-1,1);
+			ver_spd = irandom_range(-1,1);
+			if (hor_spd = 0) and (ver_spd = 0)
+			{
+				hor_spd = choose(-1,1)
+				ver_spd = choose(-1,1)
+			}
+			entity_step = scr_enemy_acolyte_magic;
+			animation_end = false;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -182,7 +193,9 @@ else path_end();
 function scr_enemy_acolyte_slash(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_acolyte_slash)
 	{
 		//Start Animation From Beginning
@@ -202,15 +215,37 @@ if (obj_game.gamePaused = false)
 	EnemyAnimation();
 	if (animation_end)
 	{
-		timer1 = 60;
-		hor_spd = irandom_range(-1,1);
-		ver_spd = irandom_range(-1,1);
-		if (hor_spd = 0) and (ver_spd = 0)
+		timer1 = 120;
+		attack_counter = attack_counter - 1;
+		if (attack_counter <= 0)
 		{
-			hor_spd = choose(-1,1)
-			ver_spd = choose(-1,1)
+			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
+			{
+				path_end();
+				audio_sound_gain(snd_player_roll,global.volumeEffects,1);
+				audio_play_sound(snd_player_roll,0,false);
+				direction = 180 + ((round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90);
+				entity_step = scr_enemy_acolyte_roll;
+				timer1 = 120;
+				remain_dist = 64;
+			}
+			else
+			{
+				entity_step = scr_enemy_acolyte_free;
+				sprite_index = spr_enemy_acolyte_idle;
+			}
 		}
-		entity_step = EnemyReposition;
+		else
+		{
+			direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
+			sprite_index = spr_enemy_acolyte_slash;
+			local_frame = 0;
+			image_index = 0;
+			audio_sound_gain(snd_slash01,global.volumeEffects,1);
+			audio_play_sound(snd_slash01,0,false);
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+		}
 		animation_end = false;
 	}
 }
@@ -222,33 +257,92 @@ if (obj_game.gamePaused = false)
 //
 //Acolyte Roll State
 function scr_enemy_acolyte_roll(){
-//max_stamina = 50 + (3* (might + round(might/15)));
-inv_dur_timer = 30;
-timer1 = timer1 - 1;
-
-hor_spd = lengthdir_x(3,direction);
-ver_spd = lengthdir_y(3,direction);
-remain_dist = max(0, remain_dist - 3);
-var _collided = EnemyCollision();
-
-//Update Sprite
-sprite_index = spr_enemy_acolyte_roll;
-var _totalFrames = sprite_get_number(sprite_index)/4;
-image_index = (_cardinalDir * _totalFrames) + min(((1 - (remain_dist / 64)) * _totalFrames), _totalFrames - 1);
-
-
-//Free State
-if (remain_dist <= 0)
+if (obj_game.gamePaused = false)
 {
-	entity_step = home_state;
-	sprite_index = spr_enemy_acolyte_idle;
+	inv_dur_timer = 30;
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+
+	hor_spd = lengthdir_x(3,direction);
+	ver_spd = lengthdir_y(3,direction);
+	remain_dist = max(0, remain_dist - 3);
+	var _collided = EnemyCollision();
+
+	//Update Sprite
+	sprite_index = spr_enemy_acolyte_roll;
+	var _totalFrames = sprite_get_number(sprite_index)/4;
+	image_index = (_cardinalDir * _totalFrames) + min(((1 - (remain_dist / 64)) * _totalFrames), _totalFrames - 1);
+
+
+	//Free State
+	if (remain_dist <= 0)
+	{
+		entity_step = home_state;
+		sprite_index = spr_enemy_acolyte_idle;
+	}
+
+	//Collision
+	if (_collided = true)
+	{
+		entit_step = home_state;
+		sprite_index = spr_enemy_acolyte_idle;
+	}
 }
-
-//Collision
-if (_collided = true)
+}
+//
+//
+//
+//
+//
+//Acolyte Magic
+function scr_enemy_acolyte_magic(){
+if (obj_game.gamePaused = false)
 {
-	entit_step = home_state;
-	sprite_index = spr_enemy_acolyte_idle;
+	//Timer
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+
+	//Set
+	if (sprite_index != enemy_move)
+	{
+		//Start Animation From Beginning
+		sprite_index = enemy_move;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	EnemyAnimation();
+
+
+	//Move
+	if (hor_spd != 0) or (ver_spd != 0) 
+	{
+		var _xDest = x + (hor_spd * (enemy_spd))
+		var _yDest = y + (ver_spd * (enemy_spd))
+		if (place_meeting(_xDest, _yDest,obj_entity))
+		{
+			hor_spd = -hor_spd;
+			ver_spd = -ver_spd;
+			//sprite_index = enemy_idle;
+		}
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	
+	}
+
+
+	//End
+	if (timer2 <= 0)
+	{
+		entity_step = scr_enemy_acolyte_free;
+		timer2 = 240;
+	}
 }
 }
 //
@@ -353,9 +447,11 @@ obj_inventory.quest_grid[# 1, 3] = true;
 
 
 }
-
-
-
+//
+//
+//
+//
+//
 //Text
 //
 //
