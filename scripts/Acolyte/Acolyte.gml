@@ -48,6 +48,7 @@ remain_dist = 64;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+magic_counter = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -119,6 +120,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (flash > 0) entity_step = EnemyDamaged;
+	enemy_spd = 1.5;
 	
 	
 	//Toggle Aggro 
@@ -159,20 +161,38 @@ if (obj_game.gamePaused = false)
 				entity_step = scr_enemy_acolyte_slash;
 			}
 		}
-		if (!point_in_circle(obj_player.x,obj_player.y,x,y,16)) and (timer2 <= 0)
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
-			path_end();
-			sprite_index = enemy_idle;
-			timer2 = 120;
-			hor_spd = irandom_range(-1,1);
-			ver_spd = irandom_range(-1,1);
-			if (hor_spd = 0) and (ver_spd = 0)
+			if (timer3 <= 0)
 			{
-				hor_spd = choose(-1,1)
-				ver_spd = choose(-1,1)
+				path_end();
+				sprite_index = enemy_idle;
+				walk_snd_delay = 15;
+				timer3 = 12;
+				magic_counter = 0;
+				attack_counter = irandom_range(1,2);
+				entity_step = scr_enemy_acolyte_special;
 			}
-			entity_step = scr_enemy_acolyte_magic;
-			animation_end = false;
+			else
+			{
+				if (timer2 <= 0)
+				{
+					path_end();
+					sprite_index = enemy_idle;
+					attack_counter = irandom_range(2,4);
+					magic_counter = 4;
+					timer2 = 45;
+					hor_spd = irandom_range(-1,1);
+					ver_spd = irandom_range(-1,1);
+					if (hor_spd = 0) and (ver_spd = 0)
+					{
+						hor_spd = choose(-1,1)
+						ver_spd = choose(-1,1)
+					}
+					entity_step = scr_enemy_acolyte_magic;
+					animation_end = false;
+				}
+			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -301,7 +321,7 @@ function scr_enemy_acolyte_magic(){
 if (obj_game.gamePaused = false)
 {
 	casting = true;
-	
+	enemy_spd = 1.2;
 	//Timer
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -340,14 +360,254 @@ if (obj_game.gamePaused = false)
 	
 	}
 
-
-	//End
 	if (timer2 <= 0)
+	{
+		timer2 = 6;
+		magic_counter = magic_counter - 1;
+		if (magic_counter = 3)
+		{
+			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
+			{
+				//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+				//audio_play_sound(snd_goldBullet,0,0);
+				projectile_sprite = spr_projectile_acolyte_nil;
+				home_state = scr_enemy_projectile_nilchrome;
+				entity_step = home_state;
+				invincible = false;
+				inv_dur_timer = 0;
+				enemy_move = spr_projectile_acolyte_nil;
+				aggro_drop = 300;
+				healthbar = false;
+				enemy_spd = 3;
+				local_frame = 0;
+				hit_by_attack = -1;
+				damage = 45 + (8 * other.enemy_lvl);
+				break_object = other.break_object;
+				fragment_count = 2;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
+				image_angle = direction;
+				speed = enemy_spd;
+			}
+		}
+		if (magic_counter < 3)
+		{
+			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
+			{
+				//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+				//audio_play_sound(snd_goldBullet,0,0);
+				projectile_sprite = spr_projectile_acolyte_anti;
+				home_state = scr_enemy_projectile_antichrome;
+				entity_step = home_state;
+				invincible = false;
+				inv_dur_timer = 0;
+				enemy_move = spr_projectile_acolyte_anti;
+				aggro_drop = 300;
+				healthbar = false;
+				enemy_spd = 2.5;
+				local_frame = 0;
+				hit_by_attack = -1;
+				damage = 25 + (6 * other.enemy_lvl);
+				break_object = other.break_object;
+				fragment_count = 2;
+				fragment = obj_fragPlant;
+				bullet = true;
+				hit_script = EntityHitDestroy;
+				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
+				image_angle = direction;
+				speed = enemy_spd;
+			}
+		}
+	}
+	if (magic_counter <= 0)
+	{
+		timer2 = 27;
+		attack_counter = attack_counter - 1;
+		magic_counter = 4;
+	}
+	//End
+	if (attack_counter <= 0)
 	{
 		casting = false;
 		entity_step = scr_enemy_acolyte_free;
 		timer2 = 240;
 	}
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Slash State
+function scr_enemy_acolyte_special(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (sprite_index != spr_enemy_acolyte_special)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_acolyte_special;
+		local_frame = 0;
+		image_index = 0;
+		audio_sound_gain(snd_slash01,global.volumeEffects,1);
+		audio_play_sound(snd_slash01,0,false);
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+	damage = 95 + (13 * enemy_lvl);
+	//Cacluate Attack
+	EnemyAttackCalculate(spr_hitbox_acolyte_special);
+	//EnemyBulletSpawnPosition();
+
+	if (timer3 <= 0)
+	{
+		timer3 = 2;
+		with (instance_create_layer(x + dir_offX, y-4 + dir_offY,"Instances",obj_enemy_projectile))
+		{
+			//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+			//audio_play_sound(snd_goldBullet,0,0);
+			projectile_sprite = spr_projectile_acolyte_nil;
+			home_state = scr_enemy_projectile_nilchrome;
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_projectile_acolyte_nil;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 3;
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 45 + (8 * other.enemy_lvl);
+			break_object = other.break_object;
+			fragment_count = 2;
+			fragment = obj_fragPlant;
+			bullet = true;
+			hit_script = EntityHitDestroy;
+			direction = (other.direction + 90) - round(11.25*other.magic_counter);
+			image_angle = direction;
+			speed = enemy_spd;
+		}
+		magic_counter = magic_counter + 1;
+	}
+	//Animate
+	EnemyAnimation();
+	if (animation_end)
+	{
+		timer3 = 12;
+		attack_counter = attack_counter - 1;
+		if (attack_counter <= 0)
+		{
+			magic_counter = 0;
+			timer3 = 300;
+			entity_step = home_state;
+			sprite_index = spr_enemy_acolyte_idle;
+		}
+		else
+		{
+			magic_counter = 0;
+			direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
+			sprite_index = spr_enemy_acolyte_special;
+			local_frame = 0;
+			image_index = 0;
+			audio_sound_gain(snd_slash01,global.volumeEffects,1);
+			audio_play_sound(snd_slash01,0,false);
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+		}
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Antichrome Projectile
+function scr_enemy_projectile_antichrome(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(snd_player_hit,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Antichrome Projectile
+function scr_enemy_projectile_nilchrome(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+image_angle = image_angle + 3;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(snd_player_hit,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
 }
 }
 //
