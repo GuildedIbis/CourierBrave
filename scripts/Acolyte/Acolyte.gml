@@ -166,6 +166,7 @@ if (obj_game.gamePaused = false)
 			if (timer3 <= 0)
 			{
 				path_end();
+				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
 				sprite_index = enemy_idle;
 				walk_snd_delay = 15;
 				timer3 = 12;
@@ -368,8 +369,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 			{
-				//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-				//audio_play_sound(snd_goldBullet,0,0);
+				audio_sound_gain(snd_acolyte_nilchrome,global.volumeEffects,1);
+				audio_play_sound(snd_acolyte_nilchrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_nil;
 				home_state = scr_enemy_projectile_nilchrome;
 				entity_step = home_state;
@@ -396,8 +397,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 			{
-				//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-				//audio_play_sound(snd_goldBullet,0,0);
+				audio_sound_gain(snd_acolyte_antichrome,global.volumeEffects,1);
+				audio_play_sound(snd_acolyte_antichrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_anti;
 				home_state = scr_enemy_projectile_antichrome;
 				entity_step = home_state;
@@ -454,45 +455,46 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_acolyte_special;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		audio_sound_gain(snd_acolyte_ilanilCharge,global.volumeEffects,1);
+		audio_play_sound(snd_acolyte_ilanilCharge,0,0);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
 	damage = 95 + (13 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_hitbox_acolyte_special);
-	//EnemyBulletSpawnPosition();
+	scr_acolyte_bulletspawn_special();
 
 	if (timer3 <= 0)
 	{
-		timer3 = 2;
-		with (instance_create_layer(x + dir_offX, y-4 + dir_offY,"Instances",obj_enemy_projectile))
+		timer3 = 4;
+		magic_counter = magic_counter + 1;
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
-			//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-			//audio_play_sound(snd_goldBullet,0,0);
-			projectile_sprite = spr_projectile_acolyte_nil;
-			home_state = scr_enemy_projectile_nilchrome;
+			audio_sound_gain(snd_acolyte_ilanilFire,global.volumeEffects,1);
+			audio_play_sound(snd_acolyte_ilanilFire,0,0);
+			projectile_sprite = spr_projectile_acolyte_ilanil;
+			sprite_index = spr_projectile_acolyte_ilanil;
+			home_state = scr_enemy_projectile_ilanil;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_projectile_acolyte_nil;
+			enemy_move = spr_projectile_acolyte_ilanil;
 			aggro_drop = 300;
 			healthbar = false;
 			enemy_spd = 3;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45 + (8 * other.enemy_lvl);
+			damage = 65 + (10 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
 			bullet = true;
 			hit_script = EntityHitDestroy;
-			direction = (other.direction + 90) - round(11.25*other.magic_counter);
+			direction = (other.direction + 90) - round(23*other.magic_counter);
 			image_angle = direction;
 			speed = enemy_spd;
 		}
-		magic_counter = magic_counter + 1;
 	}
 	//Animate
 	EnemyAnimation();
@@ -514,8 +516,8 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_enemy_acolyte_special;
 			local_frame = 0;
 			image_index = 0;
-			audio_sound_gain(snd_slash01,global.volumeEffects,1);
-			audio_play_sound(snd_slash01,0,false);
+			audio_sound_gain(snd_acolyte_ilanilCharge,global.volumeEffects,1);
+			audio_play_sound(snd_acolyte_ilanilCharge,0,0);
 			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 			ds_list_clear(hit_by_attack);
 		}
@@ -608,6 +610,89 @@ if (place_meeting(x,y,break_object))
 else
 {
 	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Ilanil Projectile
+function scr_enemy_projectile_ilanil(){
+if (obj_game.gamePaused = false)
+{
+sprite_index = enemy_move;
+speed = enemy_spd;
+image_angle = image_angle + 5;
+if (place_meeting(x,y,obj_player))
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(snd_player_hit,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object)) 
+{
+	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	audio_play_sound(snd_arrow_hit,0,false);
+	instance_destroy();
+}
+}
+else
+{
+	speed = 0;
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Special Bullet Spawn
+function scr_acolyte_bulletspawn_special(){
+var _aimAngle = direction + 90 - round(23*magic_counter);
+var _dirPos = round(_aimAngle/90);
+ldX = x + lengthdir_x(6, _aimAngle);
+ldY = y + lengthdir_y(6, _aimAngle);
+switch(_dirPos)
+{
+	case 0:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 4:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 1:
+		dir_offX = -2;
+		dir_offY = -7;
+	break;
+		
+	case 2:
+		dir_offX = 0;
+		dir_offY = -7;
+	break;
+		
+	case 3:
+		dir_offX = 2;
+		dir_offY = -7;
+	break;	
 }
 }
 //
