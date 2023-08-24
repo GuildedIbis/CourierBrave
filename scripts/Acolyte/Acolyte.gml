@@ -17,10 +17,12 @@ image_speed = 0;
 
 //
 home_state = scr_enemy_acolyte_free;
-entity_step = scr_enemy_acolyte_scene_step;
+entity_step = scr_enemy_acolyte_scene02_step;
 entity_drop = scr_enemy_acolyte_drop;
+name = "The Acolyte"
 bullet = false;
 healthbar = true;
+boss = true;
 enemy_idle = spr_enemy_acolyte_idle;
 enemy_move = spr_enemy_acolyte_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
@@ -39,7 +41,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 direction = 180;
 form_type = 0;
-max_hp = 900 + (105 * enemy_lvl);
+max_hp = 750 + (65 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -64,12 +66,15 @@ if (obj_inventory.quest_grid[# 1, 3] = true)
 //
 //
 //Acolyte Scene 1 Step
-function scr_enemy_acolyte_scene_step(){
-if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
+function scr_enemy_acolyte_scene02_step(){
+invincible = true;
+inv_dur_timer = 30;
+if (point_in_circle(obj_player.x,obj_player.y,x,y,24))
 {
 	if (obj_game.gamePaused = false)
 	{
 		entity_step = scr_enemy_acolyte_free;
+		timer1 = 30;
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_index = _cardinalDir;
 		audio_sound_gain(sound,global.volumeEffects,1);
@@ -122,9 +127,21 @@ if (obj_game.gamePaused = false)
 	if (flash > 0) entity_step = EnemyDamaged;
 	enemy_spd = 1.5;
 	
-	
+	if (hp <= 250)
+	{
+		image_index = 0;
+		path_end();
+		hsp = 0;
+		vsp = 0;
+		speed = 0;
+		entity_step = scr_enemy_acolyte_escape;
+		aggro_drop = 300;
+		targeted = false;
+		global.aggroCounter = global.aggroCounter - 1;
+	}
+
 	//Toggle Aggro 
-	if (targeted = false)
+	if (targeted = false) and (hp > 250)
 	{
 		lit = false;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
@@ -482,10 +499,10 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_projectile_acolyte_ilanil;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 3;
+			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65 + (10 * other.enemy_lvl);
+			damage = 55 + (9 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -558,8 +575,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 }
@@ -602,8 +619,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 }
@@ -646,8 +663,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+	//audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 }
@@ -693,6 +710,41 @@ switch(_dirPos)
 		dir_offX = 2;
 		dir_offY = -7;
 	break;	
+}
+}
+//
+//
+//
+//
+//
+//
+//Acolyte Scene
+function scr_enemy_acolyte_escape(){
+if (obj_game.gamePaused = false)
+{
+	//Timers
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (flash > 0) entity_step = EnemyDamaged;
+	invincible = true;
+	inv_dur_timer = 30;
+	
+	if (sprite_index != spr_enemy_acolyte_escape)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_acolyte_escape;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	EnemyAnimation1();
+	if (animation_end)
+	{
+		instance_destroy();
+		scr_enemy_acolyte_drop();
+	}
 }
 }
 //
@@ -817,7 +869,7 @@ draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 draw_set_color(c_white);
-draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 var _name = "The Acolyte"
 
 //Draw Based on String Counter
@@ -905,7 +957,7 @@ draw_set_color(c_black);
 draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
 draw_text_transformed(68,140,_SubString,.5,.5,0);
-draw_text_transformed(259,130,_name,.35,.35,0);
-draw_sprite(spr_npc_nisma36,0,258+6,136+6);
+//draw_text_transformed(259,130,_name,.35,.35,0);
+//draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 
 }
