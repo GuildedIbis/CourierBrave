@@ -38,6 +38,7 @@ timer3 = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
+passable = true;
 }
 //
 //
@@ -54,10 +55,9 @@ function RemphoGhost2Free(){
 if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 {
 	//Timers
-	if (timer1 > 0) and (watervice = false)
-	{
-		timer1 = timer1 - 1;
-	}
+	if (timer1 >= 0) timer1 = timer1 - 1;
+	if (timer2 >= 0) timer2 = timer2 - 1;
+	if (timer3 >= 0) timer3 = timer3 - 1;
 	if (flash > 0) entity_step = EnemyDamaged;
 
 	//Toggle Aggro 
@@ -65,6 +65,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	{
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-32,y-32,x+32,y+32)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
+			passable = false;
 			if (image_alpha != 1) image_alpha = 1;
 			EnemyAlert();
 			timer1 = 60;
@@ -89,7 +90,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
-		
+		passable = false;
 		script_execute(EnemyChase);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
@@ -130,9 +131,9 @@ if (obj_game.gamePaused = false)
 	lit = false;
 	healthbar = false;
 	//Timers
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer1 > 0) timer1 = timer1 - 1;
-	
+	if (timer1 >= 0) timer1 = timer1 - 1;
+	if (timer2 >= 0) timer2 = timer2 - 1;
+	if (timer3 >= 0) timer3 = timer3 - 1;
 	//Set
 	if (sprite_index != spr_enemy_ghost2_shadowShiftA)
 	{
@@ -150,6 +151,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 <= 0)
 	{
 		//Chase: create and execute a path towards player
+		passable = true;
 		shadow = false;
 		path = path_add();
 		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
@@ -194,7 +196,9 @@ function RemphoGhost2ShadowShiftB(){
 if (obj_game.gamePaused = false)
 {
 	//Set
-	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer1 >= 0) timer1 = timer1 - 1;
+	if (timer2 >= 0) timer2 = timer2 - 1;
+	if (timer3 >= 0) timer3 = timer3 - 1;
 	if (sprite_index != spr_enemy_ghost2_shadowShiftB)
 	{
 		//Start Animation From Beginning
@@ -208,6 +212,7 @@ if (obj_game.gamePaused = false)
 	//Cacluate Attack
 	if (timer2 <= 0)
 	{	
+		passable = false;
 		timer2 = 84;
 		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulSkull,0,false);
