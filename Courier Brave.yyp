@@ -1399,6 +1399,7 @@
     {"id":{"name":"LSKephra","path":"scripts/LSKephra/LSKephra.yy",},},
     {"id":{"name":"ItemMenu","path":"scripts/ItemMenu/ItemMenu.yy",},},
     {"id":{"name":"LSPlayer","path":"scripts/LSPlayer/LSPlayer.yy",},},
+    {"id":{"name":"obj_activator","path":"objects/obj_activator/obj_activator.yy",},},
     {"id":{"name":"spr_frag_stoneBrown","path":"sprites/spr_frag_stoneBrown/spr_frag_stoneBrown.yy",},},
     {"id":{"name":"spr_player_ceriver_run","path":"sprites/spr_player_ceriver_run/spr_player_ceriver_run.yy",},},
     {"id":{"name":"spr_frag_plant","path":"sprites/spr_frag_plant/spr_frag_plant.yy",},},

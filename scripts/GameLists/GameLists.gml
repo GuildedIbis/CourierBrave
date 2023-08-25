@@ -38,7 +38,7 @@ crullM_list = array_create(50,false);
 //
 //
 //
-//Room Lists
+//Room Lists: Called in Inventory
 function CampRooms(){ 
 camp_grid = ds_grid_create(100,4);
 level_ary = array_create(100,-1);

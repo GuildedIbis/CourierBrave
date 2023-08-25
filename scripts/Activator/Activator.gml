@@ -6,9 +6,10 @@
 //
 //
 //Activator Create
-function ActivatorCreate(){
-entity_step = ActivatorStep;
+function scr_activator_create(){
+entity_step = scr_activator_step;
 sound = snd_text01;
+interact = true;
 }
 //
 //
@@ -16,8 +17,10 @@ sound = snd_text01;
 //
 //
 //Activator Step
-function ActivatorStep(){
+function scr_activator_step(){
 sprite_index = spr_activator;
+scr_npc_interact(12);
+
 }
 //
 //
@@ -25,7 +28,7 @@ sprite_index = spr_activator;
 //
 //
 //Habraf Door A Activator Text
-function HabrafDoorAActivatorText(){
+function scr_text_activator_door(){
 draw_set_font(fnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
@@ -35,79 +38,40 @@ draw_set_color(c_white);
 
 //Draw Based on String Counter
 var _SubString
-if (obj_inventory.habraf_lair[0] < 1)
+if (string_counter = 0)
 {
-	if (string_counter = 0)
-	{
-		speaker = 1;
-		text_string = "A button on the pedestal seemed to have\nopened a door somewhere." 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
+	speaker = 1;
+	text_string = "A button on the pedestal seemed to have\nopened a door somewhere." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
 
-	if (string_counter >= 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		obj_inventory.habraf_lair[0] = 1;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.farwayRoad_map_ary[15][3] = 0 = true;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
-	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
-	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
 }
+draw_set_font(fnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+draw_sprite(spr_npc_nisma36,0,258+6,136+6);
 
-
-if (obj_inventory.habraf_lair[0] >= 1)
-{
-	if (string_counter = 0)
-	{
-		speaker = 1;
-		text_string = "This button seemed to have opened a door somewhere." 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
-
-	if (string_counter >= 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
-		
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
-	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
-	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_sprite(spr_npc_nisma36,0,258+6,136+6);
-}
 }
 //
 //

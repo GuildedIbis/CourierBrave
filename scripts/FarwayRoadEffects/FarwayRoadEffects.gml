@@ -318,6 +318,44 @@ if (obj_player.form = 1)
 //
 //
 //
+//Effect Ceriver Quest Door
+function scr_effect_door_farway(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_player.form != 1)
+{
+	sprite_index = spr_door_questCeriver;
+
+}
+if (obj_player.form = 1)
+{
+	sprite_index = spr_door_questCeriver_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	
+}
+
+}
+//
+//
+//
+//
 //
 //Effect Lekno Lake Path Well Create
 function EffectWellCreate(){

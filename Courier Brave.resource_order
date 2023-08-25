@@ -1241,6 +1241,7 @@
     {"name":"LSKephra","order":11,"path":"scripts/LSKephra/LSKephra.yy",},
     {"name":"ItemMenu","order":1,"path":"scripts/ItemMenu/ItemMenu.yy",},
     {"name":"LSPlayer","order":3,"path":"scripts/LSPlayer/LSPlayer.yy",},
+    {"name":"obj_activator","order":10,"path":"objects/obj_activator/obj_activator.yy",},
     {"name":"spr_frag_stoneBrown","order":5,"path":"sprites/spr_frag_stoneBrown/spr_frag_stoneBrown.yy",},
     {"name":"spr_player_ceriver_run","order":1,"path":"sprites/spr_player_ceriver_run/spr_player_ceriver_run.yy",},
     {"name":"spr_frag_plant","order":4,"path":"sprites/spr_frag_plant/spr_frag_plant.yy",},
