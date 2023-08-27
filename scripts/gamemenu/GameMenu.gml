@@ -127,7 +127,6 @@ if (point_in_rectangle(_mouseX,_mouseY,90,44,230,64))//Settings Menu
 		restart = false;
 		restart2 = false;
 		restart3 = false;
-		audio_stop_all();
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,90,66,230,86))//Settings Menu
@@ -138,7 +137,6 @@ if (point_in_rectangle(_mouseX,_mouseY,90,66,230,86))//Settings Menu
 		//audio_sound_gain(snd_menu,global.volumeMenu,1);
 		//audio_play_sound(snd_menu,0,false);
 		//sub_menu = GameHomeVolumeMenu;
-		//audio_stop_all();
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,90,88,230,108))//Settings Menu
@@ -149,7 +147,6 @@ if (point_in_rectangle(_mouseX,_mouseY,90,88,230,108))//Settings Menu
 		//audio_sound_gain(snd_menu,global.volumeMenu,1);
 		//audio_play_sound(snd_menu,0,false);
 		//sub_menu = GameHomeVolumeMenu;
-		//audio_stop_all();
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,90,110,230,130))//Settings Menu
@@ -160,7 +157,6 @@ if (point_in_rectangle(_mouseX,_mouseY,90,110,230,130))//Settings Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		home_menu = scr_menu_home_settings;
-		audio_stop_all();
 	}
 }
 //else
@@ -230,6 +226,7 @@ if (restart = false)
 			obj_player.x = global.lastCampX;
 			obj_player.y = global.lastCampY;
 			audio_stop_all();
+			
 		}
 	}
 	if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))//New Game 1
@@ -446,25 +443,8 @@ else
 				y = 160;
 				image_speed = 1;
 			}
-		
 			room_goto(rm_scene_00);
-		
 			SaveGame3();
-			//with (obj_text)
-			//{
-			//	text_string = ""
-			//	string_counter = 0;
-			//	text_script = PlayerSceneText01;
-			//}
-			//obj_game.scene = true;
-			//obj_player.scene = true;
-			//obj_game.gamePaused = true;
-			//obj_game.textPaused = true;
-			//gamePaused = true;
-			//textPaused = true;
-		
-			//obj_player.x = 159;
-			//obj_player.y = 63;
 			audio_stop_all();
 		}
 	}
