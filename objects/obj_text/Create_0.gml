@@ -19,6 +19,7 @@ e_page = true;
 page = 0;
 slot = -1;
 text_gui = 0;
+map_ary = -1;
 
 
 //Vendors

@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "zOtherAll",
+    "path": "folders/Sprites/World/Effects/LenkoEfEn/zOtherAll.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "HabrafEffects",
+    "path": "folders/Sprites/World/Effects/LenkoEfEn/HabrafEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

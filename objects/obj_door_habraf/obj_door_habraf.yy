@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_door_habraf",
-    "path": "sprites/spr_door_habraf/spr_door_habraf.yy",
+    "name": "xspr_door_habraf",
+    "path": "sprites/xspr_door_habraf/xspr_door_habraf.yy",
   },
   "spriteMaskId": null,
   "visible": true,

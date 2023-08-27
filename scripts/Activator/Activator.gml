@@ -8,8 +8,8 @@
 //Activator Create
 function scr_activator_create(){
 entity_step = scr_activator_step;
-sound = snd_text01;
-interact = true;
+activate_sound = snd_text01;
+interact = 20;
 }
 //
 //
@@ -19,7 +19,47 @@ interact = true;
 //Activator Step
 function scr_activator_step(){
 sprite_index = spr_activator;
-scr_npc_interact(12);
+//Activate NPC: sprite index, text script, game pause
+if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (global.aggroCounter < 1)
+{	
+	if (keyboard_check_pressed(ord("E"))) and (obj_game.gamePaused = false)
+	{
+		//show_debug_message(string(instance_number(obj_inventory)));
+		//show_debug_message(string(instance_number(obj_text)));
+		audio_sound_gain(activate_sound,global.volumeEffects,1);
+		audio_play_sound(activate_sound,0,false);
+		//map_ary[activate_args][3] = 1;
+		//direction = 270;
+		with (obj_text)
+		{
+			text_string = ""
+			string_counter = 0;
+			if (other.activate_script != -1) text_script = other.activate_script;
+			//if (other.activate_args != -1) quest_num = other.activate_args;
+			//if (other.map_ary != -1) map_ary = obj_inventory.farwayRoad_map_ary;
+		}
+		if (activate_script != -1)
+		{
+			obj_game.gamePaused = true;
+			obj_game.textPaused = true;
+			if (obj_game.gamePaused)
+			{
+				with (all)
+				{
+					game_paused_image_speed = image_speed;
+					image_speed = 0;
+				}
+			}
+			else
+			{
+				with (all)
+				{
+					image_speed = game_paused_image_speed;
+				}
+			}
+		}
+	}
+}
 
 }
 //
@@ -28,7 +68,7 @@ scr_npc_interact(12);
 //
 //
 //Habraf Door A Activator Text
-function scr_text_activator_door(){
+function scr_text_activator_farwayRoad_door(){
 draw_set_font(fnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
@@ -50,7 +90,8 @@ if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;
-	obj_inventory.farwayRoad_map_ary[15][3] = 0 = true;
+	//map_ary[quest_num][3] = 1;
+	obj_inventory.farwayRoad_map_ary[15][3] = 1;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;

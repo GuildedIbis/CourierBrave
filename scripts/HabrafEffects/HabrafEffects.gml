@@ -11,7 +11,7 @@ image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-sprite_index = spr_door_habraf;
+sprite_index = xspr_door_habraf;
 if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 {
 	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
@@ -53,6 +53,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 }
 	
 }
+
 //
 //
 //
@@ -68,18 +69,18 @@ image_yscale = 1;
 
 if (obj_inventory.habrafLake_map_ary[15][3] < 2)
 {
-	sprite_index = spr_door_habraf;
+	sprite_index = xspr_door_habraf;
 	if (instance_exists(obj_escort))
 	{
 		if (point_in_circle(obj_escort.x,obj_escort.y,96,104,4))
 		{
-			sprite_index = spr_door_habraf_open;
+			sprite_index = xspr_door_habraf_open;
 			image_speed = 0;
 			obj_inventory.habrafLake_map_ary[15][3] = 2;
 		}
 		else 
 		{
-			sprite_index = spr_door_habraf;
+			sprite_index = xspr_door_habraf;
 			image_speed = 0;
 			obj_inventory.habrafLake_map_ary[15][3] = 1;
 		}
@@ -87,7 +88,7 @@ if (obj_inventory.habrafLake_map_ary[15][3] < 2)
 }
 if (obj_inventory.habrafLake_map_ary[15][3] >= 2)
 {
-	sprite_index = spr_door_habraf_open;
+	sprite_index = xspr_door_habraf_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
