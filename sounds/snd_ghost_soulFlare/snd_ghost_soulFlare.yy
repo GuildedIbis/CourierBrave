@@ -13,7 +13,7 @@
   "duration": 3.2,
   "parent": {
     "name": "Ghost",
-    "path": "folders/Sounds/Enemy/Lenko/LenkoMain/Ghost.yy",
+    "path": "folders/Sounds/Enemy/Lenko/Ghost.yy",
   },
   "preload": false,
   "sampleRate": 44100,

@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_lenko_themewater.mp3",
   "type": 0,
-  "volume": 0.5,
+  "volume": 1.0,
 }
