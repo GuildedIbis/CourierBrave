@@ -247,8 +247,8 @@ damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
+	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	//audio_sound_gain(snd_halofire_hamaxe_slash,global.volumeEffects,1);
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
@@ -1093,9 +1093,9 @@ if (animation_end)
 		target = -1;
 		break_object = obj_player.break_object;
 		damage = 32 + (12 * obj_player.divinity) + (9 * obj_inventory.form_grid[# 3, 8]);
-		idle_sprite = spr_flameSeed;
-		projectile_sprite = spr_flameSeed;
-		projectile_script = HalofireFlameSeed;
+		idle_sprite = spr_flameCore;
+		projectile_sprite = spr_flameCore;
+		projectile_script = HalofireFlameCore;
 		hit_by_attack = -1;
 		enemy_in_range = -1;
 		direction = point_direction(x,y,mouse_x,mouse_y);
@@ -1106,6 +1106,7 @@ if (animation_end)
 		else inv_timer = 15;
 		image_angle = direction;
 		projectile_speed = 2.5;
+		speed = projectile_speed;
 	}
 	attacking = false;
 	state_script = free_state;
@@ -1119,14 +1120,14 @@ if (animation_end)
 //
 //
 //
-//Halofire Gold Arcs Projectile Script
-function HalofireFlameSeed(){
+//Halofire Flame Core Projectile Script
+function HalofireFlameCore(){
 //Step
 destructable = false;
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
 if (inv_timer  > 0) inv_timer = inv_timer  - 1;
-speed = projectile_speed;
+image_angle = image_angle + 3;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -1169,7 +1170,7 @@ if (timer2 <= 0)
 		hit_by_attack = -1;
 		if (instance_exists(other.target))
 		{
-			if (other.target != -1) direction = point_direction(x,y,other.target.x,other.target.y);
+			if (other.target != -1) direction = point_direction(x,y,other.target.x,other.target.y-4);
 			else direction = irandom_range(0,359);
 		}
 		else direction = irandom_range(0,359);
@@ -1179,7 +1180,7 @@ if (timer2 <= 0)
 		}
 		else inv_timer = 15;
 		image_angle = direction;
-		projectile_speed = 3;
+		projectile_speed = 4;
 	}
 	timer2 = 12;
 }
@@ -1197,6 +1198,7 @@ ds_list_clear(enemy_in_range);
 //Halofire Meteor Projectile Script
 function HalofireFireSpark(){
 //Step
+image_speed = 1;
 if (inv_timer > 0) inv_timer = inv_timer - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -1220,18 +1222,18 @@ if (place_meeting(x,y,break_object))
 	instance_destroy();
 }
 
-if (magic = true)
-{
-	if (place_meeting(x,y,obj_cursor))
-	{
-		follow_timer = 0;
-	}
-	if (follow_timer > 0)
-	{
-		direction = point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y+6);
-		image_angle = direction;
-	}
-}
+//if (magic = true)
+//{
+//	if (place_meeting(x,y,obj_cursor))
+//	{
+//		follow_timer = 0;
+//	}
+//	if (follow_timer > 0)
+//	{
+//		direction = point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y+6);
+//		image_angle = direction;
+//	}
+//}
 }
 //
 //

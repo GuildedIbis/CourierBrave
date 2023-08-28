@@ -653,6 +653,7 @@
     {"name":"spr_player_evarel_runCast","order":6,"path":"sprites/spr_player_evarel_runCast/spr_player_evarel_runCast.yy",},
     {"name":"spr_highlight_button","order":2,"path":"sprites/spr_highlight_button/spr_highlight_button.yy",},
     {"name":"spr_enemy_motherLily_cast_hitbox","order":2,"path":"sprites/spr_enemy_motherLily_cast_hitbox/spr_enemy_motherLily_cast_hitbox.yy",},
+    {"name":"spr_flameCore","order":31,"path":"sprites/spr_flameCore/spr_flameCore.yy",},
     {"name":"spr_solarSabi3_active","order":7,"path":"sprites/spr_solarSabi3_active/spr_solarSabi3_active.yy",},
     {"name":"spr_roll_hud","order":23,"path":"sprites/spr_roll_hud/spr_roll_hud.yy",},
     {"name":"spr_enemy_bossZerwerk_voidBlade","order":17,"path":"sprites/spr_enemy_bossZerwerk_voidBlade/spr_enemy_bossZerwerk_voidBlade.yy",},

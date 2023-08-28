@@ -551,7 +551,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]));//
+		damage = 24 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_heavyBullet;
 		projectile_script = RegaliareHeavyBullet;
 		idle_sprite = spr_heavyBullet;
@@ -587,6 +587,7 @@ if (mouse_check_button(mb_left) = false) or (yellow_crystal < 10)
 function RegaliareHeavyBullet(){
 //Set
 speed = projectile_speed;
+destructable = false;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning

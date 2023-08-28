@@ -748,6 +748,7 @@
     {"id":{"name":"spr_player_evarel_runCast","path":"sprites/spr_player_evarel_runCast/spr_player_evarel_runCast.yy",},},
     {"id":{"name":"spr_highlight_button","path":"sprites/spr_highlight_button/spr_highlight_button.yy",},},
     {"id":{"name":"spr_enemy_motherLily_cast_hitbox","path":"sprites/spr_enemy_motherLily_cast_hitbox/spr_enemy_motherLily_cast_hitbox.yy",},},
+    {"id":{"name":"spr_flameCore","path":"sprites/spr_flameCore/spr_flameCore.yy",},},
     {"id":{"name":"spr_solarSabi3_active","path":"sprites/spr_solarSabi3_active/spr_solarSabi3_active.yy",},},
     {"id":{"name":"spr_roll_hud","path":"sprites/spr_roll_hud/spr_roll_hud.yy",},},
     {"id":{"name":"spr_enemy_bossZerwerk_voidBlade","path":"sprites/spr_enemy_bossZerwerk_voidBlade/spr_enemy_bossZerwerk_voidBlade.yy",},},
