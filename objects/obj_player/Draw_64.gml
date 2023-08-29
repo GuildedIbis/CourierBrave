@@ -15,6 +15,12 @@ if (scene = false) and (obj_game.textPaused = false)
 		var _yPos = 164;
 		draw_sprite_ext(spr_crull_tick,0,_xPos,_yPos,1.0,1.0,180,c_white,1.0);	
 	}
+	for (var j = 0; j < max_crull_stone; j = j + 1)
+	{
+		var _xPos = (152 + (8*max_crull_stone)) - (17*j);
+		var _yPos = 164;
+		draw_sprite_ext(spr_hud_crull,0,_xPos,_yPos,1.0,1.0,0,c_white,1.0);
+	}
 	draw_set_font(fnt_text)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);

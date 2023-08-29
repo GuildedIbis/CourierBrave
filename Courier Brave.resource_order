@@ -448,6 +448,7 @@
     {"name":"EscortLillyShrineSpawner","order":5,"path":"scripts/EscortLillyShrineSpawner/EscortLillyShrineSpawner.yy",},
     {"name":"spr_enemy_lilyCultist_idle","order":7,"path":"sprites/spr_enemy_lilyCultist_idle/spr_enemy_lilyCultist_idle.yy",},
     {"name":"spr_map_small","order":3,"path":"sprites/spr_map_small/spr_map_small.yy",},
+    {"name":"spr_hud_crull","order":24,"path":"sprites/spr_hud_crull/spr_hud_crull.yy",},
     {"name":"spr_enemy_duskLeech_damaged","order":6,"path":"sprites/spr_enemy_duskLeech_damaged/spr_enemy_duskLeech_damaged.yy",},
     {"name":"spr_enemy_gorog_heavySlash_A","order":15,"path":"sprites/spr_enemy_gorog_heavySlash_A/spr_enemy_gorog_heavySlash_A.yy",},
     {"name":"BalurneHunter","order":1,"path":"scripts/BalurneHunter/BalurneHunter.yy",},

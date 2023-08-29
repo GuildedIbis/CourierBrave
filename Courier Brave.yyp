@@ -519,6 +519,7 @@
     {"id":{"name":"EscortLillyShrineSpawner","path":"scripts/EscortLillyShrineSpawner/EscortLillyShrineSpawner.yy",},},
     {"id":{"name":"spr_enemy_lilyCultist_idle","path":"sprites/spr_enemy_lilyCultist_idle/spr_enemy_lilyCultist_idle.yy",},},
     {"id":{"name":"spr_map_small","path":"sprites/spr_map_small/spr_map_small.yy",},},
+    {"id":{"name":"spr_hud_crull","path":"sprites/spr_hud_crull/spr_hud_crull.yy",},},
     {"id":{"name":"spr_enemy_duskLeech_damaged","path":"sprites/spr_enemy_duskLeech_damaged/spr_enemy_duskLeech_damaged.yy",},},
     {"id":{"name":"spr_enemy_gorog_heavySlash_A","path":"sprites/spr_enemy_gorog_heavySlash_A/spr_enemy_gorog_heavySlash_A.yy",},},
     {"id":{"name":"BalurneHunter","path":"scripts/BalurneHunter/BalurneHunter.yy",},},
