@@ -132,6 +132,8 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			timerS = 0;
 			timer2 = 23;
 			entity_step = RemphoGhostMasgarShadowShiftA;
+			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
+			audio_play_sound(snd_ghost_shift_up,0,false);
 		}
 		if (timer3 <= 0)
 		{
@@ -207,6 +209,8 @@ if (obj_game.gamePaused = false)
 		y = obj_player.y;
 		entity_step = RemphoGhostMasgarShadowShiftB;
 		animation_end = false;
+		audio_sound_gain(snd_ghost_shift_down,global.volumeEffects,1);
+		audio_play_sound(snd_ghost_shift_down,0,false);
 	}
 }
 }

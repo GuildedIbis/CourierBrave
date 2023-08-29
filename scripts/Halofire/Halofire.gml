@@ -1159,7 +1159,7 @@ if (_num > 0)
 if (timer2 <= 0)
 {
 		
-	with (instance_create_layer(x,y-6,"Instances",obj_projectile))
+	with (instance_create_layer(x,y,"Instances",obj_projectile))
 	{
 		
 		break_object = obj_player.break_object;

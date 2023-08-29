@@ -29,9 +29,11 @@ if (global.dayPhase = 2)
 	image_alpha = 0;
 	image_index = 0;
 	image_speed = 0;
+	shadow = false;
 }
 else
 {
+	shadow = true;
 	image_alpha = 1;
 	image_speed = 1;
 	sprite_index = spr_npc_emissary_scene_00;
@@ -64,6 +66,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
 	if (keyboard_check_pressed(ord("E"))) 
 	{
+		audio_stop_all();
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_index = _cardinalDir;
 		sprite_index = spr_npc_emissary;
@@ -396,7 +399,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
-		
 		//Reset Buy/Sell Menu
 		page = 0;
 		slot = -1;

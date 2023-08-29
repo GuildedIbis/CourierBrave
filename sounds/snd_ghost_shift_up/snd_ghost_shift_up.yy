@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 3.2,
   "parent": {
     "name": "Ghost",
     "path": "folders/Sounds/Enemy/Lenko/Ghost.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_ghost_shift_up",
+  "soundFile": "snd_ghost_shift_up.wav",
   "type": 0,
   "volume": 1.0,
 }

@@ -55,7 +55,7 @@ if (string_counter >= 1)
 	audio_play_sound(snd_menu,0,false);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
-	
+
 	//Reset Buy/Sell Menu
 	page = 0;
 	slot = -1;
