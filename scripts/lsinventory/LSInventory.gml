@@ -46,16 +46,15 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"crullRecipe7")) obj_inventory.crull_recipe[7] = _loadEntity.crullRecipe7;
 		if (variable_struct_exists(_loadEntity,"crullRecipe8")) obj_inventory.crull_recipe[8] = _loadEntity.crullRecipe8;
 		if (variable_struct_exists(_loadEntity,"crullRecipe9")) obj_inventory.crull_recipe[9] = _loadEntity.crullRecipe9;
-		if (variable_struct_exists(_loadEntity,"crullRecipe10")) obj_inventory.crull_recipe[0] = _loadEntity.crullRecipe10;
-		if (variable_struct_exists(_loadEntity,"crullRecipe11")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe11;
-		if (variable_struct_exists(_loadEntity,"crullRecipe12")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe12;
-		if (variable_struct_exists(_loadEntity,"crullRecipe13")) obj_inventory.crull_recipe[3] = _loadEntity.crullRecipe13;
-		if (variable_struct_exists(_loadEntity,"crullRecipe14")) obj_inventory.crull_recipe[4] = _loadEntity.crullRecipe14;
-		if (variable_struct_exists(_loadEntity,"crullRecipe15")) obj_inventory.crull_recipe[5] = _loadEntity.crullRecipe15;
-		if (variable_struct_exists(_loadEntity,"crullRecipe16")) obj_inventory.crull_recipe[6] = _loadEntity.crullRecipe16;
-		if (variable_struct_exists(_loadEntity,"crullRecipe17")) obj_inventory.crull_recipe[7] = _loadEntity.crullRecipe17;
-		if (variable_struct_exists(_loadEntity,"crullRecipe18")) obj_inventory.crull_recipe[8] = _loadEntity.crullRecipe18;
-		if (variable_struct_exists(_loadEntity,"crullRecipe19")) obj_inventory.crull_recipe[9] = _loadEntity.crullRecipe19;
+		if (variable_struct_exists(_loadEntity,"crullRecipe10")) obj_inventory.crull_recipe[10] = _loadEntity.crullRecipe10;
+		if (variable_struct_exists(_loadEntity,"crullRecipe11")) obj_inventory.crull_recipe[11] = _loadEntity.crullRecipe11;
+		if (variable_struct_exists(_loadEntity,"crullRecipe12")) obj_inventory.crull_recipe[12] = _loadEntity.crullRecipe12;
+		if (variable_struct_exists(_loadEntity,"crullRecipe13")) obj_inventory.crull_recipe[13] = _loadEntity.crullRecipe13;
+		if (variable_struct_exists(_loadEntity,"crullRecipe14")) obj_inventory.crull_recipe[14] = _loadEntity.crullRecipe14;
+		if (variable_struct_exists(_loadEntity,"crullRecipe15")) obj_inventory.crull_recipe[15] = _loadEntity.crullRecipe15;
+		if (variable_struct_exists(_loadEntity,"crullRecipe16")) obj_inventory.crull_recipe[16] = _loadEntity.crullRecipe16;
+		if (variable_struct_exists(_loadEntity,"crullRecipe17")) obj_inventory.crull_recipe[17] = _loadEntity.crullRecipe17;
+
 
 }
 //
@@ -102,7 +101,6 @@ var _saveInv =
 	crullRecipe15 : obj_inventory.crull_recipe[15],
 	crullRecipe16 : obj_inventory.crull_recipe[16],
 	crullRecipe17 : obj_inventory.crull_recipe[17],
-	crullRecipe18 : obj_inventory.crull_recipe[18],
 
 	
 	

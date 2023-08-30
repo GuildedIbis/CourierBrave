@@ -221,6 +221,7 @@ if (restart = false)
 			instance_create_layer(x,y,"Instances",obj_player);
 
 			LoadGame();
+			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
 			obj_player.x = global.lastCampX;
@@ -268,6 +269,7 @@ else
 				state_script = scr_player_scene_00;
 				scene_script = scr_player_scene_00_text;
 				timer1 = 0;
+				crull_ary[0] = 0;
 				x = 144;
 				y = 160;
 				image_speed = 1;
@@ -308,6 +310,7 @@ if (restart2 = false)
 			global.home = false;
 			instance_create_layer(x,y,"Instances",obj_player);
 			LoadGame2();
+			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
 			obj_player.x = global.lastCampX;
@@ -353,6 +356,7 @@ else
 				image_index = 3;
 				state_script = scr_player_scene_00;
 				scene_script = scr_player_scene_00_text;
+				crull_ary[0] = 0;
 				timer1 = 0;
 				x = 144;
 				y = 160;
@@ -394,6 +398,7 @@ if (restart3 = false)
 			global.home = false;
 			instance_create_layer(x,y,"Instances",obj_player);
 			LoadGame3();
+			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
 			obj_player.x = global.lastCampX;
@@ -438,6 +443,7 @@ else
 				image_index = 3;
 				state_script = scr_player_scene_00;
 				scene_script = scr_player_scene_00_text;
+				crull_ary[0] = 0;
 				timer1 = 0;
 				x = 144;
 				y = 160;

@@ -32,6 +32,7 @@ function LoadPlayer(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"crull7")) obj_game.crull_ary[7] = _loadEntity.crull7;
 		if (variable_struct_exists(_loadEntity,"crull8")) obj_game.crull_ary[8] = _loadEntity.crull8;
 		if (variable_struct_exists(_loadEntity,"crull9")) obj_game.crull_ary[9] = _loadEntity.crull9;
+		if (variable_struct_exists(_loadEntity,"crull10")) obj_game.crull_ary[10] = _loadEntity.crull10;
 		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
@@ -91,7 +92,7 @@ var _savePlayer =
 	crull8 : obj_player.crull_ary[8],
 	crull9 : obj_player.crull_ary[9],
 	crull10 : obj_player.crull_ary[10],
-	crull11 : obj_player.crull_ary[11],
+
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,  //1

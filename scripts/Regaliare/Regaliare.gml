@@ -187,12 +187,12 @@ if (key_ability) and (stamina >= 50)
 }
 
 //Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
+if (keyboard_check_pressed(ord("C"))) and (crull_ary[crull_selected] != -1)
 {
+	var _crullID = crull_ary[crull_selected];
 	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
 	audio_play_sound(snd_player_crull,0,false);
-	state_script = PlayerStateCrull;
-	
+	state_script = obj_inventory.crull_script[_crullID];
 }
 
 //Switch Magic Fire Mode

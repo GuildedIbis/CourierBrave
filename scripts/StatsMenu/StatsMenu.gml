@@ -219,9 +219,17 @@ switch(page)
 					audio_sound_gain(snd_menu,global.volumeMenu,1);
 					audio_play_sound(snd_menu,0,false);
 					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.iteration + 1);
-					obj_player.iteration = obj_player.iteration + 1;
-					obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
-					obj_player.crull_stone = obj_player.crull_stone + 1;
+					with (obj_player)
+					{
+						iteration = iteration + 1;
+						max_crull_stone = iteration + 1;
+						crull_stone = crull_stone + 1;
+						crull_ary[iteration] = 1;
+					}
+					//obj_player.iteration = obj_player.iteration + 1;
+					//obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
+					//obj_player.crull_stone = obj_player.crull_stone + 1;
+					//obj_player.crull_ary[obj_player.max_crull_stone] = 1;
 				}
 			}
 		}

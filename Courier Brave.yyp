@@ -1171,6 +1171,7 @@
     {"id":{"name":"spr_menu_player_stat","path":"sprites/spr_menu_player_stat/spr_menu_player_stat.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_run","path":"sprites/spr_enemy_tortoiseTroll_run/spr_enemy_tortoiseTroll_run.yy",},},
     {"id":{"name":"spr_solarSabi3_portrait36","path":"sprites/spr_solarSabi3_portrait36/spr_solarSabi3_portrait36.yy",},},
+    {"id":{"name":"spr_hud_crull_empty","path":"sprites/spr_hud_crull_empty/spr_hud_crull_empty.yy",},},
     {"id":{"name":"spr_tree_jelx","path":"sprites/spr_tree_jelx/spr_tree_jelx.yy",},},
     {"id":{"name":"LSForms","path":"scripts/LSForms/LSForms.yy",},},
     {"id":{"name":"spr_enemy_shadow","path":"sprites/spr_enemy_shadow/spr_enemy_shadow.yy",},},

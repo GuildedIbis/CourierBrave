@@ -38,7 +38,7 @@ crull_script[18] = scr_player_crull_natural;
 //Crull Select
 function scr_player_crull_select(){
 	
-if (mouse_wheel_up)
+if (mouse_wheel_up())
 {
 	if (crull_selected < iteration)
 	{
@@ -49,7 +49,7 @@ if (mouse_wheel_up)
 		crull_selected = 0;
 	}
 }
-if (mouse_wheel_down)
+if (mouse_wheel_down())
 {
 	if (crull_selected > 0)
 	{

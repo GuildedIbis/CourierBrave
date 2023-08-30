@@ -1023,6 +1023,7 @@
     {"name":"spr_menu_player_stat","order":7,"path":"sprites/spr_menu_player_stat/spr_menu_player_stat.yy",},
     {"name":"spr_enemy_tortoiseTroll_run","order":8,"path":"sprites/spr_enemy_tortoiseTroll_run/spr_enemy_tortoiseTroll_run.yy",},
     {"name":"spr_solarSabi3_portrait36","order":11,"path":"sprites/spr_solarSabi3_portrait36/spr_solarSabi3_portrait36.yy",},
+    {"name":"spr_hud_crull_empty","order":26,"path":"sprites/spr_hud_crull_empty/spr_hud_crull_empty.yy",},
     {"name":"spr_tree_jelx","order":5,"path":"sprites/spr_tree_jelx/spr_tree_jelx.yy",},
     {"name":"LSForms","order":2,"path":"scripts/LSForms/LSForms.yy",},
     {"name":"spr_enemy_shadow","order":4,"path":"sprites/spr_enemy_shadow/spr_enemy_shadow.yy",},
