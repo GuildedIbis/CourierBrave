@@ -21,6 +21,18 @@ function LoadPlayer(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"breakObject")) obj_player.break_object = _loadEntity.breakObject;
 		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
 		
+		//Load Crull
+		if (variable_struct_exists(_loadEntity,"crull0")) obj_game.crull_ary[0] = _loadEntity.crull0;
+		if (variable_struct_exists(_loadEntity,"crull1")) obj_game.crull_ary[1] = _loadEntity.crull1;
+		if (variable_struct_exists(_loadEntity,"crull2")) obj_game.crull_ary[2] = _loadEntity.crull2;
+		if (variable_struct_exists(_loadEntity,"crull3")) obj_game.crull_ary[3] = _loadEntity.crull3;
+		if (variable_struct_exists(_loadEntity,"crull4")) obj_game.crull_ary[4] = _loadEntity.crull4;
+		if (variable_struct_exists(_loadEntity,"crull5")) obj_game.crull_ary[5] = _loadEntity.crull5;
+		if (variable_struct_exists(_loadEntity,"crull6")) obj_game.crull_ary[6] = _loadEntity.crull6;
+		if (variable_struct_exists(_loadEntity,"crull7")) obj_game.crull_ary[7] = _loadEntity.crull7;
+		if (variable_struct_exists(_loadEntity,"crull8")) obj_game.crull_ary[8] = _loadEntity.crull8;
+		if (variable_struct_exists(_loadEntity,"crull9")) obj_game.crull_ary[9] = _loadEntity.crull9;
+		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
@@ -46,7 +58,7 @@ function LoadPlayer(_loadEntity){
 			}
 		}
 		if (variable_struct_exists(_loadEntity,"weaponAim")) obj_player.weapon_aim = _loadEntity.weaponAim;
-		if (variable_struct_exists(_loadEntity,"cursMeter")) obj_cursor.curs_meter = _loadEntity.cursMeter;
+		//if (variable_struct_exists(_loadEntity,"cursMeter")) obj_cursor.curs_meter = _loadEntity.cursMeter;
 }
 //
 //
@@ -67,8 +79,19 @@ var _savePlayer =
 	lastCampY: global.lastCampY, //CONCEPT: NOT FINAL
 	level: obj_game.level_num, //CONCEPT: NOT FINAL
 	
-	//Save Beans
-	//beans : obj_player.beans,
+	//Save Crull
+	crull0 : obj_player.crull_ary[0],
+	crull1 : obj_player.crull_ary[1],
+	crull2 : obj_player.crull_ary[2],
+	crull3 : obj_player.crull_ary[3],
+	crull4 : obj_player.crull_ary[4],
+	crull5 : obj_player.crull_ary[5],
+	crull6 : obj_player.crull_ary[6],
+	crull7 : obj_player.crull_ary[7],
+	crull8 : obj_player.crull_ary[8],
+	crull9 : obj_player.crull_ary[9],
+	crull10 : obj_player.crull_ary[10],
+	crull11 : obj_player.crull_ary[11],
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,  //1
@@ -92,7 +115,7 @@ var _savePlayer =
 	//Loadout
 	form : obj_player.form,
 	weaponAim : obj_player.weapon_aim,
-	cursMeter : obj_cursor.curs_meter,
+	//cursMeter : obj_cursor.curs_meter,
 	
 	
 }

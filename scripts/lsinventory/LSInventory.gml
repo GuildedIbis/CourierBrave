@@ -36,6 +36,27 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"psArray8")) obj_inventory.ps_array[8] = _loadEntity.psArray8;
 		if (variable_struct_exists(_loadEntity,"psArray9")) obj_inventory.ps_array[9] = _loadEntity.psArray9;
 
+		if (variable_struct_exists(_loadEntity,"crullRecipe0")) obj_inventory.crull_recipe[0] = _loadEntity.crullRecipe0;
+		if (variable_struct_exists(_loadEntity,"crullRecipe1")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe1;
+		if (variable_struct_exists(_loadEntity,"crullRecipe2")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe2;
+		if (variable_struct_exists(_loadEntity,"crullRecipe3")) obj_inventory.crull_recipe[3] = _loadEntity.crullRecipe3;
+		if (variable_struct_exists(_loadEntity,"crullRecipe4")) obj_inventory.crull_recipe[4] = _loadEntity.crullRecipe4;
+		if (variable_struct_exists(_loadEntity,"crullRecipe5")) obj_inventory.crull_recipe[5] = _loadEntity.crullRecipe5;
+		if (variable_struct_exists(_loadEntity,"crullRecipe6")) obj_inventory.crull_recipe[6] = _loadEntity.crullRecipe6;
+		if (variable_struct_exists(_loadEntity,"crullRecipe7")) obj_inventory.crull_recipe[7] = _loadEntity.crullRecipe7;
+		if (variable_struct_exists(_loadEntity,"crullRecipe8")) obj_inventory.crull_recipe[8] = _loadEntity.crullRecipe8;
+		if (variable_struct_exists(_loadEntity,"crullRecipe9")) obj_inventory.crull_recipe[9] = _loadEntity.crullRecipe9;
+		if (variable_struct_exists(_loadEntity,"crullRecipe10")) obj_inventory.crull_recipe[0] = _loadEntity.crullRecipe10;
+		if (variable_struct_exists(_loadEntity,"crullRecipe11")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe11;
+		if (variable_struct_exists(_loadEntity,"crullRecipe12")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe12;
+		if (variable_struct_exists(_loadEntity,"crullRecipe13")) obj_inventory.crull_recipe[3] = _loadEntity.crullRecipe13;
+		if (variable_struct_exists(_loadEntity,"crullRecipe14")) obj_inventory.crull_recipe[4] = _loadEntity.crullRecipe14;
+		if (variable_struct_exists(_loadEntity,"crullRecipe15")) obj_inventory.crull_recipe[5] = _loadEntity.crullRecipe15;
+		if (variable_struct_exists(_loadEntity,"crullRecipe16")) obj_inventory.crull_recipe[6] = _loadEntity.crullRecipe16;
+		if (variable_struct_exists(_loadEntity,"crullRecipe17")) obj_inventory.crull_recipe[7] = _loadEntity.crullRecipe17;
+		if (variable_struct_exists(_loadEntity,"crullRecipe18")) obj_inventory.crull_recipe[8] = _loadEntity.crullRecipe18;
+		if (variable_struct_exists(_loadEntity,"crullRecipe19")) obj_inventory.crull_recipe[9] = _loadEntity.crullRecipe19;
+
 }
 //
 //
@@ -62,6 +83,28 @@ var _saveInv =
 	rogArray3 : obj_inventory.rog_array[3],
 	rogArray4 : obj_inventory.rog_array[4],
 	rogArray5 : obj_inventory.rog_array[5],
+	
+	crullRecipe0 : obj_inventory.crull_recipe[0],
+	crullRecipe1 : obj_inventory.crull_recipe[1],
+	crullRecipe2 : obj_inventory.crull_recipe[2],
+	crullRecipe3 : obj_inventory.crull_recipe[3],
+	crullRecipe4 : obj_inventory.crull_recipe[4],
+	crullRecipe5 : obj_inventory.crull_recipe[5],
+	crullRecipe6 : obj_inventory.crull_recipe[6],
+	crullRecipe7 : obj_inventory.crull_recipe[7],
+	crullRecipe8 : obj_inventory.crull_recipe[8],
+	crullRecipe9 : obj_inventory.crull_recipe[9],
+	crullRecipe10 : obj_inventory.crull_recipe[10],
+	crullRecipe11 : obj_inventory.crull_recipe[11],
+	crullRecipe12 : obj_inventory.crull_recipe[12],
+	crullRecipe13 : obj_inventory.crull_recipe[13],
+	crullRecipe14 : obj_inventory.crull_recipe[14],
+	crullRecipe15 : obj_inventory.crull_recipe[15],
+	crullRecipe16 : obj_inventory.crull_recipe[16],
+	crullRecipe17 : obj_inventory.crull_recipe[17],
+	crullRecipe18 : obj_inventory.crull_recipe[18],
+
+	
 	
 	//Save Power Stone
 	psArray0 : obj_inventory.ps_array[0],

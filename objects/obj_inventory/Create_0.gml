@@ -7,6 +7,7 @@ inv_gui = -1;
 item_id = -1;
 
 script_execute(ItemSlotsCreate);
+script_execute(scr_crull_list_create);
 script_execute(FormCreate);
 script_execute(QuestlogCreate);
 script_execute(DungeonlogCreate);
@@ -15,6 +16,7 @@ script_execute(MapsCreate);
 script_execute(ChestList);
 script_execute(KephraStoneList);
 script_execute(StarOrbList);
+
 
 room_ary = farwayRoad_map_ary;
 

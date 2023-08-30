@@ -69,6 +69,9 @@ receptivity = 0; //AMT
 
 //Effected Max Stats
 max_crull_stone = 1 + (iteration);
+crull_ary = array_create(11,-1);
+crull_ary[0] = 0;
+crull_selected = 0;
 max_hp = 200 + (20 * vitality);
 max_charge = 100 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
 max_stamina = 100 + (50 * energy);
