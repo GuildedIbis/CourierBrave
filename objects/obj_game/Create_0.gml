@@ -6,7 +6,7 @@ script_execute(AllItems);
 script_execute(RoomEnemies);
 
 
-version = "Version: 0.2.7.0"
+version = "Version: 0.3.0.0"
 menu_sprite = spr_menu;
 pause_menu = scr_menu_game_pause;
 home_menu = scr_menu_game_home;
