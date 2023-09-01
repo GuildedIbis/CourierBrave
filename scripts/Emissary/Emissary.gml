@@ -223,7 +223,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 //
 //
 //
-//Kephra's Dialogue;
+//Kephra's Decree Dialogue;
 if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 {
 	draw_set_font(global.fnt_main_white);

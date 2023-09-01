@@ -6,8 +6,8 @@
 //
 //
 //Alter Create
-function AlterCreate(){
-entity_step = AlterStep;
+function scr_alter_create(){
+entity_step = scr_alter;
 shadow = true;
 shadow_size = 2;
 sound = snd_text01;
@@ -19,7 +19,7 @@ interact = 32;
 //
 //
 //Alter Step
-function AlterStep(){
+function scr_alter(){
 sprite_index = spr_alter;
 scr_npc_interact(12);
 }
@@ -29,18 +29,25 @@ scr_npc_interact(12);
 //
 //
 //Alter Text
-function AlterText(){
-//Background
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+function scr_text_alter_main(){
+//Tinted Background
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+draw_sprite_stretched(spr_menu_beveled,3,121,65,78,46);
+draw_sprite_stretched(spr_menu,8,116,53,88,20);
+draw_sprite_stretched(spr_menu_circle16,1,126,74,32,32);
+draw_sprite_stretched(spr_menu_circle16,1,162,74,32,32);
+draw_sprite(spr_alter_menu_icons,0,126,74);
+draw_sprite(spr_alter_menu_icons,1,162,74);
 var _SubString
 
 
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "You will return here when on death." 
+	//text_string = "You will return here when on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+	scr_menu_alter_main();
 }
 
 if (string_counter >= 1)
@@ -151,57 +158,66 @@ if (map_selected != -1)
 //
 //
 //Alter Menu
-function AlterMenu(){
+function scr_menu_alter_main(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-	
-	
-	
-//Draw Sprites
-//draw_sprite_stretched(menu_sprite,4,0,0,320,180);	
-draw_sprite_stretched(menu_sprite,3,64,36,192,96);
 
-//draw_sprite_stretched(button_sprite,3,66,128,21,24);
-//draw_sprite_stretched(button_sprite,3,89,128,21,24);
-//draw_sprite_stretched(button_sprite,3,112,128,21,24);
-//draw_sprite_stretched(button_sprite,3,135,128,21,24);
-//draw_sprite_stretched(button_sprite,3,158,128,21,24);
-//draw_sprite_stretched(button_sprite,3,181,128,21,24);
-//draw_sprite_stretched(button_sprite,3,204,128,21,24);
-//draw_sprite_stretched(button_sprite,3,227,128,21,24);
-//draw_sprite(spr_lock,0,160,108);
-//draw_sprite(spr_lock,0,224,108);
+if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,125,73,34,34)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		text_script = scr_menu_alter_crull;
+	}
+}
 
-	
+}
+//
+//
+//
+//
+//
+//Alter Menu
+function scr_menu_alter_crull(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
-//Set Text
-draw_set_font(fnt_text);
-draw_set_color(c_white);
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-	
-//Draw Selected Alter Menu
-if (alter_gui != -1) script_execute(alter_gui);
-	
-//Draw Text
-draw_text_transformed(64,28,"Press \"E\" to Exit",.5,.5,0);
-draw_set_halign(fa_center);
-draw_sprite(spr_inventory_tabs,0,66,132)
-//draw_text_transformed(80,142,"MAP",.35,.35,0);	
-//draw_text_transformed(106,142,"ITEMS",.35,.35,0);	
-//draw_text_transformed(132,142,"PLAYER",.35,.35,0);
-//draw_text_transformed(158,142,"EQUIPMENT",.35,.35,0);
-//draw_text_transformed(184,142,"EXIT",.35,.35,0);
+//Menu Base and Buttons
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+//Left
+draw_sprite_stretched(spr_menu_beveled,3,44,35,110,108);
+draw_sprite_stretched(spr_menu,8,39,35,120,16);
+draw_sprite_stretched(spr_menu_circle16,1,4,74,32,32);
+//Right
+draw_sprite(spr_menu_rope,3,176,99);
+draw_sprite(spr_menu_rope,3,262,99);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,66);
+draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
+draw_sprite_stretched(spr_menu,8,161,35,120,16);
+draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
+
+//
+if (point_in_rectangle(_mouseX,_mouseY,4,74,158,106))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,3,73,34,34)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		text_script = scr_text_alter_main;
+	}
+}
 if (keyboard_check_pressed(ord("E")))
 {
+	//text_script = AlterMenu;
+	//alter_gui = LevelStatsMenuGUI;
 	text_gui = 0;
 	text_string = ""
+	_SubString = string_copy(text_string,1,letter_counter);
 	string_counter = 0;
 	audio_sound_gain(snd_menu,global.volumeMenu,1);
 	audio_play_sound(snd_menu,0,false);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
-	
+
 	//Reset Buy/Sell Menu
 	page = 0;
 	slot = -1;
@@ -209,9 +225,7 @@ if (keyboard_check_pressed(ord("E")))
 	item_name = -1;
 	sell_price = 0;
 	buy_price = 0;
-		
 }
-
 }
 
 

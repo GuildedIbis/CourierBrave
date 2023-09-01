@@ -260,6 +260,7 @@
     {"name":"rm_lenko_farwayRoad_03x","order":5,"path":"rooms/rm_lenko_farwayRoad_03x/rm_lenko_farwayRoad_03x.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb","order":19,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},
     {"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","order":22,"path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},
+    {"name":"spr_alter_menu_icons","order":6,"path":"sprites/spr_alter_menu_icons/spr_alter_menu_icons.yy",},
     {"name":"obj_effect_treeJelx","order":16,"path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},
     {"name":"ViceBomb","order":8,"path":"scripts/ViceBomb/ViceBomb.yy",},
     {"name":"spr_npc_emissary_scene_01","order":16,"path":"sprites/spr_npc_emissary_scene_01/spr_npc_emissary_scene_01.yy",},

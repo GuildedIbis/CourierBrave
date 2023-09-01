@@ -306,6 +306,7 @@
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb/spr_enemy_tortoiseTroll_blossomOrb.yy",},},
     {"id":{"name":"spr_player_pora_idle","path":"sprites/spr_player_pora_idle/spr_player_pora_idle.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox","path":"sprites/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox/spr_enemy_tortoiseTroll_blossomOrb_explode_hitbox.yy",},},
+    {"id":{"name":"spr_alter_menu_icons","path":"sprites/spr_alter_menu_icons/spr_alter_menu_icons.yy",},},
     {"id":{"name":"fnt_text","path":"fonts/fnt_text/fnt_text.yy",},},
     {"id":{"name":"obj_effect_treeJelx","path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},},
     {"id":{"name":"ViceBomb","path":"scripts/ViceBomb/ViceBomb.yy",},},
