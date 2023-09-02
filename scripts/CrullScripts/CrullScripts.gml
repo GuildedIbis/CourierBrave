@@ -6,8 +6,8 @@
 //
 //Crull Lists
 function scr_crull_list_create(){
-crull_script = array_create(18);
-crull_recipe = array_create(18,false);
+crull_script = array_create(25);
+crull_recipe = array_create(25,false);
 crull_recipe[0] = true;
 
 crull_script[0] = scr_player_crull_natural;
