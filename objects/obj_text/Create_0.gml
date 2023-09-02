@@ -18,7 +18,7 @@ button_sprite = spr_menu;
 e_page = true;
 page = 0;
 slot = -1;
-text_gui = 0;
+text_gui = -1;
 map_ary = -1;
 
 

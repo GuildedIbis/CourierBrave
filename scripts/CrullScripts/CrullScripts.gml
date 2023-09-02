@@ -8,6 +8,7 @@
 function scr_crull_list_create(){
 crull_script = array_create(18);
 crull_recipe = array_create(18,false);
+crull_recipe[0] = true;
 
 crull_script[0] = scr_player_crull_natural;
 crull_script[1] = scr_player_crull_spectral;
@@ -151,7 +152,7 @@ PlayerAnimation();
 
 if (animation_end)
 {
-	crull_stone = crull_stone - 1;
+	//crull_stone = crull_stone - 1;
 	hp = hp + (150 + (35 * receptivity));
 	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;

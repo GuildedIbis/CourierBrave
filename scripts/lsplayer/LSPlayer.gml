@@ -22,17 +22,17 @@ function LoadPlayer(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
 		
 		//Load Crull
-		if (variable_struct_exists(_loadEntity,"crull0")) obj_game.crull_ary[0] = _loadEntity.crull0;
-		if (variable_struct_exists(_loadEntity,"crull1")) obj_game.crull_ary[1] = _loadEntity.crull1;
-		if (variable_struct_exists(_loadEntity,"crull2")) obj_game.crull_ary[2] = _loadEntity.crull2;
-		if (variable_struct_exists(_loadEntity,"crull3")) obj_game.crull_ary[3] = _loadEntity.crull3;
-		if (variable_struct_exists(_loadEntity,"crull4")) obj_game.crull_ary[4] = _loadEntity.crull4;
-		if (variable_struct_exists(_loadEntity,"crull5")) obj_game.crull_ary[5] = _loadEntity.crull5;
-		if (variable_struct_exists(_loadEntity,"crull6")) obj_game.crull_ary[6] = _loadEntity.crull6;
-		if (variable_struct_exists(_loadEntity,"crull7")) obj_game.crull_ary[7] = _loadEntity.crull7;
-		if (variable_struct_exists(_loadEntity,"crull8")) obj_game.crull_ary[8] = _loadEntity.crull8;
-		if (variable_struct_exists(_loadEntity,"crull9")) obj_game.crull_ary[9] = _loadEntity.crull9;
-		if (variable_struct_exists(_loadEntity,"crull10")) obj_game.crull_ary[10] = _loadEntity.crull10;
+		if (variable_struct_exists(_loadEntity,"crull0")) obj_player.crull_ary[0] = _loadEntity.crull0;
+		if (variable_struct_exists(_loadEntity,"crull1")) obj_player.crull_ary[1] = _loadEntity.crull1;
+		if (variable_struct_exists(_loadEntity,"crull2")) obj_player.crull_ary[2] = _loadEntity.crull2;
+		if (variable_struct_exists(_loadEntity,"crull3")) obj_player.crull_ary[3] = _loadEntity.crull3;
+		if (variable_struct_exists(_loadEntity,"crull4")) obj_player.crull_ary[4] = _loadEntity.crull4;
+		if (variable_struct_exists(_loadEntity,"crull5")) obj_player.crull_ary[5] = _loadEntity.crull5;
+		if (variable_struct_exists(_loadEntity,"crull6")) obj_player.crull_ary[6] = _loadEntity.crull6;
+		if (variable_struct_exists(_loadEntity,"crull7")) obj_player.crull_ary[7] = _loadEntity.crull7;
+		if (variable_struct_exists(_loadEntity,"crull8")) obj_player.crull_ary[8] = _loadEntity.crull8;
+		if (variable_struct_exists(_loadEntity,"crull9")) obj_player.crull_ary[9] = _loadEntity.crull9;
+		if (variable_struct_exists(_loadEntity,"crull10")) obj_player.crull_ary[10] = _loadEntity.crull10;
 		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;

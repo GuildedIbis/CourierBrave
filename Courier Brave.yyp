@@ -374,6 +374,7 @@
     {"id":{"name":"InventoryMain","path":"scripts/InventoryMain/InventoryMain.yy",},},
     {"id":{"name":"spr_tileset_lenko_old","path":"sprites/spr_tileset_lenko_old/spr_tileset_lenko_old.yy",},},
     {"id":{"name":"spr_door_questHalofire_open","path":"sprites/spr_door_questHalofire_open/spr_door_questHalofire_open.yy",},},
+    {"id":{"name":"spr_menu_crull_recipe","path":"sprites/spr_menu_crull_recipe/spr_menu_crull_recipe.yy",},},
     {"id":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},},
     {"id":{"name":"obj_fragStone_curse","path":"objects/obj_fragStone_curse/obj_fragStone_curse.yy",},},
     {"id":{"name":"spr_map_alter_icon_highlight","path":"sprites/spr_map_alter_icon_highlight/spr_map_alter_icon_highlight.yy",},},

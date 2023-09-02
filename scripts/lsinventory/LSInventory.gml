@@ -36,7 +36,7 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"psArray8")) obj_inventory.ps_array[8] = _loadEntity.psArray8;
 		if (variable_struct_exists(_loadEntity,"psArray9")) obj_inventory.ps_array[9] = _loadEntity.psArray9;
 
-		if (variable_struct_exists(_loadEntity,"crullRecipe0")) obj_inventory.crull_recipe[0] = _loadEntity.crullRecipe0;
+		if (variable_struct_exists(_loadEntity,"crullRecipe0")) obj_inventory.crull_recipe[0] = true;//_loadEntity.crullRecipe0;
 		if (variable_struct_exists(_loadEntity,"crullRecipe1")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe1;
 		if (variable_struct_exists(_loadEntity,"crullRecipe2")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe2;
 		if (variable_struct_exists(_loadEntity,"crullRecipe3")) obj_inventory.crull_recipe[3] = _loadEntity.crullRecipe3;
