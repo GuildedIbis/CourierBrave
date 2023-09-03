@@ -33,7 +33,7 @@ function scr_text_alter_main(){
 //Tinted Background
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,121,65,78,46);
-draw_sprite_stretched(spr_menu,8,116,53,88,20);
+draw_sprite_stretched(spr_menu,8,116,57,88,16);
 draw_sprite_stretched(spr_menu_circle16,1,126,74,32,32);
 draw_sprite_stretched(spr_menu_circle16,1,162,74,32,32);
 draw_sprite(spr_alter_menu_icons,0,126,74);
@@ -46,7 +46,7 @@ if (string_counter = 0)
 	speaker = 1;
 	//text_string = "You will return here when on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(118,52,"PRESS \"E\" TO RESUME",.5,.5,0);
 	scr_menu_alter_main();
 }
 
@@ -78,7 +78,7 @@ draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_white);
 draw_text_transformed(69,140,_SubString,.6,.6,0);
-//draw_text_transformed(259,130,_name,.5,.5,0);
+draw_text_transformed(148,61,"ALTER",1,1,0);
 //draw_sprite(spr_npc_alter36,0,258+6,136+6);
 }
 //
@@ -356,6 +356,7 @@ draw_set_valign(fa_middle);
 draw_set_color(c_white);
 var _recipeText = "RESTORE " + string(150 + (35 * obj_player.receptivity)) + " HEALTH";
 draw_text_transformed(221,45,"SPECTRAL CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
 draw_text_transformed(221,78,_recipeText,.6,.6,0);
 
 //Cost
@@ -366,22 +367,39 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	{
 		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 1)
 		{
-				audio_sound_gain(snd_text02,global.volumeMenu,1);
-				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 1;
-				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
+			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 1)
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 1)
+				{
+					audio_sound_gain(snd_text02,global.volumeMenu,1);
+					audio_play_sound(snd_text02,0,false);
+					obj_player.crull_ary[obj_player.crull_selected] = 1;
+					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
+					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
+					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
+					obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
+				}
+			}
 		}
 	}
 }
 
-
-
-draw_sprite_stretched(spr_rog_all,0,236,106,16,16);
-draw_text_transformed(234,120,"1\n("+ string(obj_inventory.rog_array[0])+")",.6,.6,0);
-draw_sprite_stretched(spr_rog_all,1,260,106,16,16);
-draw_text_transformed(258,121,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
-
+//172
+//234
+draw_sprite_stretched(spr_rog_all,0,172,106,16,16);
+draw_text_transformed(172,120,"1\n("+ string(obj_inventory.rog_array[0])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,1,190,106,16,16);
+draw_text_transformed(190,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,2,207,106,16,16);
+draw_text_transformed(207,120,"1\n("+ string(obj_inventory.rog_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,3,224,106,16,16);
+draw_text_transformed(224,120,"1\n("+ string(obj_inventory.rog_array[3])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,4,241,106,16,16);
+draw_text_transformed(241,120,"1\n("+ string(obj_inventory.rog_array[4])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,5,258,106,16,16);
+draw_text_transformed(258,120,"1\n("+ string(obj_inventory.rog_array[5])+")",.6,.6,0);
 
 }
 

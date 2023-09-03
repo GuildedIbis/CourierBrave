@@ -90,15 +90,6 @@ if (green_crystal < max_charge) and (watervice = false)//Charge Recharge
 		green_crystal = green_crystal + 1;
 	}
 }
-//if (special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 5;
-//		special = special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -192,19 +183,13 @@ if (key_ability)// and (stamina >= 50)
 	}
 }
 
-//Potion State
-if (keyboard_check_pressed(ord("R"))) 
-{
-
-}
-
 //Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
+if (keyboard_check_pressed(ord("C"))) and (crull_ary[crull_selected] != -1)
 {
+	var _crullID = crull_ary[crull_selected];
 	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
 	audio_play_sound(snd_player_crull,0,false);
-	state_script = PlayerStateCrull;
-	
+	state_script = obj_inventory.crull_script[_crullID];
 }
 
 //Switch Magic Fire

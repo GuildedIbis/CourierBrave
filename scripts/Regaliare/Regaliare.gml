@@ -91,15 +91,6 @@ if (yellow_crystal < max_charge) and (watervice = false)//charge Recharge
 		yellow_crystal = yellow_crystal + 1;
 	}
 }
-//if (yellow_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		yellow_special = yellow_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
