@@ -377,7 +377,7 @@ if (returning = false)
 	{
 		returning = true;
 	}
-	if (place_meeting(x,y,obj_resource_farwayRoad)) or (return_timer <= 0)
+	if (place_meeting(x,y,obj_resource)) or (return_timer <= 0)
 	{
 		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
 		returning = true;

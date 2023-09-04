@@ -621,7 +621,7 @@
     {"name":"snd_ofaMoth_shoot","order":1,"path":"sounds/snd_ofaMoth_shoot/snd_ofaMoth_shoot.yy",},
     {"name":"obj_light","order":1,"path":"objects/obj_light/obj_light.yy",},
     {"name":"spr_frag_flesh","order":3,"path":"sprites/spr_frag_flesh/spr_frag_flesh.yy",},
-    {"name":"obj_resource_farwayRoad","order":3,"path":"objects/obj_resource_farwayRoad/obj_resource_farwayRoad.yy",},
+    {"name":"obj_resource","order":3,"path":"objects/obj_resource/obj_resource.yy",},
     {"name":"obj_environment_reedsHabraf","order":2,"path":"objects/obj_environment_reedsHabraf/obj_environment_reedsHabraf.yy",},
     {"name":"snd_enragedMoth_rageRush","order":11,"path":"sounds/snd_enragedMoth_rageRush/snd_enragedMoth_rageRush.yy",},
     {"name":"spr_enragedMoth_wormEgg","order":10,"path":"sprites/spr_enragedMoth_wormEgg/spr_enragedMoth_wormEgg.yy",},

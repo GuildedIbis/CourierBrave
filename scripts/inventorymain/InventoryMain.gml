@@ -24,11 +24,11 @@ draw_sprite_stretched(spr_menu_circle16,3,230,8,21,24);
 draw_sprite(spr_inventory_tabs,0,69,12);
 
 //Overlayed Text
-draw_set_font(fnt_text);
+draw_set_font(global.fnt_main_white)
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_text_transformed(155,152,"PRESS \"TAB\"\nTO RESUME",.5,.5,0);
+draw_text_transformed(150,160,"PRESS \"TAB\" TO RESUME",.5,.5,0);
 
 //Day Meter
 if (obj_game.invPaused = true)
@@ -82,7 +82,7 @@ if (point_in_rectangle(_mouseX,_mouseY,115,8,139,36)) //Items Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
-		inv_gui = scr_menu_item_gui;	
+		inv_gui = scr_menu_upgrade_items;
 		page = 0;
 	}
 }

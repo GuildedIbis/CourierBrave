@@ -541,8 +541,8 @@ northernPass_map_ary[9][2] = 42;
 //
 //Room Enemies
 function scr_resource_grid_create(){
-//The X value represents the room, the y value represents the individual enemy.
-//Enemies have their "activate_args" set to a number that is unique the them within the room.
+//The (i) value represents the room, the (j) value represents the individual resource id.
+//Resources have their "activate_args" set to a number that is unique the them within the room.
 //So if I want to have more than 30 enemies in a room, increase y value.
 farwayRoad_resource_grid = ds_grid_create(20,30);
 yakflowerPath_resource_grid = ds_grid_create(20,30);
@@ -564,11 +564,11 @@ for (var i = 0; i < 20; i = i + 1)
 			}
 			if (_resID >= 55) and (_resID < 90)
 			{
-				obj_game.farwayRoad_resource_grid[# i, j] = 1;
+				obj_game.farwayRoad_resource_grid[# i, j] = 4;
 			}
 			if (_resID >= 90)
 			{
-				obj_game.farwayRoad_resource_grid[# i, j] = 2;
+				obj_game.farwayRoad_resource_grid[# i, j] = 1;
 			}
 		}
 		else

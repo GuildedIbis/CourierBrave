@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_resource_farwayRoad",
+  "name": "obj_resource",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
@@ -34,11 +34,13 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"resource_grid","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"-1","varType":0,},
+  ],
   "solid": false,
   "spriteId": {
-    "name": "spr_resource_farwayRoad",
-    "path": "sprites/spr_resource_farwayRoad/spr_resource_farwayRoad.yy",
+    "name": "spr_resource_all",
+    "path": "sprites/spr_resource_all/spr_resource_all.yy",
   },
   "spriteMaskId": null,
   "visible": true,
