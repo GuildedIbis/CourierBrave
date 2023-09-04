@@ -1,36 +1,12 @@
 //Item Menu 
-function ItemSlotsCreate(){
-//Items
-item_slots = 40;
-max_item_slots = 40;
-item_grid = ds_grid_create(max_item_slots,4); //Item ID, Item Script, Quantity, Unlocked
-storage_array = array_create(41,0); //Same as global.items, with 0 being beans
-for (var i = 0; i < max_item_slots; i = i + 1)
-{
-	item_grid[# i, 0] = -1;
-	item_grid[# i, 1] = Idle;
-	item_grid[# i, 2] = 0;
-	item_grid[# i, 3] = false;
-}
-
-item_grid[# 0, 3] = true;
-item_grid[# 1, 3] = true;
-item_grid[# 2, 3] = true;
-item_grid[# 3, 3] = true;
-item_grid[# 4, 3] = true;
-item_grid[# 5, 3] = true;
-item_grid[# 6, 3] = true;
-item_grid[# 7, 3] = true;
-item_grid[# 8, 3] = true;
-item_grid[# 9, 3] = true;
-
-
-//New Inventory
+function scr_items_create(){
+//Create Items
 beans = 0;
 star_orb = 0;
 rog_array = array_create(6,0);
 ps_array = array_create(10,0);
-fish_array = array_create(20,0);
+resource_array = array_create(40,0);
+
 }
 //
 //

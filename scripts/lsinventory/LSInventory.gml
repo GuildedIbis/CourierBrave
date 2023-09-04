@@ -6,16 +6,9 @@
 //
 //Load Player Inventory
 //Path: obj_game > event Key Pressed "L"
-function LoadInventory(_loadEntity){
-		
-		//Load Inventory Stats
-		if (variable_struct_exists(_loadEntity,"itemSlots")) obj_inventory.item_slots = _loadEntity.itemSlots;
-	
-		
+function LoadInventory(_loadEntity){	
 		//Unique Items
 		if (variable_struct_exists(_loadEntity,"starOrbs")) obj_inventory.star_orb = _loadEntity.starOrbs;
-		if (variable_struct_exists(_loadEntity,"beans")) obj_inventory.beans = _loadEntity.beans;
-			
 		//Load Rog Stones
 		if (variable_struct_exists(_loadEntity,"rogArray0")) obj_inventory.rog_array[0] = _loadEntity.rogArray0;
 		if (variable_struct_exists(_loadEntity,"rogArray1")) obj_inventory.rog_array[1] = _loadEntity.rogArray1;
@@ -23,7 +16,6 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"rogArray3")) obj_inventory.rog_array[3] = _loadEntity.rogArray3;
 		if (variable_struct_exists(_loadEntity,"rogArray4")) obj_inventory.rog_array[4] = _loadEntity.rogArray4;
 		if (variable_struct_exists(_loadEntity,"rogArray5")) obj_inventory.rog_array[5] = _loadEntity.rogArray5;
-		
 		//Load Power Stones
 		if (variable_struct_exists(_loadEntity,"psArray0")) obj_inventory.ps_array[0] = _loadEntity.psArray0;
 		if (variable_struct_exists(_loadEntity,"psArray1")) obj_inventory.ps_array[1] = _loadEntity.psArray1;
@@ -35,7 +27,28 @@ function LoadInventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"psArray7")) obj_inventory.ps_array[7] = _loadEntity.psArray7;
 		if (variable_struct_exists(_loadEntity,"psArray8")) obj_inventory.ps_array[8] = _loadEntity.psArray8;
 		if (variable_struct_exists(_loadEntity,"psArray9")) obj_inventory.ps_array[9] = _loadEntity.psArray9;
-
+		//Load Resource Items
+		if (variable_struct_exists(_loadEntity,"resource0")) obj_inventory.resource_array[0] = _loadEntity.resource0;
+		if (variable_struct_exists(_loadEntity,"resource1")) obj_inventory.resource_array[1] = _loadEntity.resource1;
+		if (variable_struct_exists(_loadEntity,"resource2")) obj_inventory.resource_array[2] = _loadEntity.resource2;
+		if (variable_struct_exists(_loadEntity,"resource3")) obj_inventory.resource_array[3] = _loadEntity.resource3;
+		if (variable_struct_exists(_loadEntity,"resource4")) obj_inventory.resource_array[4] = _loadEntity.resource4;
+		if (variable_struct_exists(_loadEntity,"resource5")) obj_inventory.resource_array[5] = _loadEntity.resource5;
+		if (variable_struct_exists(_loadEntity,"resource6")) obj_inventory.resource_array[6] = _loadEntity.resource6;
+		if (variable_struct_exists(_loadEntity,"resource7")) obj_inventory.resource_array[7] = _loadEntity.resource7;
+		if (variable_struct_exists(_loadEntity,"resource8")) obj_inventory.resource_array[8] = _loadEntity.resource8;
+		if (variable_struct_exists(_loadEntity,"resource9")) obj_inventory.resource_array[9] = _loadEntity.resource9;
+		if (variable_struct_exists(_loadEntity,"resource10")) obj_inventory.resource_array[10] = _loadEntity.resource10;
+		if (variable_struct_exists(_loadEntity,"resource11")) obj_inventory.resource_array[11] = _loadEntity.resource11;
+		if (variable_struct_exists(_loadEntity,"resource12")) obj_inventory.resource_array[12] = _loadEntity.resource12;
+		if (variable_struct_exists(_loadEntity,"resource13")) obj_inventory.resource_array[13] = _loadEntity.resource13;
+		if (variable_struct_exists(_loadEntity,"resource14")) obj_inventory.resource_array[14] = _loadEntity.resource14;
+		if (variable_struct_exists(_loadEntity,"resource15")) obj_inventory.resource_array[15] = _loadEntity.resource15;
+		if (variable_struct_exists(_loadEntity,"resource16")) obj_inventory.resource_array[16] = _loadEntity.resource16;
+		if (variable_struct_exists(_loadEntity,"resource17")) obj_inventory.resource_array[17] = _loadEntity.resource17;
+		if (variable_struct_exists(_loadEntity,"resource18")) obj_inventory.resource_array[18] = _loadEntity.resource18;
+		if (variable_struct_exists(_loadEntity,"resource19")) obj_inventory.resource_array[19] = _loadEntity.resource19;
+		//Load Crull Recipe Unlocks
 		if (variable_struct_exists(_loadEntity,"crullRecipe0")) obj_inventory.crull_recipe[0] = true;//_loadEntity.crullRecipe0;
 		if (variable_struct_exists(_loadEntity,"crullRecipe1")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe1;
 		if (variable_struct_exists(_loadEntity,"crullRecipe2")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe2;
@@ -68,13 +81,8 @@ function SaveInventory(_saveData){
 	
 var _saveInv = 
 {
-	//Save Inventory Stats - Old
-	itemSlots : obj_inventory.item_slots,
-	
 	//Unique Items
 	starOrbs : obj_inventory.star_orb,
-	beans : obj_inventory.beans,
-	
 	//Save Rog Stone
 	rogArray0 : obj_inventory.rog_array[0],
 	rogArray1 : obj_inventory.rog_array[1],
@@ -82,6 +90,39 @@ var _saveInv =
 	rogArray3 : obj_inventory.rog_array[3],
 	rogArray4 : obj_inventory.rog_array[4],
 	rogArray5 : obj_inventory.rog_array[5],
+	//Save Power Stone
+	psArray0 : obj_inventory.ps_array[0],
+	psArray1 : obj_inventory.ps_array[1],
+	psArray2 : obj_inventory.ps_array[2],
+	psArray3 : obj_inventory.ps_array[3],
+	psArray4 : obj_inventory.ps_array[4],
+	psArray5 : obj_inventory.ps_array[5],
+	psArray6 : obj_inventory.ps_array[6],
+	psArray7 : obj_inventory.ps_array[7],
+	psArray8 : obj_inventory.ps_array[8],
+	psArray9 : obj_inventory.ps_array[9],
+	//Save Resources
+	resource0 : obj_inventory.resource_array[0],
+	resource1 : obj_inventory.resource_array[1],
+	resource2 : obj_inventory.resource_array[2],
+	resource3 : obj_inventory.resource_array[3],
+	resource4 : obj_inventory.resource_array[4],
+	resource5 : obj_inventory.resource_array[5],
+	resource6 : obj_inventory.resource_array[6],
+	resource7 : obj_inventory.resource_array[7],
+	resource8 : obj_inventory.resource_array[8],
+	resource9 : obj_inventory.resource_array[9],
+	resource10 : obj_inventory.resource_array[10],
+	resource11 : obj_inventory.resource_array[11],
+	resource12 : obj_inventory.resource_array[12],
+	resource13 : obj_inventory.resource_array[13],
+	resource14 : obj_inventory.resource_array[14],
+	resource15 : obj_inventory.resource_array[15],
+	resource16 : obj_inventory.resource_array[16],
+	resource17 : obj_inventory.resource_array[17],
+	resource18 : obj_inventory.resource_array[18],
+	resource19 : obj_inventory.resource_array[19],
+
 	
 	crullRecipe0 : obj_inventory.crull_recipe[0],
 	crullRecipe1 : obj_inventory.crull_recipe[1],
@@ -104,23 +145,7 @@ var _saveInv =
 
 	
 	
-	//Save Power Stone
-	psArray0 : obj_inventory.ps_array[0],
-	psArray1 : obj_inventory.ps_array[1],
-	psArray2 : obj_inventory.ps_array[2],
-	psArray3 : obj_inventory.ps_array[3],
-	psArray4 : obj_inventory.ps_array[4],
-	psArray5 : obj_inventory.ps_array[5],
-	psArray6 : obj_inventory.ps_array[6],
-	psArray7 : obj_inventory.ps_array[7],
-	psArray8 : obj_inventory.ps_array[8],
-	psArray9 : obj_inventory.ps_array[9],
 	
-	//Book Array
-	
-	//Fish Array
-	
-	//Minigame Array
 }
 array_push(_saveData, _saveInv);
 }
