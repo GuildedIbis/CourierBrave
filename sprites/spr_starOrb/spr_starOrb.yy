@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Alters",
-    "path": "folders/Sprites/World/Interactables/Alters.yy",
+    "name": "Items",
+    "path": "folders/Sprites/World/Interactables/Items.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -1120,7 +1120,7 @@
     {"name":"TileSet15","order":19,"path":"tilesets/TileSet15/TileSet15.yy",},
     {"name":"spr_enemy_gorogE_heavySlash_B","order":5,"path":"sprites/spr_enemy_gorogE_heavySlash_B/spr_enemy_gorogE_heavySlash_B.yy",},
     {"name":"spr_proj_ofaPupa_cocoonSpike","order":16,"path":"sprites/spr_proj_ofaPupa_cocoonSpike/spr_proj_ofaPupa_cocoonSpike.yy",},
-    {"name":"spr_starOrb","order":17,"path":"sprites/spr_starOrb/spr_starOrb.yy",},
+    {"name":"spr_starOrb","order":10,"path":"sprites/spr_starOrb/spr_starOrb.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerBackslam","order":2,"path":"sprites/spr_enemy_tortoiseTroll_hammerBackslam/spr_enemy_tortoiseTroll_hammerBackslam.yy",},
     {"name":"spr_player_halofire_hamaxe_charged","order":20,"path":"sprites/spr_player_halofire_hamaxe_charged/spr_player_halofire_hamaxe_charged.yy",},
     {"name":"spr_starOrb_pedestal_stone","order":18,"path":"sprites/spr_starOrb_pedestal_stone/spr_starOrb_pedestal_stone.yy",},
