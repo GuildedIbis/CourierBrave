@@ -55,11 +55,12 @@ audio_sound_gain(snd_resourcePlant,global.volumeEffects,1);
 audio_play_sound(snd_resourcePlant,0,false);
 with (instance_create_layer(x,y,"Instances",obj_item))
 {
-	item_id = 0;
+	item_id = other.resource_id;
 	amount = 1;
 	sprite_index = spr_resource_menu_all;
 	image_index = item_id;
-	direction = _angle/_objects * 1;
+	direction = irandom_range(0,360);
+	image_angle = irandom_range(0,360);
 	spd = .75 + (.3) + random(0.1);
 }
 instance_destroy();

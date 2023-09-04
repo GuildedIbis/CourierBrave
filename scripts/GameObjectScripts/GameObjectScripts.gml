@@ -134,6 +134,7 @@ if (gamePaused = false)
 				obj_inventory.crullS_list[i] = false;
 			}
 			QuestResetDaysEnd();
+			scr_resources_reset();
 			var _daySelect = irandom_range(1,4);
 			if (_daySelect = 1) global.dayPhase = 1;
 			else global.dayPhase = 0;

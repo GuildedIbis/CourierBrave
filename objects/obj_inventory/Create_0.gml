@@ -6,7 +6,7 @@ quick_swap = false;
 inv_gui = -1;
 item_id = -1;
 
-script_execute(ItemSlotsCreate);
+scr_items_create();
 script_execute(scr_crull_list_create);
 script_execute(FormCreate);
 script_execute(QuestlogCreate);

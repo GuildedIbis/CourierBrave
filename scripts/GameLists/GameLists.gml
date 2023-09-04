@@ -540,6 +540,144 @@ northernPass_map_ary[9][2] = 42;
 //
 //
 //Room Enemies
+function scr_resource_grid_create(){
+//The X value represents the room, the y value represents the individual enemy.
+//Enemies have their "activate_args" set to a number that is unique the them within the room.
+//So if I want to have more than 30 enemies in a room, increase y value.
+farwayRoad_resource_grid = ds_grid_create(20,30);
+yakflowerPath_resource_grid = ds_grid_create(20,30);
+habrafLake_resource_grid = ds_grid_create(20,30);
+beaowireFortress_resource_grid = ds_grid_create(20,30);
+northernPass_resource_grid = ds_grid_create(20,30);
+
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		var _resChance = irandom_range(0,99)
+		if (_resChance > 74)
+		{
+			var _resID = irandom_range(0,99)
+			if (_resID < 55) 
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 0;
+			}
+			if (_resID >= 55) and (_resID < 90)
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 1;
+			}
+			if (_resID >= 90)
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 2;
+			}
+		}
+		else
+		{
+			obj_game.farwayRoad_resource_grid[# i, j] = -1;
+		}
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		yakflowerPath_resource_grid[# i, j] = -1;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		habrafLake_resource_grid[# i, j] = -1;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		beaowireFortress_resource_grid[# i, j] = -1;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		northernPass_resource_grid[# i, j] = -1;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Room Resource Reset
+function scr_resources_reset(){
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		var _resChance = irandom_range(0,99)
+		if (_resChance > 74)
+		{
+			var _resID = irandom_range(0,99)
+			if (_resID < 55) 
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 0;
+				image_index = 0;
+			}
+			if (_resID >= 55) and (_resID < 90)
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 1;
+				image_index = 1;
+			}
+			if (_resID >= 90)
+			{
+				obj_game.farwayRoad_resource_grid[# i, j] = 2;
+				image_index = 2;
+			}
+		}
+		else
+		{
+			obj_game.farwayRoad_resource_grid[# i, j] = -1;
+		}
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.yakflowerPath_resource_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.habrafLake_resource_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.beaowireFortress_resource_grid[# i, j] = false;
+	}
+}
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.northernPass_resource_grid[# i, j] = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Room Enemies
 function RoomEnemies(){
 //The X value represents the room, the y value represents the individual enemy.
 //Enemies have their "activate_args" set to a number that is unique the them within the room.

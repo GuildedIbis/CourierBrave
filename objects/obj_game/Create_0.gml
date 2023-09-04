@@ -4,6 +4,7 @@
 randomize();
 script_execute(AllItems);
 script_execute(RoomEnemies);
+scr_resource_grid_create();
 
 
 version = "Version: 0.3.0.0"
