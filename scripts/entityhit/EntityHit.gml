@@ -57,7 +57,7 @@ with (instance_create_layer(x,y,"Instances",obj_item))
 {
 	item_id = other.resource_id;
 	amount = 1;
-	sprite_index = spr_resource_menu_all;
+	sprite_index = spr_resource_dropped_all;
 	image_index = item_id;
 	direction = irandom_range(0,360);
 	image_angle = irandom_range(0,360);

@@ -108,11 +108,42 @@ draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,115,40,90,100);
 draw_sprite_stretched(spr_menu,8,110,40,100,16);
 draw_text_transformed(160,50,"TRADE",1,1,0);
-draw_text_transformed(160,62,"GIVE > RECEIVE",.75,.75,0);
-draw_sprite_stretched(spr_menu_circle16,3,120,66,80,16);
+draw_text_transformed(160,62,"GIVE > RECEIVE (HAVE)",.6,.6,0);
+
 draw_sprite_stretched(spr_menu_circle16,3,120,84,80,16);
 draw_sprite_stretched(spr_menu_circle16,3,120,102,80,16);
 draw_sprite_stretched(spr_menu_circle16,3,120,120,80,16);
+
+//
+draw_sprite_stretched(spr_menu_circle16,3,120,66,80,16);
+draw_set_halign(fa_left);
+draw_text_transformed(124,76,"5 (" + string(obj_inventory.resource_array[0]) + ")",.5,.5,0);
+draw_sprite_ext(spr_resource_menu_all,0,142,66,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,76,">",.75,.75,0);
+draw_sprite_ext(spr_rog_menu_all,0,162,66,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.resource_array[0] >= 5)
+		{
+			obj_inventory.resource_array[0] = obj_inventory.resource_array[0] - 5;
+			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
+		}
+	}
+}
+
+draw_sprite_ext(spr_resource_menu_all,1,136,84,1,1,0,c_white,1);
+draw_text_transformed(160,94,">",.75,.75,0);
+draw_sprite_ext(spr_resource_menu_all,0,168,84,1,1,0,c_white,1);
+
+draw_sprite_ext(spr_rog_all,0,144,110,1,1,0,c_white,1);
+draw_text_transformed(160,112,">",.75,.75,0);
+draw_sprite_ext(spr_resource_menu_all,3,168,102,1,1,0,c_white,1);
 
 draw_text_transformed(150,160,"PRESS \"E\" TO RESUME",.5,.5,0);
 if (keyboard_check_pressed(ord("E")))
