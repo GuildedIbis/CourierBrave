@@ -36,7 +36,7 @@ max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
-crystal_cost = 20;
+primary_cost = 20;
 special_cost = 25;
 }
 //
@@ -79,13 +79,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (purple_crystal < max_charge) and (watervice = false)//charge Recharge
+if (purple_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		purple_crystal = purple_crystal + 1;
+		purple_primary = purple_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -138,12 +138,12 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (purple_crystal >= 20)
+		if (magic_primary = true) and (purple_primary >= 20)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (purple_crystal >= 20)
+		if (magic_primary = false) and (purple_primary >= 20)
 		{
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -199,13 +199,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 12, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 20;
+		primary_cost = 20;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		crystal_cost = 20;
+		primary_cost = 20;
 	}
 }
 
@@ -242,13 +242,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_adavio_hookThrust,0,0);
 	atk_snd_delay = 28;
 }
-if (purple_crystal < max_charge) and (watervice = false)//charge Recharge
+if (purple_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		purple_crystal = purple_crystal + 1;
+		purple_primary = purple_primary + 1;
 	}
 }
 //if (purple_special < max_special) //Special Recharge
@@ -481,7 +481,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_crystal = purple_crystal - 20;
+	purple_primary = purple_primary - 20;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
@@ -512,7 +512,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (purple_crystal < 20)
+if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -668,7 +668,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_crystal = purple_crystal - 20;
+	purple_primary = purple_primary - 20;
 	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidCycle,0,0);
 	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -696,7 +696,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or Return to free state
-if (mouse_check_button(mb_left) = false) or (purple_crystal < 20)
+if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -788,13 +788,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (purple_crystal < max_charge) and (watervice = false)//charge Recharge
+if (purple_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		purple_crystal = purple_crystal + 1;
+		purple_primary = purple_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -920,13 +920,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (purple_crystal < max_charge) and (watervice = false)//charge Recharge
+if (purple_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		purple_crystal = purple_crystal + 1;
+		purple_primary = purple_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge

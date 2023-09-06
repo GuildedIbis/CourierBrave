@@ -12,8 +12,8 @@ crull_recipe[0] = true;
 
 crull_script[0] = scr_player_crull_natural;
 crull_script[1] = scr_player_crull_spectral;
-crull_script[2] = scr_player_crull_natural;
-crull_script[3] = scr_player_crull_natural;
+crull_script[2] = scr_player_crull_yelline;
+crull_script[3] = scr_player_crull_orine;
 crull_script[4] = scr_player_crull_natural;
 crull_script[5] = scr_player_crull_natural;
 crull_script[6] = scr_player_crull_natural;
@@ -155,6 +155,106 @@ if (animation_end)
 	//crull_stone = crull_stone - 1;
 	hp = hp + (150 + (35 * receptivity));
 	if (hp > max_hp) hp = max_hp;
+	state_script = free_state;
+	crull_ary[crull_selected] = -1;
+	animation_end = false;
+}
+}
+//
+//
+//
+//
+//
+//Crull Yelline
+function scr_player_crull_yelline(){
+invincible = false;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+//Charge Crystal?
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+//Animation Start
+if (sprite_index != crull_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = crull_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+}
+
+//Animate
+PlayerAnimation();
+
+if (animation_end)
+{
+	hp = hp + (50 + (13 * receptivity));
+	if (hp > max_hp) hp = max_hp;
+	yellow_primary = yellow_primary + (100 + (13 * receptivity));
+	if (yellow_primary > max_charge) yellow_primary = max_charge;
+	state_script = free_state;
+	crull_ary[crull_selected] = -1;
+	animation_end = false;
+}
+}
+//
+//
+//
+//
+//
+//Crull Orine
+function scr_player_crull_orine(){
+invincible = false;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+//Charge Crystal?
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+//Animation Start
+if (sprite_index != crull_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = crull_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+}
+
+//Animate
+PlayerAnimation();
+
+if (animation_end)
+{
+	hp = hp + (50 + (13 * receptivity));
+	if (hp > max_hp) hp = max_hp;
+	orange_primary = orange_primary + (100 + (13 * receptivity));
+	if (orange_primary > max_charge) orange_primary = max_charge;
 	state_script = free_state;
 	crull_ary[crull_selected] = -1;
 	animation_end = false;

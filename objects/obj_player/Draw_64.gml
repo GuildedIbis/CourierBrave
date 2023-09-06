@@ -107,9 +107,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_yellow,c_yellow,0,true,true);
 			//var _specialPerc = (yellow_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = yellow_crystal;
+			selected_primary = yellow_primary;
 			selected_special = yellow_special;
-			draw_ring_healthbar(286,170,yellow_crystal,max_charge,c_yellow,9,1,3);
+			draw_ring_healthbar(286,170,yellow_primary,max_charge,c_yellow,9,1,3);
 			draw_ring_healthbar(308,170,yellow_special,max_charge,c_yellow,9,1,3);
 		break;
 		
@@ -118,9 +118,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_orange,c_orange,0,true,true);
 			//var _specialPerc = (orange_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = orange_crystal;
+			selected_primary = orange_primary;
 			selected_special = orange_special;
-			draw_ring_healthbar(286,170,orange_crystal,max_charge,c_orange,9,1,3);
+			draw_ring_healthbar(286,170,orange_primary,max_charge,c_orange,9,1,3);
 			draw_ring_healthbar(308,170,orange_special,max_charge,c_orange,9,1,3);
 		break;
 		
@@ -129,9 +129,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_purple,c_purple,0,true,true);
 			//var _specialPerc = round((purple_special/max_special) * 100);
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = purple_crystal;
+			selected_primary = purple_primary;
 			selected_special = purple_special;
-			draw_ring_healthbar(286,170,purple_crystal,max_charge,c_purple,9,1,3);
+			draw_ring_healthbar(286,170,purple_primary,max_charge,c_purple,9,1,3);
 			draw_ring_healthbar(308,170,purple_special,max_charge,c_purple,9,1,3);
 		break;
 		
@@ -140,9 +140,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_blue,c_blue,0,true,true);
 			//var _specialPerc = (blue_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = blue_crystal;
+			selected_primary = blue_primary;
 			selected_special = blue_special;
-			draw_ring_healthbar(286,170,blue_crystal,max_charge,c_blue,9,1,3);
+			draw_ring_healthbar(286,170,blue_primary,max_charge,c_blue,9,1,3);
 			draw_ring_healthbar(308,170,blue_special,max_charge,c_blue,9,1,3);
 		break;
 		
@@ -151,9 +151,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_green,c_green,0,true,true);
 			//var _specialPerc = (green_special/max_special) * 100;
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = green_crystal;
+			selected_primary = green_primary;
 			selected_special = green_special;
-			draw_ring_healthbar(286,170,green_crystal,max_charge,c_green,9,1,3);
+			draw_ring_healthbar(286,170,green_primary,max_charge,c_green,9,1,3);
 			draw_ring_healthbar(308,170,green_special,max_charge,c_green,9,1,3);
 		break;
 		
@@ -162,9 +162,9 @@ if (scene = false) and (obj_game.textPaused = false)
 			//draw_healthbar(196,168,232,171,_chargePerc,c_black,c_red,c_red,0,true,true);
 			//var _specialPerc = round((red_special/max_special) * 100);
 			//draw_healthbar(280,168,316,171,_specialPerc,c_black,c_white,c_white,0,true,true);
-			selected_crystal = red_crystal;
+			selected_primary = red_primary;
 			selected_special = red_special;
-			draw_ring_healthbar(286,170,red_crystal,max_charge,c_red,9,1,3);
+			draw_ring_healthbar(286,170,red_primary,max_charge,c_red,9,1,3);
 			draw_ring_healthbar(308,170,red_special,max_charge,c_red,9,1,3);
 		break;
 		
@@ -176,14 +176,14 @@ if (scene = false) and (obj_game.textPaused = false)
 	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,270,160);
 	else draw_sprite(spr_magicAlt_allGame,form,270,160);
 	draw_sprite(spr_special_allGame,form,292,160);
-	var _crystalUses = string(selected_crystal div crystal_cost)
+	var _primaryUses = string(selected_primary div primary_cost)
 	var _specialUses = string(selected_special div special_cost)
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 	draw_set_color(c_black);
-	draw_text_transformed(282,152,_crystalUses,.5,.5,0);
+	draw_text_transformed(282,152,_primaryUses,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(281,152,_crystalUses,.5,.5,0);
+	draw_text_transformed(281,152,_primaryUses,.5,.5,0);
 	draw_set_color(c_black);
 	draw_text_transformed(305,152,_specialUses,.5,.5,0);
 	draw_set_color(c_white);

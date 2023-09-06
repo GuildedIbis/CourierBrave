@@ -4,8 +4,8 @@ switch (image_index)
 	case 0:
 		with (obj_player)
 		{
-			yellow_crystal = yellow_crystal + other.drop_amount;
-			if (yellow_crystal > max_charge) yellow_crystal = max_charge;
+			yellow_primary = yellow_primary + other.drop_amount;
+			if (yellow_primary > max_charge) yellow_primary = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -13,8 +13,8 @@ switch (image_index)
 	case 1:
 		with (obj_player)
 		{
-			orange_crystal = orange_crystal + other.drop_amount;
-			if (orange_crystal > max_charge) orange_crystal = max_charge;
+			orange_primary = orange_primary + other.drop_amount;
+			if (orange_primary > max_charge) orange_primary = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -22,8 +22,8 @@ switch (image_index)
 	case 2:
 		with (obj_player)
 		{
-			purple_crystal = purple_crystal + other.drop_amount;
-			if (purple_crystal > max_charge) purple_crystal = max_charge;
+			purple_primary = purple_primary + other.drop_amount;
+			if (purple_primary > max_charge) purple_primary = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -31,8 +31,8 @@ switch (image_index)
 	case 3:
 		with (obj_player)
 		{
-			blue_crystal = blue_crystal + other.drop_amount;
-			if (blue_crystal > max_charge) blue_crystal = max_charge;
+			blue_primary = blue_primary + other.drop_amount;
+			if (blue_primary > max_charge) blue_primary = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -40,8 +40,8 @@ switch (image_index)
 	case 4:
 		with (obj_player)
 		{
-			green_crystal = green_crystal + other.drop_amount;
-			if (green_crystal > max_charge) green_crystal = max_charge;
+			green_primary = green_primary + other.drop_amount;
+			if (green_primary > max_charge) green_primary = max_charge;
 		}
 		instance_destroy();
 	break;
@@ -49,8 +49,8 @@ switch (image_index)
 	case 5:
 		with (obj_player)
 		{
-			red_crystal = red_crystal + other.drop_amount;
-			if (red_crystal > max_charge) red_crystal = max_charge;
+			red_primary = red_primary + other.drop_amount;
+			if (red_primary > max_charge) red_primary = max_charge;
 		}
 		instance_destroy();
 	break;

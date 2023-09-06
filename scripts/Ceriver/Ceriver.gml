@@ -83,13 +83,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_crystal = blue_crystal + 1;
+		blue_primary = blue_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -142,13 +142,13 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (blue_crystal >= 5)
+		if (magic_primary = true) and (blue_primary >= 5)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
 		//Dynorb
-		if (magic_primary = false) and (blue_crystal >= 3)
+		if (magic_primary = false) and (blue_primary >= 3)
 		{
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -212,13 +212,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 17, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 3;
+		primary_cost = 3;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		crystal_cost = 5;
+		primary_cost = 5;
 	}
 }
 
@@ -250,7 +250,7 @@ damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
-if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
@@ -476,7 +476,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_crystal = blue_crystal - 5;
+	blue_primary = blue_primary - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -506,7 +506,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_crystal < 5)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -624,7 +624,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_crystal = blue_crystal - 3;
+	blue_primary = blue_primary - 3;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -652,7 +652,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_crystal < 3)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 3)
 {
 	attacking = false;
 	state_script = free_state;
@@ -721,13 +721,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (blue_crystal < max_charge) and (watervice = false)//charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_crystal = blue_crystal + 1;
+		blue_primary = blue_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge

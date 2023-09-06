@@ -11,7 +11,7 @@ form_grid = ds_grid_create(18,9);
 //Regaliare 
 form_grid[# 0, 0] = "REGALIARE"
 form_grid[# 0, 1] = "Description"
-form_grid[# 0, 2] = RegaliareSet; //Set Script
+form_grid[# 0, 2] = scr_player_regaliare_set; //Set Script
 form_grid[# 0, 3] = RegaliareSelectedMenu;
 form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 0; //Weapon

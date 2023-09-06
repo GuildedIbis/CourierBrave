@@ -38,7 +38,7 @@ max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
-crystal_cost = 16;
+primary_cost = 16;
 special_cost = 50;
 }
 //
@@ -80,13 +80,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -140,12 +140,12 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (orange_crystal >= 16)
+		if (magic_primary = true) and (orange_primary >= 16)
 		{
 			attack_script = HalofireMeteorSling;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (orange_crystal >= 4)
+		if (magic_primary = false) and (orange_primary >= 4)
 		{
 			attack_script = HalofireFirespitCast;
 			state_script = PlayerStateAttack;
@@ -195,13 +195,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 7, 3] = tr
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 4;
+		primary_cost = 4;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		crystal_cost = 16;
+		primary_cost = 16;
 	}
 }
 
@@ -239,13 +239,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -328,13 +328,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -415,13 +415,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -493,13 +493,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_crystal < max_charge) and (watervice = false)//charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -573,13 +573,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_crystal < max_charge) and (watervice = false)//Charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 //if (red_special < max_special) //Special Recharge
@@ -733,7 +733,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {
-	orange_crystal = orange_crystal - 16;
+	orange_primary = orange_primary - 16;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
@@ -764,7 +764,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_crystal < 16)
+if (mouse_check_button(mb_left) = false) or (orange_primary < 16)
 {
 	attacking = false;
 	state_script = free_state;
@@ -853,7 +853,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	orange_crystal = orange_crystal - 4;
+	orange_primary = orange_primary - 4;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
@@ -886,7 +886,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_crystal < 4)
+if (mouse_check_button(mb_left) = false) or (orange_primary < 4)
 {
 	attacking = false;
 	state_script = free_state;
@@ -1003,13 +1003,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (orange_crystal < max_charge) and (watervice = false)//Charge Recharge
+if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		orange_crystal = orange_crystal + 1;
+		orange_primary = orange_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles

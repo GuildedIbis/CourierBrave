@@ -68,7 +68,6 @@ energy = 0; //RLL
 receptivity = 0; //AMT
 
 //Effected Max Stats
-max_crull_stone = 1 + (iteration);
 crull_ary = array_create(11,-1);
 crull_ary[0] = 0;
 crull_selected = 0;
@@ -78,17 +77,16 @@ max_stamina = 100 + (50 * energy);
 
 //Set Player Current Stats
 hp = max_hp
-crull_stone = max_crull_stone;
 stamina = max_stamina;
 armor = 0; //negates damage in enemy damage calc
 //Color Specific Crystal
-selected_crystal = -1;
-yellow_crystal = max_charge;
-blue_crystal = max_charge;
-purple_crystal = max_charge;
-red_crystal = max_charge;
-green_crystal = max_charge;
-orange_crystal = max_charge;
+selected_primary = -1;
+yellow_primary = max_charge;
+blue_primary = max_charge;
+purple_primary = max_charge;
+red_primary = max_charge;
+green_primary = max_charge;
+orange_primary = max_charge;
 //Color Specific Special
 selected_special = -1;
 yellow_special = max_charge;
@@ -129,4 +127,4 @@ break_object = obj_break;
 //
 //
 //Form Script (Default Regaliare)
-script_execute(RegaliareSet);
+scr_player_regaliare_set();

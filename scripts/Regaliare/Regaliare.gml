@@ -5,10 +5,10 @@
 //
 //
 //Regaliare Set (create)
-function RegaliareSet(){
+function scr_player_regaliare_set(){
 form = 0;
 form_type = 0;
-home_state = RegaliareSet;
+home_state = scr_player_regaliare_set;
 free_state = RegaliareFree;
 state_script = RegaliareFree;
 magicP_script = RegaliareGoldBurst;
@@ -33,13 +33,13 @@ obj_cursor.curs_script = RegaliareCursor;
 weapon_count = -1;
 casting = false;
 max_weapon_count = -1;
-magic_timer = 0;
+primary_timer = 0;
 walk_spd = 1.75;
 armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
 max_hp = 200 + (20 * vitality);
-crystal_cost = 5;
+primary_cost = 5;
 special_cost = 50;
 
 }
@@ -82,13 +82,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (yellow_crystal < max_charge) and (watervice = false)//charge Recharge
+if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		yellow_crystal = yellow_crystal + 1;
+		yellow_primary = yellow_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots
@@ -135,17 +135,17 @@ if (key_attackW)
 	}
 }
 
-//Magic Skill
+//Primary Skill
 if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (yellow_crystal >= 5)
+		if (magic_primary = true) and (yellow_primary >= 5)
 		{
 			attack_script = magicP_script;
 			state_script = PlayerStateAttack;
 		}
-		if (magic_primary = false) and (yellow_crystal >= 10)
+		if (magic_primary = false) and (yellow_primary >= 10)
 		{
 			attack_script = magicA_script;
 			state_script = PlayerStateAttack;
@@ -193,13 +193,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 2, 3] = tr
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		crystal_cost = 10;
+		primary_cost = 10;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		crystal_cost = 5;
+		primary_cost = 5;
 	}
 }
 
@@ -235,13 +235,13 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (yellow_crystal < max_charge) and (watervice = false)//charge Recharge
+if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		yellow_crystal = yellow_crystal + 1;
+		yellow_primary = yellow_primary + 1;
 	}
 }
 //if (yellow_special < max_special) //Special Recharge
@@ -379,7 +379,7 @@ PlayerBulletSpawnPosition();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	yellow_crystal = yellow_crystal - 5;
+	yellow_primary = yellow_primary - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -405,7 +405,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Restart or Return to Free
-if (mouse_check_button(mb_left) = false) or (yellow_crystal < 5)
+if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -533,7 +533,7 @@ PlayerBulletSpawnPosition();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	yellow_crystal = yellow_crystal - 10;
+	yellow_primary = yellow_primary - 10;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -558,7 +558,7 @@ if (magic_timer <= 0)
 PlayerAnimationCast();
 
 //Restart or return to free state
-if (mouse_check_button(mb_left) = false) or (yellow_crystal < 10)
+if (mouse_check_button(mb_left) = false) or (yellow_primary < 10)
 {
 	attacking = false;
 	state_script = free_state;
@@ -629,13 +629,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (yellow_crystal < max_charge) and (watervice = false)//charge Recharge
+if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		yellow_crystal= yellow_crystal + 1;
+		yellow_primary = yellow_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between shots
