@@ -147,6 +147,7 @@ if (gamePaused = false)
 				obj_inventory.crullM_list[i] = false;
 			}
 			global.dayPhase = 2;
+			scr_resources_reset();
 			day_timer = 0;
 		}
 	}
