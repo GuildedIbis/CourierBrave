@@ -10,6 +10,7 @@ crull_script = array_create(25);
 crull_recipe = array_create(25,false);
 crull_recipe[0] = true;
 
+
 crull_script[0] = scr_player_crull_natural;
 crull_script[1] = scr_player_crull_spectral;
 crull_script[2] = scr_player_crull_yelline;
