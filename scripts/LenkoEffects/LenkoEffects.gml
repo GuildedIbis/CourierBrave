@@ -52,43 +52,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 }
 	
 }
-//
-//
-//
-//
-//
-//
-//Effect Door Standard
-function scr_effect_door_farwayRoad(){
-frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
 
-if (obj_inventory.farwayRoad_map_ary[15][3] < 1)
-{
-	sprite_index = spr_door_farwayRoad;
-}
-if (obj_inventory.farwayRoad_map_ary[15][3] >= 1)
-{
-	sprite_index = spr_door_farwayRoad_open;
-	with (obj_wall)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	with (break_object)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-}
-}
 //
 //
 //

@@ -1,16 +1,17 @@
-//Alter
+//Altar
 //Where the player levels their character stats
 //
 //
 //
 //
 //
-//Alter Create
-function scr_alter_create(){
-entity_step = scr_alter;
+//Altar Create
+function scr_altar_create(){
+entity_step = scr_altar;
 shadow = true;
 shadow_size = 2;
 sound = snd_text01;
+altar = true;
 interact = 32;
 }
 //
@@ -18,9 +19,9 @@ interact = 32;
 //
 //
 //
-//Alter Step
-function scr_alter(){
-sprite_index = spr_alter;
+//Altar Step
+function scr_altar(){
+sprite_index = spr_altar;
 scr_npc_interact(12);
 }
 //
@@ -28,16 +29,16 @@ scr_npc_interact(12);
 //
 //
 //
-//Alter Text
-function scr_text_alter_main(){
+//Altar Text
+function scr_text_altar_main(){
 //Tinted Background
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,121,65,78,46);
 draw_sprite_stretched(spr_menu,8,116,57,88,16);
 draw_sprite_stretched(spr_menu_circle16,1,126,74,32,32);
 draw_sprite_stretched(spr_menu_circle16,1,162,74,32,32);
-draw_sprite(spr_alter_menu_icons,0,126,74);
-draw_sprite(spr_alter_menu_icons,1,162,74);
+draw_sprite(spr_altar_menu_icons,0,126,74);
+draw_sprite(spr_altar_menu_icons,1,162,74);
 var _SubString
 
 
@@ -47,7 +48,8 @@ if (string_counter = 0)
 	//text_string = "You will return here when on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(118,52,"PRESS \"E\" TO RESUME",.5,.5,0);
-	scr_menu_alter_main();
+	altar = true;
+	scr_menu_altar_main();
 }
 
 if (string_counter >= 1)
@@ -78,7 +80,7 @@ draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_white);
 draw_text_transformed(69,140,_SubString,.6,.6,0);
-draw_text_transformed(148,61,"ALTER",1,1,0);
+draw_text_transformed(148,61,"ALTAR",1,1,0);
 //draw_sprite(spr_npc_alter36,0,258+6,136+6);
 }
 //
@@ -86,79 +88,8 @@ draw_text_transformed(148,61,"ALTER",1,1,0);
 //
 //
 //
-//Alter Travel
-function AlterTravelMenu(){
-//Convert Mouse to GUI
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-
-
-//Slider
-draw_sprite(spr_scroll_bar1b,page,68,43);
-//if (point_in_rectangle(_mouseX,_mouseY,69,41,77,47))
-//{
-//	draw_sprite(spr_scroll_highlight,0,69,41);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page > 0) page = page - 1;
-//		else page = 1;
-//	}
-//}
-//if (point_in_rectangle(_mouseX,_mouseY,69,114,77,119))
-//{
-//	draw_sprite(spr_scroll_highlight,1,69,114);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (page < 1) page = page + 1;
-//		else page = 0;
-//	}
-//}
-
-//Buttons
-//draw_sprite_stretched(button_sprite,2,70,41,14,14);
-//draw_sprite_stretched(button_sprite,2,70,57,14,14);
-//draw_sprite_stretched(button_sprite,2,70,73,14,14);
-//draw_sprite_stretched(button_sprite,2,70,89,14,14);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-
-draw_sprite_stretched(menu_sprite,3,103,41,147,86);
-draw_sprite_part(spr_mapBackground,0,0,55,139,78,107,45);
-
-for (var i = 0; i < 5; i = i + 1)
-{
-	draw_sprite_stretched(button_sprite,3,80,42 + (i * 17),15,15);
-	if (obj_inventory.region_grid[# i, 1] = true)
-	{
-		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_ext(spr_map_button,i,80,42+(i*17),1.0,1.0,0,c_white,1.0);
-		if (point_in_rectangle(_mouseX,_mouseY,80,42 + (i * 15),94,57 + (i * 15)))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,78,40 + (i * 17),19,19);
-			if (mouse_check_button_pressed(mb_left))
-			{
-				audio_sound_gain(snd_menu,global.volumeMenu,1);
-				audio_play_sound(snd_menu,0,false);
-				map_selected = obj_inventory.region_grid[# i, 2];
-			}
-		}
-	}
-	else draw_sprite_ext(spr_lock,1,85,50+(i*17),1,1,0,c_white,1.0);
-}
-if (map_selected != -1)
-{
-	//draw_sprite_ext(spr_map,obj_inventory.map_selected,107,45,1.0,1.0,0,c_white,1);
-	script_execute(map_selected)
-}
-
-}
-//
-//
-//
-//
-//
-//Alter Menu
-function scr_menu_alter_main(){
+//Altar Menu
+function scr_menu_altar_main(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
@@ -167,19 +98,33 @@ if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
 	draw_sprite_stretched(spr_highlight_circle,0,125,73,34,34)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		text_script = scr_menu_alter_crull;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		text_script = scr_menu_altar_crull;
 		text_gui = -1;
 	}
 }
-
+if (point_in_rectangle(_mouseX,_mouseY,162,74,194,106))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,161,73,34,34)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		map_selected = -1;
+		text_script = scr_menu_altar_map;
+		text_gui = -1;
+		altar = true;
+	}
+}
 }
 //
 //
 //
 //
 //
-//Alter Menu
-function scr_menu_alter_crull(){
+//Altar Menu
+function scr_menu_altar_crull(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _recipeMenu = array_create(25);
@@ -280,10 +225,6 @@ else
 }
 
 
-
-
-
-
 //Player Crull Selected
 with (obj_player)
 {
@@ -307,17 +248,18 @@ with (obj_player)
 }
 
 //Exit
-if (point_in_rectangle(_mouseX,_mouseY,4,74,36,106))
+draw_sprite_ext(spr_menu_arrow,2,82,44,1.0,1.0,0,c_white,1.0);
+if (point_in_rectangle(_mouseX,_mouseY,4,74,36,92))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		text_script = scr_text_alter_main;
+		text_script = scr_text_altar_main;
 	}
 }
 if (keyboard_check_pressed(ord("E")))
 {
-	//text_script = AlterMenu;
+	//text_script = AltarMenu;
 	//alter_gui = LevelStatsMenuGUI;
 	text_gui = -1;
 	text_string = ""
@@ -509,4 +451,114 @@ draw_sprite_stretched(spr_resource_menu_all,7,236,107,16,16);
 draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[7])+")",.6,.6,0);
 
 }
-	
+//
+//
+//
+//
+//
+//Map GUI
+function scr_menu_altar_map(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_font(global.fnt_main_white);
+draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
+draw_sprite_stretched(spr_menu_circle16,1,12,82,16,16);
+draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
+draw_sprite_stretched(spr_menu,8,54,35,210,16)
+draw_set_color(c_white);
+draw_text_transformed(248,53,"MAP",1,1,0);
+
+
+//Slider Bar
+draw_sprite(spr_scroll_bar5b,page,245,61);
+if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))
+{
+	draw_sprite(spr_scroll_highlight,0,245,60);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page > 0) page = page - 1;
+		else page = 4;
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,245,129,253,135))
+{
+	draw_sprite(spr_scroll_highlight,1,245,128);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page < 4) page = page + 1;
+		else page = 0;
+	}
+}
+
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+//Map Select Buttons
+for (var i = 0; i < 4; i = i + 1)
+{
+	var _iPage = i + (4 * page)
+	draw_sprite_stretched(spr_menu_circle16,3,228,63 + (i * 18),16,16);
+	if (obj_inventory.level_ary[_iPage] = true)
+	{
+		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
+		draw_sprite_ext(spr_map_button,_iPage,228,63+(i*18),1.0,1.0,0,c_white,1.0);
+		if (point_in_rectangle(_mouseX,_mouseY,228,63 + (i * 18),244,79 + (i * 18)))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,227,62 + (i * 18),18,18);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				slot = _iPage;
+				map_selected = obj_inventory.map_grid[# _iPage, 2];
+			}
+		}
+	}
+	else draw_sprite_ext(spr_lock,1,235,71+(i*18),1,1,0,c_white,1.0);
+}
+if (map_selected != -1)
+{
+	//Map Functions Found in Inventory Map Menu
+	script_execute(map_selected)
+}
+
+
+//Exit
+draw_sprite_ext(spr_menu_arrow,2,82,44,1.0,1.0,0,c_white,1.0);
+if (point_in_rectangle(_mouseX,_mouseY,4,74,36,106))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		text_script = scr_text_altar_main;
+	}
+}
+if (keyboard_check_pressed(ord("E")))
+{
+	audio_sound_gain(snd_menu,global.volumeMenu,1);
+	audio_play_sound(snd_menu,0,false);
+	//text_script = AltarMenu;
+	//alter_gui = LevelStatsMenuGUI;
+	text_gui = -1;
+	text_string = ""
+	_SubString = string_copy(text_string,1,letter_counter);
+	string_counter = 0;
+	audio_sound_gain(snd_menu,global.volumeMenu,1);
+	audio_play_sound(snd_menu,0,false);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+}	

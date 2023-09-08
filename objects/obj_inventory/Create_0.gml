@@ -3,6 +3,7 @@
 menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
 quick_swap = false;
+altar = false;
 inv_gui = -1;
 item_id = -1;
 

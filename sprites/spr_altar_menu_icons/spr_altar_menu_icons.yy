@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_alter_menu_icons",
+  "name": "spr_altar_menu_icons",
   "bbox_bottom": 26,
   "bbox_left": 5,
   "bbox_right": 28,
@@ -34,7 +34,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_alter_menu_icons",
+    "name": "spr_altar_menu_icons",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -56,8 +56,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4ac39d00-b4e3-450d-9ac4-3f91d3a61ee0","path":"sprites/spr_alter_menu_icons/spr_alter_menu_icons.yy",},},},"Disabled":false,"id":"5ab61f25-ec69-4bc6-bb69-de0bf6dbddc4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"be966be3-a34e-40da-bad6-06cd1b8441c2","path":"sprites/spr_alter_menu_icons/spr_alter_menu_icons.yy",},},},"Disabled":false,"id":"5ef16f4b-af3f-42bd-8d49-a79672618fef","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4ac39d00-b4e3-450d-9ac4-3f91d3a61ee0","path":"sprites/spr_altar_menu_icons/spr_altar_menu_icons.yy",},},},"Disabled":false,"id":"5ab61f25-ec69-4bc6-bb69-de0bf6dbddc4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"be966be3-a34e-40da-bad6-06cd1b8441c2","path":"sprites/spr_altar_menu_icons/spr_altar_menu_icons.yy",},},},"Disabled":false,"id":"5ef16f4b-af3f-42bd-8d49-a79672618fef","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

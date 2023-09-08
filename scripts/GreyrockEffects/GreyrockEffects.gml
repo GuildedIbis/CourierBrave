@@ -108,12 +108,12 @@ image_yscale = 1;
 
 if (obj_player.form != 0)
 {
-	sprite_index = spr_door_farwayRoad;
+	sprite_index = spr_door_farwayRoad_stone;
 
 }
 if (obj_player.form = 0)
 {
-	sprite_index = spr_door_farwayRoad_open;
+	sprite_index = spr_door_farwayRoad_stone_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))

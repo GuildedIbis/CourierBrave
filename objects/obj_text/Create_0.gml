@@ -20,6 +20,7 @@ page = 0;
 slot = -1;
 text_gui = -1;
 map_ary = -1;
+altar = false;
 
 
 //Vendors

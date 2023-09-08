@@ -173,7 +173,7 @@ if (obj_game.level_num = 0)
 if (obj_inventory.camp_grid[# 0, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -210,7 +210,7 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 if (obj_inventory.camp_grid[# 1, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -247,7 +247,7 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 if (obj_inventory.camp_grid[# 2, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -285,7 +285,7 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 if (obj_inventory.camp_grid[# 3, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 31,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 29,_xPos + 89,_yPos + 32))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 29,_xPos + 89,_yPos + 32)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -322,7 +322,7 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 if (obj_inventory.camp_grid[# 4, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -404,7 +404,7 @@ if (obj_game.level_num = 1)
 if (obj_inventory.camp_grid[# 5, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 39, _yPos + 14,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 12,_xPos + 41,_yPos + 15))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 12,_xPos + 41,_yPos + 15))and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 39,_yPos + 14);
 		if (mouse_check_button_pressed(mb_left))
@@ -441,7 +441,7 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 if (obj_inventory.camp_grid[# 6, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 53, _yPos + 31,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 50,_yPos + 29,_xPos + 55,_yPos + 32))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 50,_yPos + 29,_xPos + 55,_yPos + 32)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 53,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -478,7 +478,7 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 if (obj_inventory.camp_grid[# 7, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 59,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 57,_xPos + 43,_yPos + 60))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 57,_xPos + 43,_yPos + 60)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 59);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -515,7 +515,7 @@ if (obj_inventory.camp_grid[# 7, 3] = true)
 if (obj_inventory.camp_grid[# 8, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 85, _yPos + 67,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 82,_yPos + 65,_xPos + 87,_yPos + 68))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 82,_yPos + 65,_xPos + 87,_yPos + 68)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 85,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -552,7 +552,7 @@ if (obj_inventory.camp_grid[# 8, 3] = true)
 if (obj_inventory.camp_grid[# 9, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 38,_xPos + 106,_yPos + 41))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 38,_xPos + 106,_yPos + 41)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -648,7 +648,7 @@ if (obj_game.level_num = 2)
 if (obj_inventory.camp_grid[# 10, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 119, _yPos + 13,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 11,_xPos + 121,_yPos + 14))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 11,_xPos + 121,_yPos + 14)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 119,_yPos + 13);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -685,7 +685,7 @@ if (obj_inventory.camp_grid[# 10, 3] = true)
 if (obj_inventory.camp_grid[# 11, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 23,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 21,_xPos + 90,_yPos + 24))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 21,_xPos + 90,_yPos + 24)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 23);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -722,7 +722,7 @@ if (obj_inventory.camp_grid[# 11, 3] = true)
 if (obj_inventory.camp_grid[# 12, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 31,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -760,7 +760,7 @@ if (obj_inventory.camp_grid[# 12, 3] = true)
 if (obj_inventory.camp_grid[# 13, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 103, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -797,7 +797,7 @@ if (obj_inventory.camp_grid[# 13, 3] = true)
 if (obj_inventory.camp_grid[# 14, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 40, _yPos + 49,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -894,7 +894,7 @@ if (obj_game.level_num = 3)
 if (obj_inventory.camp_grid[# 15, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 136, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 38,_xPos + 138,_yPos + 41))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 38,_xPos + 138,_yPos + 41)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 136,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -931,7 +931,7 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 if (obj_inventory.camp_grid[# 16, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 66,_xPos + 106,_yPos + 69))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 66,_xPos + 106,_yPos + 69)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -968,7 +968,7 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 if (obj_inventory.camp_grid[# 17, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 68,_yPos + 38,_xPos + 73,_yPos + 41))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 68,_yPos + 38,_xPos + 73,_yPos + 41)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 71,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1006,7 +1006,7 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 if (obj_inventory.camp_grid[# 18, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 58,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 35,_yPos + 56,_xPos + 40,_yPos +59))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 35,_yPos + 56,_xPos + 40,_yPos +59)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 38,_yPos + 58);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1043,7 +1043,7 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 if (obj_inventory.camp_grid[# 19, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 38,_xPos + 90,_yPos + 41))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 38,_xPos + 90,_yPos + 41)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1140,7 +1140,7 @@ if (obj_game.level_num = 4)
 if (obj_inventory.camp_grid[# 20, 3] = true)
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 22, _yPos + 76,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 22,_yPos + 76);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1177,7 +1177,7 @@ if (obj_inventory.camp_grid[# 20, 3] = true)
 if (obj_inventory.camp_grid[# 21, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1214,7 +1214,7 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 if (obj_inventory.camp_grid[# 22, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1252,7 +1252,7 @@ if (obj_inventory.camp_grid[# 22, 3] = true)
 if (obj_inventory.camp_grid[# 23, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 50,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
@@ -1289,7 +1289,7 @@ if (obj_inventory.camp_grid[# 23, 3] = true)
 if (obj_inventory.camp_grid[# 24, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 76,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50))
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50)) and (altar = true)
 	{
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
