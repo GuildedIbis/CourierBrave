@@ -229,11 +229,11 @@ else
 with (obj_player)
 {
 	scr_player_crull_select();
-	var _selectX = 154 - (8*max_crull_stone) + (17 * crull_selected);
+	var _selectX = 154 - (8*crull_count) + (17 * crull_selected);
 	draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
-	for (var j = 0; j < max_crull_stone; j = j + 1)
+	for (var j = 0; j < crull_count; j = j + 1)
 	{
-		var _xPos = (152 - (8*max_crull_stone)) + (17*j);
+		var _xPos = (152 - (8*crull_count)) + (17*j);
 		var _yPos = 164;
 		if (crull_ary[j] != -1)
 		{

@@ -7,7 +7,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	
 	//Player Health, Crull Stones, and Rolling
 	var _hpPerc = (hp/max_hp) * 100;
-	var _selectX = 154 - (8*max_crull_stone) + (17 * crull_selected);
+	var _selectX = 154 - (8*crull_count) + (17 * crull_selected);
 	draw_healthbar(22,166,64,169,_hpPerc,c_black,c_maroon,c_red,0,1,0);
 	draw_sprite(spr_health_hud,0,4,156);
 	draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
@@ -17,9 +17,9 @@ if (scene = false) and (obj_game.textPaused = false)
 	//	var _yPos = 164;
 	//	draw_sprite_ext(spr_crull_tick,0,_xPos,_yPos,1.0,1.0,180,c_white,1.0);	
 	//}
-	for (var j = 0; j < max_crull_stone; j = j + 1)
+	for (var j = 0; j < crull_count; j = j + 1)
 	{
-		var _xPos = (152 - (8*max_crull_stone)) + (17*j);
+		var _xPos = (152 - (8*crull_count)) + (17*j);
 		var _yPos = 164;
 		if (crull_ary[j] != -1)
 		{

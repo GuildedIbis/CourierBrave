@@ -47,12 +47,11 @@ function FormStonePedestal3Text(){
 //Stone
 if (obj_inventory.form_grid[# 3, 4] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
-
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 	//Draw Based on String Counter
 	var _SubString
@@ -84,11 +83,8 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);	
 }
@@ -96,11 +92,11 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 //Active
 if (obj_inventory.form_grid[# 3, 4] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 	//Draw Based on String Counter
 	var _SubString
@@ -128,11 +124,8 @@ if (obj_inventory.form_grid[# 3, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);
 	
@@ -149,11 +142,11 @@ function FormStonePedestal2Text(){
 //Stone
 if (obj_inventory.form_grid[# 2, 4] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 
 	//Draw Based on String Counter
@@ -186,11 +179,8 @@ if (obj_inventory.form_grid[# 2, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);	
 }
@@ -198,11 +188,11 @@ if (obj_inventory.form_grid[# 2, 4] = false)
 //Active
 if (obj_inventory.form_grid[# 2, 4] = true)
 {
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 	//Draw Based on String Counter
 	var _SubString
@@ -233,11 +223,8 @@ if (obj_inventory.form_grid[# 2, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);
 	
@@ -254,11 +241,11 @@ function FormStonePedestal1Text(){
 //Stone
 if (obj_inventory.form_grid[# 1, 4] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 
 	//Draw Based on String Counter
@@ -291,11 +278,8 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);	
 }
@@ -303,11 +287,11 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 //Active
 if (obj_inventory.form_grid[# 1, 4] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 	//Draw Based on String Counter
 	var _SubString
@@ -338,11 +322,8 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);
 	
@@ -360,11 +341,11 @@ function FormStonePedestal4Text(){
 //Stone
 if (obj_inventory.form_grid[# 4, 4] = false)
 {
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 
 	//Draw Based on String Counter
@@ -397,11 +378,8 @@ if (obj_inventory.form_grid[# 4, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);	
 }
@@ -409,11 +387,11 @@ if (obj_inventory.form_grid[# 4, 4] = false)
 //Active
 if (obj_inventory.form_grid[# 4, 4] = true)
 {
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu,3,64,136,192,48);
 
 	//Draw Based on String Counter
 	var _SubString
@@ -444,11 +422,8 @@ if (obj_inventory.form_grid[# 4, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
 	draw_text_transformed(68,140,_SubString,.5,.5,0);
 	

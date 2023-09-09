@@ -850,6 +850,7 @@
     {"name":"spr_enemy_ofaPupa_idle","order":12,"path":"sprites/spr_enemy_ofaPupa_idle/spr_enemy_ofaPupa_idle.yy",},
     {"name":"spr_player_halofire_runCastH","order":16,"path":"sprites/spr_player_halofire_runCastH/spr_player_halofire_runCastH.yy",},
     {"name":"MapMenu","order":3,"path":"scripts/MapMenu/MapMenu.yy",},
+    {"name":"spr_kephraStone_infograph_08","order":11,"path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},
     {"name":"obj_escort","order":6,"path":"objects/obj_escort/obj_escort.yy",},
     {"name":"rm_lenko_yakflowerPath_03","order":1,"path":"rooms/rm_lenko_yakflowerPath_03/rm_lenko_yakflowerPath_03.yy",},
     {"name":"spr_enemy_enragedMoth_dustStep","order":1,"path":"sprites/spr_enemy_enragedMoth_dustStep/spr_enemy_enragedMoth_dustStep.yy",},

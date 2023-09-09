@@ -973,6 +973,7 @@
     {"id":{"name":"spr_player_halofire_runCastH","path":"sprites/spr_player_halofire_runCastH/spr_player_halofire_runCastH.yy",},},
     {"id":{"name":"spr_highlight_circle","path":"sprites/spr_highlight_circle/spr_highlight_circle.yy",},},
     {"id":{"name":"MapMenu","path":"scripts/MapMenu/MapMenu.yy",},},
+    {"id":{"name":"spr_kephraStone_infograph_08","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},
     {"id":{"name":"obj_escort","path":"objects/obj_escort/obj_escort.yy",},},
     {"id":{"name":"rm_lenko_yakflowerPath_03","path":"rooms/rm_lenko_yakflowerPath_03/rm_lenko_yakflowerPath_03.yy",},},
     {"id":{"name":"spr_enemy_enragedMoth_dustStep","path":"sprites/spr_enemy_enragedMoth_dustStep/spr_enemy_enragedMoth_dustStep.yy",},},

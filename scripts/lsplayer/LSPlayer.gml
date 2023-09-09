@@ -38,8 +38,8 @@ function LoadPlayer(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
 		if (variable_struct_exists(_loadEntity,"iteration")) obj_player.iteration = _loadEntity.iteration; 
-		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
-		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_stone = _loadEntity.crull;
+		//if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
+		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_count = _loadEntity.crull;
 		if (variable_struct_exists(_loadEntity,"conviction")) obj_player.conviction = _loadEntity.conviction; 
 		if (variable_struct_exists(_loadEntity,"charge")) obj_player.max_charge = _loadEntity.charge;
 		if (variable_struct_exists(_loadEntity,"might")) obj_player.might = _loadEntity.might; 
@@ -98,7 +98,7 @@ var _savePlayer =
 	vitality : obj_player.vitality,  //1
 	hp : obj_player.max_hp,
 	iteration : obj_player.iteration, //2
-	crull : obj_player.max_crull_stone,
+	crull : obj_player.crull_count,
 	conviction : obj_player.conviction, //3
 	charge : obj_player.max_charge,
 	might : obj_player.might, //4

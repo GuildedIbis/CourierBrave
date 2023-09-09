@@ -222,8 +222,7 @@ switch(page)
 					with (obj_player)
 					{
 						iteration = iteration + 1;
-						max_crull_stone = iteration + 1;
-						crull_stone = crull_stone + 1;
+						crull_count = iteration + 1;
 						crull_ary[iteration] = 1;
 					}
 					//obj_player.iteration = obj_player.iteration + 1;

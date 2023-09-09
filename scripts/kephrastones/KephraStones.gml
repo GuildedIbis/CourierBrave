@@ -32,6 +32,10 @@ kephra_grid[# 6, 2] = "INVENTORY"
 kephra_grid[# 7, 0] = scr_menu_kephra_07;
 kephra_grid[# 7, 1] = false
 kephra_grid[# 7, 2] = "QUICK SWAP"
+kephra_grid[# 8, 0] = scr_menu_kephra_08;
+kephra_grid[# 8, 1] = false
+kephra_grid[# 8, 2] = "ALTARS"
+
 						
 }
 //
@@ -42,12 +46,13 @@ kephra_grid[# 7, 2] = "QUICK SWAP"
 //Kephra Stone Main
 function scr_kephra_stone(){
 //Format
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(global.fnt_main_white);
 draw_text_transformed(160,160,"PRESS \"E\"\nTO RESUME",.75,.75,0);
-draw_sprite(spr_kephraStone_menu,2,64,32)
-draw_sprite_stretched(spr_menu,7,59,32,202,20);
+draw_sprite(spr_kephraStone_menu,1,64,32)
+draw_sprite_stretched(spr_menu,8,59,32,202,20);
 
 
 
@@ -103,7 +108,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 2)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -116,7 +121,7 @@ if (page < 2)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -156,7 +161,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 1)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -169,7 +174,7 @@ if (page < 1)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -210,7 +215,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 2)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -223,7 +228,7 @@ if (page < 2)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -263,11 +268,11 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 1)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,257,75,18,18);
+		draw_sprite_stretched(spr_highlight_circle,1,257,75,18,18);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			page = page + 1;
@@ -301,9 +306,9 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Press \"C\" to use a Crull Stone."
-_text[1] = "Crull Stones heal à base of 100\nhealth to the Courier."
-_text[2] = "Visiting an alter (or dying)\nrestores Crull Stones, as well as\nhealth and charge."
+_text[0] = "Press \"C\" to use a Crull Stone Charge."
+_text[1] = "This Crull Charge will restore the Courier's health\nbut other charges may have other effects."
+_text[2] = "Visiting an alter (or dying)\nrestores 1 Crull Charge for free."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -316,7 +321,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 2)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -329,7 +334,7 @@ if (page < 2)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -427,7 +432,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 5)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -440,7 +445,7 @@ if (page < 5)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -496,6 +501,116 @@ if (page < 2)
 if (page > 0)
 {
 	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite(spr_menu_arrow,2,54,84);
+	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,45,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page - 1;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Kephra Stone 08: ALTARS
+function scr_menu_kephra_08(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _text = array_create(2,-1)
+_text[0] = "As the Courier's ITERATION stat\nincreases, they will unlock\nmore charges of the Crull Stone.\n\nScroll with the mouse wheel to\nselect a different Crull Charge."
+_text[1] = "The first charge will refill with\na natural charge when they visit\nan ALTAR, but the others must\nbe filled by completing recipes.\n\nYou can complete recipes and view\nthe recipes you've learned\nvby interacting with an ALTAR."
+_text[2] = "Completing recipes at the alter\ncosts resources, but produces\ncharges that have various\neffects beyond healing."
+
+//Sprite
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(160,39,"KEPHRA STONE 8: CRULL CHARGES",1,1,0);
+draw_set_halign(fa_left);
+draw_sprite(spr_kephraStone_infograph_08,page,64,52);
+draw_text_transformed(165,56,_text[page],.5,.5,0);
+
+
+if (page < 2)
+{
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
+	draw_sprite(spr_menu_arrow,0,266,84);
+	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,257,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page + 1;
+		}
+	}
+}
+if (page > 0)
+{
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
+	draw_sprite(spr_menu_arrow,2,54,84);
+	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,45,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page - 1;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
+//Kephra Stone 09: Resources
+function scr_menu_kephra_09(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _text = array_create(2,-1)
+_text[0] = "Press \"R\" to open the Quick Swap\nmenu and quickly change Form."
+_text[1] = "Each Form is one of six types,\neach type having it's own charge\nmeters."
+_text[2] = "Don't leave the Courier defense-\nless.\n\nA quick Form swap can be a matter\nof life or death."
+
+//Sprite
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(160,39,"KEPHRA STONE 9: RESOURCES",1,1,0);
+draw_set_halign(fa_left);
+draw_sprite(spr_kephraStone_infograph_07,page,64,52);
+draw_text_transformed(165,56,_text[page],.5,.5,0);
+
+
+if (page < 2)
+{
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
+	draw_sprite(spr_menu_arrow,0,266,84);
+	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
+	{
+		draw_sprite_stretched(spr_highlight_circle,0,257,75,18,18);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			page = page + 1;
+		}
+	}
+}
+if (page > 0)
+{
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{

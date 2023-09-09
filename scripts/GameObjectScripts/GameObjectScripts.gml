@@ -29,7 +29,6 @@ if (global.transition = true)
 				with (obj_player)
 				{
 					hp = max_hp;
-					crull_stone = max_crull_stone;
 					yellow_crystal = max_charge;
 					orange_crystal = max_charge;
 					purple_crystal = max_charge;
