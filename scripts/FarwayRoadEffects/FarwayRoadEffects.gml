@@ -198,7 +198,7 @@ sprite_index = spr_light_campFire_rat;
 //
 //
 //Effect Statue Moth
-function EffectRatCampfireStep(){
+function scr_effect_campfire_farwayRoad(){
 image_speed = 1;
 depth = -y;
 image_xscale = 1;
