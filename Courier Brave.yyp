@@ -340,6 +340,7 @@
     {"id":{"name":"spr_tree_molen_snowy","path":"sprites/spr_tree_molen_snowy/spr_tree_molen_snowy.yy",},},
     {"id":{"name":"spr_player_evarel_weaponO","path":"sprites/spr_player_evarel_weaponO/spr_player_evarel_weaponO.yy",},},
     {"id":{"name":"spr_enemy_motherLily_cast","path":"sprites/spr_enemy_motherLily_cast/spr_enemy_motherLily_cast.yy",},},
+    {"id":{"name":"spr_effect_window_farwayRoad_house","path":"sprites/spr_effect_window_farwayRoad_house/spr_effect_window_farwayRoad_house.yy",},},
     {"id":{"name":"obj_statueLily","path":"objects/obj_statueLily/obj_statueLily.yy",},},
     {"id":{"name":"spr_roll_icon","path":"sprites/spr_roll_icon/spr_roll_icon.yy",},},
     {"id":{"name":"spr_menu_inventoryForm_level","path":"sprites/spr_menu_inventoryForm_level/spr_menu_inventoryForm_level.yy",},},

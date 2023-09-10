@@ -291,6 +291,7 @@
     {"name":"spr_kephraStone","order":13,"path":"sprites/spr_kephraStone/spr_kephraStone.yy",},
     {"name":"spr_player_evarel_weaponO","order":8,"path":"sprites/spr_player_evarel_weaponO/spr_player_evarel_weaponO.yy",},
     {"name":"spr_enemy_motherLily_cast","order":1,"path":"sprites/spr_enemy_motherLily_cast/spr_enemy_motherLily_cast.yy",},
+    {"name":"spr_effect_window_farwayRoad_house","order":14,"path":"sprites/spr_effect_window_farwayRoad_house/spr_effect_window_farwayRoad_house.yy",},
     {"name":"obj_statueLily","order":8,"path":"objects/obj_statueLily/obj_statueLily.yy",},
     {"name":"spr_roll_icon","order":10,"path":"sprites/spr_roll_icon/spr_roll_icon.yy",},
     {"name":"spr_menu_inventoryForm_level","order":3,"path":"sprites/spr_menu_inventoryForm_level/spr_menu_inventoryForm_level.yy",},

@@ -206,6 +206,35 @@ image_yscale = 1;
 sprite_index = spr_light_campFire_rat;
 
 }
+	//
+//
+//
+//
+//
+//Effect Lekno Lake Path Rat Tent Create
+function scr_effect_farwayRoad_window_house_create(){ 
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_effect_window_farwayRoad_house;
+}
+//
+//
+//
+//
+//
+//Effect Statue Moth
+function scr_effect_farwayRoad_window_house(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_effect_window_farwayRoad_house;
+if (global.dayPhase = 2) image_index = 0;
+else image_index = 1;
+
+}
 //
 //
 //

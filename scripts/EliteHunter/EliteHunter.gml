@@ -204,7 +204,19 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(RatArrowCreate);
+			home_state = RatArrowFree;
+			entity_step = home_state;
+			entity_drop = Idle;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_rat_arrow;
+			aggro_drop = 300;
+			healthbar = false;
+			bullet = true;
+			enemy_spd = 4.0
+			local_frame = 0;
+			hit_by_attack = -1;
+			damage = 30 + (7 * other.enemy_lvl);
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

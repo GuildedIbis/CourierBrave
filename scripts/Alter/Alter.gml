@@ -32,6 +32,9 @@ scr_npc_interact(12);
 //Altar Text
 function scr_text_altar_main(){
 //Tinted Background
+draw_set_font(global.fnt_main_white)
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,121,65,78,46);
 draw_sprite_stretched(spr_menu,8,116,57,88,16);
@@ -39,9 +42,8 @@ draw_sprite_stretched(spr_menu_circle16,1,126,74,32,32);
 draw_sprite_stretched(spr_menu_circle16,1,162,74,32,32);
 draw_sprite(spr_altar_menu_icons,0,126,74);
 draw_sprite(spr_altar_menu_icons,1,162,74);
+
 var _SubString
-
-
 if (string_counter = 0)
 {
 	speaker = 1;
@@ -73,14 +75,10 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-
-//Draw Text
-draw_set_font(global.fnt_main_white)
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_white);
 draw_text_transformed(69,140,_SubString,.6,.6,0);
 draw_text_transformed(148,61,"ALTAR",1,1,0);
+
+
 //draw_sprite(spr_npc_alter36,0,258+6,136+6);
 }
 //
@@ -111,10 +109,16 @@ if (point_in_rectangle(_mouseX,_mouseY,162,74,194,106))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		map_selected = -1;
+		//map_selected = obj_game.room_num;
 		text_script = scr_menu_altar_map;
 		text_gui = -1;
 		altar = true;
+		
+		room_num = obj_game.room_num;
+		page = 0;
+		item_id = -1;
+		slot = obj_game.level_num;
+		map_selected = obj_inventory.map_grid[# obj_game.level_num, 2];
 	}
 }
 }
@@ -248,8 +252,8 @@ with (obj_player)
 }
 
 //Exit
-draw_sprite_ext(spr_menu_arrow,2,82,44,1.0,1.0,0,c_white,1.0);
-if (point_in_rectangle(_mouseX,_mouseY,4,74,36,92))
+draw_sprite_ext(spr_menu_arrow,2,20,90,1.0,1.0,0,c_white,1.0);
+if (point_in_rectangle(_mouseX,_mouseY,12,82,28,98))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
 	if (mouse_check_button_pressed(mb_left))
@@ -465,12 +469,13 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(global.fnt_main_white);
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
 draw_sprite_stretched(spr_menu_circle16,1,12,82,16,16);
 draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
 draw_sprite_stretched(spr_menu,8,54,35,210,16)
 draw_set_color(c_white);
-draw_text_transformed(248,53,"MAP",1,1,0);
+draw_text_transformed(244,58,"MAP",1,1,0);
 
 
 //Slider Bar
@@ -529,8 +534,8 @@ if (map_selected != -1)
 
 
 //Exit
-draw_sprite_ext(spr_menu_arrow,2,82,44,1.0,1.0,0,c_white,1.0);
-if (point_in_rectangle(_mouseX,_mouseY,4,74,36,106))
+draw_sprite_ext(spr_menu_arrow,2,20,90,1.0,1.0,0,c_white,1.0);
+if (point_in_rectangle(_mouseX,_mouseY,12,82,28,98))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
 	if (mouse_check_button_pressed(mb_left))

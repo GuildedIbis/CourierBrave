@@ -197,6 +197,7 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -234,6 +235,7 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -271,6 +273,7 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -309,6 +312,7 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -346,6 +350,7 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -428,6 +433,7 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -465,6 +471,7 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -502,6 +509,7 @@ if (obj_inventory.camp_grid[# 7, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -539,6 +547,7 @@ if (obj_inventory.camp_grid[# 8, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -576,6 +585,7 @@ if (obj_inventory.camp_grid[# 9, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -672,6 +682,7 @@ if (obj_inventory.camp_grid[# 10, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -709,6 +720,7 @@ if (obj_inventory.camp_grid[# 11, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -746,6 +758,7 @@ if (obj_inventory.camp_grid[# 12, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -784,6 +797,7 @@ if (obj_inventory.camp_grid[# 13, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -821,6 +835,7 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -918,6 +933,7 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -955,6 +971,7 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -992,6 +1009,7 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1030,6 +1048,7 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1067,6 +1086,7 @@ if (obj_inventory.camp_grid[# 19, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1164,6 +1184,7 @@ if (obj_inventory.camp_grid[# 20, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1201,6 +1222,7 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1238,6 +1260,7 @@ if (obj_inventory.camp_grid[# 22, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1276,6 +1299,7 @@ if (obj_inventory.camp_grid[# 23, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
@@ -1313,6 +1337,7 @@ if (obj_inventory.camp_grid[# 24, 3] = true)
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
+			obj_game.textPaused = false;
 			with (obj_player)
 			{
 				if (max_weapon_count != -1)
