@@ -31,13 +31,13 @@ scr_npc_interact(12);
 function scr_text_rhombail(){
 
 //Formatting
-draw_set_font(fnt_text);
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 draw_set_color(c_white);
-draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-var _name = "Rhombail, Forest Mander Merchant"
+//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+var _name = "Rhombail"
 
 //Draw Based on String Counter
 var _SubString
@@ -46,7 +46,6 @@ if (string_counter = 0)
 	speaker = 1;
 	text_string = "Courier... customer...\nGoods at a fair price." 
 	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter = 1)
 {
@@ -74,18 +73,14 @@ if (string_counter >= 2)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-draw_text_transformed(259,130,_name,.35,.35,0);
-draw_sprite(spr_npc_rhombail36,0,258+6,136+6);
-
-
-
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 //
 //
@@ -209,7 +204,8 @@ if (obj_inventory.crull_recipe[2] = false)
 	}
 }
 //
-draw_text_transformed(150,160,"PRESS \"E\" TO RESUME",.5,.5,0);
+draw_set_halign(fa_center);
+draw_text_transformed(160,160,"PRESS \"E\" TO RESUME",.5,.5,0);
 if (keyboard_check_pressed(ord("E")))
 {
 	text_string = ""

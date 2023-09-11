@@ -64,7 +64,7 @@ draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 draw_set_color(c_white);
-draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 var _name = "Kovalad the Smith"
 
 //Draw Based on String Counter
@@ -74,7 +74,6 @@ if (string_counter = 0)
 	speaker = 1;
 	text_string = "The pedestal came to life with orange,\nand we knew you had arrived...\nWhat can I do for you Courier" 
 	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter = 1)
 {
@@ -82,8 +81,6 @@ if (string_counter = 1)
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);
 	text_script = scr_menu_kovalad_trade;
-	//DrawBuyMenu();
-	//DrawSelectedMenu(obj_inventory);
 }
 
 if (string_counter >= 2)
@@ -102,12 +99,14 @@ if (string_counter >= 2)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.6,.6,0);
-draw_text_transformed(259,130,_name,.6,.6,0);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 //
 //
@@ -231,7 +230,8 @@ if (obj_inventory.crull_recipe[1] = false)
 	}
 }
 //
-draw_text_transformed(150,160,"PRESS \"E\" TO RESUME",.5,.5,0);
+draw_set_halign(fa_center);
+draw_text_transformed(160,160,"PRESS \"E\" TO RESUME",.5,.5,0);
 if (keyboard_check_pressed(ord("E")))
 {
 	text_string = ""

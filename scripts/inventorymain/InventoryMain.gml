@@ -28,7 +28,7 @@ draw_set_font(global.fnt_main_white)
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_text_transformed(150,160,"PRESS \"TAB\" TO RESUME",.5,.5,0);
+draw_text_transformed(160,160,"PRESS \"TAB\" TO RESUME",.5,.5,0);
 
 //Day Meter
 if (obj_game.invPaused = true)
