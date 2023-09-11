@@ -12,6 +12,7 @@ entity_step = scr_npc_kovalad_step;
 sound = snd_npc_mouse;
 animation_counter = 0;
 animation_timer = 180;
+interact = 20;
 }
 //
 //

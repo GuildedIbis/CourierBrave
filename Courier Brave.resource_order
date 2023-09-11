@@ -364,7 +364,7 @@
     {"name":"spr_scroll_bar2b","order":4,"path":"sprites/spr_scroll_bar2b/spr_scroll_bar2b.yy",},
     {"name":"snd_introA","order":1,"path":"sounds/snd_introA/snd_introA.yy",},
     {"name":"spr_solarSabi2_active","order":5,"path":"sprites/spr_solarSabi2_active/spr_solarSabi2_active.yy",},
-    {"name":"spr_npc_iba","order":3,"path":"sprites/spr_npc_iba/spr_npc_iba.yy",},
+    {"name":"spr_npc_orodry","order":3,"path":"sprites/spr_npc_orodry/spr_npc_orodry.yy",},
     {"name":"spr_house_abandonedBack","order":4,"path":"sprites/spr_house_abandonedBack/spr_house_abandonedBack.yy",},
     {"name":"spr_solarSabi3_stone","order":8,"path":"sprites/spr_solarSabi3_stone/spr_solarSabi3_stone.yy",},
     {"name":"spr_enemy_motherLily_leafSlash","order":4,"path":"sprites/spr_enemy_motherLily_leafSlash/spr_enemy_motherLily_leafSlash.yy",},

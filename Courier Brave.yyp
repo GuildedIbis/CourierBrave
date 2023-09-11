@@ -421,7 +421,7 @@
     {"id":{"name":"spr_enemy_clawWitch","path":"sprites/spr_enemy_clawWitch/spr_enemy_clawWitch.yy",},},
     {"id":{"name":"snd_introA","path":"sounds/snd_introA/snd_introA.yy",},},
     {"id":{"name":"spr_solarSabi2_active","path":"sprites/spr_solarSabi2_active/spr_solarSabi2_active.yy",},},
-    {"id":{"name":"spr_npc_iba","path":"sprites/spr_npc_iba/spr_npc_iba.yy",},},
+    {"id":{"name":"spr_npc_orodry","path":"sprites/spr_npc_orodry/spr_npc_orodry.yy",},},
     {"id":{"name":"spr_menu_square16","path":"sprites/spr_menu_square16/spr_menu_square16.yy",},},
     {"id":{"name":"spr_house_abandonedBack","path":"sprites/spr_house_abandonedBack/spr_house_abandonedBack.yy",},},
     {"id":{"name":"spr_solarSabi3_stone","path":"sprites/spr_solarSabi3_stone/spr_solarSabi3_stone.yy",},},

@@ -4,7 +4,7 @@
   "name": "spr_tileset_smithy",
   "bbox_bottom": 179,
   "bbox_left": 0,
-  "bbox_right": 589,
+  "bbox_right": 628,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
