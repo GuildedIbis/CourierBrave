@@ -8,7 +8,7 @@
 function scr_npc_orodry_create(){
 entity_step = scr_npc_orodry_step;
 sound = snd_npc_mouse;
-
+interact = 20;
 }
 
 
