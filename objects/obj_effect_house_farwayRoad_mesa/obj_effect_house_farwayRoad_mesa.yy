@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_effect_house_farwayRoad",
+  "name": "obj_effect_house_farwayRoad_mesa",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_house_farwayRoad_01",
-    "path": "sprites/spr_house_farwayRoad_01/spr_house_farwayRoad_01.yy",
+    "name": "spr_house_farwayRoad_mesa",
+    "path": "sprites/spr_house_farwayRoad_mesa/spr_house_farwayRoad_mesa.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_effect_house_farwayRoad_02",
+  "name": "obj_effect_house_farwayRoad_kovalad",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_house_farwayRoad_02",
-    "path": "sprites/spr_house_farwayRoad_02/spr_house_farwayRoad_02.yy",
+    "name": "spr_house_farwayRoad_kovalad",
+    "path": "sprites/spr_house_farwayRoad_kovalad/spr_house_farwayRoad_kovalad.yy",
   },
   "spriteMaskId": null,
   "visible": true,
