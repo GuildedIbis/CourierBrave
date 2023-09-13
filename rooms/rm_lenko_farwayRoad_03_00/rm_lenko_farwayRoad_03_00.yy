@@ -55,7 +55,6 @@
     {"name":"inst_97615E9","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_311FD72C","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_58F4C9B6","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
-    {"name":"inst_2CE05A1","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_5BFBD9EF","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_65104BD8","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_7DB445B7","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
@@ -63,6 +62,7 @@
     {"name":"inst_268EE372","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_5DB3BB8","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
     {"name":"inst_234980AA","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
+    {"name":"inst_451B4760","path":"rooms/rm_lenko_farwayRoad_03_00/rm_lenko_farwayRoad_03_00.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -148,26 +148,27 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_311FD72C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLightWindowCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_window_house",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":232.0,"y":152.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_58F4C9B6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLightWindowCreate",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":152.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2CE05A1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLightWindowCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.0,"y":152.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5BFBD9EF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowireCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowire",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":56.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_65104BD8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowireCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowire",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":56.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7DB445B7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowireCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowire",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":136.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1EA5E99B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowireCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectTorchBeaowire",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":88.0,"y":152.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5DB3BB8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_window_house_create",},
@@ -178,6 +179,11 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_campfire_farwayRoad_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_campfire_farwayRoad",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":68.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_451B4760","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLightWindowCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_window_house",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.0,"y":152.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
 -920,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
@@ -192,7 +198,7 @@
 -22,0,7,21,22,23,24,25,26,27,-13,0,7,61,62,63,64,65,66,67,
 -13,0,7,101,102,103,104,105,106,107,-13,0,7,141,142,143,144,145,0,147,
 -4,0,2,152,153,-7,0,4,181,182,183,184,-16,0,7,221,222,223,224,225,
-226,227,-13,0,7,261,262,263,264,265,266,267,-13,0,6,301,302,303,304,305,
+226,227,-13,0,7,261,262,263,264,0,0,267,-13,0,6,301,302,303,304,305,
 306,-72,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_smithy","path":"tilesets/tile_smithy/tile_smithy.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"BaseTIle","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileSerialiseData":[
 1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,

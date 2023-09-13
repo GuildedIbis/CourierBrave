@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tileset_smithy",
-  "bbox_bottom": 198,
+  "bbox_bottom": 235,
   "bbox_left": 0,
   "bbox_right": 628,
   "bbox_top": 0,

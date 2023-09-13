@@ -494,10 +494,12 @@ sprite_index = spr_torchWall_beaowire;
 //
 //Effect Statue Moth
 function EffectTorchBeaowire(){
+if (obj_game.gamePaused = false)
+{
 image_speed = 1;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 sprite_index = spr_torchWall_beaowire;
-
+}
 }

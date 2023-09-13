@@ -4,7 +4,7 @@
 //
 //
 //
-//Effect Regaliare Quest Door Create
+//Effect Farway Road Stone Door Create
 function scr_effect_door_farwayRoad_stone_create(){
 frag = false
 image_speed = 0;
@@ -58,7 +58,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //
-//Effect Door Standard
+//Effect Farway Road Stone Door 
 function scr_effect_door_farwayRoad_stone(){
 frag = false
 image_speed = 0;
@@ -94,7 +94,7 @@ if (obj_inventory.farwayRoad_map_ary[15][3] >= 1)
 //
 //
 //
-//Effect Regaliare Quest Door Create
+//Effect Farway Road Cemetery Door Create
 function scr_effect_door_farwayRoad_cemetery_create(){
 frag = false
 image_speed = 0;
@@ -148,7 +148,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //
-//Effect Door Standard
+//Effect Farway Road Cemetery Door Create
 function scr_effect_door_farwayRoad_cemetery(){
 frag = false
 image_speed = 0;
@@ -184,20 +184,21 @@ if (obj_inventory.farwayRoad_map_ary[10][3] >= 1)
 //
 //
 //
-//Effect Lekno Lake Path Rat Tent Create
+//Effect Rat Campfire Create
 function scr_effect_campfire_farwayRoad_create(){
 image_speed = 1;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 sprite_index = spr_light_campFire_rat;
+
 }
-	//
 //
 //
 //
 //
-//Effect Statue Moth
+//
+//Effect Rat Campfire
 function scr_effect_campfire_farwayRoad(){
 image_speed = 1;
 depth = -y;
@@ -206,12 +207,82 @@ image_yscale = 1;
 sprite_index = spr_light_campFire_rat;
 
 }
-	//
 //
 //
 //
 //
-//Effect Lekno Lake Path Rat Tent Create
+//
+//Effect Rat Campfire Create
+function scr_effect_farwayRoad_bonfire_create(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_town_bonfire;
+with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
+{
+	image_xscale = 4;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+}
+//
+//
+//
+//
+//
+//Effect Rat Campfire
+function scr_effect_farwayRoad_bonfire(){
+if (obj_game.gamePaused = false)
+{
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_town_bonfire;
+}
+}
+//
+//
+//
+//
+//
+//Effect Rat Campfire Create
+function scr_effect_farwayRoad_floorTorch_create(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_town_floorTorch;
+with (instance_create_layer(x-2,y-1,"Wall",obj_wall))
+{
+	image_xscale = .5;
+	image_yscale = 1;
+	game_paused_image_speed = image_speed;
+}
+}
+//
+//
+//
+//
+//
+//Effect Rat Campfire
+function scr_effect_farwayRoad_floorTorch(){
+if (obj_game.gamePaused = false)
+{
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_town_floorTorch;
+}
+}
+//
+//
+//
+//
+//
+//Effect Farway Road House Window Create
 function scr_effect_farwayRoad_window_house_create(){ 
 image_speed = 0;
 depth = -y;
@@ -224,8 +295,10 @@ sprite_index = spr_effect_window_farwayRoad_house;
 //
 //
 //
-//Effect Statue Moth
+//Effect Farway Road House Window
 function scr_effect_farwayRoad_window_house(){
+if (obj_game.gamePaused = false)
+{
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
@@ -233,7 +306,7 @@ image_yscale = 1;
 sprite_index = spr_effect_window_farwayRoad_house;
 if (global.dayPhase = 2) image_index = 0;
 else image_index = 1;
-
+}
 }
 //
 //

@@ -65,7 +65,7 @@ if (string_counter >= 2)
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
-	
+
 	//Reset Buy/Sell Menu
 	page = 0;
 	selected = -1;
