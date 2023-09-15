@@ -837,7 +837,6 @@
     {"name":"inst_6F8E41B6","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_2511BE19","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_5739099F","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
-    {"name":"inst_9B1783A","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_211F1FDF","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_558718A5","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_573339F3","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
@@ -874,7 +873,8 @@
     {"name":"inst_D578362","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_4C18D4C0","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_15BCA3DF","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
-    {"name":"inst_19BDD21F","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
+    {"name":"inst_558F511F","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
+    {"name":"inst_2133485","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -1067,11 +1067,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"camp_num","path":"objects/obj_door/obj_door.yy",},"value":"4",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_camp","path":"objects/obj_door/obj_door.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":448.0,"y":528.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_9B1783A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"StarOrbPedestalCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"StarOrbPedestalText",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":464.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_211F1FDF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"room_song","path":"objects/obj_song/obj_song.yy",},"value":"snd_song_farway_theme",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
@@ -1215,10 +1210,15 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"9",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.farwayRoad_resource_grid",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":728.0,"y":240.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_19BDD21F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_quest_item_02",},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_558F511F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_questItem","path":"objects/obj_questItem/obj_questItem.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_quest_item_02_create",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":696.0,"y":144.0,},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_quest_item_02",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":704.0,"y":144.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2133485","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_inanimate_pedestal_starorb_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_inanimate_pedestal_starorb",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":464.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4C988F61_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_houseAbandoned_back","path":"objects/obj_effect_houseAbandoned_back/obj_effect_houseAbandoned_back.yy",},"properties":[

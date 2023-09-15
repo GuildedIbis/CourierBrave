@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "NPC",
-    "path": "folders/Scripts/NPC.yy",
+    "name": "Interactables",
+    "path": "folders/Scripts/Interactables.yy",
   },
 }

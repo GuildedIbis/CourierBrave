@@ -15,13 +15,10 @@ chest_list = array_create(50,false)
 //
 //Star Orb and Crull Flower Lists
 function StarOrbList(){
-starOrb_list = array_create(72,false);
-//starOrb_list[0] = true;
-//crullUpgrade_list = array_create(5,false);
-//crullUpgrade_list[0] = true;
+starOrb_pedestal_list = array_create(102,false);
 
-crullS_list = array_create(50,false);
-crullM_list = array_create(50,false);
+
+
 
 //Sun Locations
 //0: Lake Path 1
@@ -52,9 +49,7 @@ beaowireFortress_map_ary = array_create(20,-1);
 northerPass_map_ary = array_create(20,-1);
 room_ary = farwayRoad_map_ary;
 //name
-//x spawn
-//y spawn
-//discoverd
+
 
 //Levels Unlocked
 level_ary[0] = true;
@@ -76,7 +71,10 @@ level_name[5] = "?";
 level_name[6] = "?";
 level_name[7] = "?";
 
-
+//Camp Grid
+//x spawn
+//y spawn
+//discovered (saved)
 camp_grid[# 0, 0] = "Farway Road 00"
 camp_grid[# 0, 1] = 88;
 camp_grid[# 0, 2] = 90;
@@ -202,9 +200,7 @@ camp_grid[# 29, 3] = false;
 //0: Name
 //1: Map X Location
 //2: May Y Location
-//3: Room Completion
-
-
+//3: Room Completion (saved)
 
 //Farway Road Map
 farwayRoad_map_ary[0][0] = "Farway Road 00";
@@ -220,7 +216,7 @@ farwayRoad_map_ary[2][1] = 32;
 farwayRoad_map_ary[2][2] = 27;
 farwayRoad_map_ary[2][3] = 0;
 farwayRoad_map_ary[3][0] = "Farway Road 03";
-farwayRoad_map_ary[3][1] = 32;
+farwayRoad_map_ary[3][1] = 16;
 farwayRoad_map_ary[3][2] = 45;
 farwayRoad_map_ary[3][3] = 0;
 farwayRoad_map_ary[4][0] = "Farway Road 04";

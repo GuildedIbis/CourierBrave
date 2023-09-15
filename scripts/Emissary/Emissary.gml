@@ -176,7 +176,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 	{
 		speaker = 1;
 		e_page = false;
-		draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+		//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 		text_string = "Kephra sent me with a formal decree and her regards,\nwill you hear it?"
 		_SubString = string_copy(text_string,1,letter_counter);
 		if (letter_counter >= string_length(text_string))
@@ -253,70 +253,64 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "By decree of Kephra, goddess and protector of the planet\nand realm we call Omlio, the usurper king of the East, known\nas the Acolyte, is banished from this realm."
+		text_string = "By decree of Kephra, goddess and protector of the planet\nand realm we call Omlio, Esecar Matos is summoned to her\ncourts for trial."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "Should the accused be found in this realm by this time\ntomorrow, they will be given the oppurtunity to submit\nthemselves to Kephra's authority."
+		text_string = "Should the accused be found and refuse submission, they\nwill be subject to whatever means deemed necessary, not\nwithholding any act of war, to detain them."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "Should the accused be found and refuse submission, they\nwill be subject to whatever means deemed necessary, not\nwithholding any act of war, to detain the accused."
+		text_string = "It is on these specific acts the accused is charged...\nfour acts of conspiracy in murder, including Ulav Fir,\nKing of the Beetre..."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 4)
 	{
 		speaker = 1;
-		text_string = "It is on these specific acts the accused is charged...\nfour acts of conspiracy in murder, including Ulav Fir,\nKing of the Beetre..."
+		text_string = "...seven acts of murder, including the murders of Persio\nYoth, Queen of the Mountain, and her heir Princess Thesio..."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 5)
 	{
 		speaker = 1;
-		text_string = "...seven acts of murder, including the murders of Persio\nYoth, Queen of the Mountain, and her heir Princess Thesio..."
+		text_string = "...and the wrongful destruction and ocupation of the\nkingdoms of the east, including the burning of many lands."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 6)
 	{
 		speaker = 1;
-		text_string = "...and the wrongful destruction of the kingdom of the\nsouth, including the burning of those lands."
+		text_string = "This decree comes with a message from Kephra to the\ngood creatures of this realm..."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 7)
 	{
 		speaker = 1;
-		text_string = "This decree comes with a message from Kephra to the\ngood creatures of this realm..."
+		text_string = "Take courage, those of the east whose kingdoms have fallen\nto ruin. The dark age you endured draws to it's end and your\nhomes will be rebuilt..."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 8)
 	{
 		speaker = 1;
-		text_string = "Take courage, those of the east whose kingdoms have fallen\nto ruin. The dark age you endured draws to it's end and your\nhomes will be rebuilt..."
+		text_string = "Take strength, those of the west, where war has never\nceased. The head of the snake well be crushed, and you will\nhave rest."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 9)
 	{
 		speaker = 1;
-		text_string = "Take strength, those of the west, where war has never\nceased. The head of the snake is soon crushed, and you will\nhave rest."
+		text_string = "Justice rides out today, by court or sword."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 10)
 	{
 		speaker = 1;
-		text_string = "Justice rides out today, by court or sword."
-		_SubString = string_copy(text_string,1,letter_counter);
-	}
-	if (string_counter = 11)
-	{
-		speaker = 1;
 		text_string = "...\n...\nThis ends the 11th Decree of Kephra, and for you Regaliare,\nshe sends her regards."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
-	if (string_counter >= 12)
+	if (string_counter >= 11)
 	{
 		speaker = 1;
 		text_string = ""
@@ -356,30 +350,26 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 		speaker = 1;
 		text_string = "Regaliare, Captain of the Couriers...\nfortunate are the good creatures of Omlio to have such\nguardians as the Couriers. Now comes a day when they are\nagain in need." 
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "The Acolyte is a mortal- but weilds the power not only\nto avoid death, but perhaps also to summon the great evil\nthe Courier's destroyed ages ago."
+		text_string = "Esecar Matos is a dark mage of immense strength, and has the\npower to avoid death. Yet, this is not his quality that\nbrings you to Omlio- it is that he has openly declared\nhimself \"The Acolyte\"."
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "The return of the Great Evil would bring a war to this realm,\nthe likes of which no good creature could survive...\nThe Acolyte must be stopped, and you alone have the\npower to stop him."
+		text_string = "The Acolyte is the leader of the mortal armies of the\nGreat Evil who the Courier's destroyed long ago... it is\nclear that his intent to summon the Great Evil, who would\nbring a war to this realm, the likes of which no good\ncreature would survive..."
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
 	}
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "It is time Regaliare, most brave and honorable of Kephra's\nwarriors. Go now, without weariness until your objective is\ncomplete."
+		text_string = "It is time Regaliare, most brave and honorable of Kephra's\nwarriors. Go to Omlio and do whatever must be done to\nprevent the Acolyte from his objective...\nGo now, without weariness until your objective is\ncomplete."
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
 	}
 	if (string_counter = 4)
@@ -387,7 +377,6 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
 		speaker = 1;
 		text_string = "With the command of Kephra, I awaken the stones of power.\nMay they aid you on your journey."
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(72,128,"Press E to Continue",.5,.5,0);
 
 	}
 	if (string_counter >= 5)

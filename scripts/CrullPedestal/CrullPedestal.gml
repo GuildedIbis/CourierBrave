@@ -5,7 +5,7 @@
 //
 //
 //Crull Stone Pedestal Create
-function CrullStonePedestalCreate(){
+function xCrullStonePedestalCreate(){
 entity_step = CrullStonePedestalStep;
 shadow = true;
 shadow_size = 1;
@@ -21,7 +21,7 @@ idle_sprite = spr_crull_pedestal_empty;
 //
 //
 //Crull Stone Pedestal Step
-function CrullStonePedestalStep(){
+function xCrullStonePedestalStep(){
 if (obj_game.gamePaused = false)
 {
 	scr_npc_interact(12);
@@ -43,7 +43,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Crull Stone 1 Text
-function CrullStonePedestal1Text(){
+function xCrullStonePedestal1Text(){
 //Stone
 if (obj_inventory.crullStone_list[1] = false)
 {
@@ -145,7 +145,7 @@ if (obj_inventory.crullStone_list[1] = true)
 //
 //
 //Crull Stone 2 Text
-function CrullStonePedestal2Text(){
+function xCrullStonePedestal2Text(){
 //Stone
 if (obj_inventory.crullStone_list[2] = false)
 {

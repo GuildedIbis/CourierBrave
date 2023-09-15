@@ -4,7 +4,7 @@
 //
 //
 //Crull Upgrade Pedestal Create
-function CrullUpgradePedestalCreate(){
+function xCrullUpgradePedestalCreate(){
 entity_step = CrullUpgradePedestalStep;
 sound = -1;
 active_sprite = spr_crullUpgrade_pedestal;
@@ -16,7 +16,7 @@ idle_sprite = spr_crull_pedestal_empty;
 //
 //
 //Crull Upgrade Pedestal Step
-function CrullUpgradePedestalStep(){
+function xCrullUpgradePedestalStep(){
 if (obj_inventory.crullUpgrade_list[activate_args] = false)
 {
 		sprite_index = active_sprite;
@@ -34,7 +34,7 @@ else
 //
 //
 //Crull Upgrade 1 Text
-function CrullUpgradePedestal1Text(){
+function xCrullUpgradePedestal1Text(){
 //Stone
 if (obj_inventory.crullUpgrade_list[1] = false)
 {

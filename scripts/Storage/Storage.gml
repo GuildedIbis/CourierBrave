@@ -7,7 +7,7 @@
 //
 //
 //Storage Create
-function StorageCreate(){
+function xStorageCreate(){
 entity_step = StorageStep;
 sound = snd_chest;
 animation_counter = 0;
@@ -19,7 +19,7 @@ animation_timer = 180;
 //
 //
 //Storage Step
-function StorageStep(){
+function xStorageStep(){
 sprite_index = spr_chest;
 image_index = 0;
 }
@@ -29,7 +29,7 @@ image_index = 0;
 //
 //
 //Storage Text
-function StorageText(){
+function xStorageText(){
 //Before Talking to Nisma
 if (obj_inventory.quest_grid[# 1, 0] = false)
 {
@@ -124,7 +124,7 @@ if (obj_inventory.quest_grid[# 1, 0] = true)
 //
 //
 //Storage Menu
-function StorageMenu(){
+function xStorageMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
@@ -231,7 +231,7 @@ if (keyboard_check_pressed(ord("E")))
 //
 //
 //Items GUI from Storage
-function DrawItemSMenu(){
+function xDrawItemSMenu(){
 //Variable Declaration
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
@@ -291,7 +291,7 @@ DrawStoreSelectedItem(_object.item_grid,spr_item_all);
 //
 //
 //Draw Selected
-function DrawStoreSelectedItem(_gearType,_gearSprite){
+function xDrawStoreSelectedItem(_gearType,_gearSprite){
 //Convert Mouse to GUI 1834
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
@@ -374,7 +374,7 @@ if (item_id != -1)
 //
 //
 //Stroage GUI
-function DrawStorageMenu(){
+function xDrawStorageMenu(){
 //Variable Declaration
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
@@ -431,7 +431,7 @@ DrawTakeSelectedItem(_object.item_grid,spr_item_all);
 //
 //
 //Draw Selected
-function DrawTakeSelectedItem(_gearType,_gearSprite){
+function xDrawTakeSelectedItem(_gearType,_gearSprite){
 //Convert Mouse to GUI 1834
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);

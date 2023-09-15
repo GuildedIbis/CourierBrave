@@ -96,7 +96,7 @@ if (point_in_rectangle(_mouseX,_mouseY,138,8,159,36)) //Quest Menu
 		selected_info = Idle;
 		page = 0;
 		slot = -1
-		inv_gui = QuestMenuGUI;
+		inv_gui = scr_menu_quest;
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,161,8,182,36)) //Map Menu

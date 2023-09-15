@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Dungeonlog",
+  "name": "xDungeonlog",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

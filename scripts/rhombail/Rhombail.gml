@@ -114,7 +114,7 @@ draw_set_halign(fa_center);
 draw_text_transformed(160,76,">",.75,.75,0);
 draw_sprite_ext(spr_rog_menu_all,5,162,66,1,1,0,c_white,1);
 draw_set_halign(fa_right);
-draw_text_transformed(196,76,"1 (" + string(obj_inventory.rog_array[5]) + ")",.5,.5,0);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
@@ -123,7 +123,7 @@ if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 		if (obj_inventory.resource_array[4] >= 5)
 		{
 			obj_inventory.resource_array[4] = obj_inventory.resource_array[4] - 5;
-			obj_inventory.rog_array[5] = obj_inventory.rog_array[5] + 1;
+			obj_inventory.rog_array[1] = obj_inventory.rog_array[1] + 1;
 		}
 	}
 }

@@ -5,7 +5,7 @@
 //
 //
 //Draw Stats
-function QuestMenuGUI(){
+function scr_menu_quest(){
 //Does not include mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

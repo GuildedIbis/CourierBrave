@@ -36,11 +36,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 //Format
 draw_set_font(global.fnt_main_white);
-//draw_set_halign(fa_left)
-//draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-//draw_set_color(c_white);
-//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 var _name = "Orodry"
 
 //Draw Based on String Counter

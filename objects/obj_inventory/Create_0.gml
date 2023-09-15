@@ -11,7 +11,7 @@ scr_items_create();
 script_execute(scr_crull_list_create);
 script_execute(FormCreate);
 script_execute(QuestlogCreate);
-script_execute(DungeonlogCreate);
+//script_execute(DungeonlogCreate);
 script_execute(CampRooms);
 script_execute(MapsCreate);
 script_execute(ChestList);

@@ -5,8 +5,8 @@
 //
 //
 //Star Orb Pedestal Create
-function StarOrbPedestalCreate(){
-entity_step = StarOrbPedestalStep;
+function scr_inanimate_pedestal_starorb_create(){
+entity_step = scr_inanimate_pedestal_starorb;
 shadow = true;
 shadow_size = 2;
 sound = -1;
@@ -21,16 +21,16 @@ idle_sprite = spr_starOrb_pedestal_stone;
 //
 //
 //Star Orb Pedestal Step
-function StarOrbPedestalStep(){
+function scr_inanimate_pedestal_starorb(){
 if (obj_game.gamePaused = false)
 {
 	scr_npc_interact(12);
-	if (obj_inventory.starOrb_list[activate_args] = false)
+	if (obj_inventory.starOrb_pedestal_list[activate_args] = false)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) sprite_index = active_sprite;
 		else sprite_index = idle_sprite;
 		image_speed = 1;
-		activate_script = StarOrbPedestalText;
+		activate_script = scr_text_inanimate_pedestal_starorb;
 	}
 	else
 	{
@@ -46,7 +46,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Star orb Text
-function StarOrbPedestalText(){
+function scr_text_inanimate_pedestal_starorb(){
 //Set
 draw_set_font(fnt_text);
 draw_set_halign(fa_left)
@@ -70,7 +70,7 @@ if (string_counter >= 1)
 	text_string = ""
 	string_counter = 0;
 	obj_inventory.star_orb = obj_inventory.star_orb + 1;
-	obj_inventory.starOrb_list[quest_num] = true;
+	obj_inventory.starOrb_pedestal_list[quest_num] = true;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
