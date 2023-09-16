@@ -1,60 +1,12 @@
 //Active Quest Draw Scripts
-//
-//
-//
-//
-//
-//Quest 00: The Courier
-function scr_menu_quest_selected(_questNum){
-//mouse conversion to GUI
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 38;
-var _descY = 56;
-var _compY = 111;
 
-//Draw
-draw_sprite_stretched(spr_menu_beveled,3,166,35,110,96);
-draw_sprite_stretched(spr_menu,8,161,35,120,16);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-
-if (slot = -1)
-{
-	var _headerText = "SELECT A QUEST"
-	var _desc = "\"O\" marks a quest you've started,\n\"V\" marks a quest you've completed."
-
-}
-else
-{
-	
-	var _headerText = quest_grid[# _questNum, 6]
-	var _desc = quest_grid[# _questNum, 5]
-}
-draw_set_color(c_black);
-draw_text_transformed(_midX,_titleY,_headerText,.5,.5,0);
-draw_text_transformed(_midX,_descY,_desc,.35,.35,0);
-//draw_text_transformed(169,114,"TRACK",.35,.35,0);
-draw_set_color(c_white);
-draw_text_transformed(_midX-1,_titleY,_headerText,.5,.5,0);
-draw_text_transformed(_midX-1,_descY,_desc,.35,.35,0);
-//draw_text_transformed(168,114,"TRACK",.35,.35,0);
-
-//if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
-//{
-//	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
-//	obj_player.tracking_quest = TheCourierActiveDraw;
-//}
-}
 //
 //
 //
 //
 //
 //Quest 01: An Old Mouse
-function AnOldMouseMenuDraw(){
+function xAnOldMouseMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -89,7 +41,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 02: The Smith
-function TheSmithMenuDraw(){
+function xTheSmithMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -122,7 +74,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 03: Endire Knight Tnaks
-function EndireKnightTnaksMenuDraw(){
+function xEndireKnightTnaksMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -155,7 +107,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 04: Endire Knight Obor
-function EndireKnightOborMenuDraw(){
+function xEndireKnightOborMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -188,7 +140,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 05: Endire Knight Ghafate
-function EndireKnightGhafateMenuDraw(){
+function xEndireKnightGhafateMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -221,7 +173,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 06: Moon Over Lenko
-function MoonOverLenkoMenuDraw(){
+function xMoonOverLenkoMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -254,7 +206,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 07: Dual Stars Over Lenko
-function DualStarsOverLenkoMenuDraw(){
+function xDualStarsOverLenkoMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -287,7 +239,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 08: Lair: Yakflower Path
-function LairYakflowerPathMenuDraw(){
+function xLairYakflowerPathMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -320,7 +272,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 09: Lair: Lake Habraf
-function LairLakeHabrafMenuDraw(){
+function xLairLakeHabrafMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -353,7 +305,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 10: Regaliare's Quest
-function RegaliareQuestMenuDraw(){
+function xRegaliareQuestMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -386,7 +338,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 11: Adavio's Quest
-function AdavioQuestMenuDraw(){
+function xAdavioQuestMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -419,7 +371,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 12: Ceriver's Quest
-function CeriverQuestMenuDraw(){
+function xCeriverQuestMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -452,7 +404,7 @@ if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
 //
 //
 //Quest 13: Halofire's Quest
-function HalofireQuestMenuDraw(){
+function xHalofireQuestMenuDraw(){
 //mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

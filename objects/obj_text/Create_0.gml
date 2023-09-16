@@ -6,6 +6,7 @@ speaker = 0;
 string_counter = 0;
 letter_counter = 0;
 letter_timer = 0;
+sound_timer = 0;
 quest_num = -1;
 text_script = Idle;
 text_string = "";

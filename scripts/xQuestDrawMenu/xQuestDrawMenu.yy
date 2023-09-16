@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "QuestDrawMenu",
+  "name": "xQuestDrawMenu",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

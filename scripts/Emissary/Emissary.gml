@@ -132,7 +132,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 //
 //
 //Initial Dialogue;
-if (obj_inventory.quest_grid[# 89, 0] = false)
+if (obj_inventory.quest_grid[# 0, 0] = false)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -188,14 +188,14 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 			draw_sprite_stretched(spr_menu_circle16,1,70,114,180,20);
 			var _buttonString = "Yes, thank you Sheeda."
 			var _buttonString2 = "Only her regards please. (Skip Intro)"
-			draw_text_transformed(76,102,_buttonString,.6,.6,0)
-			draw_text_transformed(76,124,_buttonString2,.6,.6,0)
+			draw_text_transformed(76,102,_buttonString,.6,.6,0);
+			draw_text_transformed(76,124,_buttonString2,.6,.6,0);
 			if (point_in_rectangle(_mouseX,_mouseY,70,92,250,112))
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,69,91,182,22);
 				if (mouse_check_button_pressed(mb_left))
 				{
-					obj_inventory.quest_grid[# 89, 0] = true;
+					obj_inventory.quest_grid[# 0, 0] = true;
 					e_page = true;
 					text_string = "";
 					letter_counter = 0;
@@ -233,7 +233,7 @@ if (obj_inventory.quest_grid[# 89, 0] = false)
 //
 //
 //Kephra's Decree Dialogue;
-if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
+if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 0)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -334,7 +334,7 @@ if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 0)
 //
 //
 //Kephra's Regards Dialogue;
-if (obj_inventory.quest_grid[# 89, 0] = true) and (page = 1)
+if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 1)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)

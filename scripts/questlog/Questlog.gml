@@ -5,7 +5,7 @@
 //
 //
 //Questlog Create
-function QuestlogCreate(){
+function scr_inventory_questlog_create(){
 //Quests
 quest_grid = ds_grid_create(100,7);
 //farwayRoad_level = array_create(23,0);
@@ -25,15 +25,15 @@ quest_grid[# 0, 1] = 0;
 quest_grid[# 0, 2] = 1;
 quest_grid[# 0, 3] = false;
 quest_grid[# 0, 4] = Idle;
-quest_grid[# 0, 5] = "The powerful mage Escar Matos has seized the Eastern kingdoms with his armies, and wages war on the West.\nHe has declared himself the Acolyte of the Great Evil, and\nhe will summon the Great Evil to gain control over all of Omlio\nif he isn't stopped.";
+quest_grid[# 0, 5] = "Stop the Acolyte before he summons\nThe Great Evil.\n\nThe powerful mage Escar Matos has seized the Eastern kingdoms with his armies, and wages war on the West.\nHe has declared himself the Acolyte of the Great Evil, who\nhe will summon to gain control over all of Omlio if he\nisn't stopped.";
 quest_grid[# 0, 6] = "Acolyte of Evil";
 quest_grid[# 1, 0] = false;
 quest_grid[# 1, 1] = 0;
 quest_grid[# 1, 2] = 1;
 quest_grid[# 1, 3] = false;
 quest_grid[# 1, 4] = Idle;
-quest_grid[# 1, 5] = "Find the form of Halofire.\n\nHalofire is the Courier of Star Fire.\nHis knowledge of the children stars is vast,\nand from them his might flows.";
-quest_grid[# 1, 6] = "The Starfire Lavos";
+quest_grid[# 1, 5] = "Halofire's Form Stone found.\n\nHalofire is the Courier of Star Fire.\nHis knowledge of the children stars is\nimmense, and he wields their fire as a weapon.";
+quest_grid[# 1, 6] = "Lavos of Star Fire";
 quest_grid[# 2, 0] = false;
 quest_grid[# 2, 1] = 0;
 quest_grid[# 2, 2] = 1;
@@ -176,6 +176,6 @@ quest_grid[# 89, 6] = "The Necromancer";
 //
 //
 //Quest Reset Days End Script
-function QuestResetDaysEnd(){
-if (obj_inventory.quest_grid[# 7, 1] < obj_inventory.quest_grid[# 7, 2]) obj_inventory.quest_grid[# 7, 1] = 0;
+function scr_inventory_quest_reset_daily(){
+
 }

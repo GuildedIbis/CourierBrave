@@ -5,7 +5,7 @@
 //
 //
 //Crull Lists
-function scr_crull_list_create(){
+function scr_inventory_crull_create(){
 crull_script = array_create(25);
 crull_recipe = array_create(25,false);
 crull_recipe[0] = true;

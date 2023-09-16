@@ -11,16 +11,15 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 //Buttons Alignment
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 //Menu Base and Buttons
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,96);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
-draw_set_color(c_black);
-draw_text_transformed(102,43,"QUESTS",.6,.6,0);
 draw_set_color(c_white);
-draw_text_transformed(101,43,"QUESTS",.6,.6,0);
+draw_text_transformed(101,43,"QUESTS",1,1,0);
 
 
 //Slider
@@ -96,3 +95,52 @@ for (var i = 0; i < 20; i = i + 1)
 scr_menu_quest_selected(slot);
 
 }	
+//
+//
+//
+//
+//
+//Quest Selected
+function scr_menu_quest_selected(_questNum){
+//mouse conversion to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 38;
+var _descY = 56;
+var _compY = 111;
+
+//Draw
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,96);
+draw_sprite_stretched(spr_menu,8,161,35,120,16);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+
+if (slot = -1)
+{
+	var _headerText = "SELECT A QUEST"
+	var _desc = "\"O\" marks a quest you've started,\n\"V\" marks a quest you've completed."
+
+}
+else
+{
+	
+	var _headerText = quest_grid[# _questNum, 6]
+	var _desc = quest_grid[# _questNum, 5]
+}
+
+draw_set_color(c_white);
+draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+draw_text_transformed(_midX-1,_descY,_desc,.5,.5,0);
+//draw_text_transformed(168,114,"TRACK",.35,.35,0);
+
+//if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
+//{
+//	draw_sprite_stretched(spr_highlight_nineslice,0,160,108,36,17);
+//	obj_player.tracking_quest = TheCourierActiveDraw;
+//}
+}

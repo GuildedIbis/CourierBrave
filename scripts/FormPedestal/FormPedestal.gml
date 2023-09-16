@@ -52,6 +52,7 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -97,6 +98,7 @@ if (obj_inventory.form_grid[# 3, 4] = true)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -147,6 +149,7 @@ if (obj_inventory.form_grid[# 2, 4] = false)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 
 	//Draw Based on String Counter
@@ -179,20 +182,25 @@ if (obj_inventory.form_grid[# 2, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
+	draw_set_color(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Active
 if (obj_inventory.form_grid[# 2, 4] = true)
 {
 	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -223,10 +231,14 @@ if (obj_inventory.form_grid[# 2, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
+	draw_set_color(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -246,7 +258,7 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
-
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -255,7 +267,6 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 		speaker = 1;
 		text_string = "Halofire's Form Stone Found.\nComplete: Lavos of Star Fire"
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	
 	if (string_counter >= 1)
@@ -263,9 +274,9 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 		text_string = ""
 		string_counter = 0;
 		obj_inventory.form_grid[# 1, 4] = true;
-		obj_inventory.quest_grid[# 0, 0] = true;
-		obj_inventory.quest_grid[# 0, 1] = obj_inventory.quest_grid[# 0, 2];
-		obj_inventory.quest_grid[# 0, 3] = true;
+		obj_inventory.quest_grid[# 1, 0] = true;
+		obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 2];
+		obj_inventory.quest_grid[# 1, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -278,10 +289,14 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Active
@@ -292,6 +307,7 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -300,15 +316,14 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 		speaker = 1;
 		text_string = "Halofire's Form Stone was here." 
 		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 0, 0] = true;
-		obj_inventory.quest_grid[# 0, 1] = obj_inventory.quest_grid[# 0, 2];
-		obj_inventory.quest_grid[# 0, 3] = true;
+		obj_inventory.quest_grid[# 1, 0] = true;
+		obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 2];
+		obj_inventory.quest_grid[# 1, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -322,10 +337,14 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -342,10 +361,11 @@ function FormStonePedestal4Text(){
 if (obj_inventory.form_grid[# 4, 4] = false)
 {
 	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 
 	//Draw Based on String Counter
@@ -388,10 +408,11 @@ if (obj_inventory.form_grid[# 4, 4] = false)
 if (obj_inventory.form_grid[# 4, 4] = true)
 {
 	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
 	draw_set_color(c_white);
 	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString

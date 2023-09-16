@@ -5,7 +5,7 @@
 //
 //
 //Form Array
-function FormCreate(){
+function scr_inventory_form_create(){
 form_grid = ds_grid_create(18,9);
 
 //Regaliare 

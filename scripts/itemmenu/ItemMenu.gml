@@ -1,5 +1,5 @@
 //Create Item Array
-function scr_items_create(){
+function scr_inventory_items_create(){
 //Create Items
 beans = 0;
 star_orb = 0;

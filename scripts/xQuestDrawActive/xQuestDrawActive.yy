@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "QuestDrawActive",
+  "name": "xQuestDrawActive",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

@@ -5,14 +5,14 @@
 //
 //
 //Alt Magic Pedestal Create
-function AltMagicPedestalCreate(){
-entity_step = AltMagicPedestalStep;
+function scr_pedestal_altMagic_create(){
+entity_step = scr_pedestal_altMagic_step;
 sound = -1;
 shadow = true;
 shadow_size = 2;
 active_sprite = spr_form_pedestal;
 idle_sprite = spr_form_pedestal_empty;
-pedestal_index = obj_player.form;
+pedestal_index = 0;
 }
 //
 //
@@ -20,7 +20,7 @@ pedestal_index = obj_player.form;
 //
 //
 //Alt magic Pedestal Step
-function AltMagicPedestalStep(){
+function scr_pedestal_altMagic_step(){
 scr_npc_interact(12);
 if (obj_inventory.quest_grid[# activate_args, 3] = false)
 {
@@ -40,9 +40,9 @@ else
 //
 //
 //Regaliare's Alt Magic Pedestal Text
-function AltMagicPedestal0Text(){
+function scr_text_pedestal_altMagic_00(){
 //Stone
-if (obj_inventory.quest_grid[# 2, 3] = false)
+if (obj_inventory.quest_grid[# 3, 3] = false)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -65,9 +65,9 @@ if (obj_inventory.quest_grid[# 2, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 2, 0] = true;
-		obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 2];
-		obj_inventory.quest_grid[# 2, 3] = true;
+		obj_inventory.quest_grid[# 3, 0] = true;
+		obj_inventory.quest_grid[# 3, 1] = obj_inventory.quest_grid[# 3, 2];
+		obj_inventory.quest_grid[# 3, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -90,7 +90,7 @@ if (obj_inventory.quest_grid[# 2, 3] = false)
 }
 
 //Active
-if (obj_inventory.quest_grid[# 2, 3] = true)
+if (obj_inventory.quest_grid[# 3, 3] = true)
 {
 	draw_set_font(fnt_text);
 	draw_set_halign(fa_left)
@@ -111,9 +111,9 @@ if (obj_inventory.quest_grid[# 2, 3] = true)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 2, 0] = true;
-		obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 2];
-		obj_inventory.quest_grid[# 2, 3] = true;
+		obj_inventory.quest_grid[# 3, 0] = true;
+		obj_inventory.quest_grid[# 3, 1] = obj_inventory.quest_grid[# 3, 2];
+		obj_inventory.quest_grid[# 3, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -144,7 +144,7 @@ if (obj_inventory.quest_grid[# 2, 3] = true)
 //
 //
 //Halofire's Alt Magic Pedestal Text
-function AltMagicPedestal1Text(){
+function scr_text_pedestal_altMagic_01(){
 //Stone
 if (obj_inventory.quest_grid[# 7, 3] = false)
 {
@@ -248,7 +248,7 @@ if (obj_inventory.quest_grid[# 7, 3] = true)
 //
 //
 //Adavio's Alt Magic Pedestal Text
-function AltMagicPedestal2Text(){
+function scr_text_pedestal_altMagic_02(){
 //Stone
 if (obj_inventory.quest_grid[# 12, 3] = false)
 {
@@ -352,7 +352,7 @@ if (obj_inventory.quest_grid[# 12, 3] = true)
 //
 //
 //Ceriver's Alt Magic Pedestal Text
-function AltMagicPedestal3Text(){
+function scr_text_pedestal_altMagic_03(){
 //Stone
 if (obj_inventory.quest_grid[# 17, 3] = false)
 {
