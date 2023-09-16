@@ -38,7 +38,7 @@ function xCrullUpgradePedestal1Text(){
 //Stone
 if (obj_inventory.crullUpgrade_list[1] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -73,7 +73,7 @@ if (obj_inventory.crullUpgrade_list[1] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -85,7 +85,7 @@ if (obj_inventory.crullUpgrade_list[1] = false)
 //Active
 if (obj_inventory.crullUpgrade_list[1] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -118,7 +118,7 @@ if (obj_inventory.crullUpgrade_list[1] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);

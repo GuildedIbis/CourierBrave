@@ -5,15 +5,15 @@
 //
 //
 //Halofire Selected Menu
-function HalofireSelectedMenu(){
+function scr_menu_halofire(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _scriptList = array_create(4,-1)
-_scriptList[0] = HalofireArmorMenu;
-_scriptList[1] = HalofireWeaponMenu;
-_scriptList[2] = HalofireCrystalMenu;
-_scriptList[3] = HalofireSpecialMenu;
+_scriptList[0] = scr_menu_halofire_armor;
+_scriptList[1] = scr_menu_halofire_weapon;
+_scriptList[2] = scr_menu_halofire_primary;
+_scriptList[3] = scr_menu_halofire_special;
 
 //Right-hand Menu and Buttons
 draw_sprite(spr_menu_rope,3,176,77);
@@ -29,11 +29,11 @@ draw_sprite_stretched(spr_menu,8,161,35,120,16);
 draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 
 //Title
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(102,38,"HALOFIRE",.6,.6,0);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(101,38,"HALOFIRE",.6,.6,0);
+draw_text_transformed(101,39,"HALOFIRE",1,1,0);
 
 for (var i = 0; i < 4; i = i + 1)
 {
@@ -63,35 +63,30 @@ if (selected_info != -1) script_execute(selected_info)
 //
 //
 //Draw Halofire Hamaxe Menu in Inventory
-function HalofireWeaponMenu(){
+function scr_menu_halofire_weapon(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 1, 5]) + " > " + string(obj_inventory.form_grid[# 1, 5]+1);
 var _stat = "Damage: " + string(38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5])) + " > " + string(38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]+1));
 var _title = "HAMAXE";
 var _describe = "A slow swinging axe that does\nhigh damage and knockback.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -118,15 +113,11 @@ switch (obj_inventory.form_grid[# 1, 5])
 
 		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -150,15 +141,11 @@ switch (obj_inventory.form_grid[# 1, 5])
 
 		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 
@@ -170,35 +157,30 @@ switch (obj_inventory.form_grid[# 1, 5])
 //
 //
 //Draw Halofire Fireward Armor Menu in Inventory
-function HalofireArmorMenu(){
+function scr_menu_halofire_armor(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 1, 6]) + " > " + string(obj_inventory.form_grid[# 1, 6]+1);
 var _stat = "Negates: " + string(7 + (4 * (obj_inventory.form_grid[# 1, 6]))) + " > " + string(7 + (4 * (obj_inventory.form_grid[# 1, 6]+1)));
 var _title = "FIREWARD TUNIC";
 var _describe = "A warded tunic that blocks a\nlow amount of damage.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -225,15 +207,11 @@ switch (obj_inventory.form_grid[# 1, 6])
 
 		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -257,15 +235,11 @@ switch (obj_inventory.form_grid[# 1, 6])
 
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 
@@ -276,12 +250,12 @@ switch (obj_inventory.form_grid[# 1, 6])
 //
 //
 //Draw Halofire Meteor Menu in Inventory
-function HalofireCrystalMenu(){
+function scr_menu_halofire_primary(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
@@ -291,44 +265,35 @@ var _buttonY = 127;
 if (page = 0)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 1, 7]) + " > " + string(obj_inventory.form_grid[# 1, 7]+1);
 	var _stat = "Damage: " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14))) + " > " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7] + 1)*(14)));
 	var _title = "METEOR SLING";
 	var _describe = "Slowly fire meteors that have low accuracy\nbut deal high damage.";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
-	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 if (page = 1)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 1, 7]) + " > " + string(obj_inventory.form_grid[# 1, 7]+1);
 	var _stat = "Damage: " + string(3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]))) + " > " + string(3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]+1)));
 	var _title = "FIRE SPIT";
 	var _describe = "Rapidly spit flames that linger for\na brief period, and leave\nthe target burned";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
-	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 
 //Alt Magic
@@ -375,15 +340,11 @@ switch (obj_inventory.form_grid[# 1, 7])
 
 		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -407,15 +368,11 @@ switch (obj_inventory.form_grid[# 1, 7])
 
 		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 }
@@ -425,35 +382,30 @@ switch (obj_inventory.form_grid[# 1, 7])
 //
 //
 //Draw Halofire Special Menu in Inventory
-function HalofireSpecialMenu(){
+function scr_menu_halofire_special(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 1, 8]) + " > " + string(obj_inventory.form_grid[# 1, 8]+1);
 var _stat = "Damage: " + string(10 + (3 * obj_player.divinity) + (3 * obj_inventory.form_grid[# 3, 8])) + " > " + string(10 + (3 * obj_player.divinity) + (3 * obj_inventory.form_grid[# 3, 8]+1));
 var _title = "FLAMESEED TURRET";
 var _describe = "Summon a flame seed that fires randomly\nor selects a traget when in range.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -480,15 +432,11 @@ switch (obj_inventory.form_grid[# 1, 8])
 
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -510,17 +458,13 @@ switch (obj_inventory.form_grid[# 1, 8])
 			}
 		}
 
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
+		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[1])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 }

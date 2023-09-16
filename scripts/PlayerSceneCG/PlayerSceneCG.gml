@@ -16,7 +16,7 @@ function PlayerSceneCG(){
 //
 //Text for Player CG Scene
 function PlayerSceneTextCG(){
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)
 draw_sprite_stretched(menu_sprite,3,0,0,320,180);
@@ -58,7 +58,7 @@ if (string_counter >= 1)
 //		scene = false;
 //	}
 //}
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

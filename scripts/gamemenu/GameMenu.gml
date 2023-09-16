@@ -64,8 +64,8 @@ if (point_in_rectangle(_mouseX,_mouseY,195,37,251,122))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		script_execute(SaveGameSettings);
-		script_execute(LoadGameSettings);
+		//script_execute(SaveGameSettings);
+		//script_execute(LoadGameSettings);
 		if (global.current_save != -1) script_execute(global.current_save);
 		game_restart();
 	}
@@ -89,11 +89,11 @@ if (timer1 > 0)
 	//draw_text(version)
 	timer1 = timer1 - 1;
 	
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(4,176,string(version),.35,.35,0);
+	draw_text_transformed(4,176,string(version),.5,.5,0);
 	draw_set_halign(fa_right);
-	draw_text_transformed(308,176,"Developed by Guilded Ibis",.35,.35,0)
+	draw_text_transformed(308,176,"Developed by Guilded Ibis",.5,.5,0)
 }
 if (timer1 <= 0)
 {
@@ -123,6 +123,7 @@ if (point_in_rectangle(_mouseX,_mouseY,90,44,230,64))//Settings Menu
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
+		script_execute(LoadGameSettings);
 		home_menu = scr_menu_save_select;
 		restart = false;
 		restart2 = false;

@@ -7,7 +7,7 @@
 function Chest000Text(){
 //Lenko, Lake Path 8, North of Bridge
 activate_args = 0;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -54,7 +54,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -70,7 +70,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest001Text(){
 //Lenko: Farway Road 4, Northeast Corner
 activate_args = 1;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -122,7 +122,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -140,7 +140,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest002Text(){
 //Lenko, Lake Path 3, northwest corner
 activate_args = 2;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -188,7 +188,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -205,7 +205,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest003Text(){
 //Lenko, Farway Road 6, northeast corner
 activate_args = 3;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -256,7 +256,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -273,7 +273,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest004Text(){
 //Lenko, Lake Path 2, northeast corner
 activate_args = 4;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -324,7 +324,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -341,7 +341,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest005Text(){
 //Lenko, Farway Road 7, northeast corner
 activate_args = 5;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -392,7 +392,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -409,7 +409,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest006Text(){
 //Lenko Greyrock 2, Southeast Corner
 activate_args = 6;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -460,7 +460,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -477,7 +477,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest007Text(){
 //Lenko, Greyrock 1
 activate_args = 7;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -526,7 +526,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -543,7 +543,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest008Text(){
 //Lenko Greyrock 4, Northeast Corner
 activate_args = 8;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -592,7 +592,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -609,7 +609,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest009Text(){
 //Lenko: Lake Path 5, Central next to tree
 activate_args = 9;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -660,7 +660,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -677,7 +677,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest010Text(){
 //Lenko, Lake Path Cemetery, Moon Chest in Cemetery
 activate_args = 10;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -734,7 +734,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -751,7 +751,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest011Text(){
 //Lenko: Lake Path 7, after Endire Knight Tnaks
 activate_args = 11;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -796,7 +796,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -813,7 +813,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest012Text(){
 //Lenko: Lake Path 7
 activate_args = 12;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -860,7 +860,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -877,7 +877,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest013Text(){
 //Lenko: Greyrock 9
 activate_args = 13;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -924,7 +924,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -941,7 +941,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest014Text(){
 //Lenko: Habraf Lake 5 (Unplaced)
 activate_args = 14;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -988,7 +988,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -1005,7 +1005,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest015Text(){
 //Lenko: Yakflower Path 4
 activate_args = 15;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -1052,7 +1052,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -1069,7 +1069,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest016Text(){
 //Lenko: Beaowire 12
 activate_args = 16;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -1116,7 +1116,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -1133,7 +1133,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest017Text(){
 //Lenko: Yakflower Path 4
 activate_args = 17;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -1180,7 +1180,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -1197,7 +1197,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function Chest018Text(){
 //Lenko: Yakflower Path 4
 activate_args = 18;
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -1250,7 +1250,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

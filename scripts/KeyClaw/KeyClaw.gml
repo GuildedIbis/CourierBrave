@@ -50,7 +50,7 @@ function KeyClawReedpoolAText(){
 //Stone
 if (obj_inventory.habraf_lair[0] = 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -83,7 +83,7 @@ if (obj_inventory.habraf_lair[0] = 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -95,7 +95,7 @@ if (obj_inventory.habraf_lair[0] = 1)
 //Active
 if (obj_inventory.habraf_lair[0] = 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -129,7 +129,7 @@ if (obj_inventory.habraf_lair[0] = 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -142,7 +142,7 @@ if (obj_inventory.habraf_lair[0] = 2)
 //Taken
 if (obj_inventory.habraf_lair[0] = 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -174,7 +174,7 @@ if (obj_inventory.habraf_lair[0] = 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -237,7 +237,7 @@ function KeyClawLilyShrineText(){
 //Stone
 if (obj_inventory.habraf_lair[1] = 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -270,7 +270,7 @@ if (obj_inventory.habraf_lair[1] = 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -282,7 +282,7 @@ if (obj_inventory.habraf_lair[1] = 1)
 //Active
 if (obj_inventory.habraf_lair[1] = 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -316,7 +316,7 @@ if (obj_inventory.habraf_lair[1] = 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -329,7 +329,7 @@ if (obj_inventory.habraf_lair[1] = 2)
 //Taken
 if (obj_inventory.habraf_lair[1] = 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -361,7 +361,7 @@ if (obj_inventory.habraf_lair[1] = 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);

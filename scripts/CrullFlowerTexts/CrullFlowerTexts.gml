@@ -5,7 +5,7 @@
 //
 //Crull Flower Moon
 function CrullFlowerMText(){
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -54,7 +54,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -70,7 +70,7 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 //Crull Flower Sun
 function CrullFlowerSText(){
 
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -119,7 +119,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

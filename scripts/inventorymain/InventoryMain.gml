@@ -46,7 +46,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,8,90,36))//Player Menu
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		inv_gui = StatsMenuGUI;
+		inv_gui = scr_menu_stats;
 		//playerMenu_draw = DrawStats;
 		selected_info = Idle;
 		page = 0;
@@ -61,7 +61,7 @@ if (point_in_rectangle(_mouseX,_mouseY,92,8,113,36)) //Forms Menu
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		item_id = -1;
-		inv_gui = FormSwitchMenu;
+		inv_gui = scr_menu_form_switch;
 		form_menu = obj_inventory.form_grid[# obj_player.form, 3];
 		//gear_sprite = spr_armor_allGame;
 		//stat_script = obj_inventory.form_grid[# obj_player.form, 3];
@@ -158,13 +158,11 @@ if (point_in_rectangle(_mouseX,_mouseY,230,8,251,36)) //Info Menu
 //
 //WIP
 function WorkInProgress(){
-draw_set_font(fnt_text);
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_color(c_black);
-draw_text_transformed(160,88,"WORK IN PROGRESS",.5,.5,0);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,88,"WORK IN PROGRESS",.5,.5,0);
+draw_text_transformed(159,88,"WORK IN PROGRESS",1,1,0);
 }
 
 

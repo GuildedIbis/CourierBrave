@@ -32,7 +32,7 @@ scr_npc_interact(12);
 //Altar Text
 function scr_text_altar_main(){
 //Tinted Background
-draw_set_font(global.fnt_main_white)
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);

@@ -67,13 +67,11 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
 draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
 draw_sprite_stretched(spr_menu,8,54,35,210,16)
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(249,53,"MAP",.4,.4,0);
 draw_set_color(c_white);
-draw_text_transformed(248,53,"MAP",.4,.4,0);
+draw_text_transformed(248,53,"MAP",.5,.5,0);
 //Slider
 draw_sprite(spr_scroll_bar5b,page,245,61);
 if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))

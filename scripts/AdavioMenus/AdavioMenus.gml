@@ -29,9 +29,8 @@ draw_sprite_stretched(spr_menu,8,161,35,120,16);
 draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 
 //Title
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(102,38,"ADAVIO",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(101,38,"ADAVIO",.6,.6,0);
 
@@ -68,26 +67,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 2, 5]) + " > " + string(obj_inventory.form_grid[# 2, 5]+1);
 var _stat = "Damage: " + string(20 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5])) + "(" +string(15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7))) + ") > " + string(20 + (9 * obj_player.might) + (5 * (obj_inventory.form_grid[# 2, 5]+1))) + "(" +string(15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5]+1)*(7))) + ")";
 var _title = "POWER HOOK";
 var _describe = "A fast jabbing hook that does average\ndamage and sends out a damaging slash.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -173,26 +167,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 2, 6]) + " > " + string(obj_inventory.form_grid[# 2, 6]+1);
 var _stat = "Negates: " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6]))) + " > " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6] + 1)));
 var _title = "VIOLET ARMOR";
 var _describe = "Heavy armor of violet that blocks\nan average amount of damage.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -279,7 +268,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
@@ -289,19 +278,14 @@ var _buttonY = 127;
 if (page = 0)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 2, 7]) + " > " + string(obj_inventory.form_grid[# 2, 7]+1);
 	var _stat = "Damage: " + string(12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8)) + " > " + string(12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7] + 1)*8));
 	var _title = "VOID SPREAD";
 	var _describe = "Shoot a wide spreading cluster of\nprojctiles that each deal a small\namount of damage.";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
 	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -310,19 +294,14 @@ if (page = 0)
 if (page = 1)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 2, 7]) + " > " + string(obj_inventory.form_grid[# 2, 7]+1);
 	var _stat = "Damage: " + string(22 + (9 * obj_player.grace) + (7 * obj_inventory.form_grid[# 2, 7])) + "(" +string(13 + (obj_player.grace * 6) + ((obj_inventory.form_grid[# 2, 7])*(6))) + ") > " + string(22 + (9 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 2, 7]+1))) + "(" +string(13 + (obj_player.grace * 6) + ((obj_inventory.form_grid[# 2, 7]+1)*(6))) + ")";
 	var _title = "VOID CYCLER";
 	var _describe = "Fire orb that bursts into a cluster\nof smaller projectiles.";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
 	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -429,26 +408,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 2, 8]) + " > " + string(obj_inventory.form_grid[# 2, 8]+1);
 var _stat = "Damage: " + string(39 + (18 * obj_player.divinity) + (17 * obj_inventory.form_grid[# 2, 8])) + "(" +string(13 + (obj_player.divinity * 6) + ((obj_inventory.form_grid[# 2, 8])*(6))) + ") > " + string(39 + (18 * obj_player.divinity) + (17 * (obj_inventory.form_grid[# 2, 8]+1))) + "(" +string(13 + (obj_player.divinity * 6) + ((obj_inventory.form_grid[# 2, 8]+1)*(6))) + ")";
 var _title = "VOID CRUSH";
 var _describe = "Select an area to drop onto through a rift.\nBecome briefly invincible and deal damage at the area of impact.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 

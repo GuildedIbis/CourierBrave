@@ -51,22 +51,18 @@ for (var i = 0; i < 20; i = i + 1)
 	var _originX = 50 + (18 * (i mod 5));
 	var _originY = 53 + (18 * (i div 5));
 	draw_sprite_stretched(spr_menu_circle16,1,_originX,_originY,16,16);
-	var _iPage = i + (5*page);
+	var _iPage = i + (20*page);
 	if (obj_inventory.quest_grid[# _iPage, 0] = true)
 	{
 		if (obj_inventory.quest_grid[# _iPage, 3] = true)
 		{
-			draw_set_color(c_black);
-			draw_text_transformed(_originX + 9,_originY + 8,"V",.5,.5,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_originX + 8,_originY + 8,"V",.5,.5,0);
+			draw_text_transformed(_originX + 9,_originY + 9,"V",1,1,0);
 		}
 		else
 		{
-			draw_set_color(c_black);
-			draw_text_transformed(_originX + 9,_originY + 8,"O",.5,.5,0);
 			draw_set_color(c_green);
-			draw_text_transformed(_originX + 8,_originY + 8,"O",.5,.5,0);
+			draw_text_transformed(_originX + 9,_originY + 9,"O",1,1,0);
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+16,_originY+16))
 		{
@@ -83,10 +79,8 @@ for (var i = 0; i < 20; i = i + 1)
 	//else draw ?
 	else
 	{
-		draw_set_color(c_black);
-		draw_text_transformed(_originX + 9,_originY + 8,"?",.5,.5,0);
 		draw_set_color(c_red);
-		draw_text_transformed(_originX + 8,_originY + 8,"?",.5,.5,0);
+		draw_text_transformed(_originX + 9,_originY + 9,"?",1,1,0);
 	}
 }
 

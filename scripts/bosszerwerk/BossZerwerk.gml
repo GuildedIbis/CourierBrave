@@ -671,7 +671,7 @@ if (_drop2 > 10) and (_drop2 < 50)
 //Zerwerk Victory Text
 function scr_text_zerwerk_victory(){
 
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -723,7 +723,7 @@ if (string_counter >= 2)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

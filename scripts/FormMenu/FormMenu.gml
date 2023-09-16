@@ -12,7 +12,7 @@ form_grid = ds_grid_create(18,9);
 form_grid[# 0, 0] = "REGALIARE"
 form_grid[# 0, 1] = "Description"
 form_grid[# 0, 2] = scr_player_regaliare_set; //Set Script
-form_grid[# 0, 3] = RegaliareSelectedMenu;
+form_grid[# 0, 3] = scr_menu_regaliare;
 form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 0; //Weapon
 form_grid[# 0, 6] = 0; //Armor
@@ -23,7 +23,7 @@ form_grid[# 0, 8] = 0; //Special
 form_grid[# 1, 0] = "HALOFIRE"
 form_grid[# 1, 1] = "White Lavos with fire hair and orange accents"
 form_grid[# 1, 2] = HalofireSet; //Player Script
-form_grid[# 1, 3] = HalofireSelectedMenu; //Inventory Script
+form_grid[# 1, 3] = scr_menu_halofire; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 0; //Weapon
 form_grid[# 1, 6] = 0; //Armor
@@ -70,10 +70,12 @@ form_grid[# 4, 8] = 0; //Special
 //
 //
 //Form Menu GUI
-function FormMenuGUI(){
+function scr_menu_form(){
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
@@ -109,12 +111,8 @@ draw_sprite(spr_special_allGame,slot,123,53);
 draw_sprite_stretched(spr_menu_circle16,3,48,127,50,16);
 draw_sprite_stretched(spr_menu_circle16,3,102,127,50,16);
 draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(76,132,"EQUIP",.35,.35,0);
-draw_text_transformed(128,132,"SWITCH",.35,.35,0);
-draw_set_color(c_white);
-draw_text_transformed(75,132,"EQUIP",.35,.35,0);
-draw_text_transformed(127,132,"SWITCH",.35,.35,0);
+draw_text_transformed(75,132,"EQUIP",.5,.5,0);
+draw_text_transformed(127,132,"SWITCH",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,48,127,98,143))//Equip
 {
 	draw_sprite_stretched(spr_highlight_circle,0,47,126,52,18);
@@ -135,7 +133,7 @@ if (point_in_rectangle(_mouseX,_mouseY,102,127,152,143))//Switch
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		inv_gui = FormSwitchMenu;
+		inv_gui = scr_menu_form_switch;
 	}
 }
 
@@ -151,20 +149,18 @@ script_execute(form_menu);
 //
 //
 //Draw Switch Menu
-function FormSwitchMenu(){
+function scr_menu_form_switch(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _rowLength = 6;
 draw_sprite_stretched(spr_menu_beveled,3,87,35,146,98);
 draw_sprite_stretched(spr_menu,8,82,35,156,16);
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,39,"SELECT A FORM",.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(159,39,"SELECT A FORM",.5,.5,0);
+draw_text_transformed(159,39,"SELECT A FORM",1,1,0);
 
 
 //Button Mechanics
@@ -183,7 +179,7 @@ for (var i = 0; i < 18; i = i + 1)
 			{
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
-				inv_gui = FormMenuGUI;
+				inv_gui = scr_menu_form;
 				form_menu = obj_inventory.form_grid[# i, 3];
 				selected_info = -1;
 				slot = i;
@@ -199,7 +195,7 @@ for (var i = 0; i < 18; i = i + 1)
 //
 //
 //Draw Selected (Run in FormMenuGUI)
-function DrawSelectedGear(){	
+function xscr_menu_form_gear(){	
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

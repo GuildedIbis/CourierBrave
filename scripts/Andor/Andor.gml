@@ -39,7 +39,7 @@ function AndorText(){
 //First Time Speaking to Andor
 if (obj_inventory.quest_grid[# 9, 0] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -88,7 +88,7 @@ if (obj_inventory.quest_grid[# 9, 0] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -105,7 +105,7 @@ if (obj_inventory.quest_grid[# 9, 0] = false)
 //Habraf Lake already started
 if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] <= 5)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -140,7 +140,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 		buy_price = 0;
 		
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -157,7 +157,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 //Nisma after intiation
 if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] >= 5)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -206,7 +206,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 		buy_price = 0;
 		
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -231,7 +231,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 	
 	
 //Set
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_color(c_white);
 
 
@@ -319,7 +319,7 @@ function AndorHabrafText(){
 //Finish Introduction
 if (obj_inventory.quest_grid[# 9, 1] < 5)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -368,7 +368,7 @@ if (obj_inventory.quest_grid[# 9, 1] < 5)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -385,7 +385,7 @@ if (obj_inventory.quest_grid[# 9, 1] < 5)
 //Habraf Lake already started
 if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 1] >= 5)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -418,7 +418,7 @@ if (obj_inventory.quest_grid[# 9, 0] = true) and (obj_inventory.quest_grid[# 9, 
 		buy_price = 0;
 		
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -441,7 +441,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 //Finish Introduction
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -535,7 +535,7 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

@@ -27,7 +27,7 @@ if (scene = false)
 //Player Scene Text 01
 function scr_player_scene_00_text(){
 var _titleFade = (timer1/500);
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)
 draw_set_color(c_white);

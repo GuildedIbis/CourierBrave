@@ -16,7 +16,7 @@ draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
 //Text
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var _vitLevel = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
@@ -69,7 +69,7 @@ draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
 //Text
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var _energyLevel = "Level: " + string(obj_player.energy) + " > " + string(obj_player.energy+1);
@@ -121,7 +121,7 @@ draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
 //Text
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var _mightLevel = "Level: " + string(obj_player.might) + " > " + string(obj_player.might+1);
@@ -172,7 +172,7 @@ draw_sprite_stretched(menu_sprite,3,140,106,40,13);
 draw_sprite(spr_bean,0,147,113);
 
 //Text
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var _graceLevel = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);

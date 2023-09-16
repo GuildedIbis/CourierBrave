@@ -31,13 +31,11 @@ if (scene = false) and (obj_game.textPaused = false)
 		}
 		
 	}
-	draw_set_font(fnt_text)
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
-	draw_set_color(c_black);
-	draw_text_transformed(8,166,hp,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(7,166,hp,.5,.5,0);
+	draw_text_transformed(7,166,hp,1,1,0);
 	
 	var _rollPerc = (stamina/max_stamina) * 100;
 	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
@@ -67,13 +65,11 @@ if (scene = false) and (obj_game.textPaused = false)
 		if (global.aggroCounter > 0) 
 		{
 			draw_sprite(spr_aggro_hud,0,160,5);
-			draw_set_font(fnt_text)
+			draw_set_font(global.fnt_main_white);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_middle);
-			draw_set_color(c_black);
-			draw_text_transformed(164,20,global.aggroCounter,.5,.5,0);
 			draw_set_color(c_white);
-			draw_text_transformed(163,20,global.aggroCounter,.5,.5,0);
+			draw_text_transformed(163,20,global.aggroCounter,1,1,0);
 		}
 		//if (global.bossCounter > 0) 
 		//{
@@ -87,7 +83,7 @@ if (scene = false) and (obj_game.textPaused = false)
 		//}
 		//Active Quest
 		//draw_sprite(spr_activeQuest_hud,0,303,6);
-		draw_set_font(fnt_text)
+		draw_set_font(xfnt_text)
 		draw_set_halign(fa_right);
 		draw_set_valign(fa_top);
 		draw_set_color(c_black);
@@ -97,7 +93,7 @@ if (scene = false) and (obj_game.textPaused = false)
 
 
 	//Meters
-	draw_set_font(fnt_text)
+	draw_set_font(xfnt_text)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
 	switch (form_type)
@@ -178,16 +174,12 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_sprite(spr_special_allGame,form,292,160);
 	var _primaryUses = string(selected_primary div primary_cost)
 	var _specialUses = string(selected_special div special_cost)
-	draw_set_valign(fa_top);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
-	draw_set_color(c_black);
-	draw_text_transformed(282,152,_primaryUses,.5,.5,0);
+	draw_set_valign(fa_top);
 	draw_set_color(c_white);
-	draw_text_transformed(281,152,_primaryUses,.5,.5,0);
-	draw_set_color(c_black);
-	draw_text_transformed(305,152,_specialUses,.5,.5,0);
-	draw_set_color(c_white);
-	draw_text_transformed(304,152,_specialUses,.5,.5,0);
+	draw_text_transformed(281,152,_primaryUses,1,1,0);
+	draw_text_transformed(304,152,_specialUses,1,1,0);
 
 	
 	

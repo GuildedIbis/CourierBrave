@@ -34,7 +34,7 @@ function xStorageText(){
 if (obj_inventory.quest_grid[# 1, 0] = false)
 {
 	//Quest info
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -66,7 +66,7 @@ if (obj_inventory.quest_grid[# 1, 0] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -78,7 +78,7 @@ if (obj_inventory.quest_grid[# 1, 0] = false)
 //After First Conversation with Nisma
 if (obj_inventory.quest_grid[# 1, 0] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -109,7 +109,7 @@ if (obj_inventory.quest_grid[# 1, 0] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -128,7 +128,7 @@ function xStorageMenu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);

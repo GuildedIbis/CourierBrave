@@ -29,11 +29,11 @@ draw_sprite_stretched(spr_menu,8,161,35,120,16);
 draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 
 //Title
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(102,38,"EVAREL",.6,.6,0);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(101,38,"EVAREL",.6,.6,0);
+draw_text_transformed(101,39,"EVAREL",.6,.6,0);
 
 for (var i = 0; i < 4; i = i + 1)
 {
@@ -68,26 +68,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 4, 5]) + " > " + string(obj_inventory.form_grid[# 4, 5]+1);
 var _stat = "Damage: " + string(19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5])) + " > " + string(19 + (9 * obj_player.might) + (7 * (obj_inventory.form_grid[# 4, 5] + 1)));
 var _title = "LENKO DAGGER";
 var _describe = "Dash forward with a dagger for low damage but\nbecome briefly invincible and use a roll";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -175,26 +170,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 4, 6]) + " > " + string(obj_inventory.form_grid[# 4, 6]+1);
 var _stat = "Negates: " + string(9 + (5 * (obj_inventory.form_grid[# 4, 6]))) + " > " + string(9 + (5 * (obj_inventory.form_grid[# 4, 6] + 1)));
 var _title = "FORESTWARD TUNIC";
 var _describe = "A warded tunic that blocks an\naverage amount of damage.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -281,7 +271,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
@@ -291,19 +281,14 @@ var _buttonY = 127;
 if (page = 0)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 4, 7]) + " > " + string(obj_inventory.form_grid[# 4, 7]+1);
 	var _stat = "Damage: " + string(30 + (16 * obj_player.grace) + (obj_inventory.form_grid[# 4, 7])+1) + "+ > " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7]+2))) + "+";
 	var _title = "BRISTLE ROD";
 	var _describe = "Fire a projectile that has a long wind-up\ntime, but does high damage that increases\nover distance traveled";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
 	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -312,19 +297,14 @@ if (page = 0)
 if (page = 1)
 {
 	//Main Text
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 4, 7]) + " > " + string(obj_inventory.form_grid[# 4, 7]+1);
 	var _stat = "Damage: " + string(10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*5)) + " > " + string(10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*5));
 	var _title = "REFLEX THORN";
 	var _describe = "Fire a burst of projectiles that bounce\n off of hard surfaces.";
-	draw_set_color(c_black);
-	draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-	draw_set_color(c_white);
 	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
@@ -431,26 +411,21 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
 var _statY = 112;
 var _buttonY = 127;
 
 //Main Text
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
+draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 4, 8]) + " > " + string(obj_inventory.form_grid[# 4, 8]+1);
 var _stat = "Damage: " + string(11 + (obj_player.divinity * 6) + (4 * (obj_inventory.form_grid[# 4, 8]))) + " > " + string(11 + (obj_player.divinity * 6) + (4 * (obj_inventory.form_grid[# 4, 8] + 1)));
 var _title = "THORNROOT RISE";
 var _describe = "Summon a group of thorns from beneath the Courier\ndealing continual damage in an area.";
-draw_set_color(c_black);
-draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-draw_set_color(c_white);
 draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
 draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
 draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 

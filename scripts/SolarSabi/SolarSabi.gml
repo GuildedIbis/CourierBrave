@@ -63,7 +63,7 @@ function SolarSabi1Text(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -96,7 +96,7 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -108,7 +108,7 @@ if (global.dayPhase != 1)
 //First Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -158,7 +158,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -174,7 +174,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 //Second and After Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -215,7 +215,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -231,7 +231,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 1)
 //Final Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -278,7 +278,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -301,7 +301,7 @@ function SolarSabi2Text(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -334,7 +334,7 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -346,7 +346,7 @@ if (global.dayPhase != 1)
 //Too Soon Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -387,7 +387,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -403,7 +403,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 //Correct Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -445,7 +445,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -461,7 +461,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
 //After Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -495,7 +495,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -518,7 +518,7 @@ function SolarSabi3Text(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -551,7 +551,7 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -563,7 +563,7 @@ if (global.dayPhase != 1)
 //Too Soon Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -604,7 +604,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -620,7 +620,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 2)
 //Correct Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -662,7 +662,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -678,7 +678,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 2)
 //After Interact
 if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -712,7 +712,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);

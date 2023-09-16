@@ -25,7 +25,7 @@ sprite_index = spr_activator_key2;
 //
 //Key Pedestal 2 Text
 function KeyPedestal2HabrafText(){
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -60,7 +60,7 @@ if (obj_inventory.quest_grid[# 8, 1] < 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);
@@ -98,7 +98,7 @@ if (obj_inventory.quest_grid[# 8, 1] >= 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_black);

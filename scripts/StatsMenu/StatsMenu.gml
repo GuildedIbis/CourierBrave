@@ -5,7 +5,7 @@
 //
 //
 //Stats Menu GUI
-function StatsMenuGUI(){
+function scr_menu_stats(){
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -19,17 +19,12 @@ draw_sprite_stretched(spr_menu,8,39,35,120,16);
 //Static Text
 var _starOrbs = string(obj_inventory.star_orb);
 
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_color(c_black);
-draw_set_halign(fa_center);
-draw_text_transformed(102,38,"COURIER STATS",.6,.6,0);
-draw_set_halign(fa_right);
-draw_text_transformed(104,131,_starOrbs,.35,.35,0);
 draw_set_color(c_white);
-draw_set_halign(fa_center);
-draw_text_transformed(101,38,"COURIER STATS",.6,.6,0);
-draw_set_halign(fa_right);
-draw_text_transformed(103,131,_starOrbs,.35,.35,0);
+draw_text_transformed(101,39,"COURIER STATS",1,1,0);
+draw_text_transformed(103,133,_starOrbs,.5,.5,0);
 draw_sprite(spr_starOrb,0,106,131);
 
 //Left Side Button Grid
@@ -65,7 +60,7 @@ for(var i = 0; i < 8; i = i + 1)
 
 
 //Right Side of Menu
-DrawSelectedStat();
+scr_menu_stat_selected();
 
 
 }
@@ -75,15 +70,15 @@ DrawSelectedStat();
 //
 //
 //Draw Selected Stat
-function DrawSelectedStat(){
+function scr_menu_stat_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _lvlY = 91;
-var _statY = 112;
+var _statY = 113;
 var _buttonY = 127;
 
 draw_sprite(spr_menu_rope,3,176,77);
@@ -101,36 +96,28 @@ draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 switch(page)
 {
 	case -1:
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
-		draw_set_color(c_black);
-		draw_text_transformed(167,42,"SELECT A STAT",.5,.5,0);
-		draw_text_transformed(167,56,"Level up your stats with Star Orbs",.35,.35,0); 
 		draw_set_color(c_white);
 		draw_text_transformed(166,42,"SELECT A STAT",.5,.5,0);
-		draw_text_transformed(166,56,"Level up your stats with Star Orbs",.35,.35,0); 
+		draw_text_transformed(166,56,"Level up your stats with Star Orbs",.5,.5,0); 
 	break;
 	
 	case 0:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
+		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.vitality) + " > " + string(obj_player.vitality+1);
 		var _stat = "Max health: " + string(200 + (20 * (obj_player.vitality))) + ">" + string(200 + (20 * (obj_player.vitality + 1)));
 		var _title = "VITALITY";
 		var _describe = "Increases max health by 20.\nBase health 200.";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.vitality < 10)
@@ -139,15 +126,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.vitality + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.vitality + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.vitality + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -166,34 +147,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 1:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
+		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.iteration) + " > " + string(obj_player.iteration+1);
 		var _stat = "Crull Stone Uses: " + string(obj_player.iteration + 1) + ">" + string(obj_player.iteration + 2);
 		var _title = "ITERATION";
 		var _describe = "Increases the number of times the Crull\nStone can be used.\nVisit Alters to refill the uses.";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.iteration < 10)
@@ -202,15 +173,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.iteration + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -234,34 +199,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 2:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
+		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.conviction) + " > " + string(obj_player.conviction+1);
 		var _stat = "Max charge: " + string(100 + ((obj_player.conviction) * 10)) + ">" + string(100 + ((obj_player.conviction + 1) * 10));
 		var _title = "CONVICTION";
 		var _describe = "Increases the max amount of charge\nfor using crystal and special attacks.";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.conviction < 10)
@@ -270,15 +225,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.conviction + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -294,35 +243,25 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 
 	
 	case 3:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
+		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);
 		var _stat = "Selected Crystal Damage: " + "???" + ">" + "???";
 		var _title = "GRACE";
 		var _describe = "Increases the amount of damage\ndone with crystal attacks.\n(LEFT CLICK)";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.grace < 10)
@@ -331,15 +270,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.grace + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -354,34 +287,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 4:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
+		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.might) + " > " + string(obj_player.might+1);
 		var _stat = "Selected Weapon Damage: " + "???" + ">" + "???";;
 		var _title = "MIGHT";
 		var _describe = "Increases the amount of damage\ndone with weapon attacks.\n(RIGHT CLICK)";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_stat,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.might < 10)
@@ -390,15 +313,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.might + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -413,34 +330,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 5:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
-		var _vitLevel = "Level: " + string(obj_player.divinity) + " > " + string(obj_player.divinity+1);
-		var _health = "Selected Special Damage: " + "???" + ">" + "???";;
+		draw_set_color(c_white);
+		var _level = "Level: " + string(obj_player.divinity) + " > " + string(obj_player.divinity+1);
+		var _stat = "Selected Special Damage: " + "???" + ">" + "???";;
 		var _title = "DIVINITY";
 		var _describe = "Increases the amount of damage\ndone with special attacks\n(LEFT SHIFT)";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_health,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_health,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.divinity < 10)
@@ -449,15 +356,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.divinity + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -472,34 +373,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 6:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
-		var _vitLevel = "Level: " + string(obj_player.energy) + " > " + string(obj_player.energy+1);
-		var _health = "Max Stamina: " + string(100 + (obj_player.energy * 50)) + ">" + string(100 + ((obj_player.energy + 1) * 50));
+		draw_set_color(c_white);
+		var _level = "Level: " + string(obj_player.energy) + " > " + string(obj_player.energy+1);
+		var _stat = "Max Stamina: " + string(100 + (obj_player.energy * 50)) + ">" + string(100 + ((obj_player.energy + 1) * 50));
 		var _title = "ENERGY";
 		var _describe = "Increases the Courier's max stamina.\nEach roll costs 50 stamina.\nBase stamina 100.";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_health,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_health,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.energy < 10)
@@ -508,15 +399,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.energy + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -532,34 +417,24 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 	
 	case 7:
 		//Main Text
+		draw_set_font(global.fnt_main_white);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_set_font(fnt_text);
-		var _vitLevel = "Level: " + string(obj_player.receptivity) + " > " + string(obj_player.receptivity+1);
-		var _health = "Crull Stone heal amount: " + string(100 + (obj_player.receptivity * 25)) + ">" + string(100 + ((obj_player.receptivity + 1) * 25));
+		draw_set_color(c_white);
+		var _level = "Level: " + string(obj_player.receptivity) + " > " + string(obj_player.receptivity+1);
+		var _stat = "Crull Stone heal amount: " + string(100 + (obj_player.receptivity * 25)) + ">" + string(100 + ((obj_player.receptivity + 1) * 25));
 		var _title = "RECEPTIVITY";
 		var _describe = "Increases the amount of health\nrestored by the Crull Stone.";
-		draw_set_color(c_black);
-		draw_text_transformed(_midX+1,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX+1,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX+1,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX+1,_statY,_health,.35,.35,0); 
-		draw_set_color(c_white);
-		draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-		draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-		draw_text_transformed(_midX,_lvlY,_vitLevel,.35,.35,0); 
-		draw_text_transformed(_midX,_statY,_health,.35,.35,0);
+		draw_text_transformed(_midX,_titleY,_title,1,1,0);
+		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
 		if (obj_player.receptivity < 10)
@@ -568,15 +443,9 @@ switch(page)
 			draw_sprite(spr_starOrb,0,265,131);
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
 			draw_set_color(c_white);
-			draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(264,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(263,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.35,.35,0);
+			draw_text_transformed(_leftX + 37,_buttonY + 5,"LEVEL UP",.5,.5,0);
+			draw_text_transformed(263,133,string(obj_player.receptivity + 1)+"\n("+string(obj_inventory.star_orb)+")",.5,.5,0);
 			if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY + 16))//Level
 			{
 				draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY - 1,52,18);
@@ -591,12 +460,7 @@ switch(page)
 		}
 		else
 		{
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_black);
-			draw_text_transformed(_midX,_buttonY + 5,"Max Level",.35,.35,0);
-			draw_set_color(c_white);
-			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.35,.35,0);
+			draw_text_transformed(_midX - 1,_buttonY + 5,"Max Level",.5,.5,0);
 		}
 	break;
 }
@@ -607,7 +471,7 @@ switch(page)
 //
 //
 //Draw Kephra Stone Info
-function DrawKephraKnowledge(){
+function xDrawKephraKnowledge(){
 //Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -683,7 +547,7 @@ draw_line_width_color(235,70,235,170,1,c_black,c_black)
 //
 //
 //Draw Selected
-function DrawSelectedKnowledge(){
+function xDrawSelectedKnowledge(){
 //Convert Mouse to GUI
 //var _mouseX = device_mouse_x_to_gui(0);
 //var _mouseY = device_mouse_y_to_gui(0);
