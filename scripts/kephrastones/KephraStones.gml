@@ -306,8 +306,8 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Press \"C\" to use a Crull Stone Charge."
-_text[1] = "This Crull Charge will restore the Courier's health\nbut other charges may have other effects."
+_text[0] = "Press \"C\" to use a Crull Stone\nCharge."
+_text[1] = "This Crull Charge will restore the\nCourier's health but other\ncharges may have other effects."
 _text[2] = "Visiting an alter (or dying)\nrestores 1 Crull Charge for free."
 //Sprite
 draw_set_font(global.fnt_main_white);
@@ -375,7 +375,7 @@ draw_text_transformed(165,56,_text[page],.5,.5,0);
 
 if (page < 1)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,258,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
 	draw_sprite(spr_menu_arrow,0,266,84);
 	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
 	{
@@ -388,7 +388,7 @@ if (page < 1)
 }
 if (page > 0)
 {
-	draw_sprite_stretched(spr_menu_circle16,0,46,76,16,16);
+	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
 	draw_sprite(spr_menu_arrow,2,54,84);
 	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
 	{
@@ -416,9 +416,9 @@ var _text = array_create(2,-1)
 _text[0] = "Press \"TAB\" to open/close the\nCourier's inventory."
 _text[1] = "From the \"STATS\" menu, the\nCourier's stats can be leveled up\nwith Star Orbs."
 _text[2] = "From the \"FORMS\" menu, the\nindividual skills of different\nCourier forms can be leveled up\nwith Rog Stones and Power Stones."
-_text[3] = "From the \"ITEMS\" menu, the\nplayer can view the Couriers\ncurrently held number of items like\nRog Stones."
-_text[4] = "From the \"OBJECTIVES\" menu, the\nplayer can see the current status\ndifferent questions."
-_text[5] = "From the \"MAP\" menu, the\nplayer can see where the Courier\nis and fast travel to alters\nthey've visited."
+_text[3] = "From the \"ITEMS\" menu, the\nplayer can view the Couriers\ncurrently held number of items\nlike Rog Stones."
+_text[4] = "From the \"OBJECTIVES\" menu, the\nplayer can see the current\nstatus different questions."
+_text[5] = "From the \"MAP\" menu, the\nplayer can see where they are, as\nwell as the location of any alters\nthey've visited."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);

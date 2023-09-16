@@ -31,15 +31,18 @@ function scr_text_npc_mesa(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-//Format
-draw_set_font(global.fnt_main_white);
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-var _name = "Mesa"
 
 //Draw Based on String Counter
 var _SubString
 if (obj_inventory.quest_grid[# 2, 1] <= 0)
 {
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_set_color(c_white);
+	var _name = "Mesa"
+	
 	if (string_counter = 0)
 	{
 		speaker = 1;
@@ -81,6 +84,13 @@ if (obj_inventory.quest_grid[# 2, 1] <= 0)
 //Jewel Found
 if (obj_inventory.quest_grid[# 2, 1] > 0)
 {
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_set_color(c_white);
+	var _name = "Mesa"
+	
 	if (string_counter = 0)
 	{
 		speaker = 1;

@@ -76,11 +76,11 @@ if (room_name_timer > 0)
 	var _rmNameAlpha = (room_name_timer/100)
 	if (_rmNameAlpha > 1.0) _rmNameAlpha = 1.0;
 	//draw_sprite_stretched_ext(menu_sprite,3,14,144,96,32,c_white,_rmNameAlpha);
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_right)
-	draw_set_valign(fa_top)
-	draw_text_transformed_color(316,24,room_name,.5,.5,0,c_black,c_black,c_black,c_black,_rmNameAlpha);
-	draw_text_transformed_color(315,24,room_name,.5,.5,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed_color(315,16,room_name,.75,.75,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
 }
 if (level_name_timer > 0)
 {
@@ -88,11 +88,11 @@ if (level_name_timer > 0)
 	var _lvlNameAlpha = (level_name_timer/100)
 	if (_lvlNameAlpha > 1.0) _lvlNameAlpha = 1.0;
 	//draw_sprite_stretched_ext(menu_sprite,3,14,144,96,32,c_white,_rmNameAlpha);
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_center)
-	draw_set_valign(fa_middle)
-	draw_text_transformed_color(160,90,level_name,1,1,0,c_black,c_black,c_black,c_black,_lvlNameAlpha);
-	draw_text_transformed_color(160,90,level_name,1,1,0,c_white,c_white,c_white,c_white,_lvlNameAlpha);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed_color(160,90,level_name,1.5,1.5,0,c_white,c_white,c_white,c_white,_lvlNameAlpha);
 }
 }
 //

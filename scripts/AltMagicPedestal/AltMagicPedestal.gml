@@ -44,11 +44,12 @@ function scr_text_pedestal_altMagic_00(){
 //Stone
 if (obj_inventory.quest_grid[# 3, 3] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 
 	//Draw Based on String Counter
@@ -80,23 +81,25 @@ if (obj_inventory.quest_grid[# 3, 3] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Active
 if (obj_inventory.quest_grid[# 3, 3] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -127,13 +130,14 @@ if (obj_inventory.quest_grid[# 3, 3] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -148,11 +152,12 @@ function scr_text_pedestal_altMagic_01(){
 //Stone
 if (obj_inventory.quest_grid[# 7, 3] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 
 	//Draw Based on String Counter
@@ -184,23 +189,25 @@ if (obj_inventory.quest_grid[# 7, 3] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Active
 if (obj_inventory.quest_grid[# 7, 3] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -231,13 +238,14 @@ if (obj_inventory.quest_grid[# 7, 3] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -252,11 +260,12 @@ function scr_text_pedestal_altMagic_02(){
 //Stone
 if (obj_inventory.quest_grid[# 12, 3] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 
 	//Draw Based on String Counter
@@ -288,23 +297,25 @@ if (obj_inventory.quest_grid[# 12, 3] = false)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Active
 if (obj_inventory.quest_grid[# 12, 3] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -335,13 +346,14 @@ if (obj_inventory.quest_grid[# 12, 3] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -356,11 +368,12 @@ function scr_text_pedestal_altMagic_03(){
 //Stone
 if (obj_inventory.quest_grid[# 17, 3] = false)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 
 	//Draw Based on String Counter
@@ -404,11 +417,12 @@ if (obj_inventory.quest_grid[# 17, 3] = false)
 //Active
 if (obj_inventory.quest_grid[# 17, 3] = true)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
 	draw_set_color(c_white);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	var _name = "Magic Skill Pedestal"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -439,13 +453,14 @@ if (obj_inventory.quest_grid[# 17, 3] = true)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 

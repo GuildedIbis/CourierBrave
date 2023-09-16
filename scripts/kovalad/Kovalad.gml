@@ -63,7 +63,7 @@ function scr_text_kovalad(){
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_set_color(c_white);
 //draw_sprite_stretched(menu_sprite,3,258,136,48,48);
 var _name = "Kovalad the Smith"
@@ -210,8 +210,8 @@ draw_sprite_stretched(spr_menu_circle16,3,120,120,80,16);
 if (obj_inventory.crull_recipe[1] = false)
 {
 	draw_set_halign(fa_left);
-	draw_text_transformed(124,130,"10 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,1,142,120,1,1,0,c_white,1);
+	draw_text_transformed(124,130,"5 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
+	draw_sprite_ext(spr_rog_menu_all,0,142,120,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,130,">",.75,.75,0);
 	draw_sprite_ext(spr_menu_crull_recipe,2,162,120,1,1,0,c_white,1);
@@ -222,9 +222,9 @@ if (obj_inventory.crull_recipe[1] = false)
 		draw_sprite_stretched(spr_highlight_circle,0,119,119,82,18);
 		if (mouse_check_button_pressed(mb_left))
 		{
-			if (obj_inventory.rog_array[1] >= 10)
+			if (obj_inventory.rog_array[0] >= 5)
 			{
-				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 10;
+				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
 				obj_inventory.crull_recipe[1] = true;
 			}
 		}

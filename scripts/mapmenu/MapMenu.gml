@@ -150,11 +150,9 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _xPos = 64;
 var _yPos = 47;
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,38,"FARWAY ROAD",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(159,38,"FARWAY ROAD",.6,.6,0);
 
@@ -388,11 +386,9 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _xPos = 64;
 var _yPos = 47;
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,38,"YAKFLOWER PATH",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(159,38,"YAKFLOWER PATH",.6,.6,0);
 
@@ -636,11 +632,9 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _xPos = 64;
 var _yPos = 47;
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,38,"HABRAF LAKE",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(159,38,"HABRAF LAKE",.6,.6,0);
 
@@ -886,11 +880,9 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _xPos = 64;
 var _yPos = 47;
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,38,"BEAOWIRE FORTRESS",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(159,38,"BEAOWIRE FORTRESS",.6,.6,0);
 
@@ -1137,11 +1129,9 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _xPos = 64;
 var _yPos = 47;
 
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-draw_set_color(c_black);
-draw_text_transformed(160,38,"NORTHERN PASS",.6,.6,0);
 draw_set_color(c_white);
 draw_text_transformed(159,38,"NORTHERN PASS",.6,.6,0);
 

@@ -382,8 +382,8 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 				audio_play_sound(snd_text02,0,false);
 				obj_player.crull_ary[obj_player.crull_selected] = 2;
 				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 5;
-				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 1;
+				obj_inventory.resource_array[0] = obj_inventory.resource_array[0] - 5;
+				obj_inventory.resource_array[3] = obj_inventory.resource_array[3] - 1;
 
 			}
 		}

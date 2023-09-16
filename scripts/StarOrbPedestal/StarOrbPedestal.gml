@@ -48,11 +48,12 @@ if (obj_game.gamePaused = false)
 //Star orb Text
 function scr_text_inanimate_pedestal_starorb(){
 //Set
-draw_set_font(fnt_text);
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_set_color(c_white);
+var _name = "Star Orb Pedestal"
 
 
 //Draw Based on String Counter
@@ -83,13 +84,14 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);	
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 
 
 

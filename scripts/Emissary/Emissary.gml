@@ -137,10 +137,9 @@ if (obj_inventory.quest_grid[# 0, 0] = false)
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
 	var _name = "Emissary Sheeda"
-	var _nameY
 
 	//Draw Based on String Counter
 	var _SubString
@@ -238,7 +237,7 @@ if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 0)
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
 	var _name = "Emissary Sheeda"
 
@@ -339,7 +338,7 @@ if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 1)
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
 	var _name = "Emissary Sheeda"
 
