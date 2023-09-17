@@ -5,7 +5,7 @@
 //
 //
 //Maps
-function MapsCreate(){
+function scr_inventory_maps_create(){
 slot = obj_game.level_num;
 map_grid = ds_grid_create(19,3);
 //region_grid = ds_grid_create(6,3);
@@ -71,7 +71,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(248,53,"MAP",.5,.5,0);
+draw_text_transformed(244,53,"MAP",.5,.5,0);
 //Slider
 draw_sprite(spr_scroll_bar5b,page,245,61);
 if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))
@@ -152,7 +152,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,38,"FARWAY ROAD",.6,.6,0);
+draw_text_transformed(159,39,"FARWAY ROAD",1,1,0);
 
 if (obj_game.level_num = 0)
 {
@@ -388,7 +388,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,38,"YAKFLOWER PATH",.6,.6,0);
+draw_text_transformed(159,39,"YAKFLOWER PATH",1,1,0);
 
 if (obj_game.level_num = 1)
 {
@@ -634,7 +634,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,38,"HABRAF LAKE",.6,.6,0);
+draw_text_transformed(159,39,"HABRAF LAKE",1,1,0);
 
 if (obj_game.level_num = 2)
 {
@@ -882,7 +882,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,38,"BEAOWIRE FORTRESS",.6,.6,0);
+draw_text_transformed(159,39,"BEAOWIRE FORTRESS",1,1,0);
 
 
 if (obj_game.level_num = 3)
@@ -1131,7 +1131,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(159,38,"NORTHERN PASS",.6,.6,0);
+draw_text_transformed(159,39,"NORTHERN PASS",1,1,0);
 
 
 if (obj_game.level_num = 4)

@@ -53,8 +53,21 @@ for (var i = 0; i < 4; i = i + 1)
 
 
 //Draw Right Hand Menu
-if (selected_info != -1) script_execute(selected_info)
-
+if (selected_info != -1)
+{
+	script_execute(selected_info)
+}
+else
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed(222,39,"SELECT A SKILL",1,1,0);
+	draw_text_transformed(222,56,"SKILL DESCRIPTION",.5,.5,0); 
+	draw_text_transformed(222,91,"LEVEL",.5,.5,0); 
+	draw_text_transformed(222,112,"VALUE",.5,.5,0);
+}
 }
 //
 //
@@ -113,7 +126,7 @@ switch (obj_inventory.form_grid[# 0, 5])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
@@ -141,7 +154,7 @@ switch (obj_inventory.form_grid[# 0, 5])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
@@ -207,7 +220,7 @@ switch (obj_inventory.form_grid[# 0, 6])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
@@ -235,7 +248,7 @@ switch (obj_inventory.form_grid[# 0, 6])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
@@ -281,13 +294,13 @@ if (page = 1)
 {
 	//Main Text
 	draw_set_font(global.fnt_main_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
 	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
 	var _stat = "Damage: " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7] + 1)));
 	var _title = "HEAVY BURST";
-	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead of breaking.";
+	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead\nof breaking.";
 	draw_text_transformed(_midX,_titleY,_title,1,1,0);
 	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
@@ -297,11 +310,12 @@ draw_set_color(c_white);
 //Alt Magic
 if (obj_inventory.quest_grid[# 10, 3] = true)
 {
-	draw_sprite_stretched(spr_menu_circle16,3,277,63,16,16);
-	draw_text_transformed(286,67,"A",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,277,63,293,79))
+	draw_sprite_stretched(spr_menu_circle16,3,277,55,16,16);
+	if (page = 0) draw_sprite_ext(spr_primaryAlt_allGame,0,269,55,1,1,0,c_white,1);
+	if (page = 1) draw_sprite_ext(spr_primary_allGame,0,269,55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,277,55,293,71))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,276,62,18,18)
+		draw_sprite_stretched(spr_highlight_circle,0,276,54,18,18)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			audio_sound_gain(snd_text02,global.volumeMenu,1);
@@ -339,7 +353,7 @@ switch (obj_inventory.form_grid[# 0, 7])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
@@ -367,7 +381,7 @@ switch (obj_inventory.form_grid[# 0, 7])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
@@ -400,7 +414,7 @@ draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 0, 8]) + " > " + string(obj_inventory.form_grid[# 0, 8]+1);
 var _stat = "Damage: " + string(22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]))) + " > " + string(22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8] + 1)));
 var _title = "GOLD ARCS";
-var _describe = "Summon 2 golden arcs that encircle\nthe courier, granting them invicibility\nand dealing damage on contact";
+var _describe = "Summon 2 golden arcs that encircle\nthe Courier, granting them invicibility\nand dealing damage on contact";
 draw_text_transformed(_midX,_titleY,_title,1,1,0);
 draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
@@ -432,7 +446,7 @@ switch (obj_inventory.form_grid[# 0, 8])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
@@ -460,7 +474,7 @@ switch (obj_inventory.form_grid[# 0, 8])
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
 		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
 		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	

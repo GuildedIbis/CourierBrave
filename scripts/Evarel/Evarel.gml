@@ -5,10 +5,10 @@
 //
 //
 //Evarel Set (create)
-function EvarelSet(){
+function scr_player_evarel_set(){
 form = 4;
 form_type = 4;
-home_state = EvarelSet;
+home_state = scr_player_evarel_set;
 free_state = EvarelFree;
 state_script = EvarelFree;
 idle_sprite = spr_player_evarel_idle;

@@ -169,8 +169,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	//draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,249,160);
-	if (magic_primary = true) draw_sprite(spr_magic_allGame,form,270,160);
-	else draw_sprite(spr_magicAlt_allGame,form,270,160);
+	if (magic_primary = true) draw_sprite(spr_primary_allGame,form,270,160);
+	else draw_sprite(spr_primaryAlt_allGame,form,270,160);
 	draw_sprite(spr_special_allGame,form,292,160);
 	var _primaryUses = string(selected_primary div primary_cost)
 	var _specialUses = string(selected_special div special_cost)

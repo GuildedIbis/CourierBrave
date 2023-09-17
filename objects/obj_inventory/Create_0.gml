@@ -13,7 +13,7 @@ scr_inventory_questlog_create();
 scr_inventory_form_create();
 //script_execute(DungeonlogCreate);
 script_execute(CampRooms);
-script_execute(MapsCreate);
+scr_inventory_maps_create();
 script_execute(ChestList);
 script_execute(KephraStoneList);
 script_execute(StarOrbList);

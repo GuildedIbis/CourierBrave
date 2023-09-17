@@ -5,10 +5,10 @@
 //
 //
 //Halofire Set (create)
-function HalofireSet(){
+function scr_player_halofire_set(){
 form = 1;
 form_type = 1;
-home_state = HalofireSet;
+home_state = scr_player_halofire_set;
 free_state = HalofireFree;
 state_script = HalofireFree;
 idle_sprite = spr_player_halofire_idle;

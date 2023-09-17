@@ -13,13 +13,12 @@ var _mouseY = device_mouse_y_to_gui(0);
 //Buttons Alignment
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-
+draw_set_valign(fa_top);
+draw_set_color(c_white);
 //Menu Base and Buttons
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,96);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
-draw_set_color(c_white);
-draw_text_transformed(101,43,"QUESTS",1,1,0);
+draw_text_transformed(101,39,"QUESTS",1,1,0);
 
 
 //Slider
@@ -57,12 +56,12 @@ for (var i = 0; i < 20; i = i + 1)
 		if (obj_inventory.quest_grid[# _iPage, 3] = true)
 		{
 			draw_set_color(c_white);
-			draw_text_transformed(_originX + 9,_originY + 9,"V",1,1,0);
+			draw_text_transformed(_originX + 9,_originY + 4,"V",1,1,0);
 		}
 		else
 		{
 			draw_set_color(c_green);
-			draw_text_transformed(_originX + 9,_originY + 9,"O",1,1,0);
+			draw_text_transformed(_originX + 9,_originY + 4,"O",1,1,0);
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+16,_originY+16))
 		{
@@ -80,7 +79,7 @@ for (var i = 0; i < 20; i = i + 1)
 	else
 	{
 		draw_set_color(c_red);
-		draw_text_transformed(_originX + 9,_originY + 9,"?",1,1,0);
+		draw_text_transformed(_originX + 9,_originY + 4,"?",1,1,0);
 	}
 }
 
@@ -101,7 +100,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _midX = 222;
 var _leftX = 167;
-var _titleY = 38;
+var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 

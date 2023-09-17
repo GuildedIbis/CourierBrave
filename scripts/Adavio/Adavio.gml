@@ -5,10 +5,10 @@
 //
 //
 //Adavio Set (create)
-function AdavioSet(){
+function scr_player_adavio_set(){
 form = 2;
 form_type = 2;
-home_state = AdavioSet;
+home_state = scr_player_adavio_set;
 free_state = AdavioFree;
 state_script = AdavioFree;
 magicP_script = AdavioVoidSpreadCast;

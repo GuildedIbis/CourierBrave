@@ -5,7 +5,7 @@
 //
 //
 //Inventory Main Page
-function InventoryMain(){
+function scr_menu_inventory_main(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
@@ -49,7 +49,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,8,90,36))//Player Menu
 		inv_gui = scr_menu_stats;
 		//playerMenu_draw = DrawStats;
 		selected_info = Idle;
-		page = 0;
+		page = -1;
 			
 	}
 }
@@ -67,9 +67,9 @@ if (point_in_rectangle(_mouseX,_mouseY,92,8,113,36)) //Forms Menu
 		//stat_script = obj_inventory.form_grid[# obj_player.form, 3];
 		//describe_script = DrawWeaponDescribe;
 		selected_info = -1;
-		item_name = obj_inventory.form_grid[# obj_player.form, 0];
+		//item_name = obj_inventory.form_grid[# obj_player.form, 0];
 		page = 0;
-		slot = obj_player.form;
+		//slot = obj_player.form;
 		
 		//unlocked = true;
 	}

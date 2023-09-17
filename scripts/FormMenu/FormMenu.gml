@@ -22,7 +22,7 @@ form_grid[# 0, 8] = 0; //Special
 //Halofire
 form_grid[# 1, 0] = "HALOFIRE"
 form_grid[# 1, 1] = "White Lavos with fire hair and orange accents"
-form_grid[# 1, 2] = HalofireSet; //Player Script
+form_grid[# 1, 2] = scr_player_halofire_set; //Player Script
 form_grid[# 1, 3] = scr_menu_halofire; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 0; //Weapon
@@ -33,8 +33,8 @@ form_grid[# 1, 8] = 0; //Special
 //Adavoid
 form_grid[# 2, 0] = "ADAVIO"
 form_grid[# 2, 1] = "Purple armored Moros."
-form_grid[# 2, 2] = AdavioSet; //Player Script
-form_grid[# 2, 3] = AdavioSelectedMenu; //Inventory Script
+form_grid[# 2, 2] = scr_player_adavio_set; //Player Script
+form_grid[# 2, 3] = scr_menu_adavio; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
 form_grid[# 2, 5] = 0; //Weapon
 form_grid[# 2, 6] = 0; //Armor
@@ -44,8 +44,8 @@ form_grid[# 2, 8] = 0; //Special
 //Ceriver
 form_grid[# 3, 0] = "CERIVER"
 form_grid[# 3, 1] = "Blue and Green Remphos with boomerang, bubbles, and sp (water cannon with push?)"
-form_grid[# 3, 2] = CeriverSet; //Player Script
-form_grid[# 3, 3] = CeriverSelectedMenu; //Inventory Script
+form_grid[# 3, 2] = scr_player_ceriver_set; //Player Script
+form_grid[# 3, 3] = scr_menu_ceriver; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
 form_grid[# 3, 5] = 0; //Weapon
 form_grid[# 3, 6] = 0; //Armor
@@ -55,8 +55,8 @@ form_grid[# 3, 8] = 0; //Special
 //Evarel
 form_grid[# 4, 0] = "EVAREL"
 form_grid[# 4, 1] = "Grey-green Lavos with green and brown tunic."
-form_grid[# 4, 2] = EvarelSet; //Player Script
-form_grid[# 4, 3] = EvarelSelectedMenu; //Inventory Script
+form_grid[# 4, 2] = scr_player_evarel_set; //Player Script
+form_grid[# 4, 3] = scr_menu_evarel; //Inventory Script
 form_grid[# 4, 4] = false; //Unlocked Status
 form_grid[# 4, 5] = 0; //Weapon
 form_grid[# 4, 6] = 0; //Armor
@@ -104,7 +104,7 @@ draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 7],101,
 draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# slot, 8],127,75);
 draw_sprite(spr_armor_allGame,slot,45,52);
 draw_sprite(spr_weapons_allGame,slot,72,53);
-draw_sprite(spr_magic_allGame,slot,97,53);
+draw_sprite(spr_primary_allGame,slot,97,53);
 draw_sprite(spr_special_allGame,slot,123,53);
 
 //Equip and Switch Buttons
@@ -217,7 +217,7 @@ if (item_id != -1)
 	//Draw it's four levelable features //weapon, armor, magic, special
 	draw_sprite(spr_weapons_allGame,item_id,182,42);
 	draw_sprite(spr_armor_allGame,item_id,216,42);
-	draw_sprite(spr_magic_allGame,item_id,182,76);
+	draw_sprite(spr_primary_allGame,item_id,182,76);
 	draw_sprite(spr_special_allGame,item_id,216,76);
 	draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# item_id, 5]-1,182,63);
 	draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# item_id, 6]-1,216,63);

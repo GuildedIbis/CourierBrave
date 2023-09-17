@@ -148,7 +148,7 @@ draw_set_valign(fa_middle);
 var _magicDraw = obj_player.magic_draw;
 draw_sprite_stretched(menu_sprite,3,64,36,192,96);
 draw_sprite_stretched(spr_menu_circle16,1,70,56,20,20);
-draw_sprite(spr_magic_allGame,_form,64,56);
+draw_sprite(spr_primary_allGame,_form,64,56);
 script_execute(_magicDraw);
 }
 //

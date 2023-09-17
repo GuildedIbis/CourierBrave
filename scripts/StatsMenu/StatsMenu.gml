@@ -100,8 +100,8 @@ switch(page)
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
-		draw_text_transformed(166,42,"SELECT A STAT",.5,.5,0);
-		draw_text_transformed(166,56,"Level up your stats with Star Orbs",.5,.5,0); 
+		draw_text_transformed(_midX,_titleY,"SELECT A STAT",1,1,0);
+		draw_text_transformed(_midX,_descY,"Level up your stats with Star Orbs",.5,.5,0); 
 	break;
 	
 	case 0:

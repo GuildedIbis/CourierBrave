@@ -5,10 +5,10 @@
 //
 //
 //Ceriver Set (create)
-function CeriverSet(){
+function scr_player_ceriver_set(){
 form = 3;
 form_type = 3;
-home_state = CeriverSet;
+home_state = scr_player_ceriver_set;
 free_state = CeriverFree;
 state_script = CeriverFree;
 idle_sprite = spr_player_ceriver_idle;

@@ -5,15 +5,15 @@
 //
 //
 //Adavio Selected Menu
-function AdavioSelectedMenu(){
+function scr_menu_adavio(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _scriptList = array_create(4,-1)
-_scriptList[0] = AdavioArmorMenu;
-_scriptList[1] = AdavioWeaponMenu;
-_scriptList[2] = AdavioCrystalMenu;
-_scriptList[3] = AdavioSpecialMenu;
+_scriptList[0] = scr_menu_adavio_armor;
+_scriptList[1] = scr_menu_adavio_weapon;
+_scriptList[2] = scr_menu_adavio_primary;
+_scriptList[3] = scr_menu_adavio_special;
 
 //Right-hand Menu and Buttons
 draw_sprite(spr_menu_rope,3,176,77);
@@ -32,7 +32,7 @@ draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_color(c_white);
-draw_text_transformed(101,38,"ADAVIO",.6,.6,0);
+draw_text_transformed(101,39,"ADAVIO",1,1,0);
 
 for (var i = 0; i < 4; i = i + 1)
 {
@@ -54,15 +54,28 @@ for (var i = 0; i < 4; i = i + 1)
 
 
 //Draw Right Hand Menu
-if (selected_info != -1) script_execute(selected_info)
-
+if (selected_info != -1)
+{
+	script_execute(selected_info)
+}
+else
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed(222,39,"SELECT A SKILL",1,1,0);
+	draw_text_transformed(222,56,"SKILL DESCRIPTION",.5,.5,0); 
+	draw_text_transformed(222,91,"LEVEL",.5,.5,0); 
+	draw_text_transformed(222,112,"VALUE",.5,.5,0);
+}
 }//
 //
 //
 //
 //
 //Draw Adavio Power Hook Menu in Inventory
-function AdavioWeaponMenu(){
+function scr_menu_adavio_weapon(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -82,10 +95,10 @@ var _level = "Level: " + string(obj_inventory.form_grid[# 2, 5]) + " > " + strin
 var _stat = "Damage: " + string(20 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5])) + "(" +string(15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7))) + ") > " + string(20 + (9 * obj_player.might) + (5 * (obj_inventory.form_grid[# 2, 5]+1))) + "(" +string(15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5]+1)*(7))) + ")";
 var _title = "POWER HOOK";
 var _describe = "A fast jabbing hook that does average\ndamage and sends out a damaging slash.";
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -112,15 +125,11 @@ switch (obj_inventory.form_grid[# 2, 5])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -144,15 +153,11 @@ switch (obj_inventory.form_grid[# 2, 5])
 
 		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 }
@@ -162,7 +167,7 @@ switch (obj_inventory.form_grid[# 2, 5])
 //
 //
 //Draw Adavio's Violet Armor Menu in Inventory
-function AdavioArmorMenu(){
+function scr_menu_adavio_armor(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -182,10 +187,10 @@ var _level = "Level: " + string(obj_inventory.form_grid[# 2, 6]) + " > " + strin
 var _stat = "Negates: " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6]))) + " > " + string(9 + (5 * (obj_inventory.form_grid[# 2, 6] + 1)));
 var _title = "VIOLET ARMOR";
 var _describe = "Heavy armor of violet that blocks\nan average amount of damage.";
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -212,15 +217,11 @@ switch (obj_inventory.form_grid[# 2, 6])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -244,15 +245,11 @@ switch (obj_inventory.form_grid[# 2, 6])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 
@@ -263,7 +260,7 @@ switch (obj_inventory.form_grid[# 2, 6])
 //
 //
 //Draw Adavio Void Spread Menu in Inventory
-function AdavioCrystalMenu(){
+function scr_menu_adavio_primary(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -286,10 +283,10 @@ if (page = 0)
 	var _stat = "Damage: " + string(12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8)) + " > " + string(12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7] + 1)*8));
 	var _title = "VOID SPREAD";
 	var _describe = "Shoot a wide spreading cluster of\nprojctiles that each deal a small\namount of damage.";
-	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 if (page = 1)
 {
@@ -302,20 +299,21 @@ if (page = 1)
 	var _stat = "Damage: " + string(22 + (9 * obj_player.grace) + (7 * obj_inventory.form_grid[# 2, 7])) + "(" +string(13 + (obj_player.grace * 6) + ((obj_inventory.form_grid[# 2, 7])*(6))) + ") > " + string(22 + (9 * obj_player.grace) + (7 * (obj_inventory.form_grid[# 2, 7]+1))) + "(" +string(13 + (obj_player.grace * 6) + ((obj_inventory.form_grid[# 2, 7]+1)*(6))) + ")";
 	var _title = "VOID CYCLER";
 	var _describe = "Fire orb that bursts into a cluster\nof smaller projectiles.";
-	draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-	draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-	draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 
 //Alt Magic
 if (obj_inventory.quest_grid[# 20, 3] = true)
 {
-	draw_sprite_stretched(spr_menu_circle16,3,277,63,16,16);
-	draw_text_transformed(286,67,"A",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,277,63,293,79))
+	draw_sprite_stretched(spr_menu_circle16,3,277,55,16,16);
+	if (page = 0) draw_sprite_ext(spr_primaryAlt_allGame,2,269,55,1,1,0,c_white,1);
+	if (page = 1) draw_sprite_ext(spr_primary_allGame,2,269,55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,277,55,293,71))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,276,62,18,18)
+		draw_sprite_stretched(spr_highlight_circle,0,276,54,18,18)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			audio_sound_gain(snd_text02,global.volumeMenu,1);
@@ -352,15 +350,11 @@ switch (obj_inventory.form_grid[# 2, 7])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -384,15 +378,11 @@ switch (obj_inventory.form_grid[# 2, 7])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 
@@ -403,7 +393,7 @@ switch (obj_inventory.form_grid[# 2, 7])
 //
 //
 //Draw Adavio Special Menu in Inventory
-function AdavioSpecialMenu(){
+function scr_menu_adavio_special(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
 var _midX = 222;
@@ -422,11 +412,11 @@ draw_set_color(c_white);
 var _level = "Level: " + string(obj_inventory.form_grid[# 2, 8]) + " > " + string(obj_inventory.form_grid[# 2, 8]+1);
 var _stat = "Damage: " + string(39 + (18 * obj_player.divinity) + (17 * obj_inventory.form_grid[# 2, 8])) + "(" +string(13 + (obj_player.divinity * 6) + ((obj_inventory.form_grid[# 2, 8])*(6))) + ") > " + string(39 + (18 * obj_player.divinity) + (17 * (obj_inventory.form_grid[# 2, 8]+1))) + "(" +string(13 + (obj_player.divinity * 6) + ((obj_inventory.form_grid[# 2, 8]+1)*(6))) + ")";
 var _title = "VOID CRUSH";
-var _describe = "Select an area to drop onto through a rift.\nBecome briefly invincible and deal damage at the area of impact.";
-draw_text_transformed(_midX,_titleY,_title,.6,.6,0);
-draw_text_transformed(_midX,_descY,_describe,.35,.35,0); 
-draw_text_transformed(_midX,_lvlY,_level,.35,.35,0); 
-draw_text_transformed(_midX,_statY,_stat,.35,.35,0);
+var _describe = "Select an area to drop onto through a\nrift.  Become briefly invincible and fire\na spread of projectiles from the\narea of impact.";
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 	
 //Level	
@@ -453,15 +443,11 @@ switch (obj_inventory.form_grid[# 2, 8])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.35,.35,0);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
 	break;
 	
 	case 1:
@@ -485,15 +471,11 @@ switch (obj_inventory.form_grid[# 2, 8])
 
 		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
 		draw_set_halign(fa_right);
-		draw_set_color(c_black);
-		draw_text_transformed(_leftX + 40,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(236,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(264,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);
-		draw_set_color(c_white);
-		draw_text_transformed(_leftX + 39,_buttonY + 5,"LEVEL UP",.35,.35,0);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.35,.35,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.35,.35,0);	
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[2])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 }
