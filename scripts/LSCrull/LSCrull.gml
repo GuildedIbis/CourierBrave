@@ -6,7 +6,7 @@
 //
 //Load Game State
 //Path: Activated at Home Screen
-function LoadCrull(_loadEntity){
+function scr_load_starOrb(_loadEntity){
 
 //Load Crull Stones
 if (variable_struct_exists(_loadEntity,"starOrb00")) obj_inventory.starOrb_pedestal_list[0] = _loadEntity.starOrb00;
@@ -57,7 +57,7 @@ if (variable_struct_exists(_loadEntity,"starOrb19")) obj_inventory.starOrb_pedes
 //
 //Save Game State
 //Path: Activated by Doors
-function SaveCrull(_saveData){
+function scr_save_starOrb(_saveData){
 	
 var _saveInv = 
 {

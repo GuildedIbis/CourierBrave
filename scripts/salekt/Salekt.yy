@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "RetiredCharacters",
-    "path": "folders/Scripts/Interactables/Characters/RetiredCharacters.yy",
+    "path": "folders/Scripts/xRetiredScripts/RetiredCharacters.yy",
   },
 }

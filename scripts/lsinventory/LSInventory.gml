@@ -6,7 +6,7 @@
 //
 //Load Player Inventory
 //Path: obj_game > event Key Pressed "L"
-function LoadInventory(_loadEntity){	
+function scr_load_inventory(_loadEntity){	
 		//Unique Items
 		if (variable_struct_exists(_loadEntity,"starOrbs")) obj_inventory.star_orb = _loadEntity.starOrbs;
 		//Load Rog Stones
@@ -77,7 +77,7 @@ function LoadInventory(_loadEntity){
 //
 //Save Player Inventory
 //Path: obj_game > event Key Pressed "S"
-function SaveInventory(_saveData){
+function scr_save_inventory(_saveData){
 	
 var _saveInv = 
 {

@@ -5,22 +5,21 @@
 //
 //
 //Save Game
-function SaveGame2(){
+function scr_game_save_2(){
 
 //Setup Array to hold Strings
 var _saveData = array_create(0);
 
 //Save Scripts
-SavePlayer(_saveData);//Revert, then commit with a Load2
-SaveInventory(_saveData);
-SaveForms(_saveData);	
-SaveQuest(_saveData);
-SaveRooms(_saveData);
-SaveChests(_saveData);
-SaveKephra(_saveData);
-SaveGameState(_saveData);
-SaveCrull(_saveData);
-SaveSettings(_saveData);
+scr_save_player(_saveData);
+scr_save_inventory(_saveData);
+scr_save_forms(_saveData);	
+scr_save_quests(_saveData);
+scr_save_rooms(_saveData);
+//scr_save_chests(_saveData);
+scr_save_kephra(_saveData);
+scr_save_gamestate(_saveData);
+scr_save_starOrb(_saveData);
 
 //
 //
@@ -39,7 +38,7 @@ show_debug_message("Game Saved!" + _string);
 //
 //
 //Load Game
-function LoadGame2(){
+function scr_game_load_2(){
 if (file_exists("savedgame2.save"))
 {
 	var _buffer = buffer_load("savedgame2.save");
@@ -51,16 +50,15 @@ if (file_exists("savedgame2.save"))
 		var _loadEntity = array_pop(_loadData);
 
 		//Load Scripts
-		LoadPlayer(_loadEntity);
-		LoadInventory(_loadEntity);
-		LoadForms(_loadEntity);
-		LoadQuest(_loadEntity);
-		LoadRooms(_loadEntity);
-		LoadChests(_loadEntity);
-		LoadKephra(_loadEntity);
-		LoadGameState(_loadEntity);
-		LoadCrull(_loadEntity);
-		LoadSettings(_loadEntity);
+		scr_load_player(_loadEntity);
+		scr_load_inventory(_loadEntity);
+		scr_load_forms(_loadEntity);
+		scr_load_quests(_loadEntity);
+		scr_load_rooms(_loadEntity);
+		//scr_load_chests(_loadEntity);
+		scr_load_kephra(_loadEntity);
+		scr_load_gamestate(_loadEntity);
+		scr_load_starOrb(_loadEntity);
 	}
 	show_debug_message("Game Loaded!" + _string);
 }

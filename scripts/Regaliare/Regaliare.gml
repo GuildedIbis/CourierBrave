@@ -103,10 +103,8 @@ if (weapon_timer > 0)
 
 
 //Movement 2: Collision
-PlayerCollision();
+scr_player_collision();
 
-//Movement 3: Environtment
-PlayerEnvironment();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -120,7 +118,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Update Index
-PlayerAnimation();
+scr_player_animation();
 
 
 //Weapon Skill
@@ -131,7 +129,7 @@ if (key_attackW)
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		//stamina = stamina - 20;
 		attack_script = RegaliareRegalBlade;
-		state_script = PlayerStateAttack;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -143,12 +141,12 @@ if (key_attackM)
 		if (magic_primary = true) and (yellow_primary >= 5)
 		{
 			attack_script = magicP_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (yellow_primary >= 10)
 		{
 			attack_script = magicA_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 	}
 }
@@ -160,7 +158,7 @@ if (key_attackS) and (yellow_special >= 50)
 	{
 		yellow_special = yellow_special - 50;
 		attack_script = RegaliareSpecial;
-		state_script = PlayerStateAttack;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -172,7 +170,7 @@ if (key_ability) and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		stamina = stamina - 50;
-		state_script = PlayerStateRoll;
+		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
@@ -283,10 +281,10 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_player_regaliare_slash_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end)
 {

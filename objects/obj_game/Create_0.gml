@@ -2,8 +2,8 @@
 
 //Randomize... and other random things
 randomize();
-script_execute(AllItems);
-script_execute(RoomEnemies);
+scr_game_items_create();
+scr_game_room_enemy_create();
 scr_resource_grid_create();
 
 
@@ -61,7 +61,7 @@ global.volumeMenu = .30;
 global.volumeEffects = .6;
 global.fnt_main_white = font_add_sprite_ext(spr_font_main_white," !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",true,1);
 global.fnt_main_gold = font_add_sprite_ext(spr_font_main_gold," !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",true,1);
-script_execute(LoadGameSettings);
+scr_game_load_settings();
 
 display_set_gui_size(_resolutionWidth,_resolutionHeight);
 

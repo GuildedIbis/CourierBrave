@@ -5,7 +5,7 @@
 //
 //
 //Solar Sabi 1 Create
-function SolarSabi1Create(){
+function scr_npc_solarSabi_00_create(){
 entity_step = SolarSabiStep;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi1_active;
@@ -17,7 +17,7 @@ stone_sprite = spr_solarSabi1_stone;
 //
 //
 //Solar Sabi 2 Create
-function SolarSabi2Create(){
+function scr_npc_solarSabi_01_create(){
 entity_step = SolarSabiStep;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi2_active;
@@ -29,7 +29,7 @@ stone_sprite = spr_solarSabi2_stone;
 //
 //
 //Solar Sabi 3 Create
-function SolarSabi3Create(){
+function scr_npc_solarSabi_02_create(){
 entity_step = SolarSabiStep;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi3_active;
@@ -41,7 +41,7 @@ stone_sprite = spr_solarSabi3_stone;
 //
 //
 //Solar Step
-function SolarSabiStep(){
+function scr_npc_solarSabi_step(){
 if (global.dayPhase = 1)
 {
 	sprite_index = active_sprite;
@@ -59,7 +59,7 @@ else
 //
 //
 //Solar Sabi 1 Text
-function SolarSabi1Text(){
+function scr_text_solarSabi_00(){
 //Stone
 if (global.dayPhase != 1)
 {
@@ -297,7 +297,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 //
 //
 //Solar Sabi 2 Text
-function SolarSabi2Text(){
+function scr_text_solarSabi_01(){
 //Stone
 if (global.dayPhase != 1)
 {
@@ -514,7 +514,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
 //
 //
 //Solar Sabi 3 Text
-function SolarSabi3Text(){
+function scr_text_solarSabi_02(){
 //Stone
 if (global.dayPhase != 1)
 {

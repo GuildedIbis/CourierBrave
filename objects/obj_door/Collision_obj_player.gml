@@ -30,7 +30,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 		global.targetCamp = target_camp;
 		if (target_camp = true)
 		{
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = target_room;
 			global.lastCampX = target_x;
 			global.lastCampY = target_y;

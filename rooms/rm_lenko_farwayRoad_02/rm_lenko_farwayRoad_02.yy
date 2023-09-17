@@ -399,7 +399,6 @@
     {"name":"inst_1B5642B3","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_70A46F71","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_F50D2C7","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
-    {"name":"inst_2A2ABEF6","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_5E88A8AE","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_53D254AC","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_5C7504F0","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
@@ -415,6 +414,7 @@
     {"name":"inst_7FD4357A","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_4AF83E33","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
     {"name":"inst_7B8E33A9","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
+    {"name":"inst_A5B8801","path":"rooms/rm_lenko_farwayRoad_02/rm_lenko_farwayRoad_02.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -491,11 +491,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"break_object","path":"objects/obj_enemy/obj_enemy.yy",},"value":"obj_break",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":328.0,"y":296.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2A2ABEF6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_inanimate_pedestal_starorb_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_inanimate_pedestal_starorb",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":536.0,"y":192.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E88A8AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kephraStone","path":"objects/obj_kephraStone/obj_kephraStone.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":56.0,},
@@ -547,6 +542,9 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"8",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.farwayRoad_resource_grid",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":264.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_A5B8801","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":528.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3FEBC5F9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

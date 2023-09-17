@@ -6,7 +6,7 @@
 //
 //Load Player Stats
 //Path: obj_game > event Key Pressed "L"
-function LoadSettings(_loadEntity){
+function scr_load_settings(_loadEntity){
 		
 //Load Settings
 if (variable_struct_exists(_loadEntity,"volMusic")) global.volumeMusic = _loadEntity.volMusic;
@@ -25,7 +25,7 @@ if (variable_struct_exists(_loadEntity,"timePlayed3")) obj_game.time_played3 = _
 //
 //Save Player Stats
 //Path: obj_game > event Key Pressed "S"
-function SaveSettings(_saveData){
+function scr_save_settings(_saveData){
 //
 //
 //What To Save As : What to Save

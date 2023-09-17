@@ -4,7 +4,7 @@
 //
 //
 //Camera Screen Shake
-function ScreenShake(magnitude,length){
+function scr_camera_screen_shake(magnitude,length){
 with (global.iCamera)
 {
 	if (magnitude > shake_rem)

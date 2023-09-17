@@ -6,7 +6,7 @@
 //
 //Enemy Hit
 //Set on the Enemy Object in the hit_script variable definition
-function EntityHitEnemy(){
+function scr_entity_hit_damage(){
 var _sndChance = irandom_range(0,1)
 
 if (invincible = false)
@@ -41,7 +41,7 @@ if (invincible = true)
 //
 //
 //Entity Hit NPC
-function EntityHitNPC(){
+function scr_entity_hit(){
 flash = .35;
 }
 //
@@ -71,7 +71,7 @@ instance_destroy();
 //
 //
 //Entity Hit Destroy
-function EntityHitDestroy(){
+function scr_entity_hit_destroy(){
 instance_destroy();
 }
 //
@@ -80,7 +80,7 @@ instance_destroy();
 //
 //
 //Entity Depth Calculate
-function EntityDepthCalculate(_hitbox){
+function scr_entity_depth_calculate(_hitbox){
 //Collision with Entities
 mask_index = _hitbox;
 

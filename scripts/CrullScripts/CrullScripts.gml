@@ -100,7 +100,7 @@ if (sprite_index != crull_sprite)
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end)
 {
@@ -148,7 +148,7 @@ if (sprite_index != crull_sprite)
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end)
 {
@@ -197,7 +197,7 @@ if (sprite_index != crull_sprite)
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end)
 {
@@ -247,7 +247,7 @@ if (sprite_index != crull_sprite)
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end)
 {

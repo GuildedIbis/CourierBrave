@@ -3,9 +3,42 @@
 //
 //
 //
+//Change Rooms
+function scr_game_room_change(xPos,yPos,targetRoom,roomNum,levelNum,roomArray,enemyGrid,camp,campNum){
+obj_inventory.room_num = roomNum;
+obj_inventory.room_ary = roomArray;
+obj_game.room_num = roomNum;
+obj_game.room_name = obj_inventory.room_ary[roomNum][0];
+obj_game.room_name_timer = 180;
+obj_game.room_enemy_grid = enemyGrid;
+obj_game.level_num = levelNum;
+obj_game.level_name = obj_inventory.level_name[levelNum];
+obj_game.level_name_timer = 180;
+obj_inventory.level_ary[levelNum] = true;
+global.targetX = xPos;
+global.targetY = yPos;
+global.targetRoom = targetRoom;
+
+if (camp = true)
+{
+	global.targetCamp = true;
+	global.lastCamp = targetRoom;
+	global.lastCampX = xPos;
+	global.lastCampY = yPos;
+	obj_inventory.camp_grid[# campNum, 3] = true;
+}
+
+scr_game_room_enemy_reset();
+global.transition = true;
+global.fadeOut = true;
+}
+//
+//
+//
+//
 //
 //Game Room Transition
-function GameRoomTransition(){
+function scr_game_room_transition(){
 if (global.transition = true)
 {
 	if (global.fadeOut = true)
@@ -45,8 +78,8 @@ if (global.transition = true)
 				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
-			//script_execute(SaveGameSettings);
-			//script_execute(LoadGameSettings);
+			scr_game_save_settings();
+			scr_game_load_settings();
 			global.fadeOut = false;
 		}
 	}
@@ -67,8 +100,8 @@ if (global.transition = true)
 //
 //
 //
-//
-function GameRoomName(){
+//Game Room Name
+function scr_game_room_name(){
 
 if (room_name_timer > 0)
 {

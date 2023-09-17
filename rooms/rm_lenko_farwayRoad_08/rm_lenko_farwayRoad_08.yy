@@ -188,7 +188,7 @@
     {"name":"inst_3C1A8DBE","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_2C1FBBF6","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_72416153","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
-    {"name":"inst_16AE9BA8","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
+    {"name":"inst_6E9B1F2B","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -253,11 +253,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_72416153","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"room_song","path":"objects/obj_song/obj_song.yy",},"value":"snd_song_farway_theme",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_16AE9BA8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_inanimate_pedestal_starorb_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_inanimate_pedestal_starorb",},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6E9B1F2B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
-          ],"rotation":0.13847642,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":88.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_241688F2_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

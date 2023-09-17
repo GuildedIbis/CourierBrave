@@ -5,7 +5,7 @@
 //
 //
 //Kephra Stone Main
-function KephraStoneList(){
+function scr_inventory_kephraStone_create(){
 kephra_grid = ds_grid_create(60,2);
 
 kephra_grid[# 0, 0] = scr_menu_kephra_00;

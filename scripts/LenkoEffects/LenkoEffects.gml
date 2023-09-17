@@ -59,7 +59,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //Effect Lenko Trees Create
-function EffectLenkoTreeCreate(){
+function scr_effect_lenko_trees_create(){
 image_index = irandom_range(0,6);
 image_speed = 0;
 with (instance_create_layer(x-8,y-19,"Wall",obj_wall))
@@ -103,7 +103,7 @@ sy4 = y + 3;
 //
 //
 //Effect Lenko Trees
-function EffectLenkoTree(){
+function scr_effect_lenko_trees(){
 frag = false
 image_speed = 0;
 depth = -y;
@@ -135,7 +135,7 @@ depth = -y;
 //
 //
 //Effect Nisma Smithy Furnace
-function EffectSmithyFurnace(){
+function scr_effect_furnace(){
 frag = false;
 sprite_index = spr_furnaceFire;
 image_speed = 1;
@@ -148,7 +148,7 @@ image_yscale = 1;
 //
 //
 //Effect Molen Trees Create
-function EffectMolenTreeCreate(){
+function scr_effect_molen_tree_create(){
 image_index = variant;
 image_speed = 0;
 with (instance_create_layer(x-8,y-15,"Wall",obj_wall))
@@ -193,7 +193,7 @@ sy4 = y + 3;
 //
 //
 //Effect Molen Trees Step
-function EffectMolenTree(){
+function scr_effect_molen_tree(){
 frag = false
 image_speed = 0;
 image_index = variant;
@@ -226,7 +226,7 @@ depth = -y;
 //
 //
 //Effect Lakebirch Trees Create
-function EffectLakebirchTreeCreate(){
+function scr_effect_lakebirch_tree_create(){
 image_index = variant;
 image_speed = 0;
 with (instance_create_layer(x-8,y-15,"Wall",obj_wall))
@@ -271,7 +271,7 @@ sy4 = y + 3;
 //
 //
 //Effect Lakebirch Trees
-function EffectLakebirchTree(){
+function scr_effect_lakebirch_tree(){
 frag = false
 image_speed = 0;
 image_index = variant;
@@ -304,7 +304,7 @@ depth = -y;
 //
 //
 //Effect Jelx Trees Create
-function EffectJelxTreeCreate(){
+function scr_effect_jelx_tree_create(){
 image_index = variant;
 image_speed = 0;
 with (instance_create_layer(x-8,y-15,"Wall",obj_wall))
@@ -349,7 +349,7 @@ sy4 = y + 3;
 //
 //
 //Effect Jelx Trees Step
-function EffectJelxTree(){
+function scr_effect_jelx_tree(){
 frag = false
 image_speed = 0;
 image_index = variant;

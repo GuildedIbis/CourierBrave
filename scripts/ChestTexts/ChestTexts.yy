@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "WorldText",
-    "path": "folders/Scripts/World/WorldText.yy",
+    "name": "Inanimates",
+    "path": "folders/Scripts/Interactables/Inanimates.yy",
   },
 }

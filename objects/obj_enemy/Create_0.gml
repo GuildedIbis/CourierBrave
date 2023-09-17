@@ -19,6 +19,6 @@ ldY = 0;
 
 
 //Status Effects
-StatusEffects();
+scr_entity_status_effects();
 
 

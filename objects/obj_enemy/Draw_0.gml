@@ -50,4 +50,4 @@ else
 	
 }
 
-StatusEffectsDraw();
+scr_entity_status_effects_draw();

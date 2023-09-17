@@ -17,7 +17,7 @@ if (global.home = true)
 scr_day_cycle();
 
 //Room Transistion
-GameRoomTransition();
+scr_game_room_transition();
 
 //Room Name
-GameRoomName();
+scr_game_room_name();

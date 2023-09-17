@@ -37,9 +37,9 @@ if (obj_game.gamePaused = false)
 if (hp <= 0)
 {
 
-	state_script = PlayerDeath;
-	script_execute(RoomEnemiesReset);
+	state_script = scr_player_death;
+	scr_game_room_enemy_reset();
 }
 
 //Status Effects
-StatusEffects();
+scr_entity_status_effects();

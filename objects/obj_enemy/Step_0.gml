@@ -51,5 +51,5 @@ if (bullet = false)
 				
 	}
 }
-EnemyEnvironment();
-StatusEffects();
+//EnemyEnvironment();
+scr_entity_status_effects();

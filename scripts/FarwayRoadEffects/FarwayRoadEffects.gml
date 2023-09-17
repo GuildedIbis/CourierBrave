@@ -314,7 +314,7 @@ else image_index = 1;
 //
 //
 //Effect Lekno AbandonedHouse Rear Create
-function EffectLenkoAbandonedHouseRearCreate(){
+function scr_effect_farwayRoad_abandonedHouse_create_rear(){
 sprite_index = spr_house_abandonedBack;
 image_speed = 0;
 with (instance_create_layer(x-33,y-16,"Wall",obj_wall))
@@ -363,7 +363,7 @@ sy4 = y + 71;
 //
 //
 //Effect Lekno AbandonedHouse Front Create
-function EffectLenkoAbandonedHouseFrontCreate(){
+function scr_effect_farwayRoad_abandonedHouse_create_front(){
 sprite_index = spr_house_abandonedFront;
 image_speed = 0;
 with (instance_create_layer(x-31,y-16,"Wall",obj_wall))
@@ -431,79 +431,7 @@ shadow = false;
 //sx4 = x - 39;
 //sy4 = y + 5;
 }
-//
-//
-//
-//
-//
-//Effect Statue Moth Create [Farway Road 7]
-function EffectStatueMothCreate(){
-image_speed = 0;
-sprite_index = spr_statue_moth;
-//Create Collision
-with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
-{
-	image_xscale = 4;
-	image_yscale = 2;
-	game_paused_image_speed = image_speed;
-}
-if (break_object != -1)
-{
-	with (instance_create_layer(x-16,y-8,"Break",break_object))
-	{
-		image_xscale = 4;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-}
 
-//Set Shadow
-shadow = true;
-shadow_size = 4;
-//sx1 = x - 6;
-//sy1 = y - 30;
-//sx2 = x + 32;
-//sy2 = y - 30;
-//sx3 = x + 16;
-//sy3 = y + 8;
-//sx4 = x - 16;
-//sy4 = y + 8;
-
-
-//event_inherited();
-}
-
-//
-//
-//
-//
-//
-//Effect Statue Moth
-function EffectStatueMoth(){
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-image_index = obj_inventory.yakflowerPath_map_ary[5][3];
-sprite_index = spr_statue_moth;
-if (place_meeting(x,y,obj_player))
-{
-	if (depth < obj_player.depth)
-	{
-		if (image_alpha > .5) image_alpha = image_alpha - .05
-	}
-	else
-	{
-		if (image_alpha < 1) image_alpha = image_alpha + .05;
-	}
-}
-else 
-{
-	if (image_alpha < 1) image_alpha = image_alpha + .05;
-}
-depth = -y;
-
-}
 //
 //
 //
@@ -563,44 +491,6 @@ sprite_index = spr_effect_tent_zerwerk;
 //
 //
 //Effect Ceriver Quest Door
-function EffectCeriverQuestDoor(){
-frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-
-if (obj_player.form != 1)
-{
-	sprite_index = spr_door_questCeriver;
-
-}
-if (obj_player.form = 1)
-{
-	sprite_index = spr_door_questCeriver_open;
-	with (obj_wall)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	with (break_object)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	
-}
-
-}
-//
-//
-//
-//
-//Effect Ceriver Quest Door
 function scr_effect_door_farway(){
 frag = false
 image_speed = 0;
@@ -640,7 +530,7 @@ if (obj_player.form = 1)
 //
 //
 //Effect Lekno Lake Path Well Create
-function EffectWellCreate(){
+function scr_effect_farwayRoad_well_create(){
 image_speed = 0;
 sprite_index = spr_well;
 with (instance_create_layer(x-8,y-12,"Wall",obj_wall))
@@ -677,7 +567,7 @@ shadow_size = 2;
 //
 //
 //Effect Well Step
-function EffectWell(){
+function scr_effect_farwayRoad_well(){
 image_speed = 0;
 depth = -y;
 image_xscale = 1;

@@ -64,8 +64,8 @@ if (point_in_rectangle(_mouseX,_mouseY,195,37,251,122))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		//script_execute(SaveGameSettings);
-		//script_execute(LoadGameSettings);
+		scr_game_save_settings();
+		scr_game_load_settings();
 		if (global.current_save != -1) script_execute(global.current_save);
 		game_restart();
 	}
@@ -123,7 +123,7 @@ if (point_in_rectangle(_mouseX,_mouseY,90,44,230,64))//Settings Menu
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		script_execute(LoadGameSettings);
+		scr_game_load_settings();
 		home_menu = scr_menu_save_select;
 		restart = false;
 		restart2 = false;
@@ -215,13 +215,12 @@ if (restart = false)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 0;
-			global.current_save = SaveGame;
+			global.current_save = scr_game_save_1;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
 			instance_create_layer(x,y,"Instances",obj_player);
-
-			LoadGame();
+			scr_game_load_1();
 			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
@@ -255,7 +254,7 @@ else
 		{
 			obj_game.save_num = 0;
 			obj_game.time_played = 0;
-			global.current_save = SaveGame;
+			global.current_save = scr_game_save_1();
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
@@ -275,10 +274,8 @@ else
 				y = 160;
 				image_speed = 1;
 			}
-		
 			room_goto(rm_scene_00);
-		
-			SaveGame();
+			scr_game_save_1();
 			audio_stop_all();
 		}
 	}
@@ -305,19 +302,18 @@ if (restart2 = false)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 1;
-			global.current_save = SaveGame2;
+			global.current_save = scr_game_save_2;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
 			instance_create_layer(x,y,"Instances",obj_player);
-			LoadGame2();
+			scr_game_load_2();
 			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
 			obj_player.x = global.lastCampX;
 			obj_player.y = global.lastCampY;
 			audio_stop_all();
-			
 		}
 	}
 	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,86))//Restart Game 2
@@ -343,7 +339,7 @@ else
 		{
 			obj_game.save_num = 1;
 			obj_game.time_played2 = 0;
-			global.current_save = SaveGame2;
+			global.current_save = scr_game_save_2();
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
@@ -363,10 +359,8 @@ else
 				y = 160;
 				image_speed = 1;
 			}
-		
 			room_goto(rm_scene_00);
-		
-			SaveGame2();
+			scr_game_save_2();
 			audio_stop_all();
 		}
 	}
@@ -393,12 +387,12 @@ if (restart3 = false)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 2;
-			global.current_save = SaveGame3;
+			global.current_save = scr_game_save_3;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
 			instance_create_layer(x,y,"Instances",obj_player);
-			LoadGame3();
+			scr_game_load_3();
 			crull_ary[0] = 0;
 			obj_player.hp = obj_player.max_hp;
 			room_goto(global.lastCamp);
@@ -430,7 +424,7 @@ else
 		{
 			obj_game.save_num = 2;
 			obj_game.time_played3 = 0;
-			global.current_save = SaveGame3;
+			global.current_save = scr_game_save_3();
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
@@ -451,7 +445,7 @@ else
 				image_speed = 1;
 			}
 			room_goto(rm_scene_00);
-			SaveGame3();
+			scr_game_save_3();
 			audio_stop_all();
 		}
 	}

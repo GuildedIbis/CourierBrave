@@ -105,7 +105,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 //
 //
 //Crull Stone State
-function PlayerStateCrull(){
+function scr_player_crull(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -156,7 +156,7 @@ if (animation_end)
 //
 //
 //Recharge State
-function PlayerRecharge(_yellow,_blue,_purple,_red,_green,_orange){
+function scr_player_recharge(_yellow,_blue,_purple,_red,_green,_orange){
 if (_yellow = false) and (yellow_charge < max_yellow_charge)
 {
 	yellow_charge = yellow_charge + 1;
@@ -188,7 +188,7 @@ if (_orange = false) and (orange_charge < max_orange_charge)
 //
 //
 //Roll State
-function PlayerStateRoll(){
+function scr_player_roll(){
 //max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
 //Charge Crystal??
@@ -204,7 +204,7 @@ if (melee_timer > 0)
 hor_spd = lengthdir_x(roll_spd,direction);
 ver_spd = lengthdir_y(roll_spd,direction);
 remain_dist = max(0, remain_dist - roll_spd);
-var _collided = PlayerCollision();
+var _collided = scr_player_collision();
 
 //Update Sprite
 sprite_index = roll_sprite;
@@ -222,7 +222,7 @@ if (remain_dist <= 0)
 if (_collided = true)
 {
 	state_script = free_state;
-	ScreenShake(4,15);
+	scr_camera_screen_shake(4,15);
 }
 }
 //
@@ -231,7 +231,7 @@ if (_collided = true)
 //
 //
 //Player State Attack 
-function PlayerStateAttack(){
+function scr_player_attack(){
 //Timers
 //if (keyboard_check_pressed(ord("Q"))) or (keyboard_check_pressed(ord("F")))
 //{
@@ -255,7 +255,7 @@ script_execute(attack_script);
 //
 //
 //Animation 
-function PlayerAnimation(){
+function scr_player_animation(){
 var _totalFrames = sprite_get_number(sprite_index) / 4;
 image_index = local_frame + (_cardinalDir * _totalFrames);
 local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
@@ -275,7 +275,7 @@ else animation_end = false;
 //
 //
 //Animation 
-function PlayerAnimationCast(){
+function scr_player_animation_cast(){
 var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,mouse_x,mouse_y)/90);
 direction = _aimDir * 90
 var _totalFrames = sprite_get_number(sprite_index) / 4;
@@ -297,7 +297,7 @@ else animation_end = false;
 //
 //
 //Animation 
-function PlayerAnimation1(){
+function scr_player_animation_one(){
 var _totalFrames = sprite_get_number(sprite_index);
 image_index = local_frame;
 local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
@@ -317,7 +317,7 @@ else animation_end = false;
 //
 //
 //Animation 
-function PlayerAnimationFixed(){
+function scr_player_animation_fixed(){
 var _totalFrames = sprite_get_number(sprite_index) / 4;
 image_index = local_frame + (fixed_dir * _totalFrames);
 local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
@@ -337,7 +337,7 @@ else animation_end = false;
 //
 //
 //Player Collision
-function PlayerCollision(){
+function scr_player_collision(){
 var _collision = false;
 var _entityList = ds_list_create();
 
@@ -401,7 +401,7 @@ return _collision;
 //
 //
 //
-function PlayerBulletSpawnPosition(){
+function scr_player_projectile_spawn(){
 var _aimAngle = point_direction(x + dir_offX,y + dir_offY,mouse_x,mouse_y);
 var _dirPos = round(_aimAngle/90);
 ldX = x + lengthdir_x(6, _aimAngle);
@@ -440,7 +440,7 @@ switch(_dirPos)
 //
 //
 //Player Cursor
-function PlayerCursor(){
+function scr_cursor(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;
@@ -477,7 +477,7 @@ depth = -5000;
 //
 //
 //Player Cursor Draw
-function PlayerCursorDraw(){
+function scr_cursor_draw(){
 var xOff = ((curs_width/2))
 var yOff = ((curs_height/2))
 //if (obj_player.selected_crystal != -1) and (curs_meter = true)
@@ -495,7 +495,7 @@ draw_sprite_stretched(spr_cursor_play,curs_form,x-xOff,y-yOff,curs_width,curs_he
 //
 //
 //Player Death
-function PlayerDeath(){
+function scr_player_death(){
 dead = true;
 iAlpha = iAlpha - .01;
 image_alpha = iAlpha;
@@ -544,7 +544,7 @@ if (iAlpha <= 0)
 //
 //
 //Player Death Fall
-function PlayerDeathFall(){
+function scr_player_death_fall(){
 dead = true;
 image_alpha = image_alpha - .01;
 image_xscale = image_xscale - .01;

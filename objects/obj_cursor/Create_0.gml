@@ -11,6 +11,6 @@ kick_spread = 0;
 blocked = false;
 interact = false;
 cursMenu_sprite = spr_cursor;
-curs_script = PlayerCursor;
-curs_draw_script = PlayerCursorDraw;
+curs_script = scr_cursor;
+curs_draw_script = scr_cursor_draw;
 

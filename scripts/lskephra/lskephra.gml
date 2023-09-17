@@ -6,7 +6,7 @@
 //
 //Load Kephra Knowledge
 //Path: obj_game > event Key Pressed "L"
-function LoadKephra(_loadEntity){
+function scr_load_kephra(_loadEntity){
 
 
 //Load Chests
@@ -30,7 +30,7 @@ if (variable_struct_exists(_loadEntity,"kephra009")) obj_inventory.kephra_grid[#
 //
 //Save Player Inventory
 //Path: obj_game > event Key Pressed "S"
-function SaveKephra(_saveData){
+function scr_save_kephra(_saveData){
 	
 var _saveInv = 
 {

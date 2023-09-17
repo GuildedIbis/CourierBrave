@@ -6,7 +6,7 @@
 //
 //Load Player Stats
 //Path: obj_game > event Key Pressed "L"
-function LoadPlayer(_loadEntity){
+function scr_load_player(_loadEntity){
 		//Load Beans
 		//if (variable_struct_exists(_loadEntity,"beans")) obj_player.beans = _loadEntity.beans;
 		//if (variable_struct_exists(_loadEntity,"beans")) obj_player.star_orb = _loadEntity.star_orb;
@@ -68,7 +68,7 @@ function LoadPlayer(_loadEntity){
 //
 //Save Player Stats
 //Path: obj_game > event Key Pressed "S"
-function SavePlayer(_saveData){
+function scr_save_player(_saveData){
 //
 //
 //What To Save As : What to Save

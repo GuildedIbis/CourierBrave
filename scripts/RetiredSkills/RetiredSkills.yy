@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Gameplay",
-    "path": "folders/Scripts/Player/Gameplay.yy",
+    "name": "xRetiredScripts",
+    "path": "folders/Scripts/xRetiredScripts.yy",
   },
 }

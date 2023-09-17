@@ -184,7 +184,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	
 	
 	//Status Effect
-	script_execute(StatusEffectsGUI);
+	scr_player_status_effects_gui();
 
 }
 if (scene_script != -1)

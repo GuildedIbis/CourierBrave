@@ -63,4 +63,4 @@ if (shader_current != -1)
 }
 
 //Status Effects
-StatusEffectsDraw();
+scr_entity_status_effects_draw();

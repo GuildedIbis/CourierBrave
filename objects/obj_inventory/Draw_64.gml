@@ -9,7 +9,7 @@ if (obj_game.gamePaused = true) and (obj_game.invPaused = true)
 	}
 	if (quick_swap = true)
 	{
-		script_execute(InventoryQuickSwap);
+		scr_inventory_quickswap();
 	}
 	
 }

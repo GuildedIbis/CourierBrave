@@ -99,13 +99,8 @@ if (weapon_timer > 0) //Weapon time between attacks
 }
 
 
-
-
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -119,7 +114,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Update Index
-PlayerAnimation();
+scr_player_animation();
 
 
 //Weapon Attack
@@ -130,7 +125,7 @@ if (key_attackW)
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		//stamina = stamina - 25;
 		attack_script = HalofireHamaxe;
-		state_script = PlayerStateAttack;
+		state_script = scr_player_attack;
 		
 	}
 }
@@ -143,12 +138,12 @@ if (key_attackM)
 		if (magic_primary = true) and (orange_primary >= 16)
 		{
 			attack_script = HalofireMeteorSling;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (orange_primary >= 4)
 		{
 			attack_script = HalofireFirespitCast;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 	}
 }
@@ -160,7 +155,7 @@ if (key_attackS) and (orange_special >= 50)
 	{
 		orange_special = orange_special - 50;
 		attack_script = HalofireSpecial;
-		state_script = PlayerStateAttack;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -173,7 +168,7 @@ if (key_ability) and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		stamina = stamina - 50;
-		state_script = PlayerStateRoll;
+		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }

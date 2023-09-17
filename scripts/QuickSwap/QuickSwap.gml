@@ -5,13 +5,13 @@
 //
 //
 //Inventory Quick Swap - Weapon Wheel
-function InventoryQuickSwap(){
+function scr_inventory_quickswap(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _rowLength = 6;
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 
-QuickSwapMenuMeters();
+scr_inventory_quickswap_meters();
 draw_sprite(spr_quickswap_groupMeter,1,23,48);
 draw_sprite(spr_quickswap_groupMeter,1,69,48);
 draw_sprite(spr_quickswap_groupMeter,1,115,48);
@@ -70,7 +70,7 @@ for (var i = 0; i < 18; i = i + 1)
 //
 //
 //Quick Swap Meters
-function QuickSwapMenuMeters(){
+function scr_inventory_quickswap_meters(){
 var _max = obj_player.max_charge
 
 //Magic

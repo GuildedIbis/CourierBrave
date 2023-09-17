@@ -6,7 +6,7 @@
 //
 //Load Player Inventory
 //Path: obj_game > event Key Pressed "L"
-function LoadChests(_loadEntity){
+function scr_load_chests(_loadEntity){
 //Load Maps
 if (variable_struct_exists(_loadEntity,"map00")) obj_inventory.map_grid[# 0, 1] = _loadEntity.map00;
 if (variable_struct_exists(_loadEntity,"map01")) obj_inventory.map_grid[# 1, 1] = _loadEntity.map01;
@@ -35,7 +35,7 @@ if (variable_struct_exists(_loadEntity,"chest015")) obj_inventory.chest_list[15]
 if (variable_struct_exists(_loadEntity,"chest016")) obj_inventory.chest_list[16] = _loadEntity.chest016;
 if (variable_struct_exists(_loadEntity,"chest017")) obj_inventory.chest_list[17] = _loadEntity.chest017;
 if (variable_struct_exists(_loadEntity,"chest018")) obj_inventory.chest_list[18] = _loadEntity.chest018;
-if (variable_struct_exists(_loadEntity,"chest019")) obj_inventory.chest_list[19] = _loadEntity.chest019;
+//if (variable_struct_exists(_loadEntity,"chest019")) obj_inventory.chest_list[19] = _loadEntity.chest019;
 
 		
 }
@@ -46,7 +46,7 @@ if (variable_struct_exists(_loadEntity,"chest019")) obj_inventory.chest_list[19]
 //
 //Save Player Inventory
 //Path: obj_game > event Key Pressed "S"
-function SaveChests(_saveData){
+function scr_save_chests(_saveData){
 	
 var _saveInv = 
 {
@@ -78,7 +78,7 @@ chest015 : obj_inventory.chest_list[15],
 chest016 : obj_inventory.chest_list[16],
 chest017 : obj_inventory.chest_list[17],
 chest018 : obj_inventory.chest_list[18],
-chest019 : obj_inventory.chest_list[19],
+//chest019 : obj_inventory.chest_list[19],
 }
 array_push(_saveData, _saveInv);
 }

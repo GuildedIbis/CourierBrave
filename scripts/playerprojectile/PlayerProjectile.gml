@@ -5,7 +5,7 @@
 //
 //
 //Standard Projectile
-function PlayerProjectileStandard(){
+function scr_projectile_standard(){
 //Step
 if (follow_timer > 0) follow_timer = follow_timer - 1;
 if (sprite_index != projectile_sprite)
@@ -21,7 +21,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculate(projectile_sprite);
+	scr_player_attack_calculate_projectile(projectile_sprite);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
@@ -43,6 +43,34 @@ if (magic = true)
 }
 }
 //
+//
+//
+//
+//
+//Projectile Collision Normal
+function scr_projectile_collision_normal(x, y, obj, radius, spacing){
+var nx = 0;
+var ny = 0;
+if (collision_circle(x, y, radius, obj, true, true) != noone) 
+{
+    for (var j=spacing; j<=radius; j+=spacing) 
+	{
+        for (var i=0; i<radius; i+=spacing) 
+		{
+            if (point_distance(0, 0, i, j) <= radius) 
+			{
+                if (collision_point(x+i, y+j, obj, true, true) == noone) { nx += i; ny += j; }
+                if (collision_point(x+j, y-i, obj, true, true) == noone) { nx += j; ny -= i; }
+                if (collision_point(x-i, y-j, obj, true, true) == noone) { nx -= i; ny -= j; }
+                if (collision_point(x-j, y+i, obj, true, true) == noone) { nx -= j; ny += i; }
+            }
+        }
+    }
+    if (nx == 0 && ny == 0) return (-1);
+    return point_direction(0, 0, nx, ny);
+}
+return (-1);
+}//
 //
 //
 //
@@ -101,7 +129,7 @@ if (magic = true)
 //
 //
 //Spin Flame
-function PlayerProjectileSpinFlame(){
+function xscr_projectile_player_spinflame(){
 //Step
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
@@ -144,32 +172,4 @@ if (timer1 <= 0)
 	instance_destroy();
 }
 }
-	//
-//
-//
-//
-//
-//Projectile Collision Normal
-function ProjectileCollisionNormal(x, y, obj, radius, spacing){
-var nx = 0;
-var ny = 0;
-if (collision_circle(x, y, radius, obj, true, true) != noone) 
-{
-    for (var j=spacing; j<=radius; j+=spacing) 
-	{
-        for (var i=0; i<radius; i+=spacing) 
-		{
-            if (point_distance(0, 0, i, j) <= radius) 
-			{
-                if (collision_point(x+i, y+j, obj, true, true) == noone) { nx += i; ny += j; }
-                if (collision_point(x+j, y-i, obj, true, true) == noone) { nx += j; ny -= i; }
-                if (collision_point(x-i, y-j, obj, true, true) == noone) { nx -= i; ny -= j; }
-                if (collision_point(x-j, y+i, obj, true, true) == noone) { nx -= j; ny += i; }
-            }
-        }
-    }
-    if (nx == 0 && ny == 0) return (-1);
-    return point_direction(0, 0, nx, ny);
-}
-return (-1);
-}
+	

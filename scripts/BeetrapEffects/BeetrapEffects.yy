@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "BeetrapEffects",
-    "path": "folders/Scripts/World/Effects/BeetrapEffects.yy",
+    "path": "folders/Scripts/Effects/BeetrapEffects.yy",
   },
 }

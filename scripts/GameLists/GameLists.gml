@@ -5,7 +5,7 @@
 //
 //
 //Chest Lists
-function ChestList(){
+function scr_inventory_chests_create(){
 chest_list = array_create(50,false)
 }
 //
@@ -14,7 +14,7 @@ chest_list = array_create(50,false)
 //
 //
 //Star Orb and Crull Flower Lists
-function StarOrbList(){
+function scr_inventory_starOrb_create(){
 starOrb_pedestal_list = array_create(102,false);
 
 
@@ -36,7 +36,7 @@ starOrb_pedestal_list = array_create(102,false);
 //
 //
 //Room Lists: Called in Inventory
-function CampRooms(){ 
+function scr_inventory_room_create(){ 
 camp_grid = ds_grid_create(100,4);
 level_ary = array_create(100,-1);
 level_name = array_create(100,-1);
@@ -831,7 +831,7 @@ for (var i = 0; i < 20; i = i + 1)
 //
 //
 //Room Enemies
-function RoomEnemies(){
+function scr_game_room_enemy_create(){
 //The X value represents the room, the y value represents the individual enemy.
 //Enemies have their "activate_args" set to a number that is unique the them within the room.
 //So if I want to have more than 30 enemies in a room, increase y value.
@@ -886,7 +886,7 @@ for (var i = 0; i < 20; i = i + 1)
 //
 //
 //Room Enemies Reset
-function RoomEnemiesReset(){
+function scr_game_room_enemy_reset(){
 global.aggroCounter = 0;
 global.bossCounter = 0;
 for (var i = 0; i < 20; i = i + 1)
