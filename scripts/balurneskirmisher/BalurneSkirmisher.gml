@@ -51,7 +51,7 @@ if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -60,12 +60,12 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			EnemyWander(60,180); //Data Leak if not radius restricted
+			scr_enemy_wander(60,180); //Data Leak if not radius restricted
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -84,7 +84,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timer1 <= 0) script_execute(EnemyChase);
+		if (timer1 <= 0) scr_enemy_chase();
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
 		{
 			path_end();
@@ -104,7 +104,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -131,10 +131,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 35 + (7 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -145,7 +145,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
 }

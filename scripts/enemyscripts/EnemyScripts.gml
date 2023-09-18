@@ -5,13 +5,13 @@
 //
 //
 //Enemy Aggro
-function EnemyAggro(){
+function scr_enemy_aggro(){
 
 if (targeted = false)
 {
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 	{
-		EnemyAlert();
+		scr_enemy_alert();
 		aggro_drop = 300;
 		targeted = true;
 		//global.aggroCounter = global.aggroCounter + 1;
@@ -41,7 +41,7 @@ if (aggro_drop <= 0)
 //
 //
 //Chase Player
-function EnemyChase(){
+function scr_enemy_chase(){
 
 if (knockback = false)
 {
@@ -73,7 +73,7 @@ else path_end();
 //
 //
 //Chase Player
-function EnemyChaseSpecial(object_stuck,object_norm){
+function scr_enemey_chase_special(object_stuck,object_norm){
 
 if (knockback = false)
 {
@@ -106,7 +106,7 @@ else path_end();
 //
 //
 //Chase Player
-function EnemyChaseEscort(){
+function scr_enemy_chase_escort(){
 
 //Chase: create and execute a path towards player
 if (path_exists(path)) path_delete(path);
@@ -123,7 +123,7 @@ sprite_index = enemy_move;
 //
 //
 //Chase Player
-function EnemyChaseCustom(){
+function scr_enemy_chase_custom(){
 
 	//Chase: create and execute a path towards player
 	if (path_exists(path)) path_delete(path);
@@ -139,7 +139,7 @@ function EnemyChaseCustom(){
 //
 //
 //Wander
-function EnemyWander(_moveDelay,_moveLength){
+function scr_enemy_wander(_moveDelay,_moveLength){
 	
 //Direction
 if (timer2 > 0) timer2 = timer2 - 1;
@@ -189,7 +189,7 @@ if (hor_spd != 0) or (ver_spd != 0)
 //
 //
 //Enemy Reposition
-function EnemyReposition(){
+function scr_enemy_reposition(){
 //Timer
 
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -208,7 +208,7 @@ if (sprite_index != enemy_move)
 
 
 //Animate
-EnemyAnimation();
+scr_enemy_animation();
 
 
 //Move
@@ -249,7 +249,7 @@ if (timer1 <= 0)
 //
 //
 //Animation 
-function EnemyAnimation(){
+function scr_enemy_animation(){
 var _totalFrames = sprite_get_number(sprite_index) / 4;
 image_index = local_frame + (_cardinalDir * _totalFrames);
 local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
@@ -291,7 +291,7 @@ else animation_end = false;
 //
 //
 //Animation 1 Direction 
-function EnemyAnimation1(){
+function scr_enemy_animation_one(){
 var _totalFrames = sprite_get_number(sprite_index);
 image_index = local_frame;
 local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
@@ -313,10 +313,10 @@ else animation_end = false;
 //Enemy Damaged
 function scr_enemy_damaged(){
 //sprite_index = enemy_damaged;
-script_execute(EnemyAnimation);
+scr_enemy_animation();
 if (timer1 > 0) timer1 = timer1 - 1;
 if (flash <= 0) entity_step = home_state;
-EnemyAlert();
+scr_enemy_alert();
 
 }
 
@@ -336,7 +336,7 @@ with (obj_enemy)
 			global.aggroCounter = global.aggroCounter + 1;
 			if (boss = true) global.bossCounter = global.bossCounter + 1;
 			targeted = true;
-			EnemyAggro();
+			scr_enemy_aggro();
 		}
 	}
 }
@@ -347,7 +347,7 @@ with (obj_enemy)
 //
 //
 //Attack Calculate
-function EnemyAttackCalculate(_hitbox){
+function scr_enemy_attack_calculate(_hitbox){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -392,7 +392,7 @@ mask_index = enemy_idle;
 //
 //
 //Attack Calculate
-function EnemyAttackCalculateAblaze(_hitbox,_duration){
+function scr_enemy_attack_calculate_ablaze(_hitbox,_duration){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -433,7 +433,7 @@ mask_index = enemy_idle;
 //
 //
 //Heal Calculate
-function EnemyHealCalculate(_hitbox){
+function scr_enemy_attack_calculate_heal(_hitbox){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -466,7 +466,7 @@ mask_index = sprite_index;
 //
 //
 //Collision
-function EnemyCollision(){
+function scr_enemy_collision(){
 var _collision = false;
 var _entityList = ds_list_create();
 
@@ -529,7 +529,7 @@ return _collision;
 //
 //
 //
-function EnemyBulletSpawnPosition(){
+function scr_enemy_projectile_spawn(){
 var _aimAngle = point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4);
 var _dirPos = round(_aimAngle/90);
 ldX = x + lengthdir_x(6, _aimAngle);
@@ -568,7 +568,7 @@ switch(_dirPos)
 //
 //
 //Enemy Death Fall
-function EnemyDeathFall(){
+function scr_enemy_death_fall(){
 image_xscale = image_xscale - .01;
 image_yscale = image_yscale - .01;
 if (image_xscale <= 0) or (image_yscale <= 0)
@@ -586,7 +586,7 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 //
 //
 //Wander
-function EnemyWanderOld(_moveDelay){
+function xEnemyWanderOld(_moveDelay){
 	
 //Direction
 if (timer2 > 0) timer2 = timer2 - 1;

@@ -5,7 +5,7 @@
 //
 //
 //Player Scene CG
-function PlayerSceneCG(){
+function xPlayerSceneCG(){
 //sprite_index = idle_sprite;
 //Convert Mouse to GUI
 }
@@ -15,7 +15,7 @@ function PlayerSceneCG(){
 //
 //
 //Text for Player CG Scene
-function PlayerSceneTextCG(){
+function xPlayerSceneTextCG(){
 draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)

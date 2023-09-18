@@ -124,7 +124,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	enemy_spd = 1.5;
 	
 	if (hp <= 250)
@@ -193,7 +193,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
 			path_end();
@@ -247,7 +247,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();	
 }
@@ -276,10 +276,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 45 + (8 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_hitbox_acolyte_slash)
+	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 120;
@@ -334,7 +334,7 @@ if (obj_game.gamePaused = false)
 	hor_spd = lengthdir_x(3,direction);
 	ver_spd = lengthdir_y(3,direction);
 	remain_dist = max(0, remain_dist - 3);
-	var _collided = EnemyCollision();
+	var _collided = scr_enemy_collision();
 
 	//Update Sprite
 	sprite_index = spr_enemy_acolyte_roll;
@@ -384,7 +384,7 @@ if (obj_game.gamePaused = false)
 
 	//Animate
 	scr_enemy_animation_cast();
-	EnemyBulletSpawnPosition();
+	scr_enemy_projectile_spawn();
 
 
 	//Move
@@ -417,7 +417,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_acolyte_nilchrome,global.volumeEffects,1);
 				audio_play_sound(snd_acolyte_nilchrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_nil;
-				home_state = scr_enemy_projectile_nilchrome;
+				home_state = scr_projectile_nilchrome;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
@@ -432,7 +432,7 @@ if (obj_game.gamePaused = false)
 				fragment_count = 2;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
 				image_angle = direction;
 				speed = enemy_spd;
@@ -445,7 +445,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_acolyte_antichrome,global.volumeEffects,1);
 				audio_play_sound(snd_acolyte_antichrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_anti;
-				home_state = scr_enemy_projectile_antichrome;
+				home_state = scr_projectile_antichrome;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
@@ -460,7 +460,7 @@ if (obj_game.gamePaused = false)
 				fragment_count = 2;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
 				image_angle = direction;
 				speed = enemy_spd;
@@ -507,7 +507,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 95 + (13 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_hitbox_acolyte_special);
+	scr_enemy_attack_calculate(spr_hitbox_acolyte_special);
 	scr_acolyte_bulletspawn_special();
 
 	if (timer3 <= 0)
@@ -520,7 +520,7 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_acolyte_ilanilFire,0,0);
 			projectile_sprite = spr_projectile_acolyte_ilanil;
 			sprite_index = spr_projectile_acolyte_ilanil;
-			home_state = scr_enemy_projectile_ilanil;
+			home_state = scr_projectile_ilanil;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
@@ -535,7 +535,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 2;
 			fragment = obj_fragPlant;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			direction = (other.direction + 90) - round(23*other.magic_counter);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -576,7 +576,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Acolyte Antichrome Projectile
-function scr_enemy_projectile_antichrome(){
+function scr_projectile_antichrome(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -619,7 +619,7 @@ else
 //
 //
 //Acolyte Antichrome Projectile
-function scr_enemy_projectile_nilchrome(){
+function scr_projectile_nilchrome(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -663,7 +663,7 @@ else
 //
 //
 //Acolyte Ilanil Projectile
-function scr_enemy_projectile_ilanil(){
+function scr_projectile_ilanil(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -817,7 +817,7 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		instance_destroy();

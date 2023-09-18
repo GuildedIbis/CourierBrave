@@ -77,7 +77,7 @@ depth = -y;
 //
 //
 //Effect Yakflower Path Totem Create
-function EffectYakflowerTotemCreate(){
+function scr_effect_yakflowerPath_totem_create(){
 image_speed = 0;
 sprite_index = spr_effect_yakflower_totem;
 timer1 = 0;
@@ -104,7 +104,7 @@ if (break_object != -1)
 //
 //
 //Effect Yakflower Totem 1
-function EffectYakflowerTotem1(){
+function scr_effect_yakflowerPath_totem1(){
 frag = false
 image_speed = 0;
 depth = -y;
@@ -159,7 +159,7 @@ depth = -y;
 //
 //
 //Effect Yakflower Totem 2
-function EffectYakflowerTotem2(){
+function scr_effect_yakflowerPath_totem2(){
 frag = false
 image_speed = 0;
 depth = -y;
@@ -223,7 +223,7 @@ depth = -y;
 //
 //
 //Effect Yakflower Totem 3
-function EffectYakflowerTotem3(){
+function scr_effect_yakflowerPath_totem3(){
 frag = false
 image_speed = 0;
 depth = -y;
@@ -280,7 +280,7 @@ depth = -y;
 //
 //
 //Effect Yakflower Door Create
-function EffectYakflowerPathDoorCreate(){
+function scr_effect_yakflowerPath_door_stone(){
 	frag = false
 image_speed = 0;
 depth = -y;
@@ -333,112 +333,92 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //
-//Effect Yakflower Lake Door - Escort 1
-function EffectYakflowerPathDoorA(){
-frag = false
+//Effect Lekno Lake Path Rat Tent Create
+function scr_effect_ratTent_create(){
+image_speed = 0;
+with (instance_create_layer(x-20,y-12,"Wall",obj_wall))
+{
+	image_xscale = 5;
+	image_yscale = 2.5;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-20,y-12,"Break",break_object))
+	{
+		image_xscale = 5;
+		image_yscale = 1.25;
+		game_paused_image_speed = image_speed;
+	}
+}
+//Set Shadow
+shadow = true;
+sx1 = x - 6;
+sy1 = y - 30;
+sx2 = x + 32;
+sy2 = y - 30;
+sx3 = x + 16;
+sy3 = y + 8;
+sx4 = x - 16;
+sy4 = y + 8;
+}
+//
+//
+//
+//
+//
+//Effect Rat Tent L Step
+function scr_effect_ratTent_left(){
+
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-
-if (obj_inventory.yakflower_lair[2] < 3)
+sprite_index = spr_rat_tentL;
+if (place_meeting(x,y,obj_player))
 {
-	sprite_index = spr_door_yakflower;
-	
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
 }
 else 
 {
-	sprite_index = spr_door_yakflower_open;
-	with (obj_wall)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	with (break_object)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
 }
+depth = -y;
+}
+//
+//
+//
+//
+//
+//Effect Rat Tent R Step
+function scr_effect_ratTent_right(){
 
-}
-//
-//
-//
-//
-//
-//Effect Yakflower Lake Door B - Room 1 Blocking Boss
-function EffectYakflowerPathDoorB(){
-frag = false
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-
-if (obj_inventory.yakflower_lair[4] < 1)
+sprite_index = spr_rat_tentR;
+if (place_meeting(x,y,obj_player))
 {
-	sprite_index = spr_door_yakflower;
-	
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
 }
 else 
 {
-	sprite_index = spr_door_yakflower_open;
-	with (obj_wall)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	with (break_object)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
 }
-
-}
-//
-//
-//
-//
-//
-//Effect Yakflower Lake Door C - Room 1 Blocking Boss
-function EffectYakflowerPathDoorC(){
-frag = false
-image_speed = 0;
 depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-
-if (obj_inventory.yakflower_lair[1] < 20)
-{
-	sprite_index = spr_door_yakflower;
-	
-}
-else 
-{
-	sprite_index = spr_door_yakflower_open;
-	with (obj_wall)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-	with (break_object)
-	{
-		if (place_meeting(x,y,other))
-		{
-			instance_destroy(self);
-		}
-	}
-}
-
 }

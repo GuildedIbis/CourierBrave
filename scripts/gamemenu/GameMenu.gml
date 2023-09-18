@@ -254,7 +254,7 @@ else
 		{
 			obj_game.save_num = 0;
 			obj_game.time_played = 0;
-			global.current_save = scr_game_save_1();
+			global.current_save = scr_game_save_1;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
@@ -339,7 +339,7 @@ else
 		{
 			obj_game.save_num = 1;
 			obj_game.time_played2 = 0;
-			global.current_save = scr_game_save_2();
+			global.current_save = scr_game_save_2;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
@@ -424,7 +424,7 @@ else
 		{
 			obj_game.save_num = 2;
 			obj_game.time_played3 = 0;
-			global.current_save = scr_game_save_3();
+			global.current_save = scr_game_save_3;
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;

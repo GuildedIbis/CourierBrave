@@ -402,7 +402,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-scr_player_animation_cast;
+scr_player_animation_cast();
 
 
 }

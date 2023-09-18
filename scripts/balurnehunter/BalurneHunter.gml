@@ -11,9 +11,9 @@ invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = BalurneHunterFree;
+home_state = scr_enemy_balurne_hunter_free;
 entity_step = home_state;
-entity_drop = BalurneHunterDrop;
+entity_drop = scr_enemy_balurne_hunter_drop;
 enemy_idle = spr_enemy_balurneHunter_idle;
 enemy_move = spr_enemy_balurneHunter_run;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
@@ -47,14 +47,14 @@ path = -1;
 //
 //
 //Balurne Hunter Free
-function BalurneHunterFree(){
+function scr_enemy_balurne_hunter_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -63,12 +63,12 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			EnemyWander(60,180); //Data Leak if not radius restricted?
+			scr_enemy_wander(60,180); //Data Leak if not radius restricted?
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -90,14 +90,14 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
-			script_execute(EnemyChase);
+			scr_enemy_chase();
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
 				sprite_index = enemy_idle;
 				if (timer1 <= 0) //Heavy Slash A
 				{
-					entity_step = BalurneHunterSlash;
+					entity_step = scr_enemy_balurne_hunter_slash;
 				}		
 			
 			}
@@ -109,7 +109,7 @@ if (obj_game.gamePaused = false)
 			if (timer2 <= 0) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) 
 			{	
 				path_end();
-				entity_step = BalurneHunterShoot;
+				entity_step = scr_enemy_balurne_hunter_shoot;
 			}
 		}
 		
@@ -121,7 +121,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -131,7 +131,7 @@ else path_end();
 //
 //
 //Balurne Hunter Slash
-function BalurneHunterSlash(){
+function scr_enemy_balurne_hunter_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -148,10 +148,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 40 + (7 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -162,7 +162,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
 }
@@ -173,7 +173,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Hunter Shoot
-function BalurneHunterShoot(){
+function scr_enemy_balurne_hunter_shoot(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -188,11 +188,10 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	damage = 45 + (8 * enemy_lvl);
-	//Cacluate Attack
-	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -200,7 +199,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = RatArrowFree;
+			home_state = scr_projectile_ratArrow;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -220,7 +219,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
@@ -233,14 +232,14 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = EnemyReposition;
+			entity_step = scr_enemy_reposition;
 			animation_end = false;
 		}
 		else
 		{
 			if (attack_counter < 2)
 			{
-				entity_step = BalurneHunterShoot;
+				entity_step = scr_enemy_balurne_hunter_shoot;
 				timer2 = 0;
 			}
 			else
@@ -261,7 +260,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Hunter Drop
-function BalurneHunterDrop(){
+function scr_enemy_balurne_hunter_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;

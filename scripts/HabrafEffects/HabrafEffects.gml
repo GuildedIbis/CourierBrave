@@ -1,94 +1,96 @@
 //Effects for Habraf Lake Lair
-//
-//
-//
-//
-//
-//Effect Yakflower Door Create
-function EffectHabrafLakeDoorCreate(){
-	frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-sprite_index = xspr_door_habraf;
-if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-{
-	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 6;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",break_object))
-	{
-		image_xscale = 6;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 2;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",break_object))
-	{
-		image_xscale = 2;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 2;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x+8,y-16,"Wall",break_object))
-	{
-		image_xscale = 2;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-}
-	
-}
 
 //
 //
 //
 //
 //
-//Effect Habraf Lake Door Room 14
-function EffectHabrafLakeDoor14(){
+//Effect Statue Lily Create [Lake Path 5]
+function scr_effect_habrafLake_statueLily_create(){
+image_speed = 0;
+sprite_index = spr_statue_lily;
+
+//Create Collision
+with (instance_create_layer(x-16,y-8,"Wall",obj_wall))
+{
+	image_xscale = 4;
+	image_yscale = 2;
+	game_paused_image_speed = image_speed;
+}
+if (break_object != -1)
+{
+	with (instance_create_layer(x-16,y-8,"Break",break_object))
+	{
+		image_xscale = 4;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+
+//Set Shadow
+shadow = true;
+sx1 = x - 5;
+sy1 = y - 16;
+sx2 = x + 32;
+sy2 = y - 16;
+sx3 = x + 16;
+sy3 = y + 7;
+sx4 = x - 15;
+sy4 = y + 7;
+
+
+//event_inherited();
+}
+//
+//
+//
+//
+//
+//Effect Statue Moth
+function scr_effect_habrafLake_statueLily(){
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_statue_lily;
+if (place_meeting(x,y,obj_player))
+{
+	if (depth < obj_player.depth)
+	{
+		if (image_alpha > .5) image_alpha = image_alpha - .05
+	}
+	else
+	{
+		if (image_alpha < 1) image_alpha = image_alpha + .05;
+	}
+}
+else 
+{
+	if (image_alpha < 1) image_alpha = image_alpha + .05;
+}
+depth = -y;
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door - Escort 1
+function scr_effect_habrafLake_door_stone(){
 frag = false
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.habrafLake_map_ary[15][3] < 2)
+if (obj_player.form != 2)
 {
-	sprite_index = xspr_door_habraf;
-	if (instance_exists(obj_escort))
-	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,96,104,4))
-		{
-			sprite_index = xspr_door_habraf_open;
-			image_speed = 0;
-			obj_inventory.habrafLake_map_ary[15][3] = 2;
-		}
-		else 
-		{
-			sprite_index = xspr_door_habraf;
-			image_speed = 0;
-			obj_inventory.habrafLake_map_ary[15][3] = 1;
-		}
-	}
+	sprite_index = spr_door_questAdavio;
+
 }
-if (obj_inventory.habrafLake_map_ary[15][3] >= 2)
+if (obj_player.form = 2)
 {
-	sprite_index = xspr_door_habraf_open;
+	sprite_index = spr_door_questAdavio_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
@@ -107,9 +109,8 @@ if (obj_inventory.habrafLake_map_ary[15][3] >= 2)
 	{
 		with (obj_escort)
 		{
-			x = 96;
-			y = 104;
-			escort_end = true;
+			x = 512;
+			y = 136;
 		}
 	}
 }
@@ -120,7 +121,7 @@ if (obj_inventory.habrafLake_map_ary[15][3] >= 2)
 //
 //
 //Effect Habraf Escort Create
-function EffectHabrafEscortCreate(){
+function scr_effect_habrafLake_escort_create(){
 _destX = 0;
 _destY = 0;
 dir_switch = 1;
@@ -144,7 +145,7 @@ shadow = false;
 //
 //
 //Effect Habraf Escort Step
-function EffectHabrafEscortStep(){
+function scr_effect_habrafLake_escort(){
 if (obj_game.gamePaused = false)
 {
 	_destX = obj_player.x;
@@ -172,7 +173,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Effect Habraf Escort 
-function EffectHabrafEscortCharge(){
+function scr_effect_habrafLake_escort_charge(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
@@ -203,7 +204,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Effect Beaowire Escort 
-function EffectHabrafEscortAttackBurst(){
+function scr_effect_habrafLake_escort_attackBurst(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
@@ -261,7 +262,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Beaowire Escort Burst Projectile
-function EscortHabrafBurstFree(){
+function srr_projectile_escort_attackBurst(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;

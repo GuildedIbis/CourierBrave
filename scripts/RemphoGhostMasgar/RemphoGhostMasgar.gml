@@ -12,9 +12,9 @@ healthbar = true;
 boss = true;
 name = "Masgar's Ghost";
 inv_dur_timer = 0;
-home_state = RemphoGhostMasgarFree;
+home_state = scr_enemy_masgar_ghost_free;
 entity_step = home_state;
-entity_drop = RemphoGhostMasgarDrop;
+entity_drop = scr_enemy_masgar_ghost_drop;
 enemy_idle = spr_enemy_ghostMasgar_idle;
 enemy_move = spr_enemy_ghostMasgar_move;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
@@ -49,7 +49,7 @@ passable = true;
 //
 //
 //Rempho Ghost Free
-function RemphoGhostMasgarFree(){
+function scr_enemy_masgar_ghost_free(){
 //if (global.dayPhase != 2)
 //{
 //	invincible = true;
@@ -62,7 +62,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 	{
 		timer1 = timer1 - 1;
 	}
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	//Toggle Aggro 
@@ -72,25 +72,12 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 		{
 			passable = false;
 			if (image_alpha != 1) image_alpha = 1;
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
 	}
 	
-	//if (aggro_drop <= 0)
-	//{
-	//	image_alpha = image_alpha - .05;
-	//	if (image_alpha <= 0)
-	//	{
-	//		image_speed = 0;
-	//		sprite_index = enemy_idle;
-	//		path_end();
-	//		aggro_drop = 300;
-	//		targeted = false;
-	//		global.aggroCounter = global.aggroCounter - 1;
-	//	}
-	//}
 	if (aggro_drop <= 0)
 	{
 		image_alpha = image_alpha - .05;
@@ -108,7 +95,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 	if (targeted = true) and (thundux = false)
 	{
 		passable = false;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
 		{
@@ -122,7 +109,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			entity_step = RemphoGhostMasgarSlash;
+			entity_step = scr_enemy_masgar_ghost_slash;
 		}
 		if (timer2 <= 0)
 		{
@@ -131,7 +118,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			sprite_index = enemy_idle;
 			timerS = 0;
 			timer2 = 23;
-			entity_step = RemphoGhostMasgarShadowShiftA;
+			entity_step = scr_enemy_masgar_ghost_shadowShiftA;
 			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
 			audio_play_sound(snd_ghost_shift_up,0,false);
 		}
@@ -140,7 +127,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			entity_step = RemphoGhostMasgarPhantomBladeSummon;
+			entity_step = scr_enemy_masgar_ghost_phantomBlade;
 		}
 		//if (walk_snd_delay <= 0)
 		//{
@@ -154,7 +141,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -164,7 +151,7 @@ else path_end();
 //
 //
 //Rempho Ghost
-function RemphoGhostMasgarShadowShiftA(){
+function scr_enemy_masgar_ghost_shadowShiftA(){
 if (obj_game.gamePaused = false)
 {
 	image_alpha = 1;
@@ -187,7 +174,7 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one()();
 	if (animation_end)
 	{
 		//audio_play_sound(snd_arrow,0,false);
@@ -207,7 +194,7 @@ if (obj_game.gamePaused = false)
 		timerS = 42;
 		x = obj_player.x;
 		y = obj_player.y;
-		entity_step = RemphoGhostMasgarShadowShiftB;
+		entity_step = scr_enemy_masgar_ghost_shadowShiftB;
 		animation_end = false;
 		audio_sound_gain(snd_ghost_shift_down,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_shift_down,0,false);
@@ -220,7 +207,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Rempho Ghost
-function RemphoGhostMasgarShadowShiftB(){
+function scr_enemy_masgar_ghost_shadowShiftB(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -235,7 +222,7 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
-	EnemyAttackCalculate(spr_enemy_ghostMasgar_shadowShiftB_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_shadowShiftB_hitbox)
 	//Animation
 	damage = 70;
 	//Cacluate Attack
@@ -246,11 +233,11 @@ if (obj_game.gamePaused = false)
 		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulSkull,0,false);
 	}
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
-		entity_step = RemphoGhostMasgarFree;
+		entity_step = scr_enemy_masgar_ghost_free;
 		if (attack_counter < 3) timer2 = 0;
 		else 
 		{
@@ -263,7 +250,7 @@ if (obj_game.gamePaused = false)
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -283,13 +270,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y-24,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -309,13 +296,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-22,y-8,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -335,13 +322,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y+16,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -361,13 +348,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y+6,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -387,13 +374,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y-21,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -413,13 +400,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y-21,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -439,13 +426,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y+6,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -465,7 +452,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 
 	}
@@ -477,7 +464,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Skirmisher Slash State
-function RemphoGhostMasgarSlash(){
+function scr_enemy_masgar_ghost_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -496,14 +483,14 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80 + (11 * other.enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_ghostMasgar_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
-		entity_step = RemphoGhostMasgarFree;
+		entity_step = scr_enemy_masgar_ghost_free;
 		sprite_index = enemy_idle;
 	}
 }
@@ -514,7 +501,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Rempho Ghost Masgar Phantom Blade
-function RemphoGhostMasgarPhantomBladeSummon(){
+function scr_enemy_masgar_ghost_phantomBlade(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -534,11 +521,11 @@ if (obj_game.gamePaused = false)
 
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		timer3 = 600;
-		entity_step = RemphoGhostMasgarFree;
+		entity_step = scr_enemy_masgar_ghost_free;
 		sprite_index = enemy_idle;
 		audio_sound_gain(snd_ghost_phantomBlades,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_phantomBlades,0,false);
@@ -547,7 +534,7 @@ if (obj_game.gamePaused = false)
 			dir_x = obj_player.x;
 			dir_y = obj_player.y;
 			direction = (point_direction(x,y,dir_x,dir_y));
-			home_state = PhantomBlade;
+			home_state = scr_projectile_phantomBlade;
 			enemy_lvl = other.enemy_lvl;
 			attack_counter = 0;
 			timer1 = 300;
@@ -568,7 +555,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragGold;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
 		}
 	}
@@ -580,7 +567,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Masgar Phantom Blade
-function PhantomBlade(){
+function scr_projectile_phantomBlade(){
 if (obj_game.gamePaused = false)
 {
 
@@ -606,7 +593,7 @@ if (timer2 <= 0)
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_angle = direction;
 		sprite_index = spr_enemy_ghostMasgar_phantomDagger;
-		home_state = PhantomDagger;
+		home_state = scr_projectile_phantomDagger;
 		exploded = false;
 		path = -1;
 		entity_step = home_state;
@@ -623,7 +610,7 @@ if (timer2 <= 0)
 		fragment_count = 1;
 		fragment = obj_fragGold;
 		bullet = true;
-		hit_script = EntityHitDestroy;
+		hit_script = scr_entity_hit_destroy;
 		speed = enemy_spd;
 	}
 }
@@ -646,7 +633,7 @@ else
 //
 //
 //Phantom Dagger
-function PhantomDagger(){
+function scr_projectile_phantomDagger(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -690,7 +677,7 @@ else
 //
 //
 //Balurne Hunter Drop
-function RemphoGhostMasgarDrop(){
+function scr_enemy_masgar_ghost_drop(){
 
 var _objects = 7;
 var _dropBean = 30;

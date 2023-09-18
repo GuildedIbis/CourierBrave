@@ -5,7 +5,7 @@
 //
 //
 //Effect Beaowire Escort Create
-function EffectBeaowireEscortCreate(){
+function scr_effect_beaowire_escort_create(){
 _destX = 0;
 _destY = 0;
 dir_switch = 1;
@@ -29,7 +29,7 @@ shadow = false;
 //
 //
 //Effect Beaowire Escort 
-function EffectBeaowireEscortFree(){
+function scr_effect_beaowire_escort(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
@@ -55,7 +55,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Effect Beaowire Escort 
-function EffectBeaowireEscortCharge(){
+function Escr_effect_beaowire_escort_charge(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
@@ -85,7 +85,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Effect Beaowire Escort 
-function EffectBeaowireEscortAttackBurst(){
+function scr_effect_beaowire_escort_attackBurst(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
@@ -142,7 +142,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Beaowire Escort Burst Projectile
-function EscortBeaowireBurstFree(){
+function scr_enemy_projectile_beowireEscort_burst(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -185,7 +185,7 @@ else
 //
 //
 //Effect Beaowire Escort End Create
-function EffectBeaowireEscortEndCreate(){
+function scr_effect_beaowire_escortEnd_create(){
 frag = false
 image_speed = 1;
 depth = -y;
@@ -212,7 +212,7 @@ with (instance_create_layer(x-8,y-16,"Wall",obj_break))
 //
 //
 //Effect Beaowire Escort End
-function EffectBeaowire11EscortEnd(){
+function scr_effect_beaowire_escortEnd(){
 frag = false
 image_speed = 1;
 depth = -y;
@@ -253,61 +253,14 @@ if (obj_inventory.beaowire_dungeon[10] >= 2)
 }
 
 }
-//
-//
-//
-//
-//
-//Effect Beaowire Escort End
-function EffectBeaowire15EscortEnd(){
-frag = false
-image_speed = 1;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
 
-if (obj_inventory.quest_grid[# 18, 1] < 2)
-{
-	sprite_index = spr_escort_beaowireEnd_idle;
-	if (instance_exists(obj_escort))
-	{
-		if (point_in_circle(obj_escort.x,obj_escort.y,512,267,2))
-		{
-			sprite_index = spr_escort_beaowireEnd;
-			image_speed = 1;
-			obj_inventory.quest_grid[# 18, 1] = 2;
-			obj_inventory.quest_grid[# 18, 3] = true;
-		}
-		else 
-		{
-			sprite_index = spr_escort_beaowireEnd_idle;
-			image_speed = 1;
-			obj_inventory.quest_grid[# 18, 1] = 1;
-		}
-	}
-}
-if (obj_inventory.quest_grid[# 18, 1] >= 2)
-{
-	sprite_index = spr_escort_beaowireEnd;
-	if (instance_exists(obj_escort))
-	{
-		with (obj_escort)
-		{
-			x = 512;
-			y = 267;
-			escort_end = true;
-		}
-	}
-}
-
-}
 //
 //
 //
 //
 //
 //Effect Habraf Lake Door Room 14
-function scr_effect_door_beaowire_stone(){
+function scr_effect_beaowire_door_stone(){
 frag = false
 image_speed = 0;
 depth = -y;
@@ -339,44 +292,14 @@ if (obj_inventory.quest_grid[# 18, 1] >= 2)
 }
 
 }
-//
-//
-//
-//
-//
-//Effect Regaliare Quest Door Create
-function EffectBeaowireDoorCreate(){
-frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-if (obj_inventory.beaowire_dungeon[12] < 2) image_index = 0;
-else image_index = 1;
 
-}
 //
 //
 //
 //
 //
 //Effect Regaliare Quest Door Create
-function EffectBeaowireDoor2Create(){
-frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-image_index = 1;
-
-}
-//
-//
-//
-//
-//
-//Effect Regaliare Quest Door Create
-function EffectBeaowireDoorSpikeCreate(){
+function scr_effect_beaowire_door_spike(){
 frag = false
 image_speed = 0;
 image_xscale = 1;
@@ -410,77 +333,8 @@ else
 //
 //
 //
-//Effect Fortress Mausoleum
-function EffectFortressMausoleumCreate(){
-image_speed = 0;
-sprite_index = spr_fortress_mausoleum;
-//Create Collision
-with (instance_create_layer(x-24,y-56,"Wall",obj_wall))
-{
-	image_xscale = 6;
-	image_yscale = 8;
-	game_paused_image_speed = image_speed;
-}
-if (break_object != -1)
-{
-	with (instance_create_layer(x-24,y-56,"Break",break_object))
-	{
-		image_xscale = 6;
-		image_yscale = 7;
-		game_paused_image_speed = image_speed;
-	}
-}
-
-//Set Shadow
-shadow = true;
-sx1 = x - 20;
-sy1 = y - 56;
-sx2 = x + 28;
-sy2 = y - 56;
-sx3 = x + 24;
-sy3 = y + 8;
-sx4 = x - 24;
-sy4 = y + 8;
-
-
-//event_inherited();
-}
-//
-//
-//
-//
-//
-//Effect Fortress Mausoleum
-function EffectFortressMausoleum(){
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-sprite_index = spr_fortress_mausoleum;
-if (place_meeting(x,y,obj_player))
-{
-	if (depth < obj_player.depth)
-	{
-		if (image_alpha > .5) image_alpha = image_alpha - .05
-	}
-	else
-	{
-		if (image_alpha < 1) image_alpha = image_alpha + .05;
-	}
-}
-else 
-{
-	if (image_alpha < 1) image_alpha = image_alpha + .05;
-}
-depth = -y;
-}
-//
-//
-//
-//
-//
 //Effect Lekno Lake Path Rat Tent Create
-function EffectTorchBeaowireCreate(){
+function scr_effect_beaowire_light_torch_create(){
 image_speed = 1;
 depth = -y;
 image_xscale = 1;
@@ -493,7 +347,7 @@ sprite_index = spr_torchWall_beaowire;
 //
 //
 //Effect Statue Moth
-function EffectTorchBeaowire(){
+function scr_effect_beaowire_light_torch(){
 if (obj_game.gamePaused = false)
 {
 image_speed = 1;

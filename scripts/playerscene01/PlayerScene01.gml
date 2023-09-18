@@ -9,7 +9,7 @@ if (obj_game.gamePaused = false)
 	timer1 = timer1 - 1;
 	timer2 = timer2 - 1;
 	//Animation
-	PlayerAnimation1();
+	scr_player_animation_one();
 	if (timer1 <= 0) or (animation_end = true)
 	{
 		image_alpha = 0;
@@ -34,7 +34,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Player Scene Text 01
-function PlayerSceneText01(){
+function xPlayerSceneText01(){
 draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)

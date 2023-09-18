@@ -5,7 +5,7 @@
 //
 //
 //Rat Arrow Create
-function RatArrowCreate(){
+function scr_projectile_ratArrow_create(){
 home_state = RatArrowFree;
 entity_step = home_state;
 entity_drop = Idle;
@@ -26,7 +26,7 @@ damage = 40 + (5 * enemy_lvl);
 //
 //
 //Rat Arrow Free
-function RatArrowFree(){
+function scr_projectile_ratArrow(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;

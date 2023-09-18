@@ -10,9 +10,9 @@ targeted = false;
 invincible = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = RemphoGhost2Free;
+home_state = scr_enemy_rempho_ghost2_free;
 entity_step = home_state;
-entity_drop = RemphoGhostDrop;
+entity_drop = scr_enemy_rempho_ghost_drop;
 enemy_idle = spr_enemy_ghost2_idle;
 enemy_move = spr_enemy_ghost2_move;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
@@ -46,7 +46,7 @@ passable = true;
 //
 //
 //Rempho Ghost 2 Free
-function RemphoGhost2Free(){
+function scr_enemy_rempho_ghost2_free(){
 //if (global.dayPhase != 2)
 //{
 //	invincible = true;
@@ -58,7 +58,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	if (timer1 >= 0) timer1 = timer1 - 1;
 	if (timer2 >= 0) timer2 = timer2 - 1;
 	if (timer3 >= 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
 	if (targeted = false)
@@ -67,7 +67,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 		{
 			passable = false;
 			if (image_alpha != 1) image_alpha = 1;
-			EnemyAlert();
+			scr_enemy_alert();
 			timer1 = 60;
 			aggro_drop = 300;
 			targeted = true;
@@ -91,7 +91,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	if (targeted = true) and (thundux = false)
 	{
 		passable = false;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
 		{
@@ -101,15 +101,10 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 			sprite_index = enemy_idle;
 			timer1 = 36;
 			timer2 = 120;
-			entity_step = RemphoGhost2ShadowShiftA;
+			entity_step = scr_enemy_rempho_ghost2_shadowShiftA;
 			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
 			audio_play_sound(snd_ghost_shift_up,0,false);
 		}
-		//if (walk_snd_delay <= 0)
-		//{
-		//	walk_snd_delay = 30;
-		//	if (point_in_circle(obj_player.x, obj_player.y,x,y,32)) audio_play_sound(walk_snd,1,0);
-		//}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -117,7 +112,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -127,7 +122,7 @@ else path_end();
 //
 //
 //Rempho Ghost 2 Shadow Shift A
-function RemphoGhost2ShadowShiftA(){
+function scr_enemy_rempho_ghost2_shadowShiftA(){
 if (obj_game.gamePaused = false)
 {
 	lit = false;
@@ -172,7 +167,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation1);
+	scr_enemy_animation_one();
 	if (animation_end = true)
 	{
 		lit = true;
@@ -180,7 +175,7 @@ if (obj_game.gamePaused = false)
 		healthbar = true;
 		path_end();
 		timer2 = 42;
-		entity_step = RemphoGhost2ShadowShiftB;
+		entity_step = scr_enemy_rempho_ghost2_shadowShiftB;
 		animation_end = false;
 		audio_sound_gain(snd_ghost_shift_down,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_shift_down,0,false);
@@ -196,7 +191,7 @@ else path_end();
 //
 //
 //Rempho Ghost 2 Shadow Shift B
-function RemphoGhost2ShadowShiftB(){
+function scr_enemy_rempho_ghost2_shadowShiftB(){
 if (obj_game.gamePaused = false)
 {
 	//Set
@@ -210,7 +205,7 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
-	EnemyAttackCalculate(spr_ghost2_shadowShiftB_hitbox)
+	scr_enemy_attack_calculate(spr_ghost2_shadowShiftB_hitbox)
 	//Animation
 	damage = 30 + (8 * enemy_lvl);
 	//Cacluate Attack
@@ -222,11 +217,11 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ghost_soulSkull,0,false);
 	}
 		
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
-		entity_step = RemphoGhost2Free;
+		entity_step = scr_enemy_rempho_ghost2_free;
 		if (attack_counter < 3) timer1 = 0;
 		else
 		{
@@ -239,7 +234,7 @@ if (obj_game.gamePaused = false)
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -259,13 +254,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y-21,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -285,13 +280,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y-21,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -311,13 +306,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y+6,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
 			inv_dur_timer = 0;
-			home_state = SoulFlareFree;
+			home_state = scr_projectile_soulFlare;
 			entity_step = home_state;
 			entity_drop = Idle;
 			lit = true;
@@ -337,7 +332,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 
 	}

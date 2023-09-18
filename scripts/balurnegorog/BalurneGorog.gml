@@ -54,7 +54,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -63,7 +63,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -83,7 +83,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) 
 		{	
 			
@@ -94,7 +94,7 @@ if (obj_game.gamePaused = false)
 					path_end();
 					timer3 = 180;
 					inv_dur_timer = 180;
-					entity_step = BalurneGorogShield;
+					entity_step = scr_enemy_balurne_gorog_shield;
 				}
 			}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
@@ -103,7 +103,7 @@ if (obj_game.gamePaused = false)
 				sprite_index = enemy_idle;
 				if (timer1 <= 0) //Heavy Slash A
 				{
-					entity_step = BalurneGorogHeavySlashA;
+					entity_step = scr_enemy_balurne_gorog_heavySlash;
 				}		
 			
 			}
@@ -114,7 +114,7 @@ if (obj_game.gamePaused = false)
 			{	
 				path_end();
 				timer2 = 15;
-				entity_step = BalurneGorogKnifeThrow;
+				entity_step = scr_enemy_balurne_gorog_knifeThrow;
 			}
 		}
 		
@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else
 {
@@ -156,7 +156,7 @@ if (obj_game.gamePaused = false)
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (timer3 <= 0)
 	{
 		timer3 = 180;
@@ -189,21 +189,21 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 55 + (9 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_A_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_A_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,20))
 		{
-			entity_step = BalurneGorogHeavySlashB;
+			entity_step = scr_enemy_balurne_gorog_heavySlash_back;
 		}
 		else 
 		{
 			timer1 = 30;
 			sprite_index = enemy_idle;
-			entity_step = BalurneGorogFree;
+			entity_step = scr_enemy_balurne_gorog_free;
 		}
 		animation_end = false;
 	}
@@ -233,10 +233,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 65 + (10 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_gorog_heavySlash_B_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_B_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -247,7 +247,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = GorogReposition;
+		entity_step = scr_enemy_balurne_gorog_reposition;
 		animation_end = false;
 	}
 }
@@ -283,7 +283,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			enemy_lvl = other.enemy_lvl;
-			home_state = GorogKnifeFree;
+			home_state = scr_projectile_balurne_gorog_knife;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -303,12 +303,12 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragMetal;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			enemy_lvl = other.enemy_lvl;
-			home_state = GorogKnifeFree;
+			home_state = scr_projectile_balurne_gorog_knife;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -328,11 +328,11 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragMetal;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -380,7 +380,7 @@ if (sprite_index != enemy_move)
 
 
 //Animate
-EnemyAnimation();
+scr_enemy_animation();
 
 
 //Move

@@ -207,7 +207,7 @@ if (obj_inventory.quest_grid[# 0, 0] = false)
 				draw_sprite_stretched(spr_highlight_circle,0,69,113,182,22);
 				if (mouse_check_button_pressed(mb_left))
 				{
-					obj_inventory.quest_grid[# 89, 0] = true;
+					obj_inventory.quest_grid[# 0, 0] = true;
 					e_page = true;
 					text_string = "";
 					letter_counter = 0;
