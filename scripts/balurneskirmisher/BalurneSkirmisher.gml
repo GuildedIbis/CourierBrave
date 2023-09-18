@@ -5,7 +5,7 @@
 //
 //
 //Balurne Skirmisher Create
-function BalurneSkirmisherCreate(){
+function scr_enemy_balurne_skirmisher_create(){
 home_state = scr_enemy_balurne_skirmisher_free;
 entity_step = home_state;
 entity_drop = scr_enemy_balurne_skirmisher_drop;

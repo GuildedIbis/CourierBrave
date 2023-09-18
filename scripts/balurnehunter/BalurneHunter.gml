@@ -5,7 +5,7 @@
 //
 //
 //Balurne Hunter Create
-function BalurneHunterCreate(){
+function scr_enemy_balurne_hunter_create(){
 targeted = false;	
 invincible = false;
 bullet = false;

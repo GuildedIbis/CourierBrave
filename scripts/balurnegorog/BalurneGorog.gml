@@ -5,10 +5,10 @@
 //
 //
 //Balurne Skirmisher Create
-function BalurneGorogCreate(){
-home_state = BalurneGorogFree;
+function scr_enemy_balurne_gorog_create(){
+home_state = scr_enemy_balurne_gorog_free;
 entity_step = home_state;
-entity_drop = BalurneGorogDrop;
+entity_drop = scr_enemy_balurne_gorog_drop;
 enemy_idle = spr_enemy_gorog_idle;
 enemy_move = spr_enemy_gorog_run;
 enemy_damaged = spr_enemy_gorog_damaged;
@@ -47,7 +47,7 @@ path = -1;
 //
 //
 //Balurne Skirmisher Free State
-function BalurneGorogFree(){
+function scr_enemy_balurne_gorog_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -140,7 +140,7 @@ else
 //
 //
 //Balurne Gorog Shield
-function BalurneGorogShield(){
+function scr_enemy_balurne_gorog_shield(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -171,7 +171,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Skirmisher Slash State
-function BalurneGorogHeavySlashA(){
+function scr_enemy_balurne_gorog_heavySlash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -215,7 +215,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Skirmisher Slash State
-function BalurneGorogHeavySlashB(){
+function scr_enemy_balurne_gorog_heavySlash_back(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -258,7 +258,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Balurne Gorog Knife Throw
-function BalurneGorogKnifeThrow(){
+function scr_enemy_balurne_gorog_knifeThrow(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -363,7 +363,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Gorog Reposition
-function GorogReposition(){
+function scr_enemy_balurne_gorog_reposition(){
 //Timer
 
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -421,7 +421,7 @@ if (timer1 <= 0)
 //
 //
 //Balurne Gorog Drop
-function BalurneGorogDrop(){
+function scr_enemy_balurne_gorog_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
@@ -515,7 +515,7 @@ if (_drop2 > 2) and (_drop2 < 10)
 //
 //
 //Gorog Knife Free
-function GorogKnifeFree(){
+function scr_projectile_balurne_gorog_knife(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;

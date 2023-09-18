@@ -311,7 +311,7 @@ else animation_end = false;
 //
 //
 //Enemy Damaged
-function EnemyDamaged(){
+function scr_enemy_damaged(){
 //sprite_index = enemy_damaged;
 script_execute(EnemyAnimation);
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -326,7 +326,7 @@ EnemyAlert();
 //
 //
 //Enemy Alert
-function EnemyAlert(){
+function scr_enemy_alert(){
 with (obj_enemy)
 {
 	if (bullet = false) and (point_in_circle(x,y,other.x,other.y,64))

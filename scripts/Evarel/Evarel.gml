@@ -9,19 +9,16 @@ function scr_player_evarel_set(){
 form = 4;
 form_type = 4;
 home_state = scr_player_evarel_set;
-free_state = EvarelFree;
-state_script = EvarelFree;
+free_state = scr_player_evarel_free;
+state_script = scr_player_evarel_free;
 idle_sprite = spr_player_evarel_idle;
 roll_sprite = spr_player_evarel_roll;
 crull_sprite = spr_player_evarel_crull;
-//recharge_sprite = spr_player_halofire_recharge;
 arm_sprite = spr_player_evarel_castArm;
-magicP_script = EvarelBristlerodCast;
-magicA_script = EvarelReflexThornCast;
+magicP_script = scr_player_evarel_bristlerod;
+magicA_script = scr_player_evarel_flexthorn;
 magic_primary = true;
-//weapon_aim = false
-obj_cursor.curs_script = EvarelCursor;
-
+obj_cursor.curs_script = scr_cursor_evarel;
 
 
 
@@ -38,7 +35,6 @@ armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
-
 primary_cost = 15;
 special_cost = 20;
 }
@@ -48,7 +44,7 @@ special_cost = 20;
 //
 //
 //Evarel Free (home) state
-function EvarelFree(){
+function scr_player_evarel_free(){
 //Set
 walk_spd = 1.75;
 attacking = false;
@@ -100,13 +96,8 @@ if (weapon_timer > 0) //Weapon time between attacks
 }
 
 
-
-
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -120,7 +111,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Update Index
-PlayerAnimation();
+scr_player_animation();
 
 
 //Weapon Attack
@@ -130,8 +121,8 @@ if (key_attackW)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		stamina = stamina - 50;
-		attack_script = EvarelDaggerDash;
-		state_script = PlayerStateAttack;
+		attack_script = scr_player_evarel_daggerDash;
+		state_script = scr_player_attack;
 		
 	}
 }
@@ -146,14 +137,14 @@ if (key_attackM)
 			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
 			audio_play_sound(snd_evarel_bristlerod,0,0);
 			magic_timer = 60;
-			attack_script = EvarelBristlerodCast;
-			state_script = PlayerStateAttack;
+			attack_script = magicP_script;
+			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (green_primary >= 15)
 		{
 			attack_counter = 0;
-			attack_script = EvarelReflexThornCast;
-			state_script = PlayerStateAttack;
+			attack_script = magicA_script;
+			state_script = scr_player_attack;
 		}
 	}
 }
@@ -164,8 +155,8 @@ if (key_attackS) and (green_special >= 20)
 	if (watervice = false)
 	{
 		green_special = green_special - 20;
-		attack_script = EvarelThornriseCast;
-		state_script = PlayerStateAttack;
+		attack_script = scr_player_evarel_thornrise;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -178,7 +169,7 @@ if (key_ability)// and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		//stamina = stamina - 50;
-		state_script = PlayerStateRoll;
+		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
@@ -228,10 +219,9 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //Ceriver Orb Rush State
-function EvarelDaggerDash(){
+function scr_player_evarel_daggerDash(){
 //Set
 attacking = true;
-//casting = true;
 damage = 19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
 invincible = true;
 inv_dur_timer = 5;
@@ -253,15 +243,6 @@ if (green_primary < max_charge) and (watervice = false)//Charge Recharge
 		green_primary = green_primary + 1;
 	}
 }
-//if (special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 5;
-//		special = special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -270,8 +251,6 @@ if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
 }
-
-
 
 //Attack Start
 if (sprite_index != spr_player_evarel_daggerDash)
@@ -289,7 +268,7 @@ if (sprite_index != spr_player_evarel_daggerDash)
 
 hor_spd = lengthdir_x(3,direction);
 ver_spd = lengthdir_y(3,direction);
-var _collided = PlayerCollision();
+var _collided = scr_player_collision();
 
 
 
@@ -303,10 +282,10 @@ if (_collided = true)
 }
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1,6);
+scr_player_attack_calculate_weapon(spr_player_evarel_daggerDash_hitbox,obj_player,1,-1,-1,-1,-1,-1,6);
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (animation_end = true)
 {
@@ -323,7 +302,7 @@ if (animation_end = true)
 //
 //
 //Evarel Bristlerod Cast State
-function EvarelBristlerodCast(){
+function scr_player_evarel_bristlerod(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -367,10 +346,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -383,7 +359,7 @@ else sprite_index = spr_player_evarel_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
@@ -402,10 +378,9 @@ if (magic_timer <= 0)
 		fragment = obj_fragPlant;
 		damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 		projectile_sprite = spr_evarel_bristlerod;
-		projectile_script = EvarelBristlerod;
+		projectile_script = scr_projectile_bristlerod;
 		idle_sprite = spr_evarel_bristlerod;
 		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 		projectile_speed = 7.0;
@@ -427,7 +402,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast;
 
 
 }
@@ -437,7 +412,7 @@ PlayerAnimationCast();
 //
 //
 //Evarel Bristlerod Projectile Script
-function EvarelBristlerod(){
+function scr_projectile_bristlerod(){
 //Set
 speed = projectile_speed;
 distance = distance + 1;
@@ -459,7 +434,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,3,-1,-1,-1,-1,-1,5);
+	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,-1,5);
 	//instance_destroy();
 	
 }
@@ -467,14 +442,6 @@ if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
-//Ricochet
-//var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
-//if (_normal != -1)
-//{
-//	var _diff = direction - (_normal + 180);
-//	direction = _normal - _diff;
-//	image_angle = _normal - _diff;
-//}
 }
 //
 //
@@ -482,7 +449,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Evarel Reflex Thorn Cast
-function EvarelReflexThornCast(){
+function scr_player_evarel_flexthorn(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -525,10 +492,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -541,7 +505,7 @@ else sprite_index = spr_player_evarel_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
@@ -560,10 +524,9 @@ if (magic_timer <= 0)
 		timer1 = 120;
 		damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
 		projectile_sprite = spr_evarel_reflexthorn;
-		projectile_script = EvarelReflexThorn;
+		projectile_script = scr_projectile_flexthorn;
 		idle_sprite = spr_evarel_reflexthorn;
 		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
 		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 		projectile_speed = 4.0;
@@ -580,7 +543,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Restart or Return to Free
 if (mouse_check_button(mb_left) = false) and (attack_counter = 0) 
@@ -607,7 +570,7 @@ if (green_primary < 10)
 //
 //
 //Evarel Reflex Thorn
-function EvarelReflexThorn(){
+function scr_projectile_flexthorn(){
 //Set
 if (timer1 > 0) timer1 = timer1 - 1;
 speed = projectile_speed;
@@ -626,12 +589,12 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 	
 }
 //Ricochet
-var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
+var _normal = scr_projectile_bristlerod(x,y,break_object,4,1);
 if (_normal != -1)
 {
 	var _diff = direction - (_normal + 180);
@@ -646,7 +609,7 @@ if (timer1 <= 0) instance_destroy();
 //
 //
 //Evarel Thornrise State
-function EvarelThornriseCast(){
+function scr_player_evarel_thornrise(){
 //Set
 attacking = true;
 
@@ -700,7 +663,7 @@ if (sprite_index != spr_player_evarel_thornrise_cast)
 
 
 //Animation
-PlayerAnimation();
+scr_player_animation();
 if (animation_end)
 {
 	with (instance_create_layer(x,y,"Instances",obj_projectile))
@@ -713,7 +676,7 @@ if (animation_end)
 		damage = 11 + (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
 		idle_sprite = spr_evarel_thornrise;
 		projectile_sprite = spr_evarel_thornrise;
-		projectile_script = EvarelThornrise;
+		projectile_script = scr_projectile_thornrise;
 		hit_by_attack = -1;
 		image_speed = 1;
 	}
@@ -732,7 +695,7 @@ if (animation_end)
 //
 //
 //Evarel Thornrise Projectile Script
-function EvarelThornrise(){
+function scr_projectile_thornrise(){
 //
 //Timers
 destructable = false;
@@ -752,7 +715,7 @@ if (sprite_index != spr_evarel_thornrise)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	AttackCalculateMagic(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {
@@ -778,7 +741,7 @@ if (timer3 <= 0)
 //
 //
 //Evarel Cursor
-function EvarelCursor(){
+function scr_cursor_evarel(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;

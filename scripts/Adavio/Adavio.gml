@@ -9,24 +9,17 @@ function scr_player_adavio_set(){
 form = 2;
 form_type = 2;
 home_state = scr_player_adavio_set;
-free_state = AdavioFree;
-state_script = AdavioFree;
-magicP_script = AdavioVoidSpreadCast;
-magicA_script = AdavioVoidCycleCast;
+free_state = scr_player_adavio_free;
+state_script = scr_player_adavio_free;
+magicP_script = scr_player_adavio_voidspread;
+magicA_script = scr_player_adavio_voidcycle;
 magic_primary = true;
-//weapon_aim = false;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
 crull_sprite = spr_player_adavio_crull;
 recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_adavio_castArm;
-obj_cursor.curs_script = AdavioCursor;
-
-//weapon_draw = AdavioPowerHookMenu;
-//magic_draw = AdavioVioletArmorMenu;
-//armor_draw = AdavioVoidSpreadMenu;
-//special_draw = AdavioSpecialMenu;
-
+obj_cursor.curs_script = scr_cursor_adavio;
 
 //Dynamic Variables
 magic_timer = 0;
@@ -35,7 +28,6 @@ armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
-
 primary_cost = 20;
 special_cost = 25;
 }
@@ -45,7 +37,7 @@ special_cost = 25;
 //
 //
 //Adavio Free (home) state
-function AdavioFree(){
+function scr_player_adavio_free(){
 //Set
 walk_spd = 1.75;
 attacking = false;
@@ -99,10 +91,7 @@ if (weapon_timer > 0)//Time between weapon uses
 
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -116,7 +105,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Update Index
-PlayerAnimation();
+scr_player_animation();
 
 
 //Melee Attack
@@ -128,8 +117,8 @@ if (key_attackW)
 		if (weapon_aim = false) direction = round(obj_player.direction/90) * 90;
 		//stamina = stamina - 15;
 		timer1 = 12;
-		attack_script = AdavioHookThrust;
-		state_script = PlayerStateAttack;
+		attack_script = scr_player_adavio_hookThrust;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -141,12 +130,12 @@ if (key_attackM)
 		if (magic_primary = true) and (purple_primary >= 20)
 		{
 			attack_script = magicP_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (purple_primary >= 20)
 		{
 			attack_script = magicA_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
 	}
 }
@@ -156,15 +145,10 @@ if (key_attackS) and (purple_special >= 25)
 {
 	if (watervice = false)
 	{
-		//audio_sound_gain(snd_ceriver_orbDash,global.volumeEffects,1);
-		//audio_play_sound(snd_ceriver_orbDash,0,false);
-		//special = special - 250;
-		//magic_timer = 20;
 		timer1 = 35;
-		attack_script = AdavioRiftCrushFree;
-		state_script = PlayerStateAttack;
-		obj_cursor.curs_script = AdavioRiftCrushCursor;
-		//direction = point_direction(x,y,mouse_x,mouse_y);
+		attack_script = scr_player_adavio_riftCrush_cast;
+		state_script = scr_player_attack;
+		obj_cursor.curs_script = scr_cursor_adavio_riftCrush;
 	}
 }
 
@@ -177,7 +161,7 @@ if (key_ability) and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		stamina = stamina - 50;
-		state_script = PlayerStateRoll;
+		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
@@ -228,7 +212,7 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //Adavio Hook Thrust State
-function AdavioHookThrust(){
+function scr_player_adavio_hookThrust(){
 //Set
 attacking = true;
 casting = false;
@@ -251,15 +235,6 @@ if (purple_primary < max_charge) and (watervice = false)//charge Recharge
 		purple_primary = purple_primary + 1;
 	}
 }
-//if (purple_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		purple_special = purple_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -269,10 +244,8 @@ if (weapon_timer > 0)//Time between weapon uses
 	weapon_timer = weapon_timer - 1;
 }
 
-
 //Custom Timer
 if (timer1 > 0) timer1 = timer1 - 1; 
-
 
 //Attack Start
 if (sprite_index != spr_player_adavio_hookThrust)
@@ -290,7 +263,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-AttackCalculateWeapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1,4);
+scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1,4);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
@@ -323,7 +296,7 @@ switch(_dirPos)
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 if (timer1 <= 0)
 {
@@ -335,17 +308,14 @@ if (timer1 <= 0)
 		//depth = obj_player.depth - 1;
 		break_object = obj_player.break_object;
 		magic = true;
-		//follow_timer = 28; //2/1/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
 		timer1 = 10;
-		//bounces = 0;
 		damage = 15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
 		projectile_sprite = spr_adavio_hook_blast;
-		projectile_script = AdavioHookBlast;
+		projectile_script = scr_projectile_hookBlast;
 		idle_sprite = spr_adavio_hook_blast;
 		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
 		direction = (round(obj_player.direction)/90)*90;
 		image_angle = direction;
 		projectile_speed = 3.5;
@@ -368,9 +338,8 @@ if (animation_end)
 //
 //
 //Adavio Hook Blast
-function AdavioHookBlast(){
+function scr_projectile_hookBlast(){
 //Step
-//if (follow_timer > 0) follow_timer = follow_timer - 1;
 timer1 = timer1 - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -390,7 +359,7 @@ if (timer1 <= 0)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateWeapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,3);
+	scr_player_attack_calculate_weapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,3);
 	instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
@@ -405,7 +374,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Adavio Void Cycle State
-function AdavioVoidSpreadCast(){
+function scr_player_adavio_voidSpread(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -431,15 +400,6 @@ if (stamina < max_stamina) //Roll Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (purple_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		purple_special = purple_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -459,10 +419,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -475,7 +432,7 @@ else sprite_index = spr_player_adavio_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
@@ -490,16 +447,14 @@ if (magic_timer <= 0)
 		{
 			break_object = obj_player.break_object;
 			magic = true;
-			//follow_timer = 28; //2/5/23
 			fragment_count = 2;
 			fragment = obj_fragGold;
 			damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
 			projectile_sprite = spr_adavio_voidBit;
-			projectile_script = AdavioVoidBit;
+			projectile_script = scr_projectile_voidBit;
 			timer1 = 30;
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
-			//script_execute(LeafArcCreate);
 			direction = (point_direction(x,y,mouse_x,mouse_y) - 16 + (8 * i)) + irandom_range(-6,6);
 			image_angle = direction;
 			projectile_speed = 4.0;
@@ -509,7 +464,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Reset or return to free state
 if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
@@ -527,7 +482,7 @@ if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 //
 //
 //
-function AdavioVoidBit(){
+function scr_projectile_voidBit(){
 //Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -545,7 +500,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))
@@ -559,7 +514,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Special Void Bit
-function AdavioVoidBitSpecial(){
+function scr_projectile_voidBit_special(){
 //Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -579,7 +534,7 @@ if (timer1 <= 0) instance_destroy();
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))
@@ -593,7 +548,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //AdavioMagicA
-function AdavioVoidCycleCast(){
+function scr_player_adavio_voidCycle(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -619,15 +574,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (purple_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		purple_special = purple_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -646,10 +592,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -662,7 +605,7 @@ else sprite_index = spr_player_adavio_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
@@ -675,12 +618,11 @@ if (magic_timer <= 0)
 	{
 		break_object = obj_player.break_object;
 		magic = true;
-		//follow_timer = 28; //2/5/23
 		fragment_count = 2;
 		fragment = obj_fragGold;
 		damage = 22 + (obj_player.grace * 9) + ((obj_inventory.form_grid[# 2, 7])*(7));//
 		projectile_sprite = spr_adavio_voidCycle;
-		projectile_script = AdavioVoidCycle;
+		projectile_script = scr_projectile_voidCycle;
 		timer1 = 20;
 		idle_sprite = spr_adavio_voidCycle;
 		hit_by_attack = -1;
@@ -693,7 +635,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Reset or Return to free state
 if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
@@ -711,7 +653,7 @@ if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 //
 //
 //Adavio Magic Primary Projectile Script
-function AdavioVoidCycle(){
+function scr_projectile_voidCycle(){
 //Set
 //if (follow_timer > 0) follow_timer = follow_timer - 1;
 timer1 = timer1 - 1;
@@ -774,7 +716,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Adavio Rift Crush A Script
-function AdavioRiftCrushFree(){
+function scr_player_adavio_riftCrush_cast(){
 //
 //Timers
 //Standard Timers
@@ -824,10 +766,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -865,7 +804,7 @@ if (mouse_check_button_pressed(mb_left))
 		special_timer = 90;
 		dest_x = mouse_x;
 		dest_y = mouse_y;
-		state_script = AdavioRiftCrushCast;
+		state_script = scr_player_adavio_riftCrush_drop;
 		//Attack Start
 		if (sprite_index != spr_player_adavio_riftCrushA)
 		{
@@ -880,13 +819,13 @@ if (mouse_check_button_pressed(mb_left))
 		audio_play_sound(snd_adavio_riftCrush,0,0);
 		with (obj_cursor)
 		{
-			obj_cursor.curs_script = AdavioCursor;
+			obj_cursor.curs_script = scr_cursor_adavio;
 		}
 	}
 }
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
 //Reset or return to free state
 if (mouse_check_button_pressed(vk_shift))
@@ -904,7 +843,7 @@ if (mouse_check_button_pressed(vk_shift))
 //
 //
 //Adavio Rift Crush Cast
-function AdavioRiftCrushCast(){
+function scr_player_adavio_riftCrush_drop(){
 //
 //Timers
 //Standard Timers
@@ -955,10 +894,7 @@ hor_spd = 0;
 ver_spd = 0;
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 if (special_timer > 45)
@@ -974,7 +910,7 @@ if (special_timer <= 45)
 	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
-		AttackCalculateWeapon(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
+		scr_player_attack_calculate_magic(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
 	}
 }
 
@@ -993,7 +929,7 @@ if (timer1 <= 0)
 			fragment = obj_fragGold;
 			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 8])*6);////
 			projectile_sprite = spr_adavio_voidBit;
-			projectile_script = AdavioVoidBitSpecial;
+			projectile_script = scr_projectile_voidBit_special;
 			timer1 = 15;
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
@@ -1009,7 +945,7 @@ if (timer1 <= 0)
 
 
 //Animate
-PlayerAnimation1();
+scr_player_animation_one();
 
 //Reset or return to free state
 if (special_timer <= 0)
@@ -1027,7 +963,7 @@ if (special_timer <= 0)
 //
 //
 //AdavioCursor
-function AdavioCursor(){
+function scr_adavio_cursor(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;
@@ -1067,7 +1003,7 @@ depth = -5000;
 //
 //
 //AdavioCursor
-function AdavioRiftCrushCursor(){
+function scr_cursor_advaio_riftCrush(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;

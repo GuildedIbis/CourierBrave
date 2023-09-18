@@ -5,7 +5,7 @@
 //
 //
 //Rempho Ghost Create
-function RemphoGhostMasgarCreate(){
+function scr_enemy_masgar_ghost_create(){
 targeted = false;	
 invincible = false;
 healthbar = true;

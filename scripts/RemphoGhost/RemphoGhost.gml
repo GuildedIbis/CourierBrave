@@ -5,7 +5,7 @@
 //
 //
 //Rempho Ghost Create
-function RemphoGhostCreate(){
+function scr_enemy_rempho_ghost_create(){
 targeted = false;	
 invincible = false;
 healthbar = true;

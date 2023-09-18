@@ -6,30 +6,22 @@
 //
 //Regaliare Set (create)
 function scr_player_regaliare_set(){
+//
 form = 0;
 form_type = 0;
 home_state = scr_player_regaliare_set;
-free_state = RegaliareFree;
-state_script = RegaliareFree;
-magicP_script = RegaliareGoldBurst;
-magicA_script = RegaliareHeavyBurst;
+free_state = scr_player_regaliare_free;
+state_script = scr_player_regaliare_free;
+magicP_script = scr_player_regaliare_goldBurst;
+magicA_script = scr_player_regaliare_heavyBurst;
 magic_primary = true;
-//weapon_aim = false;
 idle_sprite = spr_player_regaliare_idle;
 roll_sprite = spr_player_regaliare_roll;
 crull_sprite = spr_player_regaliare_crull;
 recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_regaliare_castArm;
-obj_cursor.curs_script = RegaliareCursor;
-
-//weapon_draw = RegaliareRegalBladeMenu;
-//magic_draw = RegaliareGoldBurstMenu;
-//armor_draw = RegaliareRegalArmorMenu;
-//special_draw = RegaliareGoldArcMenu;
-
-
-
-//Dynamic Variables
+obj_cursor.curs_script = scr_cursor_regaliare;
+//
 weapon_count = -1;
 casting = false;
 max_weapon_count = -1;
@@ -37,11 +29,10 @@ primary_timer = 0;
 walk_spd = 1.75;
 armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 100 + (10 * conviction);
-max_stamina = 100 + (50 * energy); //50 + (3* (might + round(might/15)));
+max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 5;
 special_cost = 50;
-
 }
 //
 //
@@ -49,7 +40,7 @@ special_cost = 50;
 //
 //
 //Regaliare Free (home) state
-function RegaliareFree(){
+function scr_player_regaliare_free(){
 //Set
 walk_spd = 1.75;
 attacking = false;
@@ -128,7 +119,7 @@ if (key_attackW)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		//stamina = stamina - 20;
-		attack_script = RegaliareRegalBlade;
+		attack_script = scr_player_regaliare_regalBlade;
 		state_script = scr_player_attack;
 	}
 }
@@ -157,7 +148,7 @@ if (key_attackS) and (yellow_special >= 50)
 	if (watervice = false)
 	{
 		yellow_special = yellow_special - 50;
-		attack_script = RegaliareSpecial;
+		attack_script = scr_player_regaliare_goldArcs;
 		state_script = scr_player_attack;
 	}
 }
@@ -220,7 +211,7 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //Regaliare RegalBlade State
-function RegaliareRegalBlade(){
+function scr_player_regaliare_regalBlade(){
 //Set
 attacking = true;
 damage = 30 + (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
@@ -242,15 +233,6 @@ if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
 		yellow_primary = yellow_primary + 1;
 	}
 }
-//if (yellow_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		yellow_special = yellow_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -259,10 +241,6 @@ if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
 }
-//if (special_timer < max_special_timer) and (watervice = false)
-//{
-//	special_timer = special_timer + 1;
-//}
 
 
 //Attack Start
@@ -285,7 +263,6 @@ scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,
 
 //Animate
 scr_player_animation();
-
 if (animation_end)
 {
 	attacking = false;
@@ -301,7 +278,7 @@ if (animation_end)
 //
 //
 //Regaliare Magic State
-function RegaliareGoldBurst(){
+function scr_player_regaliare_goldBurst(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -327,15 +304,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (yellow_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		yellow_special = yellow_special + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -354,10 +322,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -370,7 +335,7 @@ else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
@@ -388,7 +353,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragGold;
 		damage = 10 + (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_goldBullet;
-		projectile_script = RegaliareGoldBullet;
+		projectile_script = scr_projectile_goldBurst;
 		idle_sprite = spr_goldBullet;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
@@ -400,7 +365,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Restart or Return to Free
 if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
@@ -418,7 +383,7 @@ if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
 //
 //
 //Regaliare Gold Bullet Projectile Script
-function RegaliareGoldBullet(){
+function scr_projectile_goldBurst(){
 //Set
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -435,21 +400,13 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_interactable)) 
 {
-	AttackCalculateMagic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
+	scr_player_attack_calculate_magic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
 
 }
 if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
-//Ricochet
-//var _normal = ProjectileCollisionNormal(x,y,break_object,4,1);
-//if (_normal != -1)
-//{
-//	var _diff = direction - (_normal + 180);
-//	direction = _normal - _diff;
-//	image_angle = _normal - _diff;
-//}
 }
 //
 //
@@ -457,7 +414,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Regaliare Heavy Burst Magic
-function RegaliareHeavyBurst(){
+function scr_player_regaliare_heavyBurst(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -487,15 +444,6 @@ if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
 }
-//if (yellow_special < max_special) //Special Recharge
-//{
-//	if (special_timer > 0) special_timer = special_timer - 1;
-//	if (special_timer <= 0)
-//	{
-//		special_timer = 12;
-//		yellow_special = yellow_special + 1;
-//	}
-//}
 if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
@@ -510,10 +458,8 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
+scr_player_collision();
 
-//Movement 3: Environtment
-PlayerEnvironment();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -526,7 +472,7 @@ else sprite_index = spr_player_regaliare_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
@@ -553,7 +499,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Restart or return to free state
 if (mouse_check_button(mb_left) = false) or (yellow_primary < 10)
@@ -572,8 +518,8 @@ if (mouse_check_button(mb_left) = false) or (yellow_primary < 10)
 //
 //
 //
-//Regaliare Heavy Bullet Projectile Script
-function RegaliareHeavyBullet(){
+//Regaliare Heavy Burst Projectile Script
+function scr_projectile_heavyBurst(){
 //Set
 speed = projectile_speed;
 destructable = false;
@@ -591,7 +537,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_interactable)) 
 {
-	AttackCalculateMagic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
+	scr_player_attack_calculate_magic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object))
 {
@@ -606,7 +552,7 @@ if (place_meeting(x,y,break_object))
 //
 //
 //Regaliare Special State
-function RegaliareSpecial(){
+function scr_player_regaliare_goldArcs(){
 //Set
 attacking = true;
 
@@ -694,7 +640,7 @@ if (animation_end)
 //
 //
 //Regaliare Gold Arcs Projectile Script
-function RegaliareGoldArcs(){
+function scr_projectile_goldArcs(){
 //
 //Timers
 destructable = false;
@@ -717,7 +663,7 @@ if (sprite_index != spr_goldArc)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	AttackCalculateMagic(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {
@@ -735,7 +681,7 @@ if (timer1 <= 0)
 //
 //
 //RegaliareCursor
-function RegaliareCursor(){
+function scr_cursor_regaliare(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;
