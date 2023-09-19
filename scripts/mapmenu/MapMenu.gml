@@ -185,7 +185,7 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 0, 2];
 			global.targetRoom = rm_lenko_farwayRoad_00;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -223,7 +223,7 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 1, 2];
 			global.targetRoom = rm_lenko_farwayRoad_04;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -261,7 +261,7 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 2, 2];
 			global.targetRoom = rm_lenko_farwayRoad_06;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -300,7 +300,7 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 3, 2];
 			global.targetRoom = rm_lenko_farwayRoad_09;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -338,7 +338,7 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 4, 2];
 			global.targetRoom = rm_lenko_farwayRoad_13;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -419,7 +419,7 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 5, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_00;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -457,7 +457,7 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 6, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_04;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -495,7 +495,7 @@ if (obj_inventory.camp_grid[# 7, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 7, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_06;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -533,7 +533,7 @@ if (obj_inventory.camp_grid[# 8, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 8, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_09;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -571,7 +571,7 @@ if (obj_inventory.camp_grid[# 9, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 9, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_13;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -666,7 +666,7 @@ if (obj_inventory.camp_grid[# 10, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 10, 2];
 			global.targetRoom = rm_lenko_habrafLake_00;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -704,7 +704,7 @@ if (obj_inventory.camp_grid[# 11, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 11, 2];
 			global.targetRoom = rm_lenko_habrafLake_04;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -742,7 +742,7 @@ if (obj_inventory.camp_grid[# 12, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 12, 2];
 			global.targetRoom = rm_lenko_habrafLake_06;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -781,7 +781,7 @@ if (obj_inventory.camp_grid[# 13, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 13, 2];
 			global.targetRoom = rm_lenko_habrafLake_09;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -819,7 +819,7 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 14, 2];
 			global.targetRoom = rm_lenko_habrafLake_13;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -915,7 +915,7 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 15, 2];
 			global.targetRoom = rm_lenko_beaowire_00;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -953,7 +953,7 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 16, 2];
 			global.targetRoom = rm_lenko_beaowire_04;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -991,7 +991,7 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 17, 2];
 			global.targetRoom = rm_lenko_beaowire_07;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1030,7 +1030,7 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 18, 2];
 			global.targetRoom = rm_lenko_beaowire_10;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1068,7 +1068,7 @@ if (obj_inventory.camp_grid[# 19, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 19, 2];
 			global.targetRoom = rm_lenko_beaowire_14;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1164,7 +1164,7 @@ if (obj_inventory.camp_grid[# 20, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 20, 2];
 			global.targetRoom = rm_beetrap_northernPass_00;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1202,7 +1202,7 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 21, 2];
 			global.targetRoom = rm_lenko_beaowire_04;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1240,7 +1240,7 @@ if (obj_inventory.camp_grid[# 22, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 17, 2];
 			global.targetRoom = rm_lenko_beaowire_06;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1279,7 +1279,7 @@ if (obj_inventory.camp_grid[# 23, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 18, 2];
 			global.targetRoom = rm_lenko_beaowire_09;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;
@@ -1317,7 +1317,7 @@ if (obj_inventory.camp_grid[# 24, 3] = true)
 			global.targetY = obj_inventory.camp_grid[# 19, 2];
 			global.targetRoom = rm_lenko_beaowire_13;
 			global.targetCamp = true;
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = global.targetRoom;
 			global.lastCampX = global.targetX;
 			global.lastCampY = global.targetY;

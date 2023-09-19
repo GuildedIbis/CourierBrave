@@ -174,7 +174,7 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animate
-	scr_enemy_animation_one()();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		//audio_play_sound(snd_arrow,0,false);

@@ -5,8 +5,8 @@
 //
 //
 //Alt Magic Pedestal Create
-function scr_pedestal_alt_create(){
-entity_step = scr_pedestal_altMagic_step;
+function scr_pedestal_alt_00_create(){
+entity_step = scr_pedestal_alt_step;
 sound = -1;
 shadow = true;
 shadow_size = 2;

@@ -174,7 +174,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -542,7 +542,7 @@ if (obj_game.gamePaused = false)
 		}
 	}
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer3 = 12;
@@ -915,9 +915,9 @@ if (_drop2 > 5) and (_drop2 < 25)
 }
 
 //Complete Quest
-obj_inventory.quest_grid[# 1, 0] = true;
-obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 2];
-obj_inventory.quest_grid[# 1, 3] = true;
+obj_inventory.quest_grid[# 4, 0] = true;
+obj_inventory.quest_grid[# 4, 1] = obj_inventory.quest_grid[# 4, 2];
+obj_inventory.quest_grid[# 4, 3] = true;
 	//with (obj_text)
 	//{
 	//	text_script = ZerwerkVictoryText;

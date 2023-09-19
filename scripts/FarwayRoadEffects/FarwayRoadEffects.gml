@@ -314,7 +314,7 @@ else image_index = 1;
 //
 //
 //Effect Lekno AbandonedHouse Rear Create
-function scr_effect_farwayRoad_abandonedHouse_create_rear(){
+function scr_effect_farwayRoad_abandonedHouse_rear_create(){
 sprite_index = spr_house_abandonedBack;
 image_speed = 0;
 with (instance_create_layer(x-33,y-16,"Wall",obj_wall))
@@ -363,7 +363,7 @@ sy4 = y + 71;
 //
 //
 //Effect Lekno AbandonedHouse Front Create
-function scr_effect_farwayRoad_abandonedHouse_create_front(){
+function scr_effect_farwayRoad_abandonedHouse_front_create(){
 sprite_index = spr_house_abandonedFront;
 image_speed = 0;
 with (instance_create_layer(x-31,y-16,"Wall",obj_wall))

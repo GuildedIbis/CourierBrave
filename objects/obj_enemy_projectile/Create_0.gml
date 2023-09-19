@@ -10,4 +10,4 @@ shadow_sprite = -1;
 shadow = false;
 
 //Status Effects
-StatusEffects();
+scr_entity_status_effects();

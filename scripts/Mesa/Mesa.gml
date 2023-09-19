@@ -17,7 +17,7 @@ interact = 20;
 //Orodry Step
 function scr_npc_mesa_step(){
 sprite_index = spr_npc_mesa;
-PlayerAnimation();
+scr_player_animation();
 scr_npc_interact(12);
 }
 //
@@ -82,7 +82,7 @@ if (obj_inventory.quest_grid[# 2, 1] <= 0)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 //Jewel Found
-if (obj_inventory.quest_grid[# 2, 1] > 0)
+if (obj_inventory.quest_grid[# 2, 1] > 0) and (obj_inventory.quest_grid[# 2, 3] = false)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -118,6 +118,46 @@ if (obj_inventory.quest_grid[# 2, 1] > 0)
 			obj_inventory.quest_grid[# 2, 3] = true;
 			obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		}
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		selected = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//Completed
+if (obj_inventory.quest_grid[# 2, 1] > 0) and (obj_inventory.quest_grid[# 2, 3] = true)
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_set_color(c_white);
+	var _name = "Mesa"
+	
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "Thanks again for finding her necklace!...\nThough truth be told we outta sell it." 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter >= 1)
+	{
+		text_string = ""
+		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

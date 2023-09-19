@@ -31,4 +31,4 @@ else
 	event_inherited();
 }
 
-StatusEffectsDraw();
+scr_entity_status_effects_draw();

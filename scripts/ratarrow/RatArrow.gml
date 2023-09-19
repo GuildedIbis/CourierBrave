@@ -6,7 +6,7 @@
 //
 //Rat Arrow Create
 function scr_projectile_ratArrow_create(){
-home_state = RatArrowFree;
+home_state = scr_projectile_ratArrow;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;

@@ -19,7 +19,7 @@ interact = 20;
 //Orodry Step
 function scr_npc_orodry_step(){
 sprite_index = spr_npc_orodry;
-PlayerAnimation();
+scr_player_animation();
 scr_npc_interact(12);
 }
 

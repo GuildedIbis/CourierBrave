@@ -19,7 +19,7 @@ interact = 20;
 //Rombhail Step
 function scr_npc_rhombail(){
 sprite_index = spr_npc_rhombail;
-PlayerAnimation();
+scr_player_animation();
 scr_npc_interact(12);
 }
 //

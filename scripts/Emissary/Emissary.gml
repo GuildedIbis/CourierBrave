@@ -1,10 +1,10 @@
-//NPC Necromancer
+//NPC Emissary
 //
 //
 //
 //
 //
-//Necromancer Create
+//Emissary Create
 function scr_npc_emissary_create(){
 entity_step = scr_npc_emissary_scene_00;
 shadow = true;
@@ -22,7 +22,7 @@ image_speed = 0;
 //
 //
 //
-//Necromancer Scene 1 Step
+//Emissary Scene 1 Step
 function scr_npc_emissary_scene_00(){
 if (global.dayPhase = 2)
 {
@@ -50,7 +50,7 @@ else
 //
 //
 //
-//Necromancer Scene 1 Step
+//Emissary Scene 1 Step
 function scr_npc_emissary_idle(){
 if (obj_game.gamePaused = false)
 {
@@ -92,10 +92,11 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 //
 //
 //
-//Necromancer Scene 1 Step
+//Emissary Scene 1 Step
 function scr_npc_emissary_scene_01(){
 if (obj_game.gamePaused = false)
 {
+	interact = -1;
 //Interaction Script
 if (timer1 < 120)
 {
@@ -124,7 +125,7 @@ if (timer2 <= 0)
 //
 //
 //
-//Necromancer Scene 1 Text
+//Emissary Scene 1 Text
 function scr_text_emissary_scene_01(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

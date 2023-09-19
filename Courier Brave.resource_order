@@ -205,7 +205,7 @@
     {"name":"snd_item_quest_found","order":3,"path":"sounds/snd_item_quest_found/snd_item_quest_found.yy",},
     {"name":"spr_ability_hud","order":13,"path":"sprites/spr_ability_hud/spr_ability_hud.yy",},
     {"name":"snd_halofire_trirock","order":6,"path":"sounds/snd_halofire_trirock/snd_halofire_trirock.yy",},
-    {"name":"spr_empty","order":4,"path":"sprites/spr_empty/spr_empty.yy",},
+    {"name":"spr_blank","order":4,"path":"sprites/spr_blank/spr_blank.yy",},
     {"name":"rm_lenko_yakflowerPath_13","order":19,"path":"rooms/rm_lenko_yakflowerPath_13/rm_lenko_yakflowerPath_13.yy",},
     {"name":"spr_grassTallo","order":2,"path":"sprites/spr_grassTallo/spr_grassTallo.yy",},
     {"name":"spr_map","order":3,"path":"sprites/spr_map/spr_map.yy",},

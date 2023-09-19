@@ -17,7 +17,7 @@ form_grid[# 0, 4] = true; //Unlocked Status
 form_grid[# 0, 5] = 0; //Weapon
 form_grid[# 0, 6] = 0; //Armor
 form_grid[# 0, 7] = 0; //Magic
-form_grid[# 0, 8] = 0; //Special
+form_grid[# 0, 8] = 1; //Special
 
 //Halofire
 form_grid[# 1, 0] = "HALOFIRE"
@@ -26,8 +26,8 @@ form_grid[# 1, 2] = scr_player_halofire_set; //Player Script
 form_grid[# 1, 3] = scr_menu_halofire; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
 form_grid[# 1, 5] = 0; //Weapon
-form_grid[# 1, 6] = 0; //Armor
-form_grid[# 1, 7] = 0; //Magic
+form_grid[# 1, 6] = 1; //Armor
+form_grid[# 1, 7] = 1; //Magic
 form_grid[# 1, 8] = 0; //Special
 
 //Adavoid
@@ -36,10 +36,10 @@ form_grid[# 2, 1] = "Purple armored Moros."
 form_grid[# 2, 2] = scr_player_adavio_set; //Player Script
 form_grid[# 2, 3] = scr_menu_adavio; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
-form_grid[# 2, 5] = 0; //Weapon
-form_grid[# 2, 6] = 0; //Armor
-form_grid[# 2, 7] = 0; //Magic
-form_grid[# 2, 8] = 0; //Special
+form_grid[# 2, 5] = 1; //Weapon
+form_grid[# 2, 6] = 1; //Armor
+form_grid[# 2, 7] = 1; //Magic
+form_grid[# 2, 8] = 1; //Special
 
 //Ceriver
 form_grid[# 3, 0] = "CERIVER"
@@ -47,10 +47,10 @@ form_grid[# 3, 1] = "Blue and Green Remphos with boomerang, bubbles, and sp (wat
 form_grid[# 3, 2] = scr_player_ceriver_set; //Player Script
 form_grid[# 3, 3] = scr_menu_ceriver; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
-form_grid[# 3, 5] = 0; //Weapon
-form_grid[# 3, 6] = 0; //Armor
-form_grid[# 3, 7] = 0; //Magic
-form_grid[# 3, 8] = 0; //Special
+form_grid[# 3, 5] = 1; //Weapon
+form_grid[# 3, 6] = 1; //Armor
+form_grid[# 3, 7] = 1; //Magic
+form_grid[# 3, 8] = 1; //Special
 
 //Evarel
 form_grid[# 4, 0] = "EVAREL"
@@ -58,10 +58,10 @@ form_grid[# 4, 1] = "Grey-green Lavos with green and brown tunic."
 form_grid[# 4, 2] = scr_player_evarel_set; //Player Script
 form_grid[# 4, 3] = scr_menu_evarel; //Inventory Script
 form_grid[# 4, 4] = false; //Unlocked Status
-form_grid[# 4, 5] = 0; //Weapon
-form_grid[# 4, 6] = 0; //Armor
-form_grid[# 4, 7] = 0; //Magic
-form_grid[# 4, 8] = 0; //Special
+form_grid[# 4, 5] = 2; //Weapon
+form_grid[# 4, 6] = 2; //Armor
+form_grid[# 4, 7] = 2; //Magic
+form_grid[# 4, 8] = 2; //Special
 
 }
 //

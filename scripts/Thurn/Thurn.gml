@@ -8,7 +8,7 @@
 function scr_npc_thurn_create(){
 entity_step = scr_npc_thurn_step;
 sound = snd_npc_mouse;
-
+interact = 20;
 }
 
 
@@ -19,9 +19,8 @@ sound = snd_npc_mouse;
 //Mesa Step
 function scr_npc_thurn_step(){
 sprite_index = spr_npc_thurn;
-PlayerAnimation();
+scr_player_animation();
 scr_npc_interact(12);
-interact = 20;
 }
 
 

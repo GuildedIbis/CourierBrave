@@ -247,7 +247,7 @@
     {"id":{"name":"spr_home_large","path":"sprites/spr_home_large/spr_home_large.yy",},},
     {"id":{"name":"spr_ability_hud","path":"sprites/spr_ability_hud/spr_ability_hud.yy",},},
     {"id":{"name":"snd_halofire_trirock","path":"sounds/snd_halofire_trirock/snd_halofire_trirock.yy",},},
-    {"id":{"name":"spr_empty","path":"sprites/spr_empty/spr_empty.yy",},},
+    {"id":{"name":"spr_blank","path":"sprites/spr_blank/spr_blank.yy",},},
     {"id":{"name":"rm_lenko_yakflowerPath_13","path":"rooms/rm_lenko_yakflowerPath_13/rm_lenko_yakflowerPath_13.yy",},},
     {"id":{"name":"spr_grassTallo","path":"sprites/spr_grassTallo/spr_grassTallo.yy",},},
     {"id":{"name":"spr_map","path":"sprites/spr_map/spr_map.yy",},},

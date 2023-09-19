@@ -4,60 +4,6 @@
 //
 //
 //
-//Effect Regaliare Quest Door Create
-function scr_effect_door_create(){
-frag = false
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
-{
-	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 6;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",break_object))
-	{
-		image_xscale = 6;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 2;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x-24,y-16,"Wall",break_object))
-	{
-		image_xscale = 2;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
-	{
-		image_xscale = 2;
-		image_yscale = 2;
-		game_paused_image_speed = image_speed;
-	}
-	with (instance_create_layer(x+8,y-16,"Wall",break_object))
-	{
-		image_xscale = 2;
-		image_yscale = 1;
-		game_paused_image_speed = image_speed;
-	}
-}
-	
-}
-
-//
-//
-//
-//
-//
 //Effect Lenko Trees Create
 function scr_effect_lenko_trees_create(){
 image_index = irandom_range(0,6);

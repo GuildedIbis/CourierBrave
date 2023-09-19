@@ -176,7 +176,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_ary[crull_selected] != -1)
 }
 
 //Switch Magic Fire Mode
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 2, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 3, 3] = true)
 {
 	if (magic_primary = true)
 	{
@@ -488,7 +488,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragGold;
 		damage = 24 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_heavyBullet;
-		projectile_script = RegaliareHeavyBullet;
+		projectile_script = scr_projectile_heavyBurst;
 		idle_sprite = spr_heavyBullet;
 		hit_by_attack = -1;
 		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
@@ -606,7 +606,7 @@ if (sprite_index != spr_player_regaliare_cast_special)
 
 
 //Animation
-PlayerAnimation();
+scr_player_animation();
 if (animation_end)
 {
 	inv_dur_timer = 120;
@@ -620,7 +620,7 @@ if (animation_end)
 		damage = 22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));
 		idle_sprite = spr_goldArc;
 		projectile_sprite = spr_goldArc;
-		projectile_script = RegaliareGoldArcs;
+		projectile_script = scr_projectile_goldArcs;
 		hit_by_attack = -1;
 		direction = (floor(other.direction/90))*90;
 		image_angle = direction;
