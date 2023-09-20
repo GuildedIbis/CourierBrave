@@ -11,8 +11,8 @@ form_type = 2;
 home_state = scr_player_adavio_set;
 free_state = scr_player_adavio_free;
 state_script = scr_player_adavio_free;
-magicP_script = scr_player_adavio_voidspread;
-magicA_script = scr_player_adavio_voidcycle;
+magicP_script = scr_player_adavio_voidSpread;
+magicA_script = scr_player_adavio_voidCycle;
 magic_primary = true;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
@@ -963,7 +963,7 @@ if (special_timer <= 0)
 //
 //
 //AdavioCursor
-function scr_adavio_cursor(){
+function scr_cursor_adavio(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;

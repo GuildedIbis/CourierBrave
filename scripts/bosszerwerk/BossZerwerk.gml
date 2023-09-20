@@ -216,7 +216,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70 + (9 * enemy_lvl);
+	damage = 70 + (11 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
 
@@ -258,7 +258,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (9 * enemy_lvl);
+	damage = 65 + (10 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
 
@@ -505,7 +505,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 60 + (9 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_hitbox_riftSlamDownB)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
 	if (timer1 <= 0)
 	{
 		timer1 = 90;

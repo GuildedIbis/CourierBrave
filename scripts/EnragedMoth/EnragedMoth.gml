@@ -30,7 +30,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 2;
-max_hp = 900;
+max_hp = 600 + (305 * enemy_lvl);
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -205,7 +205,7 @@ if (obj_game.gamePaused = false)
 		entity_step = scr_enemy_enraged_moth_rageRush;
 		audio_sound_gain(snd_enragedMoth_rageRush,global.volumeEffects,1);
 		audio_play_sound(snd_enragedMoth_rageRush,0,false);
-		damage = 70;
+		damage = 70  + (11 * enemy_lvl);
 		hor_spd = 0;
 		ver_spd = 0;
 		var _dir = round(point_direction(x,y,obj_player.x,obj_player.y)/90)
@@ -352,6 +352,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			scr_projectile_wormEgg_create();
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
@@ -389,13 +390,12 @@ healthbar = false;
 boss = false;
 inv_dur_timer = 0;
 enemy_move = spr_enragedMoth_wormEgg;
-
+damage = 45 + (8 * enemy_lvl);
 aggro_drop = 300;
 timer1 = 150;
 enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 0;
 hp = 60;
 max_hp = 60;
 }
@@ -414,9 +414,24 @@ if (place_meeting(x,y,obj_player))
 {
 	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
 	audio_play_sound(snd_arrow_hit,0,false);
+	with (obj_player)
+	{
+		if (invincible = false)
+		{
+			if (dmg_snd_delay <= 0)
+			{
+				dmg_snd_delay = 15;
+				audio_sound_gain(dmg_snd,global.volumeEffects,1);
+				audio_play_sound(dmg_snd,0,false);
+			}
+			flash = .35;
+			hp = hp - (other.damage - armor);
+		}
+	}
 	with instance_create_layer(x,y,"Instances",obj_enemy)
 	{
 		image_alpha = 1;
+		enemy_lvl =  other.enemy_lvl;
 		scr_enemy_enraged_worm_create();
 		timer1 = 20;
 		entity_step = scr_enemy_enraged_worm_explode;
@@ -433,6 +448,7 @@ if (place_meeting(x,y,break_object))
 	with instance_create_layer(x,y,"Instances",obj_enemy)
 	{
 		image_alpha = 1;
+		enemy_lvl =  other.enemy_lvl;
 		scr_enemy_enraged_worm_create();
 		timer1 = 20;
 		entity_step = scr_enemy_enraged_worm_free;

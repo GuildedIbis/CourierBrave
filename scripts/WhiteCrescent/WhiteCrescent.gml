@@ -22,7 +22,7 @@ timer1 = 150;
 enemy_spd = 1.2
 local_frame = 0;
 hit_by_attack = -1;
-damage = 35;
+damage = 45 + (8 * enemy_lvl);
 hp = 60;
 max_hp = 60;
 }

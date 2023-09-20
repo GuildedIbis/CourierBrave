@@ -28,7 +28,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 2;
-max_hp = 250;
+max_hp = 250 + (130 * enemy_lvl);
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -203,7 +203,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			scr_projectile_whiteCrescent_create()();
+			enemy_lvl = other.enemy_lvl;
+			scr_projectile_whiteCrescent_create();
 			break_object = other.break_object;
 			shadow = 0;
 			fragment_count = 0;
@@ -216,6 +217,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
+				enemy_lvl = other.enemy_lvl;
 				scr_projectile_whiteRod_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) - 45 + (15 * i);
 				image_angle = direction;
@@ -275,7 +277,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			WhiteRodCreate();
+			enemy_lvl = other.enemy_lvl;
+			scr_projectile_whiteRod_create();
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
 			image_angle = direction;

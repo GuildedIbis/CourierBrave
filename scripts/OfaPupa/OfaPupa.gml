@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 300;
+max_hp = 300 + (155 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -144,6 +144,7 @@ if (obj_game.gamePaused = false)
 		timer1 = 3;
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			entity_drop = Idle;
 			invincible = false;
 			inv_dur_timer = 0;
@@ -154,7 +155,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 35;
+			damage = 35 + (7 * enemy_lvl);
 			audio_sound_gain(snd_arrow,global.volumeEffects,1);
 			audio_play_sound(snd_arrow,0,false);
 			direction = other.proj_dir;
@@ -215,6 +216,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
+				enemy_lvl = other.enemy_lvl;
 				entity_drop = Idle;
 				invincible = false;
 				inv_dur_timer = 0;
@@ -225,7 +227,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 4.0;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 35;
+				damage = 35 + (7 * enemy_lvl);
 				direction = (point_direction(x,y,obj_player.x,obj_player.y)- 60) + (15*i) ;
 				image_angle = direction;
 				speed = enemy_spd;

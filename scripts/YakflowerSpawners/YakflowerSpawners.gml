@@ -36,7 +36,8 @@ if (obj_inventory.quest_grid[# 8, 1] < 2)
 			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
-				script_execute(OfaWormCreate);
+				scr_enemy_ofa_worm_create();
+				enemy_lvl = 1;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = obj_break;

@@ -17,6 +17,7 @@ enemy_move = spr_enemy_whiteRod;
 aggro_drop = 300;
 healthbar = false;
 bullet = true;
+damage = 25 + (6 * enemy_lvl)
 enemy_spd = 3.5;
 local_frame = 0;
 hit_by_attack = -1;

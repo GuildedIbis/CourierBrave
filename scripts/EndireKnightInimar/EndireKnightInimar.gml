@@ -28,7 +28,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-max_hp = 1100;
+max_hp = 550 + (280 * enemy_lvl);
 hp = max_hp;
 boss = true;
 name = "Endire Knight Inimar";
@@ -175,7 +175,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70;
+	damage = 70 + (12 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
@@ -213,7 +213,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 80 + (12 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
@@ -260,7 +260,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60;
+	damage = 60 + (10 * enemy_lvl);
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
@@ -270,6 +270,7 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
+				enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
 				image_angle = direction
@@ -335,7 +336,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60;
+	damage = 65 + (11 * enemy_lvl);
 	if (timer2 <= 0) 
 	{
 		speed = 0;
@@ -346,12 +347,12 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
+				enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
 				direction = other.projectile_dir + (90 * i);
 				image_angle = direction;
 				speed = 1.1;
 				timer1 = irandom_range(0,29);
-				damage = 40;
 				break_object = other.break_object;
 				lit = true;
 				light_size = 16;
@@ -368,6 +369,7 @@ if (obj_game.gamePaused = false)
 		timer3 = 12
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			scr_projectile_heatacer_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;

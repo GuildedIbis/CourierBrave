@@ -28,7 +28,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 2;
-max_hp = 60;
+max_hp = 60 + (30 * enemy_lvl);
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -58,7 +58,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Aggro 
 	scr_enemy_aggro();
@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 21;
+	damage = 30 + (6 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate(spr_ofaWorm_headbutt_hitbox);
 

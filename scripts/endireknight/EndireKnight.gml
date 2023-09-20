@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-max_hp = 300 + (150 * enemy_lvl);
+max_hp = 200 + (100 * enemy_lvl);
 hp = max_hp;
 boss = false;
 name = "Endire Knight";
@@ -169,7 +169,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70;
+	damage = 70 + (10 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
@@ -205,7 +205,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 80 + (12 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
@@ -247,7 +247,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60;
+	damage = 60 + (10 * enemy_lvl);
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
