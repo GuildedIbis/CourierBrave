@@ -5,8 +5,8 @@
 //
 //
 //White Crescent Create
-function WhiteCrescentCreate(){
-home_state = WhiteCrescentFree;
+function scr_projectile_whiteCrescent_create(){
+home_state = scr_projectile_whiteCrescent_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -32,7 +32,7 @@ max_hp = 60;
 //
 //
 //White Crescent Free
-function WhiteCrescentFree(){
+function scr_projectile_whiteCrescent_free(){
 if (obj_game.gamePaused = false)
 {
 	timer1 = timer1 - 1;

@@ -5,10 +5,10 @@
 //
 //
 //Endire Inimar Create
-function EndireKnightInimarCreate(){
-home_state = EndireKnightInimarFree;
+function scr_enemy_endire_inimar_create(){
+home_state = scr_enemy_endire_inimar_free;
 entity_step = home_state;
-entity_drop = EndireKnightInimarDrop;
+entity_drop = scr_enemy_endire_inimar_drop;
 enemy_idle = spr_enemy_endireKnight_inimar_idle;
 enemy_move = spr_enemy_endireKnight_inimar_run;
 enemy_damaged = spr_enemy_endireKnight_inimar_damaged;
@@ -51,12 +51,12 @@ projectile_dir = 0;
 //
 //
 //Endire Knight Free State
-function EndireKnightInimarFree(){
+function scr_enemy_endire_inimar_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers and counters
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	if (attack_counter > 2)
 	{ 
 		timer1 = 180;
@@ -106,7 +106,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
 				timer2 = 48;
-				entity_step = EndireKnightInimarFireStrike;
+				entity_step = scr_enemy_endire_inimar_fireStrike;
 			}
 			if (!point_in_circle(obj_player.x,obj_player.y,x,y,24))
 			{
@@ -121,7 +121,7 @@ if (obj_game.gamePaused = false)
 				projectile_dir = irandom_range(0,360);
 				timer2 = 24;
 				timer3 = 24;
-				entity_step = EndireKnightInimarHeatacer;
+				entity_step = scr_enemy_endire_inimar_heatacer;
 			}
 			if (!point_in_circle(obj_player.x,obj_player.y,x,y,64))
 			{
@@ -132,7 +132,7 @@ if (obj_game.gamePaused = false)
 				audio_play_sound(snd_slash01,0,false);
 				direction =  point_direction(x,y,obj_player.x,obj_player.y);
 				timer2 = 23;
-				entity_step = EndireKnightInimarCinderDash;
+				entity_step = scr_enemy_endire_inimar_cinderDash;
 			}
 				
 		}
@@ -148,7 +148,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -158,7 +158,7 @@ else path_end();
 //
 //
 //Endire Knight Inimar Fire Strike State
-function EndireKnightInimarFireStrike(){
+function scr_enemy_endire_inimar_fireStrike(){
 if (obj_game.gamePaused = false)
 {
 	speed = 0;
@@ -177,10 +177,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 70;
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 0;
@@ -196,7 +196,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Cinder Dash
-function EndireKnightInimarCinderDash(){
+function scr_enemy_endire_inimar_cinderDash(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -215,7 +215,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80;
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -225,7 +225,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 0;
@@ -244,7 +244,7 @@ else{
 //
 //
 //Endire Knight Heatwave
-function EndireKnightInimarHeatwave(){
+function scr_enemy_endire_inimar_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -270,7 +270,7 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(HeatwaveCreate);
+				scr_projectile_heatwave_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
 				image_angle = direction
 				speed = 1.1;
@@ -281,12 +281,12 @@ if (obj_game.gamePaused = false)
 				lit = true;
 				light_size = 16;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -296,7 +296,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -311,7 +311,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Heatwave
-function EndireKnightInimarHeatacer(){
+function scr_enemy_endire_inimar_heatacer(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -346,7 +346,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(HeatwaveCreate);
+				scr_projectile_heatwave_create();
 				direction = other.projectile_dir + (90 * i);
 				image_angle = direction;
 				speed = 1.1;
@@ -358,7 +358,7 @@ if (obj_game.gamePaused = false)
 				fragment_count = 3;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy();
 			}
 			
 		}
@@ -368,7 +368,7 @@ if (obj_game.gamePaused = false)
 		timer3 = 12
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(HeatacerCreate);
+			scr_projectile_heatacer_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = 1.1;
@@ -378,11 +378,11 @@ if (obj_game.gamePaused = false)
 			lit = true;
 			light_size = 16;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -394,7 +394,7 @@ if (obj_game.gamePaused = false)
 	if (point_distance(x,y,target_x,target_y) <= 8) speed = 0;
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		speed = 0;
@@ -414,7 +414,7 @@ else{
 //
 //
 //Inimar Drop
-function EndireKnightInimarDrop(){
+function scr_enemy_endire_inimar_drop(){
 
 var _objects = 7;
 //var _dropBean = 400;
@@ -507,7 +507,7 @@ if (obj_inventory.form_grid[# 13, 3] = false)
 //
 //
 //Inimar Victory Text
-function EndireKnightInimarVictoryText(){
+function xEndireKnightInimarVictoryText(){
 
 draw_set_font(xfnt_text);
 draw_set_halign(fa_left)

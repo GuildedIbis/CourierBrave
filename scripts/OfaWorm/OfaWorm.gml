@@ -5,10 +5,10 @@
 //
 //
 //Ofa Worm Create
-function OfaWormCreate(){
-home_state = OfaWormFree;
+function scr_enemy_ofa_worm_create(){
+home_state = scr_enemy_ofa_worm_free;
 entity_step = home_state;
-entity_drop = OfaWormDrop;
+entity_drop = scr_enemy_ofa_worm_drop;
 enemy_idle = spr_enemy_ofaWorm_idle;
 enemy_move = spr_enemy_ofaWorm_move;
 enemy_damaged = spr_enemy_ofaWorm_hit;
@@ -48,7 +48,7 @@ path = -1;
 //
 //
 //Ofa Worm Free
-function OfaWormFree(){
+function scr_enemy_ofa_worm_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -61,13 +61,13 @@ if (obj_game.gamePaused = false)
 	if (flash > 0) entity_step = EnemyDamaged;
 
 	//Aggro 
-	EnemyAggro();
+	scr_enemy_aggro();
 	
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (dash_timer > 0) dash_timer = dash_timer - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
@@ -77,7 +77,7 @@ if (obj_game.gamePaused = false)
 			if (timer1 <= 0)
 			{
 				timer1 = 150;
-				entity_step = OfaWormHeadbutt;
+				entity_step = scr_enemy_ofa_worm_headbutt;
 			}
 		}
 
@@ -102,7 +102,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -112,7 +112,7 @@ else path_end();
 //
 //
 //Ofa Worm Dash
-function OfaWormHeadbutt(){
+function scr_enemy_ofa_worm_headbutt(){
 if (obj_game.gamePaused = false)
 {
 	if (sprite_index != spr_enemy_ofaWorm_headbutt)
@@ -128,10 +128,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 21;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_ofaWorm_headbutt_hitbox);
+	scr_enemy_attack_calculate(spr_ofaWorm_headbutt_hitbox);
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -144,8 +144,8 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Sabi Drop
-function OfaWormDrop(){
+//Ofa Worm Drop
+function scr_enemy_ofa_worm_drop(){
 	
 //if(obj_inventory.quest_grid[# 6, 1] < obj_inventory.quest_grid[# 6, 2]) obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
 var _objects = 6;

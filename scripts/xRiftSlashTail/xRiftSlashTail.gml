@@ -4,8 +4,8 @@
 //
 //
 //Rift Slash Tail Create
-function RiftSlashTailCreate(){
-home_state = RiftSlashTailFree;
+function xscr_projectile_riftSlash_tail_create(){
+home_state = scr_projectile_riftSlash_tail_free;
 entity_step = home_state;
 entity_drop = Idle;
 enemy_idle = spr_enemy_riftSlash;
@@ -30,7 +30,7 @@ timer2 = 12;
 //
 //
 //Rift Slash Tail Free
-function RiftSlashTailFree(){
+function xscr_projectile_riftSlash_tail_free(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) 

@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "RiftSlashTail",
+  "name": "xRiftSlashTail",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/Enemy/EnemyYakflowerPath.yy",
+    "name": "xRetiredScripts",
+    "path": "folders/Scripts/xRetiredScripts.yy",
   },
 }

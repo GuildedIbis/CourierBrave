@@ -5,10 +5,10 @@
 //
 //
 //Ofa Worm Create
-function OfaMothCreate(){
-home_state = OfaMothFree;
+function scr_enemy_ofa_moth_create(){
+home_state = scr_enemy_ofa_moth_free;
 entity_step = home_state;
-entity_drop = OfaMothDrop;
+entity_drop = scr_enemy_ofa_moth_drop;
 enemy_idle = spr_enemy_ofaMoth;
 enemy_move = spr_enemy_ofaMoth;
 enemy_damaged = spr_enemy_ofaMoth;
@@ -48,13 +48,13 @@ path = -1;
 //
 //
 //Ofa Moth Free
-function OfaMothFree(){
+function scr_enemy_ofa_moth_free(){
 if (obj_game.gamePaused = false)
 {
 	healthbar = true;
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
 	if (targeted = false)
@@ -62,7 +62,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -86,7 +86,7 @@ if (obj_game.gamePaused = false)
 			timer1 = 21;
 			timer2 = 50;
 			attack_counter = 0;
-			entity_step = OfaMothDustStep;
+			entity_step = scr_enemy_ofa_moth_dustStep;
 			audio_sound_gain(snd_ofaMoth_dustStep,global.volumeEffects,1);
 			audio_play_sound(snd_ofaMoth_dustStep,0,false);
 		}
@@ -100,7 +100,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animation
-	script_execute(EnemyAnimation1);
+	scr_enemy_animation_one();
 }
 else path_end();
 }
@@ -110,7 +110,7 @@ else path_end();
 //
 //
 //Ofa Moth Dash
-function OfaMothDustStep(){
+function scr_enemy_ofa_moth_dustStep(){
 if (obj_game.gamePaused = false)
 {
 	lit = false;
@@ -151,7 +151,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation1);
+	scr_enemy_animation_one();
 	if (animation_end = true)
 	{
 		lit = true;
@@ -161,13 +161,13 @@ if (obj_game.gamePaused = false)
 		if (_atk = 0)
 		{
 			healthbar = true;
-			entity_step = OfaMothCrescentFire;
+			entity_step = scr_enemy_ofa_moth_crescentFire;
 		}
 		else 
 		{
 			healthbar = true;
 			timer2 = 20;
-			entity_step = OfaMothMoonBlast;
+			entity_step = scr_enemy_ofa_moth_moonBlast;
 		}
 	}
 	
@@ -181,7 +181,7 @@ else path_end();
 //
 //
 //Ofa Moth Dash
-function OfaMothCrescentFire(){
+function scr_enemy_ofa_moth_crescentFire(){
 if (obj_game.gamePaused = false)
 {
 
@@ -195,7 +195,7 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animation
-	script_execute(EnemyAnimation1);
+	scr_enemy_animation_one();
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
@@ -203,20 +203,20 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			WhiteCrescentCreate();
+			scr_projectile_whiteCrescent_create()();
 			break_object = other.break_object;
 			shadow = 0;
 			fragment_count = 0;
 			fragment = obj_fragment;
 			healthbar = true;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		for (var i = 0; i < 6; i = i + 1)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				WhiteRodCreate();
+				scr_projectile_whiteRod_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) - 45 + (15 * i);
 				image_angle = direction;
 				speed = enemy_spd;
@@ -224,19 +224,19 @@ if (obj_game.gamePaused = false)
 				fragment_count = 0;
 				fragment = obj_fragment;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 			}
 		}
 		if (attack_counter >= 4)
 		{
 			timer1 = 180;
-			entity_step = OfaMothFree;
+			entity_step = scr_enemy_ofa_moth_free;
 		}
 		else
 		{
 			timer1 = 21;
 			timer2 = 50;
-			entity_step = OfaMothDustStep;
+			entity_step = scr_enemy_ofa_moth_dustStep;
 		}
 			
 	}
@@ -249,7 +249,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Ofa Moth Moon Blast
-function OfaMothMoonBlast(){
+function scr_enemy_ofa_moth_moonBlast(){
 if (obj_game.gamePaused = false)
 {
 
@@ -266,7 +266,7 @@ if (obj_game.gamePaused = false)
 	timer2 = timer2 - 1;
 
 	//Animation
-	script_execute(EnemyAnimation1);
+	scr_enemy_animation_one();
 	
 	if (timer2 <= 0)
 	{
@@ -284,7 +284,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragment;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	if (animation_end = true)
@@ -294,13 +294,13 @@ if (obj_game.gamePaused = false)
 		{
 			timer1 = 180;
 			sprite_index = enemy_idle;
-			entity_step = OfaMothFree;
+			entity_step = scr_enemy_ofa_moth_free;
 		}
 		else
 		{
 			timer1 = 21;
 			timer2 = 50;
-			entity_step = OfaMothDustStep;
+			entity_step = scr_enemy_ofa_moth_dustStep;
 		}
 	}
 	
@@ -312,7 +312,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Ofa Moth Drop
-function OfaMothDrop(){
+function scr_enemy_ofa_moth_drop(){
 	
 obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
 var _objects = 6;

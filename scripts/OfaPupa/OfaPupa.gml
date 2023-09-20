@@ -5,15 +5,15 @@
 //
 //
 //Ofa Pupa Create
-function OfaPupaCreate(){
+function scr_enemy_ofa_pupa_create(){
 targeted = false;	
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = OfaPupaFree;
+home_state = scr_enemy_ofa_pupa_free;
 entity_step = home_state;
-entity_drop = OfaPupaDrop;
+entity_drop = scr_enemy_ofa_pupa_drop;
 enemy_idle = spr_enemy_ofaPupa_idle;
 enemy_move = spr_enemy_ofaPupa_idle;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
@@ -47,14 +47,14 @@ path = -1;
 //
 //
 //OfaPupaFree
-function OfaPupaFree(){
+function scr_enemy_ofa_pupa_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	knockback = false;
 	knockback_dur = 0;
 	
@@ -65,7 +65,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 				timer1 = 50;
 				sprite_index = enemy_idle;
 				proj_dir = point_direction(x,y,obj_player.x,obj_player.y);
-				entity_step = OfaPupaCocoonSpike;		
+				entity_step = scr_enemy_ofa_pupa_cocoonSpike;		
 			}
 		}
 		else
@@ -101,7 +101,7 @@ if (obj_game.gamePaused = false)
 			{	
 				timer2 = 60;
 				sprite_index = enemy_idle;
-				entity_step = OfaPupaCocoonWad;
+				entity_step = scr_enemy_ofa_pupa_cocoonWad;
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -119,7 +119,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Ofa Pupa Cocoon Spike
-function OfaPupaCocoonSpike(){
+function scr_enemy_ofa_pupa_cocoonSpike(){
 if (obj_game.gamePaused = false)
 {
 	knockback = false;
@@ -164,13 +164,13 @@ if (obj_game.gamePaused = false)
 			fragment_count = 0;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
-			home_state = OfaPupaSpikeFree;
+			hit_script = scr_entity_hit_destroy;
+			home_state = scr_projectile_pupaSpike_free;
 			entity_step = home_state;
 		}
 	}
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -186,7 +186,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Ofa Pupa Cocoon Wad Shoot
-function OfaPupaCocoonWad(){
+function scr_enemy_ofa_pupa_cocoonWad(){
 if (obj_game.gamePaused = false)
 {
 	knockback = false;
@@ -233,14 +233,14 @@ if (obj_game.gamePaused = false)
 				fragment_count = 0;
 				fragment = obj_fragWood;
 				bullet = true;
-				hit_script = EntityHitDestroy;
-				home_state = OfaPupaWadFree;
+				hit_script = scr_entity_hit_destroy;
+				home_state = scr_projectile_pupaWad_free;
 				entity_step = home_state;
 			}
 		}
 	}
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		timer2 = 60;
@@ -256,7 +256,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Ofa Pupa Drop
-function OfaPupaDrop(){
+function scr_enemy_ofa_pupa_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
@@ -338,7 +338,7 @@ if (_drop2 < 2)
 //
 //
 //Ofa Pupa Spike Free
-function OfaPupaSpikeFree(){
+function scr_projectile_pupaSpike_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -382,7 +382,7 @@ else
 //
 //
 //Ofa Pupa Wad Free
-function OfaPupaWadFree(){
+function scr_projectile_pupaWad_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;

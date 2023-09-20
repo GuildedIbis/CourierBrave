@@ -103,19 +103,19 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(walk_snd,global.volumeEffects,1);
 				audio_play_sound(walk_snd,1,0);
 			}
-			script_execute(EnemyAnimation);
+			scr_enemy_animation();
 		}
 		if (attack_timer > 0)
 		{
 			if (attack_timer < 60)
 			{
-				script_execute(EnemyChase);
-				script_execute(EnemyAnimation);
+				scr_enemy_chase();
+				scr_enemy_animation();
 			}
 			else
 			{
 				sprite_index = spr_enemy_bossZerwerk_rest;
-				script_execute(EnemyAnimation1);
+				scr_enemy_animation_one();
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -218,10 +218,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 70 + (9 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_hitbox_tailLash)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -260,10 +260,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 65 + (9 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_hitbox_voidBlade)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -311,7 +311,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
 			enemy_lvl = other.enemy_lvl
-			home_state = scr_enemy_projectile_riftslash;
+			home_state = scr_projectile_riftslash_tail;
 			entity_step = home_state;
 			entity_drop = Idle;
 			enemy_idle = spr_enemy_riftSlash;
@@ -336,12 +336,12 @@ if (obj_game.gamePaused = false)
 			fragment = obj_fragFlesh;
 			sprite_index = spr_enemy_shadow;
 			bullet = false;
-			hit_script = EntityHitNPC;
+			hit_script = scr_entity_hit_destroy();
 		}
 	}
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -381,7 +381,7 @@ if (obj_game.gamePaused = false)
 		passable = true;
 	}
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		attack_chose = irandom_range(0,1)
@@ -444,10 +444,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 115 + (15 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_hitbox_riftSlamDownA)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		passable = false;
@@ -535,14 +535,14 @@ if (obj_game.gamePaused = false)
 				fragment_count = 6;
 				fragment = obj_fragFire;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
 	
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -573,13 +573,6 @@ var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = 10;
@@ -646,22 +639,6 @@ if (_drop2 > 10) and (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-
-//obj_inventory.yakflower_lair[4] = 1;
-//if (obj_inventory.quest_grid[# 8, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 8, 0] = true;
-//	obj_inventory.quest_grid[# 8, 1] = obj_inventory.quest_grid[# 8, 2];
-//	obj_inventory.quest_grid[# 8, 3] = true;
-//	with (obj_text)
-//	{
-//		text_script = ZerwerkVictoryText;
-//	}
-//	obj_game.gamePaused = !obj_game.gamePaused;
-//	obj_game.textPaused = !obj_game.textPaused;
-//}
-
-	
 }
 //
 //
@@ -780,7 +757,7 @@ else
 //
 //
 //Rift Slash Tail Free
-function scr_enemy_projectile_riftslash(){
+function scr_projectile_riftslash_tail(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) 
@@ -812,10 +789,10 @@ if (obj_game.gamePaused = false)
 	}
 	//Cacluate Attack
 	damage = 60 + (9 * enemy_lvl);
-	EnemyAttackCalculate(spr_enemy_hitbox_riftSlash)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
 
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		instance_destroy();

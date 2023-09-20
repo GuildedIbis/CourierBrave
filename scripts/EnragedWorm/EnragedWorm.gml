@@ -5,10 +5,10 @@
 //
 //
 //Enraged Worm Create
-function EnragedWormCreate(){
-home_state = EnragedWormFree;
+function scr_enemy_enraged_worm_create(){
+home_state = scr_enemy_enraged_worm_free;
 entity_step = home_state;
-entity_drop = EnragedWormDrop;
+entity_drop = scr_enemy_enraged_worm_drop;
 enemy_idle = spr_enemy_enragedWorm_idle;
 enemy_move = spr_enemy_enragedWorm_dash;
 enemy_damaged = spr_enemy_enragedWorm_hit;
@@ -48,7 +48,7 @@ path = -1;
 //
 //
 //Enraged Worm Free
-function EnragedWormFree(){
+function scr_enemy_enraged_worm_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -57,27 +57,27 @@ if (obj_game.gamePaused = false)
 		timer1 = timer1 - 1;
 	}
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Aggro 
-	EnemyAggro();
+	scr_enemy_aggro();
 	
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
 		lit = true;
-		EnemyChaseSpecial(obj_game,obj_entity);
+		scr_enemy_chase_special(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
 		{
 			path_end();
 			sprite_index = enemy_idle;
-			entity_step = EnragedWormCharge;
+			entity_step = scr_enemy_enraged_worm_charge;
 		}
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -87,7 +87,7 @@ else path_end();
 //
 //
 //Enraged Worm Dash
-function EnragedWormCharge(){
+function scr_enemy_enraged_worm_charge(){
 if (obj_game.gamePaused = false)
 {
 	if (sprite_index != spr_enemy_enragedWorm_charge)
@@ -103,11 +103,11 @@ if (obj_game.gamePaused = false)
 	}
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 20;
-		entity_step = EnragedWormExplode;
+		entity_step = scr_enemy_enraged_worm_explode;
 		animation_end = false;
 	}
 }
@@ -118,7 +118,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Enraged Worm Dash
-function EnragedWormExplode(){
+function scr_enemy_enraged_worm_explode(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -136,12 +136,12 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 70;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_enragedWorm_explode_hitbox);
+	scr_enemy_attack_calculate(spr_enemy_enragedWorm_explode_hitbox);
 
 	if (timer1 <= 0) image_alpha = image_alpha - .1;
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		instance_destroy();
@@ -155,7 +155,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Enraged Worm Drop
-function EnragedWormDrop(){
+function scr_enemy_enraged_worm_drop(){
 	
 //if(obj_inventory.quest_grid[# 6, 1] < obj_inventory.quest_grid[# 6, 2]) obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
 var _objects = 6;

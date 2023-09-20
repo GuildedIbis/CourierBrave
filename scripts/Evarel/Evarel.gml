@@ -594,7 +594,7 @@ if (place_meeting(x,y,obj_enemy))
 	
 }
 //Ricochet
-var _normal = scr_projectile_bristlerod(x,y,break_object,4,1);
+var _normal = scr_projectile_collision_normal(x,y,break_object,4,1);
 if (_normal != -1)
 {
 	var _diff = direction - (_normal + 180);

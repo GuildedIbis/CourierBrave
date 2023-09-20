@@ -352,7 +352,7 @@ if (returning = false)
 	}
 	if (place_meeting(x,y,obj_resource)) or (return_timer <= 0)
 	{
-		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 }
@@ -809,7 +809,7 @@ if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,-1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,-1,10);
 	//instance_destroy();
 }
 if (place_meeting(x,y,obj_enemy_projectile)) 

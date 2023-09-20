@@ -5,10 +5,10 @@
 //
 //
 //Endire Knight Create
-function EndireKnightCreate(){
-home_state = EndireKnightFree;
+function scr_enemy_endire_knight_create(){
+home_state = scr_enemy_endire_knight_free;
 entity_step = home_state;
-entity_drop = EndireKnightDrop;
+entity_drop = scr_enemy_endire_knight_drop;
 enemy_idle = spr_enemy_endireKnight_idle;
 enemy_move = spr_enemy_endireKnight_run;
 enemy_damaged = spr_enemy_endireKnight_damaged;
@@ -49,12 +49,12 @@ path = -1;
 //
 //
 //Endire Knight Free State
-function EndireKnightFree(){
+function scr_enemy_endire_knight_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers and counters
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	if (attack_counter > 2)
 	{ 
 		timer1 = 180;
@@ -106,7 +106,7 @@ if (obj_game.gamePaused = false)
 				direction =  point_direction(x,y,obj_player.x,obj_player.y);
 				timer2 = 40;
 				attack_counter = attack_counter + 1;
-				entity_step = EndireKnightHeatwave;
+				entity_step = scr_enemy_endire_knight_heatwave;
 			}
 			//if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
 			//{
@@ -127,7 +127,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
 				timer2 = 23;
-				entity_step = EndireKnightFireStrike;
+				entity_step = scr_enemy_endire_knight_fireStrike();
 			}
 			
 		}
@@ -143,7 +143,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -153,7 +153,7 @@ else path_end();
 //
 //
 //Endire Knight Fire Strike State
-function EndireKnightFireStrike(){
+function scr_enemy_endire_knight_fireStrike(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -171,10 +171,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 70;
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -188,7 +188,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Cinder Dash
-function EndireKnightCinderDash(){
+function scr_enemy_endire_knight_cinderDash(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -207,7 +207,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80;
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -231,7 +231,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Heatwave
-function EndireKnightHeatwave(){
+function scr_enemy_endire_knight_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -257,7 +257,7 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(HeatwaveCreate);
+				scr_projectile_heatwave_create();
 				timer1 = 15;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
@@ -268,12 +268,12 @@ if (obj_game.gamePaused = false)
 				light_size = 16;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -283,7 +283,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -296,7 +296,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Drop
-function EndireKnightDrop(){
+function scr_enemy_endire_knight_drop(){
 
 var _objects = 6;
 //var _dropBean = 200;

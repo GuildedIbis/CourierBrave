@@ -5,8 +5,8 @@
 //
 //
 //White Rod Create
-function WhiteRodCreate(){
-home_state = WhiteRodFree;
+function scr_projectile_whiteRod_create(){
+home_state = scr_projectile_whiteRod_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -28,7 +28,7 @@ damage = 25;
 //
 //
 //White Rod Free
-function WhiteRodFree(){
+function scr_projectile_whiteRod_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;

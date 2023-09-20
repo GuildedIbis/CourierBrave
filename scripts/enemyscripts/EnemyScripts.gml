@@ -73,7 +73,7 @@ else path_end();
 //
 //
 //Chase Player
-function scr_enemey_chase_special(object_stuck,object_norm){
+function scr_enemy_chase_special(object_stuck,object_norm){
 
 if (knockback = false)
 {
