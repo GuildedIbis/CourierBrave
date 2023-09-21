@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "World",
-    "path": "folders/Sprites/World.yy",
+    "name": "Effects",
+    "path": "folders/Sprites/Effects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

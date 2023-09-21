@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "Other",
-    "path": "folders/Sprites/World/Interactables/Other.yy",
+    "path": "folders/Sprites/Effects/Interactables/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

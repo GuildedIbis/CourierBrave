@@ -801,7 +801,7 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //Reset or return to free sate
 if (mouse_check_button(mb_left) = false) or (orange_primary < 4)

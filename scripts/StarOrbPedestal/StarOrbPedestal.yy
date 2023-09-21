@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Inanimates",
-    "path": "folders/Scripts/Interactables/Inanimates.yy",
+    "path": "folders/Scripts/Entities/Inanimates.yy",
   },
 }

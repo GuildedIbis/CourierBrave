@@ -29,7 +29,7 @@
   "origin": 9,
   "parent": {
     "name": "LenkoNPC",
-    "path": "folders/Sprites/NPC/LenkoNPC.yy",
+    "path": "folders/Sprites/Entity/NPC/LenkoNPC.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

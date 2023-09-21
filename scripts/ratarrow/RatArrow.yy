@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "EnemyFarwayRoad",
-    "path": "folders/Scripts/Enemy/EnemyFarwayRoad.yy",
+    "path": "folders/Scripts/Entities/Enemy/EnemyFarwayRoad.yy",
   },
 }

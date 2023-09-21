@@ -73,7 +73,7 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 		{
 			//global.gamePaused = false;
 			//global.menuPaused = false;
-			script_execute(SaveGameSettings);
+			scr_game_save_settings();
 			with (all)
 			{
 				image_speed = game_paused_image_speed;

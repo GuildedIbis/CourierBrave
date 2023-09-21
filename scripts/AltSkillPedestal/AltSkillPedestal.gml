@@ -19,6 +19,21 @@ pedestal_index = 0;
 //
 //
 //
+//Alt Primary Skill 01: Halofire
+function scr_pedestal_alt_01_create(){
+entity_step = scr_pedestal_alt_step;
+sound = -1;
+shadow = true;
+shadow_size = 2;
+active_sprite = spr_form_pedestal;
+idle_sprite = spr_form_pedestal_empty;
+pedestal_index = 1;
+}
+//
+//
+//
+//
+//
 //Alt magic Pedestal Step
 function scr_pedestal_alt_step(){
 scr_npc_interact(12);

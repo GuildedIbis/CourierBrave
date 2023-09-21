@@ -31,7 +31,7 @@
   "origin": 7,
   "parent": {
     "name": "Other",
-    "path": "folders/Sprites/World/Effects/Other.yy",
+    "path": "folders/Sprites/Effects/Effects/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

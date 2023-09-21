@@ -51,7 +51,7 @@
   "origin": 9,
   "parent": {
     "name": "Dilloc",
-    "path": "folders/Sprites/Enemy/Lenko/Habraf/Dilloc.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf/Dilloc.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

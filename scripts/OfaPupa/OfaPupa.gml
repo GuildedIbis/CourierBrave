@@ -326,7 +326,7 @@ if (_drop2 < 2)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

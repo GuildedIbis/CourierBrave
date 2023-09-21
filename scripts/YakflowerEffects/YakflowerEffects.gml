@@ -333,92 +333,52 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //
-//Effect Lekno Lake Path Rat Tent Create
-function scr_effect_ratTent_create(){
+//Effect Zerwerk's Tent (Create)
+function scr_effect_yakflowerPath_tentZerwerk_create(){
 image_speed = 0;
-with (instance_create_layer(x-20,y-12,"Wall",obj_wall))
+sprite_index = spr_effect_tent_zerwerk;
+//Create Collision
+with (instance_create_layer(x-24,y-24,"Wall",obj_wall))
 {
-	image_xscale = 5;
-	image_yscale = 2.5;
+	image_xscale = 6;
+	image_yscale = 4;
 	game_paused_image_speed = image_speed;
 }
 if (break_object != -1)
 {
-	with (instance_create_layer(x-20,y-12,"Break",break_object))
+	with (instance_create_layer(x-24,y-24,"Break",break_object))
 	{
-		image_xscale = 5;
-		image_yscale = 1.25;
+		image_xscale = 6;
+		image_yscale = 3;
 		game_paused_image_speed = image_speed;
 	}
 }
+
 //Set Shadow
-shadow = true;
-sx1 = x - 6;
-sy1 = y - 30;
-sx2 = x + 32;
-sy2 = y - 30;
-sx3 = x + 16;
-sy3 = y + 8;
-sx4 = x - 16;
-sy4 = y + 8;
+shadow = false;
+shadow_size = 4;
+//sx1 = x - 6;
+//sy1 = y - 30;
+//sx2 = x + 32;
+//sy2 = y - 30;
+//sx3 = x + 16;
+//sy3 = y + 8;
+//sx4 = x - 16;
+//sy4 = y + 8;
+
+
+//event_inherited();
 }
 //
 //
 //
 //
 //
-//Effect Rat Tent L Step
-function scr_effect_ratTent_left(){
-
+//Effect Zerwerk's Tent (Step)
+function scr_effect_yakflowerPath_tentZerwerk(){
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-sprite_index = spr_rat_tentL;
-if (place_meeting(x,y,obj_player))
-{
-	if (depth < obj_player.depth)
-	{
-		if (image_alpha > .5) image_alpha = image_alpha - .05
-	}
-	else
-	{
-		if (image_alpha < 1) image_alpha = image_alpha + .05;
-	}
-}
-else 
-{
-	if (image_alpha < 1) image_alpha = image_alpha + .05;
-}
-depth = -y;
-}
-//
-//
-//
-//
-//
-//Effect Rat Tent R Step
-function scr_effect_ratTent_right(){
-
-image_speed = 0;
-depth = -y;
-image_xscale = 1;
-image_yscale = 1;
-sprite_index = spr_rat_tentR;
-if (place_meeting(x,y,obj_player))
-{
-	if (depth < obj_player.depth)
-	{
-		if (image_alpha > .5) image_alpha = image_alpha - .05
-	}
-	else
-	{
-		if (image_alpha < 1) image_alpha = image_alpha + .05;
-	}
-}
-else 
-{
-	if (image_alpha < 1) image_alpha = image_alpha + .05;
-}
-depth = -y;
+sprite_index = spr_effect_tent_zerwerk;
 }

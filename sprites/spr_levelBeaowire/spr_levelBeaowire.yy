@@ -29,7 +29,7 @@
   "origin": 0,
   "parent": {
     "name": "BeaowireEffects",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn/BeaowireEffects.yy",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

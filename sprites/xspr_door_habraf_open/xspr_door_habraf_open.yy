@@ -26,7 +26,7 @@
   "origin": 7,
   "parent": {
     "name": "Retired",
-    "path": "folders/Sprites/World/Effects/Retired.yy",
+    "path": "folders/Sprites/Effects/Effects/Retired.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

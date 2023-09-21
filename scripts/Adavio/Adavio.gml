@@ -910,7 +910,7 @@ if (special_timer <= 45)
 	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
-		scr_player_attack_calculate_magic(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
+		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
 	}
 }
 
@@ -1003,7 +1003,7 @@ depth = -5000;
 //
 //
 //AdavioCursor
-function scr_cursor_advaio_riftCrush(){
+function scr_cursor_adavio_riftCrush(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;

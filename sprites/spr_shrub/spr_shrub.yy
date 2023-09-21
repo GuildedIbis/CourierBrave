@@ -29,7 +29,7 @@
   "origin": 9,
   "parent": {
     "name": "BeetrapEfEn",
-    "path": "folders/Sprites/World/Effects/BeetrapEfEn.yy",
+    "path": "folders/Sprites/Effects/Effects/BeetrapEfEn.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

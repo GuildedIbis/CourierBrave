@@ -51,7 +51,7 @@ if (obj_inventory.form_grid[# 1, 4] = false)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
@@ -100,7 +100,7 @@ if (obj_inventory.form_grid[# 1, 4] = true)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
@@ -158,7 +158,7 @@ if (obj_inventory.form_grid[# 2, 4] = false)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 
@@ -209,7 +209,7 @@ if (obj_inventory.form_grid[# 2, 4] = true)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
@@ -267,7 +267,7 @@ if (obj_inventory.form_grid[# 3, 4] = false)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
@@ -313,7 +313,7 @@ if (obj_inventory.form_grid[# 3, 4] = true)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter
@@ -364,7 +364,7 @@ if (obj_inventory.form_grid[# 4, 4] = false)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 
@@ -411,7 +411,7 @@ if (obj_inventory.form_grid[# 4, 4] = true)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white);
-	draw_sprite_stretched(spr_menu,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	var _name = "Form Pedestal"
 
 	//Draw Based on String Counter

@@ -77,7 +77,7 @@
   "origin": 9,
   "parent": {
     "name": "Skirmisher",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/Skirmisher.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Balurne Rats/Skirmisher.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

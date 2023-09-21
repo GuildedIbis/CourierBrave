@@ -40,7 +40,7 @@
   "origin": 9,
   "parent": {
     "name": "Other",
-    "path": "folders/Sprites/NPC/Other.yy",
+    "path": "folders/Sprites/Entity/NPC/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -28,7 +28,7 @@
   "origin": 0,
   "parent": {
     "name": "Other",
-    "path": "folders/Sprites/Enemy/Other.yy",
+    "path": "folders/Sprites/Entity/Enemy/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

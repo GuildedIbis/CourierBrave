@@ -93,7 +93,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) path_end();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
@@ -480,7 +480,7 @@ if (_drop2 < 50)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

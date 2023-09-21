@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "FarwayEffects",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn/FarwayEffects.yy",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/FarwayEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

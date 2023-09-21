@@ -15,8 +15,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_door_create",},
   ],
   "parent": {
-    "name": "LenkoSolidFX",
-    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX.yy",
+    "name": "FarwaySolidFX",
+    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/FarwaySolidFX.yy",
   },
   "parentObjectId": {
     "name": "obj_effect",

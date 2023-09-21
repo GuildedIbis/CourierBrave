@@ -66,7 +66,7 @@
   "origin": 4,
   "parent": {
     "name": "Hunter",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/Hunter.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Balurne Rats/Hunter.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

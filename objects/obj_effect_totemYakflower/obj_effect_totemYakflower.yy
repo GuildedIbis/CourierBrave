@@ -13,8 +13,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "LenkoSolidFX",
-    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX.yy",
+    "name": "YakflowerSolidFX",
+    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/YakflowerSolidFX.yy",
   },
   "parentObjectId": {
     "name": "obj_effect",

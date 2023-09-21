@@ -91,7 +91,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) path_end();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
@@ -108,17 +108,6 @@ if (obj_game.gamePaused = false)
 				attack_counter = attack_counter + 1;
 				entity_step = scr_enemy_endire_knight_heatwave;
 			}
-			//if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
-			//{
-			//	path_end();
-			//	walk_snd_delay = 15;
-			//	sprite_index = enemy_idle;
-			//	audio_sound_gain(snd_slash01,global.volumeEffects,1);
-			//	audio_play_sound(snd_slash01,0,false);
-			//	direction =  point_direction(x,y,obj_player.x,obj_player.y);
-			//	timer2 = 23;
-			//	entity_step = EndireKnightCinderDash;
-			//}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
 			{
 				path_end();
@@ -127,7 +116,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
 				timer2 = 23;
-				entity_step = scr_enemy_endire_knight_fireStrike();
+				entity_step = scr_enemy_endire_knight_fireStrike;
 			}
 			
 		}
@@ -257,6 +246,7 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
+				enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
 				timer1 = 15;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
@@ -359,7 +349,7 @@ if (_drop2 < 10)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = other.enemy_lvl - 1;
+		item_id = other.enemy_lvl;
 		sprite_index = spr_powerstone_all;
 		image_index = item_id;
 		direction = (360/_objects * 6) + _angle;

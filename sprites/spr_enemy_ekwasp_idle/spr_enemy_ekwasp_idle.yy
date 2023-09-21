@@ -29,7 +29,7 @@
   "origin": 9,
   "parent": {
     "name": "Beetrap",
-    "path": "folders/Sprites/Enemy/Beetrap.yy",
+    "path": "folders/Sprites/Entity/Enemy/Beetrap.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

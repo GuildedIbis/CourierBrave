@@ -29,7 +29,7 @@
   "origin": 9,
   "parent": {
     "name": "Fragments",
-    "path": "folders/Sprites/World/Fragments.yy",
+    "path": "folders/Sprites/Effects/Fragments.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

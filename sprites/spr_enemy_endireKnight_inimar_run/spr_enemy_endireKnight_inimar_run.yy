@@ -43,7 +43,7 @@
   "origin": 9,
   "parent": {
     "name": "EndireKnight",
-    "path": "folders/Sprites/Enemy/Lenko/EndireKnight.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/EndireKnight.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

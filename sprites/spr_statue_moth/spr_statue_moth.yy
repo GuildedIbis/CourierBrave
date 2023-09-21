@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "YakflowerEffects",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn/YakflowerEffects.yy",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/YakflowerEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

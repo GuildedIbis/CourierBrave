@@ -29,7 +29,7 @@
   "origin": 9,
   "parent": {
     "name": "zOtherAll",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn/zOtherAll.yy",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/zOtherAll.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

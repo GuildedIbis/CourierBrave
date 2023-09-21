@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "EnemyHabrafLake",
-    "path": "folders/Scripts/Enemy/EnemyHabrafLake.yy",
+    "path": "folders/Scripts/Entities/Enemy/EnemyHabrafLake.yy",
   },
 }

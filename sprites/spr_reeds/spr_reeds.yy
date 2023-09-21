@@ -33,7 +33,7 @@
   "origin": 9,
   "parent": {
     "name": "HabrafEffects",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn/HabrafEffects.yy",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/HabrafEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

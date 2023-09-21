@@ -34,7 +34,7 @@
   "origin": 9,
   "parent": {
     "name": "Escort",
-    "path": "folders/Sprites/World/Interactables/Escort.yy",
+    "path": "folders/Sprites/Effects/Interactables/Escort.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

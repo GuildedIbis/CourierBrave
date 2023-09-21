@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "Acolyte",
-    "path": "folders/Sprites/Enemy/Lenko/Acolyte.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Acolyte.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

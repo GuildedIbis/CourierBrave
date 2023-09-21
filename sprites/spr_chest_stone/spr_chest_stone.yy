@@ -27,7 +27,7 @@
   "origin": 7,
   "parent": {
     "name": "Chests",
-    "path": "folders/Sprites/World/Interactables/Chests.yy",
+    "path": "folders/Sprites/Effects/Interactables/Chests.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

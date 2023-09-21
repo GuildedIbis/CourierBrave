@@ -158,7 +158,7 @@
   ],
   "parent": {
     "name": "Tarifi",
-    "path": "folders/Rooms/Tarifi.yy",
+    "path": "folders/Rooms/Other/Tarifi.yy",
   },
   "parentRoom": null,
   "physicsSettings": {

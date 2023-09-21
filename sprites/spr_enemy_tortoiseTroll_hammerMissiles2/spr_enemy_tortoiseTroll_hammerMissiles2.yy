@@ -64,7 +64,7 @@
   "origin": 9,
   "parent": {
     "name": "Phase 2",
-    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise/Phase 2.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/TrollTortoise/Phase 2.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

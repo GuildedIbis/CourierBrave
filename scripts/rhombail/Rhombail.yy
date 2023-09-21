@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "FarwayRoadCharacters",
-    "path": "folders/Scripts/Interactables/Characters/FarwayRoadCharacters.yy",
+    "path": "folders/Scripts/Entities/Characters/FarwayRoadCharacters.yy",
   },
 }

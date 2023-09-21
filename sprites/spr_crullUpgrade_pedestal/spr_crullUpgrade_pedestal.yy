@@ -32,7 +32,7 @@
   "origin": 7,
   "parent": {
     "name": "Altars",
-    "path": "folders/Sprites/World/Interactables/Altars.yy",
+    "path": "folders/Sprites/Effects/Interactables/Altars.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
