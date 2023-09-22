@@ -166,7 +166,7 @@ if (gamePaused = false)
 				obj_inventory.crullS_list[i] = false;
 			}
 			scr_inventory_quest_reset_daily();
-			scr_resources_reset();
+			scr_resources_all_reset();
 			var _daySelect = irandom_range(1,4);
 			if (_daySelect = 1) global.dayPhase = 1;
 			else global.dayPhase = 0;
@@ -179,7 +179,7 @@ if (gamePaused = false)
 				obj_inventory.crullM_list[i] = false;
 			}
 			global.dayPhase = 2;
-			scr_resources_reset();
+			scr_resources_all_reset();
 			day_timer = 0;
 		}
 	}

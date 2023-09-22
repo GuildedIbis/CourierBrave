@@ -13,7 +13,7 @@
   "out_tilevborder": 2,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Sprites/Effects/Tiles.yy",
+    "path": "folders/Sprites/Game/Tiles.yy",
   },
   "spriteId": null,
   "spriteNoExport": true,

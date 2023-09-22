@@ -375,7 +375,7 @@ if (_drop1 >= 7) and (_drop1 < 15)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 7)
+if (_drop2 < 15)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{

@@ -169,6 +169,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	//draw_healthbar(238,168,274,171,_rollPerc,c_black,c_yellow,c_yellow,0,true,true);
 	draw_sprite(spr_hud_skills,1,192,154);
 	draw_sprite(spr_weapons_allGame,form,249,160);
+	if (weapon_aim = true) draw_sprite(spr_hud_weapon_aim,1,260,155);
+	else draw_sprite(spr_hud_weapon_aim,0,260,155);
 	if (magic_primary = true) draw_sprite(spr_primary_allGame,form,270,160);
 	else draw_sprite(spr_primaryAlt_allGame,form,270,160);
 	draw_sprite(spr_special_allGame,form,292,160);
@@ -178,8 +180,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
-	draw_text_transformed(281,152,_primaryUses,1,1,0);
-	draw_text_transformed(304,152,_specialUses,1,1,0);
+	draw_text_transformed(282,151,_primaryUses,1,1,0);
+	draw_text_transformed(305,151,_specialUses,1,1,0);
 
 	
 	

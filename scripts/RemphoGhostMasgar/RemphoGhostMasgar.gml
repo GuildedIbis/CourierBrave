@@ -736,18 +736,7 @@ if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
 	}
 	
 }
-if (_drop2 <= 5)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl + 1;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
-if (_drop2 > 5) and (_drop2 < 25)
+if (_drop2 < 50)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{

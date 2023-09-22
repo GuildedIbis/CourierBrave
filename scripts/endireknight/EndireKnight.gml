@@ -345,7 +345,7 @@ if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 10)
+if (_drop2 < 15)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
@@ -356,24 +356,6 @@ if (_drop2 < 10)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-//if (obj_inventory.quest_grid[# 3, 3] = false)
-//{
-//	obj_player.beans = obj_player.beans + 250;
-	
-//	obj_inventory.quest_grid[# 3, 0] = true;
-//	obj_inventory.quest_grid[# 3, 1] = 1;
-//	obj_inventory.quest_grid[# 3, 3] = true;
-	
-//	//with (obj_text)
-//	//{
-//	//	text_script = EndireKnightTnaksVictoryText;
-//	//}
-//	//obj_game.gamePaused = !obj_game.gamePaused;
-//	//obj_game.textPaused = !obj_game.textPaused;
-//}
-
-
 }
 
 

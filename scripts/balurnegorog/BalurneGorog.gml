@@ -422,11 +422,6 @@ if (timer1 <= 0)
 //
 //Balurne Gorog Drop
 function scr_enemy_balurne_gorog_drop(){
-//if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-//}
-
 
 var _objects = 7;
 //var _dropBean = 150;
@@ -486,18 +481,7 @@ if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
 	}
 	
 }
-if (_drop2 <= 2)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl + 1;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
-if (_drop2 > 2) and (_drop2 < 10)
+if (_drop2 < 10)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{

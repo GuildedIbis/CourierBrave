@@ -487,19 +487,7 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.form_grid[# 13, 3] = false)
-{
-	obj_inventory.quest_grid[# 13, 0] = true;
-	obj_inventory.quest_grid[# 13, 1] = 1;
-	obj_inventory.quest_grid[# 13, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = EndireKnightGhafateVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
+
 
 
 }
