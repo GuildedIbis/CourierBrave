@@ -260,25 +260,14 @@ farwayRoad_map_ary[13][1] = 80;
 farwayRoad_map_ary[13][2] = 63;
 farwayRoad_map_ary[13][3] = 0;
 farwayRoad_map_ary[14][0] = "Farway Road 14";
-farwayRoad_map_ary[14][1] = 96;
+farwayRoad_map_ary[14][1] = 64;
 farwayRoad_map_ary[14][2] = 63;
 farwayRoad_map_ary[14][3] = 0;
 farwayRoad_map_ary[15][0] = "Farway Road 15";
 farwayRoad_map_ary[15][1] = 64;
 farwayRoad_map_ary[15][2] = 63;
 farwayRoad_map_ary[15][3] = 0;
-farwayRoad_map_ary[16][0] = "Farway Road 16";
-farwayRoad_map_ary[16][1] = 112;
-farwayRoad_map_ary[16][2] = 45;
-farwayRoad_map_ary[16][3] = 0;
-farwayRoad_map_ary[17][0] = "Farway Road 17";
-farwayRoad_map_ary[17][1] = 128;
-farwayRoad_map_ary[17][2] = 45;
-farwayRoad_map_ary[17][3] = 0;
-farwayRoad_map_ary[18][0] = "Farway Road 18";
-farwayRoad_map_ary[18][1] = 112;
-farwayRoad_map_ary[18][2] = 54;
-farwayRoad_map_ary[18][3] = 0;
+
 
 //Yakflower Path Map
 yakflowerPath_map_ary[0][0] = "Yakflower Path 00";
@@ -345,22 +334,7 @@ yakflowerPath_map_ary[15][0] = "Yakflower Path 15";
 yakflowerPath_map_ary[15][1] = 73;
 yakflowerPath_map_ary[15][2] = 17;
 yakflowerPath_map_ary[15][3] = 0;
-yakflowerPath_map_ary[16][0] = "Yakflower Path 16";
-yakflowerPath_map_ary[16][1] = 80;
-yakflowerPath_map_ary[16][2] = 20;
-yakflowerPath_map_ary[16][3] = 0;
-yakflowerPath_map_ary[17][0] = "Yakflower Path 17";
-yakflowerPath_map_ary[17][1] = 80;
-yakflowerPath_map_ary[17][2] = 20;
-yakflowerPath_map_ary[17][3] = 0;
-yakflowerPath_map_ary[18][0] = "Yakflower Path 18";
-yakflowerPath_map_ary[18][1] = 80;
-yakflowerPath_map_ary[18][2] = 27;
-yakflowerPath_map_ary[18][3] = 0;
-yakflowerPath_map_ary[19][0] = "Yakflower Path 19";
-yakflowerPath_map_ary[19][1] = 32;
-yakflowerPath_map_ary[19][2] = 72;
-yakflowerPath_map_ary[19][3] = 0;
+
 
 //Habraf Lake Map
 habrafLake_map_ary[0][0] = "Habraf Lake 00";
