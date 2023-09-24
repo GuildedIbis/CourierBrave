@@ -7,7 +7,7 @@
 //Alt Magic Pedestal Create
 function scr_pedestal_alt_00_create(){
 entity_step = scr_pedestal_alt_step;
-sound = -1;
+sound = snd_text01;
 shadow = true;
 shadow_size = 2;
 active_sprite = spr_form_pedestal;

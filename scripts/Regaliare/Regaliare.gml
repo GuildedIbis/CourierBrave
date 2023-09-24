@@ -352,6 +352,7 @@ if (magic_timer <= 0)
 		fragment_count = 2;
 		fragment = obj_fragGold;
 		damage = 10 + (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
+		timer1 = 50;
 		projectile_sprite = spr_goldBullet;
 		projectile_script = scr_projectile_goldBurst;
 		idle_sprite = spr_goldBullet;
@@ -386,6 +387,7 @@ if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
 function scr_projectile_goldBurst(){
 //Set
 speed = projectile_speed;
+if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -403,10 +405,12 @@ if (place_meeting(x,y,obj_interactable))
 	scr_player_attack_calculate_magic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
 
 }
-if (place_meeting(x,y,break_object))
+if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
 	instance_destroy();
 }
+
+
 }
 //
 //
@@ -488,6 +492,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragGold;
 		damage = 24 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]));//
 		projectile_sprite = spr_heavyBullet;
+		timer1 = 50;
 		projectile_script = scr_projectile_heavyBurst;
 		idle_sprite = spr_heavyBullet;
 		hit_by_attack = -1;
@@ -523,6 +528,7 @@ function scr_projectile_heavyBurst(){
 //Set
 speed = projectile_speed;
 destructable = false;
+if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -539,7 +545,7 @@ if (place_meeting(x,y,obj_interactable))
 {
 	scr_player_attack_calculate_magic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
 }
-if (place_meeting(x,y,break_object))
+if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
 	instance_destroy();
 }

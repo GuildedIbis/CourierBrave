@@ -675,6 +675,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragFire;
 		damage = 30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14));//
 		projectile_sprite = spr_meteor;
+		timer1 = 40;
 		projectile_script = scr_projectile_meteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
@@ -823,6 +824,7 @@ function scr_projectile_meteor(){
 //Set
 lit = true;
 speed = projectile_speed;
+if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -841,7 +843,7 @@ if (place_meeting(x,y,obj_enemy))
 	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,2);
 	//instance_destroy();
 }
-if (place_meeting(x,y,break_object))
+if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
 	instance_destroy();
 }

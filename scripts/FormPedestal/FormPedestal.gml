@@ -9,7 +9,7 @@ function scr_pedestal_form_create(){
 entity_step = scr_pedestal_form;
 shadow = true;
 shadow_size = 2;
-sound = -1;
+sound = snd_text01;
 interact = 30;
 active_sprite = spr_form_pedestal;
 idle_sprite = spr_form_pedestal_empty;

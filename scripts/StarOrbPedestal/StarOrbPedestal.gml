@@ -9,7 +9,7 @@ function scr_inanimate_pedestal_starorb_create(){
 entity_step = scr_inanimate_pedestal_starorb;
 shadow = true;
 shadow_size = 2;
-sound = -1;
+sound = snd_menu;
 interact = 30;
 active_sprite = spr_starOrb_pedestal;
 idle_sprite = spr_starOrb_pedestal_stone;

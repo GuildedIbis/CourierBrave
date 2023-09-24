@@ -485,6 +485,7 @@ if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 function scr_projectile_voidBit(){
 //Set
 speed = projectile_speed;
+if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -503,7 +504,7 @@ if (place_meeting(x,y,obj_enemy))
 	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 }
-if (place_meeting(x,y,break_object))
+if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
 	instance_destroy();
 }
@@ -517,6 +518,7 @@ if (place_meeting(x,y,break_object))
 function scr_projectile_voidBit_special(){
 //Set
 speed = projectile_speed;
+if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
@@ -528,8 +530,6 @@ if (sprite_index != projectile_sprite)
 	ds_list_clear(hit_by_attack);
 }
 //SD
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer1 <= 0) instance_destroy();
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
@@ -537,7 +537,7 @@ if (place_meeting(x,y,obj_enemy))
 	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 }
-if (place_meeting(x,y,break_object))
+if (place_meeting(x,y,break_object)) or (timer1 = 0)
 {
 	instance_destroy();
 }
@@ -685,7 +685,7 @@ if (timer1 <= 0)
 			fragment = obj_fragGold;
 			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*6);////
 			projectile_sprite = spr_adavio_voidBit;
-			projectile_script = AdavioVoidBit;
+			projectile_script = scr_projectile_voidBit;
 			timer1 = 30;
 			idle_sprite = spr_adavio_voidBit;
 			hit_by_attack = -1;
@@ -701,7 +701,7 @@ if (timer1 <= 0)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateMagic(projectile_sprite,self,1,-1,-1,-1,-1,-1,2);
+	scr_player_attack_calculate_magic(projectile_sprite,self,1,-1,-1,-1,-1,-1,2);
 	//instance_destroy();
 }
 if (place_meeting(x,y,break_object)) 
