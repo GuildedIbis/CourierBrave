@@ -46,7 +46,7 @@ for (var i = 0; i < 10; i = i + 1)
 	var _x = 75 + (i * 17);
 	var _y = 53;
 	draw_sprite(spr_item_box,0,_x,_y)
-	draw_sprite(spr_powerstone_all,i, _x + 8, _y + 8);
+	draw_sprite(spr_powerstone_all,i, _x, _y)
 	draw_text_transformed(_x + 8,_y + 18,_object.ps_array[i],.5,.5,0);		
 }
 for (var j = 0; j < 6; j = j + 1)

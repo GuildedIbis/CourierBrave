@@ -724,7 +724,6 @@
     {"name":"spr_ceriver_aquaBarrier","order":19,"path":"sprites/spr_ceriver_aquaBarrier/spr_ceriver_aquaBarrier.yy",},
     {"name":"BeaowireEffects","order":4,"path":"scripts/BeaowireEffects/BeaowireEffects.yy",},
     {"name":"spr_adavio_voidBit","order":9,"path":"sprites/spr_adavio_voidBit/spr_adavio_voidBit.yy",},
-    {"name":"Rhombail","order":4,"path":"scripts/Rhombail/Rhombail.yy",},
     {"name":"obj_surfaceBlack","order":10,"path":"objects/obj_surfaceBlack/obj_surfaceBlack.yy",},
     {"name":"spr_player_halofire_roll","order":10,"path":"sprites/spr_player_halofire_roll/spr_player_halofire_roll.yy",},
     {"name":"rm_lenko_yakflowerPath_04","order":7,"path":"rooms/rm_lenko_yakflowerPath_04/rm_lenko_yakflowerPath_04.yy",},
