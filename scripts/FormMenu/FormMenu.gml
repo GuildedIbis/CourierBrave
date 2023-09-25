@@ -59,9 +59,9 @@ form_grid[# 4, 2] = scr_player_evarel_set; //Player Script
 form_grid[# 4, 3] = scr_menu_evarel; //Inventory Script
 form_grid[# 4, 4] = false; //Unlocked Status
 form_grid[# 4, 5] = 2; //Weapon
-form_grid[# 4, 6] = 2; //Armor
+form_grid[# 4, 6] = 1; //Armor
 form_grid[# 4, 7] = 2; //Magic
-form_grid[# 4, 8] = 2; //Special
+form_grid[# 4, 8] = 1; //Special
 
 }
 //

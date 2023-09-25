@@ -15,7 +15,7 @@ crull_script[0] = scr_player_crull_natural;
 crull_script[1] = scr_player_crull_spectral;
 crull_script[2] = scr_player_crull_yelline;
 crull_script[3] = scr_player_crull_orine;
-crull_script[4] = scr_player_crull_natural;
+crull_script[4] = scr_player_crull_violine;
 crull_script[5] = scr_player_crull_natural;
 crull_script[6] = scr_player_crull_natural;
 crull_script[7] = scr_player_crull_natural;
@@ -203,7 +203,7 @@ if (animation_end)
 {
 	hp = hp + (50 + (13 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	yellow_primary = yellow_primary + (100 + (13 * receptivity));
+	yellow_primary = yellow_primary + (50 + (13 * receptivity));
 	if (yellow_primary > max_charge) yellow_primary = max_charge;
 	state_script = free_state;
 	crull_ary[crull_selected] = -1;
@@ -253,8 +253,58 @@ if (animation_end)
 {
 	hp = hp + (50 + (13 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	orange_primary = orange_primary + (100 + (13 * receptivity));
+	orange_primary = orange_primary + (50 + (13 * receptivity));
 	if (orange_primary > max_charge) orange_primary = max_charge;
+	state_script = free_state;
+	crull_ary[crull_selected] = -1;
+	animation_end = false;
+}
+}
+//
+//
+//
+//
+//
+//Crull Orine
+function scr_player_crull_violine(){
+invincible = false;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+//Charge Crystal?
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+//Animation Start
+if (sprite_index != crull_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = crull_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+}
+
+//Animate
+scr_player_animation();
+
+if (animation_end)
+{
+	hp = hp + (50 + (13 * receptivity));
+	if (hp > max_hp) hp = max_hp;
+	purple_primary = purple_primary + (50 + (13 * receptivity));
+	if (purple_primary > max_charge) purple_primary = max_charge;
 	state_script = free_state;
 	crull_ary[crull_selected] = -1;
 	animation_end = false;

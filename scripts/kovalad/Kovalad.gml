@@ -138,6 +138,9 @@ draw_sprite_stretched(spr_menu_circle16,3,92,40,16,16);
 draw_sprite_stretched(spr_menu_circle16,3,212,40,16,16);
 draw_sprite_ext(spr_menu_arrow,0,220,48,1,1,0,c_white,1);
 draw_sprite_ext(spr_menu_arrow,2,100,48,1,1,0,c_white,1);
+draw_text_transformed(160,50,"TRADE",1,1,0);
+draw_text_transformed(160,62,"GIVE > RECEIVE (HAVE)",.6,.6,0);
+
 
 //Submenu Change
 if (point_in_rectangle(_mouseX,_mouseY,92,40,108,56))
@@ -159,19 +162,18 @@ if (point_in_rectangle(_mouseX,_mouseY,212,40,228,56))
 	}
 }
 
-
 switch(page)
 {
 	case 0:
-		scr_menu_kovalad_trade_resources();
+		scr_menu_kovalad_trade_page_0();
 	break;
 	
 	case 1:
-		scr_menu_kovalad_trade_upgrades();
+		scr_menu_kovalad_trade_page_1();
 	break;
 	
 	case 2:
-		scr_menu_kovalad_trade_other();
+		scr_menu_kovalad_trade_page_2();
 	break;
 }
 
@@ -201,57 +203,70 @@ if (keyboard_check_pressed(ord("E")))
 //
 //
 //Draw Kovalad Resource Trade Menu
-function scr_menu_kovalad_trade_resources(){
+function scr_menu_kovalad_trade_page_0(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 
-//Title
-draw_text_transformed(160,50,"TRADE RESOURCES",1,1,0);
-draw_text_transformed(160,62,"GIVE > RECEIVE (HAVE)",.6,.6,0);
-//Button 1
-draw_set_halign(fa_left);
-draw_text_transformed(124,76,"5 (" + string(obj_inventory.resource_array[0]) + ")",.5,.5,0);
-draw_sprite_ext(spr_resource_menu_all,0,142,66,1,1,0,c_white,1);
-draw_set_halign(fa_center);
-draw_text_transformed(160,76,">",.75,.75,0);
-draw_sprite_ext(spr_rog_menu_all,0,162,66,1,1,0,c_white,1);
-draw_set_halign(fa_right);
-draw_text_transformed(196,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
-if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
+
+
+if (obj_inventory.crull_recipe[1] = false)
 {
-	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
-	if (mouse_check_button_pressed(mb_left))
+	draw_set_halign(fa_left);
+	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
+	draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
+	draw_set_halign(fa_center);
+	draw_text_transformed(160,76,">",.75,.75,0);
+	draw_sprite_ext(spr_menu_crull_recipe,2,162,66,1,1,0,c_white,1);
+	draw_set_halign(fa_right);
+	draw_text_transformed(196,76,"RECIPE",.5,.5,0);
+	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 	{
-		if (obj_inventory.resource_array[0] >= 5)
+		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
+		if (mouse_check_button_pressed(mb_left))
 		{
-			obj_inventory.resource_array[0] = obj_inventory.resource_array[0] - 5;
-			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
+			if (obj_inventory.rog_array[0] >= 5)
+			{
+				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
+				obj_inventory.crull_recipe[1] = true;
+			}
 		}
 	}
+}
+else
+{
+	draw_text_transformed(160,76,"SOLD",.75,.75,0);
 }
 //Button 2
-draw_set_halign(fa_left);
-draw_text_transformed(124,94,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
-draw_sprite_ext(spr_resource_menu_all,1,142,84,1,1,0,c_white,1);
-draw_set_halign(fa_center);
-draw_text_transformed(160,94,">",.75,.75,0);
-draw_sprite_ext(spr_rog_menu_all,1,162,84,1,1,0,c_white,1);
-draw_set_halign(fa_right);
-draw_text_transformed(196,94,"1 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
-if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+if (obj_inventory.crull_recipe[2] = false)
 {
-	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
-	if (mouse_check_button_pressed(mb_left))
+	draw_set_halign(fa_left);
+	draw_text_transformed(124,94,"1 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
+	draw_sprite_ext(spr_rog_menu_all,1,142,84,1,1,0,c_white,1);
+	draw_set_halign(fa_center);
+	draw_text_transformed(160,94,">",.75,.75,0);
+	draw_sprite_ext(spr_menu_crull_recipe,3,162,84,1,1,0,c_white,1);
+	draw_set_halign(fa_right);
+	draw_text_transformed(196,94,"RECIPE",.5,.5,0);
+	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 	{
-		if (obj_inventory.resource_array[1] >= 1)
+		draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+		if (mouse_check_button_pressed(mb_left))
 		{
-			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
-			obj_inventory.rog_array[1] = obj_inventory.rog_array[1] + 1;
+			if (obj_inventory.rog_array[1] >= 5)
+			{
+				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 5;
+				obj_inventory.crull_recipe[2] = true;
+			}
 		}
 	}
 }
+else
+{
+	draw_text_transformed(160,94,"SOLD",.75,.75,0);
+}
+
 //Button 3
 draw_set_halign(fa_left);
 draw_text_transformed(124,112,"5 (" + string(obj_inventory.resource_array[4]) + ")",.5,.5,0);
@@ -274,26 +289,26 @@ if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
 	}
 }
 //Button 4
-//draw_set_halign(fa_left);
-//draw_text_transformed(124,130,"5 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
-//draw_sprite_ext(spr_rog_menu_all,0,142,120,1,1,0,c_white,1);
-//draw_set_halign(fa_center);
-//draw_text_transformed(160,130,">",.75,.75,0);
-//draw_sprite_ext(spr_menu_crull_recipe,2,162,120,1,1,0,c_white,1);
-//draw_set_halign(fa_right);
-//draw_text_transformed(196,130,"RECIPE",.5,.5,0); 
-//if (point_in_rectangle(_mouseX,_mouseY,120,120,200,136))
-//{
-//	draw_sprite_stretched(spr_highlight_circle,0,119,119,82,18);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		if (obj_inventory.rog_array[0] >= 5)
-//		{
-//			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
-//			obj_inventory.crull_recipe[1] = true;
-//		}
-//	}
-//}
+draw_set_halign(fa_left);
+draw_text_transformed(124,130,"5 (" + string(obj_inventory.resource_array[0]) + ")",.5,.5,0);
+draw_sprite_ext(spr_resource_menu_all,0,142,120,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,130,">",.75,.75,0);
+draw_sprite_ext(spr_rog_menu_all,0,162,120,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,130,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0); 
+if (point_in_rectangle(_mouseX,_mouseY,120,120,200,136))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,119,119,82,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.resource_array[0] >= 5)
+		{
+			obj_inventory.resource_array[0] = obj_inventory.resource_array[0] - 5;
+			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
+		}
+	}
+}
 
 }
 //
@@ -302,54 +317,51 @@ if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
 //
 //
 //Draw Kovalad Upgrades Trade Menu
-function scr_menu_kovalad_trade_upgrades(){
+function scr_menu_kovalad_trade_page_1(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 
-//Title
-draw_text_transformed(160,50,"TRADE UPGRADES",1,1,0);
-draw_text_transformed(160,62,"GIVE > RECEIVE (HAVE)",.6,.6,0);
 //Button 1
 draw_set_halign(fa_left);
-draw_text_transformed(124,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
-draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
+draw_text_transformed(124,76,"1 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,2,142,66,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,76,">",.75,.75,0);
-draw_sprite_ext(spr_resource_menu_all,1,162,66,1,1,0,c_white,1);
+draw_sprite_ext(spr_rog_menu_all,0,162,66,1,1,0,c_white,1);
 draw_set_halign(fa_right);
-draw_text_transformed(196,76,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[0] >= 1)
+		if (obj_inventory.rog_array[2] >= 1)
 		{
-			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] + 1;
+			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
 		}
 	}
 }
 //Button 2
 draw_set_halign(fa_left);
-draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
-draw_sprite_ext(spr_rog_menu_all,2,142,84,1,1,0,c_white,1);
+draw_text_transformed(124,94,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+draw_sprite_ext(spr_resource_menu_all,1,142,84,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,94,">",.75,.75,0);
-draw_sprite_ext(spr_rog_menu_all,3,162,84,1,1,0,c_white,1);
+draw_sprite_ext(spr_rog_menu_all,1,162,84,1,1,0,c_white,1);
 draw_set_halign(fa_right);
-draw_text_transformed(196,94,"5 (" + string(obj_inventory.rog_array[3]) + ")",.5,.5,0);
+draw_text_transformed(196,94,"1 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[2] >= 5)
+		if (obj_inventory.resource_array[1] >= 1)
 		{
-			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
-			obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
+			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+			obj_inventory.rog_array[1] = obj_inventory.rog_array[1] + 1;
 		}
 	}
 }
@@ -404,60 +416,51 @@ if (point_in_rectangle(_mouseX,_mouseY,120,120,200,136))
 //
 //
 //Draw Kovalad Other Trade Menu
-function scr_menu_kovalad_trade_other(){
+function scr_menu_kovalad_trade_page_2(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-
-//Title
-draw_text_transformed(160,50,"TRADE OTHER",1,1,0);
-draw_text_transformed(160,62,"GIVE > RECEIVE (HAVE)",.6,.6,0);
 //Button 1
-if (obj_inventory.crull_recipe[1] = false)
+//Button 1
+draw_set_halign(fa_left);
+draw_text_transformed(124,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,76,">",.75,.75,0);
+draw_sprite_ext(spr_resource_menu_all,1,162,66,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,76,"5 (" + string(obj_inventory.resource_array[0]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_resource_menu_all,0,142,66,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,2,162,66,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"RECIPE",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
+	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
-		if (mouse_check_button_pressed(mb_left))
+		if (obj_inventory.rog_array[0] >= 1)
 		{
-			if (obj_inventory.rog_array[0] >= 5)
-			{
-				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
-				obj_inventory.crull_recipe[1] = true;
-			}
+			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
+			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] + 1;
 		}
 	}
 }
 //Button 2
-if (obj_inventory.crull_recipe[2] = false)
+draw_set_halign(fa_left);
+draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,2,142,84,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,94,">",.75,.75,0);
+draw_sprite_ext(spr_rog_menu_all,3,162,84,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,94,"5 (" + string(obj_inventory.rog_array[3]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 {
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,94,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_resource_menu_all,1,142,84,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,3,162,84,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,94,"RECIPE",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
-		if (mouse_check_button_pressed(mb_left))
+		if (obj_inventory.rog_array[2] >= 5)
 		{
-			if (obj_inventory.rog_array[1] >= 5)
-			{
-				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 5;
-				obj_inventory.crull_recipe[2] = true;
-			}
+			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
+			obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
 		}
 	}
 }

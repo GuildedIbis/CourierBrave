@@ -175,11 +175,11 @@ for (var a = 0; a < 20; a = a + 1)
 		if (_resChance > 74)
 		{
 			var _resID = irandom_range(0,99)
-			if (_resID < 55) 
+			if (_resID < 65) 
 			{
 				obj_game.farwayRoad_resource_grid[# a, b] = 0;
 			}
-			if (_resID >= 55) and (_resID < 90)
+			if (_resID >= 65) and (_resID < 90)
 			{
 				obj_game.farwayRoad_resource_grid[# a, b] = 4;
 			}
@@ -202,11 +202,11 @@ for (var c = 0; c < 20; c = c + 1)
 		if (_resChance > 74)
 		{
 			var _resID = irandom_range(0,99)
-			if (_resID < 55) 
+			if (_resID < 65) 
 			{
 				obj_game.yakflowerPath_resource_grid[# c, d] = 2;
 			}
-			if (_resID >= 55) and (_resID < 90)
+			if (_resID >= 65) and (_resID < 90)
 			{
 				obj_game.yakflowerPath_resource_grid[# c, d] = 6;
 			}

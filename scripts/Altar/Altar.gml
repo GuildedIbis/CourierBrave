@@ -428,7 +428,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
+		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[4] >= 5)
 		{
 			if (obj_inventory.resource_array[7] >= 1)
 			{
@@ -436,7 +436,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 				audio_play_sound(snd_text02,0,false);
 				obj_player.crull_ary[obj_player.crull_selected] = 3;
 				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
-				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
+				obj_inventory.resource_array[4] = obj_inventory.resource_array[4] - 5;
 				obj_inventory.resource_array[7] = obj_inventory.resource_array[7] - 1;
 
 			}
@@ -449,10 +449,64 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 
 draw_sprite_stretched(spr_rog_menu_all,1,186,107,16,16);
 draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
-draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
-draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,4,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[4])+")",.6,.6,0);
 draw_sprite_stretched(spr_resource_menu_all,7,236,107,16,16);
 draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[7])+")",.6,.6,0);
+
+}
+//
+//
+//
+//
+//
+//Crull Recipe 2: Orine 
+function scr_menu_crull_recipe_violine(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _recipeText = "RESTORE " + string(50 + (13 * obj_player.receptivity)) + " HEALTH.\nRESTORE " + string(50 + (13 * obj_player.receptivity)) + " PURPLE CHARGE.";
+draw_text_transformed(221,45,"VIOLINE CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_recipeText,.6,.6,0);
+
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
+		{
+			if (obj_inventory.resource_array[1] >= 1)
+			{
+				audio_sound_gain(snd_text02,global.volumeMenu,1);
+				audio_play_sound(snd_text02,0,false);
+				obj_player.crull_ary[obj_player.crull_selected] = 4;
+				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
+				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+
+			}
+		}
+	}
+}
+
+//172
+//234
+
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
 
 }
 //
