@@ -38,7 +38,6 @@ draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_set_color(c_white);
 var _name = "Rhombail"
 
-//Draw Based on String Counter
 var _SubString
 if (string_counter = 0)
 {
@@ -80,6 +79,7 @@ draw_set_valign(fa_middle);
 draw_text_transformed(64,132,_name,.5,.5,0);
 draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+
 }
 //
 //

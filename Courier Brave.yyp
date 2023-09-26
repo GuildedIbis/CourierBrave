@@ -370,6 +370,7 @@
     {"id":{"name":"spr_enemy_balurneHunter_shoot","path":"sprites/spr_enemy_balurneHunter_shoot/spr_enemy_balurneHunter_shoot.yy",},},
     {"id":{"name":"rm_lenko_habrafLake_03","path":"rooms/rm_lenko_habrafLake_03/rm_lenko_habrafLake_03.yy",},},
     {"id":{"name":"QuestMenu","path":"scripts/QuestMenu/QuestMenu.yy",},},
+    {"id":{"name":"rm_lenko_yakflowerPath_16","path":"rooms/rm_lenko_yakflowerPath_16/rm_lenko_yakflowerPath_16.yy",},},
     {"id":{"name":"spr_kephraStone_infograph_00","path":"sprites/spr_kephraStone_infograph_00/spr_kephraStone_infograph_00.yy",},},
     {"id":{"name":"rm_game_home","path":"rooms/rm_game_home/rm_game_home.yy",},},
     {"id":{"name":"spr_collisionLedge","path":"sprites/spr_collisionLedge/spr_collisionLedge.yy",},},
@@ -1531,6 +1532,7 @@
     {"roomId":{"name":"rm_lenko_farwayRoad_03_02","path":"rooms/rm_lenko_farwayRoad_03_02/rm_lenko_farwayRoad_03_02.yy",},},
     {"roomId":{"name":"rm_lenko_yakflowerPath_15","path":"rooms/rm_lenko_yakflowerPath_15/rm_lenko_yakflowerPath_15.yy",},},
     {"roomId":{"name":"rm_lenko_beaowire_16","path":"rooms/rm_lenko_beaowire_16/rm_lenko_beaowire_16.yy",},},
+    {"roomId":{"name":"rm_lenko_yakflowerPath_16","path":"rooms/rm_lenko_yakflowerPath_16/rm_lenko_yakflowerPath_16.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

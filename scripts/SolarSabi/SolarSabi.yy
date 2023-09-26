@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Characters",
-    "path": "folders/Scripts/Entities/Characters.yy",
+    "name": "YakflowerPathCharacters",
+    "path": "folders/Scripts/Entities/Characters/YakflowerPathCharacters.yy",
   },
 }
