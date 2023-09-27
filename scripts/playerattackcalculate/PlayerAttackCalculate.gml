@@ -71,7 +71,7 @@ if (_hits > 0)
 			ds_list_add(hit_by_attack,_hitID);
 			with (_hitID)
 			{
-				if (passable = false)
+				if (passable = false) //and (break_object == other.break_object)
 				{
 					//image_blend = c_red;
 					if (hit_script != -1) and (bullet = false)

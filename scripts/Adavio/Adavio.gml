@@ -781,9 +781,19 @@ if (_oldSprite != sprite_index) local_frame = 0;
 //Cursor Effects
 if (!place_meeting(mouse_x,mouse_y,obj_wall)) and (!collision_line(mouse_x,mouse_y,obj_player.x,obj_player.y,obj_wall,false,false))
 {
-	with (obj_cursor)
+	if (!collision_line(mouse_x,mouse_y,obj_player.x,obj_player.y,obj_stair2,false,false))
 	{
-		blocked = false;
+		with (obj_cursor)
+		{
+			blocked = false;
+		}
+	}
+	else
+	{
+		with (obj_cursor)
+		{
+			blocked = true;
+		}
 	}
 }
 else
@@ -795,7 +805,7 @@ else
 }
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (mouse_check_button_pressed(mb_left))
+if (mouse_check_button_pressed(mb_left)) and (obj_cursor.blocked = false)
 {	
 	//magic_count = magic_count - 1;
 	if (!place_meeting(mouse_x,mouse_y,obj_wall))

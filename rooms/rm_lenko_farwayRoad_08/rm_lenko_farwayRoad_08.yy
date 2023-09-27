@@ -756,11 +756,11 @@
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -7,162,7,0,162,161,163,162,0,163,-7,0,-8,162,5,161,163,162,0,163,
 -4,0,-11,162,2,161,163,-18,162,2,161,163,-7,162,1,0,-11,162,3,204,
-0,122,-7,162,-2,122,-8,162,3,207,0,163,-6,162,3,122,202,202,-9,162,
-2,202,163,-6,162,1,0,-9,162,4,208,162,161,163,-3,162,4,206,162,162,
-202,-9,162,8,0,162,161,163,162,162,202,208,-3,162,-2,0,-9,162,2,161,
-163,-5,162,2,0,162,-5,0,-4,162,-2,0,8,161,163,162,0,0,163,162,
-0,-12,162,2,161,163,-7,162,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+0,122,-7,162,-2,122,-8,162,3,207,125,163,-6,162,3,122,202,202,-9,162,
+2,161,163,-6,162,1,0,-9,162,4,208,162,161,163,-6,162,1,202,-9,162,
+4,0,162,161,163,-7,162,-2,0,-9,162,2,161,163,-5,162,2,0,162,-5,
+0,-4,162,-2,0,8,161,163,162,0,0,163,162,0,-12,162,2,161,163,-7,
+162,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"BaseTIle","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -240,80,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":1400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":true,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
