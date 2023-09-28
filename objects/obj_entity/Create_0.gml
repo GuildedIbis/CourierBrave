@@ -22,7 +22,7 @@ light_size = 0;
 shadow = false;
 shadow_size = 0;
 form_type = -1;
-//break_object = obj_break;
+
 
 //Init
 //hp = 1;

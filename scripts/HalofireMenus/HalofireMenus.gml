@@ -246,7 +246,7 @@ switch (obj_inventory.form_grid[# 1, 6])
 			}
 		}
 
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
+		draw_sprite_stretched(spr_rog_all,1,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
 		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);

@@ -46,6 +46,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"fragment","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"-1","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"lit","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"passable","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"False","varType":3,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"break_object","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"obj_break","varType":0,},
   ],
   "solid": false,
   "spriteId": null,

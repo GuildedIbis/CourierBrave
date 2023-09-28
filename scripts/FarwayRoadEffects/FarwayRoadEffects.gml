@@ -66,11 +66,11 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.farwayRoad_map_ary[15][3] < 1)
+if (obj_inventory.farwayRoad_map_ary[14][3] < 1)
 {
 	sprite_index = spr_door_farwayRoad_stone;
 }
-if (obj_inventory.farwayRoad_map_ary[15][3] >= 1)
+if (obj_inventory.farwayRoad_map_ary[14][3] >= 1)
 {
 	sprite_index = spr_door_farwayRoad_stone_open;
 	with (obj_wall)
