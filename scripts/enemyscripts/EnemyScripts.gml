@@ -138,6 +138,22 @@ function scr_enemy_chase_custom(){
 //
 //
 //
+//Chase Player
+function scr_enemy_chase_custom_ext(_destX,_destY,_spd,_chaseSprite){
+
+	//Chase: create and execute a path towards player
+	if (path_exists(path)) path_delete(path);
+	path = path_add();
+	mp_potential_path_object(path, _destX, _destY, 1, 2, obj_entity);
+	path_start(path, _spd, 0, 0);
+	image_speed = 1;
+	sprite_index = _chaseSprite
+}
+//
+//
+//
+//
+//
 //Wander
 function scr_enemy_wander(_moveDelay,_moveLength){
 	

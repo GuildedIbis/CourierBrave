@@ -93,7 +93,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		scr_enemy_chase();
+		scr_enemy_chase_special(obj_game,obj_entity);
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) path_end();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
@@ -126,11 +126,13 @@ if (obj_game.gamePaused = false)
 			if (!point_in_circle(obj_player.x,obj_player.y,x,y,64))
 			{
 				path_end();
+				hor_spd = 0;
+				ver_spd = 0;
 				walk_snd_delay = 15;
 				sprite_index = enemy_idle;
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,obj_player.x,obj_player.y);
+				dir =  point_direction(x,y,obj_player.x,obj_player.y);
 				timer2 = 23;
 				entity_step = scr_enemy_endire_inimar_cinderDash;
 			}
@@ -201,7 +203,11 @@ if (obj_game.gamePaused = false)
 {
 	
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer2 <= 0) speed = 3;
+	if (timer2 <= 0)
+	{
+		hor_spd = lengthdir_x(3, dir);
+		ver_spd = lengthdir_y(3, dir);
+	}
 	if (sprite_index != spr_enemy_endireKnight_inimar_cinderDash)
 	{
 		//Start Animation From Beginning
@@ -218,10 +224,12 @@ if (obj_game.gamePaused = false)
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Check for entities
-	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
-	{speed = 0}
-	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
-	{speed = 0}
+	
+	scr_enemy_collision();
+	//if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
+	//{speed = 0}
+	//if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
+	//{speed = 0}
 	
 	
 	//Animate
@@ -340,7 +348,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0) 
 	{
 		speed = 0;
-		timer2 = 12;
+		timer2 = 48;
 		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
 		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 		for (var i = 0; i < 4; i = i + 1)
@@ -349,17 +357,16 @@ if (obj_game.gamePaused = false)
 			{
 				enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
-				direction = other.projectile_dir + (90 * i);
+				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 30) + (20 * i);
 				image_angle = direction;
 				speed = 1.1;
-				timer1 = irandom_range(0,29);
 				break_object = other.break_object;
+				fragment_count = 3;
 				lit = true;
 				light_size = 16;
-				fragment_count = 3;
-				fragment = obj_fragPlant;
+				fragment = obj_fragFire;
 				bullet = true;
-				hit_script = scr_entity_hit_destroy();
+				hit_script = scr_entity_hit_destroy;
 			}
 			
 		}
@@ -376,7 +383,7 @@ if (obj_game.gamePaused = false)
 			speed = 1.1;
 			break_object = other.break_object;
 			fragment_count = 3;
-			fragment = obj_fragPlant;
+			fragment = obj_fragFire;
 			lit = true;
 			light_size = 16;
 			bullet = true;

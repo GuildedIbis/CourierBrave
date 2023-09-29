@@ -22,7 +22,7 @@ pedestal_index = 0;
 //Alt Primary Skill 01: Halofire
 function scr_pedestal_alt_01_create(){
 entity_step = scr_pedestal_alt_step;
-sound = -1;
+sound = snd_text01;
 shadow = true;
 shadow_size = 2;
 active_sprite = spr_form_pedestal;
