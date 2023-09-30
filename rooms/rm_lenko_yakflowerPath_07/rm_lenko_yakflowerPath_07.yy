@@ -167,6 +167,7 @@
     {"name":"inst_6F4D694E","path":"rooms/rm_lenko_yakflowerPath_07/rm_lenko_yakflowerPath_07.yy",},
     {"name":"inst_50DD0ECE","path":"rooms/rm_lenko_yakflowerPath_07/rm_lenko_yakflowerPath_07.yy",},
     {"name":"inst_61C51214","path":"rooms/rm_lenko_yakflowerPath_07/rm_lenko_yakflowerPath_07.yy",},
+    {"name":"inst_5BF4F850","path":"rooms/rm_lenko_yakflowerPath_07/rm_lenko_yakflowerPath_07.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -245,6 +246,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5BA5F166","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":280.0,"y":56.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_AFF7D09","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair1","path":"objects/obj_stair1/obj_stair1.yy",},"properties":[],"rotation":0.0,"scaleX":4.0,"scaleY":1.0,"x":128.0,"y":8.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1270970C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair1","path":"objects/obj_stair1/obj_stair1.yy",},"properties":[],"rotation":0.0,"scaleX":4.0,"scaleY":1.0,"x":144.0,"y":160.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5BF4F850","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_script","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_yakflowerPath_07",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":240.0,"y":64.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2305697C_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

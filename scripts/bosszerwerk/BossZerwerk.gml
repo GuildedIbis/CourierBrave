@@ -24,7 +24,7 @@ lit = false;
 light_size = 48;
 aggro_drop = 300;
 attack_counter = 0;
-attack_timer = 0;
+attack_timer = 15;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
@@ -41,6 +41,11 @@ timer2 = 0;
 timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
+
+if (obj_inventory.quest_grid[# 8, 3] = true)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -55,7 +60,7 @@ if (obj_game.gamePaused = false)
 	if (attack_timer > 0) attack_timer = attack_timer - 1;
 	if (attack_counter >= 5)
 	{
-		attack_timer = 180;
+		attack_timer = 120;
 		attack_counter = 0;
 	}
 	//Toggle Aggro 
@@ -310,33 +315,36 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_zerwerk_voidRift,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl
+			enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_riftslash_tail;
 			entity_step = home_state;
 			entity_drop = Idle;
-			enemy_idle = spr_enemy_riftSlash;
 			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_enemy_riftSlash;
+			enemy_idle = spr_enemy_riftSlash;
+			aggro_drop = 300;
 			healthbar = false;
 			bullet = true;
-			inv_dur_timer = 0;
-			shadow = 0;
-			lit = true;
-			light_size = 32;
-			max_hp = 140;
-			hp = max_hp;
 			enemy_spd = 1.5;
 			local_frame = 0;
 			hit_by_attack = -1;
+			//damage = 45 + (8 * enemy_lvl);
+			direction = point_direction(x,y,obj_player.x,obj_player.y);
+			//image_angle = direction;
+			speed = enemy_spd;
+			break_object = other.break_object;
+			fragment_count = 3;
+			fragment = obj_fragFlesh;
+			bullet = true;
+			hit_script = scr_entity_hit_destroy;
+			
+			lit = true;
+			light_size = 32;
 			timer1 = 42;
 			timer2 = 54;
 			x = obj_player.x;
 			y = obj_player.y;
-			speed = enemy_spd;
-			fragment_count = 0;
-			fragment = obj_fragFlesh;
-			sprite_index = spr_enemy_shadow;
-			bullet = false;
-			hit_script = scr_entity_hit_destroy();
 		}
 	}
 	
