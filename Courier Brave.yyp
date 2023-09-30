@@ -985,6 +985,7 @@
     {"id":{"name":"spr_map_lenko_0110","path":"sprites/spr_map_lenko_0110/spr_map_lenko_0110.yy",},},
     {"id":{"name":"spr_weapon_regaliare_slash","path":"sprites/spr_weapon_regaliare_slash/spr_weapon_regaliare_slash.yy",},},
     {"id":{"name":"rm_lenko_habrafLake_15","path":"rooms/rm_lenko_habrafLake_15/rm_lenko_habrafLake_15.yy",},},
+    {"id":{"name":"snd_song_habraf_theme","path":"sounds/snd_song_habraf_theme/snd_song_habraf_theme.yy",},},
     {"id":{"name":"rm_lenko_farwayRoad_03_02","path":"rooms/rm_lenko_farwayRoad_03_02/rm_lenko_farwayRoad_03_02.yy",},},
     {"id":{"name":"spr_enemy_endireKnight_fireStrike","path":"sprites/spr_enemy_endireKnight_fireStrike/spr_enemy_endireKnight_fireStrike.yy",},},
     {"id":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},},

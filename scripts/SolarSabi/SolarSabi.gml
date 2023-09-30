@@ -252,11 +252,10 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
 		text_string = "An orb, seed of stars... a fine gift of Vesial."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-		if (obj_inventory.quest_grid[# quest_num, 3] = false)
+		if (obj_inventory.quest_grid[# 6, 3] = false)
 		{
-			obj_inventory.quest_grid[# quest_num, 3] = true;
-			obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
-			obj_player.crull_stone = obj_player.crull_stone + 1;
+			obj_inventory.quest_grid[# 6, 3] = true;
+			obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		}
 	}
 
