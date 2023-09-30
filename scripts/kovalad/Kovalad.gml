@@ -242,7 +242,7 @@ else
 if (obj_inventory.crull_recipe[2] = false)
 {
 	draw_set_halign(fa_left);
-	draw_text_transformed(124,94,"1 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
+	draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
 	draw_sprite_ext(spr_rog_menu_all,1,142,84,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,94,">",.75,.75,0);

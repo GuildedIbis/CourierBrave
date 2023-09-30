@@ -316,8 +316,7 @@ if (obj_game.gamePaused = false)
 //
 //Ofa Moth Drop
 function scr_enemy_ofa_moth_drop(){
-	
-obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
+
 var _objects = 6;
 //var _dropBean = 45;
 var _drop1 = irandom_range(0,99)	

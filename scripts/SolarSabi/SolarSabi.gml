@@ -108,8 +108,13 @@ if (global.dayPhase != 1)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 }
 
+if (global.dayPhase = 1)
+{
+//Quest Started
+obj_inventory.quest_grid[# 6, 0] = true;
+
 //First Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 1)
+if (obj_inventory.quest_grid[# 6, 1] < 1)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -171,9 +176,8 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 1)
 	
 }
 
-
 //Second and After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 1)
+if (obj_inventory.quest_grid[# 6, 1] >= 1) and (obj_inventory.quest_grid[# 6, 1] <= 2)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -226,9 +230,8 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 1)
 	
 }
 
-
 //Final Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
+if (obj_inventory.quest_grid[# 6, 1] >= 3)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -254,6 +257,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 		if (obj_inventory.quest_grid[# 6, 3] = false)
 		{
+			obj_inventory.quest_grid[# 6, 0] = true;
 			obj_inventory.quest_grid[# 6, 3] = true;
 			obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		}
@@ -285,7 +289,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }
 //
 //
@@ -341,8 +345,10 @@ if (global.dayPhase != 1)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 }
 
-//Too Soon Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 1)
+if (global.dayPhase = 1)
+{
+//Toon Soon Interact
+if (obj_inventory.quest_grid[# 6, 1] < 1)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -397,7 +403,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 1)
 
 
 //Correct Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] = 1)
+if (obj_inventory.quest_grid[# 6, 1] = 1)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -453,7 +459,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] = 1)
 
 
 //After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 2)
+if (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -498,7 +504,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 2)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }
 //
 //
@@ -555,7 +561,9 @@ if (global.dayPhase != 1)
 }
 
 //Too Soon Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 2)
+if (global.dayPhase = 1) 
+{
+if (obj_inventory.quest_grid[# 6, 1] < 2)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -610,7 +618,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] < 2)
 
 
 //Correct Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] = 2)
+if (obj_inventory.quest_grid[# 6, 1] = 2)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -666,7 +674,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] = 2)
 
 
 //After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
+if (obj_inventory.quest_grid[# 6, 1] >= 3)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -711,5 +719,5 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# 6, 1] >= 3)
 	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }
