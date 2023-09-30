@@ -81,7 +81,11 @@ function scr_effect_yakflowerPath_totem_create(){
 image_speed = 0;
 sprite_index = spr_effect_yakflower_totem;
 timer1 = 0;
-active = false
+active = false;
+if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
+{
+	obj_inventory.yakflowerPath_map_ary[14][3] = 0;
+}
 with (instance_create_layer(x-4,y-14,"Wall",obj_wall))
 {
 	image_xscale = 1;
@@ -111,12 +115,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.quest_grid[# 8, 1] < 1)
+if (obj_inventory.yakflowerPath_map_ary[14][3] < 1)
 {
 	image_index = floor((timer1/900) * 5)
 	if (timer1 >= 900) 
 	{
-		obj_inventory.quest_grid[# 8, 1] = 1;
+		obj_inventory.yakflowerPath_map_ary[14][3] = 1;
 	}
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
@@ -166,12 +170,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.quest_grid[# 8, 1] = 1)
+if (obj_inventory.yakflowerPath_map_ary[14][3] = 1)
 {
 	image_index = floor((timer1/900) * 5)
 	if (timer1 >= 900) 
 	{
-		obj_inventory.quest_grid[# 8, 1] = 2;
+		obj_inventory.yakflowerPath_map_ary[14][3] = 2;
 	}
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 	{
@@ -187,7 +191,7 @@ if (obj_inventory.quest_grid[# 8, 1] = 1)
 }
 else
 {
-	if (obj_inventory.quest_grid[# 8, 1] = 2)
+	if (obj_inventory.yakflowerPath_map_ary[14][3] = 2)
 	{
 		active = false;
 		image_index = 5;
@@ -279,14 +283,13 @@ depth = -y;
 //
 //
 //
-//Effect Yakflower Door Create
-function scr_effect_yakflowerPath_door_stone(){
-	frag = false
+//Effect Farway Road Stone Door Create
+function scr_effect_door_yakflowerPath_stone_create(){
+frag = false
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
-sprite_index = spr_door_yakflower;
 if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 {
 	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
@@ -327,6 +330,80 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 	}
 }
 	
+}
+//
+//
+//
+//
+//
+//
+//Effect Farway Road Stone Door 
+function scr_effect_door_yakflowerPath_stone(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
+{
+	sprite_index = spr_door_yakflowerPath_stone;
+}
+if (obj_inventory.yakflowerPath_map_ary[14][3] >= 2)
+{
+	sprite_index = spr_door_yakflowerPath_stone_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//
+//Effect Farway Road Stone Door 
+function scr_effect_door_yakflowerPath_stone2(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.yakflowerPath_map_ary[10][3] < 1)
+{
+	sprite_index = spr_door_yakflowerPath_stone2;
+}
+if (obj_inventory.yakflowerPath_map_ary[10][3] >= 1)
+{
+	sprite_index = spr_door_yakflowerPath_stone2_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+}
 }
 //
 //

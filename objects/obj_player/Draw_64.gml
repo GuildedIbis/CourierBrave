@@ -38,7 +38,7 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_text_transformed(7,166,hp,1,1,0);
 	
 	var _rollPerc = (stamina/max_stamina) * 100;
-	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
+	draw_healthbar(23,173,35+(7 * energy),175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
 	draw_sprite(spr_roll_hud,energy,4,156);
 	//draw_set_color(c_black);
 	//draw_text_transformed(262,159,stamina,.5,.5,0);

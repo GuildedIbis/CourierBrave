@@ -166,6 +166,57 @@ draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 
 }
+//
+//
+//
+//
+//
+//Yakflower Path Alt (Endire Campe Activator Text
+function scr_text_activator_yakflowerPath_endireCamp_door(){
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Activator"
 
+
+//Draw Based on String Counter
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "A button on the pedestal seemed to have\nopened a door somewhere." 
+	_SubString = string_copy(text_string,1,letter_counter);
+}
+
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	//map_ary[quest_num][3] = 1;
+	obj_inventory.yakflowerPath_map_ary[10][3] = 1;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+
+}
 
 	

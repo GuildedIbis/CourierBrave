@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_door_questHalofire",
+  "name": "spr_door_yakflowerPath_stone2",
   "bbox_bottom": 31,
   "bbox_left": 18,
   "bbox_right": 29,
@@ -33,7 +33,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_door_questHalofire",
+    "name": "spr_door_yakflowerPath_stone2",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -55,7 +55,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bd5776a2-b0fd-4604-bf80-d07c57323183","path":"sprites/spr_door_questHalofire/spr_door_questHalofire.yy",},},},"Disabled":false,"id":"b104b99f-afb9-44ec-ac64-ed43e121a5f2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bd5776a2-b0fd-4604-bf80-d07c57323183","path":"sprites/spr_door_yakflowerPath_stone2/spr_door_yakflowerPath_stone2.yy",},},},"Disabled":false,"id":"4f50d949-1226-4340-a9cc-118d99e8c6fa","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

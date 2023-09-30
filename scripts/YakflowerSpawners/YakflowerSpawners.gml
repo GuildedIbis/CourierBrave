@@ -58,7 +58,7 @@ if (obj_inventory.quest_grid[# 8, 3] = false)
 //Habfaf Lair: Escort 1 Spawner
 function scr_spawner_yakflowerPath_14(){
 
-if (obj_inventory.quest_grid[# 8, 1] < 2) 
+if (obj_inventory.yakflowerPath_map_ary[14][3] < 2) 
 {
 	
 	if (spawn_timer > 0) 

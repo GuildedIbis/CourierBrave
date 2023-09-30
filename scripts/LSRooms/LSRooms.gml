@@ -61,6 +61,16 @@ if (variable_struct_exists(_loadEntity,"level04")) obj_inventory.level_ary[4] = 
 //if (variable_struct_exists(_loadEntity,"farway07")) obj_inventory.farwayRoad_map_ary[7][3] = _loadEntity.farway07;
 //if (variable_struct_exists(_loadEntity,"farway08")) obj_inventory.farwayRoad_map_ary[8][3] = _loadEntity.farway08;
 //if (variable_struct_exists(_loadEntity,"farway09")) obj_inventory.farwayRoad_map_ary[9][3] = _loadEntity.farway09;
+if (variable_struct_exists(_loadEntity,"farway10")) obj_inventory.farwayRoad_map_ary[10][3] = _loadEntity.farway10;
+//if (variable_struct_exists(_loadEntity,"farway11")) obj_inventory.farwayRoad_map_ary[11][3] = _loadEntity.farway11;
+//if (variable_struct_exists(_loadEntity,"farway12")) obj_inventory.farwayRoad_map_ary[12][3] = _loadEntity.farway12;
+//if (variable_struct_exists(_loadEntity,"farway13")) obj_inventory.farwayRoad_map_ary[13][3] = _loadEntity.farway13;
+if (variable_struct_exists(_loadEntity,"farway14")) obj_inventory.farwayRoad_map_ary[14][3] = _loadEntity.farway14;
+//if (variable_struct_exists(_loadEntity,"farway15")) obj_inventory.farwayRoad_map_ary[15][3] = _loadEntity.farway15;
+//if (variable_struct_exists(_loadEntity,"farway16")) obj_inventory.farwayRoad_map_ary[16][3] = _loadEntity.farway16;
+//if (variable_struct_exists(_loadEntity,"farway17")) obj_inventory.farwayRoad_map_ary[17][3] = _loadEntity.farway17;
+//if (variable_struct_exists(_loadEntity,"farway18")) obj_inventory.farwayRoad_map_ary[18][3] = _loadEntity.farway18;
+//if (variable_struct_exists(_loadEntity,"farway19")) obj_inventory.farwayRoad_map_ary[19][3] = _loadEntity.farway19;
 //Yakflower
 //if (variable_struct_exists(_loadEntity,"yakflower00")) obj_inventory.yakflowerPath_map_ary[0][3] = _loadEntity.yakflower00;
 //if (variable_struct_exists(_loadEntity,"yakflower01")) obj_inventory.yakflowerPath_map_ary[1][3] = _loadEntity.yakflower01;
@@ -72,11 +82,11 @@ if (variable_struct_exists(_loadEntity,"level04")) obj_inventory.level_ary[4] = 
 //if (variable_struct_exists(_loadEntity,"yakflower07")) obj_inventory.yakflowerPath_map_ary[7][3] = _loadEntity.yakflower07;
 //if (variable_struct_exists(_loadEntity,"yakflower08")) obj_inventory.yakflowerPath_map_ary[8][3] = _loadEntity.yakflower08;
 //if (variable_struct_exists(_loadEntity,"yakflower09")) obj_inventory.yakflowerPath_map_ary[9][3] = _loadEntity.yakflower09;
-//if (variable_struct_exists(_loadEntity,"yakflower10")) obj_inventory.yakflowerPath_map_ary[10][3] = _loadEntity.yakflower10;
+if (variable_struct_exists(_loadEntity,"yakflower10")) obj_inventory.yakflowerPath_map_ary[10][3] = _loadEntity.yakflower10;
 //if (variable_struct_exists(_loadEntity,"yakflower11")) obj_inventory.yakflowerPath_map_ary[11][3] = _loadEntity.yakflower11;
 //if (variable_struct_exists(_loadEntity,"yakflower12")) obj_inventory.yakflowerPath_map_ary[12][3] = _loadEntity.yakflower12;
 //if (variable_struct_exists(_loadEntity,"yakflower13")) obj_inventory.yakflowerPath_map_ary[13][3] = _loadEntity.yakflower13;
-//if (variable_struct_exists(_loadEntity,"yakflower14")) obj_inventory.yakflowerPath_map_ary[14][3] = _loadEntity.yakflower14;
+if (variable_struct_exists(_loadEntity,"yakflower14")) obj_inventory.yakflowerPath_map_ary[14][3] = _loadEntity.yakflower14;
 //if (variable_struct_exists(_loadEntity,"yakflower15")) obj_inventory.yakflowerPath_map_ary[15][3] = _loadEntity.yakflower15;
 //if (variable_struct_exists(_loadEntity,"yakflower16")) obj_inventory.yakflowerPath_map_ary[16][3] = _loadEntity.yakflower16;
 //if (variable_struct_exists(_loadEntity,"yakflower17")) obj_inventory.yakflowerPath_map_ary[17][3] = _loadEntity.yakflower17;
@@ -140,6 +150,9 @@ level02: obj_inventory.level_ary[2],
 level03: obj_inventory.level_ary[3],
 level04: obj_inventory.level_ary[4],
 
+////Farway
+farway10 : obj_inventory.farwayRoad_map_ary[10][3],
+farway14 : obj_inventory.farwayRoad_map_ary[14][3],
 //Yakflower
 //yakflower00 : obj_inventory.yakflowerPath_map_ary[0][3],
 //yakflower01 : obj_inventory.yakflowerPath_map_ary[1][3],
@@ -151,11 +164,11 @@ level04: obj_inventory.level_ary[4],
 //yakflower07 : obj_inventory.yakflowerPath_map_ary[7][3],
 //yakflower08 : obj_inventory.yakflowerPath_map_ary[8][3],
 //yakflower09 : obj_inventory.yakflowerPath_map_ary[9][3],
-//yakflower10 : obj_inventory.yakflowerPath_map_ary[10][3],
+yakflower10 : obj_inventory.yakflowerPath_map_ary[10][3],
 //yakflower11 : obj_inventory.yakflowerPath_map_ary[11][3],
 //yakflower12 : obj_inventory.yakflowerPath_map_ary[12][3],
 //yakflower13 : obj_inventory.yakflowerPath_map_ary[13][3],
-//yakflower14 : obj_inventory.yakflowerPath_map_ary[14][3],
+yakflower14 : obj_inventory.yakflowerPath_map_ary[14][3],
 //yakflower15 : obj_inventory.yakflowerPath_map_ary[15][3],
 //yakflower16 : obj_inventory.yakflowerPath_map_ary[16][3],
 //yakflower17 : obj_inventory.yakflowerPath_map_ary[17][3],

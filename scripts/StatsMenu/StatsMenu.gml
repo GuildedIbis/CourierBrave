@@ -53,8 +53,8 @@ for(var i = 0; i < 8; i = i + 1)
 		case 3: draw_sprite(spr_menu_playerStat_level,obj_player.grace,_originX - 1,_originY + 22); break;
 		case 4: draw_sprite(spr_menu_playerStat_level,obj_player.might,_originX - 1,_originY + 22); break;
 		case 5: draw_sprite(spr_menu_playerStat_level,obj_player.divinity,_originX - 1,_originY + 22); break;
-		case 6: draw_sprite(spr_menu_playerStat_level,obj_player.energy,_originX - 1,_originY + 22); break;
-		case 7: draw_sprite(spr_menu_playerStat_level,obj_player.receptivity,_originX - 1,_originY + 22); break;
+		case 6: draw_sprite(spr_menu_playerStat_level6,obj_player.energy,_originX + 3,_originY + 22); break;
+		case 7: draw_sprite(spr_menu_playerStat_level6,obj_player.receptivity,_originX + 3,_originY + 22); break;
 	}
 }
 
@@ -393,7 +393,7 @@ switch(page)
 		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
-		if (obj_player.energy < 10)
+		if (obj_player.energy < 6)
 		{
 			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
 			draw_sprite(spr_starOrb,0,265,131);
@@ -437,7 +437,7 @@ switch(page)
 		draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 	
 		//Cost Button
-		if (obj_player.receptivity < 10)
+		if (obj_player.receptivity < 6)
 		{
 			draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
 			draw_sprite(spr_starOrb,0,265,131);
