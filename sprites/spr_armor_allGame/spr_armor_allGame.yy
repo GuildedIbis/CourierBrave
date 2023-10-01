@@ -14,9 +14,9 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"43a7238f-f80c-4b67-a657-a01e95b65d35",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"92311b9e-81d2-48d0-8b6d-ea4fc1a220f0",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f2ef0c32-1df0-45fc-895f-dea816297dd1",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f37dd347-def9-46a4-967f-a12eddfcd63a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f2ef0c32-1df0-45fc-895f-dea816297dd1",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"92311b9e-81d2-48d0-8b6d-ea4fc1a220f0",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"003214a3-6b29-4752-a41d-9b7611adf355",},
   ],
   "gridX": 0,
@@ -59,9 +59,9 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"43a7238f-f80c-4b67-a657-a01e95b65d35","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"94173681-4e17-4fd2-9b35-baffe2f6fd3f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"92311b9e-81d2-48d0-8b6d-ea4fc1a220f0","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"59ada00d-bd95-4613-8ede-2bad87e50857","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f37dd347-def9-46a4-967f-a12eddfcd63a","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"250abf02-b207-4231-9ab2-9251c99145dc","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f2ef0c32-1df0-45fc-895f-dea816297dd1","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"63b67bed-d537-4382-ad5c-210f2e69f4f7","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f37dd347-def9-46a4-967f-a12eddfcd63a","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"250abf02-b207-4231-9ab2-9251c99145dc","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"92311b9e-81d2-48d0-8b6d-ea4fc1a220f0","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"59ada00d-bd95-4613-8ede-2bad87e50857","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"003214a3-6b29-4752-a41d-9b7611adf355","path":"sprites/spr_armor_allGame/spr_armor_allGame.yy",},},},"Disabled":false,"id":"d12f7595-ec39-4a47-89b9-5185f6954a1c","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

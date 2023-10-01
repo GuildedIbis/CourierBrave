@@ -1,20 +1,21 @@
-//Flare Crow
+//Endire Knights
 //
 //
 //
 //
 //
-//Endire Tnaks Create
-function EndireKnightTnaksCreate(){
-home_state = EndireKnightFree;
+//Endire Knight Create
+function scr_enemy_endire_knight_create(){
+home_state = scr_enemy_endire_knight_free;
 entity_step = home_state;
-entity_drop = EndireKnightTnaksDrop;
+entity_drop = scr_enemy_endire_knight_drop;
 enemy_idle = spr_enemy_endireKnight_idle;
 enemy_move = spr_enemy_endireKnight_run;
 enemy_damaged = spr_enemy_endireKnight_damaged;
 damaged_snd = snd_endireKnight_damaged;
 walk_snd = snd_walk_regular;
-shadow = 1;
+shadow = true;
+shadow_size = 1;
 lit = false;
 light_size = 32;
 targeted = false;
@@ -27,95 +28,14 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 500;
+form_type = 3;
+max_hp = 200 + (100 * enemy_lvl);
 hp = max_hp;
-boss = true;
-name = "Endire Knight Tnaks";
+boss = false;
+name = "Endire Knight";
 enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
-attack_counter = 0;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-walk_snd_delay = 0;
-path = -1;
-}
-//
-//
-//
-//
-//
-//Endire Obor Create
-function EndireKnightOborCreate(){
-home_state = EndireKnightFree;
-entity_step = home_state;
-entity_drop = EndireKnightOborDrop;
-enemy_idle = spr_enemy_endireKnight_idle;
-enemy_move = spr_enemy_endireKnight_run;
-enemy_damaged = spr_enemy_endireKnight_damaged;
-damaged_snd = snd_endireKnight_damaged;
-walk_snd = snd_walk_regular;
-shadow = 1;
-lit = false;
-light_size = 32;
-targeted = false;
-invincible = false;
-bullet = false;
-healthbar = true;
-aggro_drop = 400;
-sprite_index = enemy_idle;
-image_speed = 0;
-var _startDir = irandom_range(0,3);
-direction = _startDir * 90;
-max_hp = 500;
-hp = max_hp;
-boss = true;
-name = "Endire Knight Obor";
-enemy_spd = 1.2;
-local_frame = 0;
-hit_by_attack = -1;
-attack_counter = 0;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-walk_snd_delay = 0;
-path = -1;
-}
-//
-//
-//
-//
-//
-//Endire Ghafate Create
-function EndireKnightGhafateCreate(){
-home_state = EndireKnightFree;
-entity_step = home_state;
-entity_drop = EndireKnightGhafateDrop;
-enemy_idle = spr_enemy_endireKnight_idle;
-enemy_move = spr_enemy_endireKnight_run;
-enemy_damaged = spr_enemy_endireKnight_damaged;
-damaged_snd = snd_endireKnight_damaged;
-walk_snd = snd_walk_regular;
-shadow = 1;
-lit = false;
-light_size = 32;
-targeted = false;
-invincible = false;
-bullet = false;
-healthbar = true;
-aggro_drop = 400;
-sprite_index = enemy_idle;
-image_speed = 0;
-var _startDir = irandom_range(0,3);
-direction = _startDir * 90;
-max_hp = 500;
-hp = max_hp;
-boss = true;
-name = "Endire Knight Ghafate";
-enemy_spd = 1.2;
-local_frame = 0;
-hit_by_attack = -1
 attack_counter = 0;
 timer1 = 0;
 timer2 = 0;
@@ -123,19 +43,18 @@ timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
 }	
-
 //
 //
 //
 //
 //
 //Endire Knight Free State
-function EndireKnightFree(){
+function scr_enemy_endire_knight_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers and counters
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	if (attack_counter > 2)
 	{ 
 		timer1 = 180;
@@ -172,7 +91,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) path_end();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (timer1 <= 0) and (attack_counter <= 2)
@@ -187,18 +106,7 @@ if (obj_game.gamePaused = false)
 				direction =  point_direction(x,y,obj_player.x,obj_player.y);
 				timer2 = 40;
 				attack_counter = attack_counter + 1;
-				entity_step = EndireKnightHeatwave;
-			}
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) //Cinder Dash
-			{
-				path_end();
-				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,obj_player.x,obj_player.y);
-				timer2 = 23;
-				entity_step = EndireKnightCinderDash;
+				entity_step = scr_enemy_endire_knight_heatwave;
 			}
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
 			{
@@ -208,7 +116,7 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_slash01,global.volumeEffects,1);
 				audio_play_sound(snd_slash01,0,false);
 				timer2 = 23;
-				entity_step = EndireKnightFireStrike;
+				entity_step = scr_enemy_endire_knight_fireStrike;
 			}
 			
 		}
@@ -224,7 +132,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -234,7 +142,7 @@ else path_end();
 //
 //
 //Endire Knight Fire Strike State
-function EndireKnightFireStrike(){
+function scr_enemy_endire_knight_fireStrike(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -250,12 +158,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 70 + (10 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -269,7 +177,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Cinder Dash
-function EndireKnightCinderDash(){
+function scr_enemy_endire_knight_cinderDash(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -286,9 +194,9 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 80 + (12 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -312,7 +220,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Endire Knight Heatwave
-function EndireKnightHeatwave(){
+function scr_enemy_endire_knight_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -328,7 +236,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70;
+	damage = 60 + (10 * enemy_lvl);
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
@@ -338,7 +246,8 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(HeatwaveCreate);
+				enemy_lvl = other.enemy_lvl;
+				scr_projectile_heatwave_create();
 				timer1 = 15;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
@@ -349,12 +258,12 @@ if (obj_game.gamePaused = false)
 				light_size = 16;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
 	//Cacluate Attack
-	EnemyAttackCalculateAblaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -364,7 +273,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -376,379 +285,72 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Tnaks Drop
-function EndireKnightTnaksDrop(){
+//Endire Knight Drop
+function scr_enemy_endire_knight_drop(){
 
-var _objects = 2;
-var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);
-var _angle = random(360);
-
-
-if (_drop1 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop2 > 24) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-//else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.quest_grid[# 3, 3] = false)
-{
-	obj_player.beans = obj_player.beans + 250;
-	
-	obj_inventory.quest_grid[# 3, 0] = true;
-	obj_inventory.quest_grid[# 3, 1] = 1;
-	obj_inventory.quest_grid[# 3, 3] = true;
-	
-	//with (obj_text)
-	//{
-	//	text_script = EndireKnightTnaksVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
-
-
-}
-//
-//
-//
-//
-//
-//Obor Drop
-function EndireKnightOborDrop(){
-
-var _objects = 2;
-var _drop1 = irandom_range(0,99);	
-var _drop2 = irandom_range(0,99);
-var _angle = random(360);
-
-
-if (_drop1 > 0) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-if (_drop2 > 24) 
-{
-	with (instance_create_layer(x,y,"Instances",obj_item))
-	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
-		image_index = item_id;
-		direction = _angle/_objects * 2;
-		spd = .75 + (.3) + random(0.1);
-	}
-	
-}
-//else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.quest_grid[# 4, 3] = false)
-{
-	obj_player.beans = obj_player.beans + 550;
-	obj_inventory.quest_grid[# 4, 0] = true;
-	obj_inventory.quest_grid[# 4, 1] = 1;
-	obj_inventory.quest_grid[# 4, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = EndireKnightOborVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
-
-
-}
-//
-//
-//
-//
-//
-//Ghafate Drop
-function EndireKnightGhafateDrop(){
-
-var _objects = 2;
+var _objects = 5;
+//var _dropBean = 200;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
-var _angle = random(360);
 
 
-if (_drop1 > 0) 
+
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = 360/_objects * 0;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = 360/_objects * 1;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 10)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 9;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects * 2;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 24) 
+if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 10;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = 360/_objects * 3;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-if (obj_inventory.quest_grid[# 5, 3] = false)
+if (_drop2 < 15)
 {
-	obj_inventory.quest_grid[# 5, 0] = true;
-	obj_inventory.quest_grid[# 5, 1] = 1;
-	obj_inventory.quest_grid[# 5, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = EndireKnightGhafateVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-}
-
-
-}
-//
-//
-//
-//
-//
-//Tnaks Victory Text
-function EndireKnightTnaksVictoryText(){
-
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
-if (obj_game.gamePaused)
-{
-	with (all)
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
+		item_id = other.enemy_lvl;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = 360/_objects * 4;
+		spd = .75 + (.3) + random(0.1);
 	}
 }
-//Draw Based on String Counter
-var _SubString
-if (string_counter = 0)
-{
-	speaker = 1;
-	text_string = "Endire Knight Tnaks Defeated." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
-if (string_counter = 1)
-{
-	speaker = 1;
-	text_string = "REWARD:\n250 Beans\nLenko Map Unlocked"
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter >= 2)
-{
-
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
-	with (all)
-	{
-		image_speed = game_paused_image_speed;
-	}
-	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-}
-//
-//
-//
-//
-//
-//Obor Victory Text
-function EndireKnightOborVictoryText(){
-
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
-if (obj_game.gamePaused)
-{
-	with (all)
-	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
-	}
-}
-//Draw Based on String Counter
-var _SubString
-if (string_counter = 0)
-{
-	speaker = 1;
-	text_string = "Endire Knight Obor Defeated." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter = 1)
-{
-	speaker = 1;
-	text_string = "REWARD:\n550 Beans\n1x Crull Stone"
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter >= 2)
-{
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
-	with (all)
-	{
-		image_speed = game_paused_image_speed;
-	}
-	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-
-}
-//
-//
-//
-//
-//
-//GhafateVictory Text
-function EndireKnightGhafateVictoryText(){
-
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
-if (obj_game.gamePaused)
-{
-	with (all)
-	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
-	}
-}
-//Draw Based on String Counter
-var _SubString
-if (string_counter = 0)
-{
-	speaker = 1;
-	text_string = "Endire Knight Ghafate Defeated." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter = 1)
-{
-	speaker = 1;
-	text_string = "REWARD:\n250 Beans\nEndire's Flame Unlocked"
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter >= 2)
-{
-
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
-	with (all)
-	{
-		image_speed = game_paused_image_speed;
-	}
-	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_font(fnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-
-}
-
-
-
-
 
 
 

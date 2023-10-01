@@ -5,8 +5,8 @@
 //
 //
 //Solar Sabi 1 Create
-function SolarSabi1Create(){
-entity_step = SolarSabiStep;
+function scr_npc_solarSabi_00_create(){
+entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi1_active;
 stone_sprite = spr_solarSabi1_stone;
@@ -17,8 +17,8 @@ stone_sprite = spr_solarSabi1_stone;
 //
 //
 //Solar Sabi 2 Create
-function SolarSabi2Create(){
-entity_step = SolarSabiStep;
+function scr_npc_solarSabi_01_create(){
+entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi2_active;
 stone_sprite = spr_solarSabi2_stone;
@@ -29,8 +29,8 @@ stone_sprite = spr_solarSabi2_stone;
 //
 //
 //Solar Sabi 3 Create
-function SolarSabi3Create(){
-entity_step = SolarSabiStep;
+function scr_npc_solarSabi_02_create(){
+entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi3_active;
 stone_sprite = spr_solarSabi3_stone;
@@ -41,9 +41,10 @@ stone_sprite = spr_solarSabi3_stone;
 //
 //
 //Solar Step
-function SolarSabiStep(){
+function scr_npc_solarSabi_step(){
 if (global.dayPhase = 1)
 {
+	scr_npc_interact(12);
 	sprite_index = active_sprite;
 	image_speed = 1;
 }
@@ -59,15 +60,16 @@ else
 //
 //
 //Solar Sabi 1 Text
-function SolarSabi1Text(){
+function scr_text_solarSabi_00(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
+	var _name = "Mysterious Stone"
 
 
 	//Draw Based on String Counter
@@ -96,25 +98,30 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 }
 
-//First Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
+if (global.dayPhase = 1)
 {
-	draw_set_font(fnt_text);
+//Quest Started
+obj_inventory.quest_grid[# 6, 0] = true;
+
+//First Interact
+if (obj_inventory.quest_grid[# 6, 1] < 1)
+{
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "First Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -141,8 +148,8 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 	}
 	if (string_counter >= 3)
 	{
-		obj_inventory.quest_grid[# quest_num, 0] = true;
-		obj_inventory.quest_grid[# quest_num, 1] = 1;
+		obj_inventory.quest_grid[# 6, 0] = true;
+		obj_inventory.quest_grid[# 6, 1] = 1;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -158,29 +165,26 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
-
 //Second and After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 1)
+if (obj_inventory.quest_grid[# 6, 1] >= 1) and (obj_inventory.quest_grid[# 6, 1] <= 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "First Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -215,29 +219,26 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
-
 //Final Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
+if (obj_inventory.quest_grid[# 6, 1] >= 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "First Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -251,14 +252,14 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "A Crull Stone... a fine gift of Vesial."
+		text_string = "An orb, seed of stars... a fine gift of Vesial."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-		if (obj_inventory.quest_grid[# quest_num, 3] = false)
+		if (obj_inventory.quest_grid[# 6, 3] = false)
 		{
-			obj_inventory.quest_grid[# quest_num, 3] = true;
-			obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
-			obj_player.crull_stone = obj_player.crull_stone + 1;
+			obj_inventory.quest_grid[# 6, 0] = true;
+			obj_inventory.quest_grid[# 6, 3] = true;
+			obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		}
 	}
 
@@ -278,18 +279,17 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }
 //
 //
@@ -297,15 +297,16 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 //
 //
 //Solar Sabi 2 Text
-function SolarSabi2Text(){
+function scr_text_solarSabi_01(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
+	var _name = "Mysterious Stone"
 
 
 	//Draw Based on String Counter
@@ -334,25 +335,27 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 }
 
-//Too Soon Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
+if (global.dayPhase = 1)
 {
-	draw_set_font(fnt_text);
+//Toon Soon Interact
+if (obj_inventory.quest_grid[# 6, 1] < 1)
+{
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Second Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -387,29 +390,27 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
 
 //Correct Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
+if (obj_inventory.quest_grid[# 6, 1] = 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Second Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -430,7 +431,7 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
 
 	if (string_counter >= 2)
 	{
-		obj_inventory.quest_grid[# quest_num, 1] = 2;
+		obj_inventory.quest_grid[# 6, 1] = 2;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -445,29 +446,27 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
 
 //After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
+if (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Second Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -495,18 +494,17 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }
 //
 //
@@ -514,15 +512,16 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 2)
 //
 //
 //Solar Sabi 3 Text
-function SolarSabi3Text(){
+function scr_text_solarSabi_02(){
 //Stone
 if (global.dayPhase != 1)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
+	var _name = "Mysterious Stone"
 
 
 	//Draw Based on String Counter
@@ -551,25 +550,27 @@ if (global.dayPhase != 1)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
 
 //Too Soon Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 2)
+if (global.dayPhase = 1) 
 {
-	draw_set_font(fnt_text);
+if (obj_inventory.quest_grid[# 6, 1] < 2)
+{
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Third Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -604,29 +605,27 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] < 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
 
 //Correct Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 2)
+if (obj_inventory.quest_grid[# 6, 1] = 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Second Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -662,29 +661,27 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] = 2)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
 
 
 //After Interact
-if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
+if (obj_inventory.quest_grid[# 6, 1] >= 3)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
-	draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_set_color(c_white);
-	draw_sprite_stretched(menu_sprite,3,258,136,48,48);
-	var _name = "Second Solar Sabi"
+	var _name = "Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -712,16 +709,15 @@ if (global.dayPhase = 1) and (obj_inventory.quest_grid[# quest_num, 1] >= 3)
 		sell_price = 0;
 		buy_price = 0;
 	}
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_set_color(c_black);
-	draw_text_transformed(69,140,_SubString,.5,.5,0);
 	draw_set_color(c_white);
-	draw_text_transformed(68,140,_SubString,.5,.5,0);
-	draw_text_transformed(259,130,_name,.35,.35,0);
-	draw_sprite(spr_solarSabi1_portrait36,0,258+6,136+6);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 	
 }
-
+}
 }

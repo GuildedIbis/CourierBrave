@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "EnemyBeaowire",
-    "path": "folders/Scripts/Enemy/EnemyBeaowire.yy",
+    "path": "folders/Scripts/Entities/Enemy/EnemyBeaowire.yy",
   },
 }

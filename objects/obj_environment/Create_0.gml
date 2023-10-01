@@ -10,3 +10,4 @@ if (shift = true)
 }
 shadow_sprite = -1;
 shadow = false;
+shadow_size = 0;

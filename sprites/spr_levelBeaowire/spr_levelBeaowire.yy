@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "BeaowireEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

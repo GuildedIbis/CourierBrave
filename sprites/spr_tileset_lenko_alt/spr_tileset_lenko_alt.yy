@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tileset_lenko_alt",
-  "bbox_bottom": 143,
+  "bbox_bottom": 303,
   "bbox_left": 0,
-  "bbox_right": 239,
+  "bbox_right": 354,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Sprites/World/Tiles.yy",
+    "path": "folders/Sprites/Game/Tiles.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

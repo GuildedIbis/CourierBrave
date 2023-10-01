@@ -6,7 +6,7 @@ event_inherited();
 //Draw Chest Text: "E to Open" or "Opened"
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (global.dayPhase = 2)
 {
-	draw_set_font(fnt_text);
+	draw_set_font(xfnt_text);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);

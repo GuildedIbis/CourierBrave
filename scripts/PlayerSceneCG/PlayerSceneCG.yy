@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Scenes",
-    "path": "folders/Scripts/Player/Scenes.yy",
+    "name": "xRetiredScripts",
+    "path": "folders/Scripts/xRetiredScripts.yy",
   },
 }

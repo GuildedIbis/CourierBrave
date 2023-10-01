@@ -5,7 +5,7 @@
 //
 //
 //Items Reference
-function AllItems(){
+function scr_game_items_create(){
 //Beans is slot 0- this is made equal to the item_sprite with a locked icon as the 0 frame.
 	
 //global.items[# 0, 0]
@@ -103,7 +103,7 @@ global.items[# 19, 3] = "";
 //
 //
 //Item Drop
-function DropObject(_x,_y,_objects){
+function scr_entity_drop_object(_x,_y,_objects){
 var _numObjects = array_length(_objects);
 if (_numObjects > 1)
 {
@@ -144,7 +144,7 @@ return (-1);
 //
 //
 //Inventory Space
-function InventorySpace(rootObject,itemID){
+function xInventorySpace(rootObject,itemID){
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1)  //Matching Item Found
 {
@@ -166,7 +166,7 @@ if (_slot = -1) //No Matching Item Found
 //
 //
 //Remove Item From Inventory
-function ItemRemove(rootObject,itemID,amount) {
+function xItemRemove(rootObject,itemID,amount) {
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1)
 {
@@ -190,7 +190,7 @@ else return false;
 //
 //
 //Check the Inventory for an item with Quantity
-function ItemCheckQuantity(rootObject,itemID,amount) {
+function xItemCheckQuantity(rootObject,itemID,amount) {
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1)
 {
@@ -212,7 +212,7 @@ else return false;
 //If it finds a matching object, it +1's, if not it searches for an empty slot
 //If it finds an empty slot, it changes the slot from -1 to the new ID and +1's it
 //If it does not find an empty slot, it returns false (the item_dropped is not destroyed)
-function ItemsAdd(rootObject,itemID,amount) {
+function xItemsAdd(rootObject,itemID,amount) {
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1) 
 {
@@ -243,7 +243,7 @@ if (_slot = -1)
 //
 //
 //After subtracting items, check if it was last of items, to reset 	
-function LastItemRemove(_object){
+function xLastItemRemove(_object){
 for (var i = 0; i < _object.max_item_slots; i = i + 1)
 {
 	if (_object.item_grid[# i, 2] <= 0)
@@ -260,7 +260,7 @@ for (var i = 0; i < _object.max_item_slots; i = i + 1)
 //
 //
 //Crafting 
-function InventoryCraft(rootObject,itemID,quantity,newItem) {
+function xInventoryCraft(rootObject,itemID,quantity,newItem) {
 var _slot = InventorySearch(rootObject,itemID);
 if (_slot != -1)
 {

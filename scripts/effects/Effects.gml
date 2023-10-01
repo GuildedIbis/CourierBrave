@@ -5,7 +5,7 @@
 //
 //
 //Status Effect Calculate
-function StatusEffects(){
+function scr_entity_status_effects(){
 if (obj_game.gamePaused = false){
 
 //Ablaze
@@ -57,6 +57,7 @@ if (inv_dur_timer <= 0)
 	invincible = false;
 }
 
+
 //Knockback
 if (knockback_dur > 0)
 {
@@ -91,7 +92,7 @@ else cursed = false;
 //
 //
 //Draw Status Effects
-function StatusEffectsDraw(){
+function scr_entity_status_effects_draw(){
 if (status_animate_timer > 0) status_animate_timer = status_animate_timer - 1;
 if (status_animate_timer <= 0)
 {
@@ -115,7 +116,7 @@ if (watervice = true) and (watervice_flash_timer < 15)
 //
 //
 //Draw Status Effects
-function StatusEffectsGUI(){
+function scr_player_status_effects_gui(){
 if (ablaze = true)
 {
 	draw_sprite(spr_status_gui,0,2,64);

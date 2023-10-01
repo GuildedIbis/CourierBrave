@@ -13,5 +13,4 @@ if (bullet = false)
 		instance_destroy();
 	}
 }
-EnemyEnvironment();
-StatusEffects();
+scr_entity_status_effects();

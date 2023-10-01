@@ -6,6 +6,7 @@ speaker = 0;
 string_counter = 0;
 letter_counter = 0;
 letter_timer = 0;
+sound_timer = 0;
 quest_num = -1;
 text_script = Idle;
 text_string = "";
@@ -15,9 +16,12 @@ button_sprite = spr_menu;
 
 
 //Paging and Buttons
+e_page = true;
 page = 0;
 slot = -1;
-text_gui = 0;
+text_gui = -1;
+map_ary = -1;
+altar = false;
 
 
 //Vendors

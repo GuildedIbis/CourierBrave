@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Characters",
-    "path": "folders/Scripts/NPC/Characters.yy",
+    "name": "RetiredCharacters",
+    "path": "folders/Scripts/xRetiredScripts/RetiredCharacters.yy",
   },
 }

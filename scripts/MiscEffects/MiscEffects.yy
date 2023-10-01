@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Effects",
-    "path": "folders/Scripts/World/Effects.yy",
+    "path": "folders/Scripts/Effects.yy",
   },
 }

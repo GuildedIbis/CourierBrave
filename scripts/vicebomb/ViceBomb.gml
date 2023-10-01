@@ -36,15 +36,6 @@ if (place_meeting(x,y,obj_player))
 {
 	audio_sound_gain(snd_viceBubble_hit,global.volumeEffects,1);
 	audio_play_sound(snd_viceBubble_hit,0,false);
-	with (instance_create_layer(x,y,"Instances",obj_effect))
-	{
-		sprite_index = spr_enemy_motherLily_viceEffect;
-		effect_script = EffectWaterVice;
-		image_speed = 1;
-		direction = irandom_range(0,359);
-		image_angle = direction;
-		spd = .75 + (.3) + random(0.1);
-	}
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -66,6 +57,16 @@ if (place_meeting(x,y,break_object))
 {
 	audio_sound_gain(snd_viceBubble_hit,global.volumeEffects,1);
 	audio_play_sound(snd_viceBubble_hit,0,false);
+	with (instance_create_layer(x,y,"Instances",obj_effect))
+	{
+		timer1 = 1200;
+		sprite_index = spr_enemy_motherLily_viceEffect;
+		effect_script = EffectWaterVice;
+		image_speed = 1;
+		direction = irandom_range(0,359);
+		image_angle = direction;
+		spd = .75 + (.3) + random(0.1);
+	}
 	instance_destroy();
 }
 }

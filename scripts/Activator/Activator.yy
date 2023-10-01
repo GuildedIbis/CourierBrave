@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Objects",
-    "path": "folders/Scripts/NPC/Objects.yy",
+    "name": "Inanimates",
+    "path": "folders/Scripts/Entities/Inanimates.yy",
   },
 }

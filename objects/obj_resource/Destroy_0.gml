@@ -2,6 +2,12 @@
 // You can write your code in this editor
 
 // Inherit the parent event
-event_inherited();
-
+if (destroyed = true)
+{
+	if (obj_game.room_num != -1) and (activate_args != -1)
+	{
+		resource_grid[# obj_game.room_num, activate_args] = -1;
+	}
+	event_inherited();
+}
 

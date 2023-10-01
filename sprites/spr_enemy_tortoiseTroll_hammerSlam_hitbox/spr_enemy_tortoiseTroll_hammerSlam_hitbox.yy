@@ -65,7 +65,7 @@
   "origin": 9,
   "parent": {
     "name": "TrollTortoise",
-    "path": "folders/Sprites/Enemy/Lenko/TrollTortoise.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/TrollTortoise.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -13,8 +13,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "LenkoSolidFX",
-    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX.yy",
+    "name": "HabrafSolidFX",
+    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/HabrafSolidFX.yy",
   },
   "parentObjectId": {
     "name": "obj_effect",
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_door_habraf",
-    "path": "sprites/spr_door_habraf/spr_door_habraf.yy",
+    "name": "xspr_door_habraf",
+    "path": "sprites/xspr_door_habraf/xspr_door_habraf.yy",
   },
   "spriteMaskId": null,
   "visible": true,

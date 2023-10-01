@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_endireKnight_run",
   "bbox_bottom": 19,
-  "bbox_left": 8,
-  "bbox_right": 16,
-  "bbox_top": 8,
+  "bbox_left": 10,
+  "bbox_right": 14,
+  "bbox_top": 13,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -43,7 +43,7 @@
   "origin": 9,
   "parent": {
     "name": "EndireKnight",
-    "path": "folders/Sprites/Enemy/Lenko/EndireKnight.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/EndireKnight.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -20,6 +20,9 @@ shadow_sprite = -1;
 lit = false;
 light_size = 0;
 shadow = false;
+shadow_size = 0;
+form_type = -1;
+
 
 //Init
 //hp = 1;
@@ -46,4 +49,7 @@ invincible = false;
 inv_dur_timer = 0;
 cursed = false;
 cursed_dur_timer = 0;
-
+passable = false;
+interact = -1;
+interact_timer = 0;
+interact_index = 0;

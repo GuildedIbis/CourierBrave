@@ -18,7 +18,8 @@ enemy_move = spr_enemy_cultistZealot_run;
 enemy_damaged = spr_enemy_cultistZealot_damaged;
 damaged_snd = snd_cultist_damaged;
 walk_snd = snd_walk_regular;
-shadow = 1;
+shadow = true;
+shadow_size = 1;
 targeted = false;
 invincible = false;
 inv_dur_timer = 0;
@@ -27,6 +28,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
+form_type = 1;
 max_hp = 550;
 hp = max_hp;
 enemy_spd = 1.5;
@@ -610,32 +612,73 @@ function LilyCultistZealotDrop(){
 //{
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
 //}
-var _objects = 2;
-var _dropBean = 300;
+var _objects = 6;
+//var _dropBean = 300;
 var _drop1 = irandom_range(0,99)	
-var _angle = random(360);
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
-
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-
-if (_drop1 > 0) //Jeweled Root
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 40)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 4;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 1;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
+}
+if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = (360/_objects * 5) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop2 < 25)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl - 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
 

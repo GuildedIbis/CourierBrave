@@ -37,7 +37,7 @@
   "origin": 9,
   "parent": {
     "name": "Zerwerk",
-    "path": "folders/Sprites/Enemy/Lenko/Yakflower/Zerwerk.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Zerwerk.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -80,7 +80,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 48,
-    "yorigin": 65,
+    "yorigin": 64,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

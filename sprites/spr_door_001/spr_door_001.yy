@@ -27,7 +27,7 @@
   "origin": 7,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Sprites/World/Tiles.yy",
+    "path": "folders/Sprites/Game/Tiles.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

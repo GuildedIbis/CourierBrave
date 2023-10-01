@@ -1,14 +1,14 @@
-//Belurne Skirmisher
+//Balurne Skirmisher
 //
 //
 //
 //
 //
-//Belurne Skirmisher Create
-function BalurneSkirmisherCreate(){
-home_state = BalurneSkirmisherFree;
+//Balurne Skirmisher Create
+function scr_enemy_balurne_skirmisher_create(){
+home_state = scr_enemy_balurne_skirmisher_free;
 entity_step = home_state;
-entity_drop = BalurneSkirmisherDrop;
+entity_drop = scr_enemy_balurne_skirmisher_drop;
 bullet = false;
 healthbar = true;
 enemy_idle = spr_enemy_skirmisher_idle;
@@ -16,7 +16,8 @@ enemy_move = spr_enemy_skirmisher_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
-shadow = 1;
+shadow = true;
+shadow_size = 1;
 lit = false;
 light_size = 32;
 targeted = false;
@@ -27,7 +28,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 90;
+form_type = 0;
+max_hp = 90 + (45 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -44,12 +46,12 @@ path = -1;
 //
 //
 //Belurne Skirmisher Free State
-function BalurneSkirmisherFree(){
+function scr_enemy_balurne_skirmisher_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -58,12 +60,12 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			EnemyWander(60,180); //Data Leak if not radius restricted
+			scr_enemy_wander(60,180); //Data Leak if not radius restricted
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -82,7 +84,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timer1 <= 0) script_execute(EnemyChase);
+		if (timer1 <= 0) scr_enemy_chase();
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
 		{
 			path_end();
@@ -91,7 +93,7 @@ if (obj_game.gamePaused = false)
 			if (timer1 <= 0) 
 			{
 				timer1 = 120;
-				entity_step = BalurneSkirmisherSlash;
+				entity_step = scr_enemy_balurne_skirmisher_slash;
 				
 			}
 		}
@@ -102,7 +104,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -112,7 +114,7 @@ else path_end();
 //
 //
 //Balurne Skirmisher Slash State
-function BalurneSkirmisherSlash(){
+function scr_enemy_balurne_skirmisher_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -127,12 +129,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 35 + (7 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -143,7 +145,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
 }
@@ -155,41 +157,79 @@ if (obj_game.gamePaused = false)
 //
 //
 //Belurne Skirmisher Drop
-function BalurneSkirmisherDrop(){
-if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-{
-	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-}
-var _objects = 2;
-var _dropBean = 31;
+function scr_enemy_balurne_skirmisher_drop(){
+//if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
+//{
+//	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
+//}
+var _objects = 7;
+//var _dropBean = 70;
 var _drop1 = irandom_range(0,99)	
-var _angle = random(360);
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
-
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-
-if (_drop1 > 50) //Rat Teeth
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 5)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 1;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 1;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-
-
+if (_drop1 >= 5) and (_drop1 < 10)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = (360/_objects * 5) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop2 < 5)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
 }
 
 

@@ -4,6 +4,52 @@
 //
 //
 //
+//Habfaf Spawner Room 14
+function HabrafSpawner14(){
+
+if (obj_inventory.quest_grid[# 13, 1] < 2) 
+{
+	
+	if (spawn_timer > 0) 
+	{
+		spawn_timer = spawn_timer -1;
+		if (spawn_timer <= 0)
+		{
+			
+			//Decide Spawn Position
+			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,356))
+			{
+				x_spawn1 = 544;
+				y_spawn1 = 272;
+				x_spawn2 = 560;
+				y_spawn2 = 224;
+			}
+			else
+			{
+				x_spawn1 = 120;
+				y_spawn1 = 216;
+				x_spawn2 = 88;
+				y_spawn2 = 274;
+			}
+			
+			//Spawn, Tally, Reset
+			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				script_execute(LilyCultistBacwireCreate);
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break;
+			}
+			spawn_timer = 600;
+		}
+	}
+}
+}//
+//
+//
+//
+//
 //Habraf Spawn 1 Create 
 function HabrafSpawnCreate1(){
 

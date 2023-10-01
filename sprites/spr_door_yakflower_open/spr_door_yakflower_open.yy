@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "YakflowerEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/YakflowerEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

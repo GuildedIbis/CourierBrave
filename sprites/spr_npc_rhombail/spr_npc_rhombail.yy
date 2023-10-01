@@ -23,6 +23,7 @@
   "height": 24,
   "HTile": false,
   "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c896cd64-bef6-4704-9f94-cd5ce3201095","blendMode":0,"displayName":"Layer 2","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
   ],
@@ -30,7 +31,7 @@
   "origin": 9,
   "parent": {
     "name": "LenkoNPC",
-    "path": "folders/Sprites/NPC/LenkoNPC.yy",
+    "path": "folders/Sprites/Entity/NPC/LenkoNPC.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

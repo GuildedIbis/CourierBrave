@@ -5,27 +5,21 @@
 //
 //
 //Ceriver Set (create)
-function CeriverSet(){
-form = 1;
-home_state = CeriverSet;
-free_state = CeriverFree;
-state_script = CeriverFree;
+function scr_player_ceriver_set(){
+form = 3;
+form_type = 3;
+home_state = scr_player_ceriver_set;
+free_state = scr_player_ceriver_free;
+state_script = scr_player_ceriver_free;
 idle_sprite = spr_player_ceriver_idle;
 roll_sprite = spr_player_ceriver_roll;
 crull_sprite = spr_player_ceriver_crull;
 recharge_sprite = spr_player_ceriver_recharge;
 arm_sprite = spr_player_ceriver_castArm;
-magicP_script = CeriverPolyorbCast;
-magicA_script = CeriverLineorbCast;
+magicP_script = scr_player_ceriver_polyorb;
+magicA_script = scr_player_ceriver_lineorb;
 magic_primary = true;
-//weapon_aim = true;
-obj_cursor.curs_script = CeriverCursor;
-
-weapon_draw = CeriverTurnbladesMenu;
-magic_draw = CeriverHabraArmorMenu;
-armor_draw = CeriverPolyorbMenu;
-special_draw = CeriverSpecialMenu;
-
+obj_cursor.curs_script = scr_cursor_ceriver;
 
 
 //Dynamic Variables
@@ -34,10 +28,12 @@ max_weapon_count = 2;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
-armor = 11 + (6 * (obj_inventory.form_grid[# 1, 6] -1));
-max_charge = 50 + (3* (grace + round(grace/15)));
-max_stamina = 50 + (3* (might + round(might/15)));
-max_hp = 150 + (3* (vitality + round(vitality/15)));
+armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
+max_charge = 100 + (10 * conviction);
+max_stamina = 100 + (50 * energy);
+max_hp = 200 + (20 * vitality);
+crystal_cost = 5;
+special_cost = 20;
 }
 //
 //
@@ -45,7 +41,7 @@ max_hp = 150 + (3* (vitality + round(vitality/15)));
 //
 //
 //Ceriver Free (home) state
-function CeriverFree(){
+function scr_player_ceriver_free(){
 //Set
 walk_spd = 1.75;
 attacking = false;
@@ -79,22 +75,13 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
+		charge_timer = 6;
+		blue_primary = blue_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -109,10 +96,7 @@ if (weapon_timer > 0)
 
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -126,7 +110,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 
 
 //Update Index
-PlayerAnimation();
+scr_player_animation();
 
 
 //Melee Attack
@@ -136,8 +120,8 @@ if (key_attackW) and (stamina >= 30)
 	{
 		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		timer1 = 15;
-		attack_script = CeriverBoomerang;
-		state_script = PlayerStateAttack;
+		attack_script = scr_player_ceriver_boomerang;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -147,46 +131,28 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (charge >= 6)
+		if (magic_primary = true) and (blue_primary >= 5)
 		{
-			max_charge = 100 + (grace + round(grace/15))
 			attack_script = magicP_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack();
 		}
 		//Dynorb
-		if (magic_primary = false) and (charge >= 3)
+		if (magic_primary = false) and (blue_primary >= 3)
 		{
-			max_charge = 100 + (grace + round(grace/15));
 			attack_script = magicA_script;
-			state_script = PlayerStateAttack;
+			state_script = scr_player_attack;
 		}
-		//if (magic_primary = false) and (charge >= 25)
-		//{
-		//	audio_sound_gain(snd_ceriver_orbDash,global.volumeEffects,1);
-		//	audio_play_sound(snd_ceriver_orbDash,0,false);
-		//	max_charge = 100 + (grace + round(grace/15));
-		//	charge = charge - 25;
-		//	magic_timer = 20;
-		//	attack_script = magicA_script;
-		//	state_script = PlayerStateAttack;
-		//	direction = point_direction(x,y,mouse_x,mouse_y);
-		//}
 	}
 
 }
 
 //Special Attack
-if (key_attackS) and (special >= 200)
+if (key_attackS) and (blue_special >= 20)
 {
 	if (watervice = false)
 	{
-		//audio_sound_gain(snd_ceriver_orbDash,global.volumeEffects,1);
-		//audio_play_sound(snd_ceriver_orbDash,0,false);
-		//special = special - 250;
-		//magic_timer = 20;
-		attack_script = CeriverSteelorbCast;
-		state_script = PlayerStateAttack;
-		//direction = point_direction(x,y,mouse_x,mouse_y);
+		attack_script = scr_player_ceriver_steelOrb;
+		state_script = scr_player_attack;
 	}
 }
 
@@ -198,38 +164,34 @@ if (key_ability) and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		stamina = stamina - 50;
-		state_script = PlayerStateRoll;
+		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
 
-//Potion State
-if (keyboard_check_pressed(ord("R")))
-{
-
-}
-
 //Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
+if (keyboard_check_pressed(ord("C"))) and (crull_ary[crull_selected] != -1)
 {
+	var _crullID = crull_ary[crull_selected];
 	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
 	audio_play_sound(snd_player_crull,0,false);
-	state_script = PlayerStateCrull;
-	
+	state_script = obj_inventory.crull_script[_crullID];
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 12, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 17, 3] = true)
 {
 	if (magic_primary = true)
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
+		primary_cost = 3;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
+		primary_cost = 5;
 	}
 }
 
@@ -253,7 +215,7 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //Ceriver Boomerang State
-function CeriverBoomerang(){
+function scr_player_ceriver_boomerang(){
 //Set
 attacking = true;
 casting = false;
@@ -261,22 +223,13 @@ damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
+		charge_timer = 6;
+		blue_crystal = blue_crystal + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -307,33 +260,8 @@ if (sprite_index != spr_player_ceriver_boomerangThrow)
 
 
 //Animate
-PlayerAnimation();
+scr_player_animation();
 
-//Create Boomerange Projectile
-//if (melee_timer <= 0)
-//{
-//	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
-//	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-//	melee_timer = 15;
-//	weapon_count = weapon_count - 1;
-//	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
-//	{
-//		return_timer = 35;
-//		sd_timer = 120;
-//		break_object = obj_player.break_object;
-//		magic = false;
-//		damage = obj_player.might + ((obj_inventory.form_grid[# 1, 6])*2);//
-//		projectile_sprite = spr_ceriver_boomerang;
-//		projectile_script = CeriverBoomerangFree;
-//		idle_sprite = spr_ceriver_boomerang;
-//		hit_by_attack = -1;
-//		//script_execute(LeafArcCreate);
-//		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
-//		image_angle = direction;
-//		projectile_speed = 2.5;
-//		returning = false;
-//	}
-//}
 
 //Return to Free State or Continue Throwing Boomerangs (if possible)
 if (animation_end)
@@ -349,9 +277,9 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = obj_player.might + ((obj_inventory.form_grid[# 1, 6])*2);//
+		damage = 18 + (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
 		projectile_sprite = spr_ceriver_boomerang;
-		projectile_script = CeriverBoomerangFree;
+		projectile_script = scr_projectile_boomerang;
 		idle_sprite = spr_ceriver_boomerang;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
@@ -365,8 +293,8 @@ if (animation_end)
 		if (thundux = false) and (weapon_count >= 1)
 		{
 			//melee_timer = 15;
-			attack_script = CeriverBoomerang;
-			state_script = PlayerStateAttack;
+			attack_script = scr_player_ceriver_boomerang
+			state_script = scr_player_attack;
 		}
 		else
 		{
@@ -394,7 +322,7 @@ if (animation_end)
 //
 //
 //Boomerange Free Script
-function CeriverBoomerangFree(){
+function scr_projectile_boomerang(){
 //Set
 if (sd_timer > 0) sd_timer = sd_timer - 1; 
 speed = projectile_speed;
@@ -415,7 +343,7 @@ if (returning = false)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 	if (place_meeting(x,y,break_object)) or (return_timer <= 0)
@@ -424,7 +352,7 @@ if (returning = false)
 	}
 	if (place_meeting(x,y,obj_resource)) or (return_timer <= 0)
 	{
-		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 }
@@ -439,7 +367,7 @@ if (returning = true)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		AttackCalculateStatus(projectile_sprite,self,1.5,-1,-1,-1,-1,-1);
+		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 }
@@ -456,7 +384,7 @@ if (sd_timer <= 0)
 //
 //
 //Ceriver Polyorb Magic State
-function CeriverPolyorbCast(){
+function scr_player_ceriver_polyorb(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -482,15 +410,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -509,10 +428,8 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
+scr_player_collision();
 
-//Movement 3: Environtment
-PlayerEnvironment();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -525,12 +442,12 @@ else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 6;
+	blue_primary = blue_primary - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -541,9 +458,9 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = round(obj_player.grace/4) + ((obj_inventory.form_grid[# 1, 7]) * (2) + (_bubbleRand));//
+		damage = 8 + (5 * obj_player.grace) + (((obj_inventory.form_grid[# 3, 7])+ (_bubbleRand)) * (4));//
 		projectile_sprite = spr_ceriver_polyorb;
-		projectile_script = CeriverPolyorbFree;
+		projectile_script = scr_projectile_polyorb;
 		idle_sprite = spr_ceriver_polyorb;
 		image_index = _bubbleRand;
 		projectile_speed = 3.0 + (.5 * image_index);
@@ -557,10 +474,10 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 6)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 5)
 {
 	attacking = false;
 	state_script = free_state;
@@ -576,7 +493,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 6)
 //
 //
 //Ceriver Polyorb Projectile Script
-function CeriverPolyorbFree(){
+function scr_projectile_polyorb(){
 //Set
 image_speed = 0;
 speed = projectile_speed;
@@ -597,8 +514,8 @@ if (sd_timer > 0) sd_timer = sd_timer - 1;
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
-	instance_destroy();
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))
 {
@@ -612,104 +529,8 @@ if (sd_timer <= 0) instance_destroy();
 //
 //
 //
-//Ceriver Orb Rush State
-function CeriverOrbladeDashCast(){
-//Set
-attacking = true;
-//casting = true;
-damage = grace + (13 * obj_inventory.form_grid[# 1, 8]);
-invincible = true;
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (charge < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-
-
-
-//Attack Start
-if (sprite_index != spr_player_ceriver_cast_orbDash)
-{
-	//Start Animation From Beginning
-	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
-	sprite_index = spr_player_ceriver_cast_orbDash;
-	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-
-hor_spd = lengthdir_x(3,direction);
-ver_spd = lengthdir_y(3,direction);
-var _collided = PlayerCollision();
-
-
-
-
-
-//Collision
-if (_collided = true)
-{
-	state_script = free_state;
-	ScreenShake(4,15);
-}
-
-//Calcuate Hit Entitites
-AttackCalculateStatus(spr_player_ceriver_cast_orbDash,obj_player,2.5,-1,-1,-1,-1,-1);
-
-//Animate
-PlayerAnimation();
-
-if (magic_timer <= 0)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
-}
-//
-//
-//
-//
-//
 //Ceriver Lineorb Magic State
-function CeriverLineorbCast(){
+function scr_player_ceriver_lineorb(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -735,15 +556,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (special < max_special) //Special Recharge
-{
-	if (special_timer > 0) special_timer = special_timer - 1;
-	if (special_timer <= 0)
-	{
-		special_timer = 5;
-		special = special + 1;
-	}
-}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -762,10 +574,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -778,12 +587,12 @@ else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	charge = charge - 3;
+	blue_primary = blue_primary - 3;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -793,9 +602,9 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 15;
-		damage = round(obj_player.grace/5) + ((obj_inventory.form_grid[# 1, 7]));//
+		damage = 7 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 4);//
 		projectile_sprite = spr_ceriver_polyorb;
-		projectile_script = CeriverLineorbFree;
+		projectile_script = scr_projectile_lineorb;
 		idle_sprite = spr_ceriver_polyorb;
 		image_index = 0;
 		projectile_speed = 2.5;
@@ -808,10 +617,10 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (charge < 3)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 3)
 {
 	attacking = false;
 	state_script = free_state;
@@ -826,7 +635,7 @@ if (mouse_check_button(mb_left) = false) or (charge < 3)
 //
 //
 //Ceriver Lineorb Projectile Script
-function CeriverLineorbFree(){
+function scr_projectile_lineorb(){
 //Set
 image_speed = 0;
 speed = projectile_speed;
@@ -848,7 +657,7 @@ if (place_meeting(x,y,obj_enemy))
 {
 	
 	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
-	instance_destroy();
+	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))
 {
@@ -863,7 +672,7 @@ if (sd_timer <= 0) instance_destroy();
 //
 //
 //Ceriver Steelorb Magic State
-function CeriverSteelorbCast(){
+function scr_player_ceriver_steelorb(){
 //Set
 walk_spd = 1.2;
 attacking = true;
@@ -880,13 +689,13 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (charge < max_charge) and (watervice = false)//Charge Recharge
+if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 {
 	if (charge_timer > 0) charge_timer = charge_timer - 1;
 	if (charge_timer <= 0) 
 	{
-		charge_timer = 5;
-		charge = charge + 1;
+		charge_timer = 6;
+		blue_primary = blue_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -916,10 +725,7 @@ if (knockback = false)
 }
 
 //Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
+scr_player_collision();
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -932,12 +738,12 @@ else sprite_index = spr_player_ceriver_cast;
 if (_oldSprite != sprite_index) local_frame = 0;
 
 //Bullet Spawn Position
-PlayerBulletSpawnPosition();
+scr_player_projectile_spawn();
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	special = special - 200;
+	blue_special = blue_special - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
@@ -947,9 +753,9 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 60;
-		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
+		damage = 35 + (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
 		projectile_sprite = spr_ceriver_steelorb;
-		projectile_script = CeriverSteelorbFree;
+		projectile_script = scr_projectile_steelorb;
 		idle_sprite = spr_ceriver_steelorb;
 		image_index = 0;
 		projectile_speed = 3;
@@ -962,10 +768,10 @@ if (magic_timer <= 0)
 }
 
 //Animate
-PlayerAnimationCast();
+scr_player_animation_cast();
 
 //End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (special < 200)
+if (keyboard_check(vk_shift) = false) or (blue_special < 20)
 {
 	attacking = false;
 	state_script = free_state;
@@ -973,161 +779,6 @@ if (keyboard_check(vk_shift) = false) or (special < 200)
 	animation_end = false;
 	atk_snd_delay = 0;
 }
-}
-//
-//
-//
-//
-//
-//Ceriver Aquabarrier Magic State
-function CeriverAquaBarrierCast(){
-//Set
-walk_spd = 1.2;
-attacking = true;
-casting = true;
-
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (charge < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-
-
-//Movement 1: Speed
-if (knockback = false)
-{
-	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-}
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_ceriver_runCast;
-}
-else sprite_index = spr_player_ceriver_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Bullet Spawn Position
-PlayerBulletSpawnPosition();
-
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (magic_timer <= 0)
-{	
-	special = special - 100;
-	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
-	{
-		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
-		audio_play_sound(snd_ceriver_dynorb,0,0);
-		break_object = obj_player.break_object;
-		fragment_count = 3;
-		fragment = obj_fragWater;
-		magic = true;
-		sd_timer = 60;
-		damage = round(obj_player.grace/3) + ((obj_inventory.form_grid[# 1, 8]) * (3));//
-		projectile_sprite = spr_ceriver_aquaBarrier;
-		projectile_script = CeriverAquaBarrierFree;
-		idle_sprite = spr_ceriver_aquaBarrier;
-		image_index = 0;
-		projectile_speed = 3;
-		hit_by_attack = -1;
-		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y);
-		image_angle = direction;
-	}
-	magic_timer = 30;
-}
-
-//Animate
-PlayerAnimationCast();
-
-//End State, Return to Free State
-if (keyboard_check(vk_shift) = false) or (special < 100)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
-}
-//
-//
-//
-//
-//
-//
-//Ceriver Aqua Barrier Projectile Script
-function CeriverAquaBarrierFree(){
-//Set
-image_speed = 1;
-speed = projectile_speed;
-//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
-if (sprite_index != projectile_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = projectile_sprite;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-
-//Timers
-if (sd_timer > 0) sd_timer = sd_timer - 1;
-if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
-
-//Collision
-if (place_meeting(x,y,obj_enemy_projectile)) 
-{
-	
-	AttackCalculateProjectile(projectile_sprite);
-}
-if (place_meeting(x,y,break_object))
-{
-	speed = 0;
-}
-if (sd_timer <= 0) instance_destroy();
-
 }
 //
 //
@@ -1136,7 +787,7 @@ if (sd_timer <= 0) instance_destroy();
 //
 //
 //Ceriver Steelorb Projectile Script
-function CeriverSteelorbFree(){
+function scr_projectile_steelorb(){
 //Set
 image_speed = 1;
 speed = projectile_speed;
@@ -1158,13 +809,13 @@ if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,self,3,-1,-1,-1,-1,-1);
-	instance_destroy();
+	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,-1,10);
+	//instance_destroy();
 }
 if (place_meeting(x,y,obj_enemy_projectile)) 
 {
 	
-	AttackCalculateProjectile(projectile_sprite);
+	scr_player_attack_calculate_projectile(projectile_sprite);
 }
 if (place_meeting(x,y,break_object))
 {
@@ -1178,187 +829,14 @@ if (sd_timer <= 0) instance_destroy();
 //
 //
 //
-//Ceriver Drain Dart Cast 
-function CeriverDrainDartCast(){
-walk_spd = 1.2;
-attacking = true;
-
-
-
-//Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (charge < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 5;
-		charge = charge + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (melee_timer > 0) //Melee time between attacks
-{
-	melee_timer = melee_timer - 1;
-}
-
-
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
-{
-	direction = input_dir;
-	sprite_index = spr_player_ceriver_runCast;
-}
-else sprite_index = spr_player_ceriver_cast;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-
-//Bullet Spawn Position
-var _dirPos = round(obj_player.direction/90);
-switch(_dirPos)
-{
-	case 0:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 4:
-		dir_offX = 3;
-		dir_offY = -14;
-	break;
-		
-	case 1:
-		dir_offX = -4;
-		dir_offY = -14;
-	break;
-		
-	case 2:
-		dir_offX = -3;
-		dir_offY = -14;
-	break;
-		
-	case 3:
-		dir_offX = 5;
-		dir_offY = -14;
-	break;	
-}
-
-//Animate
-PlayerAnimation();
-
-if (magic_timer <= 0) and (special_count >= 1)
-{
-	audio_sound_gain(snd_ceriver_drainDart,global.volumeEffects,1);
-	audio_play_sound(snd_ceriver_drainDart,0,0);
-	magic_timer = 30;
-	special_count = special_count - 1;
-	with (instance_create_layer(x + dir_offX,y + dir_offY,"Instances",obj_projectile))
-	{
-		timer1 = 120;
-		timer1 = 30;
-		target = -1;
-		break_object = obj_player.break_object;
-		damage = obj_player.grace + (12 * obj_inventory.form_grid[# 1, 8]);
-		idle_sprite = spr_flameSeed;
-		projectile_sprite = spr_drainDart;
-		projectile_script = CeriverDrainDart;
-		hit_by_attack = -1;
-		enemy_in_range = -1;
-		//script_execute(LeafArcCreate);
-		direction = point_direction(obj_player.x,obj_player.y-14,mouse_x,mouse_y);
-		if (direction < 135) and (direction > 45)
-		{
-			inv_timer = 0;
-		}
-		else inv_timer = 15;
-		image_angle = direction;
-		projectile_speed = 2.5;
-	}
-	if (special_count <= 0) or (keyboard_check(vk_shift) = false)
-	{
-		attacking = false;
-		state_script = free_state;
-		animation_end = false;
-		atk_snd_delay = 0;
-	}
-}
-}
-//
-//
-//
-//
-//
-//Ceriver Special Projectile Script
-function CeriverDrainDart(){
-//Step
-
-speed = projectile_speed;
-if (sprite_index != projectile_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = projectile_sprite;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
-}
-if (place_meeting(x,y,obj_enemy)) 
-{
-	
-	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,.25);
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) and (inv_timer <= 0)
-{
-	instance_destroy();
-}
-}
-//
-//
-//
-//
-//
 //Ceriver Cursor
-function CeriverCursor(){
+function scr_cursor_ceriver(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
 image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
-curs_form = 1;
+curs_form = 3;
 
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;
@@ -1385,7 +863,7 @@ depth = -5000;
 //
 //
 //Ceriver Cursor Draw
-function CeriverCursorDraw(){
+function xCeriverCursorDraw(){
 if (curs_width > 8) or (curs_height > 8)
 {
 	var xOff = ((curs_width/2))

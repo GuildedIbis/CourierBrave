@@ -27,7 +27,7 @@
   "origin": 9,
   "parent": {
     "name": "Habraf",
-    "path": "folders/Sprites/Enemy/Lenko/Habraf.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

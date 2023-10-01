@@ -15,8 +15,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"EffectLenkoTreeCreate",},
   ],
   "parent": {
-    "name": "LenkoSolidFX",
-    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX.yy",
+    "name": "LenkoSharedSolidFX",
+    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/LenkoSharedSolidFX.yy",
   },
   "parentObjectId": {
     "name": "obj_effect",

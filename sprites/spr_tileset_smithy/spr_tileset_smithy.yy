@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tileset_smithy",
-  "bbox_bottom": 179,
+  "bbox_bottom": 235,
   "bbox_left": 0,
-  "bbox_right": 589,
+  "bbox_right": 628,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Sprites/World/Tiles.yy",
+    "path": "folders/Sprites/Game/Tiles.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

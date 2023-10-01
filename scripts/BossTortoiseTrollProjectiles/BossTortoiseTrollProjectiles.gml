@@ -82,7 +82,7 @@ if (timer1 <= 0)
 			enemy_spd = 3;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 100;
+			damage = 70;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -106,55 +106,60 @@ if (timer2 <= 0) instance_destroy();
 function TrollTortoiseBlossomOrb(){
 if (obj_game.gamePaused = false)
 {
-
-if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
-{
-	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-	audio_play_sound(snd_blossomOrb_explode,0,false);
-	exploded = true;
-	speed = 0;
-}
-if (exploded = true)
-{
-	timer1 = timer1 - 1;
-	if (timer1 <= 0) instance_destroy();
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
-}
-else
-{
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb;
-}
+	//Explode on player
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
+	{
+		audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
+		audio_play_sound(snd_blossomOrb_explode,0,false);
+		exploded = true;
+		speed = 0;
+	}
+	
+	//Sprite Update
+	if (exploded = true)
+	{
+		timer1 = timer1 - 1;
+		if (timer1 <= 0) instance_destroy();
+		sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
+	}
+	else
+	{
+		sprite_index = spr_enemy_tortoiseTroll_blossomOrb;
+		speed = enemy_spd;
+	}
 	
 
-//Collision		
-if (place_meeting(x,y,obj_player))
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	with (obj_player)
+	//Collision	with player (damage)	
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+		//audio_play_sound(snd_arrow_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				inv_dur_timer = 30;
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			inv_dur_timer = 30;
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
 	}
-}
-if (place_meeting(x,y,break_object)) and (exploded = false)
-{
-	audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-	audio_play_sound(snd_blossomOrb_explode,0,false);
-	sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
-	exploded = true;
-	speed = 0;
-}
+	
+	//Collision with solid objects
+	if (place_meeting(x,y,break_object)) and (exploded = false)
+	{
+		audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
+		audio_play_sound(snd_blossomOrb_explode,0,false);
+		sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
+		exploded = true;
+		speed = 0;
+	}
 }
 else
 {
@@ -280,7 +285,7 @@ enemy_spd = 4.5;
 timer1 = 30;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 80;
+damage = 65;
 returning = false;
 special_draw = TortoiseTrollSpikedVineRope;
 }

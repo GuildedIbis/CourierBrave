@@ -19,7 +19,8 @@ enemy_idle = spr_enemy_tortoiseTroll_idle;
 enemy_move = spr_enemy_tortoiseTroll_run;
 damaged_snd = snd_tortoiseTroll_damaged;
 walk_snd = snd_walk_regular;
-shadow = 2;
+shadow = true;
+shadow_size = 2;
 lit = false;
 light_size = 48;
 aggro_drop = 300;
@@ -27,8 +28,9 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 2500;
-hp = 2500;
+form_type = 4;
+max_hp = 1700 + (110 * enemy_lvl);
+hp = max_hp;
 boss = true;
 name = "Tortoise Troll";
 enemy_spd = 1.3;
@@ -242,7 +244,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
@@ -299,7 +301,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 	
@@ -347,7 +349,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80;
+	damage = 60;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
@@ -385,7 +387,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 110;
+	damage = 80;
 	//Cacluate Attack
 	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	if (timer3 > 0)
@@ -512,7 +514,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65;
+			damage = 45;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -578,7 +580,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.25;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65;
+			damage = 55;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -609,63 +611,90 @@ if (obj_game.gamePaused = false)
 //
 //Troll Tortoise Drop
 function BossTortoiseTrollDrop(){
-var _objects = 3;
-var _dropBean = 250;
+var _objects = 7;
+//var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
-var _drop3 = irandom_range(0,99)
-var _angle = random(360);
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
-
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 50)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 8;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop3 > 49) 
+if (_drop1 >= 50) //Random Rog Stone
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 6;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 3;
+		direction = (360/_objects * 5) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-obj_inventory.beaowire_dungeon[10] = 2;
-obj_inventory.beaowire_dungeon[12] = 2;
-obj_inventory.beaowire_dungeon[14] = 2;
-obj_inventory.beaowire_dungeon[15] = 1;
-if (obj_inventory.quest_grid[# 14, 3] = false)
+if (_drop2 >= 0)
 {
-	obj_inventory.quest_grid[# 14, 0] = true;
-	obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
-	obj_inventory.quest_grid[# 14, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = ZerwerkVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl - 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
 }
+//obj_inventory.beaowire_dungeon[10] = 2;
+//obj_inventory.beaowire_dungeon[12] = 2;
+//obj_inventory.beaowire_dungeon[14] = 2;
+//obj_inventory.beaowire_dungeon[15] = 1;
+//if (obj_inventory.quest_grid[# 14, 3] = false)
+//{
+//	obj_inventory.quest_grid[# 14, 0] = true;
+//	obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
+//	obj_inventory.quest_grid[# 14, 3] = true;
+//	//with (obj_text)
+//	//{
+//	//	text_script = ZerwerkVictoryText;
+//	//}
+//	//obj_game.gamePaused = !obj_game.gamePaused;
+//	//obj_game.textPaused = !obj_game.textPaused;
+//}
 
 	
 }
@@ -677,7 +706,7 @@ if (obj_inventory.quest_grid[# 14, 3] = false)
 //Tortoise Troll Victory Text
 function TortoiseTrollVictoryText(){
 
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -729,7 +758,7 @@ if (string_counter >= 2)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

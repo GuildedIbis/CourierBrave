@@ -250,7 +250,7 @@ if (obj_inventory.beaowire_dungeon[14] < 2)
 //Yakflower Spawn Create Boss
 function BeaowireFortressSpawnBossCreate(){
 
-if (obj_inventory.beaowire_dungeon[15] < 2)
+if (obj_inventory.quest_grid[15] < 2)
 {
 
 	//Spawn 1
@@ -279,12 +279,12 @@ image_yscale = 1;
 
 if (obj_player.form != 3)
 {
-	sprite_index = spr_door_questHalofire;
+	sprite_index = spr_door_yakflowerPath_stone;
 
 }
 if (obj_player.form = 3)
 {
-	sprite_index = spr_door_questHalofire_open;
+	sprite_index = spr_door_yakflowerPath_stone_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))

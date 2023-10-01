@@ -1,9 +1,32 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function PlayerScene01(){
-sprite_index = spr_player_scene01;
-scene = true;
+function scr_player_scene_01(){
+if (obj_game.gamePaused = false)
+{
+	image_speed = 1;
+	sprite_index = spr_player_scene01;
+	scene = true;
+	timer1 = timer1 - 1;
+	timer2 = timer2 - 1;
+	//Animation
+	scr_player_animation_one();
+	if (timer1 <= 0) or (animation_end = true)
+	{
+		image_alpha = 0;
+		image_speed = 0;
+		shadow = false;
+	}
+	if (timer2 <= 0)
+	{
+		image_alpha = 1;
+		shadow = true;
+		state_script = home_state;
+		scene = false;
+		
+	}
+	
 //Convert Mouse to GUI
+}
 }
 //
 //
@@ -11,8 +34,8 @@ scene = true;
 //
 //
 //Player Scene Text 01
-function PlayerSceneText01(){
-draw_set_font(fnt_text);
+function xPlayerSceneText01(){
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -66,7 +89,7 @@ if (string_counter >= 5)
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
-	room_goto(rm_lenko_tutorial);
+	room_goto(rm_lenko_farwayRoad_00);
 	obj_player.x = 88;
 	obj_player.y = 92;
 	//Reset Buy/Sell Menu
@@ -77,7 +100,7 @@ if (string_counter >= 5)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

@@ -40,7 +40,7 @@
   "origin": 9,
   "parent": {
     "name": "Masgar",
-    "path": "folders/Sprites/Enemy/Lenko/Ghost/Masgar.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Ghost/Masgar.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

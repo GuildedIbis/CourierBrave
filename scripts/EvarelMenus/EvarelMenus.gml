@@ -5,192 +5,160 @@
 //
 //
 //Evarel Selected Menu
-function EvarelSelectedMenu(){
+function scr_menu_evarel(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _scriptList = array_create(4,-1)
+_scriptList[0] = scr_menu_evarel_armor;
+_scriptList[1] = scr_menu_evarel_weapon;
+_scriptList[2] = scr_menu_evarel_primary;
+_scriptList[3] = scr_menu_evarel_special;
 
+//Right-hand Menu and Buttons
+draw_sprite(spr_menu_rope,3,176,77);
+draw_sprite(spr_menu_rope,3,262,77);
+draw_sprite(spr_menu_rope,3,176,99);
+draw_sprite(spr_menu_rope,3,262,99);
+draw_sprite_stretched(spr_menu_beveled,3,166,35,110,44);
+draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
+draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
+draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
+draw_sprite_stretched(spr_menu_beveled,3,226,127,24,16);
+draw_sprite_stretched(spr_menu,8,161,35,120,16);
+draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
 
-//Skill Select Buttons Mechanics
-if (point_in_rectangle(_mouseX,_mouseY,69,62,89,82))//Armor Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,68,61,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = EvarelForestTunicMenu;
-		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,112,62,132,82))//Weapon Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,111,61,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = EvarelDaggerDashMenu;
-		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,69,85,89,105))//Magic Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,68,84,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = EvarelBristlerodMenu;
-		
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,112,85,132,105)) and (obj_inventory.form_grid[# 1, 8] > 0)//Special Skill
-{
-	draw_sprite_stretched(spr_highlight_circle,1,111,84,22,22)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		selected_info = EvarelThornriseMenu;
-		
-	}
-}
-
-//Button Text
+//Title
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_transformed(114,46,"EVAREL",.6,.6,0);
-if (obj_player.cursed = false) draw_text_transformed(90,113,"EQUIP",.35,.35,0);
-else draw_text_transformed(90,113,"CURSED",.35,.35,0);
-draw_text_transformed(178,113,"LEVEL",.35,.35,0);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(113,46,"EVAREL",.6,.6,0);
-if (obj_player.cursed = false) draw_text_transformed(89,113,"EQUIP",.35,.35,0);
-else draw_text_transformed(89,113,"CURSED",.35,.35,0);
-draw_text_transformed(177,113,"LEVEL",.35,.35,0);
+draw_text_transformed(101,39,"EVAREL",1,1,0);
 
-//Skills sprites
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 6],89,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 5],132,67);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 7],89,90);
-draw_sprite(spr_menu_inventoryForm_level,obj_inventory.form_grid[# 4, 8],132,90);
-draw_sprite_stretched(spr_menu_circle16,1,69,62,20,20);
-draw_sprite_stretched(spr_menu_circle16,1,112,62,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,69,85,20,20)
-draw_sprite_stretched(spr_menu_circle16,1,112,85,20,20)
-draw_sprite(spr_armor_allGame,4,63,61);
-draw_sprite(spr_weapons_allGame,4,106,62);
-draw_sprite(spr_magic_allGame,4,63,85);
-draw_sprite(spr_special_allGame,4,106,85);
+for (var i = 0; i < 4; i = i + 1)
+{
+	var _originX = 50 + (26 * i);
+	var _originY = 53;
+	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))
+	{
+		draw_sprite_stretched(spr_highlight_circle,1,_originX-1,_originY-1,23,23)
+		if (mouse_check_button_pressed(mb_left))
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+			selected_info = _scriptList[i];
+		
+		}
+	}
+}
+
 
 
 //Draw Right Hand Menu
-if (selected_info != -1) script_execute(selected_info)
-
+if (selected_info != -1)
+{
+	script_execute(selected_info)
+}
+else
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed(222,39,"SELECT A SKILL",1,1,0);
+	draw_text_transformed(222,56,"SKILL DESCRIPTION",.5,.5,0); 
+	draw_text_transformed(222,91,"LEVEL",.5,.5,0); 
+	draw_text_transformed(222,112,"VALUE",.5,.5,0);
+}
 }//
 //
 //
 //
 //
 //Draw Evarel Weapon Menu in Inventory
-function EvarelDaggerDashMenu(){
+function scr_menu_evarel_weapon(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
-	
-//Main Text
-//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _damage = string(obj_player.might + (7 * obj_inventory.form_grid[# 4, 5]));
-var _cost = string(30);
-draw_set_color(c_black);
-draw_text_transformed(167,46,"DAGGER DASH",.5,.5,0);
-draw_text_transformed(167,56,"A quick short dash in a staight line\nthat deals " + _damage + " for" + _cost + "stamina\nper dash.",.35,.35,0); 
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"DAGGER DASH",.5,.5,0);
-draw_text_transformed(166,56,"A quick short dash in a staight line\nthat deals " + _damage + " for" + _cost + "stamina\nper dash.",.35,.35,0); 
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
 
+//Main Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+var _level = "Level: " + string(obj_inventory.form_grid[# 4, 5]) + " > " + string(obj_inventory.form_grid[# 4, 5]+1);
+var _stat = "Damage: " + string(19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5])) + " > " + string(19 + (9 * obj_player.might) + (7 * (obj_inventory.form_grid[# 4, 5] + 1)));
+var _title = "LENKO DAGGER";
+var _describe = "Dash forward with a dagger for low\ndamage but become briefly invincible\nand use a roll";
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
+	
+	
 //Level	
 switch (obj_inventory.form_grid[# 4, 5])
 {
+	case 0:
+		//draw large weapon sprite
+		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
+			if (mouse_check_button_pressed(mb_left))
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.ps_array[0] >= 1)
+				{
+						audio_sound_gain(snd_text02,global.volumeMenu,1);
+						audio_play_sound(snd_text02,0,false);
+						obj_inventory.form_grid[# 4, 5] = 1;
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
+				}
+			}
+		}
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
+	break;
+	
 	case 1:
 		//draw large weapon sprite
 		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
 			if (mouse_check_button_pressed(mb_left))
 			{
-				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,5,5))
+				if (obj_inventory.rog_array[4] >= 2) and (obj_inventory.ps_array[1] >= 1)
 				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 4, 5] = 2;
-						ItemRemove(obj_inventory, 1, 10);
-						ItemRemove(obj_inventory, 5, 5);
-						ItemRemove(obj_inventory, 10, 1);
-					}
+						obj_inventory.form_grid[# 4, 5] = 1;
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 2;
+						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}
 			}
 		}
-		//draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,1,196,108,16,16);
-		draw_text_transformed(209,121,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,5,214,108,16,16);
-		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,11,5)) and (ItemCheckQuantity(obj_inventory,11,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 4, 5] = 3;
-						ItemRemove(obj_inventory, 11, 5);
-						ItemRemove(obj_inventory, 11, 1);
-						ItemRemove(obj_inventory, 10, 5);
-					}
-				}
-			}
-		}
-		//draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,11,196,108,16,16);
-		draw_text_transformed(209,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,11,214,108,16,16);
-		draw_text_transformed(227,121,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"5",.35,.35,0);	
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
 
@@ -202,105 +170,91 @@ switch (obj_inventory.form_grid[# 4, 5])
 //
 //
 //Draw Evarel Armor Menu in Inventory
-function EvarelForestTunicMenu(){
+function scr_menu_evarel_armor(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
-	
-//Main Text
-//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _armor = string(9 + (5 * (obj_inventory.form_grid[# 4, 6] -1)));
-draw_set_color(c_black);
-draw_text_transformed(167,46,"FOREST TUNIC",.5,.5,0);
-draw_text_transformed(167,56,"A tough green tunic that negates\n" + _armor + "damage of every hit taken.",.35,.35,0);  
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"FOREST TUNIC",.5,.5,0);
-draw_text_transformed(166,56,"A tough green tunic that negates\n" + _armor + "damage of every hit taken.",.35,.35,0); 
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
 
+//Main Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+var _level = "Level: " + string(obj_inventory.form_grid[# 4, 6]) + " > " + string(obj_inventory.form_grid[# 4, 6]+1);
+var _stat = "Negates: " + string(9 + (5 * (obj_inventory.form_grid[# 4, 6]))) + " > " + string(9 + (5 * (obj_inventory.form_grid[# 4, 6] + 1)));
+var _title = "FORESTWARD TUNIC";
+var _describe = "A warded tunic that blocks an\naverage amount of damage.";
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
+	
+	
 //Level	
 switch (obj_inventory.form_grid[# 4, 6])
 {
+	case 0:
+		//draw large weapon sprite
+		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
+			if (mouse_check_button_pressed(mb_left))
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.ps_array[0] >= 1)
+				{
+						audio_sound_gain(snd_text02,global.volumeMenu,1);
+						audio_play_sound(snd_text02,0,false);
+						obj_inventory.form_grid[# 4, 6] = 1;
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
+				}
+			}
+		}
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
+	break;
+	
 	case 1:
 		//draw large weapon sprite
 		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
 			if (mouse_check_button_pressed(mb_left))
 			{
-				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,5,5))
+				if (obj_inventory.rog_array[4] >= 2) and (obj_inventory.ps_array[1] >= 1)
 				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 4, 6] = 2;
-						ItemRemove(obj_inventory, 7, 10);
-						ItemRemove(obj_inventory, 5, 5);
-						ItemRemove(obj_inventory, 10, 1);
-					}
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 2;
+						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}
 			}
 		}
-		//draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,7,196,108,16,16);
-		draw_text_transformed(209,121,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,5,214,108,16,16);
-		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,11,5)) and (ItemCheckQuantity(obj_inventory,11,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 4, 6] = 3;
-						ItemRemove(obj_inventory, 11, 5);
-						ItemRemove(obj_inventory, 11, 1);
-						ItemRemove(obj_inventory, 10, 5);
-					}
-				}
-			}
-		}
-		//draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,11,196,108,16,16);
-		draw_text_transformed(209,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,11,214,108,16,16);
-		draw_text_transformed(227,121,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"5",.35,.35,0);
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
-
 
 }
 //
@@ -309,54 +263,60 @@ switch (obj_inventory.form_grid[# 4, 6])
 //
 //
 //Draw Halofire Meteor Menu in Inventory
-function EvarelBristlerodMenu(){
+function scr_menu_evarel_primary(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
-	
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
+
 //Main Text
 if (page = 0)
 {
-	//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-	draw_set_halign(fa_left);
+	//Main Text
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
-	var _damage = string(obj_player.grace + ((obj_inventory.form_grid[# 4, 7])));
-	var _cost = string(20);
-	draw_set_color(c_black);
-	draw_text_transformed(167,46,"BRISTLEROD",.5,.5,0);
-	draw_text_transformed(167,56,"A projectile that does more damage\nthe further it travels, starting at\n" + _damage + " and costing " + _cost + " charge each.\nFires after a .5 sec windup.",.35,.35,0);  
-	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"BRISTLEROD",.5,.5,0);
-	draw_text_transformed(166,56,"A projectile that does more damage\nthe further it travels, starting at\n" + _damage + " and costing " + _cost + " charge each.\nFires after a .5 sec windup.",.35,.35,0); 
+	var _level = "Level: " + string(obj_inventory.form_grid[# 4, 7]) + " > " + string(obj_inventory.form_grid[# 4, 7]+1);
+	var _stat = "Damage: " + string(30 + (16 * obj_player.grace) + (obj_inventory.form_grid[# 4, 7])+1) + "+ > " + string(30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7]+2))) + "+";
+	var _title = "BRISTLE ROD";
+	var _describe = "Fire a projectile that has a long wind-\nup time, but does high damage that\nincreases over distance traveled";
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 if (page = 1)
 {
-//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-	draw_set_halign(fa_left);
+	//Main Text
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
-	draw_set_font(fnt_text);
-	var _damage = string(round(obj_player.grace/4) + (5 + (obj_inventory.form_grid[# 0, 7]-1)*(5)));
-	var _cost = string(10);
-	draw_set_color(c_black);
-	draw_text_transformed(167,46,"REFLEX THORN",.5,.5,0);
-	draw_text_transformed(167,56,"A burst of three thorns that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand bounce off solid objects.",.35,.35,0);  
-	//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-	//draw_text_transformed(167,95,_health,.35,.35,0); 
 	draw_set_color(c_white);
-	draw_text_transformed(166,46,"REFLEX THORN",.5,.5,0);
-	draw_text_transformed(166,56,"A burst of three thorns that deal\n" + _damage + "damage and cost " + _cost + " charge each,\nand bounce off solid objects.",.35,.35,0); 
+	var _level = "Level: " + string(obj_inventory.form_grid[# 4, 7]) + " > " + string(obj_inventory.form_grid[# 4, 7]+1);
+	var _stat = "Damage: " + string(10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*5)) + " > " + string(10 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*5));
+	var _title = "REFLEX THORN";
+	var _describe = "Fire a burst of projectiles that\nbounce off of hard surfaces.";
+	draw_text_transformed(_midX,_titleY,_title,1,1,0);
+	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
 }
 
 //Alt Magic
-if (obj_inventory.quest_grid[# 13, 3] = true)
+if (obj_inventory.quest_grid[# 35, 3] = true)
 {
-	draw_sprite_stretched(spr_menu,3,234,90,10,10);
-	draw_text_transformed(236,90,"A",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,234,90,244,100))
+	draw_sprite_stretched(spr_menu_circle16,3,277,55,16,16);
+	if (page = 0) draw_sprite_ext(spr_primaryAlt_allGame,4,269,55,1,1,0,c_white,1);
+	if (page = 1) draw_sprite_ext(spr_primary_allGame,4,269,55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,277,55,293,71))
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,232,88,14,14)
+		draw_sprite_stretched(spr_highlight_circle,0,276,54,18,18)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			audio_sound_gain(snd_text02,global.volumeMenu,1);
@@ -368,86 +328,66 @@ if (obj_inventory.quest_grid[# 13, 3] = true)
 }
 else page = 0;
 
+
 //Level	
 switch (obj_inventory.form_grid[# 4, 7])
 {
+	case 0:
+		//draw large weapon sprite
+		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
+			if (mouse_check_button_pressed(mb_left))
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.ps_array[0] >= 1)
+				{
+						audio_sound_gain(snd_text02,global.volumeMenu,1);
+						audio_play_sound(snd_text02,0,false);
+						obj_inventory.form_grid[# 4, 7] = 1;
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
+				}
+			}
+		}
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
+	break;
+	
 	case 1:
 		//draw large weapon sprite
 		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
 			if (mouse_check_button_pressed(mb_left))
 			{
-				if (ItemCheckQuantity(obj_inventory,1,10)) and (ItemCheckQuantity(obj_inventory,2,5))
+				if (obj_inventory.rog_array[4] >= 2) and (obj_inventory.ps_array[1] >= 1)
 				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 4, 7] = 2;
-						ItemRemove(obj_inventory, 1, 10);
-						ItemRemove(obj_inventory, 2, 5);
-						ItemRemove(obj_inventory, 10, 1);
-					}
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 2;
+						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}
 			}
 		}
-		//draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,1,196,108,16,16);
-		draw_text_transformed(209,121,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,2,214,108,16,16);
-		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,11,5)) and (ItemCheckQuantity(obj_inventory,11,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 4, 7] = 3;
-						ItemRemove(obj_inventory, 11, 5);
-						ItemRemove(obj_inventory, 11, 1);
-						ItemRemove(obj_inventory, 10, 5);
-					}
-				}
-			}
-		}
-		//draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,11,196,108,16,16);
-		draw_text_transformed(209,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,11,214,108,16,16);
-		draw_text_transformed(227,121,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"5",.35,.35,0);
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
-
 
 }
 //
@@ -456,104 +396,89 @@ switch (obj_inventory.form_grid[# 4, 7])
 //
 //
 //Draw Halofire Special Menu in Inventory
-function EvarelThornriseMenu(){
+function scr_menu_evarel_special(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);	
-	
-//Main Text
-//draw_sprite_stretched(spr_menu_player_stat,0,196,64,30,30);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_text);
-var _damage = string(round(obj_player.grace/3) + (4 * (obj_inventory.form_grid[# 4, 8])));
-draw_set_color(c_black);
-draw_text_transformed(167,46,"THORN RISE",.5,.5,0);
-draw_text_transformed(167,56,"Summon thorns in an area around\nthe courier, dealing " + _damage + "up to 4 times\na second",.35,.35,0);  
-//draw_text_transformed(167,87,_vitLevel,.35,.35,0); 
-//draw_text_transformed(167,95,_health,.35,.35,0); 
-draw_set_color(c_white);
-draw_text_transformed(166,46,"THORN RISE",.5,.5,0);
-draw_text_transformed(166,56,"Summon thorns in an area around\nthe courier, dealing " + _damage + "up to 4 times\na second",.35,.35,0); 
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _lvlY = 91;
+var _statY = 112;
+var _buttonY = 127;
 
+//Main Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+var _level = "Level: " + string(obj_inventory.form_grid[# 4, 8]) + " > " + string(obj_inventory.form_grid[# 4, 8]+1);
+var _stat = "Damage: " + string(11 + (obj_player.divinity * 6) + (4 * (obj_inventory.form_grid[# 4, 8]))) + " > " + string(11 + (obj_player.divinity * 6) + (4 * (obj_inventory.form_grid[# 4, 8] + 1)));
+var _title = "THORNROOT RISE";
+var _describe = "Summon a group of thorns from beneath\nthe Courier dealing continual damage\nin an area.";
+draw_text_transformed(_midX,_titleY,_title,1,1,0);
+draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
+draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
+draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
+	
+	
 //Level	
 switch (obj_inventory.form_grid[# 4, 8])
 {
+	case 0:
+		//draw large weapon sprite
+		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
+			if (mouse_check_button_pressed(mb_left))
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.ps_array[0] >= 1)
+				{
+						audio_sound_gain(snd_text02,global.volumeMenu,1);
+						audio_play_sound(snd_text02,0,false);
+						obj_inventory.form_grid[# 4, 8] = 1;
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
+				}
+			}
+		}
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
+	break;
+	
 	case 1:
 		//draw large weapon sprite
 		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
+		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
+			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
 			if (mouse_check_button_pressed(mb_left))
 			{
-				if (ItemCheckQuantity(obj_inventory,7,10)) and (ItemCheckQuantity(obj_inventory,15,5))
+				if (obj_inventory.rog_array[4] >= 2) and (obj_inventory.ps_array[1] >= 1)
 				{
-					if (ItemCheckQuantity(obj_inventory,10,1))
-					{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
 						obj_inventory.form_grid[# 4, 8] = 2;
-						ItemRemove(obj_inventory, 7, 10);
-						ItemRemove(obj_inventory, 15, 5);
-						ItemRemove(obj_inventory, 10, 1);
-					}
+						obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 2;
+						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}
 			}
 		}
-		//draw_sprite_stretched(spr_menu,3,107,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,107,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,7,196,108,16,16);
-		draw_text_transformed(209,121,"10",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,15,214,108,16,16);
-		draw_text_transformed(227,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"1",.35,.35,0);	
-	break;
-	
-	case 2:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,112,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,161,108,193,124))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,159,106,36,20)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (ItemCheckQuantity(obj_inventory,11,5)) and (ItemCheckQuantity(obj_inventory,11,1))
-				{
-					if (ItemCheckQuantity(obj_inventory,10,5))
-					{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 4, 8] = 3;
-						ItemRemove(obj_inventory, 11, 5);
-						ItemRemove(obj_inventory, 11, 1);
-						ItemRemove(obj_inventory, 10, 5);
-					}
-				}
-			}
-		}
-		//draw_sprite_stretched(spr_menu,3,124,78,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,95,10,7);
-		//draw_sprite_stretched(spr_menu,3,124,112,10,7);
-		draw_sprite_stretched(spr_item_box,1,196,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,214,108,16,16);
-		draw_sprite_stretched(spr_item_box,1,232,108,16,16);
-		//draw items and quantity needed
-		
-		draw_sprite_stretched(spr_item_all,11,196,108,16,16);
-		draw_text_transformed(209,121,"5",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,11,214,108,16,16);
-		draw_text_transformed(227,121,"1",.35,.35,0);
-		draw_sprite_stretched(spr_item_all,10,232,108,16,16);
-		draw_text_transformed(245,121,"5",.35,.35,0);	
+
+		draw_sprite_stretched(spr_rog_all,4,234,127,16,16);
+		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
+		draw_set_halign(fa_center);
+		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[4])+")",.5,.5,0);
+		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
 	break;
 }
-
-
 }

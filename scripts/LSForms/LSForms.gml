@@ -6,7 +6,7 @@
 //
 //Load Form Stats
 //Path: obj_game > event Key Pressed "L"
-function LoadForms(_loadEntity){
+function scr_load_forms(_loadEntity){
 
 //Load Form Stats
 if (variable_struct_exists(_loadEntity,"form04")) obj_inventory.form_grid[# 0, 4] = _loadEntity.form04;
@@ -42,7 +42,7 @@ if (variable_struct_exists(_loadEntity,"form48")) obj_inventory.form_grid[# 4, 8
 //
 //Save Form Stats
 //Path: obj_game > event Key Pressed "K"
-function SaveForms(_saveData){
+function scr_save_forms(_saveData){
 //
 //
 //What To Save As : What to Save

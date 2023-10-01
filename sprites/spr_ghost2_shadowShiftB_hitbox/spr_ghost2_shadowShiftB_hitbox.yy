@@ -41,7 +41,7 @@
   "origin": 9,
   "parent": {
     "name": "Ghost",
-    "path": "folders/Sprites/Enemy/Lenko/Ghost.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Ghost.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

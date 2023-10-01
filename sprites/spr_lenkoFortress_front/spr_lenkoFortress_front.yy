@@ -48,8 +48,8 @@
   },
   "origin": 9,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "BeaowireEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -14,7 +14,9 @@ enemy_move = spr_enemy_trapLily;
 enemy_damaged = spr_enemy_trapLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
-shadow = 1;
+form_type = 1;
+shadow = true;
+shadow_size = 1;
 lit = false;
 light_size = 18;
 targeted = false;
@@ -26,7 +28,7 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 105;
+max_hp = 80;
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -141,6 +143,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			script_execute(ViceBubbleCreate);
+			damage = 45;
 			direction =  point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -196,32 +199,73 @@ if (obj_game.gamePaused = false)
 //
 //Sabi Drop
 function TrapLilyDrop(){
-var _objects = 2;
-var _dropBean = 35;
+var _objects = 6;
+//var _dropBean = 35;
 var _drop1 = irandom_range(0,99)	
-var _angle = random(360);
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
-
-
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 94) 
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 3)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 4;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
+}
+if (_drop1 >= 3) and (_drop1 < 6)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = (360/_objects * 5) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop2 < 3)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl - 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
 

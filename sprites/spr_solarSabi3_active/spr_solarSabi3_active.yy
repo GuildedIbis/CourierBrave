@@ -39,8 +39,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Interactables",
-    "path": "folders/Sprites/World/Interactables.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Entity/NPC/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

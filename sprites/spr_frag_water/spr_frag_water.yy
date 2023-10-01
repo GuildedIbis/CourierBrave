@@ -26,10 +26,10 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"279566d5-8775-4af0-8be7-b99436d6d88e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 0,
+  "origin": 4,
   "parent": {
     "name": "Fragments",
-    "path": "folders/Sprites/World/Fragments.yy",
+    "path": "folders/Sprites/Effects/Fragments.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -65,8 +65,8 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 0,
-    "yorigin": 0,
+    "xorigin": 4,
+    "yorigin": 4,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

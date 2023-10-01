@@ -2,6 +2,9 @@ if (obj_game.gamePaused = false)
 {
 	
 	depth = -y;
-	script_execute(projectile_script);
+	if (projectile_script != -1)
+	{
+		script_execute(projectile_script);
+	}
 }
 else speed = 0;

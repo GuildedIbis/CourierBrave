@@ -54,7 +54,7 @@
   "origin": 9,
   "parent": {
     "name": "Dusk",
-    "path": "folders/Sprites/Enemy/Other/Dusk.yy",
+    "path": "folders/Sprites/Entity/Enemy/Other/Dusk.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

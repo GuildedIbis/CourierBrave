@@ -1,8 +1,3 @@
 //Collision With Player
-if (keyboard_check_pressed(ord("E")))
-{
-	if (ItemsAdd(obj_inventory,item_id,amount) = true)
-	{
-		instance_destroy();
-	}
-}
+obj_inventory.resource_array[item_id] = obj_inventory.resource_array[item_id] + amount;
+instance_destroy();

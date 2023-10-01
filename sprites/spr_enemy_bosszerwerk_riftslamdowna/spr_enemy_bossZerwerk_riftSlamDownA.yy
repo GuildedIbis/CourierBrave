@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_bossZerwerk_riftSlamDownA",
   "bbox_bottom": 63,
-  "bbox_left": 41,
+  "bbox_left": 39,
   "bbox_right": 56,
   "bbox_top": 50,
   "bboxMode": 2,
@@ -42,7 +42,7 @@
   "origin": 9,
   "parent": {
     "name": "Zerwerk",
-    "path": "folders/Sprites/Enemy/Lenko/Yakflower/Zerwerk.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Zerwerk.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -89,7 +89,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 48,
-    "yorigin": 65,
+    "yorigin": 64,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

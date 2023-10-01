@@ -30,7 +30,7 @@
   "origin": 4,
   "parent": {
     "name": "Enraged Moth",
-    "path": "folders/Sprites/Enemy/Lenko/Yakflower/Enraged Moth.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Yakflower/Enraged Moth.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

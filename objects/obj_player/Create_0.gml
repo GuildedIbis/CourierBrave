@@ -1,5 +1,6 @@
 //Create
-
+gameplay_timer = 60;
+time_played = 0;
 
 //Initialize Controls
 key_left = keyboard_check(ord("A"));
@@ -33,16 +34,20 @@ dmg_snd = snd_player_hit;
 dmg_snd_delay = 0;
 
 
-//Scripts
+//Scripts and Movement
 state_script = Idle;
 free_script = Idle;
 attack_script = Idle;
+scene_script = -1;
 tracking_quest = Idle;
 attacking = false;
 hit_by_attack = -1;
 hor_spd = 0;
 ver_spd = 0;
 damage = 0;
+walk_spd = 1.75;
+roll_spd = 3;
+roll_dist = 64;
 
 //Standard Timers
 stamina_timer = 0;
@@ -53,34 +58,51 @@ weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats
-vitality = 20; //added to health
-//energy = 20; //max_roll_timer = 180 - stamina
-might = 20; //added to weapon damage
-grace = 20; //the base to weapon damage
-max_crull_stone = 1;
-crull_level = 1;
-armor = 0; //negates damage in enemy damage calc
+vitality = 0; //HTH 
+iteration = 0; //CRL
+conviction = 0; //CRG
+might = 0; //WPN
+grace = 0; //CST
+divinity = 0; //SPC
+energy = 0; //RLL
+receptivity = 0; //AMT
 
-//Other Stats 
-beans = 0;
-max_hp = 150;
-walk_spd = 1.75;
-roll_spd = 3;
-roll_dist = 64;
-charge = 50 + (3* (grace + round(grace/15)));
-max_charge = 50 + (3* (grace + round(grace/15)));
-stamina = 50 + (3* (might + round(might/15)));
-max_stamina = 50 + (3* (might + round(might/15)));
-special = 1000;
-max_special = 1000;
-max_hp = 150 + (3* (vitality + round(vitality/15)));
-hp = max_hp;
-crull_stone = max_crull_stone;
-//magic_count = max_magic_count;
+//Effected Max Stats
+crull_ary = array_create(11,-1);
+crull_ary[0] = 0;
+crull_selected = 0;
+crull_count = iteration + 1;
+max_hp = 200 + (20 * vitality);
+max_charge = 100 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
+max_stamina = 100 + (50 * energy);
+
+//Set Player Current Stats
+hp = max_hp
+stamina = max_stamina;
+armor = 0; //negates damage in enemy damage calc
+//Color Specific Crystal
+selected_primary = -1;
+yellow_primary = max_charge;
+blue_primary = max_charge;
+purple_primary = max_charge;
+red_primary = max_charge;
+green_primary = max_charge;
+orange_primary = max_charge;
+//Color Specific Special
+selected_special = -1;
+yellow_special = max_charge;
+blue_special = max_charge;
+purple_special = max_charge;
+red_special = max_charge;
+green_special = max_charge;
+orange_special = max_charge;
+
+
 
 //Status
 status_animate_timer = 0;
 status_animate_index = 0;
+shadow = true;
 scene = false;
 dead = false;
 ablaze = false;
@@ -106,4 +128,4 @@ break_object = obj_break;
 //
 //
 //Form Script (Default Regaliare)
-script_execute(RegaliareSet);
+scr_player_regaliare_set();

@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Retired",
-    "path": "folders/Sprites/Enemy/Other/Retired.yy",
+    "path": "folders/Sprites/Entity/Enemy/Other/Retired.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

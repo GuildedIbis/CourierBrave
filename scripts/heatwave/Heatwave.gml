@@ -4,9 +4,9 @@
 //
 //
 //
-//Rat Arrow Create
-function HeatwaveCreate(){
-home_state = HeatwaveFree;
+//Heatwave Create
+function scr_projectile_heatwave_create(){
+home_state = scr_projectile_heatwave;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -19,7 +19,7 @@ timer1 = 0;
 enemy_spd = 3.0
 local_frame = 0;
 hit_by_attack = -1;
-damage = 40;
+damage = 40 + (8 * enemy_lvl);
 dir_wave = false;
 }
 //
@@ -27,8 +27,8 @@ dir_wave = false;
 //
 //
 //
-//Rat Arrow Free
-function HeatwaveFree(){
+//Heatwave Free
+function scr_projectile_heatwave(){
 if (obj_game.gamePaused = false)
 {
 if (timer1 > 0)timer1 = timer1 -1;
@@ -82,8 +82,8 @@ else
 //
 //
 //Endire Knight Inimar Heatacer Create
-function HeatacerCreate(){
-home_state = HeatacerFree;
+function scr_projectile_heatacer_create(){
+home_state = scr_projectile_heatacer;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -93,10 +93,10 @@ healthbar = false;
 bullet = true;
 aggro_drop = 300;
 timer1 = 30;
-enemy_spd = 3.0
+enemy_spd = 1.5
 local_frame = 0;
 hit_by_attack = -1;
-damage = 50;
+damage = 30 + (8 * enemy_lvl);
 dir_wave = false;
 }
 //
@@ -104,8 +104,8 @@ dir_wave = false;
 //
 //
 //
-//Rat Arrow Free
-function HeatacerFree(){
+//Heatacer Free
+function scr_projectile_heatacer(){
 if (obj_game.gamePaused = false)
 {
 if (timer1 > 0)timer1 = timer1 -1;

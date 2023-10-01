@@ -6,8 +6,11 @@
 //
 //Load Game State
 //Path: Activated at Home Screen
-function LoadGameState(_loadEntity){
+function scr_load_gamestate(_loadEntity){
 //Load Maps
+//if (variable_struct_exists(_loadEntity,"timePlayed")) obj_game.time_played = _loadEntity.timePlayed;
+//if (variable_struct_exists(_loadEntity,"timePlayed2")) obj_game.time_played2 = _loadEntity.timePlayed2;
+//if (variable_struct_exists(_loadEntity,"timePlayed3")) obj_game.time_played3 = _loadEntity.timePlayed3;
 if (variable_struct_exists(_loadEntity,"dayTimer")) obj_game.day_timer = _loadEntity.dayTimer;
 if (variable_struct_exists(_loadEntity,"dayPhase")) global.dayPhase = _loadEntity.dayPhase;
 
@@ -35,11 +38,14 @@ if (variable_struct_exists(_loadEntity,"crullM002")) obj_inventory.crullM_list[2
 //
 //Save Game State
 //Path: Activated by Doors
-function SaveGameState(_saveData){
+function scr_save_gamestate(_saveData){
 	
 var _saveInv = 
 {
 //Save Maps
+//timePlayed : obj_game.time_played,
+//timePlayed2 : obj_game.time_played2,
+//timePlayed3 : obj_game.time_played3,
 dayTimer : obj_game.day_timer,
 dayPhase : global.dayPhase,
 

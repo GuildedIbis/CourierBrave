@@ -5,8 +5,8 @@
 //
 //
 //White Crescent Create
-function WhiteCrescentCreate(){
-home_state = WhiteCrescentFree;
+function scr_projectile_whiteCrescent_create(){
+home_state = scr_projectile_whiteCrescent_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -22,7 +22,7 @@ timer1 = 150;
 enemy_spd = 1.2
 local_frame = 0;
 hit_by_attack = -1;
-damage = 35;
+damage = 45 + (8 * enemy_lvl);
 hp = 60;
 max_hp = 60;
 }
@@ -32,7 +32,7 @@ max_hp = 60;
 //
 //
 //White Crescent Free
-function WhiteCrescentFree(){
+function scr_projectile_whiteCrescent_free(){
 if (obj_game.gamePaused = false)
 {
 	timer1 = timer1 - 1;

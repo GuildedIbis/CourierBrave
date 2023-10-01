@@ -14,9 +14,9 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ceb59f76-f77f-416b-bf7e-0582f4a59e04",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"20c29791-11cc-4f7a-a50c-8df67cf9a636",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a8d1f8d8-d616-463b-9181-57b8587c7c0a",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fecb81e7-bc3c-4705-9b56-22c7be63c05c",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a8d1f8d8-d616-463b-9181-57b8587c7c0a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"20c29791-11cc-4f7a-a50c-8df67cf9a636",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"61e1064a-eb58-4b47-ad7a-3e2abdf1b9bb",},
   ],
   "gridX": 0,
@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Interactables",
-    "path": "folders/Sprites/World/Interactables.yy",
+    "name": "Altars",
+    "path": "folders/Sprites/Effects/Interactables/Altars.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -60,16 +60,16 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ceb59f76-f77f-416b-bf7e-0582f4a59e04","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"d59692b9-e8b4-4ec5-ab7d-2244c1cc8a9d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"20c29791-11cc-4f7a-a50c-8df67cf9a636","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"7fa03357-866a-47cd-89f9-019222924bd4","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"fecb81e7-bc3c-4705-9b56-22c7be63c05c","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"f67f8af9-a5e6-4e7b-be2b-e93791be06aa","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a8d1f8d8-d616-463b-9181-57b8587c7c0a","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"dac4dc47-8026-4ef1-9a69-a3a25f437d8d","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"fecb81e7-bc3c-4705-9b56-22c7be63c05c","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"f67f8af9-a5e6-4e7b-be2b-e93791be06aa","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"20c29791-11cc-4f7a-a50c-8df67cf9a636","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"7fa03357-866a-47cd-89f9-019222924bd4","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"61e1064a-eb58-4b47-ad7a-3e2abdf1b9bb","path":"sprites/spr_form_pedestal/spr_form_pedestal.yy",},},},"Disabled":false,"id":"1444aae2-1f44-4dea-9ebd-09f485332ca4","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 16,
-    "yorigin": 29,
+    "yorigin": 28,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

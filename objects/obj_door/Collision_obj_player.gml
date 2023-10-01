@@ -5,6 +5,7 @@ if (locked = true)
 }
 if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboard_check_pressed(ord("E")))
 {
+	//show_debug_message(string(obj_player.break_object))
 	if (locked = false) and (global.aggroCounter <= 0)
 	{
 		if (room_num != -1)
@@ -16,13 +17,20 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 			obj_game.room_name_timer = 180;
 			if (room_enemy_grid != -1) obj_game.room_enemy_grid = room_enemy_grid;
 		}
+		if (level_num != -1) 
+		{
+			obj_game.level_num = level_num;
+			obj_game.level_name = obj_inventory.level_name[level_num];
+			obj_game.level_name_timer = 180;
+			obj_inventory.level_ary[level_num] = true;
+		}
 		global.targetX = target_x;
 		global.targetY = target_y;
 		global.targetRoom = target_room;
 		global.targetCamp = target_camp;
 		if (target_camp = true)
 		{
-			script_execute(RoomEnemiesReset);
+			scr_game_room_enemy_reset();
 			global.lastCamp = target_room;
 			global.lastCampX = target_x;
 			global.lastCampY = target_y;

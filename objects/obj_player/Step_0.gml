@@ -1,4 +1,10 @@
 //Step
+gameplay_timer = gameplay_timer - 1;
+if (gameplay_timer <= 0)
+{
+	gameplay_timer = 60;
+	time_played = time_played = 1;
+}
 
 //Update Controls
 key_left = keyboard_check(ord("A"));
@@ -21,17 +27,19 @@ flash = max(flash-0.05,0);
 if (obj_game.gamePaused = false)
 {
 	script_execute(state_script);
+	scr_player_crull_select();
 	depth = -y;
 	if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
+	
 }
 
 //Death
 if (hp <= 0)
 {
 
-	state_script = PlayerDeath;
-	script_execute(RoomEnemiesReset);
+	state_script = scr_player_death;
+	scr_game_room_enemy_reset();
 }
 
 //Status Effects
-StatusEffects();
+scr_entity_status_effects();

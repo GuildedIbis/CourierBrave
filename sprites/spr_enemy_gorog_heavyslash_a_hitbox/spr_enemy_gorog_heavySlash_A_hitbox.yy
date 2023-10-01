@@ -63,7 +63,7 @@
   "origin": 9,
   "parent": {
     "name": "Gorog",
-    "path": "folders/Sprites/Enemy/Lenko/Balurne Rats/Gorog.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Balurne Rats/Gorog.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

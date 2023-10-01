@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "Ofa",
-    "path": "folders/Sprites/Enemy/Lenko/Yakflower/Ofa.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Yakflower/Ofa.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

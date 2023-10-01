@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_endireKnight_fireStrike",
   "bbox_bottom": 39,
-  "bbox_left": 28,
-  "bbox_right": 36,
-  "bbox_top": 26,
+  "bbox_left": 29,
+  "bbox_right": 35,
+  "bbox_top": 33,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -64,7 +64,7 @@
   "origin": 9,
   "parent": {
     "name": "EndireKnight",
-    "path": "folders/Sprites/Enemy/Lenko/EndireKnight.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/EndireKnight.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

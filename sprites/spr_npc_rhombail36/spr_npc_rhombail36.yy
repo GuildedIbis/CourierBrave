@@ -27,7 +27,7 @@
   "origin": 9,
   "parent": {
     "name": "Portrait36",
-    "path": "folders/Sprites/NPC/Portrait36.yy",
+    "path": "folders/Sprites/Entity/NPC/Portrait36.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

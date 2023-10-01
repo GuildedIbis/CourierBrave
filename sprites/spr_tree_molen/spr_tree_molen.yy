@@ -22,14 +22,15 @@
   "height": 64,
   "HTile": false,
   "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"560cfab8-6892-4117-97d4-f39c29d36f4d","blendMode":0,"displayName":"Layer 2","isLocked":false,"opacity":50.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6a990805-0285-4c42-aaea-f21bbe6c6132","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7cda3a4b-1ad8-4eda-b5a8-f30c0ac80530","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "zOtherAll",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/zOtherAll.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

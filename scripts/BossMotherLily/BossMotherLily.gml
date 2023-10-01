@@ -19,7 +19,8 @@ enemy_idle = spr_enemy_motherLily;
 enemy_move = spr_enemy_motherLily_move;
 damaged_snd = snd_motherLily_damaged;
 walk_snd = snd_walk_water;
-shadow = 2;
+shadow = false;
+shadow_size = 3;
 lit = false;
 light_size = 48;
 aggro_drop = 300;
@@ -27,7 +28,8 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 950;
+form_type = 1;
+max_hp = 1450;
 hp = max_hp;
 boss = true;
 enemy_spd = 1.1;
@@ -173,10 +175,11 @@ if (obj_game.gamePaused = false)
 		//Walk Sound
 		if (walk_snd_delay <= 0)
 		{
-			walk_snd_delay = 60;
+			walk_snd_delay = 600;
 			audio_play_sound(walk_snd,1,0);
 			with (instance_create_layer(x,y,"Instances",obj_effect))
 			{
+				timer1 = 1200;
 				sprite_index = spr_enemy_motherLily_viceEffect;
 				effect_script = EffectWaterVice;
 				image_xscale = choose(-1,1);
@@ -466,6 +469,8 @@ if (obj_game.gamePaused = false)
 //Effect Water Vice
 function EffectWaterVice(){
 damage = 5 + obj_player.might;
+timer1 = timer1 - 1;
+if (timer1 <= 0) instance_destroy();
 if (sprite_index != spr_enemy_motherLily_viceEffect)
 {
 	sprite_index = spr_enemy_motherLily_viceEffect;
@@ -483,9 +488,9 @@ if (place_meeting(x,y,obj_player))
 			audio_play_sound(snd_player_hit,0,false);
 			flash = .35;
 			hp = hp - other.damage;
-			with (other) instance_destroy();
 		}
 	}
+	instance_destroy();
 }
 }
 //
@@ -495,76 +500,92 @@ if (place_meeting(x,y,obj_player))
 //
 //Mother Lily Drop
 function BossMotherLilyDrop(){
-var _objects = 3;
-var _dropBean = 250;
+var _objects = 6;
+//var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
-var _drop2 = irandom_range(0,99)
-var _drop3 = irandom_range(0,99)
-var _angle = random(360);
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
 
-
-with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = _dropBean;
-	sprite_index = spr_bean;
-	direction = _angle/_objects;
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 > 0) 
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 50)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 2;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects;
+		direction = (360/_objects * 4) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop2 > 0) 
+if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = 4;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
 		image_index = item_id;
-		direction = _angle/_objects * 2;
+		direction = (360/_objects * 5) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
 	
 }
-if (_drop3 > 50) 
+if (_drop2 > 49)
 {
-	with (instance_create_layer(x,y,"Instances",obj_item))
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
-		item_id = 16;
-		amount = 1;
-		sprite_index = spr_item_all;
+		item_id = other.enemy_lvl;
+		sprite_index = spr_powerstone_all;
 		image_index = item_id;
-		direction = _angle/_objects * 3;
+		direction = (360/_objects * 6) + _angle;
 		spd = .75 + (.3) + random(0.1);
 	}
-	
 }
+
+
 //else instance_create_layer(x,y,"Instances",_objects[0])
-obj_inventory.habraf_lair[4] = 2;
-if (obj_inventory.quest_grid[# 9, 3] = false)
-{
-	obj_player.beans = obj_player.beans + 1000;
-	obj_inventory.quest_grid[# 9, 0] = true;
-	obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
-	obj_inventory.quest_grid[# 9, 3] = true;
-	//obj_inventory.form_grid[# 1, 4] = true;
-	with (obj_text)
-	{
-		text_script = MotherLilyVictoryText;
-	}
-	obj_game.gamePaused = !obj_game.gamePaused;
-	obj_game.textPaused = !obj_game.textPaused;
-}
+//obj_inventory.habraf_lair[4] = 2;
+//if (obj_inventory.quest_grid[# 9, 3] = false)
+//{
+//	obj_inventory.beans = obj_inventory.beans + 1000;
+//	obj_inventory.quest_grid[# 9, 0] = true;
+//	obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
+//	obj_inventory.quest_grid[# 9, 3] = true;
+//	//obj_inventory.form_grid[# 1, 4] = true;
+//	with (obj_text)
+//	{
+//		text_script = MotherLilyVictoryText;
+//	}
+//	obj_game.gamePaused = !obj_game.gamePaused;
+//	obj_game.textPaused = !obj_game.textPaused;
+//}
 	
 }
 //
@@ -575,7 +596,7 @@ if (obj_inventory.quest_grid[# 9, 3] = false)
 //MotherLily Victory Text
 function MotherLilyVictoryText(){
 
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(menu_sprite,3,64,136,192,48);
@@ -608,7 +629,7 @@ if (string_counter = 1)
 if (string_counter >= 2)
 {
 
-	obj_player.beans = obj_player.beans + 1000;
+	obj_inventory.beans = obj_inventory.beans + 1000;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);
@@ -627,7 +648,7 @@ if (string_counter >= 2)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(fnt_text);
+draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);

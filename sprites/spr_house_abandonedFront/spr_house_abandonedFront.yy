@@ -22,12 +22,13 @@
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6f4a29d0-7c54-4178-9e34-c9fcd2e33d00","blendMode":0,"displayName":"Layer 7","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"acb78ff4-f280-409e-8ed6-8333caa82df3","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":false,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e44f82f2-fc53-4fb7-9b18-cb580c2b9b01","blendMode":0,"displayName":"Layer 2","isLocked":false,"opacity":50.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "LenkoEfEn",
-    "path": "folders/Sprites/World/Effects/LenkoEfEn.yy",
+    "name": "FarwayEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/FarwayEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

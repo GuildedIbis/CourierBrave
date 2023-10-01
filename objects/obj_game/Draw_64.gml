@@ -10,14 +10,14 @@ if (gamePaused = true) and (menuPaused = true)
 if (global.home = true)
 {
 	depth = 1;
-	GameHomeMenu();
+	script_execute(home_menu)
 }
 
 //Day Cycle
-GameDayCycle();
+scr_day_cycle();
 
 //Room Transistion
-GameRoomTransition();
+scr_game_room_transition();
 
 //Room Name
-GameRoomName();
+scr_game_room_name();

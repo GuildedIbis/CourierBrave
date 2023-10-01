@@ -16,7 +16,8 @@ enemy_move = spr_enemy_cultistDilloc_run;
 enemy_damaged = spr_enemy_cultistDilloc_damaged;
 damaged_snd = snd_cultist_damaged;
 walk_snd = snd_walk_regular;
-shadow = 1;
+shadow = true;
+shadow_size = 1;
 lit = false;
 light_size = 32;
 targeted = false;
@@ -27,7 +28,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-max_hp = 120;
+form_type = 2;
+max_hp = 100;
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -70,19 +72,19 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 		}
-		if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
-		{
-			script_execute(EnemyChaseEscort);
-		}
-		else
-		{
-			script_execute(EnemyChaseCustom);
-		}
-		if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
-		{
-			path_end();
-			sprite_index = enemy_idle;
-		}
+		//if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
+		//{
+		//	script_execute(EnemyChaseEscort);
+		//}
+		//else
+		//{
+		//	script_execute(EnemyChaseCustom);
+		//}
+		//if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
+		//{
+		//	path_end();
+		//	sprite_index = enemy_idle;
+		//}
 		//EnemyChaseCustom();
 	}
 	if (aggro_drop <= 0)

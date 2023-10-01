@@ -5,13 +5,13 @@
 //
 //
 //Save Game
-function SaveGameSettings(){
+function scr_game_save_settings(){
 
 //Setup Array to hold Strings
 var _saveData = array_create(0);
 
 //Save Scripts
-SaveSettings(_saveData);//Revert, then commit with a Load2
+scr_save_settings(_saveData);//Revert, then commit with a Load2
 
 	
 
@@ -33,7 +33,7 @@ show_debug_message("Game Saved!" + _string);
 //
 //
 //Load Game
-function LoadGameSettings(){
+function scr_game_load_settings(){
 if (file_exists("savedgameS.save"))
 {
 	var _buffer = buffer_load("savedgameS.save");
@@ -45,7 +45,7 @@ if (file_exists("savedgameS.save"))
 		var _loadEntity = array_pop(_loadData);
 
 		//Load Scripts
-		LoadSettings(_loadEntity);
+		scr_load_settings(_loadEntity);
 	
 		
 		

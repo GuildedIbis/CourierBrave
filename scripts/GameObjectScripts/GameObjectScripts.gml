@@ -3,9 +3,42 @@
 //
 //
 //
+//Change Rooms
+function scr_game_room_change(xPos,yPos,targetRoom,roomNum,levelNum,roomArray,enemyGrid,camp,campNum){
+obj_inventory.room_num = roomNum;
+obj_inventory.room_ary = roomArray;
+obj_game.room_num = roomNum;
+obj_game.room_name = obj_inventory.room_ary[roomNum][0];
+obj_game.room_name_timer = 180;
+obj_game.room_enemy_grid = enemyGrid;
+obj_game.level_num = levelNum;
+obj_game.level_name = obj_inventory.level_name[levelNum];
+obj_game.level_name_timer = 180;
+obj_inventory.level_ary[levelNum] = true;
+global.targetX = xPos;
+global.targetY = yPos;
+global.targetRoom = targetRoom;
+
+if (camp = true)
+{
+	global.targetCamp = true;
+	global.lastCamp = targetRoom;
+	global.lastCampX = xPos;
+	global.lastCampY = yPos;
+	obj_inventory.camp_grid[# campNum, 3] = true;
+}
+
+scr_game_room_enemy_reset();
+global.transition = true;
+global.fadeOut = true;
+}
+//
+//
+//
+//
 //
 //Game Room Transition
-function GameRoomTransition(){
+function scr_game_room_transition(){
 if (global.transition = true)
 {
 	if (global.fadeOut = true)
@@ -26,10 +59,27 @@ if (global.transition = true)
 				global.lastCampX = global.targetX;
 				global.lastCampY = global.targetY;
 				global.lastCamp = global.targetRoom;
-				obj_player.hp = obj_player.max_hp;
-				obj_player.crull_stone = obj_player.max_crull_stone;
+				with (obj_player)
+				{
+					hp = max_hp;
+					yellow_primary = max_charge;
+					orange_primary = max_charge;
+					purple_primary = max_charge;
+					blue_primary = max_charge;
+					green_primary = max_charge;
+					red_primary = max_charge;
+					yellow_special = max_charge;
+					orange_special = max_charge;
+					purple_special = max_charge;
+					blue_special = max_charge;
+					green_special = max_charge;
+					red_special = max_charge;
+					crull_ary[0] = 0;
+				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
+			scr_game_save_settings();
+			scr_game_load_settings();
 			global.fadeOut = false;
 		}
 	}
@@ -50,8 +100,8 @@ if (global.transition = true)
 //
 //
 //
-//
-function GameRoomName(){
+//Game Room Name
+function scr_game_room_name(){
 
 if (room_name_timer > 0)
 {
@@ -59,11 +109,23 @@ if (room_name_timer > 0)
 	var _rmNameAlpha = (room_name_timer/100)
 	if (_rmNameAlpha > 1.0) _rmNameAlpha = 1.0;
 	//draw_sprite_stretched_ext(menu_sprite,3,14,144,96,32,c_white,_rmNameAlpha);
-	draw_set_font(fnt_text);
-	draw_set_halign(fa_right)
-	draw_set_valign(fa_top)
-	draw_text_transformed_color(316,24,room_name,.5,.5,0,c_black,c_black,c_black,c_black,_rmNameAlpha);
-	draw_text_transformed_color(315,24,room_name,.5,.5,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed_color(315,16,room_name,.75,.75,0,c_white,c_white,c_white,c_white,_rmNameAlpha);
+}
+if (level_name_timer > 0)
+{
+	level_name_timer = level_name_timer - 1;
+	var _lvlNameAlpha = (level_name_timer/100)
+	if (_lvlNameAlpha > 1.0) _lvlNameAlpha = 1.0;
+	//draw_sprite_stretched_ext(menu_sprite,3,14,144,96,32,c_white,_rmNameAlpha);
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	draw_set_color(c_white);
+	draw_text_transformed_color(160,90,level_name,1.5,1.5,0,c_white,c_white,c_white,c_white,_lvlNameAlpha);
 }
 }
 //
@@ -72,10 +134,29 @@ if (room_name_timer > 0)
 //
 //
 //GameDayCycle
-function GameDayCycle(){
-if (scene = false)
+function scr_day_cycle(){
+if (gamePaused = false)
 {
-	if (day_timer < max_day_timer) day_timer = day_timer + 1;
+	if (day_timer < max_day_timer)
+	{
+		day_timer = day_timer + 1;
+		if (global.dayPhase = 2)
+		{
+			if (day_timer < 1000)
+			{
+				night_fade = night_fade + 1;
+			}
+			if (day_timer >= 17000)
+			{
+				night_fade = night_fade - 1;
+			}
+			if (day_timer > 1000) and (day_timer < 17000)
+			{
+				night_fade = 1000;
+			}
+		}
+		else night_fade = 0;
+	}
 	if (day_timer >= max_day_timer)
 	{
 		if (global.dayPhase = 2)
@@ -84,7 +165,8 @@ if (scene = false)
 			{
 				obj_inventory.crullS_list[i] = false;
 			}
-			QuestResetDaysEnd();
+			scr_inventory_quest_reset_daily();
+			scr_resources_all_reset();
 			var _daySelect = irandom_range(1,4);
 			if (_daySelect = 1) global.dayPhase = 1;
 			else global.dayPhase = 0;
@@ -97,14 +179,10 @@ if (scene = false)
 				obj_inventory.crullM_list[i] = false;
 			}
 			global.dayPhase = 2;
+			scr_resources_all_reset();
 			day_timer = 0;
 		}
 	}
-	if (global.home = false)
-	{
-		var _dayPerc = (day_timer/max_day_timer) * 100;
-		draw_healthbar(15,9,41,11,_dayPerc,c_black,c_white,c_white,0,true,true);
-		draw_sprite_ext(spr_lighting_phase,global.dayPhase,12,7,1,1,0,c_white,1.0);
-	}
 }
+
 }
