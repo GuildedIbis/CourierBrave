@@ -345,11 +345,11 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
+if (obj_inventory.yakflowerPath_map_ary[10][3] < 1)
 {
 	sprite_index = spr_door_yakflowerPath_stone;
 }
-if (obj_inventory.yakflowerPath_map_ary[14][3] >= 2)
+if (obj_inventory.yakflowerPath_map_ary[10][3] >= 1)
 {
 	sprite_index = spr_door_yakflowerPath_stone_open;
 	with (obj_wall)
@@ -382,11 +382,11 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.yakflowerPath_map_ary[10][3] < 1)
+if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
 {
 	sprite_index = spr_door_yakflowerPath_stone2;
 }
-if (obj_inventory.yakflowerPath_map_ary[10][3] >= 1)
+if (obj_inventory.yakflowerPath_map_ary[14][3] >= 2)
 {
 	sprite_index = spr_door_yakflowerPath_stone2_open;
 	with (obj_wall)
