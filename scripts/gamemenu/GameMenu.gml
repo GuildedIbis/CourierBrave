@@ -91,9 +91,9 @@ if (timer1 > 0)
 	
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
-	draw_text_transformed(4,176,string(version),.5,.5,0);
+	draw_text_transformed(4,172,string(version),.5,.5,0);
 	draw_set_halign(fa_right);
-	draw_text_transformed(308,176,"Developed by Guilded Ibis",.5,.5,0)
+	draw_text_transformed(308,172,"Developed by Guilded Ibis",.5,.5,0)
 }
 if (timer1 <= 0)
 {
@@ -201,52 +201,103 @@ draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 
-if (restart = false)
+if (obj_game.time_played > 0)
 {
-	//Buttons and Text
-	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-	draw_text_transformed(58,21,"SAVE 1",2,2,0);	
-	draw_text_transformed(58,49,"RESUME",1,1,0);	
-	draw_text_transformed(58,71,"RESTART",1,1,0);	
-	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Resume Game 1
+	if (restart = false)
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
-		if (mouse_check_button_pressed(mb_left))
+		//Buttons and Text
+		draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
+		draw_text_transformed(58,21,"SAVE 1",2,2,0);	
+		draw_text_transformed(58,49,"RESUME",1,1,0);	
+		draw_text_transformed(58,71,"RESTART",1,1,0);	
+		if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Resume Game 1
 		{
-			obj_game.save_num = 0;
-			global.current_save = scr_game_save_1;
-			audio_sound_gain(snd_menu,global.volumeMenu,1);
-			audio_play_sound(snd_menu,0,false);
-			global.home = false;
-			instance_create_layer(x,y,"Instances",obj_player);
-			scr_game_load_1();
-			crull_ary[0] = 0;
-			obj_player.hp = obj_player.max_hp;
-			room_goto(global.lastCamp);
-			obj_player.x = global.lastCampX;
-			obj_player.y = global.lastCampY;
-			audio_stop_all();
+			draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 0;
+				global.current_save = scr_game_save_1;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				instance_create_layer(x,y,"Instances",obj_player);
+				scr_game_load_1();
+				crull_ary[0] = 0;
+				obj_player.hp = obj_player.max_hp;
+				room_goto(global.lastCamp);
+				obj_player.x = global.lastCampX;
+				obj_player.y = global.lastCampY;
+				audio_stop_all();
 			
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))//New Game 1
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart = true;
+			}	
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))//New Game 1
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
+	else
+	{	
+	
+		draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
+		draw_text_transformed(58,21,"RESTART?",2,2,0);
+		draw_text_transformed(58,49,"YES",1,1,0);	
+		draw_text_transformed(58,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
 		{
-			restart = true;
-		}	
+			draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 0;
+				obj_game.time_played = 0;
+				global.current_save = scr_game_save_1;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				global.dayPhase = 2;
+				obj_game.night_fade = 1000;
+				obj_game.day_timer = 17000;
+				with (instance_create_layer(x,y,"Instances",obj_player))
+				{
+					scene = true;
+					sprite_index = spr_player_regaliare_idle;
+					image_index = 3;
+					state_script = scr_player_scene_00;
+					scene_script = scr_player_scene_00_text;
+					timer1 = 0;
+					crull_ary[0] = 0;
+					x = 144;
+					y = 160;
+					image_speed = 1;
+				}
+				room_goto(rm_scene_00);
+				scr_game_save_1();
+				audio_stop_all();
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart = false;
+			}	
+		}
 	}
 }
 else
-{	
-	
+{
 	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-	draw_text_transformed(58,21,"RESTART?",2,2,0);
-	draw_text_transformed(58,49,"YES",1,1,0);	
-	draw_text_transformed(58,71,"NO",1,1,0);
+	//draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
+	draw_text_transformed(58,21,"NEW GAME",2,2,0);
+	draw_text_transformed(58,49,"START",1,1,0);	
+	//draw_text_transformed(58,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
@@ -279,60 +330,103 @@ else
 			audio_stop_all();
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			restart = false;
-		}	
-	}
 }
-if (restart2 = false)
+if (obj_game.time_played2 > 0)
 {
-	//Buttons and Text
-	draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-	draw_text_transformed(160,21,"SAVE 1",2,2,0);	
-	draw_text_transformed(160,49,"RESUME",1,1,0);	
-	draw_text_transformed(160,71,"RESTART",1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Resume Game 1
+	if (restart2 = false) and (obj_game.time_played2 > 0)
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
-		if (mouse_check_button_pressed(mb_left))
+		//Buttons and Text
+		draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
+		draw_text_transformed(160,21,"SAVE 1",2,2,0);	
+		draw_text_transformed(160,49,"RESUME",1,1,0);	
+		draw_text_transformed(160,71,"RESTART",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Resume Game 1
 		{
-			obj_game.save_num = 1;
-			global.current_save = scr_game_save_2;
-			audio_sound_gain(snd_menu,global.volumeMenu,1);
-			audio_play_sound(snd_menu,0,false);
-			global.home = false;
-			instance_create_layer(x,y,"Instances",obj_player);
-			scr_game_load_2();
-			crull_ary[0] = 0;
-			obj_player.hp = obj_player.max_hp;
-			room_goto(global.lastCamp);
-			obj_player.x = global.lastCampX;
-			obj_player.y = global.lastCampY;
-			audio_stop_all();
+			draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 1;
+				global.current_save = scr_game_save_2;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				instance_create_layer(x,y,"Instances",obj_player);
+				scr_game_load_2();
+				crull_ary[0] = 0;
+				obj_player.hp = obj_player.max_hp;
+				room_goto(global.lastCamp);
+				obj_player.x = global.lastCampX;
+				obj_player.y = global.lastCampY;
+				audio_stop_all();
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,86))//Restart Game 2
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart2 = true;
+			}
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,86))//Restart Game 2
+	else
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
+		draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
+		draw_text_transformed(160,21,"RESTART?",2,2,0);
+		draw_text_transformed(160,49,"YES",1,1,0);	
+		draw_text_transformed(160,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Restart
 		{
-			restart2 = true;
+			draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 1;
+				obj_game.time_played2 = 0;
+				global.current_save = scr_game_save_2;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				global.dayPhase = 2;
+				obj_game.night_fade = 1000;
+				obj_game.day_timer = 17000;
+				with (instance_create_layer(x,y,"Instances",obj_player))
+				{
+					scene = true;
+					sprite_index = spr_player_regaliare_idle;
+					image_index = 3;
+					state_script = scr_player_scene_00;
+					scene_script = scr_player_scene_00_text;
+					crull_ary[0] = 0;
+					timer1 = 0;
+					x = 144;
+					y = 160;
+					image_speed = 1;
+				}
+				room_goto(rm_scene_00);
+				scr_game_save_2();
+				audio_stop_all();
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,686))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart2 = false;
+			}	
 		}
 	}
 }
 else
 {
 	draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-	draw_text_transformed(160,21,"RESTART?",2,2,0);
-	draw_text_transformed(160,49,"YES",1,1,0);	
-	draw_text_transformed(160,71,"NO",1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Restart
+	//draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
+	draw_text_transformed(160,21,"NEW GAME",2,2,0);
+	draw_text_transformed(160,49,"START",1,1,0);	
+	//draw_text_transformed(160,71,"NO",1,1,0);
+	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Start
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
@@ -364,16 +458,10 @@ else
 			audio_stop_all();
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,686))
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			restart2 = false;
-		}	
-	}
 }
-if (restart3 = false)
+if (obj_game.time_played3 > 0)
+{
+	if (restart3 = false)
 {
 	//Buttons and Text
 	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
@@ -410,13 +498,62 @@ if (restart3 = false)
 		}
 	}
 }
+	else
+	{
+		draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
+		draw_text_transformed(262,21,"RESTART?",2,2,0);
+		draw_text_transformed(262,49,"YES",1,1,0);	
+		draw_text_transformed(262,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Confirm Restart 3
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 2;
+				obj_game.time_played3 = 0;
+				global.current_save = scr_game_save_3;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				global.dayPhase = 2;
+				obj_game.night_fade = 1000;
+				obj_game.day_timer = 17000;
+				with (instance_create_layer(x,y,"Instances",obj_player))
+				{
+					scene = true;
+					sprite_index = spr_player_regaliare_idle;
+					image_index = 3;
+					state_script = scr_player_scene_00;
+					scene_script = scr_player_scene_00_text;
+					crull_ary[0] = 0;
+					timer1 = 0;
+					x = 144;
+					y = 160;
+					image_speed = 1;
+				}
+				room_goto(rm_scene_00);
+				scr_game_save_3();
+				audio_stop_all();
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,686))//Return
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart3 = false;
+			}	
+		}
+	}
+}
 else
 {
 	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-	draw_text_transformed(262,21,"RESTART?",2,2,0);
-	draw_text_transformed(262,49,"YES",1,1,0);	
-	draw_text_transformed(262,71,"NO",1,1,0);
+	//draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
+	draw_text_transformed(262,21,"NEW GAME",2,2,0);
+	draw_text_transformed(262,49,"START",1,1,0);	
+	//draw_text_transformed(262,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Confirm Restart 3
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
@@ -448,14 +585,6 @@ else
 			scr_game_save_3();
 			audio_stop_all();
 		}
-	}
-	if (point_in_rectangle(_mouseX,_mouseY,222,66,302,686))//Return
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			restart3 = false;
-		}	
 	}
 }
 
