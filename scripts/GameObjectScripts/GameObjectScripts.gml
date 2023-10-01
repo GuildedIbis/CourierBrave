@@ -74,7 +74,10 @@ if (global.transition = true)
 					blue_special = max_charge;
 					green_special = max_charge;
 					red_special = max_charge;
-					crull_ary[0] = 0;
+					for (var i = 0; i < 11; i = i + 1)
+					{
+						crull_use[i] = false;
+					}
 				}
 			}
 			if (global.current_save != -1) script_execute(global.current_save);

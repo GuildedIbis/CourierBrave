@@ -107,7 +107,7 @@ if (animation_end)
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -156,7 +156,7 @@ if (animation_end)
 	hp = hp + (150 + (35 * receptivity));
 	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -203,10 +203,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	yellow_primary = yellow_primary + (60 + (15 * receptivity));
-	if (yellow_primary > max_charge) yellow_primary = max_charge;
+	yellow_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -253,10 +252,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	orange_primary = orange_primary + (60 + (15 * receptivity));
-	if (orange_primary > max_charge) orange_primary = max_charge;
+	orange_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -303,10 +301,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	purple_primary = purple_primary + (60 + (15 * receptivity));
-	if (purple_primary > max_charge) purple_primary = max_charge;
+	purple_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -353,10 +350,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	blue_primary = blue_primary + (60 + (15 * receptivity));
-	if (blue_primary > max_charge) blue_primary = max_charge;
+	blue_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -403,10 +399,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	green_primary = green_primary + (60 + (15 * receptivity));
-	if (green_primary > max_charge) green_primary = max_charge;
+	green_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -453,10 +448,9 @@ if (animation_end)
 {
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
-	red_primary = red_primary + (60 + (15 * receptivity));
-	if (red_primary > max_charge) red_primary = max_charge;
+	red_primary = max_charge;
 	state_script = free_state;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }
@@ -516,7 +510,7 @@ if (animation_end)
 	knockback = false;
 	knockback_dur = 0;
 	knockback_dir = 0;
-	crull_ary[crull_selected] = -1;
+	crull_use[crull_selected] = true;
 	animation_end = false;
 }
 }

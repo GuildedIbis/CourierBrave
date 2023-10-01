@@ -34,6 +34,19 @@ function scr_load_player(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"crull9")) obj_player.crull_ary[9] = _loadEntity.crull9;
 		if (variable_struct_exists(_loadEntity,"crull10")) obj_player.crull_ary[10] = _loadEntity.crull10;
 		
+		if (variable_struct_exists(_loadEntity,"crullUse0")) obj_player.crull_use[0] = _loadEntity.crullUse0;
+		if (variable_struct_exists(_loadEntity,"crullUse1")) obj_player.crull_use[1] = _loadEntity.crullUse1;
+		if (variable_struct_exists(_loadEntity,"crullUse2")) obj_player.crull_use[2] = _loadEntity.crullUse2;
+		if (variable_struct_exists(_loadEntity,"crullUse3")) obj_player.crull_use[3] = _loadEntity.crullUse3;
+		if (variable_struct_exists(_loadEntity,"crullUse4")) obj_player.crull_use[4] = _loadEntity.crullUse4;
+		if (variable_struct_exists(_loadEntity,"crullUse5")) obj_player.crull_use[5] = _loadEntity.crullUse5;
+		if (variable_struct_exists(_loadEntity,"crullUse6")) obj_player.crull_use[6] = _loadEntity.crullUse6;
+		if (variable_struct_exists(_loadEntity,"crullUse7")) obj_player.crull_use[7] = _loadEntity.crullUse7;
+		if (variable_struct_exists(_loadEntity,"crullUse8")) obj_player.crull_use[8] = _loadEntity.crullUse8;
+		if (variable_struct_exists(_loadEntity,"crullUse9")) obj_player.crull_use[9] = _loadEntity.crullUse9;
+		if (variable_struct_exists(_loadEntity,"crullUse10")) obj_player.crull_use[10] = _loadEntity.crullUse10;
+	
+		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
@@ -92,6 +105,18 @@ var _savePlayer =
 	crull8 : obj_player.crull_ary[8],
 	crull9 : obj_player.crull_ary[9],
 	crull10 : obj_player.crull_ary[10],
+	
+	crullUse0 : obj_player.crull_use[0],
+	crullUse1 : obj_player.crull_use[1],
+	crullUse2 : obj_player.crull_use[2],
+	crullUse3 : obj_player.crull_use[3],
+	crullUse4 : obj_player.crull_use[4],
+	crullUse5 : obj_player.crull_use[5],
+	crullUse6 : obj_player.crull_use[6],
+	crullUse7 : obj_player.crull_use[7],
+	crullUse8 : obj_player.crull_use[8],
+	crullUse9 : obj_player.crull_use[9],
+	crullUse10 : obj_player.crull_use[10],
 
 	
 	//Enhancable Stats

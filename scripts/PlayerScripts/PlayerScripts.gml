@@ -501,13 +501,13 @@ iAlpha = iAlpha - .01;
 image_alpha = iAlpha;
 if (iAlpha <= 0)
 {
+	//Player
 	audio_stop_all();
 	walk_snd = snd_walk_regular;
 	ablaze_dur_timer = 0;
 	thundux_dur_timer = 0;
 	watervice_dur_timer = 0;
 	hp = max_hp;
-	crull_ary[0] = 0;
 	yellow_primary = max_charge;
 	orange_primary  = max_charge;
 	purple_primary  = max_charge;
@@ -519,7 +519,13 @@ if (iAlpha <= 0)
 	blue_special = max_charge;
 	red_special = max_charge;
 	dead = false;
-	(room_goto(global.lastCamp));
+	for (var i = 0; i < 11; i = i + 1)
+	{
+		crull_use[i] = false;
+	}
+	
+	//Room
+	room_goto(global.lastCamp);
 	iAlpha = 1;
 	image_alpha = 1;
 	image_xscale = 1;
@@ -530,11 +536,6 @@ if (iAlpha <= 0)
 	obj_game.event_live = false;
 	state_script = free_state;
 	attacking = false;
-	//obj_inventory.depth = depth + 1;
-	with (obj_inventory)
-	{
-		if (beans >= 100) beans = beans - round(beans*.05);
-	}
 }
 	
 }
@@ -557,8 +558,12 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 	thundux_dur_timer = 0;
 	watervice_dur_timer = 0;
 	hp = max_hp;
-	crull_stone = max_crull_stone;
+	for (var i = 0; i < 11; i = i + 1)
+	{
+		crull_use[i] = false;
+	}
 	dead = false;
+	//Room
 	(room_goto(global.lastCamp));
 	image_xscale = 1;
 	image_yscale = 1;
@@ -570,7 +575,6 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 	state_script = free_state;
 	attacking = false;
 	obj_inventory.depth = depth + 1;
-	if (beans >= 100) beans = beans - round(beans*.05);
 }
 	
 }

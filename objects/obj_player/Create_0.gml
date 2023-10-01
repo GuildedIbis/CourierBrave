@@ -69,7 +69,9 @@ receptivity = 0; //AMT
 
 //Effected Max Stats
 crull_ary = array_create(11,-1);
+crull_use = array_create(11,true);
 crull_ary[0] = 0;
+crull_use[0] = false;
 crull_selected = 0;
 crull_count = iteration + 1;
 max_hp = 200 + (20 * vitality);

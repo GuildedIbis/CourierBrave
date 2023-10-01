@@ -188,7 +188,8 @@ switch(page)
 					{
 						iteration = iteration + 1;
 						crull_count = iteration + 1;
-						crull_ary[iteration] = 1;
+						crull_ary[iteration] = 0;
+						crull_use[iteration] = false;
 					}
 					//obj_player.iteration = obj_player.iteration + 1;
 					//obj_player.max_crull_stone = obj_player.max_crull_stone + 1;

@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_kephraStone_infograph_04",
-  "bbox_bottom": 47,
+  "bbox_bottom": 49,
   "bbox_left": 16,
   "bbox_right": 79,
   "bbox_top": 21,

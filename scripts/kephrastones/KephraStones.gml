@@ -307,8 +307,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Press \"C\" to use a Crull Stone\nCharge."
-_text[1] = "This Crull Charge will restore the\nCourier's health but other\ncharges may have other effects."
-_text[2] = "Visiting an alter (or dying)\nrestores 1 Crull Charge for free."
+_text[1] = "Some Crull Stone will restore\nthe Courier's health, but recipes\nfor other types of charges with\nvarious effects can be acquired."
+_text[2] = "Visiting an alter (or dying)\nrefills Crull Charges to whatever\nthey are set as.\n\nVisiting all altar also refills\nthe Courier's magic charge."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -526,8 +526,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "As the Courier's ITERATION stat\nincreases, they will unlock\nmore charges of the Crull Stone.\n\nScroll with the mouse wheel to\nselect a different Crull Charge."
-_text[1] = "The first charge will refill with\na natural charge when they visit\nan ALTAR, but the others must\nbe filled by completing recipes.\n\nYou can complete recipes and view\nthe recipes you've learned\nvby interacting with an ALTAR."
-_text[2] = "Completing recipes at the alter\ncosts resources, but produces\ncharges that have various\neffects beyond healing."
+_text[1] = "The Crull Charges will refill to\na Natural Charge by default,\nwhich heals a moderate amount of\ndamage."
+_text[2] = "Completing recipes at the alter\ncosts resources and replaces the\ncurrent charge but produces\ncharges that have various\neffects beyond healing."
 
 //Sprite
 draw_set_font(global.fnt_main_white);

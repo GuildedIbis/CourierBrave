@@ -145,7 +145,7 @@ _recipeName[1] = "Yelline Crull";
 _recipeName[2] = "Orine Crull";
 _recipeName[3] = "Violine Crull";
 _recipeName[4] = "Bluine Crull";
-_recipeName[5] = "Greenine Crull";
+_recipeName[5] = "Grenine Crull";
 _recipeName[6] = "Redine Crull";
 //Set Text
 draw_set_font(global.fnt_main_white);
@@ -157,6 +157,7 @@ draw_set_color(c_white);
 //Menu Base and Buttons
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_text_transformed(99,32,"PRESS \"E\" TO RESUME",.5,.5,0);
+draw_text_transformed(160,156,"USE THE MOUSE WHEEL TO SELECT\nA CRULL CHARGE TO REPLACE",.5,.5,0);
 //Left
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,108);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
@@ -173,59 +174,62 @@ draw_sprite_stretched(spr_menu_circle16,3,196,127,50,16);
 
 
 //Buttons
-if (obj_player.crull_ary[obj_player.crull_selected] = -1)
+//if (obj_player.crull_ary[obj_player.crull_selected] = -1)
+//{
+//Lefthand Buttons
+for (var i = 0; i < 5; i = i + 1)
 {
-	//Lefthand Buttons
-	for (var i = 0; i < 5; i = i + 1)
+	var _id = i + (5 * page);
+	draw_set_halign(fa_left);
+	draw_sprite_stretched(spr_menu_circle16,1,49,53+(17 * i),90,16);
+	if (obj_inventory.crull_recipe[_id] = true)
 	{
-		var _id = i + (5 * page);
-		draw_set_halign(fa_left);
-		draw_sprite_stretched(spr_menu_circle16,1,49,53+(17 * i),90,16);
-		if (obj_inventory.crull_recipe[_id] = true)
+		draw_text_transformed(62,61+(17*i),_recipeName[_id],.6,.6,0)
+		draw_sprite_ext(spr_menu_crull_recipe,_id+1,49,53+(17*i),1,1,0,c_white,1.0);
+		if (point_in_rectangle(_mouseX,_mouseY,49,53+(17*i),139,69+(17*i)))
 		{
-			draw_text_transformed(62,61+(17*i),_recipeName[_id],.6,.6,0)
-			draw_sprite_ext(spr_menu_crull_recipe,_id+1,49,53+(17*i),1,1,0,c_white,1.0);
-			if (point_in_rectangle(_mouseX,_mouseY,49,53+(17*i),139,69+(17*i)))
+			draw_sprite_stretched(spr_highlight_circle,0,48,52+(17*i),92,18);
+			if (mouse_check_button_pressed(mb_left))
 			{
-				draw_sprite_stretched(spr_highlight_circle,0,48,52+(17*i),92,18);
-				if (mouse_check_button_pressed(mb_left))
-				{
-					text_gui = _recipeMenu[_id];
-				}				
-			}
-		}
-		else
-		{
-			draw_text_transformed(62,61+(17*i),"???",.6,.6,0)
+				text_gui = _recipeMenu[_id];
+			}				
 		}
 	}
-	//Scroll Bar on Left Side
-	draw_sprite(spr_scroll_bar5b,page,141,58);
-	if (point_in_rectangle(_mouseX,_mouseY,141,58,149,64))
+	else
 	{
-		draw_sprite(spr_scroll_highlight,0,141,57);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			if (page > 0) page = page - 1;
-			else page = 4;
-		}
+		draw_text_transformed(62,61+(17*i),"???",.6,.6,0)
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,141,126,149,132))
+}
+//Scroll Bar on Left Side
+draw_sprite(spr_scroll_bar5b,page,141,58);
+if (point_in_rectangle(_mouseX,_mouseY,141,58,149,64))
+{
+	draw_sprite(spr_scroll_highlight,0,141,57);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite(spr_scroll_highlight,1,141,125);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			if (page < 4) page = page + 1;
-			else page = 0;
-		}
+		if (page > 0) page = page - 1;
+		else page = 4;
 	}
-	//Selected Recipe Menu Script
-	if (text_gui != -1) script_execute(text_gui);
-	
+}
+if (point_in_rectangle(_mouseX,_mouseY,141,126,149,132))
+{
+	draw_sprite(spr_scroll_highlight,1,141,125);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page < 4) page = page + 1;
+		else page = 0;
+	}
+}
+//Selected Recipe Menu Script
+if (text_gui != -1)
+{
+	script_execute(text_gui);	
 }
 else
 {
-	draw_text_transformed(99,98,"SELECT AN EMPTY\nCRULL CHARGE.",.6,.6,0);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(221,78,"SELECT A RECIPE TO CRAFT.\n\nIT WILL REPLACE THE CURRENT\nCRULL CHARGE.",.6,.6,0);
 }
 
 
@@ -233,11 +237,11 @@ else
 with (obj_player)
 {
 	scr_player_crull_select();
-	var _selectX = 154 - (8*crull_count) + (17 * crull_selected);
+	var _selectX = 160 - (8*crull_count) + (17 * crull_selected);
 	draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
 	for (var j = 0; j < crull_count; j = j + 1)
 	{
-		var _xPos = (152 - (8*crull_count)) + (17*j);
+		var _xPos = (158 - (8*crull_count)) + (17*j);
 		var _yPos = 164;
 		if (crull_ary[j] != -1)
 		{
@@ -363,7 +367,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(50 + (13 * obj_player.receptivity)) + " HEALTH.\nRESTORE " + string(100 + (13 * obj_player.receptivity)) + " YELLOW CHARGE.";
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE YELLOW PRIMARY CHARGE.";
 draw_text_transformed(221,45,"YELLINE CRULL",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
 draw_text_transformed(221,78,_recipeText,.6,.6,0);
@@ -417,7 +421,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(50 + (13 * obj_player.receptivity)) + " HEALTH.\nRESTORE " + string(100 + (13 * obj_player.receptivity)) + " ORANGE CHARGE.";
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE ORANGE PRIMARY CHARGE.";
 draw_text_transformed(221,45,"ORINE CRULL",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
 draw_text_transformed(221,78,_recipeText,.6,.6,0);
@@ -471,7 +475,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(50 + (13 * obj_player.receptivity)) + " HEALTH.\nRESTORE " + string(50 + (13 * obj_player.receptivity)) + " PURPLE CHARGE.";
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE PURPLE PRIMARY CHARGE.";
 draw_text_transformed(221,45,"VIOLINE CRULL",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
 draw_text_transformed(221,78,_recipeText,.6,.6,0);
