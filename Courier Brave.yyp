@@ -599,6 +599,7 @@
     {"id":{"name":"spr_aspects_icons","path":"sprites/spr_aspects_icons/spr_aspects_icons.yy",},},
     {"id":{"name":"tile_fields8","path":"tilesets/tile_fields8/tile_fields8.yy",},},
     {"id":{"name":"AltSkillPedestal","path":"scripts/AltSkillPedestal/AltSkillPedestal.yy",},},
+    {"id":{"name":"spr_game_logo_icon_itch","path":"sprites/spr_game_logo_icon_itch/spr_game_logo_icon_itch.yy",},},
     {"id":{"name":"tile_desert","path":"tilesets/tile_desert/tile_desert.yy",},},
     {"id":{"name":"spr_npc_nisma36","path":"sprites/spr_npc_nisma36/spr_npc_nisma36.yy",},},
     {"id":{"name":"snd_zap","path":"sounds/snd_zap/snd_zap.yy",},},
