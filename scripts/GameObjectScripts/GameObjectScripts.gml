@@ -21,11 +21,11 @@ global.targetRoom = targetRoom;
 
 if (camp = true)
 {
-	global.targetCamp = true;
-	global.lastCamp = targetRoom;
-	global.lastCampX = xPos;
-	global.lastCampY = yPos;
-	obj_inventory.camp_grid[# campNum, 3] = true;
+	global.targetAltar = true;
+	global.lastAltar = targetRoom;
+	global.lastAltarX = xPos;
+	global.lastAltarY = yPos;
+	obj_inventory.altar_grid[# campNum, 3] = true;
 }
 
 scr_game_room_enemy_reset();
@@ -54,31 +54,12 @@ if (global.transition = true)
 			obj_camera.x = global.targetX;
 			obj_camera.y = global.targetY;
 			global.aggroCounter = 0;
-			if (global.targetCamp = true)
+			if (global.targetAltar = true)
 			{
-				global.lastCampX = global.targetX;
-				global.lastCampY = global.targetY;
-				global.lastCamp = global.targetRoom;
-				with (obj_player)
-				{
-					hp = max_hp;
-					yellow_primary = max_charge;
-					orange_primary = max_charge;
-					purple_primary = max_charge;
-					blue_primary = max_charge;
-					green_primary = max_charge;
-					red_primary = max_charge;
-					yellow_special = max_charge;
-					orange_special = max_charge;
-					purple_special = max_charge;
-					blue_special = max_charge;
-					green_special = max_charge;
-					red_special = max_charge;
-					for (var i = 0; i < 11; i = i + 1)
-					{
-						crull_use[i] = false;
-					}
-				}
+				global.lastAltarX = global.targetX;
+				global.lastAltarY = global.targetY;
+				global.lastAltar = global.targetRoom;
+				
 			}
 			if (global.current_save != -1) script_execute(global.current_save);
 			scr_game_save_settings();

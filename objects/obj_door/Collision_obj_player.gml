@@ -27,16 +27,16 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 		global.targetX = target_x;
 		global.targetY = target_y;
 		global.targetRoom = target_room;
-		global.targetCamp = target_camp;
-		if (target_camp = true)
+		global.targetAltar = target_altar;
+		if (target_altar = true)
 		{
-			scr_game_room_enemy_reset();
-			global.lastCamp = target_room;
-			global.lastCampX = target_x;
-			global.lastCampY = target_y;
-			if (camp_num != -1)
+			
+			global.lastAltar = target_room;
+			global.lastAltarX = target_x;
+			global.lastAltarY = target_y;
+			if (altar_num != -1)
 			{
-				obj_inventory.camp_grid[# camp_num, 3] = true;
+				obj_inventory.altar_grid[# altar_num, 3] = true;
 			}
 		}
 		global.transition = true;

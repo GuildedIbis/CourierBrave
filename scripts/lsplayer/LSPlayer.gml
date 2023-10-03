@@ -12,12 +12,12 @@ function scr_load_player(_loadEntity){
 		//if (variable_struct_exists(_loadEntity,"beans")) obj_player.star_orb = _loadEntity.star_orb;
 		
 		//Load Room
-		if (variable_struct_exists(_loadEntity,"camp")) global.lastCamp = _loadEntity.camp;
-		if (variable_struct_exists(_loadEntity,"lastCampX")) global.lastCampX = _loadEntity.lastCampX;
-		if (variable_struct_exists(_loadEntity,"lastCampY")) global.lastCampY = _loadEntity.lastCampY;
-		if (variable_struct_exists(_loadEntity,"camp")) global.targetRoom = _loadEntity.camp;
-		if (variable_struct_exists(_loadEntity,"lastCampX")) global.targetX = _loadEntity.lastCampX;
-		if (variable_struct_exists(_loadEntity,"lastCampY")) global.targetY = _loadEntity.lastCampY;
+		if (variable_struct_exists(_loadEntity,"altar")) global.lastAltar = _loadEntity.altar;
+		if (variable_struct_exists(_loadEntity,"lastAltarX")) global.lastAltarX = _loadEntity.lastAltarX;
+		if (variable_struct_exists(_loadEntity,"lastAltarY")) global.lastAltarY = _loadEntity.lastAltarY;
+		if (variable_struct_exists(_loadEntity,"altar")) global.targetRoom = _loadEntity.altar;
+		if (variable_struct_exists(_loadEntity,"lastAltarX")) global.targetX = _loadEntity.lastAltarX;
+		if (variable_struct_exists(_loadEntity,"lastAltarY")) global.targetY = _loadEntity.lastAltarY;
 		if (variable_struct_exists(_loadEntity,"breakObject")) obj_player.break_object = _loadEntity.breakObject;
 		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
 		
@@ -88,9 +88,9 @@ function scr_save_player(_saveData){
 var _savePlayer = 
 {
 	//Save Room
-	camp : global.lastCamp, //CONCEPT: NOT FINAL
-	lastCampX : global.lastCampX, //CONCEPT: NOT FINAL
-	lastCampY: global.lastCampY, //CONCEPT: NOT FINAL
+	altar : global.lastAltar, //CONCEPT: NOT FINAL
+	lastCampX : global.lastAltarX, //CONCEPT: NOT FINAL
+	lastCampY: global.lastAltarY, //CONCEPT: NOT FINAL
 	level: obj_game.level_num, //CONCEPT: NOT FINAL
 	
 	//Save Crull

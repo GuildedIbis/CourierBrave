@@ -225,9 +225,9 @@ if (obj_game.time_played > 0)
 				scr_game_load_1();
 				crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
-				room_goto(global.lastCamp);
-				obj_player.x = global.lastCampX;
-				obj_player.y = global.lastCampY;
+				room_goto(global.lastAltar);
+				obj_player.x = global.lastAltarX;
+				obj_player.y = global.lastAltarY;
 				audio_stop_all();
 			
 			}
@@ -355,9 +355,9 @@ if (obj_game.time_played2 > 0)
 				scr_game_load_2();
 				crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
-				room_goto(global.lastCamp);
-				obj_player.x = global.lastCampX;
-				obj_player.y = global.lastCampY;
+				room_goto(global.lastAltar);
+				obj_player.x = global.lastAltarX;
+				obj_player.y = global.lastAltarY;
 				audio_stop_all();
 			}
 		}
@@ -462,42 +462,42 @@ else
 if (obj_game.time_played3 > 0)
 {
 	if (restart3 = false)
-{
-	//Buttons and Text
-	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
-	draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-	draw_text_transformed(262,21,"SAVE 3",2,2,0);	
-	draw_text_transformed(262,49,"RESUME",1,1,0);	
-	draw_text_transformed(262,71,"RESTART",1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Resume Game 3
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
-		if (mouse_check_button_pressed(mb_left))
+		//Buttons and Text
+		draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
+		draw_text_transformed(262,21,"SAVE 3",2,2,0);	
+		draw_text_transformed(262,49,"RESUME",1,1,0);	
+		draw_text_transformed(262,71,"RESTART",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Resume Game 3
 		{
-			obj_game.save_num = 2;
-			global.current_save = scr_game_save_3;
-			audio_sound_gain(snd_menu,global.volumeMenu,1);
-			audio_play_sound(snd_menu,0,false);
-			global.home = false;
-			instance_create_layer(x,y,"Instances",obj_player);
-			scr_game_load_3();
-			crull_ary[0] = 0;
-			obj_player.hp = obj_player.max_hp;
-			room_goto(global.lastCamp);
-			obj_player.x = global.lastCampX;
-			obj_player.y = global.lastCampY;
-			audio_stop_all();	
+			draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				obj_game.save_num = 2;
+				global.current_save = scr_game_save_3;
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				global.home = false;
+				instance_create_layer(x,y,"Instances",obj_player);
+				scr_game_load_3();
+				crull_ary[0] = 0;
+				obj_player.hp = obj_player.max_hp;
+				room_goto(global.lastAltar);
+				obj_player.x = global.lastAltarX;
+				obj_player.y = global.lastAltarY;
+				audio_stop_all();	
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,86))//Restart Game 3
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				restart3 = true;
+			}
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,222,66,302,86))//Restart Game 3
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			restart3 = true;
-		}
-	}
-}
 	else
 	{
 		draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);

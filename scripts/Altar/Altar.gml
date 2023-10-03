@@ -58,6 +58,27 @@ if (string_counter >= 1)
 {
 	//text_script = AlterMenu;
 	//alter_gui = LevelStatsMenuGUI;
+	scr_game_room_enemy_reset();
+	with (obj_player)
+	{
+		hp = max_hp;
+		yellow_primary = max_charge;
+		orange_primary = max_charge;
+		purple_primary = max_charge;
+		blue_primary = max_charge;
+		green_primary = max_charge;
+		red_primary = max_charge;
+		yellow_special = max_charge;
+		orange_special = max_charge;
+		purple_special = max_charge;
+		blue_special = max_charge;
+		green_special = max_charge;
+		red_special = max_charge;
+		for (var i = 0; i < 11; i = i + 1)
+		{
+			crull_use[i] = false;
+		}
+	}
 	text_gui = 0;
 	text_string = ""
 	_SubString = string_copy(text_string,1,letter_counter);
@@ -127,6 +148,118 @@ if (point_in_rectangle(_mouseX,_mouseY,162,74,194,106))
 //
 //
 //
+//Map GUI
+function scr_menu_altar_map(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_font(global.fnt_main_white);
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
+draw_sprite_stretched(spr_menu_circle16,1,12,82,16,16);
+draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
+draw_sprite_stretched(spr_menu,8,54,35,210,16)
+draw_set_color(c_white);
+draw_text_transformed(244,58,"MAP",1,1,0);
+
+
+//Slider Bar
+draw_sprite(spr_scroll_bar5b,page,245,61);
+if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))
+{
+	draw_sprite(spr_scroll_highlight,0,245,60);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page > 0) page = page - 1;
+		else page = 4;
+	}
+}
+if (point_in_rectangle(_mouseX,_mouseY,245,129,253,135))
+{
+	draw_sprite(spr_scroll_highlight,1,245,128);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (page < 4) page = page + 1;
+		else page = 0;
+	}
+}
+
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+//Map Select Buttons
+for (var i = 0; i < 4; i = i + 1)
+{
+	var _iPage = i + (4 * page)
+	draw_sprite_stretched(spr_menu_circle16,3,228,63 + (i * 18),16,16);
+	if (obj_inventory.level_ary[_iPage] = true)
+	{
+		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
+		draw_sprite_ext(spr_map_button,_iPage,228,63+(i*18),1.0,1.0,0,c_white,1.0);
+		if (point_in_rectangle(_mouseX,_mouseY,228,63 + (i * 18),244,79 + (i * 18)))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,227,62 + (i * 18),18,18);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				slot = _iPage;
+				map_selected = obj_inventory.map_grid[# _iPage, 2];
+			}
+		}
+	}
+	else draw_sprite_ext(spr_lock,1,235,71+(i*18),1,1,0,c_white,1.0);
+}
+if (map_selected != -1)
+{
+	//Map Functions Found in Inventory Map Menu
+	script_execute(map_selected)
+}
+
+
+//Exit
+draw_sprite_ext(spr_menu_arrow,2,20,90,1.0,1.0,0,c_white,1.0);
+if (point_in_rectangle(_mouseX,_mouseY,12,82,28,98))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		text_script = scr_text_altar_main;
+	}
+}
+if (keyboard_check_pressed(ord("E")))
+{
+	audio_sound_gain(snd_menu,global.volumeMenu,1);
+	audio_play_sound(snd_menu,0,false);
+	//text_script = AltarMenu;
+	//alter_gui = LevelStatsMenuGUI;
+	text_gui = -1;
+	text_string = ""
+	_SubString = string_copy(text_string,1,letter_counter);
+	string_counter = 0;
+	audio_sound_gain(snd_menu,global.volumeMenu,1);
+	audio_play_sound(snd_menu,0,false);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+}	
+//
+//
+//
+//
+//
 //Altar Menu
 function scr_menu_altar_crull(){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -136,9 +269,11 @@ var _recipeName = array_create(25);
 _recipeMenu[0] = scr_menu_crull_recipe_spectral;
 _recipeMenu[1] = scr_menu_crull_recipe_yelline;
 _recipeMenu[2] = scr_menu_crull_recipe_orine;
-_recipeMenu[3] = scr_menu_crull_recipe_spectral;
-_recipeMenu[4] = scr_menu_crull_recipe_spectral;
-_recipeMenu[5] = scr_menu_crull_recipe_spectral;
+_recipeMenu[3] = scr_menu_crull_recipe_violine;
+_recipeMenu[4] = scr_menu_crull_recipe_bluine;
+_recipeMenu[5] = scr_menu_crull_recipe_grenine;
+_recipeMenu[6] = scr_menu_crull_recipe_redine;
+_recipeMenu[7] = scr_menu_crull_recipe_cure;
 
 _recipeName[0] = "Spectral Crull";
 _recipeName[1] = "Yelline Crull";
@@ -147,6 +282,7 @@ _recipeName[3] = "Violine Crull";
 _recipeName[4] = "Bluine Crull";
 _recipeName[5] = "Grenine Crull";
 _recipeName[6] = "Redine Crull";
+_recipeName[7] = "Cure Crull";
 //Set Text
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -464,7 +600,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[7])+")
 //
 //
 //
-//Crull Recipe 2: Orine 
+//Crull Recipe 3: Violine 
 function scr_menu_crull_recipe_violine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -518,110 +654,219 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Map GUI
-function scr_menu_altar_map(){
+//Crull Recipe 4: Bluine 
+function scr_menu_crull_recipe_bluine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+//Set Text
 draw_set_font(global.fnt_main_white);
-draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
-draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
-draw_sprite_stretched(spr_menu_circle16,1,12,82,16,16);
-draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
-draw_sprite_stretched(spr_menu,8,54,35,210,16)
-draw_set_color(c_white);
-draw_text_transformed(244,58,"MAP",1,1,0);
-
-
-//Slider Bar
-draw_sprite(spr_scroll_bar5b,page,245,61);
-if (point_in_rectangle(_mouseX,_mouseY,245,61,253,67))
-{
-	draw_sprite(spr_scroll_highlight,0,245,60);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		if (page > 0) page = page - 1;
-		else page = 4;
-	}
-}
-if (point_in_rectangle(_mouseX,_mouseY,245,129,253,135))
-{
-	draw_sprite(spr_scroll_highlight,1,245,128);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		if (page < 4) page = page + 1;
-		else page = 0;
-	}
-}
-
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE BLUE PRIMARY CHARGE.";
+draw_text_transformed(221,45,"BLULINE CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_recipeText,.6,.6,0);
 
-//Map Select Buttons
-for (var i = 0; i < 4; i = i + 1)
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 {
-	var _iPage = i + (4 * page)
-	draw_sprite_stretched(spr_menu_circle16,3,228,63 + (i * 18),16,16);
-	if (obj_inventory.level_ary[_iPage] = true)
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
+	if (mouse_check_button_pressed(mb_left))
 	{
-		//draw_sprite_ext(spr_map,i,107,45,1.0,1.0,0,c_white,1.0);
-		draw_sprite_ext(spr_map_button,_iPage,228,63+(i*18),1.0,1.0,0,c_white,1.0);
-		if (point_in_rectangle(_mouseX,_mouseY,228,63 + (i * 18),244,79 + (i * 18)))
+		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,227,62 + (i * 18),18,18);
-			if (mouse_check_button_pressed(mb_left))
+			if (obj_inventory.resource_array[1] >= 1)
 			{
-				audio_sound_gain(snd_menu,global.volumeMenu,1);
-				audio_play_sound(snd_menu,0,false);
-				slot = _iPage;
-				map_selected = obj_inventory.map_grid[# _iPage, 2];
+				audio_sound_gain(snd_text02,global.volumeMenu,1);
+				audio_play_sound(snd_text02,0,false);
+				obj_player.crull_ary[obj_player.crull_selected] = 5; //(recipe # + 1)
+				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
+				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+
 			}
 		}
 	}
-	else draw_sprite_ext(spr_lock,1,235,71+(i*18),1,1,0,c_white,1.0);
-}
-if (map_selected != -1)
-{
-	//Map Functions Found in Inventory Map Menu
-	script_execute(map_selected)
 }
 
+//172
+//234
 
-//Exit
-draw_sprite_ext(spr_menu_arrow,2,20,90,1.0,1.0,0,c_white,1.0);
-if (point_in_rectangle(_mouseX,_mouseY,12,82,28,98))
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+
+}
+//
+//
+//
+//
+//
+//Crull Recipe 5: Grenin 
+function scr_menu_crull_recipe_grenine(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE GREEN PRIMARY CHARGE.";
+draw_text_transformed(221,45,"GRENINE CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_recipeText,.6,.6,0);
+
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,11,81,18,18)
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		text_script = scr_text_altar_main;
+		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
+		{
+			if (obj_inventory.resource_array[1] >= 1)
+			{
+				audio_sound_gain(snd_text02,global.volumeMenu,1);
+				audio_play_sound(snd_text02,0,false);
+				obj_player.crull_ary[obj_player.crull_selected] = 6; //(recipe # + 1)
+				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
+				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+
+			}
+		}
 	}
 }
-if (keyboard_check_pressed(ord("E")))
-{
-	audio_sound_gain(snd_menu,global.volumeMenu,1);
-	audio_play_sound(snd_menu,0,false);
-	//text_script = AltarMenu;
-	//alter_gui = LevelStatsMenuGUI;
-	text_gui = -1;
-	text_string = ""
-	_SubString = string_copy(text_string,1,letter_counter);
-	string_counter = 0;
-	audio_sound_gain(snd_menu,global.volumeMenu,1);
-	audio_play_sound(snd_menu,0,false);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+//172
+//234
+
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+
 }
-}	
+//
+//
+//
+//
+//
+//Crull Recipe 6: Redine 
+function scr_menu_crull_recipe_redine(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE RED PRIMARY CHARGE.";
+draw_text_transformed(221,45,"REDINE CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_recipeText,.6,.6,0);
+
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.rog_array[5] >= 1) and (obj_inventory.resource_array[5] >= 5)
+		{
+			if (obj_inventory.resource_array[1] >= 1)
+			{
+				audio_sound_gain(snd_text02,global.volumeMenu,1);
+				audio_play_sound(snd_text02,0,false);
+				obj_player.crull_ary[obj_player.crull_selected] = 7; //(recipe # + 1)
+				obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
+				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
+				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+
+			}
+		}
+	}
+}
+
+//172
+//234
+
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+
+}
+//
+//
+//
+//
+//
+//Crull Recipe 7: Cure 
+function scr_menu_crull_recipe_cure(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nCURE ALL STATUS EFFECTS.";
+draw_text_transformed(221,45,"CURE CRULL",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_recipeText,.6,.6,0);
+
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 1)
+		{
+			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 1)
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 1)
+				{
+					audio_sound_gain(snd_text02,global.volumeMenu,1);
+					audio_play_sound(snd_text02,0,false);
+					obj_player.crull_ary[obj_player.crull_selected] = 1;
+					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
+					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
+					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
+					obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
+				}
+			}
+		}
+	}
+}
+
+//172
+//234
+
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+
+}

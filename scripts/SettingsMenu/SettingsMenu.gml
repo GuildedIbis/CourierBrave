@@ -62,7 +62,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,105,101,121))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		script_execute(SaveGameSettings);
+		scr_game_save_settings();
 		pause_menu = scr_menu_game_pause;
 
 	}
@@ -337,7 +337,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,105,101,121))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		script_execute(SaveGameSettings);
+		scr_game_save_settings();
 		home_menu = scr_menu_game_home;
 
 	}

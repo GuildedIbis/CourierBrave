@@ -525,13 +525,13 @@ if (iAlpha <= 0)
 	}
 	
 	//Room
-	room_goto(global.lastCamp);
+	room_goto(global.lastAltar);
 	iAlpha = 1;
 	image_alpha = 1;
 	image_xscale = 1;
 	image_yscale = 1;
-	x = global.lastCampX;
-	y = global.lastCampY;
+	x = global.lastAltarX;
+	y = global.lastAltarY;
 	global.aggroCounter = 0;
 	obj_game.event_live = false;
 	state_script = free_state;

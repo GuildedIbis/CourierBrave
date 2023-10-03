@@ -170,7 +170,7 @@ if (key_ability) and (stamina >= 50)
 }
 
 //Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_ary[crull_selected] != -1)
+if (keyboard_check_pressed(ord("C"))) and (crull_use[crull_selected] = false)
 {
 	var _crullID = crull_ary[crull_selected];
 	audio_sound_gain(snd_player_crull,global.volumeEffects,1);

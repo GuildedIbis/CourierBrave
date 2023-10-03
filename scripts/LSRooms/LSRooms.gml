@@ -12,36 +12,37 @@ function scr_load_rooms(_loadEntity){
 if (variable_struct_exists(_loadEntity,"roomAry")) obj_inventory.room_ary = _loadEntity.roomAry;
 
 //Load Camps
-if (variable_struct_exists(_loadEntity,"camp00")) obj_inventory.camp_grid[# 0, 3] = _loadEntity.camp00;
-if (variable_struct_exists(_loadEntity,"camp01")) obj_inventory.camp_grid[# 1, 3] = _loadEntity.camp01;
-if (variable_struct_exists(_loadEntity,"camp02")) obj_inventory.camp_grid[# 2, 3] = _loadEntity.camp02;
-if (variable_struct_exists(_loadEntity,"camp03")) obj_inventory.camp_grid[# 3, 3] = _loadEntity.camp03;
-if (variable_struct_exists(_loadEntity,"camp04")) obj_inventory.camp_grid[# 4, 3] = _loadEntity.camp04;
-if (variable_struct_exists(_loadEntity,"camp05")) obj_inventory.camp_grid[# 5, 3] = _loadEntity.camp05;
-if (variable_struct_exists(_loadEntity,"camp06")) obj_inventory.camp_grid[# 6, 3] = _loadEntity.camp06;
-if (variable_struct_exists(_loadEntity,"camp07")) obj_inventory.camp_grid[# 7, 3] = _loadEntity.camp07;
-if (variable_struct_exists(_loadEntity,"camp08")) obj_inventory.camp_grid[# 8, 3] = _loadEntity.camp08;
-if (variable_struct_exists(_loadEntity,"camp09")) obj_inventory.camp_grid[# 9, 3] = _loadEntity.camp09;
-if (variable_struct_exists(_loadEntity,"camp10")) obj_inventory.camp_grid[# 10, 3] = _loadEntity.camp10;
-if (variable_struct_exists(_loadEntity,"camp11")) obj_inventory.camp_grid[# 11, 3] = _loadEntity.camp11;
-if (variable_struct_exists(_loadEntity,"camp12")) obj_inventory.camp_grid[# 12, 3] = _loadEntity.camp12;
-if (variable_struct_exists(_loadEntity,"camp13")) obj_inventory.camp_grid[# 13, 3] = _loadEntity.camp13;
-if (variable_struct_exists(_loadEntity,"camp14")) obj_inventory.camp_grid[# 14, 3] = _loadEntity.camp14;
-if (variable_struct_exists(_loadEntity,"camp15")) obj_inventory.camp_grid[# 15, 3] = _loadEntity.camp15;
-if (variable_struct_exists(_loadEntity,"camp16")) obj_inventory.camp_grid[# 16, 3] = _loadEntity.camp16;
-if (variable_struct_exists(_loadEntity,"camp17")) obj_inventory.camp_grid[# 17, 3] = _loadEntity.camp17;
-if (variable_struct_exists(_loadEntity,"camp18")) obj_inventory.camp_grid[# 18, 3] = _loadEntity.camp18;
-if (variable_struct_exists(_loadEntity,"camp19")) obj_inventory.camp_grid[# 19, 3] = _loadEntity.camp19;
-if (variable_struct_exists(_loadEntity,"camp20")) obj_inventory.camp_grid[# 20, 3] = _loadEntity.camp20;
-if (variable_struct_exists(_loadEntity,"camp21")) obj_inventory.camp_grid[# 21, 3] = _loadEntity.camp21;
-if (variable_struct_exists(_loadEntity,"camp22")) obj_inventory.camp_grid[# 22, 3] = _loadEntity.camp22;
-if (variable_struct_exists(_loadEntity,"camp23")) obj_inventory.camp_grid[# 23, 3] = _loadEntity.camp23;
-if (variable_struct_exists(_loadEntity,"camp24")) obj_inventory.camp_grid[# 24, 3] = _loadEntity.camp24;
-if (variable_struct_exists(_loadEntity,"camp25")) obj_inventory.camp_grid[# 25, 3] = _loadEntity.camp25;
-if (variable_struct_exists(_loadEntity,"camp26")) obj_inventory.camp_grid[# 26, 3] = _loadEntity.camp26;
-if (variable_struct_exists(_loadEntity,"camp27")) obj_inventory.camp_grid[# 27, 3] = _loadEntity.camp27;
-if (variable_struct_exists(_loadEntity,"camp28")) obj_inventory.camp_grid[# 28, 3] = _loadEntity.camp28;
-if (variable_struct_exists(_loadEntity,"camp29")) obj_inventory.camp_grid[# 29, 3] = _loadEntity.camp29;
+if (variable_struct_exists(_loadEntity,"altar00")) obj_inventory.altar_grid[# 0, 3] = _loadEntity.altar00;
+if (variable_struct_exists(_loadEntity,"altar01")) obj_inventory.altar_grid[# 1, 3] = _loadEntity.altar01;
+if (variable_struct_exists(_loadEntity,"altar02")) obj_inventory.altar_grid[# 2, 3] = _loadEntity.altar02;
+if (variable_struct_exists(_loadEntity,"altar03")) obj_inventory.altar_grid[# 3, 3] = _loadEntity.altar03;
+if (variable_struct_exists(_loadEntity,"altar04")) obj_inventory.altar_grid[# 4, 3] = _loadEntity.altar04;
+if (variable_struct_exists(_loadEntity,"altar05")) obj_inventory.altar_grid[# 5, 3] = _loadEntity.altar05;
+if (variable_struct_exists(_loadEntity,"altar06")) obj_inventory.altar_grid[# 6, 3] = _loadEntity.altar06;
+if (variable_struct_exists(_loadEntity,"altar07")) obj_inventory.altar_grid[# 7, 3] = _loadEntity.altar07;
+if (variable_struct_exists(_loadEntity,"altar08")) obj_inventory.altar_grid[# 8, 3] = _loadEntity.altar08;
+if (variable_struct_exists(_loadEntity,"altar09")) obj_inventory.altar_grid[# 9, 3] = _loadEntity.altar09;
+if (variable_struct_exists(_loadEntity,"altar10")) obj_inventory.altar_grid[# 10, 3] = _loadEntity.altar10;
+if (variable_struct_exists(_loadEntity,"altar11")) obj_inventory.altar_grid[# 11, 3] = _loadEntity.altar11;
+if (variable_struct_exists(_loadEntity,"altar12")) obj_inventory.altar_grid[# 12, 1] = _loadEntity.altar12;
+if (variable_struct_exists(_loadEntity,"altar13")) obj_inventory.altar_grid[# 13, 3] = _loadEntity.altar13;
+if (variable_struct_exists(_loadEntity,"altar14")) obj_inventory.altar_grid[# 14, 3] = _loadEntity.altar14;
+if (variable_struct_exists(_loadEntity,"altar15")) obj_inventory.altar_grid[# 15, 3] = _loadEntity.altar15;
+if (variable_struct_exists(_loadEntity,"altar16")) obj_inventory.altar_grid[# 16, 3] = _loadEntity.altar16;
+if (variable_struct_exists(_loadEntity,"altar17")) obj_inventory.altar_grid[# 17, 3] = _loadEntity.altar17;
+if (variable_struct_exists(_loadEntity,"altar18")) obj_inventory.altar_grid[# 18, 3] = _loadEntity.altar18;
+if (variable_struct_exists(_loadEntity,"altar19")) obj_inventory.altar_grid[# 19, 3] = _loadEntity.altar19;
+if (variable_struct_exists(_loadEntity,"altar20")) obj_inventory.altar_grid[# 20, 3] = _loadEntity.altar20;
+if (variable_struct_exists(_loadEntity,"altar21")) obj_inventory.altar_grid[# 21, 3] = _loadEntity.altar21;
+if (variable_struct_exists(_loadEntity,"altar22")) obj_inventory.altar_grid[# 22, 2] = _loadEntity.altar22;
+if (variable_struct_exists(_loadEntity,"altar23")) obj_inventory.altar_grid[# 23, 3] = _loadEntity.altar23;
+if (variable_struct_exists(_loadEntity,"altar24")) obj_inventory.altar_grid[# 24, 3] = _loadEntity.altar24;
+if (variable_struct_exists(_loadEntity,"altar25")) obj_inventory.altar_grid[# 25, 3] = _loadEntity.altar25;
+if (variable_struct_exists(_loadEntity,"altar26")) obj_inventory.altar_grid[# 26, 3] = _loadEntity.altar26;
+if (variable_struct_exists(_loadEntity,"altar27")) obj_inventory.altar_grid[# 27, 3] = _loadEntity.altar27;
+if (variable_struct_exists(_loadEntity,"altar28")) obj_inventory.altar_grid[# 28, 3] = _loadEntity.altar28;
+if (variable_struct_exists(_loadEntity,"altar29")) obj_inventory.altar_grid[# 29, 3] = _loadEntity.altar29;
+
 
 //Load Level Array
 if (variable_struct_exists(_loadEntity,"level00")) obj_inventory.level_ary[0] = _loadEntity.level00;
@@ -112,36 +113,37 @@ var _saveQuest =
 roomAry : obj_inventory.room_ary,
 
 //Save Camps
-camp00 : obj_inventory.camp_grid[# 0, 3],
-camp01 : obj_inventory.camp_grid[# 1, 3],
-camp02 : obj_inventory.camp_grid[# 2, 3],
-camp03 : obj_inventory.camp_grid[# 3, 3],
-camp04 : obj_inventory.camp_grid[# 4, 3],
-camp05 : obj_inventory.camp_grid[# 5, 3],
-camp06 : obj_inventory.camp_grid[# 6, 3],
-camp07 : obj_inventory.camp_grid[# 7, 3],
-camp08 : obj_inventory.camp_grid[# 8, 3],
-camp09 : obj_inventory.camp_grid[# 9, 3],
-camp10 : obj_inventory.camp_grid[# 0, 3],
-camp11 : obj_inventory.camp_grid[# 11, 3],
-camp12 : obj_inventory.camp_grid[# 12, 3],
-camp13 : obj_inventory.camp_grid[# 13, 3],
-camp14 : obj_inventory.camp_grid[# 14, 3],
-camp15 : obj_inventory.camp_grid[# 15, 3],
-camp16 : obj_inventory.camp_grid[# 16, 3],
-camp17 : obj_inventory.camp_grid[# 17, 3],
-camp18 : obj_inventory.camp_grid[# 18, 3],
-camp19 : obj_inventory.camp_grid[# 19, 3],
-camp20 : obj_inventory.camp_grid[# 20, 3],
-camp21 : obj_inventory.camp_grid[# 21, 3],
-camp22 : obj_inventory.camp_grid[# 22, 3],
-camp23 : obj_inventory.camp_grid[# 23, 3],
-camp24 : obj_inventory.camp_grid[# 24, 3],
-camp25 : obj_inventory.camp_grid[# 25, 3],
-camp26 : obj_inventory.camp_grid[# 26, 3],
-camp27 : obj_inventory.camp_grid[# 27, 3],
-camp28 : obj_inventory.camp_grid[# 28, 3],
-camp29 : obj_inventory.camp_grid[# 29, 3],
+altar00 : obj_inventory.altar_grid[# 0, 3],
+altar01 : obj_inventory.altar_grid[# 1, 3],
+altar02 : obj_inventory.altar_grid[# 2, 3],
+altar03 : obj_inventory.altar_grid[# 3, 3],
+altar04 : obj_inventory.altar_grid[# 4, 3],
+altar05 : obj_inventory.altar_grid[# 5, 3],
+altar06 : obj_inventory.altar_grid[# 6, 3],
+altar07 : obj_inventory.altar_grid[# 7, 3],
+altar08 : obj_inventory.altar_grid[# 8, 3],
+altar09 : obj_inventory.altar_grid[# 9, 3],
+altar10 : obj_inventory.altar_grid[# 10, 3],
+altar11 : obj_inventory.altar_grid[# 11, 3],
+altar12 : obj_inventory.altar_grid[# 12, 3],
+altar13 : obj_inventory.altar_grid[# 13, 3],
+altar14 : obj_inventory.altar_grid[# 14, 3],
+altar15 : obj_inventory.altar_grid[# 15, 3],
+altar16 : obj_inventory.altar_grid[# 16, 3],
+altar17 : obj_inventory.altar_grid[# 17, 3],
+altar18 : obj_inventory.altar_grid[# 18, 3],
+altar19 : obj_inventory.altar_grid[# 19, 3],
+altar10 : obj_inventory.altar_grid[# 20, 3],
+altar21 : obj_inventory.altar_grid[# 21, 3],
+altar22 : obj_inventory.altar_grid[# 22, 3],
+altar23 : obj_inventory.altar_grid[# 23, 3],
+altar24 : obj_inventory.altar_grid[# 24, 3],
+altar25 : obj_inventory.altar_grid[# 25, 3],
+altar26 : obj_inventory.altar_grid[# 26, 3],
+altar27 : obj_inventory.altar_grid[# 27, 3],
+altar28 : obj_inventory.altar_grid[# 28, 3],
+altar29 : obj_inventory.altar_grid[# 29, 3],
+
 
 //Save Levels
 level00: obj_inventory.level_ary[0],

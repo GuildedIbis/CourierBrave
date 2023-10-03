@@ -165,8 +165,8 @@ if (obj_game.level_num = 0)
 }
 
 
-//Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 0, 3] = true) 
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 0, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23)) and (altar = true)
@@ -181,14 +181,14 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 0, 1];
-			global.targetY = obj_inventory.camp_grid[# 0, 2];
+			global.targetX = obj_inventory.altar_grid[# 0, 1];
+			global.targetY = obj_inventory.altar_grid[# 0, 2];
 			global.targetRoom = rm_lenko_farwayRoad_00;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -204,7 +204,7 @@ if (obj_inventory.camp_grid[# 0, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 1, 3] = true) 
+if (obj_inventory.altar_grid[# 1, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 49,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50)) and (altar = true)
@@ -219,14 +219,14 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 1, 1];
-			global.targetY = obj_inventory.camp_grid[# 1, 2];
+			global.targetX = obj_inventory.altar_grid[# 1, 1];
+			global.targetY = obj_inventory.altar_grid[# 1, 2];
 			global.targetRoom = rm_lenko_farwayRoad_04;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -242,7 +242,7 @@ if (obj_inventory.camp_grid[# 1, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 2, 3] = true) 
+if (obj_inventory.altar_grid[# 2, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50)) and (altar = true)
@@ -257,14 +257,14 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 2, 1];
-			global.targetY = obj_inventory.camp_grid[# 2, 2];
+			global.targetX = obj_inventory.altar_grid[# 2, 1];
+			global.targetY = obj_inventory.altar_grid[# 2, 2];
 			global.targetRoom = rm_lenko_farwayRoad_06;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -281,7 +281,7 @@ if (obj_inventory.camp_grid[# 2, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 3, 3] = true) 
+if (obj_inventory.altar_grid[# 3, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 31,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 29,_xPos + 89,_yPos + 32)) and (altar = true)
@@ -296,14 +296,14 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 3, 1];
-			global.targetY = obj_inventory.camp_grid[# 3, 2];
+			global.targetX = obj_inventory.altar_grid[# 3, 1];
+			global.targetY = obj_inventory.altar_grid[# 3, 2];
 			global.targetRoom = rm_lenko_farwayRoad_09;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -319,7 +319,7 @@ if (obj_inventory.camp_grid[# 3, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 4, 3] = true) 
+if (obj_inventory.altar_grid[# 4, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68)) and (altar = true)
@@ -334,14 +334,14 @@ if (obj_inventory.camp_grid[# 4, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 4, 1];
-			global.targetY = obj_inventory.camp_grid[# 4, 2];
+			global.targetX = obj_inventory.altar_grid[# 4, 1];
+			global.targetY = obj_inventory.altar_grid[# 4, 2];
 			global.targetRoom = rm_lenko_farwayRoad_13;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -399,8 +399,8 @@ if (obj_game.level_num = 1)
 	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
 }
 
-//Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 5, 3] = true) 
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 5, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 39, _yPos + 14,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 12,_xPos + 41,_yPos + 15))and (altar = true)
@@ -415,14 +415,14 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 5, 1];
-			global.targetY = obj_inventory.camp_grid[# 5, 2];
+			global.targetX = obj_inventory.altar_grid[# 5, 1];
+			global.targetY = obj_inventory.altar_grid[# 5, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_00;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -438,7 +438,7 @@ if (obj_inventory.camp_grid[# 5, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 6, 3] = true) 
+if (obj_inventory.altar_grid[# 6, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 53, _yPos + 31,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 50,_yPos + 29,_xPos + 55,_yPos + 32)) and (altar = true)
@@ -453,14 +453,14 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 6, 1];
-			global.targetY = obj_inventory.camp_grid[# 6, 2];
+			global.targetX = obj_inventory.altar_grid[# 6, 1];
+			global.targetY = obj_inventory.altar_grid[# 6, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_04;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -476,7 +476,7 @@ if (obj_inventory.camp_grid[# 6, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 7, 3] = true) 
+if (obj_inventory.altar_grid[# 7, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 59,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 57,_xPos + 43,_yPos + 60)) and (altar = true)
@@ -491,14 +491,14 @@ if (obj_inventory.camp_grid[# 7, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 7, 1];
-			global.targetY = obj_inventory.camp_grid[# 7, 2];
+			global.targetX = obj_inventory.altar_grid[# 7, 1];
+			global.targetY = obj_inventory.altar_grid[# 7, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_06;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -514,7 +514,7 @@ if (obj_inventory.camp_grid[# 7, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 8, 3] = true) 
+if (obj_inventory.altar_grid[# 8, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 85, _yPos + 67,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 82,_yPos + 65,_xPos + 87,_yPos + 68)) and (altar = true)
@@ -529,14 +529,14 @@ if (obj_inventory.camp_grid[# 8, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 8, 1];
-			global.targetY = obj_inventory.camp_grid[# 8, 2];
+			global.targetX = obj_inventory.altar_grid[# 8, 1];
+			global.targetY = obj_inventory.altar_grid[# 8, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_09;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -552,7 +552,7 @@ if (obj_inventory.camp_grid[# 8, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 9, 3] = true) 
+if (obj_inventory.altar_grid[# 9, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 38,_xPos + 106,_yPos + 41)) and (altar = true)
@@ -567,14 +567,14 @@ if (obj_inventory.camp_grid[# 9, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 9, 1];
-			global.targetY = obj_inventory.camp_grid[# 9, 2];
+			global.targetX = obj_inventory.altar_grid[# 9, 1];
+			global.targetY = obj_inventory.altar_grid[# 9, 2];
 			global.targetRoom = rm_lenko_yakflowerPath_13;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -646,8 +646,8 @@ if (obj_game.level_num = 2)
 }
 
 
-//Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 10, 3] = true) 
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 10, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 119, _yPos + 13,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 11,_xPos + 121,_yPos + 14)) and (altar = true)
@@ -662,14 +662,14 @@ if (obj_inventory.camp_grid[# 10, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 10, 1];
-			global.targetY = obj_inventory.camp_grid[# 10, 2];
+			global.targetX = obj_inventory.altar_grid[# 10, 1];
+			global.targetY = obj_inventory.altar_grid[# 10, 2];
 			global.targetRoom = rm_lenko_habrafLake_00;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -685,7 +685,7 @@ if (obj_inventory.camp_grid[# 10, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 11, 3] = true) 
+if (obj_inventory.altar_grid[# 11, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 23,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 21,_xPos + 90,_yPos + 24)) and (altar = true)
@@ -700,14 +700,14 @@ if (obj_inventory.camp_grid[# 11, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 11, 1];
-			global.targetY = obj_inventory.camp_grid[# 11, 2];
+			global.targetX = obj_inventory.altar_grid[# 11, 1];
+			global.targetY = obj_inventory.altar_grid[# 11, 2];
 			global.targetRoom = rm_lenko_habrafLake_04;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -723,7 +723,7 @@ if (obj_inventory.camp_grid[# 11, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 12, 3] = true) 
+if (obj_inventory.altar_grid[# 12, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 41, _yPos + 31,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
@@ -738,14 +738,14 @@ if (obj_inventory.camp_grid[# 12, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 12, 1];
-			global.targetY = obj_inventory.camp_grid[# 12, 2];
+			global.targetX = obj_inventory.altar_grid[# 12, 1];
+			global.targetY = obj_inventory.altar_grid[# 12, 2];
 			global.targetRoom = rm_lenko_habrafLake_06;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -762,7 +762,7 @@ if (obj_inventory.camp_grid[# 12, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 13, 3] = true) 
+if (obj_inventory.altar_grid[# 13, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 103, _yPos + 49,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
@@ -777,14 +777,14 @@ if (obj_inventory.camp_grid[# 13, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 13, 1];
-			global.targetY = obj_inventory.camp_grid[# 13, 2];
+			global.targetX = obj_inventory.altar_grid[# 13, 1];
+			global.targetY = obj_inventory.altar_grid[# 13, 2];
 			global.targetRoom = rm_lenko_habrafLake_09;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -800,7 +800,7 @@ if (obj_inventory.camp_grid[# 13, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 14, 3] = true) 
+if (obj_inventory.altar_grid[# 14, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 40, _yPos + 49,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50)) and (altar = true)
@@ -815,14 +815,14 @@ if (obj_inventory.camp_grid[# 14, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.habrafLake_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 14, 1];
-			global.targetY = obj_inventory.camp_grid[# 14, 2];
+			global.targetX = obj_inventory.altar_grid[# 14, 1];
+			global.targetY = obj_inventory.altar_grid[# 14, 2];
 			global.targetRoom = rm_lenko_habrafLake_13;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -895,8 +895,8 @@ if (obj_game.level_num = 3)
 }
 
 
-//Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 15, 3] = true) 
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 15, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 136, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 38,_xPos + 138,_yPos + 41)) and (altar = true)
@@ -911,14 +911,14 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 15, 1];
-			global.targetY = obj_inventory.camp_grid[# 15, 2];
+			global.targetX = obj_inventory.altar_grid[# 15, 1];
+			global.targetY = obj_inventory.altar_grid[# 15, 2];
 			global.targetRoom = rm_lenko_beaowire_00;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -934,7 +934,7 @@ if (obj_inventory.camp_grid[# 15, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 16, 3] = true) 
+if (obj_inventory.altar_grid[# 16, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 66,_xPos + 106,_yPos + 69)) and (altar = true)
@@ -949,14 +949,14 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 16, 1];
-			global.targetY = obj_inventory.camp_grid[# 16, 2];
+			global.targetX = obj_inventory.altar_grid[# 16, 1];
+			global.targetY = obj_inventory.altar_grid[# 16, 2];
 			global.targetRoom = rm_lenko_beaowire_04;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -972,7 +972,7 @@ if (obj_inventory.camp_grid[# 16, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 17, 3] = true) 
+if (obj_inventory.altar_grid[# 17, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 68,_yPos + 38,_xPos + 73,_yPos + 41)) and (altar = true)
@@ -987,14 +987,14 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 17, 1];
-			global.targetY = obj_inventory.camp_grid[# 17, 2];
+			global.targetX = obj_inventory.altar_grid[# 17, 1];
+			global.targetY = obj_inventory.altar_grid[# 17, 2];
 			global.targetRoom = rm_lenko_beaowire_07;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1011,7 +1011,7 @@ if (obj_inventory.camp_grid[# 17, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 18, 3] = true) 
+if (obj_inventory.altar_grid[# 18, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 58,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 35,_yPos + 56,_xPos + 40,_yPos +59)) and (altar = true)
@@ -1026,14 +1026,14 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 18, 1];
-			global.targetY = obj_inventory.camp_grid[# 18, 2];
+			global.targetX = obj_inventory.altar_grid[# 18, 1];
+			global.targetY = obj_inventory.altar_grid[# 18, 2];
 			global.targetRoom = rm_lenko_beaowire_10;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1049,7 +1049,7 @@ if (obj_inventory.camp_grid[# 18, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 19, 3] = true) 
+if (obj_inventory.altar_grid[# 19, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 38,_xPos + 90,_yPos + 41)) and (altar = true)
@@ -1064,14 +1064,14 @@ if (obj_inventory.camp_grid[# 19, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 19, 1];
-			global.targetY = obj_inventory.camp_grid[# 19, 2];
+			global.targetX = obj_inventory.altar_grid[# 19, 1];
+			global.targetY = obj_inventory.altar_grid[# 19, 2];
 			global.targetRoom = rm_lenko_beaowire_14;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1144,8 +1144,8 @@ if (obj_game.level_num = 4)
 }
 
 
-//Draw Camps (Selectable for travel
-if (obj_inventory.camp_grid[# 20, 3] = true)
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 20, 3] = true)
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 22, _yPos + 76,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77)) and (altar = true)
@@ -1160,14 +1160,14 @@ if (obj_inventory.camp_grid[# 20, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 20, 1];
-			global.targetY = obj_inventory.camp_grid[# 20, 2];
+			global.targetX = obj_inventory.altar_grid[# 20, 1];
+			global.targetY = obj_inventory.altar_grid[# 20, 2];
 			global.targetRoom = rm_beetrap_northernPass_00;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1183,7 +1183,7 @@ if (obj_inventory.camp_grid[# 20, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 21, 3] = true) 
+if (obj_inventory.altar_grid[# 21, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70)) and (altar = true)
@@ -1198,14 +1198,14 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 21, 1];
-			global.targetY = obj_inventory.camp_grid[# 21, 2];
+			global.targetX = obj_inventory.altar_grid[# 21, 1];
+			global.targetY = obj_inventory.altar_grid[# 21, 2];
 			global.targetRoom = rm_lenko_beaowire_04;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1221,7 +1221,7 @@ if (obj_inventory.camp_grid[# 21, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 22, 3] = true) 
+if (obj_inventory.altar_grid[# 22, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
@@ -1236,14 +1236,14 @@ if (obj_inventory.camp_grid[# 22, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 17, 1];
-			global.targetY = obj_inventory.camp_grid[# 17, 2];
+			global.targetX = obj_inventory.altar_grid[# 17, 1];
+			global.targetY = obj_inventory.altar_grid[# 17, 2];
 			global.targetRoom = rm_lenko_beaowire_06;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1260,7 +1260,7 @@ if (obj_inventory.camp_grid[# 22, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 23, 3] = true) 
+if (obj_inventory.altar_grid[# 23, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 50,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
@@ -1275,14 +1275,14 @@ if (obj_inventory.camp_grid[# 23, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 18, 1];
-			global.targetY = obj_inventory.camp_grid[# 18, 2];
+			global.targetX = obj_inventory.altar_grid[# 18, 1];
+			global.targetY = obj_inventory.altar_grid[# 18, 2];
 			global.targetRoom = rm_lenko_beaowire_09;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
@@ -1298,7 +1298,7 @@ if (obj_inventory.camp_grid[# 23, 3] = true)
 		}
 	}
 }
-if (obj_inventory.camp_grid[# 24, 3] = true) 
+if (obj_inventory.altar_grid[# 24, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 76,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50)) and (altar = true)
@@ -1313,14 +1313,14 @@ if (obj_inventory.camp_grid[# 24, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.camp_grid[# 19, 1];
-			global.targetY = obj_inventory.camp_grid[# 19, 2];
+			global.targetX = obj_inventory.altar_grid[# 19, 1];
+			global.targetY = obj_inventory.altar_grid[# 19, 2];
 			global.targetRoom = rm_lenko_beaowire_13;
-			global.targetCamp = true;
+			global.targetAltar = true;
 			scr_game_room_enemy_reset();
-			global.lastCamp = global.targetRoom;
-			global.lastCampX = global.targetX;
-			global.lastCampY = global.targetY;
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
 			global.transition = true;
 			global.fadeOut = true;
 			obj_game.gamePaused = false;
