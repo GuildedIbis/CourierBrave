@@ -598,7 +598,9 @@ if (point_in_rectangle(_mouseX,_mouseY,16,148,32,164))//Home
 	draw_sprite_stretched(spr_highlight_circle,0,15,147,18,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		sub_menu = -1;
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		home_menu = scr_menu_game_home;
 	}
 }
 }

@@ -646,7 +646,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 
 	if (string_counter >= 2)
 	{
-		obj_inventory.quest_grid[# quest_num, 1] = 3;
+		obj_inventory.quest_grid[# 6, 1] = 3;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
