@@ -8,6 +8,7 @@
 //Altar Create
 function scr_altar_create(){
 entity_step = scr_altar;
+reset = false;
 shadow = true;
 shadow_size = 2;
 sound = snd_text01;
@@ -59,26 +60,7 @@ if (string_counter >= 1)
 	//text_script = AlterMenu;
 	//alter_gui = LevelStatsMenuGUI;
 	scr_game_room_enemy_reset();
-	with (obj_player)
-	{
-		hp = max_hp;
-		yellow_primary = max_charge;
-		orange_primary = max_charge;
-		purple_primary = max_charge;
-		blue_primary = max_charge;
-		green_primary = max_charge;
-		red_primary = max_charge;
-		yellow_special = max_charge;
-		orange_special = max_charge;
-		purple_special = max_charge;
-		blue_special = max_charge;
-		green_special = max_charge;
-		red_special = max_charge;
-		for (var i = 0; i < 11; i = i + 1)
-		{
-			crull_use[i] = false;
-		}
-	}
+	scr_player_reset();
 	text_gui = 0;
 	text_string = ""
 	_SubString = string_copy(text_string,1,letter_counter);
@@ -112,6 +94,9 @@ function scr_menu_altar_main(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
+
+
+	
 if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,125,73,34,34)
@@ -119,6 +104,8 @@ if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
+		scr_game_room_enemy_reset();
+		scr_player_reset();
 		text_script = scr_menu_altar_crull;
 		text_gui = -1;
 	}
@@ -131,6 +118,8 @@ if (point_in_rectangle(_mouseX,_mouseY,162,74,194,106))
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		//map_selected = obj_game.room_num;
+		scr_game_room_enemy_reset();
+		scr_player_reset();
 		text_script = scr_menu_altar_map;
 		text_gui = -1;
 		altar = true;

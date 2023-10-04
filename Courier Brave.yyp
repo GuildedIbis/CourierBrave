@@ -604,6 +604,7 @@
     {"id":{"name":"spr_npc_nisma36","path":"sprites/spr_npc_nisma36/spr_npc_nisma36.yy",},},
     {"id":{"name":"snd_zap","path":"sounds/snd_zap/snd_zap.yy",},},
     {"id":{"name":"spr_roll_icon2","path":"sprites/spr_roll_icon2/spr_roll_icon2.yy",},},
+    {"id":{"name":"FarwaySpawners","path":"scripts/FarwaySpawners/FarwaySpawners.yy",},},
     {"id":{"name":"obj_effect_treeYok","path":"objects/obj_effect_treeYok/obj_effect_treeYok.yy",},},
     {"id":{"name":"snd_resourcePlant","path":"sounds/snd_resourcePlant/snd_resourcePlant.yy",},},
     {"id":{"name":"snd_zerkrift_quad","path":"sounds/snd_zerkrift_quad/snd_zerkrift_quad.yy",},},

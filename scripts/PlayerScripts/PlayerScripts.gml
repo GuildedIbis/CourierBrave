@@ -507,22 +507,10 @@ if (iAlpha <= 0)
 	ablaze_dur_timer = 0;
 	thundux_dur_timer = 0;
 	watervice_dur_timer = 0;
-	hp = max_hp;
-	yellow_primary = max_charge;
-	orange_primary  = max_charge;
-	purple_primary  = max_charge;
-	blue_primary  = max_charge;
-	red_primary  = max_charge;
-	yellow_special = max_charge;
-	orange_special = max_charge;
-	purple_special = max_charge;
-	blue_special = max_charge;
-	red_special = max_charge;
+	scr_game_room_enemy_reset();
+	scr_player_reset();
 	dead = false;
-	for (var i = 0; i < 11; i = i + 1)
-	{
-		crull_use[i] = false;
-	}
+	
 	
 	//Room
 	room_goto(global.lastAltar);
@@ -538,6 +526,32 @@ if (iAlpha <= 0)
 	attacking = false;
 }
 	
+}
+//
+///
+//
+//
+//
+//Player Reset
+function scr_player_reset(){
+with (obj_player)
+{
+	hp = max_hp;
+	yellow_primary = max_charge;
+	orange_primary  = max_charge;
+	purple_primary  = max_charge;
+	blue_primary  = max_charge;
+	red_primary  = max_charge;
+	yellow_special = max_charge;
+	orange_special = max_charge;
+	purple_special = max_charge;
+	blue_special = max_charge;
+	red_special = max_charge;
+	for (var i = 0; i < 11; i = i + 1)
+	{
+		crull_use[i] = false;
+	}
+}	
 }
 //
 //

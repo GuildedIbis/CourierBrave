@@ -55,7 +55,7 @@ if (variable_struct_exists(_loadEntity,"level04")) obj_inventory.level_ary[4] = 
 //if (variable_struct_exists(_loadEntity,"farway00")) obj_inventory.farwayRoad_map_ary[0][3] = _loadEntity.farway00;
 //if (variable_struct_exists(_loadEntity,"farway01")) obj_inventory.farwayRoad_map_ary[1][3] = _loadEntity.farway01;
 //if (variable_struct_exists(_loadEntity,"farway02")) obj_inventory.farwayRoad_map_ary[2][3] = _loadEntity.farway02;
-//if (variable_struct_exists(_loadEntity,"farway03")) obj_inventory.farwayRoad_map_ary[3][3] = _loadEntity.farway03;
+if (variable_struct_exists(_loadEntity,"farway03")) obj_inventory.farwayRoad_map_ary[3][3] = _loadEntity.farway03;
 //if (variable_struct_exists(_loadEntity,"farway04")) obj_inventory.farwayRoad_map_ary[4][3] = _loadEntity.farway04;
 //if (variable_struct_exists(_loadEntity,"farway05")) obj_inventory.farwayRoad_map_ary[5][3] = _loadEntity.farway05;
 //if (variable_struct_exists(_loadEntity,"farway06")) obj_inventory.farwayRoad_map_ary[6][3] = _loadEntity.farway06;
@@ -153,6 +153,7 @@ level03: obj_inventory.level_ary[3],
 level04: obj_inventory.level_ary[4],
 
 ////Farway
+farway03 : obj_inventory.farwayRoad_map_ary[3][3],
 farway10 : obj_inventory.farwayRoad_map_ary[10][3],
 farway14 : obj_inventory.farwayRoad_map_ary[14][3],
 //Yakflower
