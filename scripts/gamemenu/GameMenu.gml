@@ -5,7 +5,7 @@
 //
 //
 //Game Pause Menu 
-function scr_menu_game_pause(){
+function scr_menu_pause_main(){
 //obj_game > Press ESC
 
 //Translate Mouse Position to GUI position
@@ -52,7 +52,7 @@ if (point_in_rectangle(_mouseX,_mouseY,132,37,188,122))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		pause_menu = scr_menu_game_settings;
+		pause_menu = scr_menu_pause_settings;
 		sub_menu = -1;
 	}
 }

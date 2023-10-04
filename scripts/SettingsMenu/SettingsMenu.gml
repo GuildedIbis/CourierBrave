@@ -5,7 +5,7 @@
 //
 //
 //Game Settings Menu
-function scr_menu_game_settings(){
+function scr_menu_pause_settings(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
@@ -26,12 +26,13 @@ draw_set_valign(fa_middle);
 	
 //Draw Text
 draw_text_transformed(160,26,"SETTINGS",1,1,0);
-draw_text_transformed(84,44,"Volume",.35,.35,0);
-draw_text_transformed(84,62,"Controls",.35,.35,0);
+draw_text_transformed(84,44,"AUDIO",.35,.35,0);
+draw_text_transformed(84,62,"VIDEO",.35,.35,0);
+draw_text_transformed(84,62,"CONTROLS",.35,.35,0);
 draw_text_transformed(84,116,"Return",.35,.35,0);
 
 //Button Mechanics
-//Volume
+//Audio
 if (point_in_rectangle(_mouseX,_mouseY,69,37,101,53))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,68,36,34,18)
@@ -39,10 +40,10 @@ if (point_in_rectangle(_mouseX,_mouseY,69,37,101,53))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		sub_menu = scr_menu_game_volume;
+		sub_menu = scr_menu_pause_settings_audio;
 	}
 }
-//Controls
+//Video
 if (point_in_rectangle(_mouseX,_mouseY,69,54,101,70))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,68,53,34,18)
@@ -50,7 +51,19 @@ if (point_in_rectangle(_mouseX,_mouseY,69,54,101,70))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
-		sub_menu = scr_menu_player_controls;
+		sub_menu = scr_menu_pause_settings_video;
+		page = 0;
+	}
+}
+//Controls
+if (point_in_rectangle(_mouseX,_mouseY,69,71,101,87))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,68,70,34,18)
+	if(mouse_check_button_pressed(mb_left))
+	{
+		audio_sound_gain(snd_menu,global.volumeMenu,1);
+		audio_play_sound(snd_menu,0,false);
+		sub_menu = scr_menu_pause_settings_controls;
 		page = 0;
 	}
 }
@@ -63,7 +76,7 @@ if (point_in_rectangle(_mouseX,_mouseY,69,105,101,121))
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
 		audio_play_sound(snd_menu,0,false);
 		scr_game_save_settings();
-		pause_menu = scr_menu_game_pause;
+		pause_menu = scr_menu_pause_main;
 
 	}
 }
@@ -78,7 +91,7 @@ if (sub_menu != -1)
 //
 //
 //Game Volume Menu
-function scr_menu_game_volume(){
+function scr_menu_pause_settings_audio(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
@@ -195,8 +208,51 @@ draw_healthbar(124,73,191,85,_volumeFXPerc,c_black,c_white,c_white,0,true,true);
 //
 //
 //
+//Game Volume Menu
+function scr_menu_pause_settings_video(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+	
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+	
+//Music Volume Sprites
+//draw_sprite_stretched(spr_menu_circle16,1,106,37,16,16);
+draw_sprite_stretched(spr_menu_circle16,1,194,37,16,16);
+//draw_text_transformed(112,46,"<",.75,.75,0);
+//draw_text_transformed(201,46,">",.75,.75,0);
+draw_text_transformed(126,46,"TOGGLE FULLSCREEN",.75,.75,0);
+//Music Volume Buttons
+
+if (point_in_rectangle(_mouseX,_mouseY,194,37,210,52))
+{	
+	draw_sprite_stretched(spr_highlight_circle,0,193,36,18,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if window_get_fullscreen()
+		{
+			window_set_fullscreen(false);
+			global.fullscreen = false;
+		}
+		else
+		{
+			window_set_fullscreen(true);
+			global.fullscreen = true;
+		}
+	}
+}
+
+}
+//
+//
+//
+//
+//
 //Player Controls 
-function scr_menu_player_controls(){
+function scr_menu_pause_settings_controls(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);

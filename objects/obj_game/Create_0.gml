@@ -9,7 +9,7 @@ scr_resource_grid_create();
 
 version = "Version: 0.3.0.1"
 menu_sprite = spr_menu;
-pause_menu = scr_menu_game_pause;
+pause_menu = scr_menu_pause_main;
 home_menu = scr_menu_game_home;
 timer1 = 300;
 timer2 = 5;
@@ -40,6 +40,7 @@ game_paused_image_speed = 0;
 
 //audio_play_sound(home_song,0,true);
 //Globals
+global.fullscreen = false;
 global.current_save = -1;
 global.home = false;
 global.textSpeed = .75;
