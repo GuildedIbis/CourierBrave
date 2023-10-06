@@ -132,7 +132,6 @@
     {"name":"inst_68260EE_3","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_7922B8AE_3","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_4E8D5475_3","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
-    {"name":"inst_5B97D914_1","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_7DB340FB_1","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_578D6A22_1","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_6BD00831_1","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
@@ -178,6 +177,7 @@
     {"name":"inst_1A66D277","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_45C69148","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
     {"name":"inst_6053AD05","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
+    {"name":"inst_7166180E","path":"rooms/rm_lenko_habrafLake_09/rm_lenko_habrafLake_09.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -232,10 +232,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.habrafLake_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.habrafLake_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":168.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5B97D914_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterText",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":88.0,"y":72.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7166180E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_altar","path":"objects/obj_altar/obj_altar.yy",},"properties":[],"rotation":0.35881975,"scaleX":1.0,"scaleY":1.0,"x":80.0,"y":80.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_B5D3312_1_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[
