@@ -13,7 +13,7 @@ entity_step = home_state;
 entity_drop = Idle;
 healthbar = false;
 bullet = true;
-enemy_move = spr_enemy_trapLily_viceBubble32;
+enemy_move = spr_projectile_viceBubble32;
 aggro_drop = 300;
 
 enemy_spd = 4.0

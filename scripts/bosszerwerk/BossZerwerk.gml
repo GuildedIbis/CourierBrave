@@ -60,7 +60,7 @@ if (obj_game.gamePaused = false)
 	if (attack_timer > 0) attack_timer = attack_timer - 1;
 	if (attack_counter >= 5)
 	{
-		attack_timer = 120;
+		attack_timer = 180;
 		attack_counter = 0;
 	}
 	//Toggle Aggro 

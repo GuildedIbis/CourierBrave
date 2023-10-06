@@ -7,7 +7,7 @@
 //Yakflower Path: Boss Spawner
 function scr_spawner_yakflowerPath_07(){
 
-if (obj_inventory.quest_grid[# 8, 3] = false) 
+if (obj_inventory.quest_grid[# 8, 3] = false) and (global.aggroCounter <= 2)
 {
 	
 	if (spawn_timer > 0) 
@@ -33,19 +33,17 @@ if (obj_inventory.quest_grid[# 8, 3] = false)
 			}
 			
 			//Spawn, Tally, Reset
-			if (global.aggroCounter <= 2)
+			with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
 			{
-				with (instance_create_layer(x_spawn1,y_spawn1,"Instances",obj_enemy))
-				{
-					image_alpha = 1;
-					scr_enemy_balurne_skirmisher_create();
-					enemy_lvl = 1;
-					global.aggroCounter = global.aggroCounter + 1;
-					targeted = true;
-					break_object = obj_break;
-				}
-				spawn_timer = 300;
+				image_alpha = 1;
+				scr_enemy_balurne_skirmisher_create();
+				enemy_lvl = 1;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break;
 			}
+			spawn_timer = 300;
+		
 		}
 	}
 }

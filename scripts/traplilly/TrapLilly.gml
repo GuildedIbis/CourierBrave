@@ -15,7 +15,7 @@ enemy_damaged = spr_enemy_trapLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
 form_type = 1;
-shadow = true;
+shadow = false;
 shadow_size = 1;
 lit = false;
 light_size = 18;
@@ -58,12 +58,14 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (special_timer > 0) special_timer = special_timer - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	knockback = false;
+	knockback_dur = 0;
 
 	//Toggle Aggro 
-	if (timer1 <= 0)
-	{
-		scr_enemy_wander(60,180);
-	}
+	//if (timer1 <= 0)
+	//{
+	//	scr_enemy_wander(60,180);
+	//}
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -86,7 +88,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) and (special_timer <= 0)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (special_timer <= 0)
 		{
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (watervice = false)
 			{
@@ -123,6 +125,8 @@ else path_end();
 function scr_enemy_trap_lily_bubbleFlail(){
 if (obj_game.gamePaused = false)
 {
+	knockback = false;
+	knockback_dur = 0;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_enemy_trapLily_open)
 	{
@@ -133,7 +137,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
+	damage = 35 + (7 * enemy_lvl);
 	
 	if (timer2 <= 0)
 	{
@@ -142,16 +146,27 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			scr_projectile_viceBubble_create();
-			damage = 45;
-			direction =  point_direction(x,y,obj_player.x,obj_player.y);
+			home_state = scr_projectile_viceBubble_free;
+			enemy_lvl = other.enemy_lvl
+			entity_step = home_state;
+			invincible = false;
+			inv_dur_timer = 0;
+			enemy_move = spr_projectile_viceBubble;
+			aggro_drop = 300;
+			healthbar = false;
+			enemy_spd = 2.5;
+			local_frame = 0;
+			hit_by_attack = -1;
+			timer1 = 60;
+			damage = 45 + (8 * enemy_lvl);
+			break_object = other.break_object;
+			fragment_count = 5;
+			fragment = obj_fragWater;
+			bullet = true;
+			hit_script = scr_entity_hit_destroy;
+			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
-			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy();
 		}
 	}
 	//Animate
@@ -172,6 +187,8 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trap_lily_exposed(){
 if (obj_game.gamePaused = false)
 {
+	knockback = false;
+	knockback_dur = 0;
 	if (sprite_index != spr_enemy_trapLily_exposed)
 	{
 		//Start Animation From Beginning

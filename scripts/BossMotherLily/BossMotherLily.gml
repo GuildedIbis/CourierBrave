@@ -55,7 +55,8 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-
+	
+	
 	//While Aggro if off
 	if (targeted = false)
 	{
@@ -406,7 +407,7 @@ if (obj_game.gamePaused = false)
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_enemy_trapLily_viceBubble32;
+			enemy_move = spr_projectile_viceBubble32;
 			aggro_drop = 300;
 			healthbar = false;
 			enemy_spd = 4.0
