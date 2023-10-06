@@ -30,7 +30,7 @@
   "origin": 9,
   "parent": {
     "name": "Zealot",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf/Zealot.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Zealot.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

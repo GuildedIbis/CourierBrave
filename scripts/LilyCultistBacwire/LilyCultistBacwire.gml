@@ -5,10 +5,10 @@
 //
 //
 //Lily Cultist Bacwire Create
-function LilyCultistBacwireCreate(){
-home_state = LilyCultistBacwireFree;
+function scr_enemy_lilyCultist_bacwire_create(){
+home_state = scr_enemy_lilyCultist_bacwire_free;
 entity_step = home_state;
-entity_drop = LilyCultistDrop;
+entity_drop = scr_enemy_lilyCultist_bacwire_drop;
 bullet = false;
 healthbar = true;
 enemy_idle = spr_enemy_cultistBacwire_idle;
@@ -49,14 +49,14 @@ path = -1;
 //
 //
 //Lilly Cultist Bacwire Free State
-function LilyCultistBacwireFree(){
+function scr_enemy_lilyCultist_bacwire_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//If 
@@ -65,7 +65,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -98,20 +98,20 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,48)) 
 		{
 			path_end();
 			sprite_index = enemy_idle;
 			if (timer2 <= 0)
 			{
-				entity_step = LilyCultistBacwireBurstLeaf;
+				entity_step = scr_enemy_lilyCultist_bacwire_burstLeaf;
 			}
 		}
 		if (timer1 <= 0)
 		{	
 			path_end();
-			entity_step = LilyCultistBacwireBowShot;
+			entity_step = scr_enemy_lilyCultist_bacwire_bowShot;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -121,7 +121,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else
 {
@@ -136,7 +136,7 @@ else
 //
 //
 //Lily Cultist Bacwire Shoot
-function LilyCultistBacwireBowShot(){
+function scr_enemy_lilyCultist_bacwire_bowShot(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -155,18 +155,18 @@ if (obj_game.gamePaused = false)
 
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		audio_sound_gain(snd_arrow,global.volumeEffects,1);
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = CultistArrowFree;
+			home_state = scr_projectile_arrow_cultist_free;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_enemy_cultist_arrow;
+			enemy_move = spr_projectile_arrow_cultist;
 			aggro_drop = 300;
 			healthbar = false;
 			enemy_spd = 2.0
@@ -178,7 +178,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -194,7 +194,7 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = LilyCultistReposition;
+			entity_step = scr_enemy_lilyCultist_bacwire_reposition;
 		}
 		else
 		{
@@ -212,7 +212,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Cultist Arrow Free
-function CultistArrowFree(){
+function scr_projectile_arrow_cultist_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -255,7 +255,7 @@ else
 //
 //
 //Lily Cultist Bacwire Burst Leaf
-function LilyCultistBacwireBurstLeaf(){
+function scr_enemy_lilyCultist_bacwire_burstLeaf(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -273,7 +273,7 @@ if (obj_game.gamePaused = false)
 
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		audio_sound_gain(snd_cultistBacwire_leafShoot,global.volumeEffects,1);
@@ -283,11 +283,11 @@ if (obj_game.gamePaused = false)
 			var _dir = point_direction(x,y,obj_player.x,obj_player.y) + (-9 + 6*i);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				home_state = CultistLeafFree;
+				home_state = scr_projectile_burstLeaf_free;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
-				enemy_move = spr_cultist_leaf;
+				enemy_move = spr_projectile_burstLeaf;
 				aggro_drop = 300;
 				healthbar = false;
 				enemy_spd = 2.5;
@@ -298,7 +298,7 @@ if (obj_game.gamePaused = false)
 				fragment_count = 2;
 				fragment = obj_fragPlant;
 				bullet = true;
-				hit_script = EntityHitDestroy;
+				hit_script = scr_entity_hit_destroy;
 				direction = _dir
 				image_angle = direction;
 				speed = enemy_spd;
@@ -315,7 +315,7 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = EnemyReposition;
+			entity_step = scr_enemy_lilyCultist_bacwire_reposition;
 		}
 		else
 		{
@@ -333,7 +333,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Cultist Arrow Free
-function CultistLeafFree(){
+function scr_projectile_burstLeaf_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -376,7 +376,7 @@ else
 //
 //
 //Lily Cultist Reposition
-function LilyCultistReposition(){
+function scr_enemy_lilyCultist_bacwire_reposition(){
 //Timer
 
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -395,7 +395,7 @@ if (sprite_index != enemy_move)
 
 
 //Animate
-EnemyAnimation();
+scr_enemy_animation();
 
 
 //Move
@@ -435,8 +435,8 @@ if (timer3 <= 0)
 //
 //
 //
-//Lily Cultist Drop
-function LilyCultistDrop(){
+//Lily Cultist Bacwire Drop
+function scr_enemy_lilyCultist_bacwire_drop(){
 //if (obj_inventory.quest_grid[# 1, 0] = true) and (obj_inventory.quest_grid[# 1, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;

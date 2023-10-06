@@ -43,7 +43,7 @@
   "origin": 9,
   "parent": {
     "name": "Dilloc",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf/Dilloc.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Dilloc.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

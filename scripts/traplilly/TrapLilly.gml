@@ -5,10 +5,10 @@
 //
 //
 //Sabi Create
-function TrapLilyCreate(){
-home_state = TrapLilyFree;
+function scr_enemy_trap_lily_create(){
+home_state = scr_enemy_trap_lily_free;
 entity_step = home_state;
-entity_drop = TrapLilyDrop;
+entity_drop = scr_enemy_trap_lily_drop;
 enemy_idle = spr_enemy_trapLily;
 enemy_move = spr_enemy_trapLily;
 enemy_damaged = spr_enemy_trapLily;
@@ -47,7 +47,7 @@ path = -1;
 //
 //
 //Sabi Free
-function TrapLilyFree(){
+function scr_enemy_trap_lily_free(){
 
 if (obj_game.gamePaused = false)
 {
@@ -57,12 +57,12 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (special_timer > 0) special_timer = special_timer - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
 	if (timer1 <= 0)
 	{
-		EnemyWander(60,180);
+		scr_enemy_wander(60,180);
 	}
 	if (aggro_drop <= 0)
 	{
@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 			{
 				special_timer = 180;
 				timer2 = 36;
-				entity_step = TrapLilyBubbleFlail
+				entity_step = scr_enemy_trap_lily_bubbleFlail;
 			}
 		}
 	}
@@ -110,7 +110,7 @@ if (obj_game.gamePaused = false)
 		}
 	}
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -120,7 +120,7 @@ else path_end();
 //
 //
 //Trap Lily Bubble Flail
-function TrapLilyBubbleFlail(){
+function scr_enemy_trap_lily_bubbleFlail(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -142,7 +142,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(ViceBubbleCreate);
+			scr_projectile_viceBubble_create();
 			damage = 45;
 			direction =  point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
@@ -151,14 +151,14 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy();
 		}
 	}
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
-		entity_step = TrapLilyExposed;
+		entity_step = scr_enemy_trap_lily_exposed;
 		animation_end = false;
 	}
 }
@@ -169,7 +169,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Trap Lily Exposed
-function TrapLilyExposed(){
+function scr_enemy_trap_lily_exposed(){
 if (obj_game.gamePaused = false)
 {
 	if (sprite_index != spr_enemy_trapLily_exposed)
@@ -183,7 +183,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -197,8 +197,8 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Sabi Drop
-function TrapLilyDrop(){
+//Trap Lily Drop
+function scr_enemy_trap_lily_drop(){
 var _objects = 6;
 //var _dropBean = 35;
 var _drop1 = irandom_range(0,99)	

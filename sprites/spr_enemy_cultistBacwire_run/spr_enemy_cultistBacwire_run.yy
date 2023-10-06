@@ -42,7 +42,7 @@
   "origin": 9,
   "parent": {
     "name": "Bacwire",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf/Bacwire.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Bacwire.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

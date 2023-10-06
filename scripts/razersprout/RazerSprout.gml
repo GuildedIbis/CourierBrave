@@ -5,8 +5,8 @@
 //
 //
 //Rat Arrow Create
-function RazerSproutCreate(){
-home_state = RazerSproutFree;
+function scr_projectile_razorSprout_create(){
+home_state = scr_projectile_razorSprout_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false
@@ -27,7 +27,7 @@ damage = 40;
 //
 //
 //Rat Arrow Free
-function RazerSproutFree(){
+function scr_projectile_razorSprout_free(){
 if (obj_game.gamePaused = false)
 {
 if (timer1 > 0) timer1 = timer1 -1;

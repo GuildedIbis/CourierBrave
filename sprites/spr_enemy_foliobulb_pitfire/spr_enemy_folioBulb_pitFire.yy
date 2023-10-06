@@ -41,7 +41,7 @@
   "origin": 7,
   "parent": {
     "name": "Bulbs",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Bulbs.yy",
+    "path": "folders/Sprites/Entity/Enemy/Other/Bulbs.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

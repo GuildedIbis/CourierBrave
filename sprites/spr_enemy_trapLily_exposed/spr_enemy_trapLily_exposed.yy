@@ -46,8 +46,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf.yy",
+    "name": "TrapLily",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/TrapLily.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

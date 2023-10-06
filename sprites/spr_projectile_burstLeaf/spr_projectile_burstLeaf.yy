@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_cultist_lifeLeaf",
+  "name": "spr_projectile_burstLeaf",
   "bbox_bottom": 6,
   "bbox_left": 0,
   "bbox_right": 7,
@@ -25,14 +25,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf.yy",
+    "name": "Bacwire",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Bacwire.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_cultist_lifeLeaf",
+    "name": "spr_projectile_burstLeaf",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b8f84a5f-8b7a-4feb-8866-d5cf5a5cbda4","path":"sprites/spr_cultist_lifeLeaf/spr_cultist_lifeLeaf.yy",},},},"Disabled":false,"id":"3368c1dc-0e2e-44c2-96bf-7c67f1aaaa58","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b8f84a5f-8b7a-4feb-8866-d5cf5a5cbda4","path":"sprites/spr_projectile_burstLeaf/spr_projectile_burstLeaf.yy",},},},"Disabled":false,"id":"38fb8235-16b9-4ee4-a98e-fd12905592d2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

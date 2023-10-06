@@ -5,10 +5,10 @@
 //
 //
 //Vice Bomb Create
-function ViceBombCreate(){
+function scr_projectile_viceBomb_create(){
 invincible = false;
 inv_dur_timer = 0;
-home_state = ViceBombFree;
+home_state = scr_projectile_viceBomb_free;
 entity_step = home_state;
 entity_drop = Idle;
 healthbar = false;
@@ -26,8 +26,8 @@ damage = 65;
 //
 //
 //
-//Rat Arrow Free
-function ViceBombFree(){
+//Vice Bomb Free
+function scr_projectile_viceBomb_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -61,7 +61,7 @@ if (place_meeting(x,y,break_object))
 	{
 		timer1 = 1200;
 		sprite_index = spr_enemy_motherLily_viceEffect;
-		effect_script = EffectWaterVice;
+		effect_script = scr_effect_waterVice;
 		image_speed = 1;
 		direction = irandom_range(0,359);
 		image_angle = direction;

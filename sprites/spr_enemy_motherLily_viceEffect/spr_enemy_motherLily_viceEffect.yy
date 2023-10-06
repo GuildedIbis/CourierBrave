@@ -32,7 +32,7 @@
   "origin": 4,
   "parent": {
     "name": "MotherLily",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Habraf/MotherLily.yy",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/MotherLily.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

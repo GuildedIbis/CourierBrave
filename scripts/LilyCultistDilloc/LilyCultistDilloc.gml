@@ -5,10 +5,10 @@
 //
 //
 //Lily Cultist Dilloc Create
-function LilyCultistDillocCreate(){
-home_state = LilyCultistDillocFree;
+function scr_enemy_lilyCultist_dilloc_create(){
+home_state = scr_enemy_lilyCultist_dilloc_free;
 entity_step = home_state;
-entity_drop = LilyCultistDrop;
+entity_drop = scr_enemy_lilyCultist_dilloc_drop;
 bullet = false;
 healthbar = true;
 enemy_idle = spr_enemy_cultistDilloc_idle;
@@ -52,14 +52,14 @@ path = -1;
 //
 //
 //Lilly Cultist Dilloc Free State
-function LilyCultistDillocFree(){
+function scr_enemy_lilyCultist_dilloc_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//If 
@@ -68,7 +68,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -101,14 +101,14 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		script_execute(EnemyChase);
+		scr_enemy_chase();
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,48)) 
 		{
 			path_end();
 			sprite_index = enemy_idle;
 			if (timer2 <= 0) and (point_in_circle(obj_player.x, obj_player.y,x,y,16)) 
 			{
-				entity_step = LilyCultistDillocTripleStab;
+				entity_step = scr_enemy_lilyCultist_dilloc_tripleStab;
 			}
 		}
 		if (timer1 <= 0)
@@ -116,7 +116,7 @@ if (obj_game.gamePaused = false)
 			path_end();
 			sprite_index = enemy_idle;
 			attack_counter = 0;
-			entity_step = LilyCultistDillocLifeLeaf;
+			entity_step = scr_enemy_lilyCultist_dilloc_lifeLeaf;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else
 {
@@ -141,7 +141,7 @@ else
 //
 //
 //Lily Cultist Dilloc Life Leaf
-function LilyCultistDillocLifeLeaf(){
+function scr_enemy_lilyCultist_dilloc_lifeLeaf(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -167,7 +167,7 @@ if (obj_game.gamePaused = false)
 
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (timer1 <= 0)
 	{
 		timer1 = 30;
@@ -176,12 +176,12 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_cultistDilloc_leafShoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = CultistLifeLeafFree;
+			home_state = scr_projectile_lifeLeaf_free;
 			shooter = other;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_cultist_lifeLeaf;
+			enemy_move = spr_projectile_lifeLeaf;
 			aggro_drop = 300;
 			healthbar = false;
 			enemy_spd = 2.0
@@ -220,7 +220,7 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = LilyCultistReposition;
+			entity_step = scr_enemy_lilyCultist_dilloc_reposition;
 		}
 		else
 		{
@@ -237,8 +237,8 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Cultist Arrow Free
-function CultistLifeLeafFree(){
+//Cultist Life Leaf Free
+function scr_projectile_lifeLeaf_free(){
 if (obj_game.gamePaused = false)
 {
 	sprite_index = enemy_move;
@@ -271,7 +271,7 @@ if (obj_game.gamePaused = false)
 		if (place_meeting(x,y,break_object)) 
 		{
 			heal = true;
-			sprite_index = spr_cultist_lifeLeaf_healBurst;
+			sprite_index = spr_projectile_lifeLeaf_healBurst;
 			audio_sound_gain(snd_cultistDilloc_lifeLeaf_heal,global.volumeEffects,1);
 			audio_play_sound(snd_cultistDilloc_lifeLeaf_heal,0,false);
 		}
@@ -293,8 +293,8 @@ if (obj_game.gamePaused = false)
 			image_yscale = 1;
 			spd = 0
 			damage = other.damage;
-			sprite_index = spr_cultist_lifeLeaf_healBurst;
-			effect_script = EffectLifeLeafHealBurst;
+			sprite_index = spr_projectile_lifeLeaf_healBurst;
+			effect_script = scr_projectile_lifeLeaf_healBurst;
 			image_speed = 1;
 			hit_by_attack = -1;
 			timer1 = 50;
@@ -315,15 +315,15 @@ else
 //
 //
 //Effect Life Leaf Heal Burst
-function EffectLifeLeafHealBurst(){
+function scr_projectile_lifeLeaf_healBurst(){
 timer1 = timer1 - 1;
-if (sprite_index != spr_cultist_lifeLeaf_healBurst)
+if (sprite_index != spr_projectile_lifeLeaf_healBurst)
 {
-	sprite_index = spr_cultist_lifeLeaf_healBurst;
+	sprite_index = spr_projectile_lifeLeaf_healBurst;
 	image_speed = 1;
 	image_index = 0;
 }
-EnemyHealCalculate(spr_cultist_lifeLeaf_healBurst);
+scr_enemy_attack_calculate_heal(spr_projectile_lifeLeaf_healBurst);
 if (timer1 <= 0) instance_destroy();
 }
 
@@ -333,7 +333,7 @@ if (timer1 <= 0) instance_destroy();
 //
 //
 //Lily Cultist Dilloc Triple Stab
-function LilyCultistDillocTripleStab(){
+function scr_enemy_lilyCultist_dilloc_tripleStab(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -350,7 +350,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 30;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_cultistDilloc_stab_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_cultistDilloc_stab_hitbox)
 
 	if (timer2 <= 0)
 	{
@@ -358,7 +358,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer2 = 60;
@@ -370,8 +370,151 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_lilyCultist_dilloc_reposition;
 		animation_end = false;
 	}
 }
+}
+//
+//
+//
+//
+//
+//Lily Cultist Reposition
+function scr_enemy_lilyCultist_dilloc_reposition(){
+//Timer
+
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer3 > 0) timer3 = timer3 - 1;
+
+
+//Set
+if (sprite_index != enemy_move)
+{
+	//Start Animation From Beginning
+	sprite_index = enemy_move;
+	local_frame = 0;
+	image_index = 0;
+}
+
+
+//Animate
+scr_enemy_animation();
+
+
+//Move
+if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+{
+	if (hor_spd != 0) or (ver_spd != 0) 
+	{
+		var _xDest = x + (hor_spd * (enemy_spd))
+		var _yDest = y + (ver_spd * (enemy_spd))
+		if (place_meeting(_xDest, _yDest,obj_entity))
+		{
+			hor_spd = -hor_spd;
+			ver_spd = -ver_spd;
+			//sprite_index = enemy_idle;
+		}
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	
+	}
+}
+else sprite_index = enemy_idle;
+
+
+//End
+if (timer3 <= 0)
+{
+	timer3 = 60;
+	entity_step = home_state;
+	sprite_index = enemy_idle;
+}
+}
+//
+//
+//
+//
+//
+//Lily Cultist Drop
+function scr_enemy_lilyCultist_dilloc_drop(){
+//if (obj_inventory.quest_grid[# 1, 0] = true) and (obj_inventory.quest_grid[# 1, 3] = false)
+//{
+//	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
+//}
+var _objects = 6;
+//var _dropBean = irandom_range(20,40);
+var _drop1 = irandom_range(0,99)	
+var _drop2 = irandom_range(0,99);	
+var _angle = irandom_range(0,359);
+
+//with (instance_create_layer(x,y,"Instances",obj_itemBean))
+//{
+//	drop_amount = _dropBean;
+//	sprite_index = spr_bean;
+//	direction = (360/_objects) + _angle;
+//	spd = .75 + (.3) + random(0.1);
+//}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = other.form_type;
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = 10;
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+if (_drop1 < 10)//Form Specific Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = other.form_type;
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = (360/_objects * 4) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+	{
+		item_id = irandom_range(0,5);
+		sprite_index = spr_rog_all;
+		image_index = item_id;
+		direction = (360/_objects * 5) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+	
+}
+if (_drop2 < 10)
+{
+	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+	{
+		item_id = other.enemy_lvl - 1;
+		sprite_index = spr_powerstone_all;
+		image_index = item_id;
+		direction = (360/_objects * 6) + _angle;
+		spd = .75 + (.3) + random(0.1);
+	}
+}
+//else instance_create_layer(x,y,"Instances",_objects[0])
+
+
 }
