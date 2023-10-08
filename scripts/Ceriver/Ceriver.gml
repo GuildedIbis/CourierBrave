@@ -32,7 +32,7 @@ armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
 max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
-crystal_cost = 5;
+primary_cost = 4;
 special_cost = 20;
 }
 //
@@ -114,7 +114,7 @@ scr_player_animation();
 
 
 //Melee Attack
-if (key_attackW) and (stamina >= 30)
+if (key_attackW)// and (stamina >= 30)
 {
 	if (thundux = false) and (weapon_count >= 1)
 	{
@@ -131,10 +131,10 @@ if (key_attackM)
 	if (magic_timer <= 0)
 	{
 		//Polyorb
-		if (magic_primary = true) and (blue_primary >= 5)
+		if (magic_primary = true) and (blue_primary >= 4)
 		{
 			attack_script = magicP_script;
-			state_script = scr_player_attack();
+			state_script = scr_player_attack;
 		}
 		//Dynorb
 		if (magic_primary = false) and (blue_primary >= 3)
@@ -151,7 +151,7 @@ if (key_attackS) and (blue_special >= 20)
 {
 	if (watervice = false)
 	{
-		attack_script = scr_player_ceriver_steelOrb;
+		attack_script = scr_player_ceriver_steelorb;
 		state_script = scr_player_attack;
 	}
 }
@@ -191,7 +191,7 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 17, 3] = t
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		primary_cost = 5;
+		primary_cost = 4;
 	}
 }
 
@@ -229,7 +229,7 @@ if (blue_primary < max_charge) and (watervice = false)//charge Recharge
 	if (charge_timer <= 0) 
 	{
 		charge_timer = 6;
-		blue_crystal = blue_crystal + 1;
+		blue_primary = blue_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -269,7 +269,7 @@ if (animation_end)
 	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
 	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
 	//melee_timer = 15;
-	stamina = stamina - 30;
+	//stamina = stamina - 30;
 	weapon_count = weapon_count - 1;
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
@@ -288,7 +288,7 @@ if (animation_end)
 		projectile_speed = 2.5;
 		returning = false;
 	}
-	if (mouse_check_button(mb_right)) and (stamina >= 30)
+	if (mouse_check_button(mb_right))// and (stamina >= 30)
 	{
 		if (thundux = false) and (weapon_count >= 1)
 		{
@@ -447,7 +447,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_primary = blue_primary - 5;
+	blue_primary = blue_primary - 4;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -477,7 +477,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_primary < 5)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 4)
 {
 	attacking = false;
 	state_script = free_state;
