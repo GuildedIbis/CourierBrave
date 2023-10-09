@@ -116,6 +116,7 @@
     {"name":"Lily","order":2,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily.yy",},
     {"name":"Bacwire","order":29,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/Bacwire.yy",},
     {"name":"Dilloc","order":30,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/Dilloc.yy",},
+    {"name":"KnifeLily","order":33,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/KnifeLily.yy",},
     {"name":"MotherLily","order":4,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/MotherLily.yy",},
     {"name":"TrapLily","order":32,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/TrapLily.yy",},
     {"name":"Zealot","order":31,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/Zealot.yy",},
@@ -161,7 +162,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"KnifeLily","order":33,"path":"folders/Sprites/Entity/Enemy/Lenko/Lily/KnifeLily.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},

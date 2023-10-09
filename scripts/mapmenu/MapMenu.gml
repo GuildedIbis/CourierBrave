@@ -196,6 +196,7 @@ if (obj_inventory.altar_grid[# 0, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -234,6 +235,7 @@ if (obj_inventory.altar_grid[# 1, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -272,6 +274,7 @@ if (obj_inventory.altar_grid[# 2, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -311,6 +314,7 @@ if (obj_inventory.altar_grid[# 3, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -349,6 +353,7 @@ if (obj_inventory.altar_grid[# 4, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -430,6 +435,7 @@ if (obj_inventory.altar_grid[# 5, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -468,6 +474,7 @@ if (obj_inventory.altar_grid[# 6, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -506,6 +513,7 @@ if (obj_inventory.altar_grid[# 7, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -544,6 +552,7 @@ if (obj_inventory.altar_grid[# 8, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -582,6 +591,7 @@ if (obj_inventory.altar_grid[# 9, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -677,6 +687,7 @@ if (obj_inventory.altar_grid[# 10, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -715,6 +726,7 @@ if (obj_inventory.altar_grid[# 11, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -753,6 +765,7 @@ if (obj_inventory.altar_grid[# 12, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -792,6 +805,7 @@ if (obj_inventory.altar_grid[# 13, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -830,6 +844,7 @@ if (obj_inventory.altar_grid[# 14, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -926,6 +941,7 @@ if (obj_inventory.altar_grid[# 15, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -964,6 +980,7 @@ if (obj_inventory.altar_grid[# 16, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1002,6 +1019,7 @@ if (obj_inventory.altar_grid[# 17, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1041,6 +1059,7 @@ if (obj_inventory.altar_grid[# 18, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1079,6 +1098,7 @@ if (obj_inventory.altar_grid[# 19, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1175,6 +1195,7 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1213,6 +1234,7 @@ if (obj_inventory.altar_grid[# 21, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1251,6 +1273,7 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1290,6 +1313,7 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
@@ -1328,6 +1352,7 @@ if (obj_inventory.altar_grid[# 24, 3] = true)
 			obj_game.textPaused = false;
 			with (obj_player)
 			{
+				walk_snd = snd_walk_regular;
 				if (max_weapon_count != -1)
 				{
 					weapon_count = max_weapon_count;
