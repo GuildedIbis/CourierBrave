@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 2;
-max_hp = 100;
+max_hp = 100 + (50 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;
 local_frame = 0;
@@ -177,6 +177,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_lifeLeaf_free;
+			enemy_lvl = other.enemy_lvl;
 			shooter = other;
 			entity_step = home_state;
 			invincible = false;
