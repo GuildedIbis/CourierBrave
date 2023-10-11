@@ -63,32 +63,25 @@ if (obj_game.gamePaused = false)
 	if (targeted = false)
 	{
 		lit = false;
-		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		if (timer1 <= 0)
+		{
+			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
+		}
+		else sprite_index = enemy_idle;
+		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
-		//if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
-		//{
-		//	script_execute(EnemyChaseEscort);
-		//}
-		//else
-		//{
-		//	script_execute(EnemyChaseCustom);
-		//}
-		//if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
-		//{
-		//	path_end();
-		//	sprite_index = enemy_idle;
-		//}
-		//EnemyChaseCustom();
 	}
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
 		sprite_index = enemy_idle;
 		path_end();
+		home_x = x;
+		home_y = y;
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;
@@ -163,6 +156,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_arrow_cultist_free;
+			enemy_lvl = other.enemy_lvl;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
@@ -284,6 +278,7 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				home_state = scr_projectile_burstLeaf_free;
+				enemy_lvl = other.enemy_lvl;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;

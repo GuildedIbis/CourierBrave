@@ -63,7 +63,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			scr_enemy_wander(60,180); //Data Leak if not radius restricted?
+			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted?
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
@@ -78,6 +78,8 @@ if (obj_game.gamePaused = false)
 		image_speed = 0;
 		sprite_index = enemy_idle;
 		path_end();
+		home_x = x;
+		home_y = y;
 		aggro_drop = 300;
 		targeted = false;
 		global.aggroCounter = global.aggroCounter - 1;

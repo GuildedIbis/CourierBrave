@@ -204,6 +204,63 @@ if (hor_spd != 0) or (ver_spd != 0)
 //
 //
 //
+//Wander
+function scr_enemy_wander_home(_moveDelay,_moveLength,_homeX,_homeY){
+	
+//Direction
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer2 <= 0)
+{
+	hor_spd = irandom_range(-1,1);
+	ver_spd = irandom_range(-1,1);
+	timer2 = _moveLength + irandom_range(-15,15);
+	timer1 = _moveDelay + irandom_range(-15,15);
+}
+
+//Audio
+
+//if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+//{
+//	walk_snd_delay = walk_snd_delay - 1;
+//	if (walk_snd_delay <= 0)
+//	{
+//		walk_snd_delay = 15;
+//		audio_play_sound(snd_walk_regular,1,0);
+//	}
+//}
+//Animation
+if (hor_spd != 0) or (ver_spd != 0) 
+{
+	var _xDest = x + (hor_spd * (enemy_spd/2))
+	var _yDest = y + (ver_spd * (enemy_spd/2))
+	if (place_meeting(_xDest, _yDest,obj_entity)) or (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
+	{
+		hor_spd = -hor_spd;
+		ver_spd = -ver_spd;
+		//sprite_index = enemy_idle;
+	}
+	path = path_add();
+	mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+	path_start(path, enemy_spd, 0, 0);
+	image_speed = 1;
+	sprite_index = enemy_move;
+	if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
+	{
+	
+		path = path_add();
+		mp_potential_path_object(path, home_x, home_y, 1, 2, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
+	}
+	
+}
+
+
+}
+//
+//
+//
+//
+//
 //Enemy Reposition
 function scr_enemy_reposition(){
 //Timer
