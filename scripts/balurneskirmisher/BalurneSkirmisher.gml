@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
-			if (timer1 <= 0) 
+			if (timer1 <= 0)
 			{
 				timer1 = 120;
 				entity_step = scr_enemy_balurne_skirmisher_slash;
