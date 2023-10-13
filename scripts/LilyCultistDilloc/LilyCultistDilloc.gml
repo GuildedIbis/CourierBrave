@@ -95,7 +95,7 @@ if (obj_game.gamePaused = false)
 	{
 		lit = true;
 		scr_enemy_chase();
-		if (point_in_circle(obj_player.x, obj_player.y,x,y,48)) 
+		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) 
 		{
 			path_end();
 			sprite_index = enemy_idle;

@@ -356,7 +356,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(scr_projectile_razorSprout);
+				script_execute(scr_projectile_razorSprout_create);
+				timer1 = 0;
 				break_object = other.break_object;
 				fragment_count = 3;
 				fragment = obj_fragPlant;
@@ -418,7 +419,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWater;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

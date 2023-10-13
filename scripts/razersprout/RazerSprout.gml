@@ -6,7 +6,7 @@
 //
 //Rat Arrow Create
 function scr_projectile_razorSprout_create(){
-home_state = scr_projectile_razorSprout_free;
+home_state = scr_projectile_razorSprout;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false
@@ -19,6 +19,7 @@ timer1 = 60;
 enemy_spd = 2.0
 local_frame = 0;
 hit_by_attack = -1;
+timer1 = 0;
 damage = 40;
 }
 //
@@ -27,7 +28,7 @@ damage = 40;
 //
 //
 //Rat Arrow Free
-function scr_projectile_razorSprout_free(){
+function scr_projectile_razorSprout(){
 if (obj_game.gamePaused = false)
 {
 if (timer1 > 0) timer1 = timer1 -1;

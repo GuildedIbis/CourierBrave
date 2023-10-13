@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (watervice = false)
 			{
 				special_timer = 180;
-				timer2 = 36;
+				timer2 = 50;
 				entity_step = scr_enemy_knife_lily_returnLeaf;
 			}
 		}
@@ -144,21 +144,21 @@ if (obj_game.gamePaused = false)
 	
 	if (timer2 <= 0)
 	{
-		timer2 = 36;
+		timer2 = 50;
 		//audio_sound_gain(snd_viceBubble,global.volumeEffects,1);
 		//audio_play_sound(snd_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_returnLeaf_free;
+			home_state = scr_projectile_spinLeaf_free;
 			parent = other;
 			enemy_lvl = other.enemy_lvl
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
-			enemy_move = spr_projectile_returnLeaf;
+			enemy_move = spr_projectile_spinLeaf;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.5;
+			enemy_spd = 2;
 			local_frame = 0;
 			hit_by_attack = -1;
 			timer1 = 60;
@@ -189,7 +189,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Projectile: Knife Lily Return-Leaf
-function scr_projectile_returnLeaf_free(){
+function scr_projectile_spinLeaf_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -198,7 +198,6 @@ if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
 if (timer2 <= 0) instance_destroy();
-image_angle = image_angle + 6;
 if (place_meeting(x,y,obj_player))
 {
 	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
