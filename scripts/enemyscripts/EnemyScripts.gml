@@ -181,6 +181,7 @@ if (timer2 <= 0)
 //Animation
 if (hor_spd != 0) or (ver_spd != 0) 
 {
+	if (path_exists(path)) path_delete(path);
 	var _xDest = x + (hor_spd * (enemy_spd/2))
 	var _yDest = y + (ver_spd * (enemy_spd/2))
 	if (place_meeting(_xDest, _yDest,obj_entity))
@@ -204,10 +205,52 @@ if (hor_spd != 0) or (ver_spd != 0)
 //
 //
 //
-//Wander
+//Wander Home
 function scr_enemy_wander_home(_moveDelay,_moveLength,_homeX,_homeY){
 	
 //Direction
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer2 <= 0)
+{
+	hor_spd = irandom_range(-1,1);
+	ver_spd = irandom_range(-1,1);
+	timer2 = _moveLength + irandom_range(-15,15);
+	timer1 = _moveDelay + irandom_range(-15,15);
+}
+
+//Animation
+if (hor_spd != 0) or (ver_spd != 0) 
+{
+	var _xDest = x + (hor_spd * (enemy_spd/2))
+	var _yDest = y + (ver_spd * (enemy_spd/2))
+	if (place_meeting(_xDest, _yDest,obj_entity)) or (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
+	{
+		hor_spd = -hor_spd;
+		ver_spd = -ver_spd;
+		//sprite_index = enemy_idle;
+	}
+	direction = point_direction(x,y,_xDest,_yDest);
+	scr_enemy_collision();
+	image_speed = 1;
+	sprite_index = enemy_move;
+	//if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
+	//{
+	
+		
+	//}
+
+}
+}
+//
+//
+//
+//
+//
+//Wander Path (Has Memory Leak)
+function scr_enemy_wander_home_path(_moveDelay,_moveLength,_homeX,_homeY){
+	
+//Direction
+if (path_exists(path)) path_delete(path);
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer2 <= 0)
 {
