@@ -75,22 +75,75 @@ depth = -y;
 //
 //
 //
-//Effect Habraf Lake Door - Escort 1
-function scr_effect_habrafLake_door_stone(){
+//Effect Habraf Lake Mothwing Door Create
+function scr_effect_door_habrafLake_mothwing_create(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
+{
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 6;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+	
+}
+//
+//
+//
+//
+//
+//
+//Effect Habraf Lake Mothwing Door 
+function scr_effect_door_habrafLake_mothwing(){
 frag = false
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_player.form != 2)
+if (obj_inventory.habrafLake_map_ary[10][3] < 1)
 {
-	sprite_index = spr_door_questAdavio;
-
+	sprite_index = spr_door_habrafLake_mothwing;
 }
-if (obj_player.form = 2)
+if (obj_inventory.habrafLake_map_ary[10][3] >= 1)
 {
-	sprite_index = spr_door_questAdavio_open;
+	sprite_index = spr_door_habrafLake_mothwing_open;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
@@ -105,16 +158,96 @@ if (obj_player.form = 2)
 			instance_destroy(self);
 		}
 	}
-	if (instance_exists(obj_escort))
+}
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Stone Door Create
+function scr_effect_door_habrafLake_stone_create(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
+{
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
 	{
-		with (obj_escort)
+		image_xscale = 6;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 6;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x-24,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 2;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(x+8,y-16,"Wall",break_object))
+	{
+		image_xscale = 2;
+		image_yscale = 1;
+		game_paused_image_speed = image_speed;
+	}
+}
+	
+}
+//
+//
+//
+//
+//
+//Effect Habraf Lake Stone Door 
+function scr_effect_door_habrafLake_stone(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+
+if (obj_inventory.habrafLake_map_ary[14][3] < 1)
+{
+	sprite_index = spr_door_habrafLake_stone;
+}
+if (obj_inventory.habrafLake_map_ary[14][3] >= 1)
+{
+	sprite_index = spr_door_habrafLake_stone_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
 		{
-			x = 512;
-			y = 136;
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
 		}
 	}
 }
-
 }
 //
 //

@@ -29,7 +29,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
 form_type = 1;
-max_hp = 1450;
+max_hp = 1450 + (725 * enemy_lvl);
 hp = max_hp;
 boss = true;
 enemy_spd = 1.1;
@@ -137,6 +137,7 @@ if (obj_game.gamePaused = false)
 					with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 					{
 						home_state = scr_projectile_scissorLeaf;
+						enemy_lvl = other.enemy_lvl;
 						timer1 = 30;
 						timer2 = 10;
 						entity_step = home_state;
@@ -148,7 +149,7 @@ if (obj_game.gamePaused = false)
 						enemy_spd = 4.0;
 						local_frame = 0;
 						hit_by_attack = -1;
-						damage = 65;
+						damage = 65 + (10 * enemy_lvl);
 						break_object = other.break_object;
 						parent = other;
 						fragment_count = 3;
@@ -221,7 +222,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55;
+	damage = 55 = (9 * enemy_lvl);
 	//Cacluate Attack
 	scr_enemy_attack_calculate(spr_enemy_motherLily_leafSlash_hitbox);
 
@@ -254,7 +255,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	damage = 50 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_motherLily_scissorLeaf);
 	
 	
@@ -342,7 +343,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 40;
+	damage = 40 + (6 * enemy_lvl);
 	
 
 	//Animate
@@ -357,6 +358,7 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				script_execute(scr_projectile_razorSprout_create);
+				enemy_lvl = other.enemy_lvl;
 				timer1 = 0;
 				break_object = other.break_object;
 				fragment_count = 3;
@@ -394,7 +396,7 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 45 + (8 * enemy_lvl);
 	
 
 	//Animate
@@ -405,6 +407,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_viceBomb_free;
+			enemy_lvl = other.enemy_lvl;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;
@@ -414,7 +417,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.0
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 65;
+			damage = 65 + (10 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 3;
 			fragment = obj_fragWater;
@@ -559,7 +562,7 @@ if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
 	}
 	
 }
-if (_drop2 > 49)
+if (_drop2 < 100)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
