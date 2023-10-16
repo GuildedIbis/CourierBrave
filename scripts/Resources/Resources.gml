@@ -262,7 +262,7 @@ for (var g = 0; g < 20; g = g + 1)
 			}
 			if (_resID >= 55) and (_resID < 90)
 			{
-				obj_game.beaowireFortress_resource_grid[# g, h] = 6;
+				obj_game.beaowireFortress_resource_grid[# g, h] = 0;
 			}
 			if (_resID >= 90)
 			{
