@@ -20,6 +20,7 @@ function scr_load_player(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"lastAltarY")) global.targetY = _loadEntity.lastAltarY;
 		if (variable_struct_exists(_loadEntity,"breakObject")) obj_player.break_object = _loadEntity.breakObject;
 		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
+		if (variable_struct_exists(_loadEntity,"roomNum")) obj_game.room_num = _loadEntity.roomNum;
 		
 		//Load Crull
 		if (variable_struct_exists(_loadEntity,"crull0")) obj_player.crull_ary[0] = _loadEntity.crull0;
@@ -92,6 +93,7 @@ var _savePlayer =
 	lastCampX : global.lastAltarX, //CONCEPT: NOT FINAL
 	lastCampY: global.lastAltarY, //CONCEPT: NOT FINAL
 	level: obj_game.level_num, //CONCEPT: NOT FINAL
+	roomNum: obj_game.room_num,
 	
 	//Save Crull
 	crull0 : obj_player.crull_ary[0],

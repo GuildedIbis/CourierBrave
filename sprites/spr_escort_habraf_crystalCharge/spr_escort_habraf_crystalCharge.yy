@@ -38,8 +38,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Escort",
-    "path": "folders/Sprites/Effects/Interactables/Escort.yy",
+    "name": "HabrafEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/HabrafEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

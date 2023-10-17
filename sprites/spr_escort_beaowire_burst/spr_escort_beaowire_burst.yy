@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Escort",
-    "path": "folders/Sprites/Effects/Interactables/Escort.yy",
+    "name": "BeaowireEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
