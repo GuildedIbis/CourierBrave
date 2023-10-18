@@ -91,7 +91,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Mesa Text
+//Item Interaction Text
 function scr_text_quest_item_02(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -126,6 +126,106 @@ if (string_counter >= 1)
 	string_counter = 0;
 	obj_inventory.quest_grid[# 2, 0] = true;
 	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	selected = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Quest Item 10 Create
+function scr_quest_item_10_create(){
+activate_script = scr_text_quest_item_10;
+entity_step = scr_quest_item_10;
+hit_script = scr_entity_hit_quest;
+destructible = true;
+sound = snd_item_quest_found;
+sprite_index = spr_effect_habrafLake_crystal_small;
+depth = -y;
+image_speed = 0;
+speed = 0;
+image_index = irandom_range(0,4);
+if (obj_inventory.quest_grid[# 10, 3] = false)
+{
+	obj_inventory.quest_grid[# 10, 1] = 0;
+}
+if (obj_inventory.quest_grid[# 10, 3] = true)
+{
+	instance_destroy();
+}
+}//
+//
+//
+//
+//
+//Quest 02 Item
+function scr_quest_item_10(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_interact(12);
+	if (obj_inventory.quest_grid[# 10, 1] >= 10)
+	{
+		instance_destroy();
+	}
+}
+}
+//
+//
+//
+//
+//Item Interaction Text
+function scr_text_quest_item_10(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Format
+draw_set_font(global.fnt_main_white);
+//draw_set_halign(fa_left)
+//draw_set_valign(fa_top)
+draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+//draw_set_color(c_white);
+//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+var _name = "Quest Item"
+
+//Draw Based on String Counter
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "It's a small red crystal. It looks quite fragile." 
+	_SubString = string_copy(text_string,1,letter_counter);
+}
+//if (string_counter = 1)
+//{
+//	speaker = 1;
+//	text_string = "It's a damaged necklace with an orange jewel." 
+//	_SubString = string_copy(text_string,1,letter_counter);
+//}
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	//obj_inventory.quest_grid[# 2, 0] = true;
+	//obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;

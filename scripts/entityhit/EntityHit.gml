@@ -79,6 +79,26 @@ instance_destroy();
 //
 //
 //
+//Entity Hit Quest
+function scr_entity_hit_quest(){
+var _questNum = activate_args;
+flash = .35;
+obj_inventory.quest_grid[# _questNum, 0] = true;
+obj_inventory.quest_grid[# _questNum, 1] = obj_inventory.quest_grid[# _questNum, 1] + 1;
+if (obj_inventory.quest_grid[# _questNum, 1] >= obj_inventory.quest_grid[# _questNum, 2])
+{
+	obj_inventory.quest_grid[# _questNum, 3] = true;
+}
+if (destructible = true)
+{
+	instance_destroy();
+}
+}
+//
+//
+//
+//
+//
 //Entity Depth Calculate
 function scr_entity_depth_calculate(_hitbox){
 //Collision with Entities
