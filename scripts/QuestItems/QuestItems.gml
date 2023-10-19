@@ -155,7 +155,7 @@ draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 function scr_quest_item_10_create(){
 activate_script = scr_text_quest_item_10;
 entity_step = scr_quest_item_10;
-hit_script = scr_entity_hit_quest;
+hit_script = scr_entity_hit_quest_10;
 destructible = true;
 sound = snd_item_quest_found;
 sprite_index = spr_effect_habrafLake_crystal_small;
@@ -163,11 +163,11 @@ depth = -y;
 image_speed = 0;
 speed = 0;
 image_index = irandom_range(0,4);
-if (obj_inventory.quest_grid[# 10, 3] = false)
+if (obj_inventory.habrafLake_map_ary[14][3] < 10)
 {
-	obj_inventory.quest_grid[# 10, 1] = 0;
+	obj_inventory.habrafLake_map_ary[14][3] = 0;
 }
-if (obj_inventory.quest_grid[# 10, 3] = true)
+if (obj_inventory.habrafLake_map_ary[14][3] >= 10)
 {
 	instance_destroy();
 }
@@ -181,7 +181,7 @@ function scr_quest_item_10(){
 if (obj_game.gamePaused = false)
 {
 	scr_npc_interact(12);
-	if (obj_inventory.quest_grid[# 10, 1] >= 10)
+	if (obj_inventory.habrafLake_map_ary[14][3] >= 10)
 	{
 		instance_destroy();
 	}
@@ -245,4 +245,20 @@ draw_set_valign(fa_middle);
 draw_text_transformed(64,132,_name,.5,.5,0);
 draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Entity Hit Quest 10
+function scr_entity_hit_quest_10(){
+flash = .35;
+obj_inventory.habrafLake_map_ary[14][3] = obj_inventory.habrafLake_map_ary[14][3] + 1;
+if (destructible = true)
+{
+	audio_sound_gain(sound,global.volumeEffects,1);
+	audio_play_sound(sound,0,false);
+	instance_destroy();
+}
 }

@@ -400,7 +400,7 @@ if (sprite_index != projectile_sprite)
 }
 
 //Collision
-if (place_meeting(x,y,obj_interactable)) 
+if (place_meeting(x,y,obj_enemy)) 
 {
 	scr_player_attack_calculate_magic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
 

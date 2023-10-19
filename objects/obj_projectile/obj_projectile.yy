@@ -12,7 +12,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "path": "folders/Objects/Game/Tools/Player.yy",
   },
   "parentObjectId": null,
   "persistent": false,
