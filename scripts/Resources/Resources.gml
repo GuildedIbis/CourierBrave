@@ -226,14 +226,14 @@ for (var e = 0; e < 20; e = e + 1)
 	for (var f = 0; f < 30; f = f + 1)
 	{
 		var _resChance = irandom_range(0,99)
-		if (_resChance > 74)
+		if (_resChance > 75)
 		{
 			var _resID = irandom_range(0,99)
-			if (_resID < 55) 
+			if (_resID < 65) 
 			{
 				obj_game.habrafLake_resource_grid[# e, f] = 4;
 			}
-			if (_resID >= 55) and (_resID < 90)
+			if (_resID >= 65) and (_resID < 90)
 			{
 				obj_game.habrafLake_resource_grid[# e, f] = 2;
 			}

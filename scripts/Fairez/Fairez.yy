@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SolarSabi",
+  "name": "Fairez",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

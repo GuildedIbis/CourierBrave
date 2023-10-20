@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "FarwayRoadCharacters",
-    "path": "folders/Scripts/Entities/Characters/FarwayRoadCharacters.yy",
+    "name": "LenkoCharacters",
+    "path": "folders/Scripts/Entities/Characters/LenkoCharacters.yy",
   },
 }

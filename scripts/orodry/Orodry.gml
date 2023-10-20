@@ -47,13 +47,13 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "I'm not sure what good it did them, but those rats\nblocked the road going West." 
+	text_string = "Fairez wouldn't stop rambling on about those red stones over by Habraf.\nKept saying they must mean something, or do something.\nWouldn't be too suprised if she went and got herself lost." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 if (string_counter = 1)
 {
 	speaker = 1;
-	text_string = "A shame... the fishing's much better on that side of the lake."
+	text_string = "I wouldn't go that way if you don't have to Courier. Those wetlands\ncan be perilous, even for the strong...\n\nIf you do see her though, tell her I'm not waiting to cook supper."
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 

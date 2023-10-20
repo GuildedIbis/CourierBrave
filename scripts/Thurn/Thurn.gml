@@ -47,7 +47,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "I have a brother in Herzi who probably thinks I'm dead...\nI would write my him, but those damn rats burned all my\npaper. Give a few of them the sword for me Courier." 
+	text_string = "I have a brother in Herzi who probably thinks I'm dead...\nI would write my him, but those damn rats burned all my\nstuff. Give a few of them the sword for me Courier." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 
