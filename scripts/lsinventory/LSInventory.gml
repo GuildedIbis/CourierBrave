@@ -48,25 +48,25 @@ function scr_load_inventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"resource17")) obj_inventory.resource_array[17] = _loadEntity.resource17;
 		if (variable_struct_exists(_loadEntity,"resource18")) obj_inventory.resource_array[18] = _loadEntity.resource18;
 		if (variable_struct_exists(_loadEntity,"resource19")) obj_inventory.resource_array[19] = _loadEntity.resource19;
-		//Load Crull Recipe Unlocks
-		if (variable_struct_exists(_loadEntity,"crullRecipe0")) obj_inventory.crull_recipe[0] = true;//_loadEntity.crullRecipe0;
-		if (variable_struct_exists(_loadEntity,"crullRecipe1")) obj_inventory.crull_recipe[1] = _loadEntity.crullRecipe1;
-		if (variable_struct_exists(_loadEntity,"crullRecipe2")) obj_inventory.crull_recipe[2] = _loadEntity.crullRecipe2;
-		if (variable_struct_exists(_loadEntity,"crullRecipe3")) obj_inventory.crull_recipe[3] = _loadEntity.crullRecipe3;
-		if (variable_struct_exists(_loadEntity,"crullRecipe4")) obj_inventory.crull_recipe[4] = _loadEntity.crullRecipe4;
-		if (variable_struct_exists(_loadEntity,"crullRecipe5")) obj_inventory.crull_recipe[5] = _loadEntity.crullRecipe5;
-		if (variable_struct_exists(_loadEntity,"crullRecipe6")) obj_inventory.crull_recipe[6] = _loadEntity.crullRecipe6;
-		if (variable_struct_exists(_loadEntity,"crullRecipe7")) obj_inventory.crull_recipe[7] = _loadEntity.crullRecipe7;
-		if (variable_struct_exists(_loadEntity,"crullRecipe8")) obj_inventory.crull_recipe[8] = _loadEntity.crullRecipe8;
-		if (variable_struct_exists(_loadEntity,"crullRecipe9")) obj_inventory.crull_recipe[9] = _loadEntity.crullRecipe9;
-		if (variable_struct_exists(_loadEntity,"crullRecipe10")) obj_inventory.crull_recipe[10] = _loadEntity.crullRecipe10;
-		if (variable_struct_exists(_loadEntity,"crullRecipe11")) obj_inventory.crull_recipe[11] = _loadEntity.crullRecipe11;
-		if (variable_struct_exists(_loadEntity,"crullRecipe12")) obj_inventory.crull_recipe[12] = _loadEntity.crullRecipe12;
-		if (variable_struct_exists(_loadEntity,"crullRecipe13")) obj_inventory.crull_recipe[13] = _loadEntity.crullRecipe13;
-		if (variable_struct_exists(_loadEntity,"crullRecipe14")) obj_inventory.crull_recipe[14] = _loadEntity.crullRecipe14;
-		if (variable_struct_exists(_loadEntity,"crullRecipe15")) obj_inventory.crull_recipe[15] = _loadEntity.crullRecipe15;
-		if (variable_struct_exists(_loadEntity,"crullRecipe16")) obj_inventory.crull_recipe[16] = _loadEntity.crullRecipe16;
-		if (variable_struct_exists(_loadEntity,"crullRecipe17")) obj_inventory.crull_recipe[17] = _loadEntity.crullRecipe17;
+		//Load crystal Enchant Unlocks
+		if (variable_struct_exists(_loadEntity,"crystalEnchant0")) obj_inventory.crystal_enchant[0] = true;//_loadEntity.crystalEnchant0;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant1")) obj_inventory.crystal_enchant[1] = true;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant2")) obj_inventory.crystal_enchant[2] = _loadEntity.crystalEnchant2;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant3")) obj_inventory.crystal_enchant[3] = _loadEntity.crystalEnchant3;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant4")) obj_inventory.crystal_enchant[4] = _loadEntity.crystalEnchant4;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant5")) obj_inventory.crystal_enchant[5] = _loadEntity.crystalEnchant5;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant6")) obj_inventory.crystal_enchant[6] = _loadEntity.crystalEnchant6;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant7")) obj_inventory.crystal_enchant[7] = _loadEntity.crystalEnchant7;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant8")) obj_inventory.crystal_enchant[8] = _loadEntity.crystalEnchant8;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant9")) obj_inventory.crystal_enchant[9] = _loadEntity.crystalEnchant9;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant10")) obj_inventory.crystal_enchant[10] = _loadEntity.crystalEnchant10;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant11")) obj_inventory.crystal_enchant[11] = _loadEntity.crystalEnchant11;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant12")) obj_inventory.crystal_enchant[12] = _loadEntity.crystalEnchant12;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant13")) obj_inventory.crystal_enchant[13] = _loadEntity.crystalEnchant13;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant14")) obj_inventory.crystal_enchant[14] = _loadEntity.crystalEnchant14;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant15")) obj_inventory.crystal_enchant[15] = _loadEntity.crystalEnchant15;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant16")) obj_inventory.crystal_enchant[16] = _loadEntity.crystalEnchant16;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant17")) obj_inventory.crystal_enchant[17] = _loadEntity.crystalEnchant17;
 
 
 }
@@ -124,24 +124,24 @@ var _saveInv =
 	resource19 : obj_inventory.resource_array[19],
 
 	
-	crullRecipe0 : obj_inventory.crull_recipe[0],
-	crullRecipe1 : obj_inventory.crull_recipe[1],
-	crullRecipe2 : obj_inventory.crull_recipe[2],
-	crullRecipe3 : obj_inventory.crull_recipe[3],
-	crullRecipe4 : obj_inventory.crull_recipe[4],
-	crullRecipe5 : obj_inventory.crull_recipe[5],
-	crullRecipe6 : obj_inventory.crull_recipe[6],
-	crullRecipe7 : obj_inventory.crull_recipe[7],
-	crullRecipe8 : obj_inventory.crull_recipe[8],
-	crullRecipe9 : obj_inventory.crull_recipe[9],
-	crullRecipe10 : obj_inventory.crull_recipe[10],
-	crullRecipe11 : obj_inventory.crull_recipe[11],
-	crullRecipe12 : obj_inventory.crull_recipe[12],
-	crullRecipe13 : obj_inventory.crull_recipe[13],
-	crullRecipe14 : obj_inventory.crull_recipe[14],
-	crullRecipe15 : obj_inventory.crull_recipe[15],
-	crullRecipe16 : obj_inventory.crull_recipe[16],
-	crullRecipe17 : obj_inventory.crull_recipe[17],
+	crystalEnchant0 : obj_inventory.crystal_enchant[0],
+	crystalEnchant1 : obj_inventory.crystal_enchant[1],
+	crystalEnchant2 : obj_inventory.crystal_enchant[2],
+	crystalEnchant3 : obj_inventory.crystal_enchant[3],
+	crystalEnchant4 : obj_inventory.crystal_enchant[4],
+	crystalEnchant5 : obj_inventory.crystal_enchant[5],
+	crystalEnchant6 : obj_inventory.crystal_enchant[6],
+	crystalEnchant7 : obj_inventory.crystal_enchant[7],
+	crystalEnchant8 : obj_inventory.crystal_enchant[8],
+	crystalEnchant9 : obj_inventory.crystal_enchant[9],
+	crystalEnchant10 : obj_inventory.crystal_enchant[10],
+	crystalEnchant11 : obj_inventory.crystal_enchant[11],
+	crystalEnchant12 : obj_inventory.crystal_enchant[12],
+	crystalEnchant13 : obj_inventory.crystal_enchant[13],
+	crystalEnchant14 : obj_inventory.crystal_enchant[14],
+	crystalEnchant15 : obj_inventory.crystal_enchant[15],
+	crystalEnchant16 : obj_inventory.crystal_enchant[16],
+	crystalEnchant17 : obj_inventory.crystal_enchant[17],
 
 	
 	

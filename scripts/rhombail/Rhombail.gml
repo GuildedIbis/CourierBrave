@@ -178,16 +178,16 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Button 1
-if (obj_inventory.crull_recipe[3] = false)
+if (obj_inventory.crystal_enchant[3] = false)
 {
 	draw_set_halign(fa_left);
 	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
 	draw_sprite_ext(spr_rog_menu_all,2,142,66,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,4,162,66,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,4,162,66,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"RECIPE",.5,.5,0);
+	draw_text_transformed(196,76,"ENCHANTMENT",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
@@ -196,7 +196,7 @@ if (obj_inventory.crull_recipe[3] = false)
 			if (obj_inventory.rog_array[2] >= 5)
 			{
 				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
-				obj_inventory.crull_recipe[3] = true;
+				obj_inventory.crystal_enchant[3] = true;
 			}
 		}
 	}
@@ -214,7 +214,7 @@ if (obj_inventory.crull_recipe[7] = false)
 	draw_sprite_ext(spr_rog_menu_all,5,142,84,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,8,162,84,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,8,162,84,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
 	draw_text_transformed(196,94,"RECIPE",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))

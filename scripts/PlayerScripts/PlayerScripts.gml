@@ -549,7 +549,7 @@ with (obj_player)
 	red_special = max_charge;
 	for (var i = 0; i < 11; i = i + 1)
 	{
-		crull_use[i] = false;
+		crystal_use[i] = false;
 	}
 }	
 }

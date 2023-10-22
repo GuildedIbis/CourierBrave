@@ -22,38 +22,42 @@ function scr_load_player(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"level")) obj_game.level_num = _loadEntity.level;
 		if (variable_struct_exists(_loadEntity,"roomNum")) obj_game.room_num = _loadEntity.roomNum;
 		
-		//Load Crull
-		if (variable_struct_exists(_loadEntity,"crull0")) obj_player.crull_ary[0] = _loadEntity.crull0;
-		if (variable_struct_exists(_loadEntity,"crull1")) obj_player.crull_ary[1] = _loadEntity.crull1;
-		if (variable_struct_exists(_loadEntity,"crull2")) obj_player.crull_ary[2] = _loadEntity.crull2;
-		if (variable_struct_exists(_loadEntity,"crull3")) obj_player.crull_ary[3] = _loadEntity.crull3;
-		if (variable_struct_exists(_loadEntity,"crull4")) obj_player.crull_ary[4] = _loadEntity.crull4;
-		if (variable_struct_exists(_loadEntity,"crull5")) obj_player.crull_ary[5] = _loadEntity.crull5;
-		if (variable_struct_exists(_loadEntity,"crull6")) obj_player.crull_ary[6] = _loadEntity.crull6;
-		if (variable_struct_exists(_loadEntity,"crull7")) obj_player.crull_ary[7] = _loadEntity.crull7;
-		if (variable_struct_exists(_loadEntity,"crull8")) obj_player.crull_ary[8] = _loadEntity.crull8;
-		if (variable_struct_exists(_loadEntity,"crull9")) obj_player.crull_ary[9] = _loadEntity.crull9;
-		if (variable_struct_exists(_loadEntity,"crull10")) obj_player.crull_ary[10] = _loadEntity.crull10;
+		//Load crystal
+		if (variable_struct_exists(_loadEntity,"crystal0")) obj_player.crystal_ary[0] = _loadEntity.crystal0;
+		if (variable_struct_exists(_loadEntity,"crystal1")) obj_player.crystal_ary[1] = _loadEntity.crystal1;
+		if (variable_struct_exists(_loadEntity,"crystal2")) obj_player.crystal_ary[2] = _loadEntity.crystal2;
+		if (variable_struct_exists(_loadEntity,"crystal3")) obj_player.crystal_ary[3] = _loadEntity.crystal3;
+		if (variable_struct_exists(_loadEntity,"crystal4")) obj_player.crystal_ary[4] = _loadEntity.crystal4;
+		if (variable_struct_exists(_loadEntity,"crystal5")) obj_player.crystal_ary[5] = _loadEntity.crystal5;
+		if (variable_struct_exists(_loadEntity,"crystal6")) obj_player.crystal_ary[6] = _loadEntity.crystal6;
+		if (variable_struct_exists(_loadEntity,"crystal7")) obj_player.crystal_ary[7] = _loadEntity.crystal7;
+		if (variable_struct_exists(_loadEntity,"crystal8")) obj_player.crystal_ary[8] = _loadEntity.crystal8;
+		if (variable_struct_exists(_loadEntity,"crystal9")) obj_player.crystal_ary[9] = _loadEntity.crystal9;
+		if (variable_struct_exists(_loadEntity,"crystal10")) obj_player.crystal_ary[10] = _loadEntity.crystal10;
 		
-		if (variable_struct_exists(_loadEntity,"crullUse0")) obj_player.crull_use[0] = _loadEntity.crullUse0;
-		if (variable_struct_exists(_loadEntity,"crullUse1")) obj_player.crull_use[1] = _loadEntity.crullUse1;
-		if (variable_struct_exists(_loadEntity,"crullUse2")) obj_player.crull_use[2] = _loadEntity.crullUse2;
-		if (variable_struct_exists(_loadEntity,"crullUse3")) obj_player.crull_use[3] = _loadEntity.crullUse3;
-		if (variable_struct_exists(_loadEntity,"crullUse4")) obj_player.crull_use[4] = _loadEntity.crullUse4;
-		if (variable_struct_exists(_loadEntity,"crullUse5")) obj_player.crull_use[5] = _loadEntity.crullUse5;
-		if (variable_struct_exists(_loadEntity,"crullUse6")) obj_player.crull_use[6] = _loadEntity.crullUse6;
-		if (variable_struct_exists(_loadEntity,"crullUse7")) obj_player.crull_use[7] = _loadEntity.crullUse7;
-		if (variable_struct_exists(_loadEntity,"crullUse8")) obj_player.crull_use[8] = _loadEntity.crullUse8;
-		if (variable_struct_exists(_loadEntity,"crullUse9")) obj_player.crull_use[9] = _loadEntity.crullUse9;
-		if (variable_struct_exists(_loadEntity,"crullUse10")) obj_player.crull_use[10] = _loadEntity.crullUse10;
+		if (variable_struct_exists(_loadEntity,"crystalUse0")) obj_player.crystal_use[0] = _loadEntity.crystalUse0;
+		if (variable_struct_exists(_loadEntity,"crystalUse1")) obj_player.crystal_use[1] = _loadEntity.crystalUse1;
+		if (variable_struct_exists(_loadEntity,"crystalUse2")) obj_player.crystal_use[2] = _loadEntity.crystalUse2;
+		if (variable_struct_exists(_loadEntity,"crystalUse3")) obj_player.crystal_use[3] = _loadEntity.crystalUse3;
+		if (variable_struct_exists(_loadEntity,"crystalUse4")) obj_player.crystal_use[4] = _loadEntity.crystalUse4;
+		if (variable_struct_exists(_loadEntity,"crystalUse5")) obj_player.crystal_use[5] = _loadEntity.crystalUse5;
+		if (variable_struct_exists(_loadEntity,"crystalUse6")) obj_player.crystal_use[6] = _loadEntity.crystalUse6;
+		if (variable_struct_exists(_loadEntity,"crystalUse7")) obj_player.crystal_use[7] = _loadEntity.crystalUse7;
+		if (variable_struct_exists(_loadEntity,"crystalUse8")) obj_player.crystal_use[8] = _loadEntity.crystalUse8;
+		if (variable_struct_exists(_loadEntity,"crystalUse9")) obj_player.crystal_use[9] = _loadEntity.crystalUse9;
+		if (variable_struct_exists(_loadEntity,"crystalUse10")) obj_player.crystal_use[10] = _loadEntity.crystalUse10;
 	
 		
 		//Load Upgrades
 		if (variable_struct_exists(_loadEntity,"vitality")) obj_player.vitality = _loadEntity.vitality;
 		if (variable_struct_exists(_loadEntity,"hp")) obj_player.max_hp = _loadEntity.hp;
-		if (variable_struct_exists(_loadEntity,"iteration")) obj_player.iteration = _loadEntity.iteration; 
-		//if (variable_struct_exists(_loadEntity,"crull") ) obj_player.max_crull_stone = _loadEntity.crull;
-		if (variable_struct_exists(_loadEntity,"crull") ) obj_player.crull_count = _loadEntity.crull;
+		if (variable_struct_exists(_loadEntity,"iteration")) 
+		{
+			obj_player.iteration = _loadEntity.iteration; 
+			obj_player.crystal_count = obj_player.iteration + 1;
+		}
+		//if (variable_struct_exists(_loadEntity,"crystal") ) obj_player.max_crystal_stone = _loadEntity.crystal;
+		//if (variable_struct_exists(_loadEntity,"crystal") ) obj_player.crystal_count = _loadEntity.crystal;
 		if (variable_struct_exists(_loadEntity,"conviction")) obj_player.conviction = _loadEntity.conviction; 
 		if (variable_struct_exists(_loadEntity,"charge")) obj_player.max_charge = _loadEntity.charge;
 		if (variable_struct_exists(_loadEntity,"might")) obj_player.might = _loadEntity.might; 
@@ -95,37 +99,36 @@ var _savePlayer =
 	level: obj_game.level_num, //CONCEPT: NOT FINAL
 	roomNum: obj_game.room_num,
 	
-	//Save Crull
-	crull0 : obj_player.crull_ary[0],
-	crull1 : obj_player.crull_ary[1],
-	crull2 : obj_player.crull_ary[2],
-	crull3 : obj_player.crull_ary[3],
-	crull4 : obj_player.crull_ary[4],
-	crull5 : obj_player.crull_ary[5],
-	crull6 : obj_player.crull_ary[6],
-	crull7 : obj_player.crull_ary[7],
-	crull8 : obj_player.crull_ary[8],
-	crull9 : obj_player.crull_ary[9],
-	crull10 : obj_player.crull_ary[10],
+	//Save crystal
+	crystal0 : obj_player.crystal_ary[0],
+	crystal1 : obj_player.crystal_ary[1],
+	crystal2 : obj_player.crystal_ary[2],
+	crystal3 : obj_player.crystal_ary[3],
+	crystal4 : obj_player.crystal_ary[4],
+	crystal5 : obj_player.crystal_ary[5],
+	crystal6 : obj_player.crystal_ary[6],
+	crystal7 : obj_player.crystal_ary[7],
+	crystal8 : obj_player.crystal_ary[8],
+	crystal9 : obj_player.crystal_ary[9],
+	crystal10 : obj_player.crystal_ary[10],
 	
-	crullUse0 : obj_player.crull_use[0],
-	crullUse1 : obj_player.crull_use[1],
-	crullUse2 : obj_player.crull_use[2],
-	crullUse3 : obj_player.crull_use[3],
-	crullUse4 : obj_player.crull_use[4],
-	crullUse5 : obj_player.crull_use[5],
-	crullUse6 : obj_player.crull_use[6],
-	crullUse7 : obj_player.crull_use[7],
-	crullUse8 : obj_player.crull_use[8],
-	crullUse9 : obj_player.crull_use[9],
-	crullUse10 : obj_player.crull_use[10],
+	crystalUse0 : obj_player.crystal_use[0],
+	crystalUse1 : obj_player.crystal_use[1],
+	crystalUse2 : obj_player.crystal_use[2],
+	crystalUse3 : obj_player.crystal_use[3],
+	crystalUse4 : obj_player.crystal_use[4],
+	crystalUse5 : obj_player.crystal_use[5],
+	crystalUse6 : obj_player.crystal_use[6],
+	crystalUse7 : obj_player.crystal_use[7],
+	crystalUse8 : obj_player.crystal_use[8],
+	crystalUse9 : obj_player.crystal_use[9],
+	crystalUse10 : obj_player.crystal_use[10],
 
 	
 	//Enhancable Stats
 	vitality : obj_player.vitality,  //1
 	hp : obj_player.max_hp,
 	iteration : obj_player.iteration, //2
-	crull : obj_player.crull_count,
 	conviction : obj_player.conviction, //3
 	charge : obj_player.max_charge,
 	might : obj_player.might, //4

@@ -1,35 +1,30 @@
-//Crull Scripts
+//crystal Scripts
 //
 //
 //
 //
 //
-//Crull Lists
-function scr_inventory_crull_create(){
-crull_script = array_create(25);
-crull_recipe = array_create(25,false);
-crull_recipe[0] = true;
+//crystal Lists
+function scr_inventory_crystal_create(){
+crystal_script = array_create(25,0);
+crystal_enchant = array_create(25,false);
+crystal_enchant[0] = true;
 
 
-crull_script[0] = scr_player_crull_natural;
-crull_script[1] = scr_player_crull_spectral;
-crull_script[2] = scr_player_crull_yelline;
-crull_script[3] = scr_player_crull_orine;
-crull_script[4] = scr_player_crull_violine;
-crull_script[5] = scr_player_crull_bluine;
-crull_script[6] = scr_player_crull_grenine;
-crull_script[7] = scr_player_crull_redine;
-crull_script[8] = scr_player_crull_cure;
-crull_script[9] = scr_player_crull_natural;
-crull_script[10] = scr_player_crull_natural;
-crull_script[11] = scr_player_crull_natural;
-crull_script[12] = scr_player_crull_natural;
-crull_script[13] = scr_player_crull_natural;
-crull_script[14] = scr_player_crull_natural;
-crull_script[15] = scr_player_crull_natural;
-crull_script[16] = scr_player_crull_natural;
-crull_script[17] = scr_player_crull_natural;
-crull_script[18] = scr_player_crull_natural;
+crystal_script[0] = scr_player_crystal_natural_cast;
+crystal_script[1] = scr_player_crystal_spectral_cast;
+crystal_script[2] = scr_player_crystal_yelline_cast;
+crystal_script[3] = scr_player_crystal_orine_cast;
+crystal_script[4] = scr_player_crystal_violine_cast;
+crystal_script[5] = scr_player_crystal_bluine_cast;
+crystal_script[6] = scr_player_crystal_grenine_cast;
+crystal_script[7] = scr_player_crystal_redine_cast;
+crystal_script[8] = scr_player_crystal_cure_cast;
+//crystal_script[9] = scr_player_crystal_yellowUltra_cast;
+//crystal_script[10] = scr_player_crystal_orangeUltra_cast;
+//crystal_script[11] = scr_player_crystal_purpleUltra_cast;
+crystal_script[12] = scr_player_crystal_blueUltra_cast;
+
 
 }
 //
@@ -37,29 +32,29 @@ crull_script[18] = scr_player_crull_natural;
 //
 //
 //
-//Crull Select
-function scr_player_crull_select(){
+//Crystal Select
+function scr_player_crystal_select(){
 	
 if (mouse_wheel_up())
 {
-	if (crull_selected > 0)
+	if (crystal_selected > 0)
 	{
-		crull_selected = crull_selected - 1;
+		crystal_selected = crystal_selected - 1;
 	}
 	else
 	{
-		crull_selected = iteration;
+		crystal_selected = iteration;
 	}
 }
 if (mouse_wheel_down())
 {
-	if (crull_selected < iteration)
+	if (crystal_selected < iteration)
 	{
-		crull_selected = crull_selected + 1;
+		crystal_selected = crystal_selected + 1;
 	}
 	else
 	{
-		crull_selected = 0;
+		crystal_selected = 0;
 	}
 }
 }
@@ -68,8 +63,8 @@ if (mouse_wheel_down())
 //
 //
 //
-//Crull Natural
-function scr_player_crull_natural(){
+//Crystal Natural
+function scr_player_crystal_natural_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -90,10 +85,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -107,7 +102,7 @@ if (animation_end)
 	hp = hp + (60 + (15 * receptivity));
 	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -116,8 +111,8 @@ if (animation_end)
 //
 //
 //
-//Crull Spectral
-function scr_player_crull_spectral(){
+//Crystal Spectral
+function scr_player_crystal_spectral_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -138,10 +133,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -152,11 +147,11 @@ scr_player_animation();
 
 if (animation_end)
 {
-	//crull_stone = crull_stone - 1;
+	//crystal_stone = crystal_stone - 1;
 	hp = hp + (150 + (35 * receptivity));
 	if (hp > max_hp) hp = max_hp;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -165,8 +160,8 @@ if (animation_end)
 //
 //
 //
-//Crull Yelline
-function scr_player_crull_yelline(){
+//Crystal Yelline
+function scr_player_crystal_yelline_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -187,10 +182,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -205,7 +200,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	yellow_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -214,8 +209,8 @@ if (animation_end)
 //
 //
 //
-//Crull Orine
-function scr_player_crull_orine(){
+//Crystal Orine
+function scr_player_crystal_orine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -236,10 +231,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -254,7 +249,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	orange_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -263,8 +258,8 @@ if (animation_end)
 //
 //
 //
-//Crull Purple
-function scr_player_crull_violine(){
+//Crystal Purple
+function scr_player_crystal_violine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -285,10 +280,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -303,7 +298,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	purple_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -312,8 +307,8 @@ if (animation_end)
 //
 //
 //
-//Crull Blue
-function scr_player_crull_bluine(){
+//Crystal Blue
+function scr_player_crystal_bluine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -334,10 +329,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -352,7 +347,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	blue_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -361,8 +356,8 @@ if (animation_end)
 //
 //
 //
-//Crull Green
-function scr_player_crull_grenine(){
+//Crystal Green
+function scr_player_crystal_grenine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -383,10 +378,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -401,7 +396,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	green_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -410,8 +405,8 @@ if (animation_end)
 //
 //
 //
-//Crull Red
-function scr_player_crull_redine(){
+//Crystal Red
+function scr_player_crystal_redine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -432,10 +427,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -450,7 +445,7 @@ if (animation_end)
 	if (hp > max_hp) hp = max_hp;
 	red_primary = max_charge;
 	state_script = free_state;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }
@@ -459,8 +454,8 @@ if (animation_end)
 //
 //
 //
-//Crull Cure
-function scr_player_crull_cure(){
+//Crystal Cure
+function scr_player_crystal_cure_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -481,10 +476,10 @@ if (melee_timer > 0)
 	melee_timer = melee_timer - 1;
 }
 //Animation Start
-if (sprite_index != crull_sprite)
+if (sprite_index != crystal_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = crull_sprite;
+	sprite_index = crystal_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -510,7 +505,75 @@ if (animation_end)
 	knockback = false;
 	knockback_dur = 0;
 	knockback_dir = 0;
-	crull_use[crull_selected] = true;
+	crystal_use[crystal_selected] = true;
+	animation_end = false;
+}
+}
+//
+//
+//
+//
+//
+//Crystal Enchantments Blue Ultra
+function scr_player_crystal_blueUltra_cast(){
+invincible = false;
+if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
+{
+	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+	if (stamina_timer <= 0) 
+	{
+		stamina_timer = 3;
+		stamina = stamina + 1;
+	}
+}
+//Charge Primary?
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+//Animation Start
+if (sprite_index != crystal_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = crystal_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+}
+
+//Animate
+scr_player_animation();
+
+if (animation_end)
+{
+	hp = hp + (60 + (15 * receptivity));
+	if (hp > max_hp) hp = max_hp;
+	with (instance_create_layer(obj_player.x,obj_player.y-8,"Instances",obj_projectile))
+	{
+		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
+		audio_play_sound(snd_ceriver_dynorb,0,0);
+		break_object = obj_player.break_object;
+		fragment_count = 1;
+		fragment = obj_fragWater;
+		magic = true;
+		sd_timer = 30;
+		damage = 75 + (25 * obj_player.grace);//
+		projectile_sprite = spr_ceriver_polyorb;
+		projectile_script = scr_projectile_polyorb;
+		idle_sprite = spr_ceriver_polyorb;
+		image_index = _bubbleRand;
+		projectile_speed = 3.0 + (.5 * image_index);
+		image_speed = 0;
+		hit_by_attack = -1;
+		speed = projectile_speed;
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
+		image_angle = direction;
+	}
+	crystal_use[crystal_selected] = true;
 	animation_end = false;
 }
 }

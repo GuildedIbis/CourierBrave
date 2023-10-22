@@ -226,11 +226,11 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.habrafLake_map_ary[14][3] < 1)
+if (obj_inventory.quest_grid[# 10, 1] < 2)
 {
 	sprite_index = spr_door_habrafLake_stone;
 }
-if (obj_inventory.habrafLake_map_ary[14][3] >= 1)
+if (obj_inventory.quest_grid[# 10, 1] >= 2)
 {
 	sprite_index = spr_door_habrafLake_stone_open;
 	with (obj_wall)

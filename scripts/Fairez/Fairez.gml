@@ -54,8 +54,10 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.quest_grid[# 10, 0] = true;
+		obj_inventory.quest_grid[# 10, 1] = 3;
 		obj_inventory.quest_grid[# 10, 3] = true;
-		//crull recipe unlock
+		//crystal recipe unlock
 		//add star orb
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
@@ -218,7 +220,7 @@ if (obj_inventory.crull_recipe[3] = false)
 	draw_sprite_ext(spr_rog_menu_all,2,142,66,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,4,162,66,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,4,162,66,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
 	draw_text_transformed(196,76,"RECIPE",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
@@ -247,7 +249,7 @@ if (obj_inventory.crull_recipe[7] = false)
 	draw_sprite_ext(spr_rog_menu_all,5,142,84,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,8,162,84,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,8,162,84,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
 	draw_text_transformed(196,94,"RECIPE",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))

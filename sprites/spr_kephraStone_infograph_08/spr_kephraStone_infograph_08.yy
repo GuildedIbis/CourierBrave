@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "spr_kephraStone_infograph_08",
   "bbox_bottom": 50,
-  "bbox_left": 5,
+  "bbox_left": 9,
   "bbox_right": 89,
-  "bbox_top": 12,
+  "bbox_top": 8,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -14,8 +14,8 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9f6192c9-8a6c-4ee3-b433-1d6fa40640be",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"66c9ac4c-a47e-4d81-9218-20dc76f31c3a",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ae60696b-2804-4519-a357-d7dc6f58cfeb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"66c9ac4c-a47e-4d81-9218-20dc76f31c3a",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -58,8 +58,8 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9f6192c9-8a6c-4ee3-b433-1d6fa40640be","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},},"Disabled":false,"id":"14ecfdfb-94c7-4e87-a835-8f1159862d9d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"66c9ac4c-a47e-4d81-9218-20dc76f31c3a","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},},"Disabled":false,"id":"bc926de1-2b9a-4018-bbae-33f931d65a80","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ae60696b-2804-4519-a357-d7dc6f58cfeb","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},},"Disabled":false,"id":"aa43acb8-fc52-477c-a3f4-ec45da647a3d","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ae60696b-2804-4519-a357-d7dc6f58cfeb","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},},"Disabled":false,"id":"aa43acb8-fc52-477c-a3f4-ec45da647a3d","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"66c9ac4c-a47e-4d81-9218-20dc76f31c3a","path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},},},"Disabled":false,"id":"bc926de1-2b9a-4018-bbae-33f931d65a80","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

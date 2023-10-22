@@ -187,14 +187,10 @@ switch(page)
 					with (obj_player)
 					{
 						iteration = iteration + 1;
-						crull_count = iteration + 1;
-						crull_ary[iteration] = 0;
-						crull_use[iteration] = false;
+						crystal_count = iteration + 1;
+						crystal_ary[iteration] = 0;
+						crystal_use[iteration] = false;
 					}
-					//obj_player.iteration = obj_player.iteration + 1;
-					//obj_player.max_crull_stone = obj_player.max_crull_stone + 1;
-					//obj_player.crull_stone = obj_player.crull_stone + 1;
-					//obj_player.crull_ary[obj_player.max_crull_stone] = 1;
 				}
 			}
 		}
@@ -429,9 +425,9 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.receptivity) + " > " + string(obj_player.receptivity+1);
-		var _stat = "Crull Stone heal amount: " + string(100 + (obj_player.receptivity * 25)) + ">" + string(100 + ((obj_player.receptivity + 1) * 25));
+		var _stat = "Crystal heal amount: " + string(100 + (obj_player.receptivity * 25)) + ">" + string(100 + ((obj_player.receptivity + 1) * 25));
 		var _title = "RECEPTIVITY";
-		var _describe = "Increases the amount of health\nrestored by the Crull Stone.";
+		var _describe = "Increases the amount of health\nrestored by Crystals.";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
 		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 

@@ -16,7 +16,7 @@ magicA_script = scr_player_adavio_voidCycle;
 magic_primary = true;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
-crull_sprite = spr_player_adavio_crull;
+crystal_sprite = spr_player_adavio_crystal;
 recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_adavio_castArm;
 obj_cursor.curs_script = scr_cursor_adavio;
@@ -167,13 +167,13 @@ if (key_ability) and (stamina >= 50)
 }
 
 
-//Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_use[crull_selected] = false)
+//crystal Stone State
+if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
 {
-	var _crullID = crull_ary[crull_selected];
-	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
-	audio_play_sound(snd_player_crull,0,false);
-	state_script = obj_inventory.crull_script[_crullID];
+	var _crystalID = crystal_ary[crystal_selected];
+	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
+	audio_play_sound(snd_player_crystal,0,false);
+	state_script = obj_inventory.crystal_script[_crystalID];
 }
 
 //Switch Magic Fire Mode

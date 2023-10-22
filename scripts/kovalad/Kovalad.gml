@@ -211,16 +211,16 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 
-if (obj_inventory.crull_recipe[1] = false)
+if (obj_inventory.crystal_enchant[1] = false)
 {
 	draw_set_halign(fa_left);
 	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
 	draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,2,162,66,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,2,162,66,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"RECIPE",.5,.5,0);
+	draw_text_transformed(196,76,"ENCHANTMENT",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
@@ -229,7 +229,7 @@ if (obj_inventory.crull_recipe[1] = false)
 			if (obj_inventory.rog_array[0] >= 5)
 			{
 				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
-				obj_inventory.crull_recipe[1] = true;
+				obj_inventory.crystal_enchant[1] = true;
 			}
 		}
 	}
@@ -239,16 +239,16 @@ else
 	draw_text_transformed(160,76,"SOLD",.75,.75,0);
 }
 //Button 2
-if (obj_inventory.crull_recipe[2] = false)
+if (obj_inventory.crystal_enchant[2] = false)
 {
 	draw_set_halign(fa_left);
 	draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
 	draw_sprite_ext(spr_rog_menu_all,1,142,84,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
 	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crull_recipe,3,162,84,1,1,0,c_white,1);
+	draw_sprite_ext(spr_menu_crystal_enchant,3,162,84,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
-	draw_text_transformed(196,94,"RECIPE",.5,.5,0);
+	draw_text_transformed(196,94,"ENCHANTMENT",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
@@ -257,7 +257,7 @@ if (obj_inventory.crull_recipe[2] = false)
 			if (obj_inventory.rog_array[1] >= 5)
 			{
 				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 5;
-				obj_inventory.crull_recipe[2] = true;
+				obj_inventory.crystal_enchant[2] = true;
 			}
 		}
 	}

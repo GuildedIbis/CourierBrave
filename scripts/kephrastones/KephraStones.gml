@@ -22,7 +22,7 @@ kephra_grid[# 3, 1] = false
 kephra_grid[# 3, 2] = "SPECIAL ATTACK"
 kephra_grid[# 4, 0] = scr_menu_kephra_04;
 kephra_grid[# 4, 1] = false
-kephra_grid[# 4, 2] = "CRULL STONES"
+kephra_grid[# 4, 2] = "CRYSTALS"
 kephra_grid[# 5, 0] = scr_menu_kephra_05;
 kephra_grid[# 5, 1] = false
 kephra_grid[# 5, 2] = "ENEMIES"
@@ -305,22 +305,22 @@ if (page > 0)
 //
 //
 //
-//Kephra Stone 04: Crull Stones
+//Kephra Stone 04: Crystals
 function scr_menu_kephra_04(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Press \"C\" to use a Crull Stone\nCharge."
-_text[1] = "Some Crull Stone will restore\nthe Courier's health, but recipes\nfor other types of charges with\nvarious effects can be acquired."
-_text[2] = "Visiting an alter (or dying)\nrefills Crull Charges to whatever\nthey are set as.\n\nVisiting all altar also refills\nthe Courier's magic charge."
+_text[0] = "Press \"C\" to use a Crystal Charge."
+_text[1] = "The Courier's cystal's natural enchantment is\nto restore the Courier's health, but enchantments\nwith other effects can be acquired."
+_text[2] = "Visiting an alter (or dying)\nrefills Crystal Charges to whatever\nthey are set as.\n\nVisiting an altar also refills\nthe Courier's magic charge."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 4: CRULL STONES",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 4: CRYSTALS I",1,1,0);
 draw_set_halign(fa_left);
 draw_sprite(spr_kephraStone_infograph_04,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
@@ -524,23 +524,23 @@ if (page > 0)
 //
 //
 //
-//Kephra Stone 08: Crull Charges
+//Kephra Stone 08: Altars
 function scr_menu_kephra_08(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "As the Courier's ITERATION stat\nincreases, they will unlock\nmore charges of the Crull Stone.\n\nScroll with the mouse wheel to\nselect a different Crull Charge."
-_text[1] = "The Crull Charges will refill to\na Natural Charge by default,\nwhich heals a moderate amount of\ndamage."
-_text[2] = "Completing recipes at the alter\ncosts resources and replaces the\ncurrent charge but produces\ncharges that have various\neffects beyond healing."
+_text[0] = "As the Courier's ITERATION stat\nincreases, they will unlock\nmore charges of the Crystal.\n\nScroll with the mouse wheel to\nselect a different Crystal Charge."
+_text[1] = "Completing enchantments at the alter\ncosts resources and replaces the\ncurrent charge but produces\ncharges that have various\neffects beyond healing."
+_text[2] = "You can also travel instantly between\nany two altars you've visited by\nselecting them in the altars\nmap menu."
 
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 8: CRULL CHARGES",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 8: ALTARS",1,1,0);
 draw_set_halign(fa_left);
 draw_sprite(spr_kephraStone_infograph_08,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
@@ -587,7 +587,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Resources are found in any area\nwhere enemies spawn.\n\nThey can be collected with a weapon."
-_text[1] = "They can be used for trading\nwith others, or for completing\nCrull Charge recipes."
+_text[1] = "They can be used for trading\nwith others, or for completing\nCrystal Charge recipes."
 
 //Sprite
 draw_set_font(global.fnt_main_white);
@@ -641,7 +641,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Some enemy attacks will inflict\nstatus effects that are\ncured naturally over time."
-_text[1] = "Status effects can also be cured\nwith the Cure Crull."
+_text[1] = "Status effects can also be cured\nwith the Cure Cystal enchantment."
 
 //Sprite
 draw_set_font(global.fnt_main_white);

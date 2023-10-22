@@ -106,7 +106,7 @@ if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
 		audio_play_sound(snd_menu,0,false);
 		scr_game_room_enemy_reset();
 		scr_player_reset();
-		text_script = scr_menu_altar_crull;
+		text_script = scr_menu_altar_crystal;
 		text_gui = -1;
 	}
 }
@@ -250,28 +250,30 @@ if (keyboard_check_pressed(ord("E")))
 //
 //
 //Altar Menu
-function scr_menu_altar_crull(){
+function scr_menu_altar_crystal(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _recipeMenu = array_create(25);
-var _recipeName = array_create(25);
-_recipeMenu[0] = scr_menu_crull_recipe_spectral;
-_recipeMenu[1] = scr_menu_crull_recipe_yelline;
-_recipeMenu[2] = scr_menu_crull_recipe_orine;
-_recipeMenu[3] = scr_menu_crull_recipe_violine;
-_recipeMenu[4] = scr_menu_crull_recipe_bluine;
-_recipeMenu[5] = scr_menu_crull_recipe_grenine;
-_recipeMenu[6] = scr_menu_crull_recipe_redine;
-_recipeMenu[7] = scr_menu_crull_recipe_cure;
+var _enchantMenu = array_create(25);
+var _enchantName = array_create(25);
+_enchantMenu[0] = scr_menu_crystal_enchant_spectral;
+_enchantMenu[1] = scr_menu_crystal_enchant_yelline;
+_enchantMenu[2] = scr_menu_crystal_enchant_orine;
+_enchantMenu[3] = scr_menu_crystal_enchant_violine;
+_enchantMenu[4] = scr_menu_crystal_enchant_bluine;
+_enchantMenu[5] = scr_menu_crystal_enchant_grenine;
+_enchantMenu[6] = scr_menu_crystal_enchant_redine;
+_enchantMenu[7] = scr_menu_crystal_enchant_cure;
+_enchantMenu[7] = scr_menu_crystal_enchant_blueUltra;
 
-_recipeName[0] = "Spectral Crull";
-_recipeName[1] = "Yelline Crull";
-_recipeName[2] = "Orine Crull";
-_recipeName[3] = "Violine Crull";
-_recipeName[4] = "Bluine Crull";
-_recipeName[5] = "Grenine Crull";
-_recipeName[6] = "Redine Crull";
-_recipeName[7] = "Cure Crull";
+_enchantName[0] = "Spectral";
+_enchantName[1] = "Yelline";
+_enchantName[2] = "Orine";
+_enchantName[3] = "Violine";
+_enchantName[4] = "Bluine";
+_enchantName[5] = "Grenine";
+_enchantName[6] = "Redine";
+_enchantName[7] = "Cure";
+_enchantName[7] = "Blue Ultra";
 //Set Text
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -282,12 +284,12 @@ draw_set_color(c_white);
 //Menu Base and Buttons
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_text_transformed(99,32,"PRESS \"E\" TO RESUME",.5,.5,0);
-draw_text_transformed(160,156,"USE THE MOUSE WHEEL TO SELECT\nA CRULL CHARGE TO REPLACE",.5,.5,0);
+draw_text_transformed(160,156,"USE THE MOUSE WHEEL TO SELECT\nA CRYSTAL CHARGE TO REPLACE",.5,.5,0);
 //Left
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,108);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
 draw_sprite_stretched(spr_menu_circle16,1,12,82,16,16);
-draw_text_transformed(99,45,"CRULL CHARGE RECIPES",1,1,0);
+draw_text_transformed(99,45,"CRYSTAL ENCHANTMENTS",1,1,0);
 //Right
 draw_sprite(spr_menu_rope,3,176,99);
 draw_sprite(spr_menu_rope,3,262,99);
@@ -299,7 +301,7 @@ draw_sprite_stretched(spr_menu_circle16,3,196,127,50,16);
 
 
 //Buttons
-//if (obj_player.crull_ary[obj_player.crull_selected] = -1)
+//if (obj_player.crystal_ary[obj_player.crystal_selected] = -1)
 //{
 //Lefthand Buttons
 for (var i = 0; i < 5; i = i + 1)
@@ -307,16 +309,16 @@ for (var i = 0; i < 5; i = i + 1)
 	var _id = i + (5 * page);
 	draw_set_halign(fa_left);
 	draw_sprite_stretched(spr_menu_circle16,1,49,53+(17 * i),90,16);
-	if (obj_inventory.crull_recipe[_id] = true)
+	if (obj_inventory.crystal_enchant[_id] = true)
 	{
-		draw_text_transformed(62,61+(17*i),_recipeName[_id],.6,.6,0)
-		draw_sprite_ext(spr_menu_crull_recipe,_id+1,49,53+(17*i),1,1,0,c_white,1.0);
+		draw_text_transformed(62,61+(17*i),_enchantName[_id],.6,.6,0)
+		draw_sprite_ext(spr_menu_crystal_enchant,_id+1,49,53+(17*i),1,1,0,c_white,1.0);
 		if (point_in_rectangle(_mouseX,_mouseY,49,53+(17*i),139,69+(17*i)))
 		{
 			draw_sprite_stretched(spr_highlight_circle,0,48,52+(17*i),92,18);
 			if (mouse_check_button_pressed(mb_left))
 			{
-				text_gui = _recipeMenu[_id];
+				text_gui = _enchantMenu[_id];
 			}				
 		}
 	}
@@ -345,7 +347,7 @@ if (point_in_rectangle(_mouseX,_mouseY,141,126,149,132))
 		else page = 0;
 	}
 }
-//Selected Recipe Menu Script
+//Selected Enchantment Menu Script
 if (text_gui != -1)
 {
 	script_execute(text_gui);	
@@ -354,27 +356,27 @@ else
 {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text_transformed(221,78,"SELECT A RECIPE TO CRAFT.\n\nIT WILL REPLACE THE CURRENT\nCRULL CHARGE.",.6,.6,0);
+	draw_text_transformed(221,78,"SELECT AN ENCHANTMENT TO CRAFT.\n\nIT WILL REPLACE THE CURRENT\nCHARGE.",.6,.6,0);
 }
 
 
-//Player Crull Selected
+//Player Crystal Selected
 with (obj_player)
 {
-	scr_player_crull_select();
-	var _selectX = 160 - (8*crull_count) + (17 * crull_selected);
+	scr_player_crystal_select();
+	var _selectX = 160 - (8*crystal_count) + (17 * crystal_selected);
 	draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
-	for (var j = 0; j < crull_count; j = j + 1)
+	for (var j = 0; j < crystal_count; j = j + 1)
 	{
-		var _xPos = (158 - (8*crull_count)) + (17*j);
+		var _xPos = (158 - (8*crystal_count)) + (17*j);
 		var _yPos = 164;
-		if (crull_ary[j] != -1)
+		if (crystal_ary[j] != -1)
 		{
-			draw_sprite_ext(spr_hud_crull,crull_ary[j],_xPos,_yPos,1.0,1.0,0,c_white,1.0);
+			draw_sprite_ext(spr_hud_crystal,crystal_ary[j],_xPos,_yPos,1.0,1.0,0,c_white,1.0);
 		}
 		else
 		{
-			draw_sprite_ext(spr_hud_crull_empty,0,_xPos,_yPos,1.0,1.0,0,c_white,1.0);
+			draw_sprite_ext(spr_hud_crystal_empty,0,_xPos,_yPos,1.0,1.0,0,c_white,1.0);
 		}
 		
 	}
@@ -417,8 +419,8 @@ if (keyboard_check_pressed(ord("E")))
 //
 //
 //
-//Crull Recipe 0: Spectral
-function scr_menu_crull_recipe_spectral(){
+//Crystal Enchantment 0: Spectral
+function scr_menu_crystal_enchant_spectral(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -428,10 +430,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(150 + (35 * obj_player.receptivity)) + " HEALTH";
-draw_text_transformed(221,45,"SPECTRAL CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(150 + (35 * obj_player.receptivity)) + " HEALTH";
+draw_text_transformed(221,45,"SPECTRAL crystal",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -447,7 +449,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 				{
 					audio_sound_gain(snd_text02,global.volumeMenu,1);
 					audio_play_sound(snd_text02,0,false);
-					obj_player.crull_ary[obj_player.crull_selected] = 1;
+					obj_player.crystal_ary[obj_player.crystal_selected] = 1;
 					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
 					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
 					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
@@ -481,8 +483,8 @@ draw_text_transformed(258,120,"1\n("+ string(obj_inventory.rog_array[5])+")",.6,
 //
 //
 //
-//Crull Recipe 1: Yelline
-function scr_menu_crull_recipe_yelline(){
+//Crystal Enchantment 1: Yelline
+function scr_menu_crystal_enchant_yelline(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -492,10 +494,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE YELLOW PRIMARY CHARGE.";
-draw_text_transformed(221,45,"YELLINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE YELLOW PRIMARY CHARGE.";
+draw_text_transformed(221,45,"YELLINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -509,7 +511,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 2;
+				obj_player.crystal_ary[obj_player.crystal_selected] = 2;
 				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
 				obj_inventory.resource_array[0] = obj_inventory.resource_array[0] - 5;
 				obj_inventory.resource_array[3] = obj_inventory.resource_array[3] - 1;
@@ -535,8 +537,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[3])+")
 //
 //
 //
-//Crull Recipe 2: Orine 
-function scr_menu_crull_recipe_orine(){
+//Crystal Enchantment 2: Orine 
+function scr_menu_crystal_enchant_orine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -546,10 +548,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE ORANGE PRIMARY CHARGE.";
-draw_text_transformed(221,45,"ORINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE ORANGE PRIMARY CHARGE.";
+draw_text_transformed(221,45,"ORINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -563,7 +565,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 3;
+				obj_player.crystal_ary[obj_player.crystal_selected] = 3;
 				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
 				obj_inventory.resource_array[4] = obj_inventory.resource_array[4] - 5;
 				obj_inventory.resource_array[7] = obj_inventory.resource_array[7] - 1;
@@ -589,8 +591,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[7])+")
 //
 //
 //
-//Crull Recipe 3: Violine 
-function scr_menu_crull_recipe_violine(){
+//Crystal Enchantment 3: Violine 
+function scr_menu_crystal_enchant_violine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -600,10 +602,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE PURPLE PRIMARY CHARGE.";
-draw_text_transformed(221,45,"VIOLINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE PURPLE PRIMARY CHARGE.";
+draw_text_transformed(221,45,"VIOLINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -617,7 +619,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 4;
+				obj_player.crystal_ary[obj_player.crystal_selected] = 4;
 				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
 				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
 				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
@@ -643,8 +645,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crull Recipe 4: Bluine 
-function scr_menu_crull_recipe_bluine(){
+//Crystal Enchantment 4: Bluine 
+function scr_menu_crystal_enchant_bluine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -654,10 +656,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE BLUE PRIMARY CHARGE.";
-draw_text_transformed(221,45,"BLULINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE BLUE PRIMARY CHARGE.";
+draw_text_transformed(221,45,"BLUINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -671,7 +673,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 5; //(recipe # + 1)
+				obj_player.crystal_ary[obj_player.crystal_selected] = 5; //(enchant # + 1)
 				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
 				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
 				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
@@ -697,8 +699,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crull Recipe 5: Grenin 
-function scr_menu_crull_recipe_grenine(){
+//Crystal Enchantment 5: Grenin 
+function scr_menu_crystal_enchant_grenine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -708,10 +710,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE GREEN PRIMARY CHARGE.";
-draw_text_transformed(221,45,"GRENINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE GREEN PRIMARY CHARGE.";
+draw_text_transformed(221,45,"GRENINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -725,7 +727,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 6; //(recipe # + 1)
+				obj_player.crystal_ary[obj_player.crystal_selected] = 6; //(enchant # + 1)
 				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
 				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
 				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
@@ -751,8 +753,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crull Recipe 6: Redine 
-function scr_menu_crull_recipe_redine(){
+//Crystal Enchantment 6: Redine 
+function scr_menu_crystal_enchant_redine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -762,10 +764,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE RED PRIMARY CHARGE.";
-draw_text_transformed(221,45,"REDINE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nFULLY RESTORE RED PRIMARY CHARGE.";
+draw_text_transformed(221,45,"REDINE RESTORE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -779,7 +781,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
-				obj_player.crull_ary[obj_player.crull_selected] = 7; //(recipe # + 1)
+				obj_player.crystal_ary[obj_player.crystal_selected] = 7; //(enchant # + 1)
 				obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
 				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
 				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
@@ -805,8 +807,8 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crull Recipe 7: Cure 
-function scr_menu_crull_recipe_cure(){
+//Crystal Enchantment 7: Cure 
+function scr_menu_crystal_enchant_cure(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -816,10 +818,10 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _recipeText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nCURE ALL STATUS EFFECTS.";
-draw_text_transformed(221,45,"CURE CRULL",1,1,0);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nCURE ALL STATUS EFFECTS.";
+draw_text_transformed(221,45,"CURE",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
-draw_text_transformed(221,78,_recipeText,.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
 
 //Cost
 if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
@@ -835,7 +837,66 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 				{
 					audio_sound_gain(snd_text02,global.volumeMenu,1);
 					audio_play_sound(snd_text02,0,false);
-					obj_player.crull_ary[obj_player.crull_selected] = 1;
+					obj_player.crystal_ary[obj_player.crystal_selected] = 1;
+					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
+					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
+					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
+					obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
+				}
+			}
+		}
+	}
+}
+
+//172
+//234
+
+draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
+draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+
+}
+//
+//
+//
+//
+//
+//Crystal Enchantment 8: Blue Ultra
+function scr_menu_crystal_enchant_blueUltra(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Set Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nCURE ALL STATUS EFFECTS.";
+draw_text_transformed(221,45,"BLUE ULTRA",1,1,0);
+draw_text_transformed(221,137,"CRAFT",.6,.6,0);
+draw_text_transformed(221,78,_enchantText,.6,.6,0);
+
+//Cost
+if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 1)
+		{
+			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 1)
+			{
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 1)
+				{
+					audio_sound_gain(snd_text02,global.volumeMenu,1);
+					audio_play_sound(snd_text02,0,false);
+					obj_player.crystal_ary[obj_player.crystal_selected] = 1;
 					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
 					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
 					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
