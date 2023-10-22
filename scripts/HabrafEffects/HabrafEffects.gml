@@ -323,6 +323,8 @@ if (obj_inventory.habrafLake_map_ary[14][3] < 10)
 if (obj_inventory.habrafLake_map_ary[14][3] >= 10)
 {
 	sprite_index = spr_door_habrafLake_redCrystal_open;
+	obj_inventory.quest_grid[# 10, 0] = true;
+	obj_inventory.quest_grid[# 10, 1] = 1;
 	with (obj_wall)
 	{
 		if (place_meeting(x,y,other))
@@ -346,22 +348,33 @@ if (obj_inventory.habrafLake_map_ary[14][3] >= 10)
 //
 //Effect Habraf Escort Create
 function scr_effect_habrafLake_escort_create(){
-_destX = 0;
-_destY = 0;
+destX = 0;
+destY = 0;
+endX = 64;
+endY = 280;
 dir_switch = 1;
 escort_sprite = spr_escort_habraf_crystal;
-escort_step = EffectHabrafEscortStep;
+escort_step = scr_effect_habrafLake_escort;
 sprite_index = escort_sprite;
 escort_end = false;
-escort_spd = .5;
-escort_rad = 48;
+escort_spd = .75;
+escort_rad = 64;
 escort_timer = 0;
 atk_timer = 0;
 proj_dir = 0;
 break_object = obj_break;
 path = -1;
 shadow_sprite = -1;
+collision = true;
 shadow = false;
+lit = true;
+light_size = 24;
+if (obj_inventory.quest_grid[# 10, 1] >= 2)
+{
+	escort_end = true;
+	x = endX;
+	y = endY;
+}
 }
 //
 //
@@ -372,23 +385,54 @@ shadow = false;
 function scr_effect_habrafLake_escort(){
 if (obj_game.gamePaused = false)
 {
-	_destX = obj_player.x;
-	_destY = obj_player.y;
-	if (escort_end = false)
+	if (obj_inventory.quest_grid[# 10, 1] = 1)
 	{
-		if (escort_timer > 0) escort_timer = escort_timer - 1;
-		if (atk_timer > 0)atk_timer = atk_timer - 1;
-		if (escort_timer <= 0)
+		destX = obj_player.x;
+		destY = obj_player.y;
+		endX = 64;
+		endY = 280;
+		image_speed = 1;
+		if (escort_end = false)
 		{
-			escort_timer = 45;
-			escort_step = EffectHabrafEscortCharge;
-			audio_sound_gain(snd_escort_beaowire_charging,global.volumeEffects,1);
-			audio_play_sound(snd_escort_beaowire_charging,0,false);
-			sprite_index = spr_escort_habraf_crystalCharge;
-			image_index = 0;
+			if (point_in_circle(obj_player.x, obj_player.y,x,y,escort_rad)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+			{
+				//var _xDest = x + (lengthdir_x(1,point_direction(x,y,obj_player.x,obj_player.y)))
+				//var _yDest = y + (lengthdir_y(1,point_direction(x,y,obj_player.x,obj_player.y)))
+				if (point_in_circle(obj_player.x, obj_player.y,x,y,4))
+				{
+					speed = 0;
+				}
+				else
+				{
+					direction = point_direction(x,y,destX,destY);
+					speed = escort_spd;
+				}
+			}
+			else
+			{
+				speed = 0;
+			}
 		}
-		
+	
+		if (point_in_circle(endX,endY,x,y,4)) and (escort_end = false)
+		{
+			obj_inventory.quest_grid[# 10, 1] = 2;
+			escort_end = true;
+			x = endX;
+			y = endY;
+			speed = 0;
+		}
 	}
+	if (obj_inventory.quest_grid[# 10, 1] = 0)
+	{
+		lit = false;
+		sprite_index = spr_escort_habraf_crystal_sleeping;
+	}
+
+}
+else
+{
+	speed = 0;
 }
 }
 //

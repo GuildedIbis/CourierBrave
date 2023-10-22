@@ -36,6 +36,7 @@
     {"name":"BeetrapEffects","order":2,"path":"folders/Scripts/Effects/BeetrapEffects.yy",},
     {"name":"Entities","order":7,"path":"folders/Scripts/Entities.yy",},
     {"name":"Characters","order":1,"path":"folders/Scripts/Entities/Characters.yy",},
+    {"name":"LenkoCharacters","order":3,"path":"folders/Scripts/Entities/Characters/LenkoCharacters.yy",},
     {"name":"EnemyBeaowire","order":33,"path":"folders/Scripts/Entities/Enemy/EnemyBeaowire.yy",},
     {"name":"EnemyFarwayRoad","order":30,"path":"folders/Scripts/Entities/Enemy/EnemyFarwayRoad.yy",},
     {"name":"EnemyHabrafLake","order":31,"path":"folders/Scripts/Entities/Enemy/EnemyHabrafLake.yy",},
@@ -159,7 +160,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"LenkoCharacters","order":3,"path":"folders/Scripts/Entities/Characters/LenkoCharacters.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},
@@ -1072,6 +1072,7 @@
     {"name":"xQuestDrawMenu","order":2,"path":"scripts/xQuestDrawMenu/xQuestDrawMenu.yy",},
     {"name":"obj_game","order":2,"path":"objects/obj_game/obj_game.yy",},
     {"name":"spr_well","order":8,"path":"sprites/spr_well/spr_well.yy",},
+    {"name":"spr_escort_habraf_crystal_sleeping","order":13,"path":"sprites/spr_escort_habraf_crystal_sleeping/spr_escort_habraf_crystal_sleeping.yy",},
     {"name":"Fairez","order":7,"path":"scripts/Fairez/Fairez.yy",},
     {"name":"spr_enemy_cultistZealot_waterSlash_hitbox","order":9,"path":"sprites/spr_enemy_cultistZealot_waterSlash_hitbox/spr_enemy_cultistZealot_waterSlash_hitbox.yy",},
     {"name":"spr_player_ceriver_runCast","order":9,"path":"sprites/spr_player_ceriver_runCast/spr_player_ceriver_runCast.yy",},
