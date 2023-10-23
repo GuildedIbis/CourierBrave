@@ -577,20 +577,12 @@ if (_drop2 < 100)
 
 //else instance_create_layer(x,y,"Instances",_objects[0])
 //obj_inventory.habraf_lair[4] = 2;
-//if (obj_inventory.quest_grid[# 9, 3] = false)
-//{
-//	obj_inventory.beans = obj_inventory.beans + 1000;
-//	obj_inventory.quest_grid[# 9, 0] = true;
-//	obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
-//	obj_inventory.quest_grid[# 9, 3] = true;
-//	//obj_inventory.form_grid[# 1, 4] = true;
-//	with (obj_text)
-//	{
-//		text_script = MotherLilyVictoryText;
-//	}
-//	obj_game.gamePaused = !obj_game.gamePaused;
-//	obj_game.textPaused = !obj_game.textPaused;
-//}
+if (obj_inventory.quest_grid[# 12, 3] = false)
+{
+	obj_inventory.quest_grid[# 12, 0] = true;
+	obj_inventory.quest_grid[# 12, 1] = obj_inventory.quest_grid[# 12, 2];
+	obj_inventory.quest_grid[# 12, 3] = true;
+}
 	
 }
 //

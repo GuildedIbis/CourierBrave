@@ -514,7 +514,7 @@ if (animation_end)
 //
 //
 //
-//Crystal Enchantments Blue Ultra
+//Crystal Blue Ultra
 function scr_player_crystal_blueUltra_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -560,17 +560,16 @@ if (animation_end)
 		fragment_count = 1;
 		fragment = obj_fragWater;
 		magic = true;
-		sd_timer = 30;
-		damage = 75 + (25 * obj_player.grace);//
-		projectile_sprite = spr_ceriver_polyorb;
-		projectile_script = scr_projectile_polyorb;
-		idle_sprite = spr_ceriver_polyorb;
-		image_index = _bubbleRand;
-		projectile_speed = 3.0 + (.5 * image_index);
+		timer1 = 90;
+		damage = 50 + (25 * obj_player.receptivity);//
+		projectile_sprite = spr_projectile_ultraBlue;
+		projectile_script = scr_projectile_ultraBlue;
+		idle_sprite = spr_projectile_ultraBlue;
+		projectile_speed = 3.0;
 		image_speed = 0;
 		hit_by_attack = -1;
 		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
+		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
 	}
 	crystal_use[crystal_selected] = true;

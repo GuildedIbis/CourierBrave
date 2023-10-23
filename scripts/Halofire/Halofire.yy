@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Gameplay",
-    "path": "folders/Scripts/Player/Gameplay.yy",
+    "name": "FormScripts",
+    "path": "folders/Scripts/Player/Gameplay/FormScripts.yy",
   },
 }

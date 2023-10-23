@@ -79,8 +79,8 @@ if (key_ability) and (roll_energy >= 50)
 //Recharge Magic State
 if (keyboard_check_pressed(ord("R"))) and (magic_count < max_magic_count)
 {
-	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
-	audio_play_sound(snd_player_crull,0,false);
+	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
+	audio_play_sound(snd_player_crystal,0,false);
 	magic_count = max_magic_count;
 	state_script = PlayerStateRecharge;
 	
@@ -89,8 +89,8 @@ if (keyboard_check_pressed(ord("R"))) and (magic_count < max_magic_count)
 //Crull Stone State
 if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 {
-	audio_sound_gain(snd_player_crull,global.volumeEffects,1);
-	audio_play_sound(snd_player_crull,0,false);
+	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
+	audio_play_sound(snd_player_crystal,0,false);
 	crull_stone = crull_stone - 1;
 	hp = hp + 100;
 	if (hp > max_hp) hp = max_hp;

@@ -263,7 +263,10 @@ _enchantMenu[4] = scr_menu_crystal_enchant_bluine;
 _enchantMenu[5] = scr_menu_crystal_enchant_grenine;
 _enchantMenu[6] = scr_menu_crystal_enchant_redine;
 _enchantMenu[7] = scr_menu_crystal_enchant_cure;
-_enchantMenu[7] = scr_menu_crystal_enchant_blueUltra;
+_enchantMenu[8] = scr_menu_crystal_enchant_blueUltra;
+_enchantMenu[9] = scr_menu_crystal_enchant_blueUltra;
+_enchantMenu[10] = scr_menu_crystal_enchant_blueUltra;
+_enchantMenu[11] = scr_menu_crystal_enchant_blueUltra;
 
 _enchantName[0] = "Spectral";
 _enchantName[1] = "Yelline";
@@ -273,7 +276,10 @@ _enchantName[4] = "Bluine";
 _enchantName[5] = "Grenine";
 _enchantName[6] = "Redine";
 _enchantName[7] = "Cure";
-_enchantName[7] = "Blue Ultra";
+_enchantName[8] = "Yellow Ultra";
+_enchantName[9] = "Orange Ultra";
+_enchantName[10] = "Purple Ultra";
+_enchantName[11] = "Blue Ultra";
 //Set Text
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -419,7 +425,7 @@ if (keyboard_check_pressed(ord("E")))
 //
 //
 //
-//Crystal Enchantment 0: Spectral
+//1 Crystal Enchantment 0: Spectral 
 function scr_menu_crystal_enchant_spectral(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -483,7 +489,7 @@ draw_text_transformed(258,120,"1\n("+ string(obj_inventory.rog_array[5])+")",.6,
 //
 //
 //
-//Crystal Enchantment 1: Yelline
+//2 Crystal Enchantment 1: Yelline
 function scr_menu_crystal_enchant_yelline(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -537,7 +543,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[3])+")
 //
 //
 //
-//Crystal Enchantment 2: Orine 
+//3 Crystal Enchantment 2: Orine 
 function scr_menu_crystal_enchant_orine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -591,7 +597,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[7])+")
 //
 //
 //
-//Crystal Enchantment 3: Violine 
+//4 Crystal Enchantment 3: Violine 
 function scr_menu_crystal_enchant_violine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -645,7 +651,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crystal Enchantment 4: Bluine 
+//5 Crystal Enchantment 4: Bluine 
 function scr_menu_crystal_enchant_bluine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -699,7 +705,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crystal Enchantment 5: Grenin 
+//6 Crystal Enchantment 5: Grenin 
 function scr_menu_crystal_enchant_grenine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -753,7 +759,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crystal Enchantment 6: Redine 
+//7 Crystal Enchantment 6: Redine 
 function scr_menu_crystal_enchant_redine(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -807,7 +813,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crystal Enchantment 7: Cure 
+//8 Crystal Enchantment 7: Cure 
 function scr_menu_crystal_enchant_cure(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -829,21 +835,21 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 1)
+		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 2)
 		{
-			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 1)
+			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 2)
 			{
-				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 1)
+				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 2)
 				{
 					audio_sound_gain(snd_text02,global.volumeMenu,1);
 					audio_play_sound(snd_text02,0,false);
-					obj_player.crystal_ary[obj_player.crystal_selected] = 1;
+					obj_player.crystal_ary[obj_player.crystal_selected] = 8;
 					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
+					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 2;
 					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
-					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
+					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 2;
 					obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
-					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
+					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 2;
 				}
 			}
 		}
@@ -852,13 +858,18 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 
 //172
 //234
-
-draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
-draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
-draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
-draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
-draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
-draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,0,172,106,16,16);
+draw_text_transformed(172,120,"1\n("+ string(obj_inventory.rog_array[0])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,1,190,106,16,16);
+draw_text_transformed(190,120,"2\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,2,207,106,16,16);
+draw_text_transformed(207,120,"1\n("+ string(obj_inventory.rog_array[2])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,3,224,106,16,16);
+draw_text_transformed(224,120,"2\n("+ string(obj_inventory.rog_array[3])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,4,241,106,16,16);
+draw_text_transformed(241,120,"1\n("+ string(obj_inventory.rog_array[4])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_all,5,258,106,16,16);
+draw_text_transformed(258,120,"2\n("+ string(obj_inventory.rog_array[5])+")",.6,.6,0);
 
 }
 //
@@ -866,7 +877,7 @@ draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")
 //
 //
 //
-//Crystal Enchantment 8: Blue Ultra
+//12 Crystal Enchantment 8: Blue Ultra
 function scr_menu_crystal_enchant_blueUltra(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -877,7 +888,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
-var _enchantText = "RESTORE " + string(60 + (15 * obj_player.receptivity)) + " HEALTH.\nCURE ALL STATUS EFFECTS.";
+var _enchantText = "FIRE AN ICE BOMB THAT DEALS " + string(50 + (25 * obj_player.receptivity)) + " DMG ON IMPACT AND\n" + string(100 + (50 * obj_player.receptivity)) + "EXPLOSION DMG.";
 draw_text_transformed(221,45,"BLUE ULTRA",1,1,0);
 draw_text_transformed(221,137,"CRAFT",.6,.6,0);
 draw_text_transformed(221,78,_enchantText,.6,.6,0);
@@ -888,22 +899,17 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.rog_array[1] >= 1)
+		if (obj_inventory.rog_array[3] >= 1) and (obj_inventory.resource_array[4] >= 5)
 		{
-			if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.rog_array[3] >= 1)
+			if (obj_inventory.resource_array[1] >= 5)
 			{
-				if (obj_inventory.rog_array[4] >= 1) and (obj_inventory.rog_array[5] >= 1)
-				{
-					audio_sound_gain(snd_text02,global.volumeMenu,1);
-					audio_play_sound(snd_text02,0,false);
-					obj_player.crystal_ary[obj_player.crystal_selected] = 1;
-					obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-					obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 1;
-					obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
-					obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
-					obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
-					obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 1;
-				}
+				audio_sound_gain(snd_text02,global.volumeMenu,1);
+				audio_play_sound(snd_text02,0,false);
+				obj_player.crystal_ary[obj_player.crystal_selected] = 12; 
+				obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 5;
+				obj_inventory.resource_array[4] = obj_inventory.resource_array[4] - 5;
+				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 5;
+
 			}
 		}
 	}
@@ -913,10 +919,10 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 //234
 
 draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
-draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_text_transformed(186,120,"5\n("+ string(obj_inventory.rog_array[3])+")",.6,.6,0);
 draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
-draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
+draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[4])+")",.6,.6,0);
 draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);
-draw_text_transformed(236,120,"1\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
+draw_text_transformed(236,120,"5\n("+ string(obj_inventory.resource_array[1])+")",.6,.6,0);
 
 }
