@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_viceBubble_hit",
+  "name": "snd_enemy_lily_viceBubble",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.250499,
+  "duration": 0.273764,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sounds/Enemy/Other.yy",
+    "name": "Habraf",
+    "path": "folders/Sounds/Enemy/Lenko/Habraf.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_vicebubble_hit.wav",
+  "soundFile": "snd_enemy_lily_viceBubble.wav",
   "type": 0,
   "volume": 0.3,
 }

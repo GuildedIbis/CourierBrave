@@ -158,9 +158,9 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.iteration) + " > " + string(obj_player.iteration+1);
-		var _stat = "Crull Stone Uses: " + string(obj_player.iteration + 1) + ">" + string(obj_player.iteration + 2);
+		var _stat = "Crystal Charges: " + string(obj_player.iteration + 1) + ">" + string(obj_player.iteration + 2);
 		var _title = "ITERATION";
-		var _describe = "Increases the number of times the Crull\nStone can be used.\nVisit Alters to refill the uses.";
+		var _describe = "Increases the number of uses available\nfor your crystal before recharging\nat altars.";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
 		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
@@ -209,7 +209,7 @@ switch(page)
 		var _level = "Level: " + string(obj_player.conviction) + " > " + string(obj_player.conviction+1);
 		var _stat = "Max charge: " + string(100 + ((obj_player.conviction) * 10)) + ">" + string(100 + ((obj_player.conviction + 1) * 10));
 		var _title = "CONVICTION";
-		var _describe = "Increases the max amount of charge\nfor using crystal and special attacks.";
+		var _describe = "Increases the max amount of charge\nfor using primary and special attacks.";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
 		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
@@ -252,9 +252,9 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.grace) + " > " + string(obj_player.grace+1);
-		var _stat = "Selected Crystal Damage: " + "???" + ">" + "???";
+		var _stat = "Primary damage varies by skill";
 		var _title = "GRACE";
-		var _describe = "Increases the amount of damage\ndone with crystal attacks.\n(LEFT CLICK)";
+		var _describe = "Increases the amount of damage\ndone with primary attacks.\n(LEFT CLICK)";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
 		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
@@ -295,7 +295,7 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.might) + " > " + string(obj_player.might+1);
-		var _stat = "Selected Weapon Damage: " + "???" + ">" + "???";;
+		var _stat = "Weapon damage varies by skill";
 		var _title = "MIGHT";
 		var _describe = "Increases the amount of damage\ndone with weapon attacks.\n(RIGHT CLICK)";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
@@ -338,7 +338,7 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.divinity) + " > " + string(obj_player.divinity+1);
-		var _stat = "Selected Special Damage: " + "???" + ">" + "???";;
+		var _stat = "Special damage varies by skill";
 		var _title = "DIVINITY";
 		var _describe = "Increases the amount of damage\ndone with special attacks\n(LEFT SHIFT)";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
@@ -425,9 +425,9 @@ switch(page)
 		draw_set_valign(fa_top);
 		draw_set_color(c_white);
 		var _level = "Level: " + string(obj_player.receptivity) + " > " + string(obj_player.receptivity+1);
-		var _stat = "Crystal heal amount: " + string(100 + (obj_player.receptivity * 25)) + ">" + string(100 + ((obj_player.receptivity + 1) * 25));
+		var _stat = "Crystal effectiveness varies by enchantment.";
 		var _title = "RECEPTIVITY";
-		var _describe = "Increases the amount of health\nrestored by Crystals.";
+		var _describe = "Increases the effectiveness of\ncrystals enchantments.";
 		draw_text_transformed(_midX,_titleY,_title,1,1,0);
 		draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
 		draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 

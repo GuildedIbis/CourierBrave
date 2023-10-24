@@ -18,7 +18,6 @@ entity_drop = scr_enemy_mother_lily_drop;
 enemy_idle = spr_enemy_motherLily;
 enemy_move = spr_enemy_motherLily_move;
 damaged_snd = snd_motherLily_damaged;
-walk_snd = snd_walk_water;
 shadow = false;
 shadow_size = 3;
 lit = false;
@@ -35,9 +34,10 @@ boss = true;
 enemy_spd = 1.1;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
+timer1 = 30;
+timer2 = 30;
+timer3 = 30;
+timer4 = 30;
 walk_snd_delay = 0;
 path = -1;
 }
@@ -55,6 +55,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	
 	
 	//While Aggro if off
@@ -174,22 +175,24 @@ if (obj_game.gamePaused = false)
 			entity_step =scr_enemy_mother_lily_viceBomb;
 		}
 		
-		//Walk Sound
-		if (walk_snd_delay <= 0)
+		//Drop Lily Pods
+		if (timer4 <= 0)
 		{
-			walk_snd_delay = 600;
-			audio_play_sound(walk_snd,1,0);
-			with (instance_create_layer(x,y,"Instances",obj_effect))
+			timer4 = 600;
+			with (instance_create_layer(x,y,"Instances",obj_enemy))
 			{
-				timer1 = 1200;
-				sprite_index = spr_enemy_motherLily_viceEffect;
-				effect_script = scr_effect_waterVice;
-				image_xscale = choose(-1,1);
-				image_yscale = choose(-1,1);
-				image_angle = irandom_range(0,360);
-				image_speed = 1;
+				image_alpha = 1;
+				scr_enemy_lily_pod_create();
+				timer1 = 30;
+				timer2 = 30;
+				timer3 = 300;
+				enemy_lvl = 1;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = obj_break;
 			}
 		}
+		
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -212,6 +215,9 @@ if (obj_game.gamePaused = false)
 {
 	invincible = false;
 	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	if (sprite_index != spr_enemy_motherLily_leafSlash)
 	{
 		//Start Animation From Beginning
@@ -245,7 +251,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_scissorLeaf(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	if (sprite_index != spr_enemy_motherLily_move)
 	{
 		//Start Animation From Beginning
@@ -333,7 +342,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_razerSprout(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -386,7 +398,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_viceBomb(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -403,7 +418,7 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation_one();
 	if (animation_end)
 	{
-		audio_play_sound(snd_viceBubble,0,false);
+		audio_play_sound(snd_enemy_lily_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_viceBomb_free;
@@ -445,6 +460,9 @@ attack_counter = 0;
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	invincible = false;
 	if (sprite_index != spr_enemy_motherLily_exposed)
 	{
@@ -472,7 +490,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Effect Water Vice
-function scr_effect_waterVice(){
+function xscr_effect_waterVice(){
 damage = 5 + obj_player.might;
 timer1 = timer1 - 1;
 if (timer1 <= 0) instance_destroy();
@@ -484,7 +502,7 @@ if (sprite_index != spr_enemy_motherLily_viceEffect)
 }
 if (place_meeting(x,y,obj_player))
 {
-	audio_play_sound(snd_viceBubble_hit,0,false);
+	audio_play_sound(snd_enemy_lily_viceBubble_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)

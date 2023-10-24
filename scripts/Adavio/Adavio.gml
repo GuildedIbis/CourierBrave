@@ -29,7 +29,7 @@ max_charge = 100 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 20;
-special_cost = 25;
+special_cost = 35;
 }
 //
 //
@@ -108,7 +108,7 @@ if (_oldSprite != sprite_index) local_frame = 0;
 scr_player_animation();
 
 
-//Melee Attack
+//Weapon Attack
 if (key_attackW)
 {
 	if (thundux = false)// and (stamina >= 15)
@@ -122,7 +122,7 @@ if (key_attackW)
 	}
 }
 
-//Magic Attack
+//Primary Attack
 if (key_attackM)
 {
 	if (magic_timer <= 0)
@@ -141,7 +141,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (purple_special >= 25)
+if (key_attackS) and (purple_special >= 35)
 {
 	if (watervice = false)
 	{
@@ -151,7 +151,6 @@ if (key_attackS) and (purple_special >= 25)
 		obj_cursor.curs_script = scr_cursor_adavio_riftCrush;
 	}
 }
-
 
 //Roll State
 if (key_ability) and (stamina >= 50)
@@ -460,7 +459,7 @@ if (magic_timer <= 0)
 			projectile_speed = 4.0;
 		}
 	}
-	magic_timer = 35;
+	magic_timer = 45;
 }
 
 //Animate
@@ -810,7 +809,7 @@ if (mouse_check_button_pressed(mb_left)) and (obj_cursor.blocked = false)
 	//magic_count = magic_count - 1;
 	if (!place_meeting(mouse_x,mouse_y,obj_wall))
 	{
-		purple_special = purple_special - 25;
+		purple_special = purple_special - 35;
 		special_timer = 90;
 		dest_x = mouse_x;
 		dest_y = mouse_y;

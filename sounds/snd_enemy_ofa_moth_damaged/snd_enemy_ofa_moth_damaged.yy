@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_ofaWorm_damaged",
+  "name": "snd_enemy_ofa_moth_damaged",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 3.2,
   "parent": {
     "name": "Yakflower",
     "path": "folders/Sounds/Enemy/Lenko/Yakflower.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_ofaWorm_damaged.wav",
+  "soundFile": "snd_enemy_ofa_moth_damaged.wav",
   "type": 0,
   "volume": 1.0,
 }

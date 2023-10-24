@@ -145,8 +145,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 50;
-		//audio_sound_gain(snd_viceBubble,global.volumeEffects,1);
-		//audio_play_sound(snd_viceBubble,0,false);
+		audio_sound_gain(snd_enemy_knife_lily_returnLeaf,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_knife_lily_returnLeaf,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_spinLeaf_free;

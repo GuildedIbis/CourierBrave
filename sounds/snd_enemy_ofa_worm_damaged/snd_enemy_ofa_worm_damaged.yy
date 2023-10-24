@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_viceBubble",
+  "name": "snd_enemy_ofa_worm_damaged",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.273764,
+  "duration": 3.2,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sounds/Enemy/Other.yy",
+    "name": "Yakflower",
+    "path": "folders/Sounds/Enemy/Lenko/Yakflower.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_vicebubble.wav",
+  "soundFile": "snd_enemy_ofa_worm_damaged.wav",
   "type": 0,
-  "volume": 0.3,
+  "volume": 1.0,
 }
