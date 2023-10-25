@@ -340,10 +340,11 @@ if (sprite_index != projectile_sprite)
 if (returning = false)
 {
 	return_timer = return_timer - 1;
+	scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
+		//scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 	if (place_meeting(x,y,break_object)) or (return_timer <= 0)
@@ -352,7 +353,7 @@ if (returning = false)
 	}
 	if (place_meeting(x,y,obj_resource)) or (return_timer <= 0)
 	{
-		scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
+		//scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
 		returning = true;
 	}
 }

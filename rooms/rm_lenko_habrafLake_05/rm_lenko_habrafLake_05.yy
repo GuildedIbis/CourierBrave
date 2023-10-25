@@ -1165,7 +1165,6 @@
     {"name":"inst_3DCE10F9","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_3CB2BF76","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_6A3F815A","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_6F1D6B75","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_23F23536","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_4F3C1C5D","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_2227E6AA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
@@ -1317,6 +1316,10 @@
     {"name":"inst_6A8E9782","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_1B55D4E4","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_457C7DA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
+    {"name":"inst_70AF8188","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
+    {"name":"inst_B881AA9","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
+    {"name":"inst_59B1604A","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
+    {"name":"inst_1AB42384","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -4083,25 +4086,22 @@
           ],"rotation":0.0,"scaleX":0.5,"scaleY":1.0,"x":768.0,"y":168.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3CB2BF76","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":760.0,"y":160.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":760.0,"y":160.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6A3F815A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":776.0,"y":176.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6F1D6B75","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":776.0,"y":176.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":776.0,"y":176.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_23F23536","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":784.0,"y":192.0,},
+          ],"rotation":0.0,"scaleX":1.5,"scaleY":1.0,"x":784.0,"y":184.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F3C1C5D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":1.375,"x":808.0,"y":200.0,},
+          ],"rotation":0.0,"scaleX":0.5,"scaleY":1.875,"x":808.0,"y":192.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2227E6AA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":784.0,"y":216.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4496A6E4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":0.5,"x":752.0,"y":224.0,},
+          ],"rotation":0.0,"scaleX":2.5,"scaleY":0.5,"x":752.0,"y":224.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2B713A09","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":3.5,"scaleY":0.5,"x":656.0,"y":232.0,},
@@ -4134,13 +4134,13 @@
           ],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":616.0,"y":208.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1E84AE3E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":1.0,"x":576.0,"y":184.0,},
+          ],"rotation":0.0,"scaleX":0.5,"scaleY":2.0,"x":576.0,"y":176.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6DDE5358","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":584.0,"y":176.0,},
+          ],"rotation":0.0,"scaleX":1.5,"scaleY":1.0,"x":584.0,"y":168.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_65551F99","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":608.0,"y":160.0,},
+          ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":600.0,"y":160.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3F57BB9F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":624.0,"y":144.0,},
@@ -4257,7 +4257,7 @@
           ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":136.0,"y":144.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2520A9D1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":184.0,"y":96.0,},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":0.5,"x":176.0,"y":96.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_17202CA7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":104.0,"y":192.0,},
@@ -4266,7 +4266,7 @@
           ],"rotation":0.0,"scaleX":2.5,"scaleY":0.5,"x":104.0,"y":248.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1EE9C78F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":2.5,"x":96.0,"y":208.0,},
+          ],"rotation":0.0,"scaleX":0.5,"scaleY":4.0,"x":96.0,"y":192.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_350F18DE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":0.5,"scaleY":3.5,"x":128.0,"y":144.0,},
@@ -4275,10 +4275,10 @@
           ],"rotation":0.0,"scaleX":0.5,"scaleY":2.5,"x":160.0,"y":112.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2C198A5E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":2.5,"x":216.0,"y":128.0,},
+          ],"rotation":0.0,"scaleX":0.5,"scaleY":3.0,"x":216.0,"y":120.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_16B29BC4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":0.5,"scaleY":2.0,"x":200.0,"y":160.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":200.0,"y":160.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_430B4116","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":0.5,"scaleY":1.5,"x":168.0,"y":184.0,},
@@ -4456,7 +4456,19 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1E92DF09","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.5,"x":712.0,"y":320.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_70AF8188","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":0.5,"x":304.0,"y":352.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_B881AA9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
+          ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":336.0,"y":328.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_59B1604A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
+          ],"rotation":0.0,"scaleX":1.5,"scaleY":0.5,"x":360.0,"y":288.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1AB42384","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":0.5,"x":288.0,"y":376.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":68,"SerialiseWidth":120,"TileCompressedData":[
 -40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-80,-2147483648,-40,0,-22,-2147483648,-2,0,-56,-2147483648,-40,0,-22,-2147483648,-2,0,-56,-2147483648,-40,0,-22,-2147483648,-2,0,-56,-2147483648,-40,0,-80,-2147483648,-40,0,-60,-2147483648,1,0,-19,-2147483648,-40,0,-58,-2147483648,-4,0,-18,-2147483648,-40,0,-58,-2147483648,-5,0,-17,-2147483648,-40,0,-55,-2147483648,-8,0,-17,-2147483648,-40,0,-55,-2147483648,-4,0,-3,-2147483648,-2,0,-16,-2147483648,-40,0,-63,-2147483648,-2,0,-15,-2147483648,-40,0,-50,-2147483648,-5,0,-9,-2147483648,-3,0,1,2269,
 -12,-2147483648,-40,0,-49,-2147483648,-6,0,-9,-2147483648,-4,0,-12,-2147483648,-40,0,-49,-2147483648,-6,0,-9,-2147483648,-3,0,-13,-2147483648,-40,0,-62,-2147483648,-2,0,3,-2147483648,0,0,-13,-2147483648,-40,0,-19,-2147483648,-5,0,-33,-2147483648,1,2266,-4,0,-3,-2147483648,1,0,-14,-2147483648,-40,0,-14,-2147483648,-3,0,-3,-2147483648,-5,0,-32,-2147483648,1,2346,-4,0,3,-2147483648,0,0,-29,-2147483648,-4,0,-2,-2147483648,-4,0,-33,-2147483648,2,0,-2147483648,-7,0,-32,-2147483648,-4,0,-75,-2147483648,-10,0,-35,-2147483648,1,0,-72,-2147483648,-2,0,-43,-2147483648,1,0,-73,-2147483648,1,0,-162,-2147483648,1,0,-191,

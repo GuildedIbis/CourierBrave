@@ -335,7 +335,7 @@ if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 }
 //Button 3
 draw_set_halign(fa_left);
-draw_text_transformed(124,112,"5 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+draw_text_transformed(124,112,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
 draw_sprite_ext(spr_resource_menu_all,1,142,102,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,112,">",.75,.75,0);
@@ -347,9 +347,9 @@ if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
 	draw_sprite_stretched(spr_highlight_circle,0,119,101,82,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.resource_array[1] >= 5)
+		if (obj_inventory.resource_array[1] >= 1)
 		{
-			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 5;
+			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
 			obj_inventory.resource_array[7] = obj_inventory.resource_array[7] + 1;
 		}
 	}

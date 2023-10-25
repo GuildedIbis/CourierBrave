@@ -313,14 +313,14 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Press \"C\" to use a Crystal Charge."
-_text[1] = "The Courier's cystal's natural enchantment is\nto restore the Courier's health, but enchantments\nwith other effects can be acquired."
-_text[2] = "Visiting an alter (or dying)\nrefills Crystal Charges to whatever\nthey are set as.\n\nVisiting an altar also refills\nthe Courier's magic charge."
+_text[1] = "The Courier's cystal's natural enchantment is\nto restore the Courier's health, but\nenchantments with other effects\ncan be acquired."
+_text[2] = "Visiting an alter (or dying)\nrefills Crystal Charges to\nwhatever they are set as.\n\nVisiting an altar also refills\nthe Courier's magic charge."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 4: CRYSTALS I",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 4: CRYSTALS",1,1,0);
 draw_set_halign(fa_left);
 draw_sprite(spr_kephraStone_infograph_04,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
@@ -532,8 +532,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "As the Courier's ITERATION stat\nincreases, they will unlock\nmore charges of the Crystal.\n\nScroll with the mouse wheel to\nselect a different Crystal Charge."
-_text[1] = "Completing enchantments at the alter\ncosts resources and replaces the\ncurrent charge but produces\ncharges that have various\neffects beyond healing."
-_text[2] = "You can also travel instantly between\nany two altars you've visited by\nselecting them in the altars\nmap menu."
+_text[1] = "Completing enchantments at the\nalter costs resources and replaces the\ncurrent charge but produces\ncharges that have various\neffects beyond healing."
+_text[2] = "You can also travel instantly\nbetween any two altars you've visited by\nselecting them in the altars\nmap menu."
 
 //Sprite
 draw_set_font(global.fnt_main_white);

@@ -25,8 +25,6 @@
     {"name":"inst_49EDB5DB_4_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_4FC8334_4_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_1C28A6C5_4_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
-    {"name":"inst_69ECD8AF_1_1_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
-    {"name":"inst_4185FF2D_1_2_2","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_6CA28D43_3_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_2F3943E8_1_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_B5D3312_1_3_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
@@ -139,8 +137,6 @@
     {"name":"inst_58A738D5_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_7A08FA21_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_1F37F195_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
-    {"name":"inst_1A66D277_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
-    {"name":"inst_45C69148_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_6053AD05_1","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_4187549D","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
     {"name":"inst_BC38738","path":"rooms/rm_lenko_habrafLake_11/rm_lenko_habrafLake_11.yy",},
@@ -699,20 +695,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":168.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_69ECD8AF_1_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_water",},
-          ],"rotation":0.0,"scaleX":-5.5,"scaleY":4.0,"x":272.0,"y":64.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4185FF2D_1_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":184.0,"y":32.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1A66D277_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":5.0,"x":152.0,"y":56.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_45C69148_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_terrain","path":"objects/obj_terrain/obj_terrain.yy",},"propertyId":{"name":"walk_snd","path":"objects/obj_terrain/obj_terrain.yy",},"value":"snd_walk_regular",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":184.0,"y":128.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
 -840,0,-80,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_coll","path":"tilesets/tile_coll/tile_coll.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
