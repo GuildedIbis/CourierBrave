@@ -329,6 +329,10 @@ if (obj_inventory.form_grid[# 3, 4] = true)
 	{
 		text_string = ""
 		string_counter = 0;
+		obj_inventory.form_grid[# 3, 4] = true;
+		obj_inventory.quest_grid[# 9, 0] = true;
+		obj_inventory.quest_grid[# 9, 1] = obj_inventory.quest_grid[# 9, 2];
+		obj_inventory.quest_grid[# 9, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

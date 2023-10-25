@@ -91,9 +91,9 @@ if (timer1 > 0)
 	
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
-	draw_text_transformed(4,172,string(version),.5,.5,0);
+	draw_text_transformed(4,173,string(version),.5,.5,0);
 	draw_set_halign(fa_right);
-	draw_text_transformed(308,172,"Developed by Guilded Ibis",.5,.5,0)
+	draw_text_transformed(308,173,"Developed by Guilded Ibis",.5,.5,0)
 }
 if (timer1 <= 0)
 {
