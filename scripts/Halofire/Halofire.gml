@@ -79,15 +79,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -232,15 +232,15 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -312,15 +312,15 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -388,15 +388,15 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -452,15 +452,15 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -523,15 +523,15 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -923,15 +923,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		orange_primary = orange_primary + 1;
-	}
-}
+//if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		orange_primary = orange_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;

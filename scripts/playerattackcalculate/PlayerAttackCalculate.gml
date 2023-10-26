@@ -159,13 +159,15 @@ if (_hits > 0)
 								knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
 								knockback_dur = _kbDur
 							}
-							if (form_type != -1)
+							
+							//Charge 
+							if (drop_amount != -1)
 							{
 								with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 								{
-									drop_amount = 10;
+									drop_amount = round(other.drop_amount/2);
 									sprite_index = spr_charge_drop;
-									image_index = other.form_type;
+									image_index = obj_player.form_type;
 									image_speed = 0;
 									direction = irandom_range(0,360);
 									image_angle = direction;
@@ -173,7 +175,7 @@ if (_hits > 0)
 								}
 								with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 								{
-									drop_amount = 10;
+									drop_amount = round(other.drop_amount/2);
 									sprite_index = spr_charge_drop;
 									image_index = irandom_range(0,5);
 									image_speed = 0;

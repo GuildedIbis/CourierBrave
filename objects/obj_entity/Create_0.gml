@@ -21,6 +21,7 @@ lit = false;
 light_size = 0;
 shadow = false;
 shadow_size = 0;
+drop_amount = -1;
 form_type = -1;
 home_x = x;
 home_y = y;

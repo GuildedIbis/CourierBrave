@@ -73,15 +73,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		yellow_primary = yellow_primary + 1;
-	}
-}
+//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		yellow_primary = yellow_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -224,15 +224,15 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		yellow_primary = yellow_primary + 1;
-	}
-}
+//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		yellow_primary = yellow_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -579,15 +579,15 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		yellow_primary = yellow_primary + 1;
-	}
-}
+//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
+//{
+//	if (charge_timer > 0) charge_timer = charge_timer - 1;
+//	if (charge_timer <= 0) 
+//	{
+//		charge_timer = 6;
+//		yellow_primary = yellow_primary + 1;
+//	}
+//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;

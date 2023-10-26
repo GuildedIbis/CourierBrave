@@ -29,6 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
+drop_amount = 50;
 max_hp = 150 + (75 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.5;

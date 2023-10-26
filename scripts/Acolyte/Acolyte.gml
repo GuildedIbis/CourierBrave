@@ -41,6 +41,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 direction = 180;
 form_type = 0;
+drop_amount = 30;
 max_hp = 600 + (305 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
