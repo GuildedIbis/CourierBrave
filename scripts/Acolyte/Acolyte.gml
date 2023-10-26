@@ -41,7 +41,7 @@ sprite_index = enemy_idle;
 image_speed = 0;
 direction = 180;
 form_type = 0;
-drop_amount = 30;
+drop_amount = 100;
 max_hp = 600 + (305 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
@@ -194,7 +194,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		scr_enemy_chase();
+		if (timer1 <= 0) scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
 			path_end();
@@ -209,6 +209,7 @@ if (obj_game.gamePaused = false)
 		}
 		if (!point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
+			
 			if (timer3 <= 0)
 			{
 				path_end();
@@ -479,7 +480,7 @@ if (obj_game.gamePaused = false)
 	{
 		casting = false;
 		entity_step = scr_enemy_acolyte_free;
-		timer2 = 240;
+		timer2 = 360;
 	}
 }
 }
@@ -850,9 +851,9 @@ var _angle = irandom_range(0,359);
 //}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = other.drop_amount;
 	sprite_index = spr_charge_drop;
-	image_index = other.form_type;
+	image_index = obj_player.form_type;
 	image_speed = 0;
 	direction = (360/_objects * 2) + _angle;
 	image_angle = direction;
@@ -872,7 +873,7 @@ if (_drop1 < 40)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = other.form_type;
+		item_id = obj_player.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = (360/_objects * 4) + _angle;

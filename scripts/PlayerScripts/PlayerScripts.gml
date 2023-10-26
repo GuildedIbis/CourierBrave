@@ -156,30 +156,60 @@ if (animation_end)
 //
 //
 //Recharge State
-function scr_player_recharge(_yellow,_blue,_purple,_red,_green,_orange){
-if (_yellow = false) and (yellow_charge < max_yellow_charge)
+function scr_player_recharge(_yellow,_orange,_purple,_blue,_green,_red){
+if (_yellow = true) and (yellow_primary < max_charge)
 {
-	yellow_charge = yellow_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		yellow_primary = yellow_primary + 1;
+	}
 }
-if (_blue = false) and (blue_charge < max_blue_charge)
+if (_orange = true) and (orange_primary < max_charge)
 {
-	blue_charge = blue_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		orange_primary = orange_primary + 1;
+	}
 }
-if (_purple = false) and (purple_charge < max_purple_charge)
+if (_purple = true) and (purple_primary < max_charge)
 {
-	purple_charge = purple_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		purple_primary = purple_primary + 1;
+	}
 }
-if (_red = false) and (red_charge < max_red_charge)
+if (_blue = true) and (blue_primary < max_charge)
 {
-	red_charge = red_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		blue_primary = blue_primary + 1;
+	}
 }
-if (_green = false) and (green_charge < max_green_charge)
+if (_green = true) and (green_primary < max_charge)
 {
-	green_charge = green_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		green_primary = green_primary + 1;
+	}
 }
-if (_orange = false) and (orange_charge < max_orange_charge)
+if (_red = true) and (red_primary < max_charge)
 {
-	orange_charge = orange_charge + 1;
+	if (charge_timer > 0) charge_timer = charge_timer - 1;
+	if (charge_timer <= 0) 
+	{
+		charge_timer = 6;
+		red_primary = red_primary + 1;
+	}
 }
 }
 //

@@ -58,6 +58,7 @@ if (knockback = false)
 }
 
 //Timers
+//scr_player_recharge(false,false,false,false,true,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -75,15 +76,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
-	}
-}
-if (green_primary < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		green_primary = green_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -227,21 +219,13 @@ invincible = true;
 inv_dur_timer = 5;
 
 //Standard Timers
+//scr_player_recharge(false,false,false,true,false,false);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
-}
-if (green_primary < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		green_primary = green_primary + 1;
-	}
 }
 if (magic_timer > 0) //Magic time between shots
 {
@@ -614,6 +598,7 @@ function scr_player_evarel_thornrise(){
 attacking = true;
 
 //Standard Timers
+//scr_player_recharge(false,false,false,true,false,false);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -622,23 +607,6 @@ if (atk_snd_delay <= 0)
 	atk_snd_delay = 20;
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (green_primary < max_charge) and (watervice = false)//Charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		green_primary = green_primary + 1;
-	}
-}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;

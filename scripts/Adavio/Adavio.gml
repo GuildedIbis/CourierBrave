@@ -52,6 +52,7 @@ if (knockback = false)
 }
 
 //Timers
+//scr_player_recharge(false,false,true,false,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -69,15 +70,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
-	}
-}
-if (purple_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		purple_primary = purple_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -218,21 +210,13 @@ casting = false;
 damage = 20 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
 
 //Standard Timers
+//scr_player_recharge(false,false,true,false,false,false);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	audio_sound_gain(snd_adavio_hookThrust,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_hookThrust,0,0);
 	atk_snd_delay = 28;
-}
-if (purple_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		purple_primary = purple_primary + 1;
-	}
 }
 if (magic_timer > 0) //Magic time between shots
 {
@@ -719,6 +703,7 @@ function scr_player_adavio_riftCrush_cast(){
 //
 //Timers
 //Standard Timers
+//scr_player_recharge(false,false,true,false,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -727,15 +712,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		walk_snd_delay = 15;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (purple_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		purple_primary = purple_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -858,6 +834,7 @@ function scr_player_adavio_riftCrush_drop(){
 //Standard Timers
 inv_dur_timer = 30;
 invincible = true;
+//scr_player_recharge(false,false,true,false,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -866,15 +843,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		walk_snd_delay = 15;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (purple_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		purple_primary = purple_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge

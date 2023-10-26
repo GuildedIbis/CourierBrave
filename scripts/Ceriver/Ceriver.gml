@@ -56,6 +56,7 @@ if (knockback = false)
 
 
 //Standard Timers
+//scr_player_recharge(false,false,false,true,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -73,15 +74,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
 		stamina_timer = 3;
 		stamina = stamina + 1;
-	}
-}
-if (blue_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		blue_primary = blue_primary + 1;
 	}
 }
 if (magic_timer > 0) //Magic time between projectiles
@@ -223,15 +215,7 @@ damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
-if (blue_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		blue_primary = blue_primary + 1;
-	}
-}
+//scr_player_recharge(false,false,false,true,false,false);
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -680,6 +664,7 @@ attacking = true;
 casting = true;
 
 //Standard Timers
+//scr_player_recharge(false,false,false,true,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -688,15 +673,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		walk_snd_delay = 15;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (blue_primary < max_charge) and (watervice = false)//charge Recharge
-{
-	if (charge_timer > 0) charge_timer = charge_timer - 1;
-	if (charge_timer <= 0) 
-	{
-		charge_timer = 6;
-		blue_primary = blue_primary + 1;
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
