@@ -15,6 +15,7 @@ enemy_damaged = spr_enemy_lily_pod;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
 form_type = 1;
+drop_amount = 6;
 shadow = false;
 shadow_size = 1;
 lit = false;
@@ -116,7 +117,7 @@ var _angle = irandom_range(0,359);
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 5;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
 	image_index = obj_player.form_type;
 	image_speed = 0;
@@ -126,7 +127,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 5;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;

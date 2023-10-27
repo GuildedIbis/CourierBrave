@@ -165,7 +165,7 @@ if (_hits > 0)
 							{
 								with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 								{
-									drop_amount = round(other.drop_amount/2);
+									drop_amount = other.drop_amount;
 									sprite_index = spr_charge_drop;
 									image_index = obj_player.form_type;
 									image_speed = 0;

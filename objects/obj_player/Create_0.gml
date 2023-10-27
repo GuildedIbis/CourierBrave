@@ -75,7 +75,7 @@ crystal_use[0] = false;
 crystal_selected = 0;
 crystal_count = iteration + 1;
 max_hp = 200 + (20 * vitality);
-max_charge = 100 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
+max_charge = 200 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
 max_stamina = 100 + (50 * energy);
 
 //Set Player Current Stats

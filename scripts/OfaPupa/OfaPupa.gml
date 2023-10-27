@@ -29,6 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
+drop_amount = 10;
 max_hp = 300 + (155 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
@@ -269,9 +270,9 @@ var _angle = irandom_range(0,359);
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2)
 	sprite_index = spr_charge_drop;
-	image_index = other.form_type;
+	image_index = obj_player.form_type;
 	image_speed = 0;
 	direction = (360/_objects * 2) + _angle;
 	image_angle = direction;
@@ -279,7 +280,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2)
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;
@@ -291,7 +292,7 @@ if (_drop1 < 5)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = other.form_type;
+		item_id = obj_player.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = (360/_objects * 4) + _angle;

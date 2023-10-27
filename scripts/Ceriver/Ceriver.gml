@@ -29,11 +29,11 @@ magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.75;
 armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
-max_charge = 100 + (10 * conviction);
+max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 4;
-special_cost = 20;
+special_cost = 40;
 }
 //
 //
@@ -139,7 +139,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (blue_special >= 20)
+if (key_attackS) and (blue_special >= 40)
 {
 	if (watervice = false)
 	{
@@ -720,7 +720,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_special = blue_special - 20;
+	blue_special = blue_special - 40;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);

@@ -25,11 +25,11 @@ obj_cursor.curs_script = scr_cursor_adavio;
 magic_timer = 0;
 walk_spd = 1.75;
 armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
-max_charge = 100 + (10 * conviction);
+max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 20;
-special_cost = 35;
+special_cost = 70;
 }
 //
 //
@@ -133,7 +133,7 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (purple_special >= 35)
+if (key_attackS) and (purple_special >= 70)
 {
 	if (watervice = false)
 	{
@@ -785,7 +785,7 @@ if (mouse_check_button_pressed(mb_left)) and (obj_cursor.blocked = false)
 	//magic_count = magic_count - 1;
 	if (!place_meeting(mouse_x,mouse_y,obj_wall))
 	{
-		purple_special = purple_special - 35;
+		purple_special = purple_special - 75;
 		special_timer = 90;
 		dest_x = mouse_x;
 		dest_y = mouse_y;

@@ -28,11 +28,11 @@ max_weapon_count = -1;
 primary_timer = 0;
 walk_spd = 1.75;
 armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
-max_charge = 100 + (10 * conviction);
+max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 5;
-special_cost = 50;
+special_cost = 100;
 }
 //
 //
@@ -143,11 +143,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (yellow_special >= 50)
+if (key_attackS) and (yellow_special >= 100)
 {
 	if (watervice = false)
 	{
-		yellow_special = yellow_special - 50;
+		yellow_special = yellow_special - 100;
 		attack_script = scr_player_regaliare_goldArcs;
 		state_script = scr_player_attack;
 	}

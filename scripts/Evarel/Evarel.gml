@@ -32,11 +32,11 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
-max_charge = 100 + (10 * conviction);
+max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 15;
-special_cost = 20;
+special_cost = 40;
 }
 //
 //
@@ -142,11 +142,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (green_special >= 20)
+if (key_attackS) and (green_special >= 40)
 {
 	if (watervice = false)
 	{
-		green_special = green_special - 20;
+		green_special = green_special - 40;
 		attack_script = scr_player_evarel_thornrise;
 		state_script = scr_player_attack;
 	}

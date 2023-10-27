@@ -33,12 +33,12 @@ walk_spd = 1.75;
 special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 1, 6]));
-max_charge = 100 + (10 * conviction);
+max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
 primary_cost = 16;
-special_cost = 50;
+special_cost = 100;
 }
 //
 //
@@ -148,11 +148,11 @@ if (key_attackM)
 }
 
 //Special Attack
-if (key_attackS) and (orange_special >= 50)
+if (key_attackS) and (orange_special >= 100)
 {
 	if (watervice = false)
 	{
-		orange_special = orange_special - 50;
+		orange_special = orange_special - 100;
 		attack_script = scr_player_halofire_flamecore;
 		state_script = scr_player_attack;
 	}

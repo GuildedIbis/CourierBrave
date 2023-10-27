@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-drop_amount = 50;
+drop_amount = 15;
 max_hp = 200 + (100 * enemy_lvl);
 hp = max_hp;
 boss = false;
@@ -298,7 +298,7 @@ var _drop2 = irandom_range(0,99);
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = other.drop_amount;
+	drop_amount = round(other.drop_amount/2)
 	sprite_index = spr_charge_drop;
 	image_index = obj_player.form_type;
 	image_speed = 0;
@@ -308,7 +308,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = other.drop_amount;
+	drop_amount = round(other.drop_amount/2)
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;
