@@ -504,7 +504,6 @@ northernPass_map_ary[9][0] = "Northern Pass 09";
 northernPass_map_ary[9][1] = 66;
 northernPass_map_ary[9][2] = 42;
 }
-
 //
 //
 //

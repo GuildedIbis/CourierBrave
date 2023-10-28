@@ -48,9 +48,10 @@ enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
 remain_dist = 64;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
+timer1 = 60;
+timer2 = 60;
+timer3 = 60;
+timer4 = 300;
 magic_counter = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
@@ -70,7 +71,7 @@ if (obj_inventory.quest_grid[# 4, 3] = true)
 function scr_enemy_acolyte_scene02_step(){
 invincible = true;
 inv_dur_timer = 30;
-if (point_in_circle(obj_player.x,obj_player.y,x,y,24))
+if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 {
 	if (obj_game.gamePaused = false)
 	{
@@ -125,6 +126,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	enemy_spd = 1.25;
 	
@@ -240,6 +242,13 @@ if (obj_game.gamePaused = false)
 					entity_step = scr_enemy_acolyte_magic;
 					animation_end = false;
 				}
+			}
+			if (timer4 <= 0)
+			{
+				path_end()
+				sprite_index = enemy_idle;
+				timer4 = 60;
+				entity_step = scr_enemy_acolyte_decoySpawn;
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -481,6 +490,76 @@ if (obj_game.gamePaused = false)
 		casting = false;
 		entity_step = scr_enemy_acolyte_free;
 		timer2 = 360;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Acolyte Magic
+function scr_enemy_acolyte_decoySpawn(){
+if (obj_game.gamePaused = false)
+{
+
+	//Timer
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
+	
+	//Set
+	if (sprite_index != spr_enemy_acolyte_decoySpawn)
+	{
+		//Start Animation From Beginning
+		sprite_index = spr_enemy_acolyte_decoySpawn;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	scr_enemy_animation_one()
+
+	if (timer4 <= 0)
+	{
+		timer4 = 660;
+		if (!place_meeting(x-16,y,obj_entity))
+		{
+			with (instance_create_layer(x-16,y,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_acolyteDecoy_create();
+				entity_step = scr_enemy_acolyteDecoy_spawn;
+				enemy_lvl = other.enemy_lvl;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+			}
+		}
+		if (!place_meeting(x+16,y,obj_entity))
+		{
+			with (instance_create_layer(x+16,y,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_acolyteDecoy_create();
+				entity_step = scr_enemy_acolyteDecoy_spawn;
+				enemy_lvl = other.enemy_lvl;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+				sprite_index = spr_enemy_acolyte_decoySpawn;
+				local_frame = 0;
+			}
+		}
+	}
+		
+	//End
+	if (animation_end = true)
+	{
+		animation_end = false;
+		entity_step = scr_enemy_acolyte_free;
+		timer4 = 600;
 	}
 }
 }

@@ -6,9 +6,9 @@ if (locked = true)
 if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboard_check_pressed(ord("E")))
 {
 	//show_debug_message(string(obj_player.break_object))
-	//obj_inventory.quest_grid[# 9, 0] = false;
-	//obj_inventory.quest_grid[# 9, 1] = 0;
-	//obj_inventory.quest_grid[# 9, 3] = false;
+	//obj_inventory.quest_grid[# 4, 0] = false;
+	//obj_inventory.quest_grid[# 4, 1] = 0;
+	//obj_inventory.quest_grid[# 4, 3] = false;
 	if (locked = false) and (global.aggroCounter <= 0)
 	{
 		if (room_num != -1)
