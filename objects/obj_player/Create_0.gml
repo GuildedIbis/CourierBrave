@@ -45,7 +45,7 @@ hit_by_attack = -1;
 hor_spd = 0;
 ver_spd = 0;
 damage = 0;
-walk_spd = 1.75;
+walk_spd = 1.5;
 roll_spd = 3;
 roll_dist = 64;
 

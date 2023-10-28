@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.82,
+  "duration": 3.2,
   "parent": {
     "name": "All",
     "path": "folders/Sounds/Player/All.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_walk_water2.wav",
   "type": 0,
-  "volume": 0.49,
+  "volume": 1.0,
 }

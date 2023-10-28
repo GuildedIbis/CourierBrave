@@ -23,7 +23,7 @@ obj_cursor.curs_script = scr_cursor_adavio;
 
 //Dynamic Variables
 magic_timer = 0;
-walk_spd = 1.75;
+walk_spd = 1.25;
 armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
 max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
@@ -39,7 +39,7 @@ special_cost = 70;
 //Adavio Free (home) state
 function scr_player_adavio_free(){
 //Set
-walk_spd = 1.75;
+walk_spd = 1.25;
 attacking = false;
 casting = false;
 
@@ -359,7 +359,7 @@ if (place_meeting(x,y,break_object))
 //Adavio Void Cycle State
 function scr_player_adavio_voidSpread(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -533,7 +533,7 @@ if (place_meeting(x,y,break_object)) or (timer1 = 0)
 //AdavioMagicA
 function scr_player_adavio_voidCycle(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 

@@ -27,7 +27,7 @@ weapon_count = 2;
 max_weapon_count = 2;
 magic_timer = 0;
 melee_timer = 0;
-walk_spd = 1.75;
+walk_spd = 1.25;
 armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
 max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
@@ -43,7 +43,7 @@ special_cost = 40;
 //Ceriver Free (home) state
 function scr_player_ceriver_free(){
 //Set
-walk_spd = 1.75;
+walk_spd = 1.25;
 attacking = false;
 casting = false;
 
@@ -371,7 +371,7 @@ if (sd_timer <= 0)
 //Ceriver Polyorb Magic State
 function scr_player_ceriver_polyorb(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -517,7 +517,7 @@ if (sd_timer <= 0) instance_destroy();
 //Ceriver Lineorb Magic State
 function scr_player_ceriver_lineorb(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 

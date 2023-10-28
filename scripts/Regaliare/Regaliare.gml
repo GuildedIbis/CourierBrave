@@ -26,7 +26,7 @@ weapon_count = -1;
 casting = false;
 max_weapon_count = -1;
 primary_timer = 0;
-walk_spd = 1.75;
+walk_spd = 1.25;
 armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
@@ -42,7 +42,7 @@ special_cost = 100;
 //Regaliare Free (home) state
 function scr_player_regaliare_free(){
 //Set
-walk_spd = 1.75;
+walk_spd = 1.25;
 attacking = false;
 casting = false;
 
@@ -59,7 +59,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 17;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}
@@ -280,7 +280,7 @@ if (animation_end)
 //Regaliare Magic State
 function scr_player_regaliare_goldBurst(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -290,7 +290,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 19;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}
@@ -420,7 +420,7 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 //Regaliare Heavy Burst Magic
 function scr_player_regaliare_heavyBurst(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 

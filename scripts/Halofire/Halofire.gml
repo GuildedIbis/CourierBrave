@@ -29,7 +29,7 @@ max_weapon_count = -1;
 magic_timer = 0;
 attack_counter = 0;
 max_attack_counter = 0;
-walk_spd = 1.75;
+walk_spd = 1.25;
 special_count = -1;
 max_special_count = -1;
 armor = 7 + (4 * (obj_inventory.form_grid[# 1, 6]));
@@ -48,7 +48,7 @@ special_cost = 100;
 //Halofire Free (home) state
 function scr_player_halofire_free(){
 //Set
-walk_spd = 1.75;
+walk_spd = 1.25;
 attacking = false;
 casting = false;
 
@@ -603,7 +603,7 @@ if (animation_end)
 //Halofire Meteor Sling Magic State
 function scr_player_halofire_meteorSling(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -712,7 +712,7 @@ if (mouse_check_button(mb_left) = false) or (orange_primary < 16)
 //Halofire Firespit Magic State
 function scr_player_halofire_fireSpit(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 

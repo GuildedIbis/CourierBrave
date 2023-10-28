@@ -28,7 +28,7 @@ max_weapon_count = -1;
 magic_timer = 0;
 attack_counter = 0;
 max_attack_counter = 0;
-walk_spd = 1.75;
+walk_spd = 1.25;
 special_count = -1;
 max_special_count = -1;
 armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
@@ -46,7 +46,7 @@ special_cost = 40;
 //Evarel Free (home) state
 function scr_player_evarel_free(){
 //Set
-walk_spd = 1.75;
+walk_spd = 1.25;
 attacking = false;
 casting = false;
 
@@ -288,7 +288,7 @@ if (animation_end = true)
 //Evarel Bristlerod Cast State
 function scr_player_evarel_bristlerod(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -435,7 +435,7 @@ if (place_meeting(x,y,break_object))
 //Evarel Reflex Thorn Cast
 function scr_player_evarel_flexthorn(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
