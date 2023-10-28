@@ -16,7 +16,7 @@ bullet = true;
 enemy_move = spr_enemy_trapLily_viceBubble;
 aggro_drop = 300;
 
-enemy_spd = 3.0
+enemy_spd = 2.5;
 local_frame = 0;
 hit_by_attack = -1;
 }

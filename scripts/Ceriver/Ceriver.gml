@@ -62,7 +62,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 18;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}
@@ -381,7 +381,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 20;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}
@@ -527,7 +527,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 20;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}
@@ -659,7 +659,7 @@ if (sd_timer <= 0) instance_destroy();
 //Ceriver Steelorb Magic State
 function scr_player_ceriver_steelorb(){
 //Set
-walk_spd = 1.2;
+walk_spd = 1.0;
 attacking = true;
 casting = true;
 
@@ -670,7 +670,7 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
+		walk_snd_delay = 20;
 		audio_sound_gain(walk_snd,global.volumeEffects,1);
 		audio_play_sound(walk_snd,1,false);
 	}

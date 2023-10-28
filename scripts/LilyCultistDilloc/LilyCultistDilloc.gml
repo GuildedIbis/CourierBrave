@@ -179,7 +179,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_projectile_lifeLeaf;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.0
+			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
 			heal = false
@@ -195,7 +195,11 @@ if (obj_game.gamePaused = false)
 			//hit_script = EntityHitDestroy;
 			if (target != -1) and (instance_exists(target))
 			{
-				direction = point_direction(x,y,target.x,target.y);
+				if (target.hp < target.max_hp)
+				{
+					direction = point_direction(x,y,target.x,target.y);
+				}
+				else direction = point_direction(x,y,obj_player.x,obj_player.y-4);
 			}
 			else direction = point_direction(x,y,obj_player.x,obj_player.y-4);
 			image_angle = direction;

@@ -16,7 +16,7 @@ bullet = true;
 enemy_move = spr_projectile_viceBubble32;
 aggro_drop = 300;
 
-enemy_spd = 4.0
+enemy_spd = 3.5;
 local_frame = 0;
 hit_by_attack = -1;
 damage = 65;

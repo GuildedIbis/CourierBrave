@@ -244,7 +244,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_ghost_soulFlare;
 			aggro_drop = 300;
 
-			enemy_spd = 4.2;
+			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 50 + (9 * other.enemy_lvl);
@@ -270,7 +270,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_ghost_soulFlare;
 			aggro_drop = 300;
 
-			enemy_spd = 4.2;
+			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 50 + (9 * other.enemy_lvl);
@@ -296,7 +296,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_ghost_soulFlare;
 			aggro_drop = 300;
 
-			enemy_spd = 4.2;
+			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 50 + (9 * other.enemy_lvl);
@@ -322,7 +322,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_ghost_soulFlare;
 			aggro_drop = 300;
 
-			enemy_spd = 4.2;
+			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 50 + (9 * other.enemy_lvl);

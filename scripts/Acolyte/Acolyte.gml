@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	enemy_spd = 1.5;
+	enemy_spd = 1.25;
 	
 	if (hp <= 250)
 	{
@@ -369,7 +369,7 @@ function scr_enemy_acolyte_magic(){
 if (obj_game.gamePaused = false)
 {
 	casting = true;
-	enemy_spd = 1.2;
+	enemy_spd = 1.0;
 	//Timer
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -426,7 +426,7 @@ if (obj_game.gamePaused = false)
 				enemy_move = spr_projectile_acolyte_nil;
 				aggro_drop = 300;
 				healthbar = false;
-				enemy_spd = 3;
+				enemy_spd = 3.0;
 				local_frame = 0;
 				hit_by_attack = -1;
 				damage = 45 + (8 * other.enemy_lvl);
@@ -529,7 +529,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_projectile_acolyte_ilanil;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.5;
+			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 55 + (9 * other.enemy_lvl);

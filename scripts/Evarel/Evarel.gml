@@ -64,8 +64,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		walk_snd_delay = 18;
+		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
 		audio_play_sound(walk_snd,1,false);
 	}
 }
@@ -298,8 +298,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		walk_snd_delay = 20;
+		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
 		audio_play_sound(walk_snd,1,false);
 	}
 }
@@ -445,8 +445,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
+		walk_snd_delay = 20;
+		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
 		audio_play_sound(walk_snd,1,false);
 	}
 }

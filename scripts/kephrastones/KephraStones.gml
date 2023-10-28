@@ -205,9 +205,9 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
-_text[0] = "Left click to use the Courier's\nmagic skill."
+_text[0] = "Left click to use the Courier's\nprimary skill."
 _text[1] = "Press \"F\" to swap to an alternate\nfire mode.\n\nAlternate fire modes must be\nunlocked."
-_text[2] = "Magic charge regenerates over\ntime.\n\nPicking up essence also regen-\nerates charge of the same type."
+_text[2] = "Primary skill charge regenerates\nby picking up essence dropped by enemies."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
