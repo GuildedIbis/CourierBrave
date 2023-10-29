@@ -94,18 +94,18 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
-		lit = true;
 		scr_enemy_chase();
+		lit = true;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) 
 		{
 			path_end();
 			sprite_index = enemy_idle;
 			if (timer2 <= 0) and (point_in_circle(obj_player.x, obj_player.y,x,y,16)) 
 			{
-				entity_step = scr_enemy_lilyCultist_dilloc_tripleStab;
+				entity_step = scr_enemy_lilyCultist_dilloc_slash;
 			}
 		}
-		if (timer1 <= 0)
+		if (timer1 <= 0) 
 		{	
 			path_end();
 			sprite_index = enemy_idle;
@@ -187,7 +187,7 @@ if (obj_game.gamePaused = false)
 			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 			ds_list_clear(hit_by_attack);
 			timer1 = 60;
-			damage = 5;
+			damage = 30 + (6 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 3;
 			fragment = obj_fragPlant;
@@ -195,7 +195,7 @@ if (obj_game.gamePaused = false)
 			//hit_script = EntityHitDestroy;
 			if (target != -1) and (instance_exists(target))
 			{
-				if (target.hp < target.max_hp)
+				if (target.hp < target.max_hp) and (!collision_line(x,y,target.x,target.y,obj_wall,true,true))
 				{
 					direction = point_direction(x,y,target.x,target.y);
 				}
@@ -208,6 +208,7 @@ if (obj_game.gamePaused = false)
 	}
 	if (attack_counter >= 3)
 	{
+		attack_counter = 0;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
 		{
 			timer1 = 180;
@@ -331,15 +332,15 @@ if (timer1 <= 0) instance_destroy();
 //
 //
 //
-//Lily Cultist Dilloc Triple Stab
-function scr_enemy_lilyCultist_dilloc_tripleStab(){
+//Lily Cultist Dilloc Slash
+function scr_enemy_lilyCultist_dilloc_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (sprite_index != spr_enemy_cultistDilloc_stab)
+	if (sprite_index != spr_enemy_cultistDilloc_slash)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_cultistDilloc_stab;
+		sprite_index = spr_enemy_cultistDilloc_slash;
 		local_frame = 0;
 		image_index = 0;
 		audio_sound_gain(snd_cultistDilloc_stab,global.volumeEffects,1);
@@ -349,13 +350,9 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 30;
 	//Cacluate Attack
-	scr_enemy_attack_calculate(spr_enemy_cultistDilloc_stab_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_cultistDilloc_slash_hitbox)
 
-	if (timer2 <= 0)
-	{
-		timer2 = 15;
-		ds_list_clear(hit_by_attack);
-	}
+
 	//Animate
 	scr_enemy_animation();
 	if (animation_end)

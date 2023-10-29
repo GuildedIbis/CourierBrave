@@ -607,7 +607,7 @@ for (var i = 0; i < 20; i = i + 1)
 //
 //
 //
-///
+//
 //
 //Song List: Lenko
 function scr_game_song_list_main(){
@@ -617,7 +617,7 @@ room_song = snd_theme_main;
 //
 //
 //
-///
+//
 //
 //Song List: Lenko
 function scr_game_song_list_lenko(){
