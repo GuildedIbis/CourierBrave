@@ -73,7 +73,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "The pedestal came to life with orange,\nand we knew you had arrived...\nWhat can I do for you Courier" 
+	text_string = "The pedestal came to life with orange, and we\nknew you had arrived...\nWhat can I do for you Courier" 
 	_SubString = string_copy(text_string,1,letter_counter);
 	page = 0;
 }
@@ -211,47 +211,19 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 
-if (obj_inventory.crystal_enchant[1] = false)
-{
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crystal_enchant,2,162,66,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"ENCHANTMENT",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			if (obj_inventory.rog_array[0] >= 5)
-			{
-				obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 5;
-				obj_inventory.crystal_enchant[1] = true;
-			}
-		}
-	}
-}
-else
-{
-	draw_text_transformed(160,76,"SOLD",.75,.75,0);
-}
-//Button 2
 if (obj_inventory.crystal_enchant[2] = false)
 {
 	draw_set_halign(fa_left);
-	draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,1,142,84,1,1,0,c_white,1);
+	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
+	draw_sprite_ext(spr_rog_menu_all,1,142,66,1,1,0,c_white,1);
 	draw_set_halign(fa_center);
-	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crystal_enchant,3,162,84,1,1,0,c_white,1);
+	draw_text_transformed(160,76,">",.75,.75,0);
+	draw_sprite_ext(spr_menu_crystal_enchant,3,162,66,1,1,0,c_white,1);
 	draw_set_halign(fa_right);
-	draw_text_transformed(196,94,"ENCHANTMENT",.5,.5,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+	draw_text_transformed(196,76,"ENCHANTMENT",.35,.35,0);
+	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			if (obj_inventory.rog_array[1] >= 5)
@@ -264,7 +236,28 @@ if (obj_inventory.crystal_enchant[2] = false)
 }
 else
 {
-	draw_text_transformed(160,94,"SOLD",.75,.75,0);
+	draw_text_transformed(160,76,"SOLD",.75,.75,0);
+}
+//Button 2
+draw_set_halign(fa_left);
+draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,2,142,84,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,94,">",.75,.75,0);
+draw_sprite_ext(spr_rog_menu_all,3,162,84,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,94,"5 (" + string(obj_inventory.rog_array[3]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		if (obj_inventory.rog_array[2] >= 5)
+		{
+			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
+			obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
+		}
+	}
 }
 
 //Button 3
@@ -444,26 +437,26 @@ if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 	}
 }
 //Button 2
-draw_set_halign(fa_left);
-draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
-draw_sprite_ext(spr_rog_menu_all,2,142,84,1,1,0,c_white,1);
-draw_set_halign(fa_center);
-draw_text_transformed(160,94,">",.75,.75,0);
-draw_sprite_ext(spr_rog_menu_all,3,162,84,1,1,0,c_white,1);
-draw_set_halign(fa_right);
-draw_text_transformed(196,94,"5 (" + string(obj_inventory.rog_array[3]) + ")",.5,.5,0);
-if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		if (obj_inventory.rog_array[2] >= 5)
-		{
-			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
-			obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
-		}
-	}
-}
+//draw_set_halign(fa_left);
+//draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+//draw_sprite_ext(spr_rog_menu_all,2,142,84,1,1,0,c_white,1);
+//draw_set_halign(fa_center);
+//draw_text_transformed(160,94,">",.75,.75,0);
+//draw_sprite_ext(spr_rog_menu_all,3,162,84,1,1,0,c_white,1);
+//draw_set_halign(fa_right);
+//draw_text_transformed(196,94,"5 (" + string(obj_inventory.rog_array[3]) + ")",.5,.5,0);
+//if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+//{
+//	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		if (obj_inventory.rog_array[2] >= 5)
+//		{
+//			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
+//			obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
+//		}
+//	}
+//}
 //Button 3
 //draw_set_halign(fa_left);
 //draw_text_transformed(124,112,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);

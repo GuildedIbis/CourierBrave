@@ -1,4 +1,4 @@
-/// @description Insert description here
+//Song Object Step
 if (room_song != -1)
 {
 	if (global.aggroCounter = 0)// and (song_on = false)

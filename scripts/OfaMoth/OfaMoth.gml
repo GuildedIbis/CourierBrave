@@ -208,8 +208,8 @@ if (obj_game.gamePaused = false)
 			scr_projectile_whiteCrescent_create();
 			break_object = other.break_object;
 			shadow = 0;
-			fragment_count = 0;
-			fragment = obj_fragment;
+			fragment_count = 3;
+			fragment = obj_fragWhite;
 			healthbar = true;
 			bullet = true;
 			hit_script = scr_entity_hit_destroy;
@@ -224,8 +224,8 @@ if (obj_game.gamePaused = false)
 				image_angle = direction;
 				speed = enemy_spd;
 				break_object = other.break_object;
-				fragment_count = 0;
-				fragment = obj_fragment;
+				fragment_count = 2;
+				fragment = obj_fragWhite;
 				bullet = true;
 				hit_script = scr_entity_hit_destroy;
 			}
@@ -285,8 +285,8 @@ if (obj_game.gamePaused = false)
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
+			fragment_count = 5;
+			fragment = obj_fragWhite;
 			bullet = true;
 			hit_script = scr_entity_hit_destroy;
 		}

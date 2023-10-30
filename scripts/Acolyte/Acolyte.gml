@@ -441,7 +441,7 @@ if (obj_game.gamePaused = false)
 				damage = 45 + (8 * other.enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
-				fragment = obj_fragPlant;
+				fragment = obj_fragWhite;
 				bullet = true;
 				hit_script = scr_entity_hit_destroy;
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
@@ -469,7 +469,7 @@ if (obj_game.gamePaused = false)
 				damage = 25 + (6 * other.enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
-				fragment = obj_fragPlant;
+				fragment = obj_fragWhite;
 				bullet = true;
 				hit_script = scr_entity_hit_destroy;
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
@@ -614,7 +614,7 @@ if (obj_game.gamePaused = false)
 			damage = 55 + (9 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
-			fragment = obj_fragPlant;
+			fragment = obj_fragWhite;
 			bullet = true;
 			hit_script = scr_entity_hit_destroy;
 			direction = (other.direction + 90) - round(23*other.magic_counter);
@@ -664,8 +664,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -684,8 +684,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }
@@ -708,8 +708,8 @@ speed = enemy_spd;
 image_angle = image_angle + 3;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -728,8 +728,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }
@@ -752,8 +752,8 @@ speed = enemy_spd;
 image_angle = image_angle + 5;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -772,8 +772,8 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }

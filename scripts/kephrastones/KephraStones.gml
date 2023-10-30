@@ -198,7 +198,7 @@ if (page > 0)
 //
 //
 //
-//Kephra Stone 02: Magic Attack
+//Kephra Stone 02: Primary Skill
 function scr_menu_kephra_02(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
@@ -207,13 +207,13 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _text = array_create(2,-1)
 _text[0] = "Left click to use the Courier's\nprimary skill."
 _text[1] = "Press \"F\" to swap to an alternate\nfire mode.\n\nAlternate fire modes must be\nunlocked."
-_text[2] = "Primary skill charge regenerates\nby picking up essence dropped by enemies."
+_text[2] = "Primary skill charge regenerates\nby picking up essence dropped by\nenemies."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(160,39,"KEPHRA STONE 2: MAGIC",1,1,0);
+draw_text_transformed(160,39,"KEPHRA STONE 2: PRIMARY SKILL",1,1,0);
 draw_set_halign(fa_left);
 draw_sprite(spr_kephraStone_infograph_02,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
@@ -313,7 +313,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Press \"C\" to use a Crystal Charge."
-_text[1] = "The Courier's cystal's natural enchantment is\nto restore the Courier's health, but\nenchantments with other effects\ncan be acquired."
+_text[1] = "The Courier's cystal's natural\nenchantment is to restore the\nCourier's health, but other\nenchantments with different effects can\nbe acquired."
 _text[2] = "Visiting an alter (or dying)\nrefills Crystal Charges to\nwhatever they are set as.\n\nVisiting an altar also refills\nthe Courier's magic charge."
 //Sprite
 draw_set_font(global.fnt_main_white);

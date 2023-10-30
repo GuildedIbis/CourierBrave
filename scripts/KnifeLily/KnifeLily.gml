@@ -201,8 +201,8 @@ if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
 if (timer2 <= 0) instance_destroy();
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)

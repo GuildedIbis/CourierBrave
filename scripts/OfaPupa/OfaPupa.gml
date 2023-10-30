@@ -157,14 +157,14 @@ if (obj_game.gamePaused = false)
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 35 + (7 * enemy_lvl);
-			audio_sound_gain(snd_arrow,global.volumeEffects,1);
-			audio_play_sound(snd_arrow,0,false);
+			//audio_sound_gain(snd_arrow,global.volumeEffects,1);
+			//audio_play_sound(snd_arrow,0,false);
 			direction = other.proj_dir;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
 			fragment_count = 0;
-			fragment = obj_fragWood;
+			fragment = obj_fragWhite;
 			bullet = true;
 			hit_script = scr_entity_hit_destroy;
 			home_state = scr_projectile_pupaSpike_free;
@@ -210,8 +210,8 @@ if (obj_game.gamePaused = false)
 
 	if (timer2 <= 0)
 	{
-		audio_sound_gain(snd_arrow,global.volumeEffects,1);
-		audio_play_sound(snd_arrow,0,false);
+		//audio_sound_gain(snd_arrow,global.volumeEffects,1);
+		//audio_play_sound(snd_arrow,0,false);
 		timer2 = 60;
 		for (var i = 0; i < 8; i = i + 1)
 		{
@@ -234,7 +234,7 @@ if (obj_game.gamePaused = false)
 				speed = enemy_spd;
 				break_object = other.break_object;
 				fragment_count = 0;
-				fragment = obj_fragWood;
+				fragment = obj_fragWhite;
 				bullet = true;
 				hit_script = scr_entity_hit_destroy;
 				home_state = scr_projectile_pupaWad_free;
@@ -337,8 +337,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -381,8 +381,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_hit_all,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
