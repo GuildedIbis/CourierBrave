@@ -262,8 +262,7 @@ if (obj_game.gamePaused = false)
 						audio_play_sound(dmg_snd,0,false);
 					}
 					flash = .35;
-					var _damageTaken = max(1, (other.damage * 4) - armor);
-					hp = hp - _damageTaken;
+					hp = hp - (other.damage - armor);
 				}
 			}
 	

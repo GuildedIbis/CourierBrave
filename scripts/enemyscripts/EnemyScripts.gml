@@ -212,8 +212,8 @@ function scr_enemy_wander_home(_moveDelay,_moveLength,_homeX,_homeY){
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer2 <= 0)
 {
-	hor_spd = irandom_range(-1,1);
-	ver_spd = irandom_range(-1,1);
+	hor_spd = irandom_range(-1,1) * (enemy_spd/2);
+	ver_spd = irandom_range(-1,1) * (enemy_spd/2);
 	timer2 = _moveLength + irandom_range(-15,15);
 	timer1 = _moveDelay + irandom_range(-15,15);
 }

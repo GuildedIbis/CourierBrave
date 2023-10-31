@@ -5,7 +5,7 @@ randomize();
 scr_game_items_create();
 scr_game_room_enemy_create();
 scr_resource_grid_create();
-
+scr_game_activity_feed_create();
 
 version = "Version: 0.3.2.0"
 menu_sprite = spr_menu;
@@ -35,6 +35,7 @@ room_num = 0;
 room_name = -1;
 room_name_timer = 0;
 level_name_timer = 0;
+feed_timer = 0;
 game_paused_image_speed = 0;
 //home_song = snd_theme_main;
 

@@ -132,8 +132,8 @@ if (obj_game.gamePaused = false)
 	//Collision	with player (damage)	
 	if (place_meeting(x,y,obj_player))
 	{
-		//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-		//audio_play_sound(snd_arrow_hit,0,false);
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
 		with (obj_player)
 		{
 			if (invincible = false)
@@ -187,8 +187,7 @@ if (timer2 > 0) timer2 = timer2 - 1;
 //Collision		
 if (place_meeting(x,y,obj_player))
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
+
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -233,8 +232,8 @@ image_speed = 0;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	//audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_gorogKnife_hit,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -254,8 +253,7 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_gorogKnife_hit,0,false);
+
 	instance_destroy();
 }
 }
@@ -313,8 +311,8 @@ if (contacted = true)
 }
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-	audio_play_sound(snd_gorogKnife_hit,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	if (contacted = false)
 	{
 		with (obj_player)
@@ -339,8 +337,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-	audio_play_sound(snd_gorogKnife_hit,0,false);
 	direction = point_direction(x,y,parent.x,parent.y);
 	returning = true;
 }

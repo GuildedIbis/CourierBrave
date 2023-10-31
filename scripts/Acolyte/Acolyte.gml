@@ -664,8 +664,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -684,8 +684,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }
@@ -708,8 +706,8 @@ speed = enemy_spd;
 image_angle = image_angle + 3;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -728,8 +726,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }
@@ -752,8 +748,8 @@ speed = enemy_spd;
 image_angle = image_angle + 5;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -772,8 +768,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
 	instance_destroy();
 }
 }

@@ -55,8 +55,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_enemy_lily_viceBubble_hit,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_lily_viceBubble_hit,0,false);
 	instance_destroy();
 }
 }

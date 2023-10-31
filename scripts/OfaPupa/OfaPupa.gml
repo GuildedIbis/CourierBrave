@@ -157,8 +157,8 @@ if (obj_game.gamePaused = false)
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 35 + (7 * enemy_lvl);
-			//audio_sound_gain(snd_arrow,global.volumeEffects,1);
-			//audio_play_sound(snd_arrow,0,false);
+			audio_sound_gain(snd_enemy_ofa_pupa_cocoonSpike,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_ofa_pupa_cocoonSpike,0,false);
 			direction = other.proj_dir;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -210,8 +210,8 @@ if (obj_game.gamePaused = false)
 
 	if (timer2 <= 0)
 	{
-		//audio_sound_gain(snd_arrow,global.volumeEffects,1);
-		//audio_play_sound(snd_arrow,0,false);
+		audio_sound_gain(snd_enemy_ofa_pupa_cocoonWad,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofa_pupa_cocoonWad,0,false);
 		timer2 = 60;
 		for (var i = 0; i < 8; i = i + 1)
 		{
@@ -337,8 +337,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -358,8 +358,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 }
@@ -381,8 +379,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -402,8 +400,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 }

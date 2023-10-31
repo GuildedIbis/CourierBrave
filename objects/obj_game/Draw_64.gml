@@ -21,3 +21,6 @@ scr_game_room_transition();
 
 //Room Name
 scr_game_room_name();
+
+//Activity Feed
+scr_game_activity_feed();

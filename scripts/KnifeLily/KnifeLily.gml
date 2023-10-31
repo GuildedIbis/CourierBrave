@@ -150,7 +150,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_knife_lily_returnLeaf,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_spinLeaf_free;
+			home_state = scr_projectile_returnLeaf_free;
 			parent = other;
 			enemy_lvl = other.enemy_lvl
 			entity_step = home_state;
@@ -190,7 +190,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Projectile: Knife Lily Return-Leaf
-function scr_projectile_spinLeaf_free(){
+function scr_projectile_returnLeaf_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -201,8 +201,8 @@ if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
 if (timer2 <= 0) instance_destroy();
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_enemy_hit_all,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_hit_all,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)
@@ -222,8 +222,6 @@ if (place_meeting(x,y,obj_player))
 }
 if (place_meeting(x,y,break_object)) 
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
 	instance_destroy();
 }
 if (place_meeting(x,y,parent)) and (timer1 <= 0)
