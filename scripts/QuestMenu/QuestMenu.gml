@@ -105,6 +105,7 @@ var _descY = 56;
 var _compY = 111;
 
 //Draw
+draw_set_color(c_white);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
@@ -117,18 +118,19 @@ if (slot = -1)
 {
 	var _headerText = "SELECT A QUEST"
 	var _desc = "\"O\" marks a quest you've started,\n\"V\" marks a quest you've completed."
+	draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+	draw_text_transformed(_midX-1,_descY,_desc,.5,.5,0);
 
 }
 else
 {
-	
 	var _headerText = quest_grid[# _questNum, 6]
-	var _desc = quest_grid[# _questNum, 5]
+	script_execute(quest_grid[# _questNum, 5])
+	draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 }
 
-draw_set_color(c_white);
-draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
-draw_text_transformed(_midX-1,_descY,_desc,.5,.5,0);
+//draw_set_color(c_white);
+//draw_text_transformed(_midX-1,_descY,_desc,.5,.5,0);
 //draw_text_transformed(168,114,"TRACK",.35,.35,0);
 
 //if(point_in_rectangle(_mouseX,_mouseY,162,110,194,123))
