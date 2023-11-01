@@ -124,9 +124,9 @@ if (slot = -1)
 }
 else
 {
-	var _headerText = quest_grid[# _questNum, 6]
+	//var _headerText = quest_grid[# _questNum, 6]
 	script_execute(quest_grid[# _questNum, 5])
-	draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+	//draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 }
 
 //draw_set_color(c_white);
