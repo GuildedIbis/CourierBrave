@@ -73,7 +73,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "The pedestal came to life with orange, and we\nknew you had arrived...\nWhat can I do for you Courier" 
+	text_string = "The pedestal came to life with orange, and we\nknew you had arrived...\nWhat can I do for you Courier." 
 	_SubString = string_copy(text_string,1,letter_counter);
 	page = 0;
 }

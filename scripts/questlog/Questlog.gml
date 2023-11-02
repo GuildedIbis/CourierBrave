@@ -34,7 +34,7 @@ quest_grid[# 1, 4] = Idle;
 quest_grid[# 1, 5] = scr_inventory_questlog_text_01;
 quest_grid[# 2, 0] = false;
 quest_grid[# 2, 1] = 0;
-quest_grid[# 2, 2] = 1;
+quest_grid[# 2, 2] = 4;
 quest_grid[# 2, 3] = false;
 quest_grid[# 2, 4] = Idle;
 quest_grid[# 2, 5] = scr_inventory_questlog_text_02; 
@@ -213,8 +213,26 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Something From Home";
-var _text = "Mesa and Thurn were driven from their\nhome by rats.  If you happen to find\nanything in the abandoned rubble, Mesa\nmight have something useful to offer\nin return.";
-
+if (obj_inventory.quest_grid[# 2, 1] = 0)
+{
+	var _text = "Look for something in Mesa and Thurns\nabandoned home.\n\nMany country-side homes like Mesa and\nThurns were burned and destroyed to\ndrive people into towns where they\ncould be more easily controlled.";
+}
+if (obj_inventory.quest_grid[# 2, 1] = 1)
+{
+	var _text = "Take the necklace to Mesa.\n\nMany country-side homes like Mesa and\nThurns were burned and destroyed to\ndrive people into towns where they\ncould be more easily controlled.";
+}
+if (obj_inventory.quest_grid[# 2, 1] = 2)
+{
+	var _text = "Speak with Kovalad about polish for\nthe necklace.\n\nMany country-side homes like Mesa and\nThurns were burned and destroyed to\ndrive people into towns where they\ncould be more easily controlled.";
+}
+if (obj_inventory.quest_grid[# 2, 1] = 3) or (obj_inventory.quest_grid[# 2, 1] = 4)
+{
+	var _text = "Bring Kovalad a Dulen Flower so he\ncan polish the necklace.\n\nMany country-side homes like Mesa and\nThurns were burned and destroyed to\ndrive people into towns where they\ncould be more easily controlled.";
+}
+if (obj_inventory.quest_grid[# 2, 1] >= 5)
+{
+	var _text = "Take the polished necklace to Mesa.\n\nMany country-side homes like Mesa and\nThurns were burned and destroyed to\ndrive people into towns where they\ncould be more easily controlled.";
+}
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 }
@@ -334,7 +352,7 @@ var _compY = 111;
 
 var _headerText = "Zerwerk the Giant";
 var _text = "Defeat Zerwerk the Giant.\n\nRift giants do not wield magic\nlike a mage or Courier.\nThey are the thralls of dark mages\nand their minds are not their own.";
-
+//Rat Lore: The Ranth, or rats as they are\nreferred to with hate,\nwere once a people and nation of Moros.\nThey were destroyed and shunned by the\nother peoples for siding with the Great Evil\nand have been promised redemption\nfrom the Acolyte.
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -390,7 +408,7 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Moth Lily";
+var _headerText = "Enraged Moth";
 var _text = "Defeat the Enraged Moth and\ncollect the Skill Stone.\n\nAn unusual mutation on an already\ndangerous creature. Perhaps the\npowers of the nearby red crystals\nhave given their spawn their\nexplosive nature.";
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);

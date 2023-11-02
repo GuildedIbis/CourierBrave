@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_effect_habrafLake_crystal_small",
+  "name": "spr_quest_item_crystal_small",
   "bbox_bottom": 18,
   "bbox_left": 13,
   "bbox_right": 17,
@@ -31,14 +31,14 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "HabrafEffects",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/HabrafEffects.yy",
+    "name": "QuestItem",
+    "path": "folders/Sprites/Effects/Interactables/QuestItem.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_effect_habrafLake_crystal_small",
+    "name": "spr_quest_item_crystal_small",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -60,11 +60,11 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0508fe71-a722-4cec-86e1-b9f6a10bc35e","path":"sprites/spr_effect_habrafLake_crystal_small/spr_effect_habrafLake_crystal_small.yy",},},},"Disabled":false,"id":"f0d7533d-7d5a-4d0d-a494-c057fe331c09","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1ccaada8-0b3d-4fac-93d1-20ad368c2136","path":"sprites/spr_effect_habrafLake_crystal_small/spr_effect_habrafLake_crystal_small.yy",},},},"Disabled":false,"id":"05c6d83b-3194-4d5f-96d0-0599da703084","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"7a932e31-4091-4968-88f9-10213da8e109","path":"sprites/spr_effect_habrafLake_crystal_small/spr_effect_habrafLake_crystal_small.yy",},},},"Disabled":false,"id":"511d2488-4b07-45c3-badd-9439fc2ba8cb","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"23a13e4e-f602-433f-815b-cd5fdc79c097","path":"sprites/spr_effect_habrafLake_crystal_small/spr_effect_habrafLake_crystal_small.yy",},},},"Disabled":false,"id":"0036e609-40d0-490d-bc51-416a4c29d945","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"91c5b10a-02aa-4c72-965c-0ea5b08ecece","path":"sprites/spr_effect_habrafLake_crystal_small/spr_effect_habrafLake_crystal_small.yy",},},},"Disabled":false,"id":"48fd7f81-b0de-4a00-86ef-c8a2f6670f83","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0508fe71-a722-4cec-86e1-b9f6a10bc35e","path":"sprites/spr_quest_item_crystal_small/spr_quest_item_crystal_small.yy",},},},"Disabled":false,"id":"f0d7533d-7d5a-4d0d-a494-c057fe331c09","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1ccaada8-0b3d-4fac-93d1-20ad368c2136","path":"sprites/spr_quest_item_crystal_small/spr_quest_item_crystal_small.yy",},},},"Disabled":false,"id":"05c6d83b-3194-4d5f-96d0-0599da703084","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"7a932e31-4091-4968-88f9-10213da8e109","path":"sprites/spr_quest_item_crystal_small/spr_quest_item_crystal_small.yy",},},},"Disabled":false,"id":"511d2488-4b07-45c3-badd-9439fc2ba8cb","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"23a13e4e-f602-433f-815b-cd5fdc79c097","path":"sprites/spr_quest_item_crystal_small/spr_quest_item_crystal_small.yy",},},},"Disabled":false,"id":"0036e609-40d0-490d-bc51-416a4c29d945","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"91c5b10a-02aa-4c72-965c-0ea5b08ecece","path":"sprites/spr_quest_item_crystal_small/spr_quest_item_crystal_small.yy",},},},"Disabled":false,"id":"48fd7f81-b0de-4a00-86ef-c8a2f6670f83","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

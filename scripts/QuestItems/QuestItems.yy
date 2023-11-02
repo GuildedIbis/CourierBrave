@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Effects",
-    "path": "folders/Scripts/Effects.yy",
+    "name": "Questing",
+    "path": "folders/Scripts/Player/Inventory/Questing.yy",
   },
 }
