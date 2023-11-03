@@ -8,7 +8,7 @@
 function scr_inventory_crystal_create(){
 crystal_script = array_create(25,0);
 crystal_enchant = array_create(25,false);
-crystal_enchant[0] = true;
+crystal_enchant[1] = true;
 
 
 crystal_script[0] = scr_player_crystal_natural_cast;

@@ -215,7 +215,7 @@ if (obj_inventory.quest_grid[# 2, 1] < 3)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "It's a beautiful orange flower.\nBetter leave it if you don't need it." 
+		text_string = "It's a beautiful Dulen Flower.\nThey are quite rare- better leave it if it's not needed." 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	//if (string_counter = 1)

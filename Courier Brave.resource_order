@@ -101,6 +101,7 @@
     {"name":"Chests","order":45,"path":"folders/Sprites/Effects/Interactables/Chests.yy",},
     {"name":"Items","order":48,"path":"folders/Sprites/Effects/Interactables/Items.yy",},
     {"name":"Other","order":49,"path":"folders/Sprites/Effects/Interactables/Other.yy",},
+    {"name":"QuestItem","order":51,"path":"folders/Sprites/Effects/Interactables/QuestItem.yy",},
     {"name":"Structures","order":50,"path":"folders/Sprites/Effects/Interactables/Structures.yy",},
     {"name":"Entity","order":6,"path":"folders/Sprites/Entity.yy",},
     {"name":"Beetrap","order":1,"path":"folders/Sprites/Entity/Enemy/Beetrap.yy",},
@@ -162,7 +163,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"QuestItem","order":51,"path":"folders/Sprites/Effects/Interactables/QuestItem.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},

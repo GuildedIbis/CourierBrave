@@ -70,38 +70,40 @@ var _name = "Kovalad the Smith"
 
 //Draw Based on String Counter
 var _SubString
-if (string_counter = 0)
+if (obj_inventory.quest_grid[# 2, 1] < 2) or (obj_inventory.quest_grid[# 2, 1] >= 5)
 {
-	speaker = 1;
-	text_string = "The pedestal came to life with orange, and we\nknew you had arrived...\nWhat can I do for you Courier." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	page = 0;
-}
-if (string_counter = 1)
-{
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	text_script = scr_menu_kovalad_trade;
-}
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "The pedestal came to life with orange, and we knew you\nhad arrived... What can I do for you Courier." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 1)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		text_script = scr_menu_kovalad_trade;
+	}
 
-if (string_counter >= 2)
-{
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	if (string_counter >= 2)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_color(c_white);
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_text_transformed(69,141,_SubString,.6,.6,0);
@@ -109,6 +111,158 @@ draw_set_valign(fa_middle);
 draw_text_transformed(64,132,_name,.5,.5,0);
 draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+if (obj_inventory.quest_grid[# 2, 1] = 2)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "Mesa? He thinks I owe him for that junk?\nAnd what does he think I owe him?" 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "Polish? That fool, I'm a smith not a jewler!" 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "Well, I do know one recipe...\nHmmm... fine, but he owes me- and I'm going to need some\nDulen Flower." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter >= 3)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+		obj_inventory.quest_grid[# 2, 1] = 3;
+		
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+if (obj_inventory.quest_grid[# 2, 1] = 3)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "Courier, if you're out in your travels and you see a Dulen\nFlower, bring it for me, would you?" 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "Dulen flowers are a rare bright orange bulb that only\ngrows on the southern half the valley." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 2)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		text_script = scr_menu_kovalad_trade;
+	}
+
+	if (string_counter >= 2)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+if (obj_inventory.quest_grid[# 2, 1] = 4)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "This is it! Thanks Courier!\nI'll run this over to Mesa right away." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "Here, take this enchantment-\nI'm no mage even with it." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		page = 0;
+	}
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "Enchantment Received!" 
+		_SubString = string_copy(text_string,1,letter_counter);	
+		page = 0;
+	}
+
+	if (string_counter >= 3)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+		obj_inventory.quest_grid[# 2, 1] = 5;
+		obj_inventory.quest_grid[# 2, 3] = true;
+		obj_inventory.crystal_enchant[2] = true;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+
 }
 //
 //
@@ -149,7 +303,7 @@ if (point_in_rectangle(_mouseX,_mouseY,92,40,108,56))
 	if (mouse_check_button_pressed(mb_left))
 	{
 		if (page >= 1) page = page - 1;
-		else page = 2;
+		else page = 1;
 	}
 }
 if (point_in_rectangle(_mouseX,_mouseY,212,40,228,56))
@@ -157,7 +311,7 @@ if (point_in_rectangle(_mouseX,_mouseY,212,40,228,56))
 	draw_sprite_stretched(spr_highlight_circle,0,211,39,18,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (page <= 1) page = page + 1;
+		if (page = 0) page = page + 1;
 		else page = 0;
 	}
 }
@@ -172,9 +326,9 @@ switch(page)
 		scr_menu_kovalad_trade_page_1();
 	break;
 	
-	case 2:
-		scr_menu_kovalad_trade_page_2();
-	break;
+	//case 2:
+	//	scr_menu_kovalad_trade_page_2();
+	//break;
 }
 
 //Exit
@@ -210,27 +364,24 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 
-
-if (obj_inventory.crystal_enchant[2] = false)
+//Button 1
+draw_set_halign(fa_left);
+draw_text_transformed(124,76,"1 (" + string(obj_inventory.rog_array[0]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,0,142,66,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,76,">",.75,.75,0);
+draw_sprite_ext(spr_resource_menu_all,1,162,66,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[1]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,1,142,66,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crystal_enchant,3,162,66,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"ENCHANTMENT",.35,.35,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
+	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
-		if (mouse_check_button_pressed(mb_left))
+		if (obj_inventory.rog_array[0] >= 1)
 		{
-			if (obj_inventory.rog_array[1] >= 5)
-			{
-				obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 5;
-				obj_inventory.crystal_enchant[2] = true;
-			}
+			obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
+			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] + 1;
 		}
 	}
 }
@@ -266,7 +417,7 @@ draw_text_transformed(124,112,"5 (" + string(obj_inventory.resource_array[4]) + 
 draw_sprite_ext(spr_resource_menu_all,4,142,102,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,112,">",.75,.75,0);
-draw_sprite_ext(spr_powerstone_all,0,162,102,1,1,0,c_white,1);
+draw_sprite_ext(spr_powerstone_menu_all,0,162,102,1,1,0,c_white,1);
 draw_set_halign(fa_right);
 draw_text_transformed(196,112,"1 (" + string(obj_inventory.ps_array[0]) + ")",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
@@ -361,7 +512,7 @@ if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 //Button 3
 draw_set_halign(fa_left);
 draw_text_transformed(124,112,"1 (" + string(obj_inventory.ps_array[0]) + ")",.5,.5,0);
-draw_sprite_ext(spr_powerstone_all,0,142,102,1,1,0,c_white,1);
+draw_sprite_ext(spr_powerstone_menu_all,0,142,102,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,112,">",.75,.75,0);
 draw_sprite_ext(spr_resource_menu_all,3,162,102,1,1,0,c_white,1);
@@ -382,7 +533,7 @@ if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
 //Button 4
 draw_set_halign(fa_left);
 draw_text_transformed(124,130,"1 (" + string(obj_inventory.ps_array[1]) + ")",.5,.5,0);
-draw_sprite_ext(spr_powerstone_all,1,142,120,1,1,0,c_white,1);
+draw_sprite_ext(spr_powerstone_menu_all,1,142,120,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,130,">",.75,.75,0);
 draw_sprite_ext(spr_rog_menu_all,0,162,120,1,1,0,c_white,1);

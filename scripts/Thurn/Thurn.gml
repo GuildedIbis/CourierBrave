@@ -44,36 +44,165 @@ var _name = "Thurn"
 
 //Draw Based on String Counter
 var _SubString
-if (string_counter = 0)
+//Start Quest
+if (obj_inventory.quest_grid[# 2, 1] = 0)
 {
-	speaker = 1;
-	text_string = "I have a brother in Herzi who probably thinks I'm dead...\nI would write my him, but those damn rats burned all my\nstuff. Give a few of them the sword for me Courier." 
-	_SubString = string_copy(text_string,1,letter_counter);
-}
-
-if (string_counter >= 1)
-{
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "I had to leave a lot behind when those damn rats\nburned down our house. Most tragic was my necklace,\nan heirloom and a treasure to me..." 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "The rats keep us crammed into towns, but you Courier...\nIf you find my necklace, will you bring it back to us?" 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter >= 1)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
 	
-	//Reset Buy/Sell Menu
-	page = 0;
-	selected = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+		//Reset Buy/Sell Menu
+		page = 0;
+		selected = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
-draw_set_color(c_white);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_text_transformed(69,141,_SubString,.6,.6,0);
-draw_set_valign(fa_middle);
-draw_text_transformed(64,132,_name,.5,.5,0);
-draw_set_halign(fa_right);
-draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+//Jewel Found
+if (obj_inventory.quest_grid[# 2, 1] = 1)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "Thank you Courier! It brings my heart joy to have it again!" 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter = 1)
+	{
+		speaker = 1;
+		text_string = "Please, take this." 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "Star Orb Received!"
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter >= 3)
+	{
+		text_string = ""
+		string_counter = 0;
+		obj_inventory.quest_grid[# 2, 1] = 2;
+		obj_inventory.star_orb = obj_inventory.star_orb + 1;
+		_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		//page = 0;
+		//selected = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//Needs Polish
+if (obj_inventory.quest_grid[# 2, 1] >= 2) and (obj_inventory.quest_grid[# 2, 1] <= 4)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "Oh wow, this poor necklace is in pretty rough shape huh?\nCourier, would you ask Mesa if he know's anything about\ngetting this polished?" 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter >= 1)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		selected = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//Completed
+if (obj_inventory.quest_grid[# 2, 1] >= 5)
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_set_color(c_white);
+	var _name = "Mesa"
+	
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "My beautiful necklace restored!\nThank you Courier, and tell dear\nKovalad thank you too." 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+	if (string_counter >= 1)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		selected = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
 }
 
 

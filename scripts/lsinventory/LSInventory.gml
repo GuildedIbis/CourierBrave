@@ -49,7 +49,7 @@ function scr_load_inventory(_loadEntity){
 		if (variable_struct_exists(_loadEntity,"resource18")) obj_inventory.resource_array[18] = _loadEntity.resource18;
 		if (variable_struct_exists(_loadEntity,"resource19")) obj_inventory.resource_array[19] = _loadEntity.resource19;
 		//Load crystal Enchant Unlocks
-		if (variable_struct_exists(_loadEntity,"crystalEnchant0")) obj_inventory.crystal_enchant[0] = true;//_loadEntity.crystalEnchant0;
+		if (variable_struct_exists(_loadEntity,"crystalEnchant0")) obj_inventory.crystal_enchant[0] = _loadEntity.crystalEnchant0;//_loadEntity.crystalEnchant0;
 		if (variable_struct_exists(_loadEntity,"crystalEnchant1")) obj_inventory.crystal_enchant[1] = true;
 		if (variable_struct_exists(_loadEntity,"crystalEnchant2")) obj_inventory.crystal_enchant[2] = _loadEntity.crystalEnchant2;
 		if (variable_struct_exists(_loadEntity,"crystalEnchant3")) obj_inventory.crystal_enchant[3] = _loadEntity.crystalEnchant3;
