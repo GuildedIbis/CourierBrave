@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "QuestItem",
-    "path": "folders/Sprites/Effects/Interactables/QuestItem.yy",
+    "path": "folders/Sprites/Effects/QuestItem.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

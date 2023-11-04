@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sprites/Entity/NPC/Other.yy",
+    "name": "LenkoNPC",
+    "path": "folders/Sprites/Entity/NPC/LenkoNPC.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

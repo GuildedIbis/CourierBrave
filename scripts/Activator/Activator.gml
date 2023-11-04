@@ -8,6 +8,19 @@
 //Activator Create
 function scr_activator_create(){
 entity_step = scr_activator_step;
+activator_sprite = spr_activator;
+activate_sound = snd_text01;
+interact = 20;
+}
+//
+//
+//
+//
+//
+//Activator Sundial Create
+function scr_activator_sundial_create(){
+entity_step = scr_activator_step;
+activator_sprite = spr_sundial;
 activate_sound = snd_text01;
 interact = 20;
 }
@@ -18,7 +31,7 @@ interact = 20;
 //
 //Activator Step
 function scr_activator_step(){
-sprite_index = spr_activator;
+sprite_index = activator_sprite;
 //Activate NPC: sprite index, text script, game pause
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (global.aggroCounter < 1)
 {	
@@ -217,6 +230,97 @@ draw_text_transformed(64,132,_name,.5,.5,0);
 draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 
+}
+//
+//
+//
+//
+//
+//Yakflower Path Sundial Activator Text
+function scr_text_activator_yakflowerPath_sundial(){
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Sun Dial"
+
+
+//Draw Based on String Counter
+var _SubString
+if (obj_inventory.quest_grid[# 6, 1] = 0)
+{
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "It's a sun dial..." 
+	_SubString = string_copy(text_string,1,letter_counter);
+}
+
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+if (obj_inventory.quest_grid[# 6, 1] >= 1)
+{
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "It's the sun dial the Lunar Sabi mentioned.\nThe top of it spins and seems to activate." 
+		_SubString = string_copy(text_string,1,letter_counter);
+	}
+
+	if (string_counter >= 1)
+	{
+		text_string = ""
+		string_counter = 0;
+		//map_ary[quest_num][3] = 1;
+		if (obj_inventory.quest_grid[# 6, 1] = 1)
+		{
+			obj_inventory.quest_grid[# 6, 1] = 2;
+		}
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
 }
 //
 //

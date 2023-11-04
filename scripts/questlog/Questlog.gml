@@ -311,7 +311,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Solar Sabi";
-var _text = "The Matron Sabi betrayed her pact with\nthe first Moros Queen, and for it her\nchildren were cursed. They were made weak\nand turned to stone, only able to wake\nat the rise of a dual sun.";
+var _text = "The Western Sabi betrayed her pact with\nthe first Moros Queen, and for it, the Western Sabi clans\nwere cursed. They were made weak\nand turned to stone, only able to wake\nat the rise of a dual sun.";
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);

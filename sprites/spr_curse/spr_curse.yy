@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "Altars",
-    "path": "folders/Sprites/Effects/Interactables/Altars.yy",
+    "path": "folders/Sprites/Entity/Interactables/Altars.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

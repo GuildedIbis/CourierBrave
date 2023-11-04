@@ -42,7 +42,7 @@ stone_sprite = spr_solarSabi3_stone;
 //
 //Solar Step
 function scr_npc_solarSabi_step(){
-if (global.dayPhase = 1)
+if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
 	scr_npc_interact(12);
 	sprite_index = active_sprite;
@@ -61,60 +61,109 @@ else
 //
 //Solar Sabi 1 Text
 function scr_text_solarSabi_00(){
-//Stone
-if (global.dayPhase != 1)
-{
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
-	draw_set_color(c_white);
-	var _name = "Mysterious Stone"
-
-
-	//Draw Based on String Counter
-	var _SubString
-	if (string_counter = 0)
-	{
-		speaker = 1;
-		text_string = "Nothing happened." 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
-	
-	if (string_counter >= 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
-
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
-	}
-	draw_set_color(c_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
-}
-
-if (global.dayPhase = 1)
-{
-//Quest Started
+//Start Quest
 obj_inventory.quest_grid[# 6, 0] = true;
 
+if (global.dayPhase = 2)
+{
+	//Before Quest Started
+	if (obj_inventory.quest_grid[# 6, 1] = 0)
+	{
+		
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Mysterious Stone"
+
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "Nothing happened." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
+	
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
+
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+	}
+	//Stone
+	if (obj_inventory.quest_grid[# 6, 1] >= 1)
+	{
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Solar Sabi"
+
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "It's a Solar Sabi.\nThey will wake during the day, if the curse is lifted." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
+	
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
+
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+	}
+}
+if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
+{
 //First Interact
-if (obj_inventory.quest_grid[# 6, 1] < 1)
+if (obj_inventory.quest_grid[# 6, 1] = 2)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -135,21 +184,20 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "But who is where...\nyes- but they must be in order..."
+		text_string = "Three of us snakes from fiery stars.\nI am the first, yes- and we must be in order..."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "Go then...\nand return before the day ends... a gift."
+		text_string = "Go then- nfind second then third whose lines make\nan arrow due West."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter >= 3)
 	{
-		obj_inventory.quest_grid[# 6, 0] = true;
-		obj_inventory.quest_grid[# 6, 1] = 1;
+		obj_inventory.quest_grid[# 6, 1] = 3;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -177,7 +225,7 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 }
 
 //Second and After Interact
-if (obj_inventory.quest_grid[# 6, 1] >= 1) and (obj_inventory.quest_grid[# 6, 1] <= 2)
+if (obj_inventory.quest_grid[# 6, 1] = 3) or (obj_inventory.quest_grid[# 6, 1] = 4)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -191,19 +239,11 @@ if (obj_inventory.quest_grid[# 6, 1] >= 1) and (obj_inventory.quest_grid[# 6, 1]
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "I am one of three,\nwho only wake under two stars..." 
+		text_string = "I am one of three, but we are lost from each other.\nFind the second, then the third, whose lines make an arrow\ndue West.\n\nThen a gift for Couier our friend." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
-	if (string_counter = 1)
-	{
-		speaker = 1;
-		text_string = "Find the second, then the third.\nIt must be in order... so I know...\nGo then... return before days end."
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
-
-	if (string_counter >= 2)
+	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
@@ -230,8 +270,8 @@ if (obj_inventory.quest_grid[# 6, 1] >= 1) and (obj_inventory.quest_grid[# 6, 1]
 	
 }
 
-//Final Interact
-if (obj_inventory.quest_grid[# 6, 1] >= 3)
+//Quest Complete
+if (obj_inventory.quest_grid[# 6, 1] = 5)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -245,25 +285,77 @@ if (obj_inventory.quest_grid[# 6, 1] >= 3)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "How pleasing... you have found the others.\nFar far awy they are." 
+		text_string = "How pleasing... you have found the others.\nFar far away they are." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "An orb, seed of stars... a fine gift of Vesial."
+		text_string = "An enchantment, power of stars and crystals... a gift for Courier our friend."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-		if (obj_inventory.quest_grid[# 6, 3] = false)
-		{
-			obj_inventory.quest_grid[# 6, 0] = true;
-			obj_inventory.quest_grid[# 6, 3] = true;
-			obj_inventory.star_orb = obj_inventory.star_orb + 1;
-		}
 	}
 
-	if (string_counter >= 2)
+	if (string_counter = 2)
+	{
+		speaker = 1;
+		text_string = "Violine Enchantment Received!"
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		obj_inventory.quest_grid[# 6, 0] = true;
+		obj_inventory.quest_grid[# 6, 1] = 6;
+		obj_inventory.quest_grid[# 6, 3] = true;
+		obj_inventory.crystal_enchant[3] = true;
+	}
+	if (string_counter >= 3)
+	{
+		text_string = ""
+		string_counter = 0;
+		_SubString = string_copy(text_string,1,letter_counter);
+		obj_game.gamePaused = false;
+		obj_game.textPaused = false;
+	
+		//Reset Buy/Sell Menu
+		page = 0;
+		slot = -1;
+		item_id = -1;
+		item_name = -1;
+		sell_price = 0;
+		buy_price = 0;
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(64,132,_name,.5,.5,0);
+	draw_set_halign(fa_right);
+	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	
+}
+
+//Post-Quest Complete
+if (obj_inventory.quest_grid[# 6, 1] >= 6)
+{
+	draw_set_font(global.fnt_main_white);
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
+	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_set_color(c_white);
+	var _name = "Solar Sabi"
+
+	//Draw Based on String Counter
+	var _SubString
+	if (string_counter = 0)
+	{
+		speaker = 1;
+		text_string = "How pleasing... you have found the others.\nFar far away they are." 
+		_SubString = string_copy(text_string,1,letter_counter);
+		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+	}
+
+	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
@@ -298,57 +390,109 @@ if (obj_inventory.quest_grid[# 6, 1] >= 3)
 //
 //Solar Sabi 2 Text
 function scr_text_solarSabi_01(){
-//Stone
-if (global.dayPhase != 1)
+//Start Quest
+obj_inventory.quest_grid[# 6, 0] = true;
+
+if (global.dayPhase = 2)
 {
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
-	draw_set_color(c_white);
-	var _name = "Mysterious Stone"
-
-
-	//Draw Based on String Counter
-	var _SubString
-	if (string_counter = 0)
+	//Before Quest Started
+	if (obj_inventory.quest_grid[# 6, 1] = 0)
 	{
-		speaker = 1;
-		text_string = "Nothing happened." 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
+		
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Mysterious Stone"
+
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "Nothing happened." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
 	
-	if (string_counter >= 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
 
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 	}
-	draw_set_color(c_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
-}
+	//Stone
+	if (obj_inventory.quest_grid[# 6, 1] >= 1)
+	{
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Solar Sabi"
 
-if (global.dayPhase = 1)
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "It's a Solar Sabi.\nThey will wake during the day, if the curse is lifted." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
+	
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
+
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+	}
+}
+if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
 //Toon Soon Interact
-if (obj_inventory.quest_grid[# 6, 1] < 1)
+if (obj_inventory.quest_grid[# 6, 1] < 3) or (obj_inventory.quest_grid[# 6, 1] > 3)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -401,9 +545,8 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 	
 }
 
-
 //Correct Interact
-if (obj_inventory.quest_grid[# 6, 1] = 1)
+if (obj_inventory.quest_grid[# 6, 1] = 3)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -417,7 +560,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 1)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "I smell...\nYou spoke with the first." 
+		text_string = "Sharp as the Courier's blade is their mind.\nYou spoke with the first, now me, next the third." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -431,7 +574,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 1)
 
 	if (string_counter >= 2)
 	{
-		obj_inventory.quest_grid[# 6, 1] = 2;
+		obj_inventory.quest_grid[# 6, 1] = 4;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -457,9 +600,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 1)
 	
 }
 
-
-//After Interact
-if (obj_inventory.quest_grid[# 6, 1] >= 2)
+//After Complete
+if (obj_inventory.quest_grid[# 6, 1] >= 6)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -473,7 +615,7 @@ if (obj_inventory.quest_grid[# 6, 1] >= 2)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "How pleasing... you tell the first I am here..." 
+		text_string = "How pleasing... the Solar Sabi united in voice..." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -513,57 +655,109 @@ if (obj_inventory.quest_grid[# 6, 1] >= 2)
 //
 //Solar Sabi 3 Text
 function scr_text_solarSabi_02(){
-//Stone
-if (global.dayPhase != 1)
+//Start Quest
+obj_inventory.quest_grid[# 6, 0] = true;
+
+if (global.dayPhase = 2)
 {
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_left)
-	draw_set_valign(fa_top)
-	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
-	draw_set_color(c_white);
-	var _name = "Mysterious Stone"
-
-
-	//Draw Based on String Counter
-	var _SubString
-	if (string_counter = 0)
+	//Before Quest Started
+	if (obj_inventory.quest_grid[# 6, 1] = 0)
 	{
-		speaker = 1;
-		text_string = "Nothing happened." 
-		_SubString = string_copy(text_string,1,letter_counter);
-		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-	}
+		
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Mysterious Stone"
+
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "Nothing happened." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
 	
-	if (string_counter >= 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
 
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
 	}
-	draw_set_color(c_white);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
-}
+	//Stone
+	if (obj_inventory.quest_grid[# 6, 1] >= 1)
+	{
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_top)
+		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_set_color(c_white);
+		var _name = "Solar Sabi"
 
-//Too Soon Interact
-if (global.dayPhase = 1) 
+
+		//Draw Based on String Counter
+		var _SubString
+		if (string_counter = 0)
+		{
+			speaker = 1;
+			text_string = "It's a Solar Sabi.\nThey will wake during the day, if the curse is lifted." 
+			_SubString = string_copy(text_string,1,letter_counter);
+			draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+		}
+	
+		if (string_counter >= 1)
+		{
+			text_string = ""
+			string_counter = 0;
+			_SubString = string_copy(text_string,1,letter_counter);
+			obj_game.gamePaused = false;
+			obj_game.textPaused = false;
+
+			//Reset Buy/Sell Menu
+			page = 0;
+			slot = -1;
+			item_id = -1;
+			item_name = -1;
+			sell_price = 0;
+			buy_price = 0;
+		}
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		draw_text_transformed(69,141,_SubString,.6,.6,0);
+		draw_set_valign(fa_middle);
+		draw_text_transformed(64,132,_name,.5,.5,0);
+		draw_set_halign(fa_right);
+		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+	}
+}
+if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
-if (obj_inventory.quest_grid[# 6, 1] < 2)
+//Too Soon
+if (obj_inventory.quest_grid[# 6, 1] < 4)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -616,9 +810,8 @@ if (obj_inventory.quest_grid[# 6, 1] < 2)
 	
 }
 
-
 //Correct Interact
-if (obj_inventory.quest_grid[# 6, 1] = 2)
+if (obj_inventory.quest_grid[# 6, 1] = 4) or (obj_inventory.quest_grid[# 6, 1] = 5)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -632,7 +825,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "I smell...\nYou spoke with the first and the second." 
+		text_string = "Like an echo of a scent...\nYou spoke with the first and the second." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -646,7 +839,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 
 	if (string_counter >= 2)
 	{
-		obj_inventory.quest_grid[# 6, 1] = 3;
+		obj_inventory.quest_grid[# 6, 1] = 5;
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
@@ -672,9 +865,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 	
 }
 
-
 //After Interact
-if (obj_inventory.quest_grid[# 6, 1] >= 3)
+if (obj_inventory.quest_grid[# 6, 1] >= 6)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
