@@ -310,9 +310,39 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Solar Sabi";
-var _text = "The Western Sabi betrayed her pact with\nthe first Moros Queen, and for it, the Western Sabi clans\nwere cursed. They were made weak\nand turned to stone, only able to wake\nat the rise of a dual sun.";
+var _headerText = "Sleeping Sabi";
 
+switch(obj_inventory.quest_grid[# 6, 1])
+{
+	case 0:
+		var _text = "Learn more about the Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 1:
+		var _text = "Wake up the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 2:
+		var _text = "Speak with the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 3:
+		var _text = "Speak with the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 4:
+		var _text = "Speak with the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 5:
+		var _text = "Return to the first Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+	case 6:
+		var _text = "Return to the first Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+	break;
+	
+}
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

@@ -43,3 +43,23 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,radius)) and (global.aggroCoun
 	}
 }
 }
+//
+//
+//
+//
+//
+//NPC Animation
+function scr_npc_animation(){
+var _totalFrames = sprite_get_number(sprite_index) / 4;
+image_index = local_frame + (_cardinalDir * _totalFrames);
+local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+//Cuts the degree by 90 to give you a number between 0 and 3
+//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+//Local frame then increments in the speed of the animation
+if (local_frame >= _totalFrames)
+{
+	animation_end = true;
+	local_frame = local_frame - _totalFrames;
+}
+else animation_end = false;
+}

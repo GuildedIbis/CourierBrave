@@ -11,6 +11,9 @@ sound = snd_solarSabi;
 active_sprite = spr_npc_lunarSabi;
 stone_sprite = spr_npc_lunarSabi_stone;
 sprite_index = stone_sprite;
+animation_end = false;
+local_frame = 0
+direction = 270;
 }
 //
 //
@@ -22,6 +25,7 @@ function scr_npc_lunarSabi_step(){
 if (global.dayPhase = 2)
 {
 	scr_npc_interact(12);
+	scr_npc_animation();
 	sprite_index = active_sprite;
 	image_speed = 1;
 }
@@ -105,14 +109,14 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Courier! What an honor!\nThough no suprise I must admit. Each year, more and more of the Ranth\narrive under the flag of your enemies." 
+		text_string = "Courier! What an honor!\nThough no suprise I must admit. Each year, more and more of\nthe Ranth arrive under the flag of your enemies." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Your duty is to protect all good creatures. Very noble and brave.\nYou might suffer a thousand deaths, and still carry on\nif your job isn't done."
+		text_string = "Your duty is to protect all good creatures. Very noble and\nbrave. You might suffer a thousand deaths, and still carry\non if your job isn't done."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -126,7 +130,7 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 	if (string_counter = 3)
 	{
 		speaker = 1;
-		text_string = "The Solar Sabi have an enchantment they can share,\nbut they are cursed with silence.\nOrdinarily they would wake during the day- but long ago their senseless chatter\nfinally got the best of me."
+		text_string = "The Solar Sabi have an enchantment they can share,\nbut they are cursed with silence.\nOrdinarily they would wake during the day- but long ago\ntheir rambling finally got the best of me."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -182,7 +186,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 1) //and (obj_inventory.quest_grid[# 6, 1
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "The Solar Sabi have an enchantment they can share,\nbut they are cursed with silence.\nOrdinarily they would wake during the day- but their rambling\nfinally broke me."
+		text_string = "The Solar Sabi have an enchantment they can share,\nbut they are cursed with silence.\nOrdinarily they would wake during the day- but long ago\ntheir rambling finally got the best of me."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
