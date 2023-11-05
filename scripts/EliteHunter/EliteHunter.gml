@@ -5,15 +5,15 @@
 //
 //
 //Elite Hunter Create
-function EliteHunterCreate(){
+function scr_enemy_hunterElite_create(){
 targeted = false;	
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = EliteHunterFree;
+home_state = scr_enemy_hunterElite_free;
 entity_step = home_state;
-entity_drop = EliteHunterDrop;
+entity_drop = scr_enemy_hunterElite_drop;
 enemy_idle = spr_enemy_eliteHunter_idle;
 enemy_move = spr_enemy_eliteHunter_run;
 enemy_damaged = spr_enemy_eliteHunter_damaged;
@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
-max_hp = 120;
+max_hp = 120 + (60 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -47,14 +47,14 @@ path = -1;
 //
 //
 //Elite Hunter Free
-function EliteHunterFree(){
+function scr_enemy_hunterElite_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -63,12 +63,12 @@ if (obj_game.gamePaused = false)
 		lit = false
 		if (timer1 <= 0)
 		{
-			EnemyWander(60,180); //Data Leak if not radius restricted?
+			scr_enemy_wander(60,180); //Data Leak if not radius restricted?
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -90,14 +90,14 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
-			script_execute(EnemyChase);
+			scr_enemy_chase();
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
 				sprite_index = enemy_idle;
 				if (timer1 <= 0) //Heavy Slash A
 				{
-					entity_step = EliteHunterSlash;
+					entity_step = scr_enemy_hunterElite_slash;
 				}		
 			
 			}
@@ -112,9 +112,9 @@ if (obj_game.gamePaused = false)
 				_atkChoose = irandom_range(0,3)
 				if (_atkChoose <= 1)
 				{
-					entity_step = EliteHunterShoot;
+					entity_step = scr_enemy_hunterElite_shoot;
 				}
-				else entity_step = EliteHunterShootShatter;
+				else entity_step = scr_enemy_hunterElite_shootShatter;
 			}
 		}
 		
@@ -126,7 +126,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -136,7 +136,7 @@ else path_end();
 //
 //
 //Elite Hunter Slash
-function EliteHunterSlash(){
+function scr_enemy_hunterElite_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -151,12 +151,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
+	damage = 40 + (8 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_balurneHunter_slash_hitbox);
+	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox);
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -167,7 +167,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
 }
@@ -178,7 +178,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Elite Hunter Shoot
-function EliteHunterShoot(){
+function scr_enemy_hunterElite_shoot(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -192,11 +192,9 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
-
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -204,7 +202,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = RatArrowFree;
+			enemy_lvl = other.enemy_lvl;
+			home_state = scr_projectile_ratArrow;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -213,7 +212,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			healthbar = false;
 			bullet = true;
-			enemy_spd = 4.0
+			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 30 + (7 * other.enemy_lvl);
@@ -224,7 +223,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
@@ -237,14 +236,14 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = EnemyReposition;
+			entity_step = scr_enemy_reposition;
 			animation_end = false;
 		}
 		else
 		{
 			if (attack_counter < 3)
 			{
-				entity_step = EliteHunterShoot;
+				entity_step = scr_enemy_hunterElite_shoot;
 				timer2 = 0;
 			}
 			else
@@ -265,7 +264,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Elite Hunter Shoot
-function EliteHunterShootShatter(){
+function scr_enemy_hunterElite_shootShatter(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -284,7 +283,7 @@ if (obj_game.gamePaused = false)
 	//EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -292,7 +291,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = EliteHunterShatterArrowFree;
+			enemy_lvl = other.enemy_lvl;
+			home_state = scr_projectile_hunterElite_shatterArrow_free;
 			entity_step = home_state;
 			entity_drop = Idle;
 			invincible = false;
@@ -304,7 +304,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 4.0
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50;
+			damage = 50 + (9 * other.enemy_lvl)
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -312,7 +312,7 @@ if (obj_game.gamePaused = false)
 			fragment_count = 3;
 			fragment = obj_fragWood;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
@@ -325,7 +325,7 @@ if (obj_game.gamePaused = false)
 				hor_spd = choose(-1,1)
 				ver_spd = choose(-1,1)
 			}
-			entity_step = EnemyReposition;
+			entity_step = scr_enemy_reposition;
 			animation_end = false;
 		}
 		else
@@ -345,7 +345,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Elite Hunter Shatter Arrow Free
-function EliteHunterShatterArrowFree(){
+function scr_projectile_hunterElite_shatterArrow_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -371,8 +371,8 @@ if (place_meeting(x,y,obj_player))
 
 	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 	{
-		
-		home_state = EliteHunterShatterOrb;
+		enemy_lvl = other.enemy_lvl;
+		home_state = scr_projectile_hunterElite_shatterOrb;
 		path = -1;
 		timer1 = 130;
 		timer2 = 15;
@@ -385,12 +385,12 @@ if (place_meeting(x,y,obj_player))
 		enemy_spd = 1.0;
 		local_frame = 0;
 		hit_by_attack = -1;
-		damage = 22;
+		damage = 20 + (6 * other.enemy_lvl);
 		break_object = other.break_object;
 		fragment_count = 2;
 		fragment = obj_fragWater;
 		bullet = true;
-		hit_script = EntityHitDestroy;
+		hit_script = scr_entity_hit_destroy;
 		image_angle = irandom_range(0,359);
 		speed = enemy_spd;
 	}
@@ -402,8 +402,8 @@ if (place_meeting(x,y,break_object))
 	audio_play_sound(snd_arrow_hit,0,false);
 	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 	{
-		
-		home_state = EliteHunterShatterOrb;
+		enemy_lvl = other.enemy_lvl;
+		home_state = scr_projectile_hunterElite_shatterOrb;
 		path = -1
 		timer1 = 130;
 		timer2 = 15;
@@ -416,12 +416,12 @@ if (place_meeting(x,y,break_object))
 		enemy_spd = 1.0;
 		local_frame = 0;
 		hit_by_attack = -1;
-		damage = 22;
+		damage = 20 + (6 * other.enemy_lvl);
 		break_object = other.break_object;
 		fragment_count = 2;
 		fragment = obj_fragWater;
 		bullet = true;
-		hit_script = EntityHitDestroy;
+		hit_script = scr_entity_hit_destroy;
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_angle = irandom_range(0,359);
 		speed = enemy_spd;
@@ -440,7 +440,7 @@ else
 //
 //
 //Elite Hunter Shatter Orb
-function EliteHunterShatterOrb(){
+function scr_projectile_hunterElite_shatterOrb(){
 if (obj_game.gamePaused = false)
 {
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -493,7 +493,7 @@ else
 //
 //
 //Elite Hunter Drop
-function EliteHunterDrop(){
+function scr_enemy_hunterElite_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;

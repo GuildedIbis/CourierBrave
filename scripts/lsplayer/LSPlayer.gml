@@ -94,8 +94,8 @@ var _savePlayer =
 {
 	//Save Room
 	altar : global.lastAltar, //CONCEPT: NOT FINAL
-	lastCampX : global.lastAltarX, //CONCEPT: NOT FINAL
-	lastCampY: global.lastAltarY, //CONCEPT: NOT FINAL
+	lastAltarX : global.lastAltarX, //CONCEPT: NOT FINAL
+	lastAltarY: global.lastAltarY, //CONCEPT: NOT FINAL
 	level: obj_game.level_num, //CONCEPT: NOT FINAL
 	roomNum: obj_game.room_num,
 	

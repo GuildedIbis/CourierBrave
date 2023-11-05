@@ -5,10 +5,10 @@
 //
 //
 //Elite Skirmisher Create
-function EliteSkirmisherCreate(){
-home_state = EliteSkirmisherFree;
+function scr_enemy_skirmisherElite_create(){
+home_state = scr_enemy_skirmisherElite_free;
 entity_step = home_state;
-entity_drop = EliteSkirmisherDrop;
+entity_drop = scr_enemy_skirmisherElite_drop;
 bullet = false;
 healthbar = true;
 enemy_idle = spr_enemy_eliteSkirmisher_idle;
@@ -29,7 +29,7 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 100;
+max_hp = 100 + (50 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.75;
 local_frame = 0;
@@ -48,12 +48,12 @@ return_y = -1;
 //
 //
 //Elite Skirmisher Free State
-function EliteSkirmisherFree(){
+function scr_enemy_skirmisherElite_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
 	//Toggle Aggro 
@@ -62,12 +62,12 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			EnemyWander(60,180); //Data Leak if not radius restricted
+			scr_enemy_wander(60,180); //Data Leak if not radius restricted
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			EnemyAlert();
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
@@ -90,7 +90,7 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer1 <= 0)
 		{
-			EnemyChaseSpecial(obj_game,obj_entity);
+			scr_enemy_chase_special(obj_game,obj_entity);
 		}
 		if (point_in_rectangle(obj_player.x,obj_player.y,x-24,y-24,x+24,y+24))
 		{
@@ -102,7 +102,7 @@ if (obj_game.gamePaused = false)
 				timer1 = 120;
 				if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
 				{
-					entity_step = EliteSkirmisherSlash;
+					entity_step = scr_enemy_skirmisherElite_slash;
 				}
 				else
 				{
@@ -112,7 +112,7 @@ if (obj_game.gamePaused = false)
 					return_x = x;
 					return_y = y;
 					direction = (point_direction(x,y,obj_player.x,obj_player.y));
-					entity_step = EliteSkirmisherSpinSlash;
+					entity_step = scr_enemy_skirmisherElite_spinSlash;
 				}
 				
 			}
@@ -124,7 +124,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -134,7 +134,7 @@ else path_end();
 //
 //
 //Elite Skirmisher Slash State
-function EliteSkirmisherSlash(){
+function scr_enemy_skirmisherElite_slash(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -149,12 +149,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 40 + (8 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_rat_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -165,7 +165,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
 }
@@ -176,7 +176,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Elite Skirmisher Spin Slash State
-function EliteSkirmisherSpinSlash(){
+function scr_enemy_skirmisherElite_spinSlash(){
 if (obj_game.gamePaused = false)
 {
 	image_speed = 1;
@@ -193,23 +193,23 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45;
+	damage = 55 + (9 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_eliteSkirmisher_spinSlash_hitbox);
+	scr_enemy_attack_calculate(spr_enemy_eliteSkirmisher_spinSlash_hitbox);
 	
 	if (timer2 <= 0)
 	{
 		//speed = enemy_spd * 1.5;
-		hor_spd = lengthdir_x(3,direction);
-		ver_spd = lengthdir_y(3,direction);
+		hor_spd = lengthdir_x(2.5,direction);
+		ver_spd = lengthdir_y(2.5,direction);
 	}
 	
-	var _collided = EnemyCollision();
+	var _collided = scr_enemy_collision();
 	
 
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end) or (_collided = true)
 	{
 		speed = 0;
@@ -222,7 +222,7 @@ if (obj_game.gamePaused = false)
 			hor_spd = choose(-1,1)
 			ver_spd = choose(-1,1)
 		}
-		entity_step = EnemyReposition;
+		entity_step = scr_enemy_reposition;
 		//entity_step = home_state;
 		animation_end = false;
 	}
@@ -234,7 +234,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Elite Skirmisher Drop
-function EliteSkirmisherDrop(){
+function scr_enemy_skirmisherElite_drop(){
 //if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
 //{
 //	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;

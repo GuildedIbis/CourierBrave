@@ -5,7 +5,7 @@
 //
 //
 //Troll Tortoise Mound
-function TrollTortoiseMound(){
+function scr_projectile_trollTortoise_mound(){
 if (obj_game.gamePaused = false)
 {
 
@@ -32,7 +32,7 @@ if (place_meeting(x,y,obj_player))
 {
 	audio_sound_gain(snd_tortoiseTroll_blossom,global.volumeEffects,1);
 	audio_play_sound(snd_tortoiseTroll_blossom,0,false);
-	entity_step = TrollTortoiseBlossom;
+	entity_step = scr_projectile_trollTortoise_blossom;
 	timer1 = 55;
 	timer2 = 60;
 	timer3 = 0;
@@ -49,7 +49,7 @@ else
 //
 //
 //Troll Tortoise Blossom
-function TrollTortoiseBlossom(){
+function scr_projectile_trollTortoise_blossom(){
 if (obj_game.gamePaused = false)
 {
 
@@ -69,7 +69,7 @@ if (timer1 <= 0)
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
 			direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
-			home_state = TrollTortoiseBlossomOrb;
+			home_state = scr_projectile_trollTortoise_blossomOrb;
 			exploded = false;
 			timer1 = 19;
 			path = -1;
@@ -87,7 +87,7 @@ if (timer1 <= 0)
 			fragment_count = 2;
 			fragment = obj_fragPlant;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
 		}
 	}
@@ -103,7 +103,7 @@ if (timer2 <= 0) instance_destroy();
 //
 //
 //Troll Tortoise Blossom Orb
-function TrollTortoiseBlossomOrb(){
+function scr_projectile_trollTortoise_blossomOrb(){
 if (obj_game.gamePaused = false)
 {
 	//Explode on player
@@ -172,7 +172,7 @@ else
 //
 //
 //Troll Tortoise Missile
-function TrollTortoiseMissile(){
+function scr_projectile_trollTortoise_missile(){
 if (obj_game.gamePaused = false)
 {
 
@@ -224,7 +224,7 @@ else
 //
 //
 //Troll Tortoise Vine Shot
-function TrollTortoiseVineShot(){
+function scr_projectile_trollTortoise_vineShot(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -268,8 +268,8 @@ else
 //
 //
 //Tortoise Troll Spiked Vine Create
-function TortoiseTrollSpikedVineCreate(){
-home_state = TortoiseTrollSpikedVineFree;
+function scr_projectile_trollTortoise_spikedVine_create(){
+home_state = scr_projectile_trollTortoise_spikedVine_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -279,13 +279,13 @@ enemy_move = spr_tortoiseTroll_spikedVine;
 aggro_drop = 300;
 healthbar = false;
 bullet = true;
-enemy_spd = 4.5;
-timer1 = 30;
+enemy_spd = 2.5;
+timer1 = 45;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 65;
+damage = 65 + (10 * enemy_lvl);
 returning = false;
-special_draw = TortoiseTrollSpikedVineRope;
+special_draw = scr_projectile_trollTortoise_spikedVine_rope;
 }
 //
 //
@@ -293,7 +293,7 @@ special_draw = TortoiseTrollSpikedVineRope;
 //
 //
 //Tortoise Troll Spiked Vine Free
-function TortoiseTrollSpikedVineFree(){
+function scr_projectile_trollTortoise_spikedVine_free(){
 if (obj_game.gamePaused = false)
 {
 timer1 = timer1 - 1;
@@ -351,7 +351,7 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 	{
 		with (parent) 
 		{
-			entity_step = BossTortoiseTrollFree2;
+			entity_step = scr_enemy_trollTortoise_free2;
 		}
 		instance_destroy();
 	}
@@ -361,11 +361,11 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 		{
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
-				entity_step = BossTortoiseTrollHammerBackslam2;
+				entity_step = scr_enemy_trollTortoise_backslam2;
 			}
 			else
 			{
-				entity_step = BossTortoiseTrollFree2;
+				entity_step = scr_enemy_trollTortoise_free2;
 			}
 		}
 		instance_destroy();
@@ -385,7 +385,7 @@ else
 //
 //
 //Tortoise Troll Spiked Vine Rope
-function TortoiseTrollSpikedVineRope(){
+function scr_projectile_trollTortoise_spikedVine_rope(){
 draw_sprite_ext(spr_tortoiseTroll_vineRope,0,x,y,round(point_distance(x,y,parent.x,parent.y)/7),1,image_angle,c_white,1.0);
 }
 

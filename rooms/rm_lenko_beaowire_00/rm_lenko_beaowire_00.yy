@@ -612,7 +612,7 @@
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -2,162,-3,0,-2,162,-2,0,2,161,163,-3,0,-15,162,2,161,163,-16,162,
 -2,122,-2,206,-2,122,1,209,-5,162,1,122,-8,162,1,121,-5,0,2,122,
-209,-12,162,1,161,-4,0,4,165,163,164,209,-3,162,1,0,-7,162,1,161,
+209,-12,162,1,161,-4,0,4,165,0,164,209,-3,162,1,0,-7,162,1,161,
 -4,0,4,124,0,0,164,-5,122,-6,162,1,161,-6,0,1,124,-4,202,2,
 2,3,-5,162,2,206,165,-5,0,2,124,208,-4,162,3,82,83,124,-4,162,
 3,201,125,124,-4,202,1,208,-4,162,-2,0,2,162,0,-5,162,2,161,163,

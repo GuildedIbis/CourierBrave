@@ -5,8 +5,8 @@
 //
 //
 //Elite Gorog Knife Create
-function EliteGorogKnifeCreate(){
-home_state = EliteGorogKnifeFree;
+function scr_projectile_gorogElite_knife_create(){
+home_state = scr_projectile_gorogElite_knife_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -26,7 +26,7 @@ damage = 55 + (10 * enemy_lvl);
 //
 //
 //Elite Gorog Knife Free
-function EliteGorogKnifeFree(){
+function scr_projectile_gorogElite_knife_free(){
 if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
@@ -68,8 +68,8 @@ else
 //
 //
 //Elite Gorog Chain Hook Create
-function EliteGorogChainHookCreate(){
-home_state = EliteGorogChainHookFree;
+function scr_projectile_gorogElite_chainHook_create(){
+home_state = scr_projectile_gorogElite_chainHook_free;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -85,7 +85,7 @@ local_frame = 0;
 hit_by_attack = -1;
 damage = 65 + (11 * enemy_lvl);
 returning = false;
-special_draw = EliteGorogChainHookChain;
+special_draw = scr_projectile_gorogElite_chainHook_chain;
 }
 //
 //
@@ -93,7 +93,7 @@ special_draw = EliteGorogChainHookChain;
 //
 //
 //Elite Gorog Chain Hook Free
-function EliteGorogChainHookFree(){
+function scr_projectile_gorogElite_chainHook_free(){
 if (obj_game.gamePaused = false)
 {
 timer1 = timer1 - 1;
@@ -159,11 +159,11 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 		{
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
-				entity_step = EliteGorogHeavySlashA;
+				entity_step = scr_enemy_gorogElite_heavySlashA;
 			}
 			else
 			{
-				entity_step = EliteGorogFree;
+				entity_step = scr_enemy_gorogElite_free;
 			}
 		}
 		instance_destroy();
@@ -172,7 +172,7 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 	{
 		with (parent) 
 		{
-			entity_step = EliteGorogFree;
+			entity_step = scr_enemy_gorogElite_free;
 		}
 		instance_destroy();
 	}
@@ -190,7 +190,7 @@ else
 //
 //
 //Elite Gorog Chain Hook Chain
-function EliteGorogChainHookChain(){
+function scr_projectile_gorogElite_chainHook_chain(){
 	draw_sprite_ext(spr_enemy_gorogE_chainHook_chain,0,x,y,round(point_distance(x,y,parent.x,parent.y)/7),1,image_angle,c_white,1.0);
 
 }

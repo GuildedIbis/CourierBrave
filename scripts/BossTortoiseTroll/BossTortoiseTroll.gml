@@ -5,16 +5,16 @@
 //
 //
 //Tortoise Troll Create
-function BossTortoiseTrollCreate(){
+function scr_enemy_trollTortoise_create(){
 activate_args = 0;
 targeted = false;
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = BossTortoiseTrollFree;
-entity_step = BossTortoiseTrollScene1;
-entity_drop = BossTortoiseTrollDrop;
+home_state = scr_enemy_trollTortoise_free;
+entity_step = scr_enemy_trollTortoise_scene1;
+entity_drop = scr_enemy_trollTortoise_drop;
 enemy_idle = spr_enemy_tortoiseTroll_idle;
 enemy_move = spr_enemy_tortoiseTroll_run;
 damaged_snd = snd_tortoiseTroll_damaged;
@@ -49,7 +49,7 @@ path = -1;
 //
 //
 //Tortoise Troll Scene 1
-function BossTortoiseTrollScene1(){
+function scr_enemy_trollTortoise_scene1(){
 if (obj_game.gamePaused = false)
 {
 	invincible = true;
@@ -68,7 +68,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Tortoise Troll Scene 2
-function BossTortoiseTrollScene2(){
+function scr_enemy_trollTortoise_scene2(){
 if (obj_game.gamePaused = false)
 {
 	invincible = true;
@@ -88,10 +88,10 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end)
 	{
-		script_execute(BossTortoiseTrollCreate2);
+		script_execute(scr_enemy_trollTortoise_create2);
 		entity_step = home_state;
 		sprite_index = spr_enemy_tortoiseTroll_idle2;
 	}
@@ -103,7 +103,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Tortoise Troll Free
-function BossTortoiseTrollFree(){
+function scr_enemy_trollTortoise_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -122,14 +122,14 @@ if (obj_game.gamePaused = false)
 		hor_spd = 0;
 		ver_spd = 0;
 		speed = 0;
-		entity_step = BossTortoiseTrollScene2;
+		entity_step = scr_enemy_trollTortoise_scene2;
 	}
 
 	//While Aggro is on
 	if (targeted = true)
 	{
 		lit = true;
-		EnemyChaseSpecial(obj_game,obj_entity);
+		scr_enemy_chase_special(obj_game,obj_entity);
 		//walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
@@ -158,7 +158,7 @@ if (obj_game.gamePaused = false)
 							timer1 = 60;
 						}
 						timer2 = 23;
-						entity_step = BossTortoiseTrollHammerSlam;
+						entity_step = scr_enemy_trollTortoise_hammerSlam;
 					}
 				break;
 				
@@ -178,7 +178,7 @@ if (obj_game.gamePaused = false)
 							timer1 = 60;
 						}
 						timer2 = 23;
-						entity_step = BossTortoiseTrollHammerSlam;
+						entity_step = scr_enemy_trollTortoise_hammerSlam;
 					}
 				break;
 			}
@@ -194,7 +194,7 @@ if (obj_game.gamePaused = false)
 					path_end();
 					sprite_index = enemy_idle;
 					timer1 = 20;
-					entity_step = BossTortoiseTrollHammerMissileFire;
+					entity_step = scr_enemy_trollTortoise_hammerMissile;
 				break;
 				
 				case 1:
@@ -202,7 +202,7 @@ if (obj_game.gamePaused = false)
 					sprite_index = enemy_idle;
 					timer1 = 14;
 					timer2 = 90;
-					entity_step = BossTortoiseTrollHammerBlossom;
+					entity_step = scr_enemy_trollTortoise_hammerBlossom;
 				break;
 			}
 				
@@ -220,7 +220,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animation
-	script_execute(EnemyAnimation);
+	scr_enemy_animation();
 }
 else path_end();
 }
@@ -230,7 +230,7 @@ else path_end();
 //
 //
 //Tortoise Troll Hammer Slam
-function BossTortoiseTrollHammerSlam(){
+function scr_enemy_trollTortoise_hammerSlam(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -246,17 +246,17 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
 			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
 			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
-			entity_step = BossTortoiseTrollHammerLunge;
+			entity_step = scr_enemy_trollTortoise_hammerLunge;
 			animation_end = false;
 			timer2 = 12;
 			hor_spd = 0;
@@ -267,7 +267,7 @@ if (obj_game.gamePaused = false)
 		{
 			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
 			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
-			entity_step = BossTortoiseTrollJumpslam;
+			entity_step = scr_enemy_trollTortoise_jumpslam;
 			animation_end = false;
 			timer1 = 60;
 			timer2 = 40;
@@ -287,7 +287,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Troll Tortoise Hammer Lunge
-function BossTortoiseTrollHammerLunge(){
+function scr_enemy_trollTortoise_hammerLunge(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -303,7 +303,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 50 + (7 * enemy_lvl);
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 	
 	if (timer2 <= 0)
 	{
@@ -312,16 +312,16 @@ if (obj_game.gamePaused = false)
 		ver_spd = lengthdir_y(4,direction);
 	}
 	
-	var _collided = EnemyCollision();
+	var _collided = scr_enemy_collision();
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end) or (_collided = true)
 	{
 		speed = 0;
 		timer1 = 120;
 		timer2 = 120;
-		entity_step = BossTortoiseTrollHammerBackslam;
+		entity_step = scr_enemy_trollTortoise_hammerBackslam;
 		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
 		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 		direction = (point_direction(x,y,obj_player.x,obj_player.y));
@@ -335,7 +335,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Tortoise Troll Hammer Slam
-function BossTortoiseTrollHammerBackslam(){
+function scr_enemy_trollTortoise_hammerBackslam(){
 if (obj_game.gamePaused = false)
 {
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -351,10 +351,10 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 60;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end)
 	{
 		animation_end = false;
@@ -370,7 +370,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Troll Tortoise Hammer Jumpslam
-function BossTortoiseTrollJumpslam(){
+function scr_enemy_trollTortoise_jumpslam(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -389,7 +389,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 80;
 	//Cacluate Attack
-	EnemyAttackCalculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	if (timer3 > 0)
 	{
 		z = z + 1;
@@ -418,7 +418,7 @@ if (obj_game.gamePaused = false)
 		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
 		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 	}
-	var _collided = EnemyCollision();
+	var _collided = scr_enemy_collision();
 	if (_collided = true) or (timer1 < 0)
 	{
 		z = 0;
@@ -428,7 +428,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end) 
 	{
 		timer1 = 120;
@@ -445,7 +445,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Troll Tortoise Hammer Jumpslam
-function BossTortoiseTrollHammerMissileFire(){
+function scr_enemy_trollTortoise_hammerMissile(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -501,8 +501,8 @@ if (obj_game.gamePaused = false)
 		{
 			direction = other.direction;
 			image_angle = direction;
-			home_state = TrollTortoiseMissile;
-			timer1 = 180;
+			enemy_lvl = other.enemy_lvl;
+			home_state = scr_projectile_trollTortoise_missile;
 			timer2 = 30;
 			path = -1;
 			entity_step = home_state;
@@ -511,15 +511,15 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_trollTortoise_missile;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.5;
+			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45;
+			damage = 45 + (8 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
 		}
 	}
@@ -527,7 +527,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation();
+	scr_enemy_animation();
 	if (animation_end) 
 	{
 		timer1 = 15;
@@ -544,7 +544,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Troll Tortoise Hammer Blossom
-function BossTortoiseTrollHammerBlossom(){
+function scr_enemy_trollTortoise_hammerBlossom(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;
@@ -566,8 +566,9 @@ if (obj_game.gamePaused = false)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
+			enemy_lvl = other.enemy_lvl;
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
-			home_state = TrollTortoiseMound;
+			home_state = scr_projectile_trollTortoise_mound;
 			timer1 = 180;
 			timer2 = 0;
 			path = -1;
@@ -577,15 +578,15 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_enemy_tortoiseTroll_mound;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.25;
+			enemy_spd = 1.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55;
+			damage = 55 + (9 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
 			bullet = true;
-			hit_script = EntityHitDestroy;
+			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
 		}
 		timer1 = 29;
@@ -593,7 +594,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Animate
-	EnemyAnimation1();
+	scr_enemy_animation_one();
 	if (animation_end) 
 	{
 		timer1 = 120;
@@ -610,7 +611,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Troll Tortoise Drop
-function BossTortoiseTrollDrop(){
+function scr_enemy_trollTortoise_drop(){
 var _objects = 7;
 //var _dropBean = 250;
 var _drop1 = irandom_range(0,99)	
@@ -704,7 +705,7 @@ if (_drop2 >= 0)
 //
 //
 //Tortoise Troll Victory Text
-function TortoiseTrollVictoryText(){
+function scr_text_trollTortoise_victory(){
 
 draw_set_font(xfnt_text);
 draw_set_halign(fa_left)

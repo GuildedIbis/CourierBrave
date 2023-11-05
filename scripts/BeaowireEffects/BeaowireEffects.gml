@@ -76,7 +76,7 @@ else
 //
 //
 //Effect Beaowire Escort 
-function Escr_effect_beaowire_escort_charge(){
+function scr_effect_beaowire_escort_charge(){
 if (obj_game.gamePaused = false)
 {
 	if (escort_end = false)
