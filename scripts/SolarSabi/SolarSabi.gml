@@ -191,7 +191,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "Go then- nfind second then third whose lines make\nan arrow due West."
+		text_string = "Go then- find second then third whose lines make\nan arrow due West."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}

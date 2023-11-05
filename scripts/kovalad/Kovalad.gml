@@ -385,10 +385,6 @@ if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 		}
 	}
 }
-else
-{
-	draw_text_transformed(160,76,"SOLD",.75,.75,0);
-}
 //Button 2
 draw_set_halign(fa_left);
 draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);

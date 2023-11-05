@@ -47,7 +47,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "Fairez wouldn't stop rambling on about those red stones over\nby Habraf. Kept saying they must mean\nsomething, or do something.\nWouldn't be too suprised if she went and got herself lost." 
+	text_string = "Fairez wouldn't stop rambling on about those red stones over\nby Habraf. Kept saying they must mean something, or do\nsomething. Wouldn't be too suprised if she went and got herself lost." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 if (string_counter = 1)

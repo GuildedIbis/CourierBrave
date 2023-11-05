@@ -7,7 +7,7 @@ scr_game_room_enemy_create();
 scr_resource_grid_create();
 scr_game_activity_feed_create();
 
-version = "Version: 0.3.2.0"
+version = "Version: 0.3.3.0"
 menu_sprite = spr_menu;
 pause_menu = scr_menu_pause_main;
 home_menu = scr_menu_game_home;

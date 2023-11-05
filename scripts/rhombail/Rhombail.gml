@@ -293,7 +293,7 @@ if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 		if (obj_inventory.resource_array[1] >= 1)
 		{
 			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
-			obj_inventory.resource_arra[7] = obj_inventory.resource_arra[7] + 1;
+			obj_inventory.resource_array[7] = obj_inventory.resource_array[7] + 1;
 		}
 	}
 }

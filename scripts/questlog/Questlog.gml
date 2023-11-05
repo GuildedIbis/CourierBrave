@@ -327,11 +327,11 @@ switch(obj_inventory.quest_grid[# 6, 1])
 	break;
 	
 	case 3:
-		var _text = "Speak with the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+		var _text = "Speak with the second Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
 	break;
 	
 	case 4:
-		var _text = "Speak with the Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
+		var _text = "Speak with the third Solar Sabi.\n\nThey might look like a snake, but the\nSabi are as friendly as any other good\ncreature. They are celestial spirits,\nwho turn to stone at certain rotations\nof stars and planets.";
 	break;
 	
 	case 5:
