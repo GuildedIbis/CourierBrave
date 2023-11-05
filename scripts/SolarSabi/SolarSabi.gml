@@ -292,7 +292,7 @@ if (obj_inventory.quest_grid[# 6, 1] = 5)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "An enchantment, power of stars and crystals... a gift for Courier our friend."
+		text_string = "An enchantment, power of stars and crystals...\na gift for Courier our friend."
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 	}
@@ -303,16 +303,17 @@ if (obj_inventory.quest_grid[# 6, 1] = 5)
 		text_string = "Violine Enchantment Received!"
 		_SubString = string_copy(text_string,1,letter_counter);
 		draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-		obj_inventory.quest_grid[# 6, 0] = true;
-		obj_inventory.quest_grid[# 6, 1] = 6;
-		obj_inventory.quest_grid[# 6, 3] = true;
-		obj_inventory.crystal_enchant[3] = true;
+		
 	}
 	if (string_counter >= 3)
 	{
 		text_string = ""
 		string_counter = 0;
 		_SubString = string_copy(text_string,1,letter_counter);
+		obj_inventory.quest_grid[# 6, 0] = true;
+		obj_inventory.quest_grid[# 6, 1] = 6;
+		obj_inventory.quest_grid[# 6, 3] = true;
+		obj_inventory.crystal_enchant[3] = true;
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
 	

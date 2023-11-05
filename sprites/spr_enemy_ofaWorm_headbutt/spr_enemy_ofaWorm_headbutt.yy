@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_ofaWorm_headbutt",
   "bbox_bottom": 11,
-  "bbox_left": 3,
+  "bbox_left": 4,
   "bbox_right": 12,
   "bbox_top": 5,
   "bboxMode": 2,

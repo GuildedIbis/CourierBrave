@@ -178,61 +178,46 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 //Button 1
-if (obj_inventory.crystal_enchant[3] = false)
+draw_set_halign(fa_left);
+draw_text_transformed(124,76,"5 (" + string(obj_inventory.resource_array[6]) + ")",.5,.5,0);
+draw_sprite_ext(spr_resource_menu_all,6,142,66,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,76,">",.75,.75,0);
+draw_sprite_ext(spr_powerstone_menu_all,1,162,66,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.ps_array[1]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,76,"5 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,2,142,66,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,76,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crystal_enchant,4,162,66,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,76,"ENCHANTMENT",.35,.35,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
+	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
-		if (mouse_check_button_pressed(mb_left))
+		if (obj_inventory.resource_array[6] >= 5)
 		{
-			if (obj_inventory.rog_array[2] >= 5)
-			{
-				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 5;
-				obj_inventory.crystal_enchant[3] = true;
-			}
+			obj_inventory.resource_array[6] = obj_inventory.resource_array[6] - 5;
+			obj_inventory.ps_array[1] = obj_inventory.ps_array[1] + 1;
 		}
 	}
 }
-else
-{
-	draw_text_transformed(160,76,"SOLD",.75,.75,0);
-}
-
 //Button 2
-if (obj_inventory.crystal_enchant[7] = false)
+draw_set_halign(fa_left);
+draw_text_transformed(124,94,"1 (" + string(obj_inventory.rog_array[4]) + ")",.5,.5,0);
+draw_sprite_ext(spr_rog_menu_all,4,142,84,1,1,0,c_white,1);
+draw_set_halign(fa_center);
+draw_text_transformed(160,94,">",.75,.75,0);
+draw_sprite_ext(spr_rog_menu_all,2,162,84,1,1,0,c_white,1);
+draw_set_halign(fa_right);
+draw_text_transformed(196,94,"1 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
 {
-	draw_set_halign(fa_left);
-	draw_text_transformed(124,94,"5 (" + string(obj_inventory.rog_array[5]) + ")",.5,.5,0);
-	draw_sprite_ext(spr_rog_menu_all,5,142,84,1,1,0,c_white,1);
-	draw_set_halign(fa_center);
-	draw_text_transformed(160,94,">",.75,.75,0);
-	draw_sprite_ext(spr_menu_crystal_enchant,8,162,84,1,1,0,c_white,1);
-	draw_set_halign(fa_right);
-	draw_text_transformed(196,94,"ENCHANTMENT",.35,.35,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
-		if (mouse_check_button_pressed(mb_left))
+		if (obj_inventory.rog_array[4] >= 1)
 		{
-			if (obj_inventory.rog_array[5] >= 5)
-			{
-				obj_inventory.rog_array[5] = obj_inventory.rog_array[5] - 5;
-				obj_inventory.crystal_enchant[7] = true;
-			}
+			obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] + 1;
 		}
 	}
-}
-else
-{
-	draw_text_transformed(160,94,"SOLD",.75,.75,0);
 }
 
 //Button 3
@@ -293,67 +278,67 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 //Button 1
 draw_set_halign(fa_left);
-draw_text_transformed(124,76,"5 (" + string(obj_inventory.resource_array[6]) + ")",.5,.5,0);
-draw_sprite_ext(spr_resource_menu_all,6,142,66,1,1,0,c_white,1);
+draw_text_transformed(124,76,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+draw_sprite_ext(spr_resource_menu_all,1,142,66,1,1,0,c_white,1);
 draw_set_halign(fa_center);
 draw_text_transformed(160,76,">",.75,.75,0);
-draw_sprite_ext(spr_powerstone_all,1,162,66,1,1,0,c_white,1);
+draw_sprite_ext(spr_resource_menu_all,7,162,66,1,1,0,c_white,1);
 draw_set_halign(fa_right);
-draw_text_transformed(196,76,"1 (" + string(obj_inventory.ps_array[1]) + ")",.5,.5,0);
+draw_text_transformed(196,76,"1 (" + string(obj_inventory.resource_array[7]) + ")",.5,.5,0);
 if (point_in_rectangle(_mouseX,_mouseY,120,66,200,82))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,119,65,82,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.resource_array[6] >= 5)
+		if (obj_inventory.resource_array[1] >= 1)
 		{
-			obj_inventory.resource_array[6] = obj_inventory.resource_array[6] - 5;
-			obj_inventory.ps_array[1] = obj_inventory.ps_array[1] + 1;
+			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+			obj_inventory.resource_arra[7] = obj_inventory.resource_arra[7] + 1;
 		}
 	}
 }
 //Button 2
-draw_set_halign(fa_left);
-draw_text_transformed(124,94,"1 (" + string(obj_inventory.rog_array[4]) + ")",.5,.5,0);
-draw_sprite_ext(spr_rog_menu_all,4,142,84,1,1,0,c_white,1);
-draw_set_halign(fa_center);
-draw_text_transformed(160,94,">",.75,.75,0);
-draw_sprite_ext(spr_rog_menu_all,2,162,84,1,1,0,c_white,1);
-draw_set_halign(fa_right);
-draw_text_transformed(196,94,"1 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
-if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		if (obj_inventory.rog_array[4] >= 1)
-		{
-			obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
-			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] + 1;
-		}
-	}
-}
-//Button 3
-draw_set_halign(fa_left);
-draw_text_transformed(124,112,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
-draw_sprite_ext(spr_resource_menu_all,1,142,102,1,1,0,c_white,1);
-draw_set_halign(fa_center);
-draw_text_transformed(160,112,">",.75,.75,0);
-draw_sprite_ext(spr_resource_menu_all,7,162,102,1,1,0,c_white,1);
-draw_set_halign(fa_right);
-draw_text_transformed(196,112,"1 (" + string(obj_inventory.resource_array[7]) + ")",.5,.5,0);
-if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,119,101,82,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		if (obj_inventory.resource_array[1] >= 1)
-		{
-			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
-			obj_inventory.resource_array[7] = obj_inventory.resource_array[7] + 1;
-		}
-	}
-}
+//draw_set_halign(fa_left);
+//draw_text_transformed(124,94,"1 (" + string(obj_inventory.rog_array[4]) + ")",.5,.5,0);
+//draw_sprite_ext(spr_rog_menu_all,4,142,84,1,1,0,c_white,1);
+//draw_set_halign(fa_center);
+//draw_text_transformed(160,94,">",.75,.75,0);
+//draw_sprite_ext(spr_rog_menu_all,2,162,84,1,1,0,c_white,1);
+//draw_set_halign(fa_right);
+//draw_text_transformed(196,94,"1 (" + string(obj_inventory.rog_array[2]) + ")",.5,.5,0);
+//if (point_in_rectangle(_mouseX,_mouseY,120,84,200,100))
+//{
+//	draw_sprite_stretched(spr_highlight_circle,0,119,83,82,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		if (obj_inventory.rog_array[4] >= 1)
+//		{
+//			obj_inventory.rog_array[4] = obj_inventory.rog_array[4] - 1;
+//			obj_inventory.rog_array[2] = obj_inventory.rog_array[2] + 1;
+//		}
+//	}
+//}
+////Button 3
+//draw_set_halign(fa_left);
+//draw_text_transformed(124,112,"1 (" + string(obj_inventory.resource_array[1]) + ")",.5,.5,0);
+//draw_sprite_ext(spr_resource_menu_all,1,142,102,1,1,0,c_white,1);
+//draw_set_halign(fa_center);
+//draw_text_transformed(160,112,">",.75,.75,0);
+//draw_sprite_ext(spr_resource_menu_all,7,162,102,1,1,0,c_white,1);
+//draw_set_halign(fa_right);
+//draw_text_transformed(196,112,"1 (" + string(obj_inventory.resource_array[7]) + ")",.5,.5,0);
+//if (point_in_rectangle(_mouseX,_mouseY,120,102,200,118))
+//{
+//	draw_sprite_stretched(spr_highlight_circle,0,119,101,82,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		if (obj_inventory.resource_array[1] >= 1)
+//		{
+//			obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
+//			obj_inventory.resource_array[7] = obj_inventory.resource_array[7] + 1;
+//		}
+//	}
+//}
 //Button 4
 //draw_set_halign(fa_left);
 //draw_text_transformed(124,130,"1 (" + string(obj_inventory.ps_array[1]) + ")",.5,.5,0);

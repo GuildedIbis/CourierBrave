@@ -91,7 +91,7 @@ if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
 				targeted = true;
 				break_object = obj_break;
 			}
-			spawn_timer = 180;
+			spawn_timer = 240;
 		}
 	}
 }
