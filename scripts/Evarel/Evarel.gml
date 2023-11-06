@@ -262,7 +262,7 @@ var _collided = scr_player_collision();
 if (_collided = true)
 {
 	state_script = free_state;
-	ScreenShake(4,15);
+	scr_camera_screen_shake(4,15);
 }
 
 //Calcuate Hit Entitites

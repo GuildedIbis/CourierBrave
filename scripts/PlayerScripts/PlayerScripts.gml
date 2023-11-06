@@ -571,11 +571,13 @@ with (obj_player)
 	orange_primary  = max_charge;
 	purple_primary  = max_charge;
 	blue_primary  = max_charge;
+	green_primary = max_charge
 	red_primary  = max_charge;
 	yellow_special = max_charge;
 	orange_special = max_charge;
 	purple_special = max_charge;
 	blue_special = max_charge;
+	green_special = max_charge;
 	red_special = max_charge;
 	for (var i = 0; i < 11; i = i + 1)
 	{
