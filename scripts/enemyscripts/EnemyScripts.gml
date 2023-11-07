@@ -204,10 +204,11 @@ if (hor_spd != 0) or (ver_spd != 0)
 //
 //
 //
-//
-//Wander Home
+//Wander Home with Collision
 function scr_enemy_wander_home(_moveDelay,_moveLength,_homeX,_homeY){
-	
+var _collision = false;
+var _entityList = ds_list_create();
+
 //Direction
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer2 <= 0)
@@ -217,29 +218,75 @@ if (timer2 <= 0)
 	timer2 = _moveLength + irandom_range(-15,15);
 	timer1 = _moveDelay + irandom_range(-15,15);
 }
-
-//Animation
+//Movement
 if (hor_spd != 0) or (ver_spd != 0) 
 {
 	var _xDest = x + (hor_spd * (enemy_spd/2))
 	var _yDest = y + (ver_spd * (enemy_spd/2))
-	if (place_meeting(_xDest, _yDest,obj_entity)) or (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
+	if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
 	{
 		hor_spd = -hor_spd;
 		ver_spd = -ver_spd;
-		//sprite_index = enemy_idle;
 	}
 	direction = point_direction(x,y,_xDest,_yDest);
-	scr_enemy_collision();
 	image_speed = 1;
 	sprite_index = enemy_move;
-	//if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
-	//{
-	
-		
-	//}
-
 }
+
+//Horizontal Entities
+var _entityCount = instance_position_list(x+hor_spd, y, obj_entity, _entityList,false);
+var _snapX;
+while (_entityCount > 0)
+{
+	var _entityCheck = _entityList[| 0];
+	if (_entityCheck.collision == true)
+	{
+		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right+1;
+		else _snapX = _entityCheck.bbox_left - 1;
+		x = _snapX;
+		hor_spd = -hor_spd;
+		ver_spd = -ver_spd;
+		_collision = true;
+		_entityCount = 0;
+	}
+	ds_list_delete(_entityList,0);
+	_entityCount = _entityCount - 1;
+}
+
+
+//Horizontal Move
+x += hor_spd;
+
+//Clear List Between Axis
+ds_list_clear(_entityList);
+
+
+//Vertical Entity Collision
+var _entityCount = instance_position_list(x, y + ver_spd, obj_entity, _entityList,false);
+var _snapY;
+while (_entityCount > 0)
+{
+	var _entityCheck = _entityList[| 0];
+	if (_entityCheck.collision == true)
+	{
+		if (sign(ver_spd) == -1) _snapY = _entityCheck.bbox_bottom+1;
+		else _snapY = _entityCheck.bbox_top - 1;
+		y = _snapY;
+		hor_spd = -hor_spd;
+		ver_spd = -ver_spd;
+		_collision = true;
+		_entityCount = 0;
+	}
+	ds_list_delete(_entityList,0);
+	_entityCount = _entityCount - 1;
+}
+
+//Vertical Move
+y += ver_spd;
+
+ds_list_destroy(_entityList);
+
+return _collision;
 }
 //
 //

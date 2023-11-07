@@ -31,7 +31,8 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 1;
-max_hp = 190 + (95 * enemy_lvl);
+drop_amount = 30;
+max_hp = 420 + (210 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 local_frame = 0;
@@ -65,25 +66,17 @@ if (obj_game.gamePaused = false)
 	if (targeted = false)
 	{
 		lit = false;
-		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		if (timer1 <= 0)
+		{
+			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
+		}
+		else sprite_index = enemy_idle;
+		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
-		//if (point_in_circle(obj_escort.x,obj_escort.y,x,y,192)) and (!collision_line(x,y,obj_escort.x,obj_escort.y,obj_wall,false,false))
-		//{
-		//	script_execute(EnemyChaseEscort);
-		//}
-		//else
-		//{
-		//	script_execute(EnemyChaseCustom);
-		//}
-		//if (point_in_rectangle(obj_escort.x,obj_escort.y,x-12,y-12,x+12,y+12))
-		//{
-		//	path_end();
-		//	sprite_index = enemy_idle;
-		//}
 	}
 	if (aggro_drop <= 0)
 	{
@@ -92,8 +85,9 @@ if (obj_game.gamePaused = false)
 		path_end();
 		aggro_drop = 300;
 		targeted = false;
+		home_x = x;
+		home_y = y;
 		global.aggroCounter = global.aggroCounter - 1;
-		global.bossCounter = global.bossCounter - 1;
 	}
 	
 
@@ -502,18 +496,11 @@ var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
 
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
-	image_index = other.form_type;
+	image_index = obj_player.form_type;
 	image_speed = 0;
 	direction = (360/_objects * 2) + _angle;
 	image_angle = direction;
@@ -521,7 +508,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;
@@ -529,11 +516,11 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 10)//Form Specific Rog Stone
+if (_drop1 < 15)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = other.form_type;
+		item_id = obj_player.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = (360/_objects * 4) + _angle;
@@ -541,7 +528,7 @@ if (_drop1 < 10)//Form Specific Rog Stone
 	}
 	
 }
-if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
+if (_drop1 >= 15) and (_drop1 < 30)//Random Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
@@ -553,7 +540,7 @@ if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
 	}
 	
 }
-if (_drop2 < 10)
+if (_drop2 < 15)
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemPS))
 	{
@@ -564,8 +551,6 @@ if (_drop2 < 10)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-//obj_inventory.beaowire_dungeon[2] = 1;
 
 }
 

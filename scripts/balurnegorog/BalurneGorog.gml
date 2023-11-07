@@ -83,6 +83,8 @@ if (obj_game.gamePaused = false)
 		home_y = y;
 		aggro_drop = 300;
 		targeted = false;
+		home_x = x;
+		home_y = y;
 		global.aggroCounter = global.aggroCounter - 1;
 	}
 	

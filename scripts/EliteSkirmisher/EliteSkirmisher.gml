@@ -29,7 +29,8 @@ image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 0;
-max_hp = 100 + (50 * enemy_lvl);
+drop_amount = 10;
+max_hp = 130 + (65 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 local_frame = 0;
@@ -62,7 +63,7 @@ if (obj_game.gamePaused = false)
 		lit = false;
 		if (timer1 <= 0)
 		{
-			scr_enemy_wander(60,180); //Data Leak if not radius restricted
+			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
 		}
 		else sprite_index = enemy_idle;
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
@@ -81,6 +82,8 @@ if (obj_game.gamePaused = false)
 		path_end();
 		aggro_drop = 300;
 		targeted = false;
+		home_x = x;
+		home_y = y;
 		global.aggroCounter = global.aggroCounter - 1;
 	}
 	
@@ -206,6 +209,11 @@ if (obj_game.gamePaused = false)
 	
 	var _collided = scr_enemy_collision();
 	
+	if (_collided = true)
+	{
+		hor_spd = 0;
+		ver_spd = 0;
+	}
 
 
 	//Animate
@@ -245,18 +253,11 @@ var _drop1 = irandom_range(0,99)
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
-	image_index = other.form_type;
+	image_index = obj_player.form_type;
 	image_speed = 0;
 	direction = (360/_objects * 2) + _angle;
 	image_angle = direction;
@@ -264,7 +265,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
-	drop_amount = 10;
+	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
 	image_speed = 0;
@@ -276,7 +277,7 @@ if (_drop1 < 5)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = other.form_type;
+		item_id = obj_player.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = (360/_objects * 4) + _angle;
@@ -307,9 +308,6 @@ if (_drop2 < 5)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
-
-
 }
 
 

@@ -305,6 +305,7 @@
     {"id":{"name":"spr_hitbox_acolyte_special","path":"sprites/spr_hitbox_acolyte_special/spr_hitbox_acolyte_special.yy",},},
     {"id":{"name":"spr_spiritGuide_meteor36","path":"sprites/spr_spiritGuide_meteor36/spr_spiritGuide_meteor36.yy",},},
     {"id":{"name":"rm_lenko_yakflowerPath_15","path":"rooms/rm_lenko_yakflowerPath_15/rm_lenko_yakflowerPath_15.yy",},},
+    {"id":{"name":"spr_enemy_uldon_idle","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},
     {"id":{"name":"spr_enemy_eliteSkirmisher_idle","path":"sprites/spr_enemy_eliteSkirmisher_idle/spr_enemy_eliteSkirmisher_idle.yy",},},
     {"id":{"name":"obj_effect_treeLenko","path":"objects/obj_effect_treeLenko/obj_effect_treeLenko.yy",},},
     {"id":{"name":"spr_enemy_gorogE_heavySlash_A","path":"sprites/spr_enemy_gorogE_heavySlash_A/spr_enemy_gorogE_heavySlash_A.yy",},},

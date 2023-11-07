@@ -85,6 +85,8 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 			path_end();
 			aggro_drop = 300;
 			targeted = false;
+			home_x = x;
+			home_y = y;
 			global.aggroCounter = global.aggroCounter - 1;
 		}
 	}

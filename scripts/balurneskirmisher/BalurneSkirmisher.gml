@@ -103,6 +103,8 @@ if (obj_game.gamePaused = false)
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
+			home_x = x;
+			home_y = y;
 		}
 	}
 	

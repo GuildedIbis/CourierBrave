@@ -84,6 +84,8 @@ if (obj_game.gamePaused = false)
 		path_end();
 		aggro_drop = 300;
 		targeted = false;
+		home_x = x;
+		home_y = y;
 		global.aggroCounter = global.aggroCounter - 1;
 		//global.bossCounter = global.bossCounter - 1;
 	}

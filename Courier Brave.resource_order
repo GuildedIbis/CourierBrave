@@ -254,6 +254,7 @@
     {"name":"spr_hitbox_acolyte_special","order":10,"path":"sprites/spr_hitbox_acolyte_special/spr_hitbox_acolyte_special.yy",},
     {"name":"spr_spiritGuide_meteor36","order":4,"path":"sprites/spr_spiritGuide_meteor36/spr_spiritGuide_meteor36.yy",},
     {"name":"rm_lenko_yakflowerPath_15","order":22,"path":"rooms/rm_lenko_yakflowerPath_15/rm_lenko_yakflowerPath_15.yy",},
+    {"name":"spr_enemy_uldon_idle","order":23,"path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},
     {"name":"spr_enemy_eliteSkirmisher_idle","order":5,"path":"sprites/spr_enemy_eliteSkirmisher_idle/spr_enemy_eliteSkirmisher_idle.yy",},
     {"name":"obj_effect_treeLenko","order":4,"path":"objects/obj_effect_treeLenko/obj_effect_treeLenko.yy",},
     {"name":"spr_enemy_gorogE_heavySlash_A","order":4,"path":"sprites/spr_enemy_gorogE_heavySlash_A/spr_enemy_gorogE_heavySlash_A.yy",},
