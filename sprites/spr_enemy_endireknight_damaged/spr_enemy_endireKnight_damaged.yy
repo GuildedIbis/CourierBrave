@@ -4,7 +4,7 @@
   "name": "spr_enemy_endireKnight_damaged",
   "bbox_bottom": 19,
   "bbox_left": 9,
-  "bbox_right": 13,
+  "bbox_right": 15,
   "bbox_top": 13,
   "bboxMode": 2,
   "collisionKind": 1,

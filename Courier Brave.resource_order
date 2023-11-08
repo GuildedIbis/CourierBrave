@@ -1219,7 +1219,6 @@
     {"name":"snd_text03","order":5,"path":"sounds/snd_text03/snd_text03.yy",},
     {"name":"xStorage","order":4,"path":"scripts/xStorage/xStorage.yy",},
     {"name":"spr_player_adavio_runCast_ultimate","order":14,"path":"sprites/spr_player_adavio_runCast_ultimate/spr_player_adavio_runCast_ultimate.yy",},
-    {"name":"spr_enemy_bossZerwerk_tailSpike","order":2,"path":"sprites/spr_enemy_bossZerwerk_tailSpike/spr_enemy_bossZerwerk_tailSpike.yy",},
     {"name":"spr_stamina_hud","order":14,"path":"sprites/spr_stamina_hud/spr_stamina_hud.yy",},
     {"name":"LilyPod","order":10,"path":"scripts/LilyPod/LilyPod.yy",},
     {"name":"spr_boss_deepwitsFaces","order":14,"path":"sprites/spr_boss_deepwitsFaces/spr_boss_deepwitsFaces.yy",},

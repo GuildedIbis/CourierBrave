@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_acolyte_escape",
   "bbox_bottom": 16,
-  "bbox_left": 7,
+  "bbox_left": 6,
   "bbox_right": 12,
   "bbox_top": 10,
   "bboxMode": 2,

@@ -1385,7 +1385,6 @@
     {"id":{"name":"spr_enemy_knifeLily","path":"sprites/spr_enemy_knifeLily/spr_enemy_knifeLily.yy",},},
     {"id":{"name":"xStorage","path":"scripts/xStorage/xStorage.yy",},},
     {"id":{"name":"spr_player_adavio_runCast_ultimate","path":"sprites/spr_player_adavio_runCast_ultimate/spr_player_adavio_runCast_ultimate.yy",},},
-    {"id":{"name":"spr_enemy_bossZerwerk_tailSpike","path":"sprites/spr_enemy_bossZerwerk_tailSpike/spr_enemy_bossZerwerk_tailSpike.yy",},},
     {"id":{"name":"spr_stamina_hud","path":"sprites/spr_stamina_hud/spr_stamina_hud.yy",},},
     {"id":{"name":"LilyPod","path":"scripts/LilyPod/LilyPod.yy",},},
     {"id":{"name":"spr_armor_menu_proto","path":"sprites/spr_armor_menu_proto/spr_armor_menu_proto.yy",},},

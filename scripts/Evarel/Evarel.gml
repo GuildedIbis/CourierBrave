@@ -15,8 +15,8 @@ idle_sprite = spr_player_evarel_idle;
 roll_sprite = spr_player_evarel_roll;
 crystal_sprite = spr_player_evarel_crystal;
 arm_sprite = spr_player_evarel_castArm;
-magicP_script = scr_player_evarel_bristlerod;
-magicA_script = scr_player_evarel_flexthorn;
+magicP_script = scr_player_evarel_flexthorn;
+magicA_script = scr_player_evarel_bristlerod;
 magic_primary = true;
 obj_cursor.curs_script = scr_cursor_evarel;
 
@@ -126,15 +126,15 @@ if (key_attackM)
 	{
 		if (magic_primary = true) and (green_primary >= 15)
 		{
-			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
-			audio_play_sound(snd_evarel_bristlerod,0,0);
-			magic_timer = 60;
+			attack_counter = 0;
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (green_primary >= 15)
 		{
-			attack_counter = 0;
+			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
+			audio_play_sound(snd_evarel_bristlerod,0,0);
+			magic_timer = 60;
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
 		}
@@ -505,7 +505,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragPlant;
-		timer1 = 120;
+		timer1 = 60;
 		damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
 		projectile_sprite = spr_evarel_reflexthorn;
 		projectile_script = scr_projectile_flexthorn;

@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_acolyte_special",
   "bbox_bottom": 25,
-  "bbox_left": 16,
+  "bbox_left": 15,
   "bbox_right": 21,
   "bbox_top": 19,
   "bboxMode": 2,

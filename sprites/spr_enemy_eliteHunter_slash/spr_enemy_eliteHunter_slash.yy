@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_enemy_eliteHunter_slash",
   "bbox_bottom": 23,
-  "bbox_left": 14,
+  "bbox_left": 13,
   "bbox_right": 19,
   "bbox_top": 17,
   "bboxMode": 2,
