@@ -281,7 +281,7 @@ if (obj_inventory.beaowire_dungeon[10] >= 2)
 //
 //
 //Effect Habraf Lake Door Room 14
-function scr_effect_beaowire_door_stone(){
+function scr_effect_door_beaowire_stone(){
 frag = false
 image_speed = 0;
 depth = -y;

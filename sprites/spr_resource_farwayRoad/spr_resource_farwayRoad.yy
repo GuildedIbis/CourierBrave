@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Items",
-    "path": "folders/Sprites/Effects/Items.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Entity/Interactables/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

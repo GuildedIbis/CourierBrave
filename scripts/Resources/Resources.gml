@@ -3,6 +3,57 @@
 //
 //
 //
+//Standard Resource Create
+function scr_resource_create(){
+image_speed = 0;
+sprite_index = spr_resource_all;
+destroyed = true;
+passable = true;
+if (resource_grid[# obj_game.room_num, activate_args] != -1)
+{
+	resource_id = resource_grid[# obj_game.room_num, activate_args];
+	image_index = resource_grid[# obj_game.room_num, activate_args];
+}
+if (resource_grid[# obj_game.room_num, activate_args] = -1)
+{
+	destroyed = false;
+	instance_destroy();
+}
+shadow = true;
+shadow_size = 0;
+
+}
+//
+//
+//
+//
+//
+//Contained Resource Create
+function scr_resource_container_create(){
+image_speed = 0;
+sprite_index = spr_resource_container_all;
+
+destroyed = true;
+passable = true;
+if (resource_grid[# obj_game.room_num, activate_args] != -1)
+{
+	resource_id = resource_grid[# obj_game.room_num, activate_args];
+	image_index = resource_grid[# obj_game.room_num, activate_args];
+}
+if (resource_grid[# obj_game.room_num, activate_args] = -1)
+{
+	destroyed = false;
+	instance_destroy();
+}
+shadow = true;
+shadow_size = 0;
+
+}
+//
+//
+//
+//
+//
 //Room Enemies
 function scr_resource_grid_create(){
 //The (i) value represents the room, the (j) value represents the individual resource id.
@@ -109,7 +160,7 @@ for (var g = 0; g < 20; g = g + 1)
 			}
 			if (_resID >= 55) and (_resID < 90)
 			{
-				obj_game.beaowireFortress_resource_grid[# g, h] = 6;
+				obj_game.beaowireFortress_resource_grid[# g, h] = 0;
 			}
 			if (_resID >= 90)
 			{
@@ -118,7 +169,7 @@ for (var g = 0; g < 20; g = g + 1)
 		}
 		else
 		{
-			obj_game.habrafLake_resource_grid[# g, h] = -1;
+			obj_game.beaowireFortress_resource_grid[# g, h] = -1;
 		}
 	}
 }
@@ -271,7 +322,7 @@ for (var g = 0; g < 20; g = g + 1)
 		}
 		else
 		{
-			obj_game.habrafLake_resource_grid[# g, h] = -1;
+			obj_game.beaowireFortress_resource_grid[# g, h] = -1;
 		}
 	}
 }
