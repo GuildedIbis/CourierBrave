@@ -233,7 +233,10 @@ if (_hits > 0)
 			ds_list_add(hit_by_attack,_hitID);
 			with (_hitID)
 			{
-				instance_destroy();
+				if (invincible = false)
+				{
+					instance_destroy();
+				}
 			}
 		}
 		

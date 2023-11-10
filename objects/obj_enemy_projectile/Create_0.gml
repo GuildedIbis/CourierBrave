@@ -9,5 +9,6 @@ if (entity_create != -1) script_execute(entity_create);
 shadow_sprite = -1;
 shadow = false;
 
+
 //Status Effects
 scr_entity_status_effects();

@@ -154,13 +154,13 @@ if (key_attackS) and (green_special >= 40)
 
 
 //Roll State
-if (key_ability)// and (stamina >= 50)
+if (key_ability) and (stamina >= 50)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		//stamina = stamina - 50;
+		stamina = stamina - 50;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}

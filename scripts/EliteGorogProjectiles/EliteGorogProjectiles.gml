@@ -72,7 +72,7 @@ function scr_projectile_gorogElite_chainHook_create(){
 home_state = scr_projectile_gorogElite_chainHook_free;
 entity_step = home_state;
 entity_drop = Idle;
-invincible = false;
+invincible = true;
 contacted = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_gorogE_chainHook;
@@ -99,6 +99,8 @@ if (obj_game.gamePaused = false)
 timer1 = timer1 - 1;
 sprite_index = enemy_move;
 speed = enemy_spd;
+invincible = true;
+inv_dur_timer = 60;
 if (contacted = true)
 {
 	with (parent)

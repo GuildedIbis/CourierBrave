@@ -374,6 +374,8 @@ if (obj_game.gamePaused = false)
 //
 //Gorog Reposition
 function scr_enemy_balurne_gorog_reposition(){
+if (obj_game.gamePaused = false)
+{
 //Timer
 
 if (timer1 > 0) timer1 = timer1 - 1;
@@ -424,6 +426,8 @@ if (timer1 <= 0)
 	entity_step = home_state;
 	sprite_index = enemy_idle;
 }
+}
+else speed = 0;
 }
 //
 //

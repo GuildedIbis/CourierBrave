@@ -234,8 +234,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end) or (_collided = true)
 	{
 		speed = 0;
-		//timer1 = 120;
-		timer2 = 600;
+		sprite_index = enemy_idle;
+		timer2 = 300;
 		timerC = 60;
 		hor_spd = irandom_range(-1,1);
 		ver_spd = irandom_range(-1,1);
@@ -256,6 +256,8 @@ if (obj_game.gamePaused = false)
 //
 //Gorog Reposition
 function scr_enemy_skirmisherElite_reposition(){
+if (obj_game.gamePaused = false)
+{
 //Timer
 timerC = timerC - 1;
 
@@ -304,6 +306,8 @@ if (timerC <= 0)
 	entity_step = home_state;
 	sprite_index = enemy_idle;
 }
+}
+else speed = 0;
 }
 //
 //
