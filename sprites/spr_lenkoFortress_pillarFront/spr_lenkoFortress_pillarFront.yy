@@ -49,8 +49,8 @@
   },
   "origin": 9,
   "parent": {
-    "name": "zOtherAll",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/zOtherAll.yy",
+    "name": "BeaowireEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

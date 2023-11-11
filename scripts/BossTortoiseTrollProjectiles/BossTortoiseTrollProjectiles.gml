@@ -25,11 +25,13 @@ if (timer2 <= 0)
 {
 	audio_sound_gain(snd_tortoiseTroll_mound_move,global.volumeEffects,1);
 	audio_play_sound(snd_tortoiseTroll_mound_move,0,false);
-	timer2 = 30;
+	timer2 = 60;
 }
 //Collision		
-if (place_meeting(x,y,obj_player))
+if (point_in_circle(obj_player.x,obj_player.y,x,y,8)) or (timer1 <= 0)
 {
+	speed = 0;
+	path_end()
 	audio_sound_gain(snd_tortoiseTroll_blossom,global.volumeEffects,1);
 	audio_play_sound(snd_tortoiseTroll_blossom,0,false);
 	entity_step = scr_projectile_trollTortoise_blossom;

@@ -169,9 +169,12 @@
     {"name":"inst_41DC96EA_1","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_5FC51A37_1","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_3EE2A7AD","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
-    {"name":"inst_611BF2F3","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_426D489F","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_F181FD2","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
+    {"name":"inst_4F9C884B","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
+    {"name":"inst_5450C4D1","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
+    {"name":"inst_75A369DA","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
+    {"name":"inst_829FC87","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -232,13 +235,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"altar_num","path":"objects/obj_door/obj_door.yy",},"value":"17",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_altar","path":"objects/obj_door/obj_door.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":352.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_611BF2F3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"NecromancerCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"NecromancerScene1Text",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":232.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_426D489F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"BossTortoiseTrollCreate",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_trollTortoise_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"enemy_lvl","path":"objects/obj_enemy/obj_enemy.yy",},"value":"2",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":144.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F181FD2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_beaowire_09",},
@@ -709,6 +709,18 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5FC51A37_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeJelx","path":"objects/obj_effect_treeJelx/obj_effect_treeJelx.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":16.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F9C884B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"propertyId":{"name":"pos","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"value":"1",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":355.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5450C4D1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"propertyId":{"name":"pos","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"value":"0",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":355.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_75A369DA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"propertyId":{"name":"pos","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"value":"1",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":355.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_829FC87","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_lenkoFortress_pillars","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"propertyId":{"name":"pos","path":"objects/obj_effect_lenkoFortress_pillars/obj_effect_lenkoFortress_pillars.yy",},"value":"0",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":248.0,"y":355.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_38060BE1_1_1_1_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_stair1","path":"objects/obj_stair1/obj_stair1.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":4.0,"x":8.0,"y":112.0,},

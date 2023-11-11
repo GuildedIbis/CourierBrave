@@ -527,7 +527,7 @@
     {"name":"snd_npc_emissary_scene_01","order":7,"path":"sounds/snd_npc_emissary_scene_01/snd_npc_emissary_scene_01.yy",},
     {"name":"spr_enemy_voidCast","order":13,"path":"sprites/spr_enemy_voidCast/spr_enemy_voidCast.yy",},
     {"name":"spr_enemy_folioBulb_rootRise1_hitbox","order":4,"path":"sprites/spr_enemy_folioBulb_rootRise1_hitbox/spr_enemy_folioBulb_rootRise1_hitbox.yy",},
-    {"name":"spr_lenkoFortress_pillarFront","order":3,"path":"sprites/spr_lenkoFortress_pillarFront/spr_lenkoFortress_pillarFront.yy",},
+    {"name":"spr_lenkoFortress_pillarFront","order":19,"path":"sprites/spr_lenkoFortress_pillarFront/spr_lenkoFortress_pillarFront.yy",},
     {"name":"rm_lenko_farwayRoad_14","order":13,"path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"rm_lenko_yakflowerPath_10","order":18,"path":"rooms/rm_lenko_yakflowerPath_10/rm_lenko_yakflowerPath_10.yy",},
     {"name":"spr_aspects_icons","order":1,"path":"sprites/spr_aspects_icons/spr_aspects_icons.yy",},
