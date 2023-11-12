@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_door_questCeriver",
+  "name": "spr_door_beaowire_emeraldLock_open",
   "bbox_bottom": 31,
   "bbox_left": 18,
   "bbox_right": 29,
@@ -15,16 +15,16 @@
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bd5776a2-b0fd-4604-bf80-d07c57323183",},
   ],
-  "gridX": 0,
-  "gridY": 0,
-  "height": 34,
+  "gridX": 8,
+  "gridY": 8,
+  "height": 32,
   "HTile": false,
   "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":false,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"071fe797-3e31-4537-8985-26f0fb5af661","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 9,
+  "origin": 7,
   "parent": {
     "name": "BeaowireEffects",
     "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
@@ -33,7 +33,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_door_questCeriver",
+    "name": "spr_door_beaowire_emeraldLock_open",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -55,13 +55,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bd5776a2-b0fd-4604-bf80-d07c57323183","path":"sprites/spr_door_questCeriver/spr_door_questCeriver.yy",},},},"Disabled":false,"id":"12da15ac-1a55-4bbf-aa18-92aca8a6e1bd","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bd5776a2-b0fd-4604-bf80-d07c57323183","path":"sprites/spr_door_beaowire_emeraldLock_open/spr_door_beaowire_emeraldLock_open.yy",},},},"Disabled":false,"id":"42986bbd-3939-427c-a432-a639b00a6489","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 25,
-    "yorigin": 33,
+    "xorigin": 24,
+    "yorigin": 32,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -71,5 +71,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 50,
+  "width": 48,
 }

@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_door_questCeriver",
-    "path": "sprites/spr_door_questCeriver/spr_door_questCeriver.yy",
+    "name": "spr_door_beaowire_stone",
+    "path": "sprites/spr_door_beaowire_stone/spr_door_beaowire_stone.yy",
   },
   "spriteMaskId": null,
   "visible": true,

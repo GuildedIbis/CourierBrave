@@ -280,7 +280,7 @@ if (obj_inventory.beaowire_dungeon[10] >= 2)
 //
 //
 //
-//Effect Habraf Lake Door Room 14
+//Effect Habraf Lake Door Room 11
 function scr_effect_door_beaowire_stone(){
 frag = false
 image_speed = 0;
@@ -288,12 +288,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.quest_grid[# 18, 1] < 2)
+if (obj_inventory.beaowireFortress_map_ary[11][3] < 1)
 {
 	sprite_index = spr_door_beaowire_stone;
 
 }
-if (obj_inventory.quest_grid[# 18, 1] >= 2)
+if (obj_inventory.beaowireFortress_map_ary[11][3] >= 1)
 {
 	sprite_index = spr_door_beaowire_stone_open;
 	with (obj_wall)
@@ -313,7 +313,44 @@ if (obj_inventory.quest_grid[# 18, 1] >= 2)
 }
 
 }
+//
+//
+//
+//
+//
+//Effect Habraf Lake Door Room 11
+function scr_effect_door_beaowire_emeraldLock(){
+frag = false
+image_speed = 0;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
 
+if (obj_inventory.quest_grid[# 15, 1] < 2)
+{
+	sprite_index = spr_door_beaowire_emeraldLock;
+
+}
+if (obj_inventory.quest_grid[# 15, 1] >= 2)
+{
+	sprite_index = spr_door_beaowire_emeraldLock_open;
+	with (obj_wall)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+	with (break_object)
+	{
+		if (place_meeting(x,y,other))
+		{
+			instance_destroy(self);
+		}
+	}
+}
+
+}
 //
 //
 //

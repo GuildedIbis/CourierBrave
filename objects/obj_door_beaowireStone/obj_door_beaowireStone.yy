@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_door_beaowire_stone",
-    "path": "sprites/spr_door_beaowire_stone/spr_door_beaowire_stone.yy",
+    "name": "spr_door_beaowire_emeraldLock",
+    "path": "sprites/spr_door_beaowire_emeraldLock/spr_door_beaowire_emeraldLock.yy",
   },
   "spriteMaskId": null,
   "visible": true,
