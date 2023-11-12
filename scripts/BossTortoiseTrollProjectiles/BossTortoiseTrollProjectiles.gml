@@ -43,6 +43,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,8)) or (timer1 <= 0)
 else
 {
 	speed = 0;
+	path_end();
 }
 }
 //
@@ -81,7 +82,7 @@ if (timer1 <= 0)
 			enemy_move = spr_enemy_tortoiseTroll_blossomOrb;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 3;
+			enemy_spd = 2.25;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 70;
@@ -274,14 +275,14 @@ function scr_projectile_trollTortoise_spikedVine_create(){
 home_state = scr_projectile_trollTortoise_spikedVine_free;
 entity_step = home_state;
 entity_drop = Idle;
-invincible = false;
+invincible = true;
 contacted = false;
-inv_dur_timer = 0;
+inv_dur_timer = 5;
 enemy_move = spr_tortoiseTroll_spikedVine;
 aggro_drop = 300;
 healthbar = false;
 bullet = true;
-enemy_spd = 2.5;
+enemy_spd = 2.0;
 timer1 = 45;
 local_frame = 0;
 hit_by_attack = -1;
@@ -299,6 +300,8 @@ function scr_projectile_trollTortoise_spikedVine_free(){
 if (obj_game.gamePaused = false)
 {
 timer1 = timer1 - 1;
+invincible = true;
+inv_dur_timer = 5;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (contacted = true)

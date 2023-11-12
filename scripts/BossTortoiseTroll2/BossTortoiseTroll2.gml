@@ -102,15 +102,14 @@ if (obj_game.gamePaused = false)
 				case 0:
 					path_end();
 					sprite_index = enemy_idle;
-					timer1 = 20;
+					timer2 = 20;
 					entity_step = scr_enemy_trollTortoise_hammerMissile2;
 				break;
 				
 				case 1:
 					path_end();
 					sprite_index = enemy_idle;
-					timer1 = 14;
-					timer2 = 90;
+					timer2 = 14;
 					entity_step = scr_enemy_trollTortoise_hammerBlossom2;
 				break;
 				
@@ -118,9 +117,9 @@ if (obj_game.gamePaused = false)
 					path_end();
 					sprite_index = enemy_idle;
 					image_index = 0;
-					audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
-					audio_play_sound(snd_tortoiseTroll_hammer,0,false);
-					timer2 = 45;
+					audio_sound_gain(snd_tortoiseTroll_vineToss,global.volumeEffects,1);
+					audio_play_sound(snd_tortoiseTroll_vineToss,0,false);
+					timer2 = 60;
 					entity_step = scr_enemy_trollTortoise_vineToss2;
 				break;
 			}
@@ -407,6 +406,8 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{	
+		timer2 = 390;
+		timerC = 210;
 		attack_counter = 0;
 		entity_step = scr_enemy_trollTortoise_vineToss2_wait;
 		animation_end = false;
@@ -499,11 +500,11 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Launch Missles
-	if (timer1 <= 0)
+	if (timer2 <= 0)
 	{
 		audio_sound_gain(snd_tortoiseTroll_missiles,global.volumeEffects,1);
 		audio_play_sound(snd_tortoiseTroll_missiles,0,false);
-		timer1 = 10;
+		timer2 = 10;
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
 		{
 			enemy_lvl = other.enemy_lvl;
@@ -538,8 +539,8 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end) 
 	{
-		timer1 = 15;
-		timer2 = 15;
+		timer2 = 300;
+		timerC = 120;
 		z = 0;
 		entity_step = home_state;
 		animation_end = false;
@@ -572,7 +573,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Launch Missles
-	if (timer1 <= 0)
+	if (timer2 <= 0)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
@@ -599,7 +600,7 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
 		}
-		timer1 = 29;
+		timer2 = 29;
 	}
 	
 	
@@ -607,8 +608,7 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation_one();
 	if (animation_end) 
 	{
-		timer1 = 120;
-		timer2 = 120;
+		timer2 = 300;
 		timerC = 120;
 		z = 0;
 		entity_step = home_state;
@@ -663,7 +663,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 1.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 70 + (10 * enemy_lvl);
+				damage = 30 + (10 * enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragPlant;
@@ -682,8 +682,8 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation_one();
 	if (animation_end) 
 	{
-		timer1 = 120;
-		timer2 = 120;
+		timer1 = 180;
+		timerC = 120;
 		z = 0;
 		entity_step = home_state;
 		animation_end = false;

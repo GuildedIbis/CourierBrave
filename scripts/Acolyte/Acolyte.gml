@@ -905,7 +905,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Gorog Captain Drop
+//Acolyte Drop
 function scr_enemy_acolyte_drop(){
 
 var _objects = 7;

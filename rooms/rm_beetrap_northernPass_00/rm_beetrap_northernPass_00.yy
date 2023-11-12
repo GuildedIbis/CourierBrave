@@ -113,7 +113,6 @@
     {"name":"inst_24E94597","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_70EAF503","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_3F570B49","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
-    {"name":"inst_5E66BBCF_1_2_1","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_F7B932B","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_447F27AD","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_76A4D6A5","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
@@ -137,6 +136,7 @@
     {"name":"inst_2AE590BB","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_6331E115","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_396221","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
+    {"name":"inst_17067383","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -206,10 +206,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"level_num","path":"objects/obj_door/obj_door.yy",},"value":"3",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":312.0,"y":88.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C0BADEA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":16.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E66BBCF_1_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterCreate",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"AlterText",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":120.0,"y":96.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_17067383","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_altar","path":"objects/obj_altar/obj_altar.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":104.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":800,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3773C037","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeMolen_snowy","path":"objects/obj_effect_treeMolen_snowy/obj_effect_treeMolen_snowy.yy",},"properties":[

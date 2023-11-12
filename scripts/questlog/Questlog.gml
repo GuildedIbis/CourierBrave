@@ -56,45 +56,45 @@ quest_grid[# 5, 2] = 1;
 quest_grid[# 5, 3] = false;
 quest_grid[# 5, 4] = Idle;
 quest_grid[# 5, 5] = scr_inventory_questlog_text_05;
-quest_grid[# 6, 0] = false;//Speak to Nisma to Start?
+quest_grid[# 6, 0] = false;
 quest_grid[# 6, 1] = 0;
-quest_grid[# 6, 2] = 2; //Open Chest to Complete
+quest_grid[# 6, 2] = 2; 
 quest_grid[# 6, 3] = false;
 quest_grid[# 6, 4] = Idle;
 quest_grid[# 6, 5] = scr_inventory_questlog_text_06;
-quest_grid[# 7, 0] = false;//Speak to the first to start
+quest_grid[# 7, 0] = false;
 quest_grid[# 7, 1] = 0;
-quest_grid[# 7, 2] = 3; //Get all 3 to complete
+quest_grid[# 7, 2] = 3; 
 quest_grid[# 7, 3] = false;
 quest_grid[# 7, 4] = Idle;
 quest_grid[# 7, 5] = scr_inventory_questlog_text_07;
-quest_grid[# 8, 0] = false;//Yakflower Path Lair
+quest_grid[# 8, 0] = false;
 quest_grid[# 8, 1] = 0;
-quest_grid[# 8, 2] = 2; // Intro, 2 swarms, capture, and boss
+quest_grid[# 8, 2] = 2; 
 quest_grid[# 8, 3] = false;
 quest_grid[# 8, 4] = Idle;
 quest_grid[# 8, 5] = scr_inventory_questlog_text_08;
-quest_grid[# 9, 0] = false;//Lake Habraf Lair
+quest_grid[# 9, 0] = false;
 quest_grid[# 9, 1] = 0;
-quest_grid[# 9, 2] = 5; // Intro, 3 escorts and boss
+quest_grid[# 9, 2] = 5; 
 quest_grid[# 9, 3] = false;
 quest_grid[# 9, 4] = Idle;
 quest_grid[# 9, 5] = scr_inventory_questlog_text_09;
-quest_grid[# 10, 0] = false;//Started at Orodry's house in Farway or completing first step
+quest_grid[# 10, 0] = false;//Fairez Missing
 quest_grid[# 10, 1] = 0;
 quest_grid[# 10, 2] = 3;
 quest_grid[# 10, 3] = false;
 quest_grid[# 10, 4] = Idle;
 quest_grid[# 10, 5] = scr_inventory_questlog_text_10;
-quest_grid[# 11, 0] = false;//Location:
+quest_grid[# 11, 0] = false;//Adavios Alt Magic
 quest_grid[# 11, 1] = 0;
-quest_grid[# 11, 2] = 1;//Adavio's Alt Magic Skill
+quest_grid[# 11, 2] = 1;
 quest_grid[# 11, 3] = false;
 quest_grid[# 11, 4] = Idle;
 quest_grid[# 11, 5] = scr_inventory_questlog_text_11;
-quest_grid[# 12, 0] = false;//Location
+quest_grid[# 12, 0] = false;
 quest_grid[# 12, 1] = 0;
-quest_grid[# 12, 2] = 1;//Ceriver's Alt Magic Skill
+quest_grid[# 12, 2] = 1;
 quest_grid[# 12, 3] = false;
 quest_grid[# 12, 4] = Idle;
 quest_grid[# 12, 5] = scr_inventory_questlog_text_12;
@@ -109,22 +109,22 @@ quest_grid[# 14, 1] = 0;
 quest_grid[# 14, 2] = 12;
 quest_grid[# 14, 3] = false;
 quest_grid[# 14, 4] = Idle;
-quest_grid[# 14, 5] = Idle;
+quest_grid[# 14, 5] = scr_inventory_questlog_text_14;
 quest_grid[# 15, 0] = false;
 quest_grid[# 15, 1] = 0;
 quest_grid[# 15, 2] = 1;
 quest_grid[# 15, 3] = false;
 quest_grid[# 15, 4] = Idle;
-quest_grid[# 15, 5] = Idle;
+quest_grid[# 15, 5] = scr_inventory_questlog_text_15;
 quest_grid[# 16, 0] = false;
 quest_grid[# 16, 1] = 0;
 quest_grid[# 16, 2] = 1; 
 quest_grid[# 16, 3] = false;
 quest_grid[# 16, 4] = Idle;
-quest_grid[# 16, 5] = Idle;
-quest_grid[# 17, 0] = false;//Speak to the first to start
+quest_grid[# 16, 5] = scr_inventory_questlog_text_16;
+quest_grid[# 17, 0] = false;
 quest_grid[# 17, 1] = 0;
-quest_grid[# 17, 2] = 3; //Get all 3 to complete
+quest_grid[# 17, 2] = 1; 
 quest_grid[# 17, 3] = false;
 quest_grid[# 17, 4] = Idle;
 quest_grid[# 17, 5] = Idle;
@@ -147,8 +147,7 @@ quest_grid[# 89, 1] = 0;
 quest_grid[# 89, 2] = 1; 
 quest_grid[# 89, 3] = false;
 quest_grid[# 89, 4] = Idle;
-quest_grid[# 89, 5] = "Stop the Necromancer from restoring the Great Evil.";
-quest_grid[# 89, 6] = "The Necromancer";
+quest_grid[# 89, 5] = Idle;
 }
 //
 //
@@ -164,7 +163,7 @@ function scr_inventory_quest_reset_daily(){
 //
 //
 //
-//Quest Inventory Text: 00
+//Quest Inventory Text: 00 - Acolyte of Evil
 function scr_inventory_questlog_text_00(){
 var _midX = 222;
 var _leftX = 167;
@@ -184,7 +183,7 @@ draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 //
 //
 //
-//Quest Inventory Text: 01
+//Quest Inventory Text: 01 - Lavos of Starfire
 function scr_inventory_questlog_text_01(){
 var _midX = 222;
 var _leftX = 167;
@@ -204,7 +203,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 02
+//Quest Inventory Text: 02 - Something From Home
 function scr_inventory_questlog_text_02(){
 var _midX = 222;
 var _leftX = 167;
@@ -241,7 +240,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 03
+//Quest Inventory Text: 03 - King Masgar's Ghost
 function scr_inventory_questlog_text_03(){
 var _midX = 222;
 var _leftX = 167;
@@ -261,7 +260,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 04
+//Quest Inventory Text: 04 - Esecar Matos
 function scr_inventory_questlog_text_04(){
 var _midX = 222;
 var _leftX = 167;
@@ -281,7 +280,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 05
+//Quest Inventory Text: 05 - Moros Rift Jumper
 function scr_inventory_questlog_text_05(){
 var _midX = 222;
 var _leftX = 167;
@@ -302,7 +301,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 06
+//Quest Inventory Text: 06 - Sleeping Sabi
 function scr_inventory_questlog_text_06(){
 var _midX = 222;
 var _leftX = 167;
@@ -352,7 +351,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 07
+//Quest Inventory Text: 07 - Ghafate the Endire Knight
 function scr_inventory_questlog_text_07(){
 var _midX = 222;
 var _leftX = 167;
@@ -372,7 +371,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 08
+//Quest Inventory Text: 08 - Rift Giant Zerwerk
 function scr_inventory_questlog_text_08(){
 var _midX = 222;
 var _leftX = 167;
@@ -380,8 +379,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Zerwerk the Giant";
-var _text = "Defeat Zerwerk the Giant.\n\nRift giants do not wield magic\nlike a mage or Courier.\nThey are the thralls of dark mages\nand their minds are not their own.";
+var _headerText = "Rift Giant Zerwerk";
+var _text = "Defeat the Rift Giant.\n\nRift Giants are the thralls of dark mages\nand their minds are not their own.\nA giant using magic with it's own skill\nwould be a rarity, given their general\noafish nature.";
 //Rat Lore: The Ranth, or rats as they are\nreferred to with hate,\nwere once a people and nation of Moros.\nThey were destroyed and shunned by the\nother peoples for siding with the Great Evil\nand have been promised redemption\nfrom the Acolyte.
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
@@ -392,7 +391,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 09
+//Quest Inventory Text: 09 - Lake Champion Rempho
 function scr_inventory_questlog_text_09(){
 var _midX = 222;
 var _leftX = 167;
@@ -400,7 +399,7 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Find Fairez";
+var _headerText = "Lake Champion Rempho";
 var _text = "Ceriver's form stone found\n\nThe Rempho people are notoriously\npassionate about rivers and lakes, and\nCeriver was no exception. He fell on the\nbanks of Therulil in an impossible\ndefense against the hoards of\nthe Great Evil.";
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
@@ -411,7 +410,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 10
+//Quest Inventory Text: 10 - Late for Dinner
 function scr_inventory_questlog_text_10(){
 var _midX = 222;
 var _leftX = 167;
@@ -419,7 +418,7 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Enraged Moth";
+var _headerText = "Late for Dinner";
 var _text = "Fairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
@@ -430,27 +429,8 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 11
+//Quest Inventory Text: 11 - Matron of the Lake
 function scr_inventory_questlog_text_11(){
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _compY = 111;
-
-var _headerText = "Enraged Moth";
-var _text = "Defeat the Enraged Moth and\ncollect the Skill Stone.\n\nAn unusual mutation on an already\ndangerous creature. Perhaps the\npowers of the nearby red crystals\nhave given their spawn their\nexplosive nature.";
-draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
-draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
-
-}
-//
-//
-//
-//
-//
-//Quest Inventory Text: 12
-function scr_inventory_questlog_text_12(){
 var _midX = 222;
 var _leftX = 167;
 var _titleY = 39;
@@ -468,7 +448,26 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 13
+//Quest Inventory Text: 12 - Enraged Moth
+function scr_inventory_questlog_text_12(){
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _compY = 111;
+
+var _headerText = "Enraged Moth";
+var _text = "Defeat the Enraged Moth and\ncollect the Skill Stone.\n\nAn unusual mutation on an already\ndangerous creature. Perhaps the\npowers of the nearby red crystals\nhave given their spawn their\nexplosive nature.";
+draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
+
+}
+//
+//
+//
+//
+//
+//Quest Inventory Text: 13 - Evergreen Lavos
 function scr_inventory_questlog_text_13(){
 var _midX = 222;
 var _leftX = 167;
@@ -487,7 +486,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 14
+//Quest Inventory Text: 14 - Troll Tortoise
 function scr_inventory_questlog_text_14(){
 var _midX = 222;
 var _leftX = 167;
@@ -495,8 +494,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Acolyte of Evil";
-var _text = 
+var _headerText = "Troll Tortoise";
+var _text = ""
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -506,7 +505,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 15
+//Quest Inventory Text: 15 - Emerald Lock
 function scr_inventory_questlog_text_15(){
 var _midX = 222;
 var _leftX = 167;
@@ -514,8 +513,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "";
-var _text = 
+var _headerText = "Emerald Lock";
+var _text = ""
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -525,7 +524,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 16
+//Quest Inventory Text: 16 - Lily Zealot
 function scr_inventory_questlog_text_16(){
 var _midX = 222;
 var _leftX = 167;
@@ -533,8 +532,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "";
-var _text = 
+var _headerText = "Lily Zealot";
+var _text = "Defeat the Lily Zealot and\ncollect the Skill Stone."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -553,7 +552,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "";
-var _text = 
+var _text = ""
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

@@ -155,6 +155,7 @@
     {"name":"Regaliare","order":1,"path":"folders/Sprites/Player/Regaliare.yy",},
     {"name":"Scenes","order":2,"path":"folders/Sprites/Player/Scenes.yy",},
     {"name":"RetiredScene","order":4,"path":"folders/Sprites/Player/Scenes/RetiredScene.yy",},
+    {"name":"Sepirel","order":10,"path":"folders/Sprites/Player/Sepirel.yy",},
     {"name":"UltraProjectiles","order":9,"path":"folders/Sprites/Player/UltraProjectiles.yy",},
     {"name":"xRetired","order":4,"path":"folders/Sprites/xRetired.yy",},
     {"name":"RetiredPlayer","order":3,"path":"folders/Sprites/xRetired/RetiredPlayer.yy",},
@@ -163,7 +164,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Sepirel","order":10,"path":"folders/Sprites/Player/Sepirel.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_smithy8","order":3,"path":"tilesets/tile_smithy8/tile_smithy8.yy",},
@@ -670,6 +670,7 @@
     {"name":"spr_enemy_duskUlodus_idle","order":13,"path":"sprites/spr_enemy_duskUlodus_idle/spr_enemy_duskUlodus_idle.yy",},
     {"name":"spr_map_arrow","order":13,"path":"sprites/spr_map_arrow/spr_map_arrow.yy",},
     {"name":"spr_door_beaowire_stone","order":3,"path":"sprites/spr_door_beaowire_stone/spr_door_beaowire_stone.yy",},
+    {"name":"snd_tortoiseTroll_vineToss","order":10,"path":"sounds/snd_tortoiseTroll_vineToss/snd_tortoiseTroll_vineToss.yy",},
     {"name":"spr_projectile_acolyte_ilanil","order":11,"path":"sprites/spr_projectile_acolyte_ilanil/spr_projectile_acolyte_ilanil.yy",},
     {"name":"snd_zerwerk_voidRift","order":6,"path":"sounds/snd_zerwerk_voidRift/snd_zerwerk_voidRift.yy",},
     {"name":"ZerkriftHook","order":2,"path":"scripts/ZerkriftHook/ZerkriftHook.yy",},
