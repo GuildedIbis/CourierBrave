@@ -49,6 +49,21 @@ pedestal_index = 2;
 //
 //
 //
+//Alt Primary Skill 03: Ceriver
+function scr_pedestal_alt_03_create(){
+entity_step = scr_pedestal_alt_step;
+sound = snd_text01;
+shadow = true;
+shadow_size = 2;
+active_sprite = spr_form_pedestal;
+idle_sprite = spr_form_pedestal_empty;
+pedestal_index = 3;
+}
+//
+//
+//
+//
+//
 //Alt magic Pedestal Step
 function scr_pedestal_alt_step(){
 scr_npc_interact(12);
@@ -420,9 +435,9 @@ if (obj_inventory.quest_grid[# 17, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 17, 0] = true;
-		obj_inventory.quest_grid[# 17, 2] = 1;
-		obj_inventory.quest_grid[# 17, 3] = true;
+		obj_inventory.quest_grid[# 15, 0] = true;
+		obj_inventory.quest_grid[# 15, 2] = 1;
+		obj_inventory.quest_grid[# 15, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

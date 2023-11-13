@@ -136,7 +136,7 @@ if (obj_game.gamePaused = false)
 	}
 	damage = 35 + (7 * enemy_lvl);
 	//Cacluate Attack
-	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox);
 
 	//Animate
 	scr_enemy_animation();

@@ -429,27 +429,8 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 11 - Matron of the Lake
+//Quest Inventory Text: 11 - Enraged Moth
 function scr_inventory_questlog_text_11(){
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _compY = 111;
-
-var _headerText = "Matron of the Lake";
-var _text = "Defeat Mother Lily\n\nMother Lilies often form a colony of\nlesser lilies with a network of\ndeep roots. They are highly territorial,\nand do not shy away from carnivorism.";
-draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
-draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
-
-}
-//
-//
-//
-//
-//
-//Quest Inventory Text: 12 - Enraged Moth
-function scr_inventory_questlog_text_12(){
 var _midX = 222;
 var _leftX = 167;
 var _titleY = 39;
@@ -461,6 +442,25 @@ var _text = "Defeat the Enraged Moth and\ncollect the Skill Stone.\n\nAn unusual
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
+}
+//
+//
+//
+//
+//
+//Quest Inventory Text: 12 - Matron of the Lake
+function scr_inventory_questlog_text_12(){
+
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _compY = 111;
+
+var _headerText = "Matron of the Lake";
+var _text = "Defeat Mother Lily\n\nMother Lilies often form a colony of\nlesser lilies with a network of\ndeep roots. They are highly territorial,\nand do not shy away from carnivorism.";
+draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 }
 //
 //
@@ -486,27 +486,8 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 14 - Troll Tortoise
+//Quest Inventory Text: 14 - Emerald Lock
 function scr_inventory_questlog_text_14(){
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _compY = 111;
-
-var _headerText = "Troll Tortoise";
-var _text = ""
-draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
-draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
-
-}
-//
-//
-//
-//
-//
-//Quest Inventory Text: 15 - Emerald Lock
-function scr_inventory_questlog_text_15(){
 var _midX = 222;
 var _leftX = 167;
 var _titleY = 39;
@@ -524,7 +505,26 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 16 - Lily Zealot
+//Quest Inventory Text: 15 - Zealot Siamire
+function scr_inventory_questlog_text_15(){
+var _midX = 222;
+var _leftX = 167;
+var _titleY = 39;
+var _descY = 56;
+var _compY = 111;
+
+var _headerText = "Zealot Siamire";
+var _text = ""
+draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
+draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
+
+}
+//
+//
+//
+//
+//
+//Quest Inventory Text: 16 - Troll Tortoise
 function scr_inventory_questlog_text_16(){
 var _midX = 222;
 var _leftX = 167;
@@ -532,8 +532,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Lily Zealot";
-var _text = "Defeat the Lily Zealot and\ncollect the Skill Stone."
+var _headerText = "Zealot Siamire";
+var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

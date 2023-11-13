@@ -93,6 +93,7 @@ if (variable_struct_exists(_loadEntity,"yakflower14")) obj_inventory.yakflowerPa
 //if (variable_struct_exists(_loadEntity,"yakflower19")) obj_inventory.yakflowerPath_map_ary[19][3] = _loadEntity.yakflower19;
 
 if (variable_struct_exists(_loadEntity,"habraf10")) obj_inventory.habrafLake_map_ary[10][3] = _loadEntity.habraf10;
+if (variable_struct_exists(_loadEntity,"beaowire11")) obj_inventory.beaowireFortress_map_ary[11][3] = _loadEntity.beaowire11;
 }
 //
 //
@@ -178,6 +179,8 @@ yakflower14 : obj_inventory.yakflowerPath_map_ary[14][3],
 
 //Habraf
 habraf10 : obj_inventory.habrafLake_map_ary[10][3],
+//Beaowire
+beaowire11 : obj_inventory.beaowireFortress_map_ary[11][3],
 }
 array_push(_saveData, _saveQuest);
 }
