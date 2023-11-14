@@ -548,7 +548,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_enemy_ghostMasgar_phantomBlade;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 3;
+			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 85 + (12 * enemy_lvl);
@@ -580,7 +580,7 @@ if (timer3 > 0) timer3 = timer3 - 1;
 
 if (timer3 <= 0) or (point_in_circle(dir_x,dir_y,x,y,8))
 {
-	speed = .5;
+	speed = .4;
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
 	image_angle = direction;
 }
@@ -603,7 +603,7 @@ if (timer2 <= 0)
 		enemy_move = spr_enemy_ghostMasgar_phantomDagger;
 		aggro_drop = 300;
 		healthbar = false;
-		enemy_spd = 3;
+		enemy_spd = 2.5;
 		local_frame = 0;
 		hit_by_attack = -1;
 		damage = 25 + (6 * other.enemy_lvl);
