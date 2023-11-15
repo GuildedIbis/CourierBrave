@@ -51,8 +51,8 @@ remain_dist = 64;
 timer1 = 60;
 timer2 = 60;
 timer3 = 60;
-timer4 = 300;
-timerC = 120;
+timer4 = 60;
+timerC = 0;
 magic_counter = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
@@ -138,6 +138,16 @@ if (obj_game.gamePaused = false)
 				path_end();
 				sprite_index = enemy_idle;
 				entity_step = scr_enemy_zealot_waterEdge;
+			}
+		}
+		if (!point_in_circle(obj_player.x,obj_player.y,x,y,32))
+		{
+			if (timer4 <= 0)
+			{
+				path_end();
+				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
+				sprite_index = enemy_idle;
+				entity_step = scr_enemy_zealot_dillocSpawn;
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -329,8 +339,8 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{
-		audio_sound_gain(snd_arrow,global.volumeEffects,1);
-		audio_play_sound(snd_arrow,0,false);
+		audio_sound_gain(snd_enemy_zealot_waterEdge,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_zealot_waterEdge,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			enemy_lvl = other.enemy_lvl;
@@ -358,7 +368,58 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 
-		timer3 = 240;
+		timer3 = 480;
+		timerC = 0;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
+		animation_end = false;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Zealot Siamire Wateredge Special
+function scr_enemy_zealot_dillocSpawn(){
+if (obj_game.gamePaused = false)
+{
+	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
+	if (sprite_index != spr_enemy_zealot_dillocSpawn)
+	{
+		//Start Animation From Beginning
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		sprite_index = spr_enemy_zealot_dillocSpawn;
+		local_frame = 0;
+		image_index = 0;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+	}
+
+
+
+	//Animate
+	scr_enemy_animation();
+	if (animation_end)
+	{
+		audio_sound_gain(snd_enemy_zealot_dillocSpawn,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_zealot_dillocSpawn,0,false);
+		with (instance_create_layer(obj_player.x,obj_player.y,"Instances",obj_enemy))
+		{
+			image_alpha = 1;
+			scr_enemy_lilyCultist_dilloc_create();
+			entity_step = scr_enemy_lilyCultist_dilloc_zealotSpawn;
+			enemy_lvl = other.enemy_lvl;
+			global.aggroCounter = global.aggroCounter + 1;
+			targeted = true;
+			break_object = other.break_object;
+		}
+		timer4 = 600;
 		timerC = 0;
 		entity_step = home_state;
 		sprite_index = enemy_idle;
@@ -381,8 +442,8 @@ if (obj_game.gamePaused = false)
 	{
 		//Start Animation From Beginning
 		sprite_index = spr_projectile_zealot_waterSlash;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		audio_sound_gain(snd_enemy_zealot_waterSlash,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_zealot_waterSlash,0,false);
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
@@ -430,9 +491,9 @@ if (obj_game.gamePaused = false)
 	}
 	if (timer2 <= 0)
 	{
-		timer2 = 20;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		timer2 = 30;
+		audio_sound_gain(snd_enemy_zealot_waterSlash,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_zealot_waterSlash,0,false);
 		ds_list_clear(hit_by_attack);
 	}
 }
@@ -462,6 +523,8 @@ if (timer1 > 0)
 }
 if (timer1 <= 0)
 {
+	audio_sound_gain(snd_enemy_zealot_waterEdge_burst,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_zealot_waterEdge_burst,0,false);
 	for (var i = 0; i < 9; i = i + 1)
 	{
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
@@ -537,8 +600,8 @@ sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
 {
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
+	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+	audio_play_sound(snd_projectile_hit,0,false);
 	with (obj_player)
 	{
 		if (invincible = false)

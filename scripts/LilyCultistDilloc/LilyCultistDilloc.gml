@@ -435,6 +435,44 @@ if (timer3 <= 0)
 //
 //
 //
+//Lily Cultist Zealot Spawn
+function scr_enemy_lilyCultist_dilloc_zealotSpawn(){
+//Timer
+
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer3 > 0) timer3 = timer3 - 1;
+speed = 0;
+
+//Set
+if (sprite_index != spr_enemy_cultistDilloc_zealotSpawn)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_enemy_cultistDilloc_zealotSpawn;
+	local_frame = 0;
+	image_index = 0;
+}
+
+
+//Animate
+scr_enemy_animation_one();
+
+
+//Move
+
+
+//End
+if (animation_end)
+{
+	entity_step = scr_enemy_lilyCultist_dilloc_free;
+	sprite_index = enemy_idle;
+}
+}
+//
+//
+//
+//
+//
 //Lily Cultist Drop
 function scr_enemy_lilyCultist_dilloc_drop(){
 //if (obj_inventory.quest_grid[# 1, 0] = true) and (obj_inventory.quest_grid[# 1, 3] = false)
