@@ -457,7 +457,7 @@
     {"name":"obj_altar","order":12,"path":"objects/obj_altar/obj_altar.yy",},
     {"name":"snd_ofaWorm_dash","order":3,"path":"sounds/snd_ofaWorm_dash/snd_ofaWorm_dash.yy",},
     {"name":"LSChests","order":6,"path":"scripts/LSChests/LSChests.yy",},
-    {"name":"spr_item_all","order":4,"path":"sprites/spr_item_all/spr_item_all.yy",},
+    {"name":"spr_item_old","order":4,"path":"sprites/spr_item_old/spr_item_old.yy",},
     {"name":"obj_fragStone_grey","order":6,"path":"objects/obj_fragStone_grey/obj_fragStone_grey.yy",},
     {"name":"spr_pixel","order":14,"path":"sprites/spr_pixel/spr_pixel.yy",},
     {"name":"spr_menu_circle16","order":8,"path":"sprites/spr_menu_circle16/spr_menu_circle16.yy",},

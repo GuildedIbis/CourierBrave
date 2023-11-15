@@ -538,7 +538,7 @@
     {"id":{"name":"snd_ofaWorm_dash","path":"sounds/snd_ofaWorm_dash/snd_ofaWorm_dash.yy",},},
     {"id":{"name":"LSChests","path":"scripts/LSChests/LSChests.yy",},},
     {"id":{"name":"spr_mapPrevious","path":"sprites/spr_mapPrevious/spr_mapPrevious.yy",},},
-    {"id":{"name":"spr_item_all","path":"sprites/spr_item_all/spr_item_all.yy",},},
+    {"id":{"name":"spr_item_old","path":"sprites/spr_item_old/spr_item_old.yy",},},
     {"id":{"name":"obj_fragStone_grey","path":"objects/obj_fragStone_grey/obj_fragStone_grey.yy",},},
     {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},},
     {"id":{"name":"spr_menu_circle16","path":"sprites/spr_menu_circle16/spr_menu_circle16.yy",},},
