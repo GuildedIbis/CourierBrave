@@ -15,6 +15,7 @@ if (keyboard_check_pressed(vk_tab)) and (obj_inventory.quick_swap = false)
 		{
 			if (invPaused = false) 
 			{
+				obj_inventory.inv_gui = -1;
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 			}

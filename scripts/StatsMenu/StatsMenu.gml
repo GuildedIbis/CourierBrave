@@ -234,7 +234,7 @@ switch(page)
 					audio_play_sound(snd_menu,0,false);
 					obj_inventory.star_orb = obj_inventory.star_orb - (obj_player.conviction + 1);
 					obj_player.conviction = obj_player.conviction + 1;
-					obj_player.max_charge = 100 + (obj_player.conviction * 10)
+					obj_player.max_charge = 200 + (obj_player.conviction * 10)
 				}
 			}
 		}

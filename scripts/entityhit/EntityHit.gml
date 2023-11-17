@@ -26,7 +26,7 @@ if (invincible = false)
 	{
 		audio_sound_gain(damaged_snd,global.volumeEffects,1);
 		audio_play_sound(damaged_snd,10,false)
-		dmg_snd_delay = 15;
+		dmg_snd_delay = 60;
 	}
 }
 if (invincible = true)

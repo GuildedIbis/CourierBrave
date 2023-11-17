@@ -30,7 +30,7 @@ max_hp = 2200 + (1100 * enemy_lvl);
 hp = round(max_hp * .75);
 boss = true;
 name = "Tortoise Troll";
-enemy_spd = 1.3;
+enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -60,11 +60,12 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		scr_enemy_chase_special(obj_game,obj_entity);
-		//walk_snd_delay = walk_snd_delay - 1;
+		if (timerC <= 0)
+		{
+			scr_enemy_chase_special(obj_game,obj_entity);
+		}
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
-			//walk_snd_delay = 15;
 			path_end();
 			sprite_index = enemy_idle;
 		}
@@ -378,7 +379,8 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-
+	direction = point_direction(x,y,obj_player.x,obj_player.y);
+	
 	if (timer2 <= 0)
 	{
 		timer2 = 120;

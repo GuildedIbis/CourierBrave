@@ -84,20 +84,18 @@ stamina = max_stamina;
 armor = 0; //negates damage in enemy damage calc
 //Color Specific Crystal
 selected_primary = -1;
-yellow_primary = max_charge;
-blue_primary = max_charge;
-purple_primary = max_charge;
-red_primary = max_charge;
-green_primary = max_charge;
-orange_primary = max_charge;
-//Color Specific Special
-selected_special = -1;
-yellow_special = max_charge;
-blue_special = max_charge;
-purple_special = max_charge;
-red_special = max_charge;
-green_special = max_charge;
-orange_special = max_charge;
+yellow_primary = round(max_charge/2);
+orange_primary  = round(max_charge/2);
+purple_primary  = round(max_charge/2);
+blue_primary  = round(max_charge/2);
+green_primary = round(max_charge/2);
+red_primary  = round(max_charge/2)
+yellow_special = round(max_charge/2);
+orange_special = round(max_charge/2);
+purple_special = round(max_charge/2);
+blue_special = round(max_charge/2);
+green_special = round(max_charge/2);
+red_special = round(max_charge/2);
 
 
 

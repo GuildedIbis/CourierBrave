@@ -226,6 +226,7 @@ if (obj_game.time_played > 0)
 				global.home = false;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_1();
+				scr_player_reset();
 				crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
 				room_goto(global.lastAltar);
@@ -356,6 +357,7 @@ if (obj_game.time_played2 > 0)
 				global.home = false;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_2();
+				scr_player_reset();
 				crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
 				room_goto(global.lastAltar);
@@ -484,6 +486,7 @@ if (obj_game.time_played3 > 0)
 				global.home = false;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_3();
+				scr_player_reset();
 				crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
 				room_goto(global.lastAltar);

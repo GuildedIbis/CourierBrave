@@ -571,7 +571,7 @@ with (obj_player)
 	orange_primary  = max_charge;
 	purple_primary  = max_charge;
 	blue_primary  = max_charge;
-	green_primary = max_charge
+	green_primary = max_charge;
 	red_primary  = max_charge;
 	yellow_special = max_charge;
 	orange_special = max_charge;
@@ -579,6 +579,18 @@ with (obj_player)
 	blue_special = max_charge;
 	green_special = max_charge;
 	red_special = max_charge;
+	//yellow_primary = max(yellow_primary,round(max_charge/2));
+	//orange_primary  = max(orange_primary,round(max_charge/2));
+	//purple_primary  = max(purple_primary,round(max_charge/2));
+	//blue_primary  = max(blue_primary,round(max_charge/2));
+	//green_primary = max(green_primary,round(max_charge/2));
+	//red_primary  = max(red_primary,round(max_charge/2));
+	//yellow_special = max(yellow_special,round(max_charge/2));
+	//orange_special = max(orange_special,round(max_charge/2));
+	//purple_special = max(purple_special,round(max_charge/2));
+	//blue_special = max(blue_special,round(max_charge/2));
+	//green_special = max(green_special,round(max_charge/2));
+	//red_special = max(red_special,round(max_charge/2));
 	for (var i = 0; i < 11; i = i + 1)
 	{
 		crystal_use[i] = false;
