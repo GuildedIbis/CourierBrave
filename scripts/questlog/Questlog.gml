@@ -514,7 +514,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Zealot Siamire";
-var _text = ""
+var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -532,8 +532,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Zealot Siamire";
-var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone."
+var _headerText = "Troll Tortioise";
+var _text = "Defeat the Troll Tortoise"
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

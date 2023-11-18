@@ -356,6 +356,8 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 	{
 		with (parent) 
 		{
+			sprite_index = enemy_idle;
+			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			entity_step = scr_enemy_trollTortoise_free2;
 		}
 		instance_destroy();
@@ -370,6 +372,8 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 			}
 			else
 			{
+				sprite_index = enemy_idle;
+				direction = point_direction(x,y,obj_player.x,obj_player.y);
 				entity_step = scr_enemy_trollTortoise_free2;
 			}
 		}

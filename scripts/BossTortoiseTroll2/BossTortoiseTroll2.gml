@@ -273,6 +273,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end)
 	{
 		animation_end = false;
+		sprite_index = enemy_idle;
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		entity_step = home_state;
 		timer1 = 120;
 		timerC = 60;
@@ -544,6 +546,8 @@ if (obj_game.gamePaused = false)
 		timer2 = 300;
 		timerC = 120;
 		z = 0;
+		sprite_index = enemy_idle;
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -613,6 +617,8 @@ if (obj_game.gamePaused = false)
 		timer2 = 300;
 		timerC = 120;
 		z = 0;
+		sprite_index = enemy_idle;
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		entity_step = home_state;
 		animation_end = false;
 	}
@@ -687,6 +693,8 @@ if (obj_game.gamePaused = false)
 		timer1 = 180;
 		timerC = 120;
 		z = 0;
+		sprite_index = enemy_idle;
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		entity_step = home_state;
 		animation_end = false;
 	}
