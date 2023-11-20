@@ -122,6 +122,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_enraged_worm_explode(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 	if (timer1 > 0) timer1 = timer1 - 1;
 
 	if (sprite_index != spr_enemy_enragedWorm_explode)

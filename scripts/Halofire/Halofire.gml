@@ -37,7 +37,7 @@ max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 
-primary_cost = 16;
+primary_cost = 18;
 special_cost = 100;
 }
 //
@@ -134,7 +134,7 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (orange_primary >= 16)
+		if (magic_primary = true) and (orange_primary >= 18)
 		{
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
@@ -663,7 +663,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {
-	orange_primary = orange_primary - 16;
+	orange_primary = orange_primary - 18;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
@@ -695,7 +695,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_primary < 16)
+if (mouse_check_button(mb_left) = false) or (orange_primary < 18)
 {
 	attacking = false;
 	state_script = free_state;
@@ -1027,6 +1027,7 @@ if (animation_end)
 //Halofire Flame Core Projectile Script
 function scr_projectile_flamecore(){
 //Step
+lit = true;
 destructable = false;
 if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;

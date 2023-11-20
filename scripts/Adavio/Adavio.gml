@@ -28,7 +28,7 @@ armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
 max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
-primary_cost = 20;
+primary_cost = 25;
 special_cost = 70;
 }
 //
@@ -119,12 +119,12 @@ if (key_attackM)
 {
 	if (magic_timer <= 0)
 	{
-		if (magic_primary = true) and (purple_primary >= 20)
+		if (magic_primary = true) and (purple_primary >= 25)
 		{
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
 		}
-		if (magic_primary = false) and (purple_primary >= 20)
+		if (magic_primary = false) and (purple_primary >= 25)
 		{
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
@@ -174,13 +174,13 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 11, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		primary_cost = 20;
+		primary_cost = 25;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
-		primary_cost = 20;
+		primary_cost = 25;
 	}
 }
 
@@ -421,7 +421,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_primary = purple_primary - 20;
+	purple_primary = purple_primary - 25;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
 	for (var i = 0; i < 5; i = i + 1)
@@ -450,7 +450,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
+if (mouse_check_button(mb_left) = false) or (purple_primary < 25)
 {
 	attacking = false;
 	state_script = free_state;
@@ -467,6 +467,7 @@ if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 //
 function scr_projectile_voidBit(){
 //Set
+lit = true;
 speed = projectile_speed;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
@@ -500,6 +501,7 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 //Special Void Bit
 function scr_projectile_voidBit_special(){
 //Set
+lit = true;
 speed = projectile_speed;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
@@ -594,7 +596,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	purple_primary = purple_primary - 20;
+	purple_primary = purple_primary - 25;
 	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidCycle,0,0);
 	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -621,7 +623,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //Reset or Return to free state
-if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
+if (mouse_check_button(mb_left) = false) or (purple_primary < 25)
 {
 	attacking = false;
 	state_script = free_state;
@@ -639,6 +641,7 @@ if (mouse_check_button(mb_left) = false) or (purple_primary < 20)
 function scr_projectile_voidCycle(){
 //Set
 //if (follow_timer > 0) follow_timer = follow_timer - 1;
+lit = true;
 timer1 = timer1 - 1;
 speed = projectile_speed;
 image_angle = timer1 - 30;

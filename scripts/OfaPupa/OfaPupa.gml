@@ -333,6 +333,7 @@ if (_drop2 < 5)
 function scr_projectile_pupaSpike_free(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
@@ -375,6 +376,7 @@ else
 function scr_projectile_pupaWad_free(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))

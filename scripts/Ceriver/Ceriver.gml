@@ -129,7 +129,7 @@ if (key_attackM)
 			state_script = scr_player_attack;
 		}
 		//Dynorb
-		if (magic_primary = false) and (blue_primary >= 3)
+		if (magic_primary = false) and (blue_primary >= 4)
 		{
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
@@ -177,7 +177,7 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 15, 3] = t
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		primary_cost = 3;
+		primary_cost = 4;
 	}
 	else
 	{
@@ -480,6 +480,7 @@ if (mouse_check_button(mb_left) = false) or (blue_primary < 4)
 //Ceriver Polyorb Projectile Script
 function scr_projectile_polyorb(){
 //Set
+lit = true;
 image_speed = 0;
 speed = projectile_speed;
 //if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
@@ -577,7 +578,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
-	blue_primary = blue_primary - 3;
+	blue_primary = blue_primary - 4;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -605,7 +606,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //End State, Return to Free State
-if (mouse_check_button(mb_left) = false) or (blue_primary < 3)
+if (mouse_check_button(mb_left) = false) or (blue_primary < 4)
 {
 	attacking = false;
 	state_script = free_state;
@@ -622,6 +623,7 @@ if (mouse_check_button(mb_left) = false) or (blue_primary < 3)
 //Ceriver Lineorb Projectile Script
 function scr_projectile_lineorb(){
 //Set
+lit = true;
 image_speed = 0;
 speed = projectile_speed;
 //if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
@@ -766,6 +768,7 @@ if (keyboard_check(vk_shift) = false) or (blue_special < 20)
 //Ceriver Steelorb Projectile Script
 function scr_projectile_steelorb(){
 //Set
+lit = true;
 image_speed = 1;
 speed = projectile_speed;
 //if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;

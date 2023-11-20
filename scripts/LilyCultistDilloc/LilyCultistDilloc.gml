@@ -241,6 +241,7 @@ if (obj_game.gamePaused = false)
 function scr_projectile_lifeLeaf_free(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 	sprite_index = enemy_move;
 
 	if (heal = false)
@@ -315,6 +316,7 @@ else
 //
 //Effect Life Leaf Heal Burst
 function scr_projectile_lifeLeaf_healBurst(){
+lit = true;
 timer1 = timer1 - 1;
 if (sprite_index != spr_projectile_lifeLeaf_healBurst)
 {

@@ -31,7 +31,7 @@ armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
 max_charge = 200 + (10 * conviction);
 max_stamina = 100 + (50 * energy);
 max_hp = 200 + (20 * vitality);
-primary_cost = 5;
+primary_cost = 6;
 special_cost = 100;
 }
 //
@@ -342,7 +342,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
-	yellow_primary = yellow_primary - 5;
+	yellow_primary = yellow_primary - 6;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
@@ -369,7 +369,7 @@ if (magic_timer <= 0)
 scr_player_animation_cast();
 
 //Restart or Return to Free
-if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
+if (mouse_check_button(mb_left) = false) or (yellow_primary < 6)
 {
 	attacking = false;
 	state_script = free_state;
@@ -386,6 +386,7 @@ if (mouse_check_button(mb_left) = false) or (yellow_primary < 5)
 //Regaliare Gold Bullet Projectile Script
 function scr_projectile_goldBurst(){
 //Set
+lit = true;
 speed = projectile_speed;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)
@@ -526,6 +527,7 @@ if (mouse_check_button(mb_left) = false) or (yellow_primary < 10)
 //Regaliare Heavy Burst Projectile Script
 function scr_projectile_heavyBurst(){
 //Set
+lit = true;
 speed = projectile_speed;
 destructable = false;
 if (timer1 > 0) timer1 = timer1 - 1;

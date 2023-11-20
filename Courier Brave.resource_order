@@ -1158,7 +1158,7 @@
     {"name":"spr_enemy_rat_run","order":12,"path":"sprites/spr_enemy_rat_run/spr_enemy_rat_run.yy",},
     {"name":"spr_door_beaowire_spikes","order":2,"path":"sprites/spr_door_beaowire_spikes/spr_door_beaowire_spikes.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerMissiles","order":6,"path":"sprites/spr_enemy_tortoiseTroll_hammerMissiles/spr_enemy_tortoiseTroll_hammerMissiles.yy",},
-    {"name":"Heatwave","order":10,"path":"scripts/Heatwave/Heatwave.yy",},
+    {"name":"EndireKnightProjectiles","order":10,"path":"scripts/EndireKnightProjectiles/EndireKnightProjectiles.yy",},
     {"name":"snd_text_type","order":6,"path":"sounds/snd_text_type/snd_text_type.yy",},
     {"name":"spr_projectile_acolyte_anti","order":7,"path":"sprites/spr_projectile_acolyte_anti/spr_projectile_acolyte_anti.yy",},
     {"name":"spr_trollTortoise_flower_run","order":14,"path":"sprites/spr_trollTortoise_flower_run/spr_trollTortoise_flower_run.yy",},

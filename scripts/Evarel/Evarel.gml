@@ -398,6 +398,7 @@ scr_player_animation_cast();
 //Evarel Bristlerod Projectile Script
 function scr_projectile_bristlerod(){
 //Set
+lit = true;
 speed = projectile_speed;
 distance = distance + 1;
 damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
@@ -556,6 +557,7 @@ if (green_primary < 10)
 //Evarel Reflex Thorn
 function scr_projectile_flexthorn(){
 //Set
+lit = true;
 if (timer1 > 0) timer1 = timer1 - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
@@ -666,6 +668,7 @@ if (animation_end)
 function scr_projectile_thornrise(){
 //
 //Timers
+lit = true;
 destructable = false;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;

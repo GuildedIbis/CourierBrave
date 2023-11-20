@@ -55,7 +55,7 @@ else
 function scr_projectile_trollTortoise_blossom(){
 if (obj_game.gamePaused = false)
 {
-
+lit = true;
 //Set
 sprite_index = spr_enemy_tortoiseTroll_blossom;
 speed = 0;
@@ -73,6 +73,7 @@ if (timer1 <= 0)
 		{
 			direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
 			home_state = scr_projectile_trollTortoise_blossomOrb;
+			light_size = 20;
 			exploded = false;
 			timer1 = 19;
 			path = -1;
@@ -109,6 +110,8 @@ if (timer2 <= 0) instance_destroy();
 function scr_projectile_trollTortoise_blossomOrb(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
+	
 	//Explode on player
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
 	{
@@ -178,7 +181,7 @@ else
 function scr_projectile_trollTortoise_missile(){
 if (obj_game.gamePaused = false)
 {
-
+lit = true;
 //Set
 sprite_index = enemy_move;
 speed = enemy_spd;

@@ -69,7 +69,7 @@ if (scene = false) and (obj_game.textPaused = false)
 			draw_set_halign(fa_right);
 			draw_set_valign(fa_middle);
 			draw_set_color(c_white);
-			draw_text_transformed(163,20,global.aggroCounter,1,1,0);
+			draw_text_transformed(163,24,global.aggroCounter,.75,.75,0);
 		}
 		//if (global.bossCounter > 0) 
 		//{

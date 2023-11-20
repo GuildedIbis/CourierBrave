@@ -40,6 +40,7 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerC = 0;
 _destX = 32;
 _destY = 32;
 attack_counter = 0;
@@ -59,6 +60,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	

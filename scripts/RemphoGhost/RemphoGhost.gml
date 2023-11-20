@@ -71,6 +71,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
+			
 		}
 	}
 	
@@ -92,12 +93,13 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
+		lit = true;
 		passable = false;
 		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
 		{
-			
+			lit = false;
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
@@ -354,6 +356,7 @@ if (obj_game.gamePaused = false)
 function scr_projectile_soulFlare(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))

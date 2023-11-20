@@ -32,7 +32,7 @@ if (global.dayPhase = 2)
 			if (lit = true)
 			{
 				gpu_set_blendmode(bm_subtract);
-				draw_circle(x,y,sprite_width+4,false);
+				draw_circle(x,y,max(24,sprite_width+4),false);
 				gpu_set_blendmode(bm_normal);
 			}
 		}
@@ -84,7 +84,7 @@ if (global.dayPhase = 2)
 			if (lit = true)
 			{
 				gpu_set_blendmode(bm_subtract);
-				draw_circle(x,y,sprite_width,false);
+				draw_circle(x,y,max(20,sprite_width),false);
 				gpu_set_blendmode(bm_normal);
 			}
 		}

@@ -1320,7 +1320,7 @@
     {"id":{"name":"spr_enemy_rat_run","path":"sprites/spr_enemy_rat_run/spr_enemy_rat_run.yy",},},
     {"id":{"name":"spr_door_beaowire_spikes","path":"sprites/spr_door_beaowire_spikes/spr_door_beaowire_spikes.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerMissiles","path":"sprites/spr_enemy_tortoiseTroll_hammerMissiles/spr_enemy_tortoiseTroll_hammerMissiles.yy",},},
-    {"id":{"name":"Heatwave","path":"scripts/Heatwave/Heatwave.yy",},},
+    {"id":{"name":"EndireKnightProjectiles","path":"scripts/EndireKnightProjectiles/EndireKnightProjectiles.yy",},},
     {"id":{"name":"snd_text_type","path":"sounds/snd_text_type/snd_text_type.yy",},},
     {"id":{"name":"spr_projectile_acolyte_anti","path":"sprites/spr_projectile_acolyte_anti/spr_projectile_acolyte_anti.yy",},},
     {"id":{"name":"spr_trollTortoise_flower_run","path":"sprites/spr_trollTortoise_flower_run/spr_trollTortoise_flower_run.yy",},},

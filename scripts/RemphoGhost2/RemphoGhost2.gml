@@ -93,12 +93,13 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
+		lit = true;
 		passable = false;
 		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer1 <= 0)
 		{
-			
+			lit = false;
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;

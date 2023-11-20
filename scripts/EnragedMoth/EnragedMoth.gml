@@ -382,7 +382,7 @@ if (obj_game.gamePaused = false)
 //
 //Worm Egg Create
 function scr_projectile_wormEgg_create(){
-home_state = scr_projectile_wormEgg_free;
+home_state = scr_projectile_wormEgg_free; 
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -409,6 +409,7 @@ max_hp = 60;
 function scr_projectile_wormEgg_free(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))

@@ -43,6 +43,11 @@ attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
 passable = true;
+
+if (obj_inventory.quest_grid[# 3, 1] >= 1)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -71,6 +76,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 	{
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-32,y-32,x+32,y+32)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
+			lit = true;
 			passable = false;
 			if (image_alpha != 1) image_alpha = 1;
 			scr_enemy_alert();
@@ -95,6 +101,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
+		lit = true;
 		passable = false;
 		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
@@ -114,6 +121,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 		}
 		if (timer2 <= 0)
 		{
+			lit = false;
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
@@ -125,6 +133,7 @@ if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 		}
 		if (timer3 <= 0)
 		{
+			lit = true;
 			path_end();
 			walk_snd_delay = 15;
 			sprite_index = enemy_idle;
@@ -155,6 +164,7 @@ else path_end();
 function scr_enemy_masgar_ghost_shadowShiftA(){
 if (obj_game.gamePaused = false)
 {
+	lit = false;
 	image_alpha = 1;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -191,6 +201,7 @@ if (obj_game.gamePaused = false)
 		//	bullet = true;
 		//	hit_script = EntityHitDestroy;
 		//}
+		lit = true;
 		timer2 = 42;
 		timerS = 42;
 		x = obj_player.x;
@@ -468,6 +479,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_masgar_ghost_slash(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
@@ -505,6 +517,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_masgar_ghost_phantomBlade(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
@@ -535,6 +548,7 @@ if (obj_game.gamePaused = false)
 			dir_x = obj_player.x;
 			dir_y = obj_player.y;
 			direction = (point_direction(x,y,dir_x,dir_y));
+			image_angle = direction;
 			home_state = scr_projectile_phantomBlade;
 			enemy_lvl = other.enemy_lvl;
 			attack_counter = 0;
@@ -571,8 +585,8 @@ if (obj_game.gamePaused = false)
 function scr_projectile_phantomBlade(){
 if (obj_game.gamePaused = false)
 {
-
 //Set
+lit = true;
 sprite_index = spr_enemy_ghostMasgar_phantomBlade;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
@@ -637,6 +651,7 @@ else
 function scr_projectile_phantomDagger(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
@@ -748,6 +763,7 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
+obj_inventory.quest_grid[# 3, 1] = 1;
 }
 
 

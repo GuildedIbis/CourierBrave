@@ -660,6 +660,7 @@ if (obj_game.gamePaused = false)
 function scr_projectile_antichrome(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
@@ -701,6 +702,7 @@ else
 function scr_projectile_nilchrome(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 image_angle = image_angle + 3;
@@ -743,6 +745,7 @@ else
 function scr_projectile_ilanil(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 image_angle = image_angle + 5;

@@ -7,6 +7,7 @@
 //Heatwave Create
 function scr_projectile_heatwave_create(){
 home_state = scr_projectile_heatwave;
+light_size = 24;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -31,6 +32,7 @@ dir_wave = false;
 function scr_projectile_heatwave(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 if (timer1 > 0)timer1 = timer1 -1;
 sprite_index = enemy_move;
 speed = enemy_spd;
@@ -82,6 +84,7 @@ else
 //Endire Knight Inimar Heatacer Create
 function scr_projectile_heatacer_create(){
 home_state = scr_projectile_heatacer;
+light_size = 24;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
@@ -106,6 +109,7 @@ dir_wave = false;
 function scr_projectile_heatacer(){
 if (obj_game.gamePaused = false)
 {
+lit = true;
 if (timer1 > 0)timer1 = timer1 -1;
 sprite_index = enemy_move;
 speed = enemy_spd;

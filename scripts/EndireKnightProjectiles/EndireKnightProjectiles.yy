@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Heatwave",
+  "name": "EndireKnightProjectiles",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

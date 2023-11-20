@@ -6,6 +6,7 @@
 //
 //Effect Lenko Trees Create
 function scr_effect_lenko_trees_create(){
+fading = true;
 image_index = irandom_range(0,6);
 image_speed = 0;
 with (instance_create_layer(x-8,y-19,"Wall",obj_wall))
@@ -72,7 +73,6 @@ else
 	if (image_alpha < 1) image_alpha = image_alpha + .05;
 }
 depth = -y;
-
 
 }
 //

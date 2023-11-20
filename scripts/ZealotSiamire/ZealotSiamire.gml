@@ -436,6 +436,7 @@ if (obj_game.gamePaused = false)
 function scr_projectile_waterSlash(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (sprite_index != spr_projectile_zealot_waterSlash)
@@ -511,6 +512,7 @@ else
 function scr_projectile_waterEdge(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 
@@ -596,6 +598,7 @@ else
 function scr_projectile_waterPin(){
 if (obj_game.gamePaused = false)
 {
+	lit = true;
 sprite_index = enemy_move;
 speed = enemy_spd;
 if (place_meeting(x,y,obj_player))
