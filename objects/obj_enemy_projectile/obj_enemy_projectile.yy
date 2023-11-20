@@ -39,8 +39,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_enemy_rat_arrow",
-    "path": "sprites/spr_enemy_rat_arrow/spr_enemy_rat_arrow.yy",
+    "name": "spr_blank",
+    "path": "sprites/spr_blank/spr_blank.yy",
   },
   "spriteMaskId": null,
   "visible": true,

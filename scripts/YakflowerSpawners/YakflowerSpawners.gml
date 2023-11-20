@@ -19,17 +19,23 @@ if (obj_inventory.quest_grid[# 8, 3] = false) and (global.aggroCounter <= 2)
 			//Decide Spawn Position
 			if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
 			{
-				x_spawn1 = 248;
-				y_spawn1 = 80;
-				//x_spawn2 = 504;
-				//y_spawn2 = 88;
+				x_spawn1 = 176;
+				y_spawn1 = 232;
+
 			}
 			else
 			{
-				x_spawn1 = 248;
-				y_spawn1 = 80;
-				//x_spawn2 = 200;
-				//y_spawn2 = 88;
+				var _choose = irandom_range(0,1)
+				if (_choose = 0)
+				{
+					x_spawn1 = 224;
+					y_spawn1 = 160;
+				}
+				else
+				{
+					x_spawn1 = 128;
+					y_spawn1 = 160;
+				}
 			}
 			
 			//Spawn, Tally, Reset

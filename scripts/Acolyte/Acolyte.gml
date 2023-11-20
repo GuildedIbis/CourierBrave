@@ -132,6 +132,9 @@ if (obj_game.gamePaused = false)
 	
 	if (hp <= 250)
 	{
+
+		invincible = true;
+		inv_dur_timer = 5;
 		image_index = 0;
 		path_end();
 		hsp = 0;
@@ -245,7 +248,9 @@ if (obj_game.gamePaused = false)
 			}
 			if (timer4 <= 0)
 			{
-				path_end()
+				path_end();
+				invincible = true;
+				inv_dur_timer = 5;
 				sprite_index = enemy_idle;
 				timer4 = 60;
 				entity_step = scr_enemy_acolyte_decoySpawn;
@@ -289,6 +294,11 @@ if (obj_game.gamePaused = false)
 	//Cacluate Attack
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
 	//Animate
 	scr_enemy_animation();
 	if (animation_end)
@@ -338,6 +348,11 @@ function scr_enemy_acolyte_roll(){
 if (obj_game.gamePaused = false)
 {
 	inv_dur_timer = 30;
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
@@ -379,6 +394,11 @@ if (obj_game.gamePaused = false)
 {
 	casting = true;
 	enemy_spd = 1.0;
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
 	//Timer
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
@@ -508,6 +528,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	invincible = true;
+	inv_dur_timer = 5;
 	
 	//Set
 	if (sprite_index != spr_enemy_acolyte_decoySpawn)
@@ -543,6 +565,8 @@ if (obj_game.gamePaused = false)
 			{
 				image_alpha = 1;
 				scr_enemy_acolyteDecoy_create();
+				invincible = true;
+				inv_dur_timer = 5;
 				entity_step = scr_enemy_acolyteDecoy_spawn;
 				enemy_lvl = other.enemy_lvl;
 				global.aggroCounter = global.aggroCounter + 1;
@@ -572,6 +596,11 @@ if (obj_game.gamePaused = false)
 function scr_enemy_acolyte_special(){
 if (obj_game.gamePaused = false)
 {
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;

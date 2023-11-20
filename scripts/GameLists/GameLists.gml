@@ -6,7 +6,7 @@
 //
 //Chest Lists
 function scr_inventory_chests_create(){
-chest_list = array_create(50,false)
+chest_list = array_create(50,false);
 }
 //
 //

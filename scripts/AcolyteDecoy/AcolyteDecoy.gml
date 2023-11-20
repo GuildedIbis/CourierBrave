@@ -63,6 +63,7 @@ path = -1;
 function scr_enemy_acolyteDecoy_spawn()
 {
 	invincible = true;
+	inv_dur_timer = 5;
 	if (sprite_index != spr_enemy_acolyte_decoySpawn)
 	{
 		//Start Animation From Beginning
