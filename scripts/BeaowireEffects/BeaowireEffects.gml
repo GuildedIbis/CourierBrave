@@ -290,12 +290,12 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.beaowireFortress_map_ary[15][3] < 1)
+if (obj_inventory.beaowireFortress_map_ary[11][3] < 1)
 {
 	sprite_index = spr_door_beaowire_stone;
 
 }
-if (obj_inventory.beaowireFortress_map_ary[15][3] >= 1)
+if (obj_inventory.beaowireFortress_map_ary[11][3] >= 1)
 {
 	sprite_index = spr_door_beaowire_stone_open;
 	with (obj_wall)

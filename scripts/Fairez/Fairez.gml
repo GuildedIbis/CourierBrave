@@ -47,7 +47,7 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Crull Recipe: Bluine Received!\nStar Orb Received!" 
+		text_string = "Crystal Enchantment: Bluine Received!\nStar Orb Received!" 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter >= 2)

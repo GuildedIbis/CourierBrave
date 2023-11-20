@@ -144,14 +144,14 @@ switch (obj_inventory.form_grid[# 2, 5])
 				{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 2, 5] = 1;
+						obj_inventory.form_grid[# 2, 5] = 2;
 						obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 2;
 						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}
 			}
 		}
 
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
+		draw_sprite_stretched(spr_rog_all,2,234,127,16,16);
 		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
 		draw_set_halign(fa_center);
 		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);

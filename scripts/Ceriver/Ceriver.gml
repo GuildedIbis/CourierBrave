@@ -641,7 +641,7 @@ if (sd_timer > 0) sd_timer = sd_timer - 1;
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	AttackCalculateStatus(projectile_sprite,self,-1,-1,-1,-1,-1,-1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
 	//instance_destroy();
 }
 if (place_meeting(x,y,break_object))

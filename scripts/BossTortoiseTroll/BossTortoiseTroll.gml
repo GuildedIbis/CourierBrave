@@ -44,6 +44,10 @@ timerS = 0;
 timerC = 0;
 walk_snd_delay = 0;
 path = -1;
+if (obj_inventory.quest_grid[# 16,3] = true)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -664,9 +668,9 @@ if (_drop2 >= 0)
 //obj_inventory.beaowire_dungeon[15] = 1;
 //if (obj_inventory.quest_grid[# 14, 3] = false)
 //{
-obj_inventory.quest_grid[# 14, 0] = true;
-obj_inventory.quest_grid[# 14, 1] = obj_inventory.quest_grid[# 14, 2];
-obj_inventory.quest_grid[# 14, 3] = true;
+obj_inventory.quest_grid[# 16, 0] = true;
+obj_inventory.quest_grid[# 16, 1] = obj_inventory.quest_grid[# 16, 2];
+obj_inventory.quest_grid[# 16, 3] = true;
 //	//with (obj_text)
 //	//{
 //	//	text_script = ZerwerkVictoryText;

@@ -145,7 +145,7 @@ switch (obj_inventory.form_grid[# 1, 5])
 				{
 						audio_sound_gain(snd_text02,global.volumeMenu,1);
 						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 1, 5] = 1;
+						obj_inventory.form_grid[# 1, 5] = 2;
 						obj_inventory.rog_array[1] = obj_inventory.rog_array[1] - 2;
 						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
 				}

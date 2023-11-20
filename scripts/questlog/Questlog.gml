@@ -495,7 +495,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Emerald Lock";
-var _text = ""
+var _text = "Escort the Emerald Pedestal\n"
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
