@@ -39,8 +39,13 @@ timer1 = 30;
 timer2 = 30;
 timer3 = 30;
 timer4 = 30;
+timerC = 30;
 walk_snd_delay = 0;
 path = -1;
+if (obj_inventory.quest_grid[# 12, 3] = true)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -57,6 +62,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	
 	
 	//While Aggro if off
@@ -93,22 +99,19 @@ if (obj_game.gamePaused = false)
 	if (targeted = true) //and (attack_counter < 3)
 	{
 		lit = true;
-		scr_enemy_chase_special(obj_game,obj_entity);
+		if (timerC <= 0) scr_enemy_chase_special(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		
 		//Slash Attack
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) and (timer1 <= 0)
 		{
 			walk_snd_delay = 45;
 			path_end();
 			sprite_index = enemy_idle;
-			if (timer1 <= 0)
-			{
-				audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
-				audio_play_sound(snd_motherLily_leafSlash,0,false);
-				timer1 = 23;
-				entity_step = scr_enemy_mother_lily_leafSlash;
-			}
+			audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
+			audio_play_sound(snd_motherLily_leafSlash,0,false);
+			timer1 = 23;
+			entity_step = scr_enemy_mother_lily_leafSlash;
 		}
 
 		//Mid Range Attacks - Razer Sprouts and Scissor Leaf
@@ -186,7 +189,7 @@ if (obj_game.gamePaused = false)
 				scr_enemy_lily_pod_create();
 				timer1 = 30;
 				timer2 = 30;
-				timer3 = 300;
+				timer3 = 180;
 				enemy_lvl = 1;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
@@ -219,6 +222,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_motherLily_leafSlash)
 	{
 		//Start Animation From Beginning
@@ -238,7 +242,9 @@ if (obj_game.gamePaused = false)
 	if (animation_end)
 	{
 		timer1 = 90;
+		timerC = 60;
 		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 }
@@ -256,6 +262,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_motherLily_move)
 	{
 		//Start Animation From Beginning
@@ -289,7 +296,9 @@ if (obj_game.gamePaused = false)
 	{
 		//audio_play_sound(snd_viceBubble,0,false);
 		timer2 = 120;
+		timerC = 60;
 		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 
@@ -347,6 +356,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -384,8 +394,10 @@ if (obj_game.gamePaused = false)
 				speed = enemy_spd;
 			}
 		}
-		timer2 = 120;
+		timer2 = 180;
+		timerC = 60;
 		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 }
@@ -403,6 +415,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -443,8 +456,9 @@ if (obj_game.gamePaused = false)
 			image_angle = direction;
 			speed = enemy_spd;
 		}
-		timer3 = 30;
-		entity_step = home_state;
+		timer3 = 300;
+		entity_step = scr_enemy_mother_lily_exposed;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 
@@ -464,6 +478,7 @@ if (obj_game.gamePaused = false)
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer3 > 0) timer3 = timer3 - 1;
 	if (timer4 > 0) timer4 = timer4 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	invincible = false;
 	if (sprite_index != spr_enemy_motherLily_exposed)
 	{
@@ -479,8 +494,9 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation_one();
 	if (animation_end)
 	{
-		timer1 = 120;
+		timerC = 60;
 		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 }

@@ -30,7 +30,7 @@ var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
 drop_amount = 15;
-max_hp = 200 + (100 * enemy_lvl);
+max_hp = 250 + (125 * enemy_lvl);
 hp = max_hp;
 boss = false;
 name = "Endire Knight";
@@ -41,6 +41,7 @@ attack_counter = 0;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerC = 0;
 walk_snd_delay = 0;
 path = -1;
 }	
@@ -55,12 +56,11 @@ if (obj_game.gamePaused = false)
 {
 	//Timers and counters
 	if (timer1 > 0) timer1 = timer1 - 1;
+	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	if (attack_counter > 2)
-	{ 
-		timer1 = 180;
-		attack_counter = 0;
-	}
+
 	
 	
 	//Toggle Aggro On
@@ -72,7 +72,6 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			targeted = true;
 			global.aggroCounter = global.aggroCounter + 1;
-			//global.bossCounter = global.bossCounter + 1;
 		}
 	}
 	
@@ -87,47 +86,27 @@ if (obj_game.gamePaused = false)
 		home_x = x;
 		home_y = y;
 		global.aggroCounter = global.aggroCounter - 1;
-		//global.bossCounter = global.bossCounter - 1;
 	}
 	
 	//While Aggro is on
 	if (targeted = true)
 	{
 		lit = true;
-		scr_enemy_chase();
+		if (timerC <= 0) scr_enemy_chase();
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) path_end();
-		walk_snd_delay = walk_snd_delay - 1;
-		if (timer1 <= 0) and (attack_counter <= 2)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) and (timer1 <= 0) //Firestrike
 		{
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) //Heatwave
-			{
-				path_end();
-				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				direction =  point_direction(x,y,obj_player.x,obj_player.y);
-				timer2 = 40;
-				attack_counter = attack_counter + 1;
-				entity_step = scr_enemy_endire_knight_heatwave;
-			}
-			if (point_in_circle(obj_player.x,obj_player.y,x,y,24)) //Firestrike
-			{
-				path_end();
-				walk_snd_delay = 15;
-				sprite_index = enemy_idle;
-				audio_sound_gain(snd_slash01,global.volumeEffects,1);
-				audio_play_sound(snd_slash01,0,false);
-				timer2 = 23;
-				entity_step = scr_enemy_endire_knight_fireStrike;
-			}
-			
+			path_end();
+			entity_step = scr_enemy_endire_knight_fireStrike;
 		}
-		if (walk_snd_delay <= 0)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer2 <= 0)//Heatwave
 		{
-			walk_snd_delay = 15;
-			audio_play_sound(walk_snd,1,0);
+			path_end();
+			direction =  point_direction(x,y,obj_player.x,obj_player.y);
+			timer2 = 40;
+			entity_step = scr_enemy_endire_knight_heatwave;
 		}
+
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -148,7 +127,10 @@ else path_end();
 function scr_enemy_endire_knight_fireStrike(){
 if (obj_game.gamePaused = false)
 {
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_endireKnight_fireStrike)
 	{
 		//Start Animation From Beginning
@@ -169,50 +151,10 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{
+		timer1 = 30;
+		timerC = 60;
 		entity_step = home_state;
-		animation_end = false;
-	}
-}
-}
-//
-//
-//
-//
-//
-//Endire Knight Cinder Dash
-function scr_enemy_endire_knight_cinderDash(){
-if (obj_game.gamePaused = false)
-{
-	
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer2 <= 0)	speed = 2.5;
-	if (sprite_index != spr_enemy_endireKnight_cinderDash)
-	{
-		//Start Animation From Beginning
-		sprite_index = spr_enemy_endireKnight_cinderDash;
-		local_frame = 0;
-		image_index = 0;
-		audio_sound_gain(snd_endireKnight_cinderDash,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_cinderDash,0,false);
-		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-		ds_list_clear(hit_by_attack);
-	}
-	damage = 80 + (12 * enemy_lvl);
-	//Cacluate Attack
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
-	
-	//Check for entities
-	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
-	{speed = 0}
-	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
-	{speed = 0}
-	
-	
-	//Animate
-	EnemyAnimation();
-	if (animation_end)
-	{
-		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 }
@@ -227,7 +169,10 @@ function scr_enemy_endire_knight_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
+	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	if (timer3 > 0) timer3 = timer3 - 1;
+	if (timerC > 0) timerC = timerC - 1;
 	if (sprite_index != spr_enemy_endireKnight_heatwave)
 	{
 		//Start Animation From Beginning
@@ -254,7 +199,7 @@ if (obj_game.gamePaused = false)
 				timer1 = 15;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
-				speed = 1.1;
+				speed = enemy_spd;
 				break_object = other.break_object;
 				fragment_count = 3;
 				lit = true;
@@ -279,7 +224,10 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation_one();
 	if (animation_end)
 	{
+		timer2 = 300;
+		timerC = 60;
 		entity_step = home_state;
+		sprite_index = enemy_idle;
 		animation_end = false;
 	}
 }

@@ -618,7 +618,7 @@ if (obj_inventory.level_ary[2] = true)
 	draw_sprite_ext(spr_map_arrow,0,_xPos + 39, _yPos + 83,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 80,_xPos + 42,_yPos + 86))
 	{
-		draw_sprite(spr_map_arrow_highlight,0,_xPos + 39,_yPos + 83);
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 23,_yPos + 83);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			slot = 2;

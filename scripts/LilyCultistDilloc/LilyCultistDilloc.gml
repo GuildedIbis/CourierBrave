@@ -40,6 +40,7 @@ friend_in_range = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerC = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 _destX = 32;

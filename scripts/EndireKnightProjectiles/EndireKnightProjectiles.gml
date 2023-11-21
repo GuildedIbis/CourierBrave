@@ -17,7 +17,7 @@ healthbar = false;
 bullet = true;
 aggro_drop = 300;
 timer1 = 0;
-enemy_spd = 3.0
+enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
 damage = 40 + (8 * enemy_lvl);
@@ -32,7 +32,7 @@ dir_wave = false;
 function scr_projectile_heatwave(){
 if (obj_game.gamePaused = false)
 {
-	lit = true;
+lit = true;
 if (timer1 > 0)timer1 = timer1 -1;
 sprite_index = enemy_move;
 speed = enemy_spd;

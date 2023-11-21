@@ -309,6 +309,11 @@ if (obj_game.gamePaused = false)
 		timerC = 120;
 	}
 }
+else 
+{
+	path_end();
+	speed = 0;
+}
 }
 //
 //

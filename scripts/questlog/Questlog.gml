@@ -514,7 +514,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Zealot Siamire";
-var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone."
+var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone.\n\nLily Cultist offer their bodies as\nhosts to the parasitic lilies. They may\nlive many years this way but the hosts\nmind is forever poisoned."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -532,8 +532,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Troll Tortioise";
-var _text = "Defeat the Troll Tortoise"
+var _headerText = "Troll Tortoise";
+var _text = "Defeat the Troll Tortoise.\n\nThought once to be extinct, Troll's have long been\nhunted for as creatures of evil.\nEven without any training or enchanted weapons\nthey are dangerous by nature."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

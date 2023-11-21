@@ -29,7 +29,7 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 40 + (20 * enemy_lvl);
+max_hp = 60 + (30 * enemy_lvl);
 hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
@@ -87,7 +87,7 @@ if (obj_game.gamePaused = false)
 		if (timer3 <= 0)
 		{
 			image_alpha = 1;
-			scr_enemy_trap_lily_create();
+			scr_enemy_lilyCultist_dilloc_create();
 			targeted = true;
 			timer1 = 30;
 			timer2 = 30;
