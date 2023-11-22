@@ -38,7 +38,8 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
-timerC = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -63,12 +64,8 @@ if (obj_game.gamePaused = false)
 	//Toggle Aggro 
 	if (targeted = false)
 	{
-		lit = false
-		if (timer1 <= 0)
-		{
-			scr_enemy_wander_home(60,180,x,y); //Data Leak if not radius restricted?
-		}
-		else sprite_index = enemy_idle;
+		lit = false;
+		scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
@@ -95,7 +92,7 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
-			scr_enemy_chase();
+			if (timerC <= 0) scr_enemy_chase();
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
@@ -255,6 +252,7 @@ if (obj_game.gamePaused = false)
 			{
 				attack_counter = 0;
 				timer2 = 60;
+				timerC = 60;
 				entity_step = home_state;
 			}
 		}
@@ -291,7 +289,6 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{
-		attack_counter = attack_counter + 1;
 		audio_sound_gain(snd_arrow,global.volumeEffects,1);
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
@@ -336,8 +333,8 @@ if (obj_game.gamePaused = false)
 		}
 		else
 		{
-			attack_counter = 0;
-			timer2 = 60;
+			timer2 = 360;
+			timerC = 120;
 			entity_step = home_state;
 		}
 		sprite_index = enemy_idle;
@@ -455,14 +452,16 @@ speed = enemy_spd;
 lit = true;
 //Chase
 
-
-if (path_exists(path)) path_delete(path);
-path = path_add();
-mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
-path_start(path, enemy_spd, 0, 0);
-image_speed = 1;
-sprite_index = enemy_move;
-if (point_in_circle(obj_player.x,obj_player.y,x,y,4)) path_end();
+if (!point_in_circle(obj_player.x,obj_player.y,x,y,4))
+{
+	if (path_exists(path)) path_delete(path);
+	path = path_add();
+	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_wall);
+	path_start(path, enemy_spd, 0, 0);
+	image_speed = 1;
+	sprite_index = enemy_move;
+}
+else path_end();
 
 
 		

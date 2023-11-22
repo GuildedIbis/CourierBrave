@@ -29,7 +29,7 @@ var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
 drop_amount = 15;
-max_hp = 550 + (280 * enemy_lvl);
+max_hp = 900 + (450 * enemy_lvl);
 hp = max_hp;
 boss = true;
 name = "Endire Knight Inimar";
@@ -46,6 +46,10 @@ path = -1;
 target_x = 0;
 target_y = 0;
 projectile_dir = 0;
+if (obj_inventory.quest_grid[# 7, 1] >= 1)
+{
+	instance_destroy();
+}
 }
 	//
 //
@@ -277,8 +281,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_inimar_heatwave;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -286,10 +290,11 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
+		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 		for (var i = 0; i < 3; i = i + 1)
 		{
-			audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
-			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
+			
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				enemy_lvl = other.enemy_lvl;
@@ -348,8 +353,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_inimar_heatwave;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -472,7 +477,7 @@ if (_drop1 < 25)//Form Specific Rog Stone
 {
 	with (instance_create_layer(x,y,"Instances",obj_itemRog))
 	{
-		item_id = round(other.drop_amount/2);
+		item_id = obj_player.form_type;
 		sprite_index = spr_rog_all;
 		image_index = item_id;
 		direction = (360/_objects * 4) + _angle;
@@ -503,7 +508,8 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-
+obj_inventory.quest_grid[# 7, 0] = true;
+obj_inventory.quest_grid[# 7, 1] = 1;
 
 
 }

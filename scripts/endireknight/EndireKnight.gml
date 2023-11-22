@@ -30,7 +30,7 @@ var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
 form_type = 3;
 drop_amount = 15;
-max_hp = 250 + (125 * enemy_lvl);
+max_hp = 400 + (200 * enemy_lvl);
 hp = max_hp;
 boss = false;
 name = "Endire Knight";
@@ -179,19 +179,19 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_heatwave;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
 	damage = 60 + (10 * enemy_lvl);
 	if (timer2 <= 0)
 	{
+		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
+		audio_play_sound(snd_endireKnight_heatwave,0,false);
 		timer2 = 60;
 		for (var i = 0; i < 3; i = i + 1)
 		{
-			audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
-			audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
 				enemy_lvl = other.enemy_lvl;

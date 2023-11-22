@@ -44,6 +44,10 @@ timer3 = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
+if (obj_inventory.quest_grid[# 11, 1] >= 1)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -542,7 +546,8 @@ if (_drop2 < 50)
 	}
 }
 //else instance_create_layer(x,y,"Instances",_objects[0])
-
+obj_inventory.quest_grid[# 11, 0] = true;
+obj_inventory.quest_grid[# 11, 1] = 1;
 	
 }
 

@@ -1,17 +1,10 @@
-//Create Entity Parent
-//This is a massive parent object that includes
-	//enemies, resources, NPCs, and collision
-//Collision objects break from all parent events and inherits none of them
-	//As there are tons of these in room at once, minimize code
-//Enemies break from draw and create, but stil inherit those events
-//NPCs break from draw end and create, but still inherit those events
-//Resources break from draw and does not inherit that event
+//Create Entity Parent	
 //
 //
 //
 //
 //
-//Animation
+//Animation and Movement
 z = 0;
 flash = 0;
 uni_flash = shader_get_uniform(sh_flash_white,"flash");
@@ -23,14 +16,33 @@ shadow = false;
 shadow_size = 0;
 drop_amount = -1;
 form_type = -1;
+hor_spd = 0;
+ver_spd = 0;
 home_x = x;
 home_y = y;
-
-
-//Init
-//hp = 1;
-//max_hp = 1;
-
+//
+//
+//
+//
+//
+//Basic Timers
+timer1 = 0;
+timer2 = 0;
+timer3 = 0;
+timer4 = 0;
+timer5 = 0;
+timer6 = 0;
+timer7 = 0;
+timer8 = 0;
+timer9 = 0;
+timerC = 0;
+timerS = 0;
+timerW = 0;
+//
+//
+//
+//
+//
 //Status
 status_animate_timer = 0;
 status_animate_index = 0;

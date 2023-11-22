@@ -46,7 +46,7 @@ quest_grid[# 3, 4] = Idle;
 quest_grid[# 3, 5] = scr_inventory_questlog_text_03;
 quest_grid[# 4, 0] = false;
 quest_grid[# 4, 1] = 0;
-quest_grid[# 4, 2] = 1;
+quest_grid[# 4, 2] = 2;
 quest_grid[# 4, 3] = false
 quest_grid[# 4, 4] = Idle;
 quest_grid[# 4, 5] = scr_inventory_questlog_text_04;
@@ -124,7 +124,7 @@ quest_grid[# 16, 4] = Idle;
 quest_grid[# 16, 5] = scr_inventory_questlog_text_16;
 quest_grid[# 17, 0] = false;
 quest_grid[# 17, 1] = 0;
-quest_grid[# 17, 2] = 1; 
+quest_grid[# 17, 2] = 2; 
 quest_grid[# 17, 3] = false;
 quest_grid[# 17, 4] = Idle;
 quest_grid[# 17, 5] = Idle;
@@ -351,7 +351,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 07 - Ghafate the Endire Knight
+//Quest Inventory Text: 07 - Inimar the Endire Knight
 function scr_inventory_questlog_text_07(){
 var _midX = 222;
 var _leftX = 167;
@@ -359,8 +359,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Ghafate the Endire Knight";
-var _text = "Defeat Ghafate the Endire Knight\nand collect the Skill Stone.\n\nThe Endire Knights travel the land doing the bidding\nof the Beetra Throne, no matter who sits upon it.";
+var _headerText = "Inimar the Endire Knight";
+var _text = "Defeat Inimar the Endire Knight\nand collect the Skill Stone.\n\nThe Endire Knights travel the land doing the bidding\nof the Beetra Throne, no matter who sits upon it.";
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);

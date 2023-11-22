@@ -58,7 +58,7 @@ attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
 
-if (obj_inventory.quest_grid[# 16, 3] = true)
+if (obj_inventory.quest_grid[# 16, 1] = 1)
 {
 	instance_destroy();
 }
@@ -706,4 +706,6 @@ if (_drop2 < 100)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
+obj_inventory.quest_grid[# 16, 0] = true;
+obj_inventory.quest_grid[# 16, 1] = 1;
 }

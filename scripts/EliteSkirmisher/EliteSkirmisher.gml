@@ -38,7 +38,8 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
-timerC = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 walk_snd_delay = 0;
 path = -1;
 return_x = -1;
@@ -60,16 +61,11 @@ if (obj_game.gamePaused = false)
 	if (timerC > 0) timerC = timerC - 1;
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
-	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
 		lit = false;
-		if (timer1 <= 0)
-		{
-			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
-		}
-		else sprite_index = enemy_idle;
+		scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
@@ -77,8 +73,6 @@ if (obj_game.gamePaused = false)
 			targeted = true;
 		}
 	}
-	
-	
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;

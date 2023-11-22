@@ -763,6 +763,7 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
+obj_inventory.quest_grid[# 3, 0] = true;
 obj_inventory.quest_grid[# 3, 1] = 1;
 }
 
