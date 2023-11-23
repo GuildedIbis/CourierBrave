@@ -1190,7 +1190,7 @@
     {"name":"spr_game_logo_icon","order":7,"path":"sprites/spr_game_logo_icon/spr_game_logo_icon.yy",},
     {"name":"rm_lenko_beaowire_15","order":3,"path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
     {"name":"PlayerScene00","order":2,"path":"scripts/PlayerScene00/PlayerScene00.yy",},
-    {"name":"spr_enemy_eliteSkirmisher_vineSpawn","order":11,"path":"sprites/spr_enemy_eliteSkirmisher_vineSpawn/spr_enemy_eliteSkirmisher_vineSpawn.yy",},
+    {"name":"spr_enemy_eliteSkirmisher_vineSpawn","order":16,"path":"sprites/spr_enemy_eliteSkirmisher_vineSpawn/spr_enemy_eliteSkirmisher_vineSpawn.yy",},
     {"name":"spr_npc_rhombail","order":2,"path":"sprites/spr_npc_rhombail/spr_npc_rhombail.yy",},
     {"name":"spr_door_habrafLake_stone_open","order":1,"path":"sprites/spr_door_habrafLake_stone_open/spr_door_habrafLake_stone_open.yy",},
     {"name":"snd_enemy_lily_viceBubble_hit","order":14,"path":"sounds/snd_enemy_lily_viceBubble_hit/snd_enemy_lily_viceBubble_hit.yy",},

@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Skirmisher",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Balurne Rats/Skirmisher.yy",
+    "name": "Retired",
+    "path": "folders/Sprites/Entity/Enemy/Other/Retired.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
