@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_enemy_gorogShield_idle",
+  "name": "spr_enemy_gorog_shield",
   "bbox_bottom": 23,
   "bbox_left": 13,
   "bbox_right": 19,
@@ -36,7 +36,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_enemy_gorogShield_idle",
+    "name": "spr_enemy_gorog_shield",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -58,10 +58,10 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_enemy_gorogShield_idle/spr_enemy_gorogShield_idle.yy",},},},"Disabled":false,"id":"2bcc8bf8-83d5-468b-b9f8-c96e07480376","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_enemy_gorogShield_idle/spr_enemy_gorogShield_idle.yy",},},},"Disabled":false,"id":"a12103ec-130a-4572-8bce-25d8f1056b80","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5","path":"sprites/spr_enemy_gorogShield_idle/spr_enemy_gorogShield_idle.yy",},},},"Disabled":false,"id":"9ea5e06b-86cd-4bc5-b617-30b34f3aecca","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_enemy_gorogShield_idle/spr_enemy_gorogShield_idle.yy",},},},"Disabled":false,"id":"6d0475d0-d688-48e2-9fbf-7d1615fbea6a","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_enemy_gorog_shield/spr_enemy_gorog_shield.yy",},},},"Disabled":false,"id":"be5b9b05-7543-4599-96dc-ed885cf3d12e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_enemy_gorog_shield/spr_enemy_gorog_shield.yy",},},},"Disabled":false,"id":"43555f77-9685-4430-938b-b76bd2ecdcce","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5","path":"sprites/spr_enemy_gorog_shield/spr_enemy_gorog_shield.yy",},},},"Disabled":false,"id":"939b74e5-2469-46d2-94b4-e6b35f97f614","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_enemy_gorog_shield/spr_enemy_gorog_shield.yy",},},},"Disabled":false,"id":"bf56adac-88fe-4c49-bb54-49bd4873952c","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
