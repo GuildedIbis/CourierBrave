@@ -58,10 +58,7 @@ function scr_enemy_gorogElite_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
@@ -163,9 +160,7 @@ else
 function scr_enemy_gorogElite_shield(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_shield)
 	{
 		//Start Animation From Beginning
@@ -194,8 +189,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_heavySlashA(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_heavySlash_A)
 	{
 		//Start Animation From Beginning
@@ -222,6 +216,7 @@ if (obj_game.gamePaused = false)
 		else 
 		{
 			timer1 = 30;
+			timerC = 60;
 			sprite_index = enemy_idle;
 			entity_step = scr_enemy_gorogElite_free;
 		}
@@ -238,8 +233,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_heavySlashB(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_heavySlash_B)
 	{
 		//Start Animation From Beginning
@@ -259,7 +253,8 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{
-		timer1 = 60;
+		timer1 = 90;
+		timerC = 60;
 		hor_spd = irandom_range(-1,1);
 		ver_spd = irandom_range(-1,1);
 		if (hor_spd = 0) and (ver_spd = 0)
@@ -281,9 +276,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_chainHook_toss(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_chainHook_toss)
 	{
 		//Start Animation From Beginning
@@ -335,9 +328,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_chainHook_wait(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_chainHook_wait)
 	{
 		//Start Animation From Beginning
@@ -362,9 +353,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_knifeThrow(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_knifeThrow)
 	{
 		//Start Animation From Beginning
@@ -429,8 +418,7 @@ if (obj_game.gamePaused = false)
 //EliteGorog Reposition
 function scr_enemy_gorogElite_reposition(){
 //Timer
-
-if (timer1 > 0) timer1 = timer1 - 1;
+scr_enemy_timer_countdown();
 
 
 //Set
@@ -472,9 +460,9 @@ else sprite_index = enemy_idle;
 
 
 //End
-if (timer1 <= 0)
+if (timerC <= 0)
 {
-	timer1 = 30;
+	timerC = 60;
 	entity_step = home_state;
 	sprite_index = enemy_idle;
 }

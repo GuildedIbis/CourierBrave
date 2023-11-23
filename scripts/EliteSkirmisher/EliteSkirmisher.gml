@@ -55,17 +55,14 @@ function scr_enemy_skirmisherElite_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
 		lit = false;
-		scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
+		scr_enemy_wander_home(60,180,home_x,home_y); 
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
@@ -146,7 +143,7 @@ else path_end();
 function scr_enemy_skirmisherElite_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_eliteSkirmisher_slash)
 	{
 		//Start Animation From Beginning
@@ -191,7 +188,7 @@ if (obj_game.gamePaused = false)
 {
 	image_speed = 1;
 	var _collided
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_eliteSkirmisher_spinSlash)
 	{
 		//Start Animation From Beginning
@@ -229,7 +226,7 @@ if (obj_game.gamePaused = false)
 	{
 		speed = 0;
 		sprite_index = enemy_idle;
-		timer2 = 300;
+		timer2 = 360;
 		timerC = 60;
 		hor_spd = irandom_range(-1,1);
 		ver_spd = irandom_range(-1,1);
@@ -253,7 +250,7 @@ function scr_enemy_skirmisherElite_reposition(){
 if (obj_game.gamePaused = false)
 {
 //Timer
-timerC = timerC - 1;
+scr_enemy_timer_countdown();
 
 //Set
 if (sprite_index != enemy_move)

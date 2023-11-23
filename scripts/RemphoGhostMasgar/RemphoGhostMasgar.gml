@@ -39,6 +39,8 @@ timer1 = 0;
 timer2 = 0;
 timer3 = 0;
 timerS = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -64,27 +66,22 @@ function scr_enemy_masgar_ghost_free(){
 if (obj_game.gamePaused = false)//and (global.dayPhase = 2)
 {
 	//Timers
-	if (timer1 > 0) and (watervice = false)
-	{
-		timer1 = timer1 - 1;
-	}
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+
+
 	//Toggle Aggro 
 	if (targeted = false)
 	{
-		if (point_in_rectangle(obj_player.x, obj_player.y,x-32,y-32,x+32,y+32)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		lit = false;
+		scr_enemy_wander_home(60,180,home_x,home_y); 
+		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			lit = true;
-			passable = false;
-			if (image_alpha != 1) image_alpha = 1;
 			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
 		}
 	}
-	
 	if (aggro_drop <= 0)
 	{
 		image_alpha = image_alpha - .05;

@@ -51,11 +51,7 @@ function scr_enemy_trollTortoise_free2(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	//While Aggro is on
 	if (targeted = true)
 	{
@@ -142,11 +138,7 @@ else path_end();
 function scr_enemy_trollTortoise_hammerSlam2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerSlam2)
 	{
 		//Start Animation From Beginning
@@ -200,11 +192,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerLunge2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerLunge2)
 	{
 		//Start Animation From Beginning
@@ -249,11 +237,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_backslam2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerBackslam2)
 	{
 		//Start Animation From Beginning
@@ -290,11 +274,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_jumpslam2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerJumpslam2)
 	{
 		//Start Animation From Beginning
@@ -366,11 +346,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_vineToss2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_vineToss2)
 	{
 		//Start Animation From Beginning
@@ -428,11 +404,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_vineToss2_wait(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_vineToss_wait)
 	{
 		//Start Animation From Beginning
@@ -457,11 +429,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerMissile2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerMissiles2)
 	{
 		//Start Animation From Beginning
@@ -562,11 +530,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerBlossom2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerBlossom2)
 	{
 		//Start Animation From Beginning
@@ -633,11 +597,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_vineErupt2(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerS > 0) timerS = timerS - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_tortoiseTroll_vineErupt2)
 	{
 		//Start Animation From Beginning

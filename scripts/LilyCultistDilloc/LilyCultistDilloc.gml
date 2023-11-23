@@ -58,21 +58,14 @@ function scr_enemy_lilyCultist_dilloc_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
-	
-	//If 
+	//Toggle Aggro 
 	if (targeted = false)
 	{
 		lit = false;
-		if (timer1 <= 0)
-		{
-			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
-		}
-		else sprite_index = enemy_idle;
+		scr_enemy_wander_home(60,180,home_x,home_y); 
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
@@ -139,9 +132,7 @@ else
 function scr_enemy_lilyCultist_dilloc_lifeLeaf(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 2;
-	if (timer3 > 0) timer3 = timer3 - 2;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_cultistDilloc_lifeLeaf)
 	{
 		//Start Animation From Beginning
@@ -338,7 +329,7 @@ if (timer1 <= 0) instance_destroy();
 function scr_enemy_lilyCultist_dilloc_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_cultistDilloc_slash)
 	{
 		//Start Animation From Beginning
@@ -381,11 +372,7 @@ if (obj_game.gamePaused = false)
 //Lily Cultist Reposition
 function scr_enemy_lilyCultist_dilloc_reposition(){
 //Timer
-
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
-if (timer3 > 0) timer3 = timer3 - 1;
-
+scr_enemy_timer_countdown();
 
 //Set
 if (sprite_index != enemy_move)
@@ -441,10 +428,7 @@ if (timer3 <= 0)
 //Lily Cultist Zealot Spawn
 function scr_enemy_lilyCultist_dilloc_zealotSpawn(){
 //Timer
-
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
-if (timer3 > 0) timer3 = timer3 - 1;
+scr_enemy_timer_countdown();
 speed = 0;
 
 //Set

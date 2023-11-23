@@ -55,10 +55,7 @@ function scr_enemy_endire_knight_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers and counters
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	
@@ -67,11 +64,12 @@ if (obj_game.gamePaused = false)
 	if (targeted = false)
 	{
 		lit = false;
+		scr_enemy_wander_home(60,180,home_x,home_y); 
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
+			scr_enemy_alert();
 			aggro_drop = 300;
 			targeted = true;
-			global.aggroCounter = global.aggroCounter + 1;
 		}
 	}
 	
@@ -127,10 +125,7 @@ else path_end();
 function scr_enemy_endire_knight_fireStrike(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_endireKnight_fireStrike)
 	{
 		//Start Animation From Beginning
@@ -169,10 +164,7 @@ function scr_enemy_endire_knight_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_endireKnight_heatwave)
 	{
 		//Start Animation From Beginning

@@ -54,9 +54,7 @@ if (obj_game.gamePaused = false)
 {
 
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (special_timer > 0) special_timer = special_timer - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	knockback = false;
 	knockback_dur = 0;
@@ -88,11 +86,11 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (special_timer <= 0)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timerS <= 0)
 		{
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (watervice = false)
 			{
-				special_timer = 180;
+				timerS = 180;
 				timer2 = 50;
 				entity_step = scr_enemy_knife_lily_returnLeaf;
 			}
@@ -131,7 +129,7 @@ if (obj_game.gamePaused = false)
 {
 	knockback = false;
 	knockback_dur = 0;
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_knifeLily_open)
 	{
 		//Start Animation From Beginning
@@ -195,8 +193,7 @@ if (obj_game.gamePaused = false)
 {
 sprite_index = enemy_move;
 speed = enemy_spd;
-if (timer1 > 0) timer1 = timer1 - 1;
-if (timer2 > 0) timer2 = timer2 - 1;
+scr_enemy_timer_countdown();
 if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
 if (timer2 <= 0) instance_destroy();
 if (place_meeting(x,y,obj_player))
@@ -249,7 +246,7 @@ if (obj_game.gamePaused = false)
 {
 	knockback = false;
 	knockback_dur = 0;
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_knifeLily_knifeSpin)
 	{
 		//Start Animation From Beginning
@@ -286,6 +283,7 @@ if (obj_game.gamePaused = false)
 {
 	knockback = false;
 	knockback_dur = 0;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_knifeLily_exposed)
 	{
 		//Start Animation From Beginning

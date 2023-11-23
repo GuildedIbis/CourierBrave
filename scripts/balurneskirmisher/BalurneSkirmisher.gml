@@ -38,6 +38,8 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 walk_snd_delay = 0;
 path = -1;
 }
@@ -51,7 +53,7 @@ function scr_enemy_balurne_skirmisher_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
@@ -59,11 +61,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = false)
 	{
 		lit = false;
-		if (timer1 <= 0)
-		{
-			scr_enemy_wander_home(60,180,home_x,home_y); //Data Leak if not radius restricted
-		}
-		else sprite_index = enemy_idle;
+		scr_enemy_wander_home(60,180,home_x,home_y); 
 		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
 			scr_enemy_alert();
@@ -122,7 +120,7 @@ else path_end();
 function scr_enemy_balurne_skirmisher_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_skirmisher_slash)
 	{
 		//Start Animation From Beginning

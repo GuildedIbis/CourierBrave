@@ -4,6 +4,26 @@
 //
 //
 //
+//Enemy Timers
+function scr_enemy_timer_countdown(){
+if (timer1 > 0) timer1 = timer1 - 1;
+if (timer2 > 0) timer2 = timer2 - 1;
+if (timer3 > 0) timer3 = timer3 - 1;
+if (timer4 > 0) timer4 = timer4 - 1;
+if (timer5 > 0) timer5 = timer5 - 1;
+if (timer6 > 0) timer6 = timer6 - 1;
+if (timer7 > 0) timer7 = timer7 - 1;
+if (timer8 > 0) timer8 = timer8 - 1;
+if (timer9 > 0) timer9 = timer9 - 1;
+if (timerC > 0) timerC = timerC - 1;
+if (timerS > 0) timerS = timerS - 1;
+if (timerW > 0) timerW = timerW - 1;
+
+}//
+//
+//
+//
+//
 //Enemy Aggro
 function scr_enemy_aggro(){
 
@@ -210,7 +230,6 @@ var _collision = false;
 var _entityList = ds_list_create();
 
 //Direction
-timerW = timerW - 1;
 if (timerW <= 0)
 {
 	hor_spd = irandom_range(-1,1) * (enemy_spd/2);
@@ -295,9 +314,13 @@ if (timerC > 0)
 }
 else 
 {
+	local_frame = 0;
+	//image_index = 0;
 	sprite_index = enemy_idle;
-	hor_spd = 0;
-	ver_spd = 0;
+	//var _totalFrames = sprite_get_number(sprite_index) / 4;
+	//image_index = (_cardinalDir * _totalFrames);
+	//hor_spd = 0;
+	//ver_spd = 0;
 }
 
 ds_list_destroy(_entityList);

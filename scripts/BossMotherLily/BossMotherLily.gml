@@ -58,11 +58,7 @@ if (obj_game.gamePaused = false)
 {
 	
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	
 	
 	//While Aggro if off
@@ -218,11 +214,7 @@ function scr_enemy_mother_lily_leafSlash(){
 if (obj_game.gamePaused = false)
 {
 	invincible = false;
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_motherLily_leafSlash)
 	{
 		//Start Animation From Beginning
@@ -258,11 +250,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_scissorLeaf(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_motherLily_move)
 	{
 		//Start Animation From Beginning
@@ -352,11 +340,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_razerSprout(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -411,11 +395,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_viceBomb(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -474,11 +454,7 @@ function scr_enemy_mother_lily_exposed(){
 attack_counter = 0;
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	invincible = false;
 	if (sprite_index != spr_enemy_motherLily_exposed)
 	{

@@ -165,6 +165,7 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 			}
 			else
 			{
+				timer2 = 360;
 				entity_step = scr_enemy_gorogElite_free;
 			}
 		}
@@ -174,6 +175,7 @@ if (point_in_circle(parent.x,parent.y,x,y,16))  //(point_in_circle(parent.x,pare
 	{
 		with (parent) 
 		{
+			timer2 = 360;
 			entity_step = scr_enemy_gorogElite_free;
 		}
 		instance_destroy();

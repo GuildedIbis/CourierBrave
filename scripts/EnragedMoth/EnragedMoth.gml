@@ -60,7 +60,7 @@ if (obj_game.gamePaused = false)
 {
 	healthbar = true;
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
@@ -124,8 +124,7 @@ if (obj_game.gamePaused = false)
 	lit = false;
 	healthbar = false;
 	//Timers
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	
 	//Set
 	if (sprite_index != spr_enemy_enragedMoth_dustStep)
@@ -190,7 +189,7 @@ else path_end();
 function scr_enemy_enraged_moth_rageCharge(){
 if (obj_game.gamePaused = false)
 {
-
+	scr_enemy_timer_countdown();
 	//Set
 	healthbar = true;
 	if (sprite_index != spr_enemy_enragedMoth_rageCharge)
@@ -246,7 +245,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_enraged_moth_rageRush(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	//Set
 	healthbar = true;
 	if (sprite_index != spr_enemy_enragedMoth_rageRush)
@@ -330,11 +329,12 @@ else
 //
 //
 //
-//Ofa Moth Moon Blast
+//Enraged Moth Rage Spawn
 function scr_enemy_enraged_moth_rageSpawn(){
 if (obj_game.gamePaused = false)
 {
 
+	scr_enemy_timer_countdown();
 	//Set
 	if (sprite_index != spr_enemy_enragedMoth_spawnOrb)
 	{
@@ -345,7 +345,6 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
-	timer2 = timer2 - 1;
 
 	//Animation
 	scr_enemy_animation_one();

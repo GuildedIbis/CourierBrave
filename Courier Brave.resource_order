@@ -426,7 +426,7 @@
     {"name":"spr_player_regaliare_slash","order":3,"path":"sprites/spr_player_regaliare_slash/spr_player_regaliare_slash.yy",},
     {"name":"spr_ceriver_steelorb","order":18,"path":"sprites/spr_ceriver_steelorb/spr_ceriver_steelorb.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerJumpslam_hitbox","order":13,"path":"sprites/spr_enemy_tortoiseTroll_hammerJumpslam_hitbox/spr_enemy_tortoiseTroll_hammerJumpslam_hitbox.yy",},
-    {"name":"LilyCultistBacwire","order":2,"path":"scripts/LilyCultistBacwire/LilyCultistBacwire.yy",},
+    {"name":"LilyCultistBacwire","order":13,"path":"scripts/LilyCultistBacwire/LilyCultistBacwire.yy",},
     {"name":"rm_lenko_yakflowerPath_06","order":14,"path":"rooms/rm_lenko_yakflowerPath_06/rm_lenko_yakflowerPath_06.yy",},
     {"name":"spr_npc_knightNofre36","order":5,"path":"sprites/spr_npc_knightNofre36/spr_npc_knightNofre36.yy",},
     {"name":"rm_lenko_yakflowerPath_02","order":3,"path":"rooms/rm_lenko_yakflowerPath_02/rm_lenko_yakflowerPath_02.yy",},

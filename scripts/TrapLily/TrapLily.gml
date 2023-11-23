@@ -53,20 +53,12 @@ function scr_enemy_trap_lily_free(){
 if (obj_game.gamePaused = false)
 {
 
-	
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (special_timer > 0) special_timer = special_timer - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	knockback = false;
 	knockback_dur = 0;
 
-	//Toggle Aggro 
-	//if (timer1 <= 0)
-	//{
-	//	scr_enemy_wander(60,180);
-	//}
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -89,11 +81,11 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (special_timer <= 0)
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,128)) and (timerS <= 0)
 		{
 			if (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (watervice = false)
 			{
-				special_timer = 180;
+				timerS = 180;
 				timer2 = 36;
 				entity_step = scr_enemy_trap_lily_bubbleFlail;
 			}
@@ -128,7 +120,7 @@ if (obj_game.gamePaused = false)
 {
 	knockback = false;
 	knockback_dur = 0;
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_trapLily_open)
 	{
 		//Start Animation From Beginning
@@ -188,6 +180,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trap_lily_exposed(){
 if (obj_game.gamePaused = false)
 {
+	scr_enemy_timer_countdown();
 	knockback = false;
 	knockback_dur = 0;
 	if (sprite_index != spr_enemy_trapLily_exposed)

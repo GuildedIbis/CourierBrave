@@ -61,10 +61,7 @@ function scr_enemy_endire_inimar_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers and counters
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	if (attack_counter > 2)
 	{ 
@@ -173,10 +170,7 @@ function scr_enemy_endire_inimar_fireStrike(){
 if (obj_game.gamePaused = false)
 {
 	speed = 0;
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_endireKnight_inimar_fireStrike)
 	{
 		//Start Animation From Beginning
@@ -214,10 +208,7 @@ function scr_enemy_endire_inimar_cinderDash(){
 if (obj_game.gamePaused = false)
 {
 	
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (timer2 <= 0)
 	{
 		hor_spd = lengthdir_x(3, dir);
@@ -271,10 +262,7 @@ function scr_enemy_endire_inimar_heatwave(){
 if (obj_game.gamePaused = false)
 {
 	
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning
@@ -343,10 +331,7 @@ function scr_enemy_endire_inimar_heatacer(){
 if (obj_game.gamePaused = false)
 {
 	
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning

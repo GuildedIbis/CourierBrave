@@ -36,6 +36,8 @@ hit_by_attack = -1;
 timer1 = 0;
 timer2 = 0;
 timer3 = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -56,25 +58,21 @@ function scr_enemy_rempho_ghost2_free(){
 if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 {
 	//Timers
-	if (timer1 >= 0) timer1 = timer1 - 1;
-	if (timer2 >= 0) timer2 = timer2 - 1;
-	if (timer3 >= 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
 	if (targeted = false)
 	{
-		if (point_in_rectangle(obj_player.x, obj_player.y,x-32,y-32,x+32,y+32)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+		lit = false;
+		scr_enemy_wander_home(60,180,home_x,home_y); 
+		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
 		{
-			passable = false;
-			if (image_alpha != 1) image_alpha = 1;
 			scr_enemy_alert();
-			timer1 = 60;
 			aggro_drop = 300;
 			targeted = true;
 		}
 	}
-	
 	if (aggro_drop <= 0)
 	{
 		image_alpha = image_alpha - .05;
@@ -132,9 +130,7 @@ if (obj_game.gamePaused = false)
 	lit = false;
 	healthbar = false;
 	//Timers
-	if (timer1 >= 0) timer1 = timer1 - 1;
-	if (timer2 >= 0) timer2 = timer2 - 1;
-	if (timer3 >= 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	//Set
 	if (sprite_index != spr_enemy_ghost2_shadowShiftA)
 	{
@@ -199,9 +195,7 @@ function scr_enemy_rempho_ghost2_shadowShiftB(){
 if (obj_game.gamePaused = false)
 {
 	//Set
-	if (timer1 >= 0) timer1 = timer1 - 1;
-	if (timer2 >= 0) timer2 = timer2 - 1;
-	if (timer3 >= 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();;
 	if (sprite_index != spr_enemy_ghost2_shadowShiftB)
 	{
 		//Start Animation From Beginning

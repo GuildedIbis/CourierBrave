@@ -54,10 +54,7 @@ function scr_enemy_hunterElite_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	
@@ -141,7 +138,7 @@ else path_end();
 function scr_enemy_hunterElite_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_eliteHunter_slash)
 	{
 		//Start Animation From Beginning
@@ -183,7 +180,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_hunterElite_shoot(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_eliteHunter_shoot)
 	{
 		//Start Animation From Beginning
@@ -270,7 +267,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_hunterElite_shootShatter(){
 if (obj_game.gamePaused = false)
 {
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_eliteHunter_shoot)
 	{
 		//Start Animation From Beginning

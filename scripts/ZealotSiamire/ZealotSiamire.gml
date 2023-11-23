@@ -52,7 +52,8 @@ timer1 = 60;
 timer2 = 60;
 timer3 = 60;
 timer4 = 60;
-timerC = 0;
+timerC = 60 + irandom_range(-15,15);
+timerW = 180 + irandom_range(-30,30);
 magic_counter = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
@@ -74,11 +75,7 @@ function scr_enemy_zealot_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	enemy_spd = 1.25;
 
@@ -170,11 +167,7 @@ else path_end();
 function scr_enemy_zealot_bowshot(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_zealot_shoot)
 	{
 		//Start Animation From Beginning
@@ -245,11 +238,7 @@ if (obj_game.gamePaused = false)
 	casting = true;
 	enemy_spd = 1.0;
 	//Timer
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 
 	//Animate
 	scr_enemy_animation_cast();
@@ -324,11 +313,7 @@ else
 function scr_enemy_zealot_waterEdge(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_zealot_waterEdge)
 	{
 		//Start Animation From Beginning
@@ -390,11 +375,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zealot_dillocSpawn(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
-	if (timerC > 0) timerC = timerC - 1;
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_zealot_dillocSpawn)
 	{
 		//Start Animation From Beginning

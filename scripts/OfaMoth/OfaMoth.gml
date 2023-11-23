@@ -54,7 +54,7 @@ if (obj_game.gamePaused = false)
 {
 	healthbar = true;
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Toggle Aggro 
@@ -119,8 +119,7 @@ if (obj_game.gamePaused = false)
 	lit = false;
 	healthbar = false;
 	//Timers
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	
 	//Set
 	if (sprite_index != spr_enemy_ofaMoth_dustStep)
@@ -187,7 +186,7 @@ else path_end();
 function scr_enemy_ofa_moth_crescentFire(){
 if (obj_game.gamePaused = false)
 {
-
+	scr_enemy_timer_countdown();
 	//Set
 	if (sprite_index != spr_enemy_ofaMoth_whiteMoon)
 	{
@@ -257,7 +256,7 @@ if (obj_game.gamePaused = false)
 function scr_enemy_ofa_moth_moonBlast(){
 if (obj_game.gamePaused = false)
 {
-
+	scr_enemy_timer_countdown();
 	//Set
 	if (sprite_index != spr_enemy_ofaMoth_moonBlast)
 	{
@@ -268,7 +267,6 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
-	timer2 = timer2 - 1;
 
 	//Animation
 	scr_enemy_animation_one();

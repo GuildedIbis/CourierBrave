@@ -53,11 +53,7 @@ function scr_enemy_enraged_worm_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) and (watervice = false)
-	{
-		timer1 = timer1 - 1;
-	}
-	if (timer2 > 0) timer2 = timer2 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
 	//Aggro 
@@ -91,6 +87,7 @@ else path_end();
 function scr_enemy_enraged_worm_charge(){
 if (obj_game.gamePaused = false)
 {
+	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_enragedWorm_charge)
 	{
 		//Start Animation From Beginning
@@ -123,7 +120,7 @@ function scr_enemy_enraged_worm_explode(){
 if (obj_game.gamePaused = false)
 {
 	lit = true;
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 
 	if (sprite_index != spr_enemy_enragedWorm_explode)
 	{
