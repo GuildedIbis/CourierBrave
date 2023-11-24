@@ -875,6 +875,7 @@
     {"name":"inst_15BCA3DF","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_558F511F","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_1478EA7E","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
+    {"name":"inst_34ECEA9E","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -1197,6 +1198,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1478EA7E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":464.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34ECEA9E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kephraStone","path":"objects/obj_kephraStone/obj_kephraStone.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"12",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":40.0,"y":264.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4C988F61_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_houseAbandoned_back","path":"objects/obj_effect_houseAbandoned_back/obj_effect_houseAbandoned_back.yy",},"properties":[

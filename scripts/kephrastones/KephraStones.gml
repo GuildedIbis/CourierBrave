@@ -44,6 +44,9 @@ kephra_grid[# 10, 2] = "STATUS EFFECTS"
 kephra_grid[# 11, 0] = scr_menu_kephra_11;
 kephra_grid[# 11, 1] = false
 kephra_grid[# 11, 2] = "RESOURCE CONTAINERS"
+kephra_grid[# 12, 0] = scr_menu_kephra_12;
+kephra_grid[# 12, 1] = false
+kephra_grid[# 12, 2] = "SHIELDED ENEMIES"
 
 						
 }
@@ -708,6 +711,60 @@ draw_set_color(c_white);
 draw_text_transformed(160,39,"KEPHRA STONE 11: RESOURCE CONTAINERS",1,1,0);
 draw_set_halign(fa_left);
 draw_sprite(spr_kephraStone_infograph_11,page,64,52);
+draw_text_transformed(165,56,_text[page],.5,.5,0);
+page = 0;
+
+//if (page < 1)
+//{
+//	draw_sprite_stretched(spr_menu_circle16,1,258,76,16,16);
+//	draw_sprite(spr_menu_arrow,0,266,84);
+//	if (point_in_rectangle(_mouseX,_mouseY,258,76,274,92))
+//	{
+//		draw_sprite_stretched(spr_highlight_circle,0,257,75,18,18);
+//		if (mouse_check_button_pressed(mb_left))
+//		{
+//			page = page + 1;
+//		}
+//	}
+//}
+//if (page > 0)
+//{
+//	draw_sprite_stretched(spr_menu_circle16,1,46,76,16,16);
+//	draw_sprite(spr_menu_arrow,2,54,84);
+//	if (point_in_rectangle(_mouseX,_mouseY,46,75,62,92))
+//	{
+//		draw_sprite_stretched(spr_highlight_circle,0,45,75,18,18);
+//		if (mouse_check_button_pressed(mb_left))
+//		{
+//			page = page - 1;
+//		}
+//	}
+//}
+
+}
+//
+//
+//
+//
+//
+//Kephra Stone 12: Shielded Enemies
+function scr_menu_kephra_12(){
+//Convert Mouse to GUI
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _text = array_create(2,-1)
+_text[0] = "Some enemies like the Gorog will\nprotect themselves with shields.\nShielded enemies have gold rings\naround them, and cannot be\ndamaged."
+
+
+//Sprite
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(160,39,"KEPHRA STONE 12: SHIELDED ENEMIES",1,1,0);
+draw_set_halign(fa_left);
+draw_sprite(spr_kephraStone_infograph_12,page,64,52);
 draw_text_transformed(165,56,_text[page],.5,.5,0);
 page = 0;
 

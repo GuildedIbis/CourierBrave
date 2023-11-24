@@ -160,6 +160,7 @@ else
 function scr_enemy_gorogElite_shield(){
 if (obj_game.gamePaused = false)
 {
+	shielded = true;
 	scr_enemy_timer_countdown();
 	if (sprite_index != spr_enemy_gorogE_shield)
 	{

@@ -1345,6 +1345,7 @@
     {"id":{"name":"obj_effect_treeMolen","path":"objects/obj_effect_treeMolen/obj_effect_treeMolen.yy",},},
     {"id":{"name":"spr_enemy_eliteHunter_shoot","path":"sprites/spr_enemy_eliteHunter_shoot/spr_enemy_eliteHunter_shoot.yy",},},
     {"id":{"name":"spr_lighting_box2","path":"sprites/spr_lighting_box2/spr_lighting_box2.yy",},},
+    {"id":{"name":"spr_kephraStone_infograph_12","path":"sprites/spr_kephraStone_infograph_12/spr_kephraStone_infograph_12.yy",},},
     {"id":{"name":"snd_goldBullet","path":"sounds/snd_goldBullet/snd_goldBullet.yy",},},
     {"id":{"name":"spr_home_small","path":"sprites/spr_home_small/spr_home_small.yy",},},
     {"id":{"name":"obj_fragPlant","path":"objects/obj_fragPlant/obj_fragPlant.yy",},},

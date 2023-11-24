@@ -149,11 +149,12 @@ else
 function scr_enemy_balurne_gorog_shield(){
 if (obj_game.gamePaused = false)
 {
+	shielded = true;
 	scr_enemy_timer_countdown();
-	if (sprite_index != spr_enemy_gorogShield_idle)
+	if (sprite_index != spr_enemy_gorog_shield)
 	{
 		//Start Animation From Beginning
-		sprite_index = spr_enemy_gorogShield_idle;
+		sprite_index = spr_enemy_gorog_shield;
 		local_frame = 0;
 		image_index = 0;
 	}

@@ -1181,6 +1181,7 @@
     {"name":"obj_effect_treeMolen","order":2,"path":"objects/obj_effect_treeMolen/obj_effect_treeMolen.yy",},
     {"name":"spr_enemy_eliteHunter_shoot","order":10,"path":"sprites/spr_enemy_eliteHunter_shoot/spr_enemy_eliteHunter_shoot.yy",},
     {"name":"spr_lighting_box2","order":4,"path":"sprites/spr_lighting_box2/spr_lighting_box2.yy",},
+    {"name":"spr_kephraStone_infograph_12","order":15,"path":"sprites/spr_kephraStone_infograph_12/spr_kephraStone_infograph_12.yy",},
     {"name":"snd_goldBullet","order":1,"path":"sounds/snd_goldBullet/snd_goldBullet.yy",},
     {"name":"spr_home_small","order":1,"path":"sprites/spr_home_small/spr_home_small.yy",},
     {"name":"obj_fragPlant","order":4,"path":"objects/obj_fragPlant/obj_fragPlant.yy",},
