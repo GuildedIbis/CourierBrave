@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Dilloc",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Dilloc.yy",
+    "name": "Cultist",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Cultist.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

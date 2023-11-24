@@ -6,29 +6,33 @@
 //
 //Acolyte Create
 function scr_enemy_acolyte_create(){
-
-sound = snd_npc_mouse;
-timer1 = 40;
-idle_sprite = spr_enemy_acolyte_idle;
-scene = false;
-sprite_index = idle_sprite;
-image_speed = 0;
-
-
-//
+//Scripts
 home_state = scr_enemy_acolyte_free;
 entity_step = scr_enemy_acolyte_scene02_step;
 entity_drop = scr_enemy_acolyte_drop;
-name = "The Acolyte"
-bullet = false;
-healthbar = true;
-boss = true;
+
+//Assets
 enemy_idle = spr_enemy_acolyte_idle;
 enemy_move = spr_enemy_acolyte_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
 enemy_arm = spr_enemy_acolyte_castArm;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
+sound = snd_npc_mouse;
+
+//Stats
+form_type = 0;
+drop_amount = 20;
+max_hp = 600 + (305 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.25;
+
+//Animation and Status
+name = "The Acolyte"
+scene = false;
+bullet = false;
+healthbar = true;
+boss = true;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -40,11 +44,6 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 direction = 180;
-form_type = 0;
-drop_amount = 20;
-max_hp = 600 + (305 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
 remain_dist = 64;
@@ -57,6 +56,7 @@ attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
 
+//Self Destruct
 if (obj_inventory.quest_grid[# 4, 3] = true)
 {
 	instance_destroy();
@@ -67,11 +67,14 @@ if (obj_inventory.quest_grid[# 4, 3] = true)
 //
 //
 //
-//Acolyte Scene 1 Step
+//Acolyte Scene: Scene 02
 function scr_enemy_acolyte_scene02_step(){
+//Invincible: Waiting on Player
 invincible = true;
 inv_dur_timer = 30;
-if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
+
+//Initate Interaction With Player
+if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
 {
 	if (obj_game.gamePaused = false)
 	{
@@ -118,21 +121,17 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 //
 //
 //
-//Acolyte Scene
+//Acolyte Free
 function scr_enemy_acolyte_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	enemy_spd = 1.25;
 	
+	//Exit Before Death
 	if (hp <= 250)
 	{
-
 		invincible = true;
 		inv_dur_timer = 5;
 		image_index = 0;
@@ -276,9 +275,10 @@ else path_end();
 function scr_enemy_acolyte_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_acolyte_slash)
 	{
 		//Start Animation From Beginning
@@ -290,17 +290,22 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45 + (8 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 45 + (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
-
+	
+	//Exit Before Death
 	if (hp <= 250)
 	{
 		invincible = true;
 		inv_dur_timer = 5;
 	}
+	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 120;
@@ -347,35 +352,37 @@ if (obj_game.gamePaused = false)
 function scr_enemy_acolyte_roll(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Invicible While Rolling
 	inv_dur_timer = 30;
+	
+	//Exit Before Death
 	if (hp <= 250)
 	{
 		invincible = true;
 		inv_dur_timer = 5;
 	}
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-
+	
+	//Move
 	hor_spd = lengthdir_x(3,direction);
 	ver_spd = lengthdir_y(3,direction);
 	remain_dist = max(0, remain_dist - 3);
 	var _collided = scr_enemy_collision();
 
-	//Update Sprite
+	//Animate
 	sprite_index = spr_enemy_acolyte_roll;
 	var _totalFrames = sprite_get_number(sprite_index)/4;
 	image_index = (_cardinalDir * _totalFrames) + min(((1 - (remain_dist / 64)) * _totalFrames), _totalFrames - 1);
 
 
-	//Free State
+	//End
 	if (remain_dist <= 0)
 	{
 		entity_step = home_state;
 		sprite_index = spr_enemy_acolyte_idle;
 	}
-
-	//Collision
 	if (_collided = true)
 	{
 		entit_step = home_state;
@@ -392,18 +399,12 @@ if (obj_game.gamePaused = false)
 function scr_enemy_acolyte_magic(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Dynamic Casting Arm
 	casting = true;
-	enemy_spd = 1.0;
-	if (hp <= 250)
-	{
-		invincible = true;
-		inv_dur_timer = 5;
-	}
-	//Timer
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-
+	
 	//Set
 	if (sprite_index != enemy_move)
 	{
@@ -413,30 +414,36 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 
-	//Animate
-	scr_enemy_animation_cast();
-	scr_enemy_projectile_spawn();
-
-
+	//Exit Before Death
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
+	
 	//Move
 	if (hor_spd != 0) or (ver_spd != 0) 
 	{
-		var _xDest = x + (hor_spd * (enemy_spd))
-		var _yDest = y + (ver_spd * (enemy_spd))
+		var _xDest = x + (hor_spd)
+		var _yDest = y + (ver_spd)
 		if (place_meeting(_xDest, _yDest,obj_entity))
 		{
 			hor_spd = -hor_spd;
 			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
 		}
 		path = path_add();
 		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
+		path_start(path, 1, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;
 	
 	}
+	
+	//Animate
+	scr_enemy_animation_cast();
+	scr_enemy_projectile_spawn();
 
+	//Create Projectiles (mid-animation, several bursts)
 	if (timer2 <= 0)
 	{
 		timer2 = 6;
@@ -448,8 +455,9 @@ if (obj_game.gamePaused = false)
 				audio_sound_gain(snd_acolyte_nilchrome,global.volumeEffects,1);
 				audio_play_sound(snd_acolyte_nilchrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_nil;
-				home_state = scr_projectile_nilchrome;
+				home_state = scr_projectile_nilchrome;	
 				entity_step = home_state;
+				lit = true;
 				invincible = false;
 				inv_dur_timer = 0;
 				enemy_move = spr_projectile_acolyte_nil;
@@ -467,6 +475,7 @@ if (obj_game.gamePaused = false)
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
 				image_angle = direction;
 				speed = enemy_spd;
+				sprite_index = enemy_move;
 			}
 		}
 		if (magic_counter < 3)
@@ -477,6 +486,7 @@ if (obj_game.gamePaused = false)
 				audio_play_sound(snd_acolyte_antichrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_anti;
 				home_state = scr_projectile_antichrome;
+				lit = true;
 				entity_step = home_state;
 				invincible = false;
 				inv_dur_timer = 0;
@@ -495,6 +505,7 @@ if (obj_game.gamePaused = false)
 				direction = point_direction(x,y,obj_player.x,obj_player.y-4)
 				image_angle = direction;
 				speed = enemy_spd;
+				sprite_index = enemy_move;
 			}
 		}
 	}
@@ -504,6 +515,7 @@ if (obj_game.gamePaused = false)
 		attack_counter = attack_counter - 1;
 		magic_counter = 4;
 	}
+	
 	//End
 	if (attack_counter <= 0)
 	{
@@ -523,18 +535,16 @@ function scr_enemy_acolyte_decoySpawn(){
 if (obj_game.gamePaused = false)
 {
 
-	//Timer
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (timer4 > 0) timer4 = timer4 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Invincible while Spawning Decoys
 	invincible = true;
 	inv_dur_timer = 5;
 	
 	//Set
 	if (sprite_index != spr_enemy_acolyte_decoySpawn)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_acolyte_decoySpawn;
 		local_frame = 0;
 		image_index = 0;
@@ -543,6 +553,7 @@ if (obj_game.gamePaused = false)
 	//Animate
 	scr_enemy_animation_one()
 
+	//Spawn Decoy Enemies (mid-animation)
 	if (timer4 <= 0)
 	{
 		timer4 = 660;
@@ -596,17 +607,12 @@ if (obj_game.gamePaused = false)
 function scr_enemy_acolyte_special(){
 if (obj_game.gamePaused = false)
 {
-	if (hp <= 250)
-	{
-		invincible = true;
-		inv_dur_timer = 5;
-	}
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_acolyte_special)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_acolyte_special;
 		local_frame = 0;
 		image_index = 0;
@@ -615,11 +621,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 95 + (13 * enemy_lvl);
-	//Cacluate Attack
-	scr_enemy_attack_calculate(spr_hitbox_acolyte_special);
-	scr_acolyte_bulletspawn_special();
-
+	
+	//Exit Before Death
+	if (hp <= 250)
+	{
+		invincible = true;
+		inv_dur_timer = 5;
+	}
+	
+	//Create Projectiles (midanimation, arc of 4)
 	if (timer3 <= 0)
 	{
 		timer3 = 4;
@@ -632,6 +642,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_projectile_acolyte_ilanil;
 			home_state = scr_projectile_ilanil;
 			entity_step = home_state;
+			lit = true;
 			invincible = false;
 			inv_dur_timer = 0;
 			enemy_move = spr_projectile_acolyte_ilanil;
@@ -649,10 +660,15 @@ if (obj_game.gamePaused = false)
 			direction = (other.direction + 90) - round(23*other.magic_counter);
 			image_angle = direction;
 			speed = enemy_spd;
+			sprite_index = enemy_move;
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation();
+	scr_acolyte_bulletspawn_special();
+	
+	//End
 	if (animation_end)
 	{
 		timer3 = 12;
@@ -689,33 +705,34 @@ if (obj_game.gamePaused = false)
 function scr_projectile_antichrome(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume Speed
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(snd_player_hit,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(snd_player_hit,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -731,34 +748,37 @@ else
 function scr_projectile_nilchrome(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-image_angle = image_angle + 3;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume Speed
+	speed = enemy_spd;
+	
+	//Spins in place
+	image_angle = image_angle + 3;
+
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(snd_player_hit,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(snd_player_hit,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -774,34 +794,37 @@ else
 function scr_projectile_ilanil(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-image_angle = image_angle + 5;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume Speed
+	speed = enemy_spd;
+	
+	//Spins in place
+	image_angle = image_angle + 5;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(snd_player_hit,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(snd_player_hit,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -854,8 +877,14 @@ switch(_dirPos)
 //
 //Acolyte Scene 3 Step
 function scr_enemy_acolyte_scene03_step(){
+//Timers
+scr_enemy_timer_countdown();
+
+//Exit Before Death
 invincible = true;
 inv_dur_timer = 30;
+
+//Iniatiate Player Interaction
 if (point_in_circle(obj_player.x,obj_player.y,x,y,24))
 {
 	if (obj_game.gamePaused = false)
@@ -903,18 +932,19 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,24))
 //
 //
 //
-//Acolyte Scene
+//Acolyte Escape
 function scr_enemy_acolyte_escape(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
-	if (flash > 0) entity_step = EnemyDamaged;
+	scr_enemy_timer_countdown();
+	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//Invincible While Escaping
 	invincible = true;
 	inv_dur_timer = 30;
 	
+	//Setup
 	if (sprite_index != spr_enemy_acolyte_escape)
 	{
 		//Start Animation From Beginning
@@ -925,6 +955,8 @@ if (obj_game.gamePaused = false)
 
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		instance_destroy();
@@ -939,21 +971,11 @@ if (obj_game.gamePaused = false)
 //
 //Acolyte Drop
 function scr_enemy_acolyte_drop(){
-
 var _objects = 7;
-//var _dropBean = 150;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
 
-
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);
@@ -1014,14 +1036,6 @@ if (_drop2 < 100)
 obj_inventory.quest_grid[# 4, 0] = true;
 obj_inventory.quest_grid[# 4, 1] = obj_inventory.quest_grid[# 4, 2];
 obj_inventory.quest_grid[# 4, 3] = true;
-	//with (obj_text)
-	//{
-	//	text_script = ZerwerkVictoryText;
-	//}
-	//obj_game.gamePaused = !obj_game.gamePaused;
-	//obj_game.textPaused = !obj_game.textPaused;
-
-
 }
 //
 //
@@ -1036,8 +1050,6 @@ obj_inventory.quest_grid[# 4, 3] = true;
 //
 //Necromancer Scene 2 Text
 function scr_text_acolyte_scene(){
-
-
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)

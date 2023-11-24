@@ -6,19 +6,31 @@
 //
 //Balurne Hunter Create
 function scr_enemy_balurne_hunter_create(){
-targeted = false;	
-invincible = false;
-bullet = false;
-healthbar = true;
-inv_dur_timer = 0;
+//Scripts
 home_state = scr_enemy_balurne_hunter_free;
-entity_step = home_state;
+entity_step = scr_enemy_balurne_hunter_free;
 entity_drop = scr_enemy_balurne_hunter_drop;
+
+//Assets
 enemy_idle = spr_enemy_balurneHunter_idle;
 enemy_move = spr_enemy_balurneHunter_run;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
+
+//Stats
+form_type = 1;
+drop_amount = 15;
+max_hp = 70 + (35 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.2;
+
+//Animation and Status
+targeted = false;	
+invincible = false;
+bullet = false;
+healthbar = true;
+inv_dur_timer = 0;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,16 +40,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 1;
-drop_amount = 15;
-max_hp = 70 + (35 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 timerC = 60 + irandom_range(-15,15);
 timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
@@ -56,7 +60,6 @@ if (obj_game.gamePaused = false)
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	
 	
 	//Toggle Aggro 
 	if (targeted = false)
@@ -83,7 +86,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 
-	//While Aggro is on}
+	//While Aggro is on
 	if (targeted = true)
 	{
 		lit = true;
@@ -94,7 +97,7 @@ if (obj_game.gamePaused = false)
 			{
 				path_end();
 				sprite_index = enemy_idle;
-				if (timer1 <= 0) //Heavy Slash A
+				if (timer1 <= 0)
 				{
 					entity_step = scr_enemy_balurne_hunter_slash;
 				}		
@@ -133,10 +136,12 @@ else path_end();
 function scr_enemy_balurne_hunter_slash(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_balurneHunter_slash)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_balurneHunter_slash;
 		local_frame = 0;
 		image_index = 0;
@@ -145,12 +150,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 40 + (7 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 40 + (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox)
 
-	//Animate
+	//Animation
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -175,7 +183,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_balurne_hunter_shoot(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_balurneHunter_shoot)
 	{
 		//Start Animation From Beginning
@@ -186,11 +197,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45 + (8 * enemy_lvl);
-
+	
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -260,25 +272,11 @@ if (obj_game.gamePaused = false)
 //
 //Balurne Hunter Drop
 function scr_enemy_balurne_hunter_drop(){
-//if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-//}
-
-var _objects = 7;
-//var _dropBean = 95;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount);

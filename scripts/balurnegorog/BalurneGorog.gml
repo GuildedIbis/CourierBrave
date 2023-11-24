@@ -4,16 +4,28 @@
 //
 //
 //
-//Balurne Skirmisher Create
+//Balurne Gorog Create
 function scr_enemy_balurne_gorog_create(){
+//Scripts
 home_state = scr_enemy_balurne_gorog_free;
-entity_step = home_state;
+entity_step = scr_enemy_balurne_gorog_free;
 entity_drop = scr_enemy_balurne_gorog_drop;
+
+//Assets
 enemy_idle = spr_enemy_gorog_idle;
 enemy_move = spr_enemy_gorog_run;
 enemy_damaged = spr_enemy_gorog_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 1;
+drop_amount = 20;
+max_hp = 300 + (150 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.2;
+
+//Animation and Status
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,16 +40,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 1;
-drop_amount = 20;
-max_hp = 300 + (150 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 timerC = 60 + irandom_range(-15,15);
 timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
@@ -49,7 +53,7 @@ path = -1;
 //
 //
 //
-//Balurne Skirmisher Free State
+//Balurne Gorog Free
 function scr_enemy_balurne_gorog_free(){
 if (obj_game.gamePaused = false)
 {
@@ -93,9 +97,9 @@ if (obj_game.gamePaused = false)
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48)) 
 		{	
 			
-			if (timer1 > 0) and (timer2 > 0) //AI feature: only use shield as last option
+			if (timer1 > 0) and (timer2 > 0)
 			{
-				if (timer3 <= 0)//Shield Timer
+				if (timer3 <= 0)
 				{
 					path_end();
 					timer3 = 180;
@@ -107,7 +111,7 @@ if (obj_game.gamePaused = false)
 			{
 				path_end();
 				sprite_index = enemy_idle;
-				if (timer1 <= 0) //Heavy Slash A
+				if (timer1 <= 0) 
 				{
 					entity_step = scr_enemy_balurne_gorog_heavySlash;
 				}		
@@ -149,19 +153,24 @@ else
 function scr_enemy_balurne_gorog_shield(){
 if (obj_game.gamePaused = false)
 {
-	shielded = true;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorog_shield)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_gorog_shield;
 		local_frame = 0;
 		image_index = 0;
 	}
+	
+	//Track Player
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (timer3 <= 0)
 	{
 		timer3 = 180;
@@ -175,14 +184,16 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Balurne Skirmisher Slash State
+//Balurne Gorog Heavy Slash
 function scr_enemy_balurne_gorog_heavySlash(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorog_heavySlash_A)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_gorog_heavySlash_A;
 		local_frame = 0;
 		image_index = 0;
@@ -191,12 +202,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55 + (9 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 55 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_A_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,20))
@@ -218,14 +232,16 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Balurne Skirmisher Slash State
+//Balurne Gorog Backslash
 function scr_enemy_balurne_gorog_heavySlash_back(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorog_heavySlash_B)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_gorog_heavySlash_B;
 		local_frame = 0;
 		image_index = 0;
@@ -234,12 +250,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (10 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 65 + (10 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_B_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -264,10 +283,12 @@ if (obj_game.gamePaused = false)
 function scr_enemy_balurne_gorog_knifeThrow(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorog_knifeThrow)
 	{
-		//Start Animation From Beginning
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		sprite_index = spr_enemy_gorog_knifeThrow;
 		local_frame = 0;
@@ -276,6 +297,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 
+	//Create Projectile (mid-animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 50;
@@ -332,8 +354,12 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
+	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -367,55 +393,50 @@ if (obj_game.gamePaused = false)
 function scr_enemy_balurne_gorog_reposition(){
 if (obj_game.gamePaused = false)
 {
-//Timer
-scr_enemy_timer_countdown();
+	//Timer
+	scr_enemy_timer_countdown();
 
-
-//Set
-if (sprite_index != enemy_move)
-{
-	//Start Animation From Beginning
-	sprite_index = enemy_move;
-	local_frame = 0;
-	image_index = 0;
-}
-
-
-//Animate
-scr_enemy_animation();
-
-
-//Move
-if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
-{
-	if (hor_spd != 0) or (ver_spd != 0) 
+	//Set
+	if (sprite_index != enemy_move)
 	{
-		var _xDest = x + (hor_spd * (enemy_spd))
-		var _yDest = y + (ver_spd * (enemy_spd))
-		if (place_meeting(_xDest, _yDest,obj_entity))
-		{
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
-		}
-		path = path_add();
-		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
 		sprite_index = enemy_move;
-	
+		local_frame = 0;
+		image_index = 0;
 	}
-}
-else sprite_index = enemy_idle;
 
+	//Move
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+	{
+		if (hor_spd != 0) or (ver_spd != 0) 
+		{
+			var _xDest = x + (hor_spd * (enemy_spd))
+			var _yDest = y + (ver_spd * (enemy_spd))
+			if (place_meeting(_xDest, _yDest,obj_entity))
+			{
+				hor_spd = -hor_spd;
+				ver_spd = -ver_spd;
+				//sprite_index = enemy_idle;
+			}
+			path = path_add();
+			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
+	
+		}
+	}
+	else sprite_index = enemy_idle;
+	
+	//Animate
+	scr_enemy_animation();
 
-//End
-if (timer1 <= 0)
-{
-	timer1 = 30;
-	entity_step = home_state;
-	sprite_index = enemy_idle;
-}
+	//End
+	if (timer1 <= 0)
+	{
+		timer1 = 30;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
+	}
 }
 else speed = 0;
 }
@@ -426,21 +447,11 @@ else speed = 0;
 //
 //Balurne Gorog Drop
 function scr_enemy_balurne_gorog_drop(){
-
-var _objects = 7;
-//var _dropBean = 150;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
 
-
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);
@@ -506,38 +517,38 @@ if (_drop2 < 10)
 function scr_projectile_balurne_gorog_knife(){
 if (obj_game.gamePaused = false)
 {
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-	audio_play_sound(snd_gorogKnife_hit,0,false);
-	with (obj_player)
+	//Set
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
+		audio_play_sound(snd_gorogKnife_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy();
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
-}
-else
-{
-	speed = 0;
-}
+else speed = 0;
 }
 
 

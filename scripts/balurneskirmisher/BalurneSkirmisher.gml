@@ -1,4 +1,4 @@
-//Balurne Skirmisher
+//Enemy Balurne Skirmisher
 //
 //
 //
@@ -6,16 +6,28 @@
 //
 //Balurne Skirmisher Create
 function scr_enemy_balurne_skirmisher_create(){
+//Scripts
 home_state = scr_enemy_balurne_skirmisher_free;
-entity_step = home_state;
+entity_step = scr_enemy_balurne_skirmisher_free;
 entity_drop = scr_enemy_balurne_skirmisher_drop;
-bullet = false;
-healthbar = true;
+
+//Assets
 enemy_idle = spr_enemy_skirmisher_idle;
 enemy_move = spr_enemy_skirmisher_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 0;
+drop_amount = 10;
+max_hp = 90 + (45 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.2;
+
+//Animation and Status
+bullet = false;
+healthbar = true;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,20 +40,13 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 0;
-drop_amount = 10;
-max_hp = 90 + (45 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 timerC = 60 + irandom_range(-15,15);
 timerW = 180 + irandom_range(-30,30);
 walk_snd_delay = 0;
 path = -1;
+
 }
 //
 //
@@ -120,7 +125,10 @@ else path_end();
 function scr_enemy_balurne_skirmisher_slash(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_skirmisher_slash)
 	{
 		//Start Animation From Beginning
@@ -132,12 +140,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35 + (7 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 35 + (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox);
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -159,25 +170,14 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Belurne Skirmisher Drop
+//Balurne Skirmisher Drop
 function scr_enemy_balurne_skirmisher_drop(){
-//if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-//}
-var _objects = 7;
-//var _dropBean = 70;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
+
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

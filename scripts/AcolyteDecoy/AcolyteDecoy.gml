@@ -1,33 +1,39 @@
-//Enemy Acolyte
+//Enemy Acolyte Decoy
 //
 //
 //
 //
 //
-//Acolyte Create
+//Acolyte Decoy Create
 function scr_enemy_acolyteDecoy_create(){
-
-sound = snd_npc_mouse;
-timer1 = 40;
-idle_sprite = spr_enemy_acolyte_idle;
-scene = false;
-sprite_index = idle_sprite;
-image_speed = 0;
-
-
-//
+//Scripts
 home_state = scr_enemy_acolyteDecoy_free;
 entity_drop = scr_enemy_acolyteDecoy_drop;
-name = "The Acolyte"
-bullet = false;
-healthbar = true;
-boss = false;
+
+//Assests
 enemy_idle = spr_enemy_acolyte_idle;
 enemy_move = spr_enemy_acolyte_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
 enemy_arm = spr_enemy_acolyte_castArm;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
+idle_sprite = spr_enemy_acolyte_idle;
+sound = snd_npc_mouse;
+
+//Stats
+form_type = 0;
+drop_amount = 10;
+max_hp = 100 + (50 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.25;
+
+//Animation and Status
+timer1 = 40;
+scene = false;
+image_speed = 0;
+bullet = false;
+healthbar = true;
+boss = false;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -39,11 +45,6 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 direction = 270;
-form_type = 0;
-drop_amount = 10;
-max_hp = 100 + (50 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
 remain_dist = 64;
@@ -62,16 +63,22 @@ path = -1;
 //Acolyte Decoy Spawn
 function scr_enemy_acolyteDecoy_spawn()
 {
+	//Invincible During Spawn Animation
 	invincible = true;
 	inv_dur_timer = 5;
+	
+	//Setup
 	if (sprite_index != spr_enemy_acolyte_decoySpawn)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_acolyte_decoySpawn;
 		local_frame = 0;
 		image_index = 0;
 	}
+	
+	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		entity_step = home_state;
@@ -83,15 +90,14 @@ function scr_enemy_acolyteDecoy_spawn()
 //
 //
 //
-//Acolyte Scene
+//Acolyte Decoy Free
 function scr_enemy_acolyteDecoy_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	enemy_spd = 1.25;
-	invincible = false;
+	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -147,11 +153,14 @@ else path_end();
 //
 //
 //
-//Acolyte Slash State
+//Acolyte Decoy Slash
 function scr_enemy_acolyteDecoy_slash(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) timer1 = timer1 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_acolyte_slash)
 	{
 		//Start Animation From Beginning
@@ -163,12 +172,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45 + (8 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 45 + (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 120;
@@ -198,23 +210,11 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Gorog Captain Drop
+//Acolyte Decoy Drop
 function scr_enemy_acolyteDecoy_drop(){
-
-var _objects = 7;
-//var _dropBean = 150;
-var _drop1 = irandom_range(0,99);
-var _drop2 = irandom_range(0,99);
+var _objects = 2;
 var _angle = irandom_range(0,359);
 
-
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);
@@ -235,11 +235,5 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-
-
-
-
-
-
 }
-//
+

@@ -29,8 +29,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Zealot",
-    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/Zealot.yy",
+    "name": "ZealotSiamire",
+    "path": "folders/Sprites/Entity/Enemy/Lenko/Lily/ZealotSiamire.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

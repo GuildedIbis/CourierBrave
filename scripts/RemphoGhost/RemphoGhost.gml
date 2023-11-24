@@ -6,18 +6,30 @@
 //
 //Rempho Ghost Create
 function scr_enemy_rempho_ghost_create(){
-targeted = false;	
-invincible = false;
-healthbar = true;
-inv_dur_timer = 0;
+//Scripts
 home_state = scr_enemy_rempho_ghost_free;
-entity_step = home_state;
+entity_step = scr_enemy_rempho_ghost_free;
 entity_drop = scr_enemy_rempho_ghost_drop;
+
+//Assets
 enemy_idle = spr_enemy_ghost_idle;
 enemy_move = spr_enemy_ghost_move;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
+
+//Stats
+form_type = 0;
+drop_amount = 15;
+max_hp = 180 + (90 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.1;
+
+//Animation and Status
+targeted = false;	
+invincible = false;
+healthbar = true;
+inv_dur_timer = 0;
 shadow = false;
 shadow_size = 1;
 aggro_drop = 300;
@@ -26,16 +38,8 @@ image_speed = 0;
 image_alpha = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 0;
-drop_amount = 15;
-max_hp = 180 + (90 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.1;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 timerC = 60 + irandom_range(-15,15);
 timerW = 180 + irandom_range(-30,30);
 attack_counter = 0;
@@ -50,12 +54,7 @@ passable = true;
 //
 //Rempho Ghost Free
 function scr_enemy_rempho_ghost_free(){
-//if (global.dayPhase != 2)
-//{
-//	invincible = true;
-//	inv_dur_timer = 30;
-//}
-if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
+if (obj_game.gamePaused = false)
 {
 	//Timers
 	scr_enemy_timer_countdown();
@@ -88,6 +87,7 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 			global.aggroCounter = global.aggroCounter - 1;
 		}
 	}
+	
 	//While Aggro is on
 	if (targeted = true) and (thundux = false)
 	{
@@ -107,11 +107,6 @@ if (obj_game.gamePaused = false)// and (global.dayPhase = 2)
 			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
 			audio_play_sound(snd_ghost_shift_up,0,false);
 		}
-		//if (walk_snd_delay <= 0)
-		//{
-		//	walk_snd_delay = 30;
-		//	if (point_in_circle(obj_player.x, obj_player.y,x,y,32)) audio_play_sound(walk_snd,1,0);
-		//}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			aggro_drop = aggro_drop - 1;
@@ -132,12 +127,14 @@ else path_end();
 function scr_enemy_rempho_ghost_shadowShiftA(){
 if (obj_game.gamePaused = false)
 {
-	lit = false;
-	healthbar = false;
 	//Timers
 	scr_enemy_timer_countdown();
 	
-	//Set
+	//Hidden during state
+	lit = false;
+	healthbar = false;
+	
+	//Setup
 	if (sprite_index != spr_enemy_ghost_shadowShiftA)
 	{
 		//Start Animation From Beginning
@@ -149,11 +146,9 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 
-	
-	//Collision Damage
+	//Chase Player
 	if (timer1 <= 0)
 	{
-		//Chase: create and execute a path towards player
 		passable = true;
 		shadow = false;
 		path = path_add();
@@ -174,6 +169,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animation
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		lit = true;
@@ -200,8 +197,10 @@ else path_end();
 function scr_enemy_rempho_ghost_shadowShiftB(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	//Set
+	
+	//Setup
 	if (sprite_index != spr_enemy_ghost_shadowShiftB)
 	{
 		//Start Animation From Beginning
@@ -209,10 +208,12 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
-	scr_enemy_attack_calculate(spr_ghost_shadowShiftB_hitbox)
-	//Animation
+	
+	//Calculate Attack
 	damage = 30;
-	//Cacluate Attack
+	scr_enemy_attack_calculate(spr_ghost_shadowShiftB_hitbox)
+	
+	//Return from hiding
 	if (timer2 <= 0)
 	{	
 		passable = false;
@@ -220,7 +221,11 @@ if (obj_game.gamePaused = false)
 		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
 		audio_play_sound(snd_ghost_soulSkull,0,false);
 	}
+	
+	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
@@ -350,33 +355,34 @@ if (obj_game.gamePaused = false)
 function scr_projectile_soulFlare(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume Speed
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -388,22 +394,15 @@ else
 //
 //
 //
-//Balurne Hunter Drop
+//Balurne Rempho Ghost Drop
 function scr_enemy_rempho_ghost_drop(){
 
-var _objects = 7;
-//var _dropBean = 30;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
+
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

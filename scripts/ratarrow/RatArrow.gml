@@ -29,33 +29,35 @@ damage = 40 + (5 * enemy_lvl);
 function scr_projectile_ratArrow(){
 if (obj_game.gamePaused = false)
 {
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_arrow_hit,0,false);
-	with (obj_player)
+	//Resume Speed
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
+		audio_play_sound(snd_arrow_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {

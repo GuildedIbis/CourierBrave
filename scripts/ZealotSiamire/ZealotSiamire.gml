@@ -144,7 +144,7 @@ if (obj_game.gamePaused = false)
 				path_end();
 				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
 				sprite_index = enemy_idle;
-				entity_step = scr_enemy_zealot_dillocSpawn;
+				entity_step = scr_enemy_zealot_cultistSpawn;
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -372,7 +372,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Zealot Siamire Wateredge Special
-function scr_enemy_zealot_dillocSpawn(){
+function scr_enemy_zealot_cultistSpawn(){
 if (obj_game.gamePaused = false)
 {
 	scr_enemy_timer_countdown();
@@ -393,13 +393,13 @@ if (obj_game.gamePaused = false)
 	scr_enemy_animation();
 	if (animation_end)
 	{
-		audio_sound_gain(snd_enemy_zealot_dillocSpawn,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_zealot_dillocSpawn,0,false);
+		audio_sound_gain(snd_enemy_zealot_cultistSpawn,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_zealot_cultistSpawn,0,false);
 		with (instance_create_layer(obj_player.x,obj_player.y,"Instances",obj_enemy))
 		{
 			image_alpha = 1;
-			scr_enemy_lilyCultist_dilloc_create();
-			entity_step = scr_enemy_lilyCultist_dilloc_zealotSpawn;
+			scr_enemy_lilyCultist_create();
+			entity_step = scr_enemy_lilyCultist_zealotSpawn;
 			enemy_lvl = other.enemy_lvl;
 			global.aggroCounter = global.aggroCounter + 1;
 			targeted = true;
