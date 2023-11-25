@@ -6,14 +6,28 @@
 //
 //Endire Knight Create
 function scr_enemy_endire_knight_create(){
+//Scripts
 home_state = scr_enemy_endire_knight_free;
-entity_step = home_state;
+entity_step = scr_enemy_endire_knight_free;
 entity_drop = scr_enemy_endire_knight_drop;
+
+//Assets
 enemy_idle = spr_enemy_endireKnight_idle;
 enemy_move = spr_enemy_endireKnight_run;
 enemy_damaged = spr_enemy_endireKnight_damaged;
 damaged_snd = snd_endireKnight_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 3;
+drop_amount = 15;
+max_hp = 400 + (200 * enemy_lvl);
+hp = max_hp;
+
+enemy_spd = 1.15;
+
+//Animation and Status
+name = "Endire Knight";
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,20 +42,10 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 3;
-drop_amount = 15;
-max_hp = 400 + (200 * enemy_lvl);
-hp = max_hp;
 boss = false;
-name = "Endire Knight";
-enemy_spd = 1.15;
 local_frame = 0;
 hit_by_attack = -1;
 attack_counter = 0;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-timerC = 0;
 walk_snd_delay = 0;
 path = -1;
 }	
@@ -58,9 +62,7 @@ if (obj_game.gamePaused = false)
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
-	
-	
-	//Toggle Aggro On
+	//Toggle Aggro
 	if (targeted = false)
 	{
 		lit = false;
@@ -72,8 +74,6 @@ if (obj_game.gamePaused = false)
 			targeted = true;
 		}
 	}
-	
-	//Toggle Aggro Off
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -125,7 +125,10 @@ else path_end();
 function scr_enemy_endire_knight_fireStrike(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_fireStrike)
 	{
 		//Start Animation From Beginning
@@ -138,12 +141,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70 + (10 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 70 + (10 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 30;
@@ -163,8 +169,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_endire_knight_heatwave(){
 if (obj_game.gamePaused = false)
 {
-	
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_heatwave)
 	{
 		//Start Animation From Beginning
@@ -176,7 +184,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
+	
+	//Calculate Attack
 	damage = 60 + (10 * enemy_lvl);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	
+	//Create Projectiles
 	if (timer2 <= 0)
 	{
 		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
@@ -202,8 +215,6 @@ if (obj_game.gamePaused = false)
 			}
 		}
 	}
-	//Cacluate Attack
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -211,9 +222,10 @@ if (obj_game.gamePaused = false)
 	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
 	{speed = 0}
 	
-	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		timer2 = 300;
@@ -230,12 +242,9 @@ if (obj_game.gamePaused = false)
 //
 //Endire Knight Drop
 function scr_enemy_endire_knight_drop(){
-
 var _objects = 5;
-//var _dropBean = 200;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
-
 
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))

@@ -6,18 +6,31 @@
 //
 //Zerwerk Create
 function scr_enemy_zerwerk_create(){
+//Scripts
+home_state = scr_enemy_zerwerk_free;
+entity_step = scr_enemy_zerwerk_free;
+entity_drop = scr_enemy_zerwerk_drop;
+
+//Assets
+enemy_idle = spr_enemy_bossZerwerk_idle;
+enemy_move = spr_enemy_bossZerwerk_run;
+damaged_snd = snd_rat_damaged;
+walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 2;
+drop_amount = 15;
+max_hp = 1100 + (550 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.1;
+
+//Animation and Status
+name = "Rift Giant Zerwerk";
 targeted = false;
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = scr_enemy_zerwerk_free;
-entity_step = home_state;
-entity_drop = scr_enemy_zerwerk_drop;
-enemy_idle = spr_enemy_bossZerwerk_idle;
-enemy_move = spr_enemy_bossZerwerk_run;
-damaged_snd = snd_rat_damaged;
-walk_snd = snd_walk_regular;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,13 +41,7 @@ attack_timer = 15;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 2;
-drop_amount = 15;
-max_hp = 1100 + (550 * enemy_lvl);
-hp = max_hp;
 boss = true;
-name = "Rift Giant Zerwerk";
-enemy_spd = 1.1;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -43,10 +50,11 @@ timer3 = 0;
 walk_snd_delay = 0;
 path = -1;
 
-//if (obj_inventory.quest_grid[# 8, 3] = true)
-//{
-//	instance_destroy();
-//}
+//Self Destruct
+if (obj_inventory.quest_grid[# 8, 3] = true)
+{
+	instance_destroy();
+}
 }
 //
 //
@@ -57,14 +65,14 @@ path = -1;
 function scr_enemy_zerwerk_free(){
 if (obj_game.gamePaused = false)
 {
-	//Timers
+	//Timers and Counters
 	scr_enemy_timer_countdown();
-	
 	if (attack_counter >= 5)
 	{
 		timerC = 180;
 		attack_counter = 0;
 	}
+	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -77,7 +85,6 @@ if (obj_game.gamePaused = false)
 			global.bossCounter = global.bossCounter + 1;
 		}
 	}
-	
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -88,6 +95,7 @@ if (obj_game.gamePaused = false)
 		global.aggroCounter = global.aggroCounter - 1;
 		global.bossCounter = global.bossCounter - 1;
 	}
+	
 	//While Aggro is on
 	if (targeted = true)
 	{
@@ -112,11 +120,6 @@ if (obj_game.gamePaused = false)
 			}
 			scr_enemy_animation();
 		}
-
-		//if (timerC < 0)
-		//{
-			
-		//}
 		if (timerC > 0)
 		{
 			sprite_index = spr_enemy_bossZerwerk_rest;
@@ -127,8 +130,6 @@ if (obj_game.gamePaused = false)
 			aggro_drop = aggro_drop - 1;
 		}
 	}
-	
-	//Animation
 	
 }
 else path_end();
@@ -209,7 +210,10 @@ else
 function scr_enemy_zerwerk_taillash(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_tailLash)
 	{
 		//Start Animation From Beginning
@@ -220,12 +224,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70 + (11 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 70 + (11 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -251,7 +258,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zerwerk_voidblade(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_voidBlade)
 	{
 		//Start Animation From Beginning
@@ -262,12 +272,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (10 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 65 + (10 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -293,7 +306,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zerwerk_riftslash(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlash)
 	{
 		//Start Animation From Beginning
@@ -304,8 +320,8 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 		
 	}
-	damage = 45 + (8 * enemy_lvl);
 	
+	//Create Projectile
 	if (timer1 <= 0)
 	{
 		timer1 = 120;
@@ -348,6 +364,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -373,7 +391,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zerwerk_riftslam_up(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlamUp)
 	{
 		//Start Animation From Beginning
@@ -381,12 +402,17 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
+	
+	//Can't be hit while in rift
 	if (timer3 <= 0)
 	{
 		passable = true;
 	}
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		attack_chose = irandom_range(0,1)
@@ -417,24 +443,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zerwerk_riftslam_downA(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	if (timer2 > 0) //Following the Player (init 23)
-	{
-		x = obj_player.x;
-		y = obj_player.y;
-	}
-	if (timer3 <= 0)
-	{
-		passable = false;
-	}
-	if (timerS = 0)
-	{
-		audio_sound_gain(snd_zerwerk_riftSlam,global.volumeEffects,1);
-		audio_play_sound(snd_zerwerk_riftSlam,0,false);
-		audio_sound_gain(snd_zerwerk_fireball,global.volumeEffects,1);
-		audio_play_sound(snd_zerwerk_fireball,0,false);
-		timerS = 60;
-	}
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlamDownA)
 	{
 		//Start Animation From Beginning
@@ -445,12 +457,38 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 115 + (15 * enemy_lvl);
+	
+	//Follow Player
+	if (timer2 > 0) 
+	{
+		x = obj_player.x;
+		y = obj_player.y;
+	}
+	
+	//Exit Rift
+	if (timer3 <= 0)
+	{
+		passable = false;
+	}
+	
+	//Slam Contact Audio
+	if (timerS = 0)
+	{
+		audio_sound_gain(snd_zerwerk_riftSlam,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_riftSlam,0,false);
+		audio_sound_gain(snd_zerwerk_fireball,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_fireball,0,false);
+		timerS = 60;
+	}
+	
 	//Cacluate Attack
+	damage = 115 + (15 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
 
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		passable = false;
@@ -478,22 +516,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_zerwerk_riftslam_downB(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	if (timer2 > 0) 
-	{
-		x = obj_player.x;
-		y = obj_player.y;
-	}
-	if (timer3 <= 0)
-	{
-		passable = false;
-	}
-	if (timerS = 0)
-	{
-		audio_play_sound(snd_zerwerk_riftSlam,0,false);
-		audio_play_sound(snd_zerwerk_fireball,0,false);
-		timerS = 60;
-	}
+	
+	//Setup
 	if (sprite_index != spr_enemy_bossZerwerk_riftSlamDownB)
 	{
 		//Start Animation From Beginning
@@ -503,9 +529,35 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60 + (9 * enemy_lvl);
+	
+	//Follow Player
+	if (timer2 > 0) 
+	{
+		x = obj_player.x;
+		y = obj_player.y;
+	}
+	
+	//Exit Rift (Able to be hit again)
+	if (timer3 <= 0)
+	{
+		passable = false;
+	}
+	
+	//Slam Contact Audio
+	if (timerS = 0)
+	{
+		audio_sound_gain(snd_zerwerk_riftSlam,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_riftSlam,0,false);
+		audio_sound_gain(snd_zerwerk_fireball,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_fireball,0,false);
+		timerS = 60;
+	}
+	
 	//Cacluate Attack
+	damage = 60 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
+	
+	//Create Projectile
 	if (timer1 <= 0)
 	{
 		timer1 = 90;
@@ -539,10 +591,11 @@ if (obj_game.gamePaused = false)
 			}
 		}
 	}
-	
 
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		if (attack_counter <= 4) and (point_in_circle(obj_player.x,obj_player.y,x,y,128))
@@ -567,8 +620,7 @@ if (obj_game.gamePaused = false)
 //
 //Zerwerk Drop
 function scr_enemy_zerwerk_drop(){
-var _objects = 6;
-//var _dropBean = 250;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -715,28 +767,31 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 function scr_enemy_projectile_voidcast(){
 if (obj_game.gamePaused = false)
 {
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	with (obj_player)
-	{
-		if (invincible = false)
-		{
-			if (dmg_snd_delay <= 0)
-			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
-			with (other) instance_destroy();
-		}
-	}
+	//Resume Speed
+	sprite_index = enemy_move;
+	speed = enemy_spd;
 	
-}
-if (place_meeting(x,y,break_object)) instance_destroy();
+	//Collision
+	if (place_meeting(x,y,obj_player))
+	{
+		with (obj_player)
+		{
+			if (invincible = false)
+			{
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
+				with (other) instance_destroy();
+			}
+		}
+	
+	}
+	if (place_meeting(x,y,break_object)) instance_destroy();
 }
 else
 {
@@ -752,23 +807,11 @@ else
 function scr_projectile_riftslash_tail(){
 if (obj_game.gamePaused = false)
 {
-	if (timer1 > 0) 
-	{
-		timer1 = timer1 - 1;
-		x = obj_player.x;
-		y = obj_player.y;
-	}
-	if (timer1 <= 0)
-	{
-		speed = 0;
-	}
+	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer2 <= 0)
-	{
-		audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
-		audio_play_sound(snd_zerwerk_slash,0,false);
-		timer2 = 60;
-	}
+	if (timer1 > 0) timer1 = timer1 - 1;
+	
+	//Setup
 	if (sprite_index != spr_enemy_riftSlash)
 	{
 		//Start Animation From Beginning
@@ -779,12 +822,35 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
+	
+	//Follow Player
+	if (timer1 > 0) 
+	{
+		x = obj_player.x;
+		y = obj_player.y;
+	}
+	
+	//Tail Drop and Aduio
+	if (timer1 <= 0)
+	{
+		speed = 0;
+	}
+	if (timer2 <= 0)
+	{
+		audio_sound_gain(snd_zerwerk_slash,global.volumeEffects,1);
+		audio_play_sound(snd_zerwerk_slash,0,false);
+		timer2 = 60;
+	}
+	
+	
 	//Cacluate Attack
 	damage = 60 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
 
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		instance_destroy();

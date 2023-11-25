@@ -6,14 +6,26 @@
 //
 //Ofa Worm Create
 function scr_enemy_ofa_moth_create(){
+//Scripts
 home_state = scr_enemy_ofa_moth_free;
 entity_step = home_state;
 entity_drop = scr_enemy_ofa_moth_drop;
+
+//Assets
 enemy_idle = spr_enemy_ofaMoth;
 enemy_move = spr_enemy_ofaMoth;
 enemy_damaged = spr_enemy_ofaMoth;
 damaged_snd = snd_enemy_ofa_moth_damaged;
 walk_snd = snd_ofaWorm_dash;
+
+//Stats
+form_type = 2;
+drop_amount = 15;
+max_hp = 250 + (130 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 5;
+
+//Animation and Status
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -27,18 +39,10 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 2;
-drop_amount = 15;
-max_hp = 250 + (130 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 5;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -52,11 +56,13 @@ path = -1;
 function scr_enemy_ofa_moth_free(){
 if (obj_game.gamePaused = false)
 {
-	healthbar = true;
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
+	//Resume Visibility
+	healthbar = true;
+	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -100,8 +106,6 @@ if (obj_game.gamePaused = false)
 		else aggro_drop = 300;
 	}
 		
-	
-	
 	//Animation
 	scr_enemy_animation_one();
 }
@@ -116,8 +120,6 @@ else path_end();
 function scr_enemy_ofa_moth_dustStep(){
 if (obj_game.gamePaused = false)
 {
-	lit = false;
-	healthbar = false;
 	//Timers
 	scr_enemy_timer_countdown();
 	
@@ -130,6 +132,9 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 
+	//Become Invisible
+	lit = false;
+	healthbar = false;
 	
 	//Collision Damage
 	if (timer1 <= 0)
@@ -154,6 +159,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animation
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		lit = true;
@@ -173,7 +180,6 @@ if (obj_game.gamePaused = false)
 		}
 	}
 	
-	
 }
 else path_end();
 }
@@ -186,8 +192,10 @@ else path_end();
 function scr_enemy_ofa_moth_crescentFire(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	//Set
+	
+	//Setup
 	if (sprite_index != spr_enemy_ofaMoth_whiteMoon)
 	{
 		//Start Animation From Beginning
@@ -198,6 +206,8 @@ if (obj_game.gamePaused = false)
 
 	//Animation
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
@@ -256,8 +266,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_ofa_moth_moonBlast(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	//Set
+	
+	//Setup
 	if (sprite_index != spr_enemy_ofaMoth_moonBlast)
 	{
 		//Start Animation From Beginning
@@ -268,9 +280,7 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 
-	//Animation
-	scr_enemy_animation_one();
-	
+	//Create Projectiles
 	if (timer2 <= 0)
 	{
 		timer2 = 10;
@@ -291,6 +301,11 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
+	//Animation
+	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
@@ -318,19 +333,11 @@ if (obj_game.gamePaused = false)
 //Ofa Moth Drop
 function scr_enemy_ofa_moth_drop(){
 
-var _objects = 6;
-//var _dropBean = 45;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2)

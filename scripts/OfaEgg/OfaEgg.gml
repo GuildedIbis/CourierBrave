@@ -6,19 +6,30 @@
 //
 //Ofa Egg Create
 function scr_enemy_ofa_egg_create(){
-targeted = false;	
-invincible = false;
-bullet = false;
-healthbar = true;
-inv_dur_timer = 0;
+//Scripts
 home_state = scr_enemy_ofa_egg_free;
-entity_step = home_state;
+entity_step = scr_enemy_ofa_egg_free;
 entity_drop = scr_enemy_ofa_egg_drop;
+
+//Assets
 enemy_idle = spr_enemy_ofaEgg;
 enemy_move = spr_enemy_ofaEgg;
 enemy_damaged = spr_enemy_ofaEgg;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
+
+//Stats
+form_type = 1;
+max_hp = 50 + (30 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.25;
+
+//Animation and Status
+targeted = false;	
+invincible = false;
+bullet = false;
+healthbar = true;
+inv_dur_timer = 0;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,10 +39,6 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 1;
-max_hp = 50 + (30 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 0;
@@ -53,16 +60,18 @@ if (obj_game.gamePaused = false)
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//Can't Be Knocked Back
 	knockback = false;
 	knockback_dur = 0;
 	
+	//Breaks Immediately
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) or (targeted = true)
 	{
 		hp = 0;
 	}
 }
 }
-
 //
 //
 //
@@ -70,25 +79,13 @@ if (obj_game.gamePaused = false)
 //
 //Ofa Egg Drop
 function scr_enemy_ofa_egg_drop(){
-//if (obj_inventory.quest_grid[# 2, 0] = true) and (obj_inventory.quest_grid[# 2, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 2, 1] = obj_inventory.quest_grid[# 2, 1] + 1;
-//}
-
-var _objects = 7;
-//var _dropBean = 95;
+var _objects = 4;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
+//Create Worms
 with (instance_create_layer(x + 8,y,"Instances",obj_enemy))
 {
 	image_alpha = 1;

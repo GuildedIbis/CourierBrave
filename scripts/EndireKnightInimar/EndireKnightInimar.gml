@@ -6,14 +6,28 @@
 //
 //Endire Inimar Create
 function scr_enemy_endire_inimar_create(){
+//Scripts
 home_state = scr_enemy_endire_inimar_free;
-entity_step = home_state;
+entity_step = scr_enemy_endire_inimar_free;
 entity_drop = scr_enemy_endire_inimar_drop;
+
+//Assets
 enemy_idle = spr_enemy_endireKnight_inimar_idle;
 enemy_move = spr_enemy_endireKnight_inimar_run;
 enemy_damaged = spr_enemy_endireKnight_inimar_damaged;
 damaged_snd = snd_endireKnight_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 3;
+drop_amount = 15;
+max_hp = 900 + (450 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.15;
+
+//Animation and Status
+name = "Endire Knight Inimar";
+boss = true;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -27,31 +41,22 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 3;
-drop_amount = 15;
-max_hp = 900 + (450 * enemy_lvl);
-hp = max_hp;
-boss = true;
-name = "Endire Knight Inimar";
-enemy_spd = 1.15;
 local_frame = 0;
 hit_by_attack = -1
 attack_counter = 0;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-timerC = 0;
 walk_snd_delay = 0;
 path = -1;
 target_x = 0;
 target_y = 0;
 projectile_dir = 0;
+
+//Self Destruct
 if (obj_inventory.quest_grid[# 7, 1] >= 1)
 {
 	instance_destroy();
 }
 }
-	//
+//
 //
 //
 //
@@ -69,7 +74,6 @@ if (obj_game.gamePaused = false)
 		attack_counter = 0;
 	}
 	
-	
 	//Toggle Aggro On
 	if (targeted = false)
 	{
@@ -82,8 +86,6 @@ if (obj_game.gamePaused = false)
 			global.bossCounter = global.bossCounter + 1;
 		}
 	}
-	
-	//Toggle Aggro Off
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -169,11 +171,13 @@ else path_end();
 function scr_enemy_endire_inimar_fireStrike(){
 if (obj_game.gamePaused = false)
 {
-	speed = 0;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_inimar_fireStrike)
 	{
-		//Start Animation From Beginning
+		speed = 0;
 		direction =  point_direction(x,y,obj_player.x,obj_player.y);
 		sprite_index = spr_enemy_endireKnight_inimar_fireStrike;
 		local_frame = 0;
@@ -183,12 +187,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 70 + (12 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 70 + (12 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 0;
@@ -207,13 +214,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_endire_inimar_cinderDash(){
 if (obj_game.gamePaused = false)
 {
-	
+	//Timer
 	scr_enemy_timer_countdown();
-	if (timer2 <= 0)
-	{
-		hor_spd = lengthdir_x(3, dir);
-		ver_spd = lengthdir_y(3, dir);
-	}
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_inimar_cinderDash)
 	{
 		//Start Animation From Beginning
@@ -225,21 +229,23 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80 + (12 * enemy_lvl);
-	//Cacluate Attack
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
-	//Check for entities
-	
+	//Set Direction and Collision
 	scr_enemy_collision();
-	//if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
-	//{speed = 0}
-	//if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
-	//{speed = 0}
+	if (timer2 <= 0)
+	{
+		hor_spd = lengthdir_x(3, dir);
+		ver_spd = lengthdir_y(3, dir);
+	}
 	
+	//Cacluate Attack
+	damage = 80 + (12 * enemy_lvl);
+	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 0;
@@ -261,8 +267,10 @@ else{
 function scr_enemy_endire_inimar_heatwave(){
 if (obj_game.gamePaused = false)
 {
-	
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning
@@ -274,7 +282,8 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60 + (10 * enemy_lvl);
+	
+	//Create Projectiles (mid animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
@@ -301,7 +310,9 @@ if (obj_game.gamePaused = false)
 			}
 		}
 	}
+	
 	//Cacluate Attack
+	damage = 60 + (10 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
@@ -310,9 +321,10 @@ if (obj_game.gamePaused = false)
 	if (place_meeting(x, y + speed, obj_entity)) or (place_meeting(x, y - speed, obj_entity))
 	{speed = 0}
 	
-	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -330,8 +342,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_endire_inimar_heatacer(){
 if (obj_game.gamePaused = false)
 {
-	
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_endireKnight_inimar_heatwave)
 	{
 		//Start Animation From Beginning
@@ -343,7 +357,9 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65 + (11 * enemy_lvl);
+	
+	
+	//Create Projectiles (mid animation)
 	if (timer2 <= 0) 
 	{
 		speed = 0;
@@ -389,7 +405,9 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
 	//Cacluate Attack
+	damage = 65 + (11 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
@@ -403,6 +421,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		speed = 0;
@@ -423,21 +443,11 @@ else{
 //
 //Inimar Drop
 function scr_enemy_endire_inimar_drop(){
-
-var _objects = 7;
-//var _dropBean = 400;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
-	
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);
@@ -493,9 +503,9 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
+
 obj_inventory.quest_grid[# 7, 0] = true;
 obj_inventory.quest_grid[# 7, 1] = 1;
-
 
 }
 //

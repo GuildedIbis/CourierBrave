@@ -6,19 +6,31 @@
 //
 //Ofa Pupa Create
 function scr_enemy_ofa_pupa_create(){
-targeted = false;	
-invincible = false;
-bullet = false;
-healthbar = true;
-inv_dur_timer = 0;
+//Scripts
 home_state = scr_enemy_ofa_pupa_free;
 entity_step = home_state;
 entity_drop = scr_enemy_ofa_pupa_drop;
+
+//Assets
 enemy_idle = spr_enemy_ofaPupa_idle;
 enemy_move = spr_enemy_ofaPupa_idle;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular
+
+//Stats
+form_type = 1;
+drop_amount = 10;
+max_hp = 300 + (155 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.75;
+
+//Animation and Status
+targeted = false;	
+invincible = false;
+bullet = false;
+healthbar = true;
+inv_dur_timer = 0;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,16 +40,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 1;
-drop_amount = 10;
-max_hp = 300 + (155 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.75;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
@@ -52,13 +56,8 @@ function scr_enemy_ofa_pupa_free(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
-	if (timer3 > 0) timer3 = timer3 - 1;
+	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
-	knockback = false;
-	knockback_dur = 0;
-	
 	
 	//Toggle Aggro 
 	if (targeted = false)
@@ -81,7 +80,10 @@ if (obj_game.gamePaused = false)
 		global.aggroCounter = global.aggroCounter - 1;
 	}
 	
-
+	//Cannot Be Moved
+	knockback = false;
+	knockback_dur = 0;
+	
 	//While Aggro is on}
 	if (targeted = true)
 	{
@@ -123,9 +125,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_ofa_pupa_cocoonSpike(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_ofaPupa_cocoonSpike)
 	{
 		//Start Animation From Beginning
@@ -136,9 +139,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
+	
+	//Cannot be Moved
 	knockback = false;
 	knockback_dur = 0;
 
+	//Create Projectiles
 	if (timer1 <= 0)
 	{
 		proj_dir = proj_dir + (irandom_range(30,180))
@@ -153,10 +159,11 @@ if (obj_game.gamePaused = false)
 			aggro_drop = 300;
 			healthbar = false;
 			bullet = true;
-			enemy_spd = 3.5;
+			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 35 + (7 * enemy_lvl);
+			lit = true;
 			audio_sound_gain(snd_enemy_ofa_pupa_cocoonSpike,global.volumeEffects,1);
 			audio_play_sound(snd_enemy_ofa_pupa_cocoonSpike,0,false);
 			direction = other.proj_dir;
@@ -171,8 +178,11 @@ if (obj_game.gamePaused = false)
 			entity_step = home_state;
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 60;
@@ -191,9 +201,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_ofa_pupa_cocoonWad(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	if (timer1 > 0) timer1 = timer1 - 1;
-	if (timer2 > 0) timer2 = timer2 - 1;
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_ofaPupa_cocoonWad)
 	{
 		//Start Animation From Beginning
@@ -204,10 +215,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35;
+	
+	//Cannot Be MOved
 	knockback = false;
 	knockback_dur = 0;
 
+	//Create Projectiles
 	if (timer2 <= 0)
 	{
 		audio_sound_gain(snd_enemy_ofa_pupa_cocoonWad,global.volumeEffects,1);
@@ -229,6 +242,7 @@ if (obj_game.gamePaused = false)
 				local_frame = 0;
 				hit_by_attack = -1;
 				damage = 35 + (7 * enemy_lvl);
+				lit = true;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y)- 60) + (15*i) ;
 				image_angle = direction;
 				speed = enemy_spd;
@@ -242,8 +256,11 @@ if (obj_game.gamePaused = false)
 			}
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		timer2 = 60;
@@ -260,9 +277,7 @@ if (obj_game.gamePaused = false)
 //
 //Ofa Pupa Drop
 function scr_enemy_ofa_pupa_drop(){
-
-var _objects = 7;
-//var _dropBean = 95;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -333,34 +348,36 @@ if (_drop2 < 5)
 function scr_projectile_pupaSpike_free(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -376,34 +393,36 @@ else
 function scr_projectile_pupaWad_free(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
 }
 else
 {

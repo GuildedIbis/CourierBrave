@@ -6,16 +6,28 @@
 //
 //Enraged Moth Create
 function scr_enemy_enraged_moth_create(){
-name = "Enraged Moth"
-boss = true;
+//Scripts
 home_state = scr_enemy_enraged_moth_free;
 entity_step = home_state;
 entity_drop = scr_enemy_enraged_moth_drop;
+
+//Assets
 enemy_idle = spr_enemy_enragedMoth;
 enemy_move = spr_enemy_enragedMoth;
 enemy_damaged = spr_enemy_enragedMoth;
 damaged_snd = snd_enemy_ofa_moth_damaged;
 walk_snd = snd_ofaWorm_dash;
+
+//Stats
+form_type = 2;
+drop_amount = 20;
+max_hp = 915 + (450 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 5;
+
+//Animation and Status
+name = "Enraged Moth"
+boss = true;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -29,21 +41,15 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 2;
-drop_amount = 20;
-max_hp = 915 + (450 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 5;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 path = -1;
+
+//Self Destruct
 if (obj_inventory.quest_grid[# 11, 1] >= 1)
 {
 	instance_destroy();
@@ -58,11 +64,14 @@ if (obj_inventory.quest_grid[# 11, 1] >= 1)
 function scr_enemy_enraged_moth_free(){
 if (obj_game.gamePaused = false)
 {
-	healthbar = true;
+	
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
 
+	//Return visibility
+	healthbar = true;
+	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -106,7 +115,6 @@ if (obj_game.gamePaused = false)
 		else aggro_drop = 300;
 	}
 	
-	
 	//Animation
 	scr_enemy_animation_one();
 }
@@ -121,12 +129,11 @@ else path_end();
 function scr_enemy_enraged_moth_dustStep(){
 if (obj_game.gamePaused = false)
 {
-	lit = false;
-	healthbar = false;
+	
 	//Timers
 	scr_enemy_timer_countdown();
 	
-	//Set
+	//Setup
 	if (sprite_index != spr_enemy_enragedMoth_dustStep)
 	{
 		//Start Animation From Beginning
@@ -135,6 +142,9 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 
+	//Become Invisible
+	lit = false;
+	healthbar = false;
 	
 	//Collision Damage
 	if (timer1 <= 0)
@@ -159,6 +169,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animation
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		shadow = 1;
@@ -189,9 +201,10 @@ else path_end();
 function scr_enemy_enraged_moth_rageCharge(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
-	//Set
-	healthbar = true;
+	
+	//Setup
 	if (sprite_index != spr_enemy_enragedMoth_rageCharge)
 	{
 		//Start Animation From Beginning
@@ -202,8 +215,13 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 	
+	//Resume Visibility
+	healthbar = true;
+	
 	//Animation
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		entity_step = scr_enemy_enraged_moth_rageRush;
@@ -245,9 +263,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_enraged_moth_rageRush(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
-	//Set
-	healthbar = true;
+	
+	//Setup
 	if (sprite_index != spr_enemy_enragedMoth_rageRush)
 	{
 		//Start Animation From Beginning
@@ -257,7 +276,11 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-
+	
+	//Resume Visibility
+	healthbar = true;
+	
+	//Collision
 	if (timer1 <= 0) 
 	{
 		var _xDest = x + (hor_spd * (enemy_spd))
@@ -278,6 +301,8 @@ if (obj_game.gamePaused = false)
 		
 	//Animation
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		speed = 0;
@@ -333,9 +358,10 @@ else
 function scr_enemy_enraged_moth_rageSpawn(){
 if (obj_game.gamePaused = false)
 {
-
+	//Timer
 	scr_enemy_timer_countdown();
-	//Set
+	
+	//Setup
 	if (sprite_index != spr_enemy_enragedMoth_spawnOrb)
 	{
 		//Start Animation From Beginning
@@ -346,9 +372,7 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 
-	//Animation
-	scr_enemy_animation_one();
-	
+	//Create Projectile
 	if (timer2 <= 0)
 	{
 		timer2 = 25;
@@ -358,6 +382,7 @@ if (obj_game.gamePaused = false)
 		{
 			enemy_lvl = other.enemy_lvl;
 			scr_projectile_wormEgg_create();
+			lit = true;
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
 			image_angle = direction;
@@ -369,6 +394,11 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
+	//Animation
+	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end = true)
 	{
 		timer1 = 120;
@@ -412,57 +442,59 @@ max_hp = 60;
 function scr_projectile_wormEgg_free(){
 if (obj_game.gamePaused = false)
 {
-lit = true;
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
 		}
+		with instance_create_layer(x,y,"Instances",obj_enemy)
+		{
+			image_alpha = 1;
+			enemy_lvl =  other.enemy_lvl;
+			scr_enemy_enraged_worm_create();
+			timer1 = 20;
+			entity_step = scr_enemy_enraged_worm_explode;
+			global.aggroCounter = global.aggroCounter + 1;
+			targeted = true;
+			break_object = other.break_object;
+		}
+		instance_destroy();
 	}
-	with instance_create_layer(x,y,"Instances",obj_enemy)
+	if (place_meeting(x,y,break_object)) 
 	{
-		image_alpha = 1;
-		enemy_lvl =  other.enemy_lvl;
-		scr_enemy_enraged_worm_create();
-		timer1 = 20;
-		entity_step = scr_enemy_enraged_worm_explode;
-		global.aggroCounter = global.aggroCounter + 1;
-		targeted = true;
-		break_object = other.break_object;
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with instance_create_layer(x,y,"Instances",obj_enemy)
+		{
+			image_alpha = 1;
+			enemy_lvl =  other.enemy_lvl;
+			scr_enemy_enraged_worm_create();
+			timer1 = 20;
+			entity_step = scr_enemy_enraged_worm_free;
+			global.aggroCounter = global.aggroCounter + 1;
+			targeted = true;
+			break_object = other.break_object;
+		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with instance_create_layer(x,y,"Instances",obj_enemy)
-	{
-		image_alpha = 1;
-		enemy_lvl =  other.enemy_lvl;
-		scr_enemy_enraged_worm_create();
-		timer1 = 20;
-		entity_step = scr_enemy_enraged_worm_free;
-		global.aggroCounter = global.aggroCounter + 1;
-		targeted = true;
-		break_object = other.break_object;
-	}
-	instance_destroy();
-}
 }
 else
 {
@@ -476,19 +508,11 @@ else
 //
 //Enraged Moth Drop
 function scr_enemy_enraged_moth_drop(){
-var _objects = 6;
-//var _dropBean = 600;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2)
@@ -544,7 +568,6 @@ if (_drop2 < 50)
 		spd = .75 + (.3) + random(0.1);
 	}
 }
-//else instance_create_layer(x,y,"Instances",_objects[0])
 obj_inventory.quest_grid[# 11, 0] = true;
 obj_inventory.quest_grid[# 11, 1] = 1;
 	

@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/Entities/Enemy/EnemyYakflowerPath.yy",
+    "name": "EnemyHabrafLake",
+    "path": "folders/Scripts/Entities/Enemy/EnemyHabrafLake.yy",
   },
 }

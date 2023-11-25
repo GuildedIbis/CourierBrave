@@ -6,14 +6,26 @@
 //
 //Ofa Worm Create
 function scr_enemy_ofa_worm_create(){
+//Scripts
 home_state = scr_enemy_ofa_worm_free;
 entity_step = home_state;
 entity_drop = scr_enemy_ofa_worm_drop;
+
+//Assets
 enemy_idle = spr_enemy_ofaWorm_idle;
 enemy_move = spr_enemy_ofaWorm_move;
 enemy_damaged = spr_enemy_ofaWorm_hit;
 damaged_snd = snd_enemy_ofa_worm_damaged;
 walk_snd = snd_walk_water2;
+
+//Stats
+drop_amount = 4;
+max_hp = 60 + (30 * enemy_lvl);
+hp = max_hp;
+form_type = 2;
+enemy_spd = 1.1;
+
+//Animation and Status
 shadow = true;
 shadow_size = 0;
 lit = false;
@@ -27,18 +39,10 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 2;
-drop_amount = 4;
-max_hp = 60 + (30 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 1.1;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 180;
-timer2 = 0;
-timer3 = 0;
 dash_timer = 360;
 walk_snd_delay = 0;
 path = -1;
@@ -111,7 +115,10 @@ else path_end();
 function scr_enemy_ofa_worm_headbutt(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_ofaWorm_headbutt)
 	{
 		//Start Animation From Beginning
@@ -123,12 +130,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 30 + (6 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 30 + (6 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_ofaWorm_headbutt_hitbox);
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -144,20 +154,11 @@ if (obj_game.gamePaused = false)
 //Ofa Worm Drop
 function scr_enemy_ofa_worm_drop(){
 	
-//if(obj_inventory.quest_grid[# 6, 1] < obj_inventory.quest_grid[# 6, 2]) obj_inventory.quest_grid[# 6, 1] = obj_inventory.quest_grid[# 6, 1] + 1;
-var _objects = 6;
-//var _dropBean = 12;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2)
