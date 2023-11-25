@@ -142,6 +142,38 @@ sprite_index = enemy_move;
 //
 //
 //
+//Chase Cast
+function scr_enemy_chase_cast(){
+var _spd = enemy_spd * .75
+if (knockback = false)
+{
+	//Chase: create and execute a path towards player
+	if (place_meeting(x,y,obj_entity))
+	{
+		if (path_exists(path)) path_delete(path);
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
+		path_start(path, _spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	}
+	else
+	{
+		if (path_exists(path)) path_delete(path);
+		path = path_add();
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+		path_start(path, _spd, 0, 0);
+		image_speed = 1;
+		sprite_index = enemy_move;
+	}
+}
+else path_end(); 
+}
+//
+//
+//
+//
+//
 //Chase Player
 function scr_enemy_chase_custom(){
 
@@ -392,57 +424,53 @@ if (hor_spd != 0) or (ver_spd != 0)
 //
 //Enemy Reposition
 function scr_enemy_reposition(){
-//Timer
 if (obj_game.gamePaused = false)
 {
-scr_enemy_timer_countdown();
+	//Timer
+	scr_enemy_timer_countdown();
 
-
-//Set
-if (sprite_index != enemy_move)
-{
-	//Start Animation From Beginning
-	sprite_index = enemy_move;
-	local_frame = 0;
-	image_index = 0;
-}
-
-
-//Animate
-scr_enemy_animation();
-
-
-//Move
-if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
-{
-	if (hor_spd != 0) or (ver_spd != 0) 
+	//Setup
+	if (sprite_index != enemy_move)
 	{
-		var _xDest = x + (hor_spd * (enemy_spd))
-		var _yDest = y + (ver_spd * (enemy_spd))
-		if (place_meeting(_xDest, _yDest,obj_entity))
-		{
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
-		}
-		path = path_add();
-		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
+		//Start Animation From Beginning
 		sprite_index = enemy_move;
-	
+		local_frame = 0;
+		image_index = 0;
 	}
-}
-else sprite_index = enemy_idle;
 
+	//Animate
+	scr_enemy_animation();
 
-//End
-if (timer1 <= 0)
-{
-	timer1 = 0;
-	entity_step = home_state;
-	sprite_index = enemy_idle;
-}
+	//Move
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+	{
+		if (hor_spd != 0) or (ver_spd != 0) 
+		{
+			var _xDest = x + (hor_spd * (enemy_spd))
+			var _yDest = y + (ver_spd * (enemy_spd))
+			if (place_meeting(_xDest, _yDest,obj_entity))
+			{
+				hor_spd = -hor_spd;
+				ver_spd = -ver_spd;
+				//sprite_index = enemy_idle;
+			}
+			path = path_add();
+			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
+	
+		}
+	}
+	else sprite_index = enemy_idle;
+
+	//End
+	if (timer1 <= 0)
+	{
+		timer1 = 0;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
+	}
 }
 else speed = 0;
 }

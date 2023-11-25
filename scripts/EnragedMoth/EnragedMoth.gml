@@ -415,23 +415,31 @@ if (obj_game.gamePaused = false)
 //
 //Worm Egg Create
 function scr_projectile_wormEgg_create(){
+//Scripts
 home_state = scr_projectile_wormEgg_free; 
-entity_step = home_state;
+entity_step = scr_projectile_wormEgg_free;
 entity_drop = Idle;
+
+//Assets
+enemy_move = spr_enragedMoth_wormEgg;
+
+//Stats
+max_hp = 60 + (30 * enemy_lvl);
+hp = max_hp;
+damage = 45 + (8 * enemy_lvl);
+enemy_spd = 1.5;
+
+//Animation and Status
 invincible = false;
 bullet = true;
 healthbar = false;
 boss = false;
 inv_dur_timer = 0;
-enemy_move = spr_enragedMoth_wormEgg;
-damage = 45 + (8 * enemy_lvl);
 aggro_drop = 300;
 timer1 = 150;
-enemy_spd = 1.5;
 local_frame = 0;
 hit_by_attack = -1;
-hp = 60;
-max_hp = 60;
+
 }
 //
 //

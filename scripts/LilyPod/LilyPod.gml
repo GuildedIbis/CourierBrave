@@ -1,21 +1,31 @@
-//Rift Sabi
+//Lily Pod
 //
 //
 //
 //
 //
-//Sabi Create
+//Lily Pod
 function scr_enemy_lily_pod_create(){
+//Scripts
 home_state = scr_enemy_lily_pod_free;
-entity_step = home_state;
+entity_step = scr_enemy_lily_pod_free;
 entity_drop = scr_enemy_lily_pod_drop;
+
+//Assets
 enemy_idle = spr_enemy_lily_pod;
 enemy_move = spr_enemy_lily_pod;
 enemy_damaged = spr_enemy_lily_pod;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
+
+//Stats
 form_type = 1;
 drop_amount = 6;
+max_hp = 60 + (30 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 2.0;
+
+//Animation and Status
 shadow = false;
 shadow_size = 1;
 lit = false;
@@ -29,15 +39,10 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 60 + (30 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
 timer3 = 600;
 special_timer = -1;
 walk_snd_delay = 0;
@@ -48,7 +53,7 @@ path = -1;
 //
 //
 //
-//Sabi Free
+//Lily Pod Free
 function scr_enemy_lily_pod_free(){
 
 if (obj_game.gamePaused = false)
@@ -57,9 +62,12 @@ if (obj_game.gamePaused = false)
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//Cannot be moved
 	knockback = false;
 	knockback_dur = 0;
 
+	//Toggle Aggro
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -78,7 +86,8 @@ if (obj_game.gamePaused = false)
 			global.aggroCounter = global.aggroCounter + 1;
 		}
 	}
-	else sprite_index = enemy_idle;
+	
+	//While aggro is on
 	if (targeted = true)
 	{
 		if (timer3 <= 0)
@@ -107,7 +116,7 @@ else path_end();
 //
 //
 //
-//Trap Lily Drop
+//Lily Pod Drop
 function scr_enemy_lily_pod_drop(){
 var _objects = 2;
 var _angle = irandom_range(0,359);

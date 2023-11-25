@@ -8,7 +8,7 @@
 function scr_enemy_enraged_worm_create(){
 //Scripts
 home_state = scr_enemy_enraged_worm_free;
-entity_step = home_state;
+entity_step = scr_enemy_enraged_worm_free;
 entity_drop = scr_enemy_enraged_worm_drop;
 
 //Assets

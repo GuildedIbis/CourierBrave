@@ -1,21 +1,34 @@
-//Lily Cultist Dilloc
+//Lily Cultist
 //
 //
 //
 //
 //
-//Lily Cultist Dilloc Create
+//Lily Cultist Create
 function scr_enemy_lilyCultist_create(){
+//Scripts
 home_state = scr_enemy_lilyCultist_free;
-entity_step = home_state;
+entity_step = scr_enemy_lilyCultist_free;
 entity_drop = scr_enemy_lilyCultist_drop;
-bullet = false;
-healthbar = true;
+
+//Assets
 enemy_idle = spr_enemy_lilyCultist_idle;
 enemy_move = spr_enemy_lilyCultist_run;
 enemy_damaged = spr_enemy_lilyCultist_damaged;
 damaged_snd = snd_cultist_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 2;
+drop_amount = 15;
+max_hp = 100 + (50 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.2;
+
+
+//Animation and Status
+bullet = false;
+healthbar = true;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -28,19 +41,10 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 2;
-drop_amount = 15;
-max_hp = 100 + (50 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
 target = -1;
 friend_in_range = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-timerC = 0;
 attack_counter = 0;
 walk_snd_delay = 0;
 _destX = 32;
@@ -111,8 +115,7 @@ if (obj_game.gamePaused = false)
 			aggro_drop = aggro_drop - 1;
 		}
 	}
-	
-	
+		
 	//Animation
 	scr_enemy_animation();
 }
@@ -132,7 +135,10 @@ else
 function scr_enemy_lilyCultist_lifeLeaf(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_lilyCultist_lifeLeaf)
 	{
 		//Start Animation From Beginning
@@ -151,9 +157,7 @@ if (obj_game.gamePaused = false)
 		}
 	}
 
-
-	//Animate
-	scr_enemy_animation();
+	//Create Projectile (mid-animation)
 	if (timer1 <= 0)
 	{
 		timer1 = 30;
@@ -163,6 +167,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_lifeLeaf_free;
+			lit = true;
 			enemy_lvl = other.enemy_lvl;
 			shooter = other;
 			entity_step = home_state;
@@ -198,6 +203,11 @@ if (obj_game.gamePaused = false)
 			speed = enemy_spd;
 		}
 	}
+	
+	//Animate
+	scr_enemy_animation();
+	
+	//End
 	if (attack_counter >= 3)
 	{
 		attack_counter = 0;
@@ -233,9 +243,10 @@ if (obj_game.gamePaused = false)
 function scr_projectile_lifeLeaf_free(){
 if (obj_game.gamePaused = false)
 {
-	lit = true;
+	//Set
 	sprite_index = enemy_move;
 
+	//Before Collision
 	if (heal = false)
 	{
 		speed = enemy_spd;
@@ -277,10 +288,13 @@ if (obj_game.gamePaused = false)
 			}
 		}
 	}
+	
+	//After Collision
 	if (heal = true)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_effect))
 		{
+			lit = true;
 			image_xscale = 1;
 			image_yscale = 1;
 			spd = 0
@@ -308,18 +322,27 @@ else
 //
 //Effect Life Leaf Heal Burst
 function scr_projectile_lifeLeaf_healBurst(){
-lit = true;
-timer1 = timer1 - 1;
-if (sprite_index != spr_projectile_lifeLeaf_healBurst)
+if (obj_game.gamePaused = false)
 {
-	sprite_index = spr_projectile_lifeLeaf_healBurst;
-	image_speed = 1;
-	image_index = 0;
+	//Timer
+	timer1 = timer1 - 1;
+	
+	//Setup
+	if (sprite_index != spr_projectile_lifeLeaf_healBurst)
+	{
+		sprite_index = spr_projectile_lifeLeaf_healBurst;
+		image_speed = 1;
+		image_index = 0;
+	}
+	
+	//Calculate Attack
+	scr_enemy_attack_calculate_heal(spr_projectile_lifeLeaf_healBurst);
+	
+	//Self Destruct
+	if (timer1 <= 0) instance_destroy();
 }
-scr_enemy_attack_calculate_heal(spr_projectile_lifeLeaf_healBurst);
-if (timer1 <= 0) instance_destroy();
+else speed = 0;
 }
-
 //
 //
 //
@@ -329,7 +352,10 @@ if (timer1 <= 0) instance_destroy();
 function scr_enemy_lilyCultist_slash(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_lilyCultist_slash)
 	{
 		//Start Animation From Beginning
@@ -341,13 +367,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 30;
+	
 	//Cacluate Attack
+	damage = 30;
 	scr_enemy_attack_calculate(spr_enemy_lilyCultist_slash_hitbox)
-
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer2 = 60;
@@ -371,54 +399,55 @@ if (obj_game.gamePaused = false)
 //
 //Lily Cultist Reposition
 function scr_enemy_lilyCultist_reposition(){
-//Timer
-scr_enemy_timer_countdown();
-
-//Set
-if (sprite_index != enemy_move)
+if (obj_game.gamePaused = false)
 {
-	//Start Animation From Beginning
-	sprite_index = enemy_move;
-	local_frame = 0;
-	image_index = 0;
-}
+	//Timer
+	scr_enemy_timer_countdown();
 
-
-//Animate
-scr_enemy_animation();
-
-
-//Move
-if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
-{
-	if (hor_spd != 0) or (ver_spd != 0) 
+	//Set
+	if (sprite_index != enemy_move)
 	{
-		var _xDest = x + (hor_spd * (enemy_spd))
-		var _yDest = y + (ver_spd * (enemy_spd))
-		if (place_meeting(_xDest, _yDest,obj_entity))
-		{
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
-		}
-		path = path_add();
-		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
+		//Start Animation From Beginning
 		sprite_index = enemy_move;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	scr_enemy_animation();
+
+	//Move
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+	{
+		if (hor_spd != 0) or (ver_spd != 0) 
+		{
+			var _xDest = x + (hor_spd * (enemy_spd))
+			var _yDest = y + (ver_spd * (enemy_spd))
+			if (place_meeting(_xDest, _yDest,obj_entity))
+			{
+				hor_spd = -hor_spd;
+				ver_spd = -ver_spd;
+				//sprite_index = enemy_idle;
+			}
+			path = path_add();
+			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
 	
+		}
+	}
+	else sprite_index = enemy_idle;
+
+	//End
+	if (timer3 <= 0)
+	{
+		timer3 = 60;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
 	}
 }
-else sprite_index = enemy_idle;
-
-
-//End
-if (timer3 <= 0)
-{
-	timer3 = 60;
-	entity_step = home_state;
-	sprite_index = enemy_idle;
-}
+else speed = 0;
 }
 //
 //
@@ -427,33 +456,31 @@ if (timer3 <= 0)
 //
 //Lily Cultist Zealot Spawn
 function scr_enemy_lilyCultist_zealotSpawn(){
-//Timer
-scr_enemy_timer_countdown();
-speed = 0;
-
-//Set
-if (sprite_index != spr_enemy_lilyCultist_zealotSpawn)
+if (obj_game.gamePaused = false)
 {
-	//Start Animation From Beginning
-	sprite_index = spr_enemy_lilyCultist_zealotSpawn;
-	local_frame = 0;
-	image_index = 0;
+	//Timer
+	scr_enemy_timer_countdown();
+	
+	//Set
+	if (sprite_index != spr_enemy_lilyCultist_zealotSpawn)
+	{
+		speed = 0;
+		sprite_index = spr_enemy_lilyCultist_zealotSpawn;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	scr_enemy_animation_one();
+
+	//End
+	if (animation_end)
+	{
+		entity_step = scr_enemy_lilyCultist_free;
+		sprite_index = enemy_idle;
+	}
 }
-
-
-//Animate
-scr_enemy_animation_one();
-
-
-//Move
-
-
-//End
-if (animation_end)
-{
-	entity_step = scr_enemy_lilyCultist_free;
-	sprite_index = enemy_idle;
-}
+else speed = 0;
 }
 //
 //
@@ -462,23 +489,12 @@ if (animation_end)
 //
 //Lily Cultist Drop
 function scr_enemy_lilyCultist_drop(){
-//if (obj_inventory.quest_grid[# 1, 0] = true) and (obj_inventory.quest_grid[# 1, 3] = false)
-//{
-//	obj_inventory.quest_grid[# 1, 1] = obj_inventory.quest_grid[# 1, 1] + 1;
-//}
-var _objects = 6;
-//var _dropBean = irandom_range(20,40);
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
+
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

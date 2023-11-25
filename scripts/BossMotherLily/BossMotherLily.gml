@@ -6,18 +6,29 @@
 //
 //Mother Lily Create
 function scr_enemy_mother_lily_create(){
+home_state = scr_enemy_mother_lily_free;
+entity_step = home_state;
+entity_drop = scr_enemy_mother_lily_drop;
+
+//Assets
+enemy_idle = spr_enemy_motherLily;
+enemy_move = spr_enemy_motherLily_move;
+damaged_snd = snd_motherLily_damaged;
+
+//Stats
+form_type = 1;
+drop_amount = 20;
+max_hp = 1450 + (725 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.0;
+
+//Animation and Status
 name = "Mother Lily"
 targeted = false;
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = scr_enemy_mother_lily_free;
-entity_step = home_state;
-entity_drop = scr_enemy_mother_lily_drop;
-enemy_idle = spr_enemy_motherLily;
-enemy_move = spr_enemy_motherLily_move;
-damaged_snd = snd_motherLily_damaged;
 shadow = false;
 shadow_size = 3;
 lit = false;
@@ -27,12 +38,7 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 1;
-drop_amount = 20;
-max_hp = 1450 + (725 * enemy_lvl);
-hp = max_hp;
 boss = true;
-enemy_spd = 1.0;
 local_frame = 0;
 hit_by_attack = -1;
 timer1 = 30;
@@ -42,6 +48,8 @@ timer4 = 30;
 timerC = 30;
 walk_snd_delay = 0;
 path = -1;
+
+//Self Destruct
 if (obj_inventory.quest_grid[# 12, 3] = true)
 {
 	instance_destroy();
@@ -55,11 +63,9 @@ if (obj_inventory.quest_grid[# 12, 3] = true)
 //Mother Lily Free
 function scr_enemy_mother_lily_free(){
 if (obj_game.gamePaused = false)
-{
-	
+{	
 	//Timers
 	scr_enemy_timer_countdown();
-	
 	
 	//While Aggro if off
 	if (targeted = false)
@@ -85,20 +91,14 @@ if (obj_game.gamePaused = false)
 		global.aggroCounter = global.aggroCounter - 1;
 	}
 	
-	//Vulnerable State after 3 attacks
-	//if (attack_counter >= 3)
-	//{
-	//	entity_step = BossMotherLilyExposed;
-	//}
-	
 	//While Aggro is on
-	if (targeted = true) //and (attack_counter < 3)
+	if (targeted = true)
 	{
 		lit = true;
 		if (timerC <= 0) scr_enemy_chase_special(obj_game,obj_entity);
 		walk_snd_delay = walk_snd_delay - 1;
 		
-		//Slash Attack
+		//Short Range Attacks - Slash
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16)) and (timer1 <= 0)
 		{
 			walk_snd_delay = 45;
@@ -163,7 +163,7 @@ if (obj_game.gamePaused = false)
 			}
 		}
 		
-		//Long Ragne Attack - Vice Bomb:
+		//Long Range Attacks - Void Bomb
 		if (!point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer3 <= 0)
 		{
 			walk_snd_delay = 15;
@@ -213,8 +213,10 @@ else path_end();
 function scr_enemy_mother_lily_leafSlash(){
 if (obj_game.gamePaused = false)
 {
-	invincible = false;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_motherLily_leafSlash)
 	{
 		//Start Animation From Beginning
@@ -225,12 +227,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55 = (9 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 55 = (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_motherLily_leafSlash_hitbox);
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 90;
@@ -250,7 +255,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_scissorLeaf(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_motherLily_move)
 	{
 		//Start Animation From Beginning
@@ -260,10 +268,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
+	
+	//Calculate Attack
 	damage = 50 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_motherLily_scissorLeaf);
 	
-	
+	//Collision
 	var _collided = scr_enemy_collision();
 	if (_collided = false)
 	{
@@ -280,6 +290,8 @@ if (obj_game.gamePaused = false)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (timer2 <= 0)
 	{
 		//audio_play_sound(snd_viceBubble,0,false);
@@ -301,8 +313,11 @@ if (obj_game.gamePaused = false)
 function scr_projectile_scissorLeaf(){
 if (obj_game.gamePaused = false)
 {
+	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	
+	//Setup
 	if (sprite_index != spr_motherLily_scissorLeaf)
 	{
 		//Start Animation From Beginning
@@ -312,19 +327,23 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	//damage = 60;
-	
+
+	//Follow Parent (Mother Lily)
 	x = parent.x;
 	y = parent.y - 8;
 	
-	scr_enemy_animation_one();
-	//Animate
+	//Delayed Audio
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
 		audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
 		audio_play_sound(snd_motherLily_leafSlash,0,false);
 	}
+	
+	//Animate
+	scr_enemy_animation_one();
+	
+	//End
 	if (timer1 <= 0)
 	{
 		instance_destroy();
@@ -340,7 +359,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_razerSprout(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -350,11 +372,11 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 40 + (6 * enemy_lvl);
 	
-
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		var _dir = irandom_range(0,359);
@@ -395,7 +417,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_mother_lily_viceBomb(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_motherLily_cast)
 	{
 		//Start Animation From Beginning
@@ -405,11 +430,11 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 45 + (8 * enemy_lvl);
 	
-
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		audio_play_sound(snd_enemy_lily_viceBubble,0,false);
@@ -423,7 +448,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_projectile_viceBubble32;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 4.0
+			enemy_spd = 3.0
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 65 + (10 * enemy_lvl);
@@ -451,11 +476,12 @@ if (obj_game.gamePaused = false)
 //
 //Trap Lily Exposed
 function scr_enemy_mother_lily_exposed(){
-attack_counter = 0;
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	invincible = false;
+	
+	//Setup
 	if (sprite_index != spr_enemy_motherLily_exposed)
 	{
 		//Start Animation From Beginning
@@ -468,6 +494,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		timerC = 60;
@@ -482,53 +510,13 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Effect Water Vice
-function xscr_effect_waterVice(){
-damage = 5 + obj_player.might;
-timer1 = timer1 - 1;
-if (timer1 <= 0) instance_destroy();
-if (sprite_index != spr_enemy_motherLily_viceEffect)
-{
-	sprite_index = spr_enemy_motherLily_viceEffect;
-	image_speed = 1;
-	image_index = 0;
-}
-if (place_meeting(x,y,obj_player))
-{
-	audio_play_sound(snd_enemy_lily_viceBubble_hit,0,false);
-	with (obj_player)
-	{
-		if (invincible = false)
-		{
-			watervice_dur_timer = 120;
-			audio_play_sound(snd_player_hit,0,false);
-			flash = .35;
-			hp = hp - other.damage;
-		}
-	}
-	instance_destroy();
-}
-}
-//
-//
-//
-//
-//
 //Mother Lily Drop
 function scr_enemy_mother_lily_drop(){
-var _objects = 6;
-//var _dropBean = 250;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

@@ -1,19 +1,29 @@
-//Rift Sabi
+//Trap Lily
 //
 //
 //
 //
 //
-//Sabi Create
+//Trap Lily Create
 function scr_enemy_trap_lily_create(){
+//Scripts
 home_state = scr_enemy_trap_lily_free;
-entity_step = home_state;
+entity_step = scr_enemy_trap_lily_free;
 entity_drop = scr_enemy_trap_lily_drop;
+
+//Assets
 enemy_idle = spr_enemy_trapLily;
 enemy_move = spr_enemy_trapLily;
 enemy_damaged = spr_enemy_trapLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
+
+//Stats
+max_hp = 80 + (40 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 2.0;
+
+//Animation and Status
 form_type = 1;
 drop_amount = 10;
 shadow = false;
@@ -29,15 +39,10 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 80 + (40 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
 special_timer = -1;
 walk_snd_delay = 0;
 path = -1;
@@ -47,18 +52,19 @@ path = -1;
 //
 //
 //
-//Sabi Free
+//Trap Lily Free
 function scr_enemy_trap_lily_free(){
-
 if (obj_game.gamePaused = false)
 {
-
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//Cannot be moved
 	knockback = false;
 	knockback_dur = 0;
 
+	//Toggle Aggro
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -77,7 +83,8 @@ if (obj_game.gamePaused = false)
 			global.aggroCounter = global.aggroCounter + 1;
 		}
 	}
-	else sprite_index = enemy_idle;
+	
+	//While aggro is on
 	if (targeted = true)
 	{
 		lit = true;
@@ -90,20 +97,13 @@ if (obj_game.gamePaused = false)
 				entity_step = scr_enemy_trap_lily_bubbleFlail;
 			}
 		}
-	}
-	//if (walk_snd_delay <= 0)
-	//{
-	//	walk_snd_delay = 30;
-	//	if (point_in_circle(obj_player.x, obj_player.y,x,y,32)) audio_play_sound(walk_snd,1,0);
-	//}
-	if (targeted = true)
-	{
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			walk_snd_delay = 15;
 			aggro_drop = aggro_drop - 1;
 		}
 	}
+	
 	//Animation
 	scr_enemy_animation();
 }
@@ -118,9 +118,10 @@ else path_end();
 function scr_enemy_trap_lily_bubbleFlail(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	knockback_dur = 0;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_trapLily_open)
 	{
 		//Start Animation From Beginning
@@ -130,8 +131,13 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35 + (7 * enemy_lvl);
 	
+	//Cannot be moved
+	knockback = false;
+	knockback_dur = 0;
+	
+	
+	//Create Projectile (mid-animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 36;
@@ -147,7 +153,7 @@ if (obj_game.gamePaused = false)
 			enemy_move = spr_projectile_viceBubble;
 			aggro_drop = 300;
 			healthbar = false;
-			enemy_spd = 2.5;
+			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
 			timer1 = 60;
@@ -162,8 +168,11 @@ if (obj_game.gamePaused = false)
 			speed = enemy_spd;
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = scr_enemy_trap_lily_exposed;
@@ -180,9 +189,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trap_lily_exposed(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
-	knockback = false;
-	knockback_dur = 0;
+	
+	//Setup
 	if (sprite_index != spr_enemy_trapLily_exposed)
 	{
 		//Start Animation From Beginning
@@ -193,8 +203,14 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	
+	//Cannot be moved
+	knockback = false;
+	knockback_dur = 0;
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -210,19 +226,11 @@ if (obj_game.gamePaused = false)
 //
 //Trap Lily Drop
 function scr_enemy_trap_lily_drop(){
-var _objects = 6;
-//var _dropBean = 35;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

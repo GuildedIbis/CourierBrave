@@ -6,16 +6,26 @@
 //
 //Knife Lily Create
 function scr_enemy_knife_lily_create(){
+//Scripts
 home_state = scr_enemy_knife_lily_free;
-entity_step = home_state;
+entity_step = scr_enemy_knife_lily_free;
 entity_drop = scr_enemy_knife_lily_drop;
+
+//Assets
 enemy_idle = spr_enemy_knifeLily;
 enemy_move = spr_enemy_knifeLily;
 enemy_damaged = spr_enemy_knifeLily;
 damaged_snd = snd_trapLily_hit;
 walk_snd = snd_walk_regular;
+
+//Stats
 form_type = 1;
 drop_amount = 10;
+max_hp = 110 + (55 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.0;
+
+//Animation and Status
 shadow = false;
 shadow_size = 1;
 lit = false;
@@ -29,16 +39,10 @@ aggro_drop = 300;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-max_hp = 110 + (55 * enemy_lvl);
-hp = max_hp;
 hor_spd = 0;
 ver_spd = 0;
-enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-special_timer = -1;
 walk_snd_delay = 0;
 path = -1;
 }
@@ -49,21 +53,17 @@ path = -1;
 //
 //Knife Lily Free
 function scr_enemy_knife_lily_free(){
-
 if (obj_game.gamePaused = false)
 {
-
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//Cannot be moved
 	knockback = false;
 	knockback_dur = 0;
 
 	//Toggle Aggro 
-	//if (timer1 <= 0)
-	//{
-	//	scr_enemy_wander(60,180);
-	//}
 	if (aggro_drop <= 0)
 	{
 		image_speed = 0;
@@ -82,7 +82,8 @@ if (obj_game.gamePaused = false)
 			global.aggroCounter = global.aggroCounter + 1;
 		}
 	}
-	else sprite_index = enemy_idle;
+	
+	//Toggle Aggro 
 	if (targeted = true)
 	{
 		lit = true;
@@ -99,20 +100,13 @@ if (obj_game.gamePaused = false)
 		{
 			entity_step = scr_enemy_knife_lily_knifeSpin;
 		}
-	}
-	//if (walk_snd_delay <= 0)
-	//{
-	//	walk_snd_delay = 30;
-	//	if (point_in_circle(obj_player.x, obj_player.y,x,y,32)) audio_play_sound(walk_snd,1,0);
-	//}
-	if (targeted = true)
-	{
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
 			walk_snd_delay = 15;
 			aggro_drop = aggro_drop - 1;
 		}
 	}
+	
 	//Animation
 	scr_enemy_animation_one();
 }
@@ -127,20 +121,24 @@ else path_end();
 function scr_enemy_knife_lily_returnLeaf(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	knockback_dur = 0;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//setup
 	if (sprite_index != spr_enemy_knifeLily_open)
 	{
-		//Start Animation From Beginning
 		sprite_index = spr_enemy_knifeLily_open;
 		local_frame = 0;
 		image_index = 0;
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 35 + (7 * enemy_lvl);
 	
+	//Cannot be moved
+	knockback = false;
+	knockback_dur = 0;
+
+	//Create projectiles (mid-animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 50;
@@ -173,8 +171,11 @@ if (obj_game.gamePaused = false)
 			speed = enemy_spd;
 		}
 	}
+
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = scr_enemy_knife_lily_exposed;
@@ -191,44 +192,53 @@ if (obj_game.gamePaused = false)
 function scr_projectile_returnLeaf_free(){
 if (obj_game.gamePaused = false)
 {
-sprite_index = enemy_move;
-speed = enemy_spd;
-scr_enemy_timer_countdown();
-if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
-if (timer2 <= 0) instance_destroy();
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-	audio_play_sound(snd_projectile_hit,0,false);
-	with (obj_player)
+	//Resume
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	
+	//Timer
+	scr_enemy_timer_countdown();
+	
+	//Direction
+	if (timer1 <= 0) direction = point_direction(x,y,parent.x,parent.y);
+	
+	//Self Destruct
+	if (timer2 <= 0) instance_destroy();
+	
+	//Collision
+	if (place_meeting(x,y,obj_player))
 	{
-		if (invincible = false)
+		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
+		audio_play_sound(snd_projectile_hit,0,false);
+		with (obj_player)
 		{
-			if (dmg_snd_delay <= 0)
+			if (invincible = false)
 			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(dmg_snd,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
+				if (dmg_snd_delay <= 0)
+				{
+					dmg_snd_delay = 15;
+					audio_sound_gain(dmg_snd,global.volumeEffects,1);
+					audio_play_sound(dmg_snd,0,false);
+				}
+				flash = .35;
+				hp = hp - (other.damage - armor);
 			
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	instance_destroy();
-}
-if (place_meeting(x,y,parent)) and (timer1 <= 0)
-{
-	instance_destroy();
-}
-if (x = parent.x) and (y = parent.y)
-{
-	instance_destroy();
-}
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
+	if (place_meeting(x,y,parent)) and (timer1 <= 0)
+	{
+		instance_destroy();
+	}
+	if (x = parent.x) and (y = parent.y)
+	{
+		instance_destroy();
+	}
 }
 else
 {
@@ -244,9 +254,10 @@ else
 function scr_enemy_knife_lily_knifeSpin(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	knockback_dur = 0;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_knifeLily_knifeSpin)
 	{
 		//Start Animation From Beginning
@@ -258,13 +269,19 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 55 + (9 * enemy_lvl);
+	
+	//Cannot be moved
+	knockback = false;
+	knockback_dur = 0;
+	
 	//Cacluate Attack
+	damage = 55 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_knifeLily_knifeSpin_hitbox)
 
 	//Animate
-	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = scr_enemy_knife_lily_exposed;
@@ -281,9 +298,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_knife_lily_exposed(){
 if (obj_game.gamePaused = false)
 {
-	knockback = false;
-	knockback_dur = 0;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_knifeLily_exposed)
 	{
 		//Start Animation From Beginning
@@ -294,8 +312,14 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	
+	//Cannot be moved
+	knockback = false;
+	knockback_dur = 0;
+	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		entity_step = home_state;
@@ -311,19 +335,11 @@ if (obj_game.gamePaused = false)
 //
 //Knife Lily Drop
 function scr_enemy_knife_lily_drop(){
-var _objects = 6;
-//var _dropBean = 35;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

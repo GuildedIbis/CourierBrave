@@ -6,19 +6,32 @@
 //
 //Tortoise Troll Create
 function scr_enemy_trollTortoise_create(){
+//Scripts
+home_state = scr_enemy_trollTortoise_free;
+entity_step = scr_enemy_trollTortoise_free;
+entity_drop = scr_enemy_trollTortoise_drop;
+
+//Assets
+enemy_idle = spr_enemy_tortoiseTroll_idle;
+enemy_move = spr_enemy_tortoiseTroll_run;
+damaged_snd = snd_tortoiseTroll_damaged;
+walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 4;
+drop_amount = 20;
+max_hp = 2200 + (1100 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.25;
+
+//Animation and Status
+name = "Tortoise Troll";
 activate_args = 0;
 targeted = false;
 invincible = false;
 bullet = false;
 healthbar = true;
 inv_dur_timer = 0;
-home_state = scr_enemy_trollTortoise_free;
-entity_step = scr_enemy_trollTortoise_free;
-entity_drop = scr_enemy_trollTortoise_drop;
-enemy_idle = spr_enemy_tortoiseTroll_idle;
-enemy_move = spr_enemy_tortoiseTroll_run;
-damaged_snd = snd_tortoiseTroll_damaged;
-walk_snd = snd_walk_regular;
 shadow = true;
 shadow_size = 2;
 lit = false;
@@ -28,22 +41,13 @@ attack_counter = 0;
 sprite_index = enemy_idle;
 image_speed = 0;
 image_index = 3;
-form_type = 4;
-drop_amount = 20;
-max_hp = 2200 + (1100 * enemy_lvl);
-hp = max_hp;
 boss = true;
-name = "Tortoise Troll";
-enemy_spd = 1.25;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
-timerS = 0;
-timerC = 0;
 walk_snd_delay = 0;
 path = -1;
+
+//Self Destruct
 if (obj_inventory.quest_grid[# 16,3] = true)
 {
 	instance_destroy();
@@ -58,8 +62,10 @@ if (obj_inventory.quest_grid[# 16,3] = true)
 function scr_enemy_trollTortoise_scene1(){
 if (obj_game.gamePaused = false)
 {
+	//Invincible During Scene
 	invincible = true;
 	invincible_timer = 5;
+	
 	//Toggle Aggro 
 	if (targeted = false)
 	{
@@ -78,12 +84,18 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_scene2(){
 if (obj_game.gamePaused = false)
 {
+	
+	//Invincible During Scene
 	invincible = true;
 	invincible_timer = 5;
+	
+	//Stops Moving for Scene
 	path_end();
 	hor_spd = 0;
 	ver_spd = 0;
 	speed = 0;
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_scene2)
 	{
 		//Start Animation From Beginning
@@ -95,7 +107,11 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
+	
+	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end)
 	{
 		script_execute(scr_enemy_trollTortoise_create2);
@@ -123,6 +139,7 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_tortoiseTroll_rest;
 	}
 	
+	//Iniate Phase II Scene
 	if (hp <= (max_hp*.75))
 	{
 		path_end();
@@ -195,7 +212,10 @@ else path_end();
 function scr_enemy_trollTortoise_hammerSlam(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerSlam)
 	{
 		//Start Animation From Beginning
@@ -206,12 +226,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50 + (7 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 50 + (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
@@ -249,7 +272,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerLunge(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerLunge)
 	{
 		//Start Animation From Beginning
@@ -260,20 +286,25 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50 + (7 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 50 + (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 	
+	//Set Direction
 	if (timer1 <= 0)
 	{
 		hor_spd = lengthdir_x(4,direction);
 		ver_spd = lengthdir_y(4,direction);
 	}
 	
+	//Collision
 	var _collided = scr_enemy_collision();
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end) or (_collided = true)
 	{
 		speed = 0;
@@ -294,7 +325,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerBackslam(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Seteup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerBackslam)
 	{
 		//Start Animation From Beginning
@@ -305,12 +339,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 60 + (9 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 60 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		animation_end = false;
@@ -330,7 +367,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_jumpslam(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerJumpslam)
 	{
 		//Start Animation From Beginning
@@ -341,9 +381,12 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 80 + (13 * enemy_lvl);
+	
 	//Cacluate Attack
+	damage = 80 + (13 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
+	
+	//Jump Effect
 	if (timer3 > 0)
 	{
 		z = z + 1;
@@ -352,6 +395,8 @@ if (obj_game.gamePaused = false)
 	{
 		if (z > 0) z = z - 1;
 	}
+	
+	//Movement
 	if (timer1 > 0)
 	{
 		hor_spd = lengthdir_x(2.25,direction);
@@ -371,6 +416,8 @@ if (obj_game.gamePaused = false)
 		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
 		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
 	}
+	
+	//Collision
 	var _collided = scr_enemy_collision();
 	if (_collided = true) or (timer1 < 0)
 	{
@@ -382,6 +429,8 @@ if (obj_game.gamePaused = false)
 	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end) 
 	{
 		timer1 = 120;
@@ -402,7 +451,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerMissile(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerMissiles)
 	{
 		//Start Animation From Beginning
@@ -414,6 +466,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	
+	//Set Direction
 	var _dirPos = round(direction/90);
 	switch(_dirPos)
 	{
@@ -443,8 +496,7 @@ if (obj_game.gamePaused = false)
 		break;	
 	}
 	
-	
-	//Launch Missles
+	//Create Projectiles (mid-animation
 	if (timer2 <= 0)
 	{
 		audio_sound_gain(snd_tortoiseTroll_missiles,global.volumeEffects,1);
@@ -477,11 +529,11 @@ if (obj_game.gamePaused = false)
 			speed = enemy_spd;
 		}
 	}
-	else
-	
 	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end) 
 	{
 		timer2 = 300;
@@ -502,7 +554,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_trollTortoise_hammerBlossom(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_tortoiseTroll_hammerBlossom)
 	{
 		//Start Animation From Beginning
@@ -514,7 +569,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	
-	//Launch Missles
+	//Create Projectiles (mid-animation)
 	if (timer2 <= 0)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
@@ -545,9 +600,10 @@ if (obj_game.gamePaused = false)
 		timer2 = 29;
 	}
 	
-	
 	//Animate
 	scr_enemy_animation_one();
+	
+	//End
 	if (animation_end) 
 	{
 		timer2 = 300;
@@ -566,19 +622,11 @@ if (obj_game.gamePaused = false)
 //
 //Troll Tortoise Drop
 function scr_enemy_trollTortoise_drop(){
-var _objects = 7;
-//var _dropBean = 250;
+var _objects = 5;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
 
-//with (instance_create_layer(x,y,"Instances",obj_itemBean))
-//{
-//	drop_amount = _dropBean;
-//	sprite_index = spr_bean;
-//	direction = (360/_objects) + _angle;
-//	spd = .75 + (.3) + random(0.1);
-//}
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
 	drop_amount = round(other.drop_amount/2);

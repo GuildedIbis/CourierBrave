@@ -6,16 +6,29 @@
 //
 //Elite Gorog Create
 function scr_enemy_gorogElite_create(){
-name = "Elite Gorog"
-boss = false;
+//Scripts
 home_state = scr_enemy_gorogElite_free;
 entity_step = home_state;
 entity_drop = scr_enemy_gorogElite_drop;
+
+
+//Assets
 enemy_idle = spr_enemy_gorogE_idle;
 enemy_move = spr_enemy_gorogE_run;
 enemy_damaged = spr_enemy_gorogE_damaged;
 damaged_snd = snd_rat_damaged;
 walk_snd = snd_walk_regular;
+
+//Stats
+form_type = 1;
+drop_amount = 30;
+max_hp = 420 + (210 * enemy_lvl);
+hp = max_hp;
+enemy_spd = 1.2;
+
+//Animation and Status
+name = "Elite Gorog"
+boss = false;
 shadow = true;
 shadow_size = 1;
 lit = false;
@@ -30,16 +43,8 @@ sprite_index = enemy_idle;
 image_speed = 0;
 var _startDir = irandom_range(0,3);
 direction = _startDir * 90;
-form_type = 1;
-drop_amount = 30;
-max_hp = 420 + (210 * enemy_lvl);
-hp = max_hp;
-enemy_spd = 1.2;
 local_frame = 0;
 hit_by_attack = -1;
-timer1 = 0;
-timer2 = 0;
-timer3 = 0;
 timerC = 60 + irandom_range(-15,15);
 timerW = 180 + irandom_range(-30,30);
 _destX = 32;
@@ -160,8 +165,10 @@ else
 function scr_enemy_gorogElite_shield(){
 if (obj_game.gamePaused = false)
 {
-	shielded = true;
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_shield)
 	{
 		//Start Animation From Beginning
@@ -169,10 +176,17 @@ if (obj_game.gamePaused = false)
 		local_frame = 0;
 		image_index = 0;
 	}
+	
+	//Track Player
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
-
+	
+	//Shielded
+	shielded = true;
+	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (timer3 <= 0)
 	{
 		timer3 = 180;
@@ -186,11 +200,14 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Elite Skirmisher Slash State
+//Elite Gorog Heavy Slash A
 function scr_enemy_gorogElite_heavySlashA(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_heavySlash_A)
 	{
 		//Start Animation From Beginning
@@ -202,12 +219,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 65;
+	
 	//Cacluate Attack
+	damage = 65 + (10 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_A_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,20))
@@ -234,7 +254,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_heavySlashB(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_heavySlash_B)
 	{
 		//Start Animation From Beginning
@@ -246,12 +269,15 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-	damage = 50;
+	
 	//Cacluate Attack
+	damage = 50 + (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_B_hitbox)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		timer1 = 90;
@@ -277,7 +303,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_chainHook_toss(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_chainHook_toss)
 	{
 		//Start Animation From Beginning
@@ -288,7 +317,8 @@ if (obj_game.gamePaused = false)
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
-
+	
+	//Create Projectile (mid-animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 120;
@@ -309,8 +339,11 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{	
 		attack_counter = 0;
@@ -329,7 +362,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_chainHook_wait(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_chainHook_wait)
 	{
 		//Start Animation From Beginning
@@ -343,6 +379,8 @@ if (obj_game.gamePaused = false)
 
 	//Animate
 	scr_enemy_animation();
+	
+	//End initiated by projectile
 }
 }
 //
@@ -354,7 +392,10 @@ if (obj_game.gamePaused = false)
 function scr_enemy_gorogElite_knifeThrow(){
 if (obj_game.gamePaused = false)
 {
+	//Timer
 	scr_enemy_timer_countdown();
+	
+	//Setup
 	if (sprite_index != spr_enemy_gorogE_knifeThrow)
 	{
 		//Start Animation From Beginning
@@ -366,6 +407,7 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 
+	//Create Projectiles (mid-animation)
 	if (timer2 <= 0)
 	{
 		timer2 = 15;
@@ -385,8 +427,11 @@ if (obj_game.gamePaused = false)
 			hit_script = scr_entity_hit_destroy;
 		}
 	}
+	
 	//Animate
 	scr_enemy_animation();
+	
+	//End
 	if (animation_end)
 	{
 		attack_counter = attack_counter + 1;
@@ -418,54 +463,53 @@ if (obj_game.gamePaused = false)
 //
 //EliteGorog Reposition
 function scr_enemy_gorogElite_reposition(){
-//Timer
-scr_enemy_timer_countdown();
-
-
-//Set
-if (sprite_index != enemy_move)
+if (obj_game.gamePaused = false)
 {
-	//Start Animation From Beginning
-	sprite_index = enemy_move;
-	local_frame = 0;
-	image_index = 0;
-}
+	//Timer
+	scr_enemy_timer_countdown();
 
-
-//Animate
-scr_enemy_animation();
-
-
-//Move
-if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
-{
-	if (hor_spd != 0) or (ver_spd != 0) 
+	//Set
+	if (sprite_index != enemy_move)
 	{
-		var _xDest = x + (hor_spd * (enemy_spd))
-		var _yDest = y + (ver_spd * (enemy_spd))
-		if (place_meeting(_xDest, _yDest,obj_entity))
-		{
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
-		}
-		path = path_add();
-		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
+		//Start Animation From Beginning
 		sprite_index = enemy_move;
-	
+		local_frame = 0;
+		image_index = 0;
 	}
-}
-else sprite_index = enemy_idle;
 
+	//Animate
+	scr_enemy_animation();
 
-//End
-if (timerC <= 0)
-{
-	timerC = 60;
-	entity_step = home_state;
-	sprite_index = enemy_idle;
+	//Move
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+	{
+		if (hor_spd != 0) or (ver_spd != 0) 
+		{
+			var _xDest = x + (hor_spd * (enemy_spd))
+			var _yDest = y + (ver_spd * (enemy_spd))
+			if (place_meeting(_xDest, _yDest,obj_entity))
+			{
+				hor_spd = -hor_spd;
+				ver_spd = -ver_spd;
+				//sprite_index = enemy_idle;
+			}
+			path = path_add();
+			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
+	
+		}
+	}
+	else sprite_index = enemy_idle;
+
+	//End
+	if (timerC <= 0)
+	{
+		timerC = 60;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
+	}
 }
 }
 //
@@ -475,13 +519,10 @@ if (timerC <= 0)
 //
 //Elite Gorog Drop
 function scr_enemy_gorogElite_drop(){
-
-var _objects = 7;
-//var _dropBean = 150;
+var _objects = 5;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
-
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 {
