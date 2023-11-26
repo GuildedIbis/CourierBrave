@@ -93,7 +93,7 @@ if (obj_game.gamePaused = false)
 		if (timer3 <= 0)
 		{
 			image_alpha = 1;
-			scr_enemy_lilyCultist_dilloc_create();
+			scr_enemy_lilyCultist_create();
 			targeted = true;
 			timer1 = 30;
 			timer2 = 30;

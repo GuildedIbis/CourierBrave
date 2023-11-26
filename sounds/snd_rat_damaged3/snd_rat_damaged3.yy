@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.415986,
   "parent": {
-    "name": "LenkoMain",
-    "path": "folders/Sounds/Enemy/Lenko/LenkoMain.yy",
+    "name": "Rats",
+    "path": "folders/Sounds/Enemy/Lenko/Rats.yy",
   },
   "preload": false,
   "sampleRate": 44100,

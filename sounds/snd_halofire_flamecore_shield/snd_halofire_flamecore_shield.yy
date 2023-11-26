@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_halofire_trirock",
+  "name": "snd_halofire_flamecore_shield",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_halofire_trirock.wav",
+  "soundFile": "snd_halofire_flamecore_shield.wav",
   "type": 0,
   "volume": 1.0,
 }

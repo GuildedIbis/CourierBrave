@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 3.2,
   "parent": {
-    "name": "Beaowire",
-    "path": "folders/Sounds/Enemy/Lenko/Beaowire.yy",
+    "name": "TrollTortoise",
+    "path": "folders/Sounds/Enemy/Lenko/TrollTortoise.yy",
   },
   "preload": false,
   "sampleRate": 44100,

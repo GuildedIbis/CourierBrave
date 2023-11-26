@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 3.2,
   "parent": {
-    "name": "Yakflower",
-    "path": "folders/Sounds/Enemy/Lenko/Yakflower.yy",
+    "name": "MothWorm",
+    "path": "folders/Sounds/Enemy/Lenko/MothWorm.yy",
   },
   "preload": false,
   "sampleRate": 44100,

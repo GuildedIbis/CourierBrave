@@ -137,8 +137,8 @@ if (obj_game.gamePaused = false)
 					entity_step = scr_enemy_mother_lily_scissorLeaf;
 					with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 					{
-						home_state = scr_projectile_scissorLeaf;
 						enemy_lvl = other.enemy_lvl;
+						home_state = scr_projectile_scissorLeaf;
 						timer1 = 30;
 						timer2 = 10;
 						entity_step = home_state;
@@ -182,11 +182,11 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
+				enemy_lvl = other.enemy_lvl;
 				scr_enemy_lily_pod_create();
 				timer1 = 30;
 				timer2 = 30;
 				timer3 = 180;
-				enemy_lvl = 1;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = obj_break;
@@ -386,8 +386,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				script_execute(scr_projectile_razorSprout_create);
 				enemy_lvl = other.enemy_lvl;
+				script_execute(scr_projectile_razorSprout_create);
 				timer1 = 0;
 				break_object = other.break_object;
 				fragment_count = 3;
@@ -440,8 +440,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_lily_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_viceBomb_free;
 			enemy_lvl = other.enemy_lvl;
+			home_state = scr_projectile_viceBomb_free;
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;

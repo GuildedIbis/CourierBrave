@@ -910,8 +910,8 @@ attacking = true;
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	audio_sound_gain(snd_halofire_special,global.volumeEffects,1);
-	audio_play_sound(snd_halofire_special,0,0,global.volumeEffects)
+	audio_sound_gain(snd_halofire_flamecore,global.volumeEffects,1);
+	audio_play_sound(snd_halofire_flamecore,0,0,global.volumeEffects);
 	atk_snd_delay = 20;
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -923,15 +923,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -992,8 +983,8 @@ if (animation_end)
 {
 	with (instance_create_layer(obj_player.x+dir_offX,obj_player.y+dir_offY,"Instances",obj_projectile))
 	{
-		timer1 = 120;
-		timer1 = 30;
+		timer1 = 240;
+		timer2 = 60;
 		target = -1;
 		break_object = obj_player.break_object;
 		damage = 32 + (12 * obj_player.divinity) + (9 * obj_inventory.form_grid[# 3, 8]);
@@ -1037,7 +1028,7 @@ if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
 	timer1 = 210;
-	timer2 = 6;
+	//timer2 = 6;
 	sprite_index = projectile_sprite;
 	local_frame = 0;
 	image_index = 0;
@@ -1063,12 +1054,13 @@ if (_num > 0)
 }
 if (timer2 <= 0)
 {
-		
+	audio_sound_gain(snd_halofire_flamecore_spark,global.volumeEffects,1);
+	audio_play_sound(snd_halofire_flamecore_spark,0,0,global.volumeEffects);	
 	with (instance_create_layer(x,y,"Instances",obj_projectile))
 	{
 		
 		break_object = obj_player.break_object;
-		damage = 10 + (3 * obj_player.divinity) + (3 * obj_inventory.form_grid[# 3, 8]);
+		damage = 8 + (2 * obj_player.divinity) + (2 * obj_inventory.form_grid[# 3, 8]);
 		projectile_sprite = spr_fireSpark;
 		projectile_script = scr_projectile_firespark;
 		idle_sprite = spr_fireSpark;
@@ -1087,7 +1079,7 @@ if (timer2 <= 0)
 		image_angle = direction;
 		projectile_speed = 4;
 	}
-	timer2 = 12;
+	timer2 = 10;
 }
 if (timer1 <= 0)
 {

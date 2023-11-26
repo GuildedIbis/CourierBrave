@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.496327,
   "parent": {
-    "name": "Yakflower",
-    "path": "folders/Sounds/Enemy/Lenko/Yakflower.yy",
+    "name": "Zerwerk",
+    "path": "folders/Sounds/Enemy/Lenko/Zerwerk.yy",
   },
   "preload": false,
   "sampleRate": 44100,

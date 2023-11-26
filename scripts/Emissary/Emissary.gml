@@ -277,7 +277,7 @@ if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 0)
 	if (string_counter = 5)
 	{
 		speaker = 1;
-		text_string = "...and the wrongful destruction and ocupation of the\nkingdoms of the east, including the burning of many lands."
+		text_string = "...and the wrongful destruction and occupation of the\nkingdoms of the east, including the burning of many lands."
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 6)

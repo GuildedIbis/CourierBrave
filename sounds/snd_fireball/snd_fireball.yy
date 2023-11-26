@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 1.13,
   "parent": {
-    "name": "Projectile",
-    "path": "folders/Sounds/Enemy/Projectile.yy",
+    "name": "Other",
+    "path": "folders/Sounds/Enemy/Other.yy",
   },
   "preload": false,
   "sampleRate": 44100,

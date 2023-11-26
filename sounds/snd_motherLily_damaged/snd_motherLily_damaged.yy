@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 3.2,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sounds/Enemy/Lenko/Habraf.yy",
+    "name": "Lilies",
+    "path": "folders/Sounds/Enemy/Lenko/Lilies.yy",
   },
   "preload": false,
   "sampleRate": 44100,

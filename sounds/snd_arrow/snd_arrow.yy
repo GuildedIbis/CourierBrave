@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.642667,
   "parent": {
-    "name": "Projectile",
-    "path": "folders/Sounds/Enemy/Projectile.yy",
+    "name": "Rats",
+    "path": "folders/Sounds/Enemy/Lenko/Rats.yy",
   },
   "preload": false,
   "sampleRate": 44100,

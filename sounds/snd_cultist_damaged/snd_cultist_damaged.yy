@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.510408,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sounds/Enemy/Lenko/Habraf.yy",
+    "name": "Cultists",
+    "path": "folders/Sounds/Enemy/Lenko/Cultists.yy",
   },
   "preload": false,
   "sampleRate": 44100,

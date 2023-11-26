@@ -10,10 +10,10 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.0,
+  "duration": 3.2,
   "parent": {
-    "name": "Habraf",
-    "path": "folders/Sounds/Enemy/Lenko/Habraf.yy",
+    "name": "Cultists",
+    "path": "folders/Sounds/Enemy/Lenko/Cultists.yy",
   },
   "preload": false,
   "sampleRate": 44100,

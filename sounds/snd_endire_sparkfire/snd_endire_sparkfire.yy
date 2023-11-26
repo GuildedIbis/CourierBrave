@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.161497,
   "parent": {
-    "name": "Halofire",
-    "path": "folders/Sounds/Player/Halofire.yy",
+    "name": "Endire",
+    "path": "folders/Sounds/Enemy/Lenko/Endire.yy",
   },
   "preload": false,
   "sampleRate": 44100,

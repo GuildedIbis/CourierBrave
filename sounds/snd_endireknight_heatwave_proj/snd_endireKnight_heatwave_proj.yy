@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.241497,
   "parent": {
-    "name": "Projectile",
-    "path": "folders/Sounds/Enemy/Projectile.yy",
+    "name": "Endire",
+    "path": "folders/Sounds/Enemy/Lenko/Endire.yy",
   },
   "preload": false,
   "sampleRate": 44100,
