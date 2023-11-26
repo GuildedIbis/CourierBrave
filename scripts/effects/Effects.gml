@@ -57,7 +57,16 @@ if (inv_dur_timer <= 0)
 	invincible = false;
 }
 
-
+//Heal
+if (heal_dur_timer > 0)
+{
+	heal_dur_timer = heal_dur_timer - 1;
+	heal = true;
+}
+if (heal_dur_timer <= 0)
+{
+	heal = false;
+}
 //Knockback
 if (knockback_dur > 0)
 {
@@ -103,6 +112,10 @@ if (ablaze = true) //and (ablaze_damage_timer < 30)
 {
 	draw_sprite(spr_status_ablaze,irandom_range(status_animate_index,5),x,y-4);
 }
+if (heal = true)
+{
+	draw_sprite(spr_status_heal,irandom_range(status_animate_index,5),x,y-4);
+}
 if (watervice = true) and (watervice_flash_timer < 15)
 {
 	draw_sprite(spr_status_effects,2,x,y-4);
@@ -136,6 +149,10 @@ if (knockback = true)
 if (cursed = true)
 {
 	draw_sprite(spr_status_gui,4,2,64);
+}
+if (heal = true)
+{
+	draw_sprite(spr_status_gui,5,2,64);
 }
 
 	

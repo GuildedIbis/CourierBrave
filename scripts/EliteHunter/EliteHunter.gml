@@ -228,6 +228,7 @@ if (obj_game.gamePaused = false)
 			local_frame = 0;
 			hit_by_attack = -1;
 			damage = 30 + (7 * other.enemy_lvl);
+			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

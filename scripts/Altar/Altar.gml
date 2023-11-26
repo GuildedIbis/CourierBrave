@@ -619,7 +619,7 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
+		if (obj_inventory.rog_array[2] >= 1) and (obj_inventory.resource_array[2] >= 5)
 		{
 			if (obj_inventory.resource_array[1] >= 1)
 			{
@@ -673,14 +673,14 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 	draw_sprite_stretched(spr_highlight_circle,0,195,126,52,18)
 	if (mouse_check_button_pressed(mb_left))
 	{
-		if (obj_inventory.rog_array[1] >= 1) and (obj_inventory.resource_array[2] >= 5)
+		if (obj_inventory.rog_array[3] >= 1) and (obj_inventory.resource_array[2] >= 5)
 		{
 			if (obj_inventory.resource_array[1] >= 1)
 			{
 				audio_sound_gain(snd_text02,global.volumeMenu,1);
 				audio_play_sound(snd_text02,0,false);
 				obj_player.crystal_ary[obj_player.crystal_selected] = 5; //(enchant # + 1)
-				obj_inventory.rog_array[2] = obj_inventory.rog_array[2] - 1;
+				obj_inventory.rog_array[3] = obj_inventory.rog_array[3] - 1;
 				obj_inventory.resource_array[2] = obj_inventory.resource_array[2] - 5;
 				obj_inventory.resource_array[1] = obj_inventory.resource_array[1] - 1;
 
@@ -692,8 +692,8 @@ if (point_in_rectangle(_mouseX,_mouseY,196,127,246,143))
 //172
 //234
 
-draw_sprite_stretched(spr_rog_menu_all,2,186,107,16,16);
-draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[1])+")",.6,.6,0);
+draw_sprite_stretched(spr_rog_menu_all,3,186,107,16,16);
+draw_text_transformed(186,120,"1\n("+ string(obj_inventory.rog_array[3])+")",.6,.6,0);
 draw_sprite_stretched(spr_resource_menu_all,2,211,107,16,16);
 draw_text_transformed(211,120,"5\n("+ string(obj_inventory.resource_array[2])+")",.6,.6,0);
 draw_sprite_stretched(spr_resource_menu_all,1,236,107,16,16);

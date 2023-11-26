@@ -682,6 +682,8 @@ if (_hits > 0)
 			with (_hitID)
 			{
 				var _healGiven = other.damage;
+				heal = true;
+				heal_dur_timer = 60;
 				hp = hp + _healGiven;
 			}
 		}

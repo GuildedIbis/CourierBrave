@@ -411,7 +411,7 @@ if (obj_inventory.quest_grid[# 11, 3] = true)
 //Ceriver's Alt Magic Pedestal Text
 function scr_text_pedestal_alt_03(){
 //Stone
-if (obj_inventory.quest_grid[# 17, 3] = false)
+if (obj_inventory.quest_grid[# 16, 3] = false)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -435,9 +435,9 @@ if (obj_inventory.quest_grid[# 17, 3] = false)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 15, 0] = true;
-		obj_inventory.quest_grid[# 15, 2] = 1;
-		obj_inventory.quest_grid[# 15, 3] = true;
+		obj_inventory.quest_grid[# 16, 0] = true;
+		obj_inventory.quest_grid[# 16, 1] = 2;
+		obj_inventory.quest_grid[# 16, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;
@@ -460,7 +460,7 @@ if (obj_inventory.quest_grid[# 17, 3] = false)
 }
 
 //Active
-if (obj_inventory.quest_grid[# 17, 3] = true)
+if (obj_inventory.quest_grid[# 16, 3] = true)
 {
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left)
@@ -482,9 +482,9 @@ if (obj_inventory.quest_grid[# 17, 3] = true)
 	{
 		text_string = ""
 		string_counter = 0;
-		obj_inventory.quest_grid[# 17, 0] = true;
-		obj_inventory.quest_grid[# 17, 2] = 1;
-		obj_inventory.quest_grid[# 17, 3] = true;
+		obj_inventory.quest_grid[# 16, 0] = true;
+		obj_inventory.quest_grid[# 16, 1] = 2;
+		obj_inventory.quest_grid[# 16, 3] = true;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

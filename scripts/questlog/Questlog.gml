@@ -533,7 +533,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Troll Tortoise";
-var _text = "Defeat the Troll Tortoise.\n\nThought once to be extinct, Troll's have long been\nhunted for as creatures of evil.\nEven without any training or enchanted weapons\nthey are dangerous by nature."
+var _text = "Defeat the Troll Tortoise.\n\nThought once to be extinct, Troll's have\nlong been hunted for as creatures of\nevil. Even without any training or\nenchanted weapons they are dangerous by nature."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

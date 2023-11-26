@@ -890,7 +890,7 @@ if (special_timer <= 45)
 	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
-		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.1,5)
+		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.2,5)
 	}
 }
 
