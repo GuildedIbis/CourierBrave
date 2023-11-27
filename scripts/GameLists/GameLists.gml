@@ -40,6 +40,7 @@ function scr_inventory_room_create(){
 altar_grid = ds_grid_create(100,4);
 level_ary = array_create(100,-1);
 level_name = array_create(100,-1);
+vostleTown_map_ary = array_create(20,-1);
 farwayRoad_map_ary = array_create(20,-1);
 yakflowerPath_map_ary = array_create(20,-1);
 //lakePath_map_ary = array_create(13,-1);
@@ -62,11 +63,12 @@ level_ary[6] = false;
 level_ary[7] = false;
 
 //Levels Name
-level_name[0] = "Farway Road";
-level_name[1] = "Yakflower Path";
-level_name[2] = "Habraf Lake";
-level_name[3] = "Beaowire Fortress";
-level_name[4] = "Northern Pass";
+level_name[0] = "Vostle Town";
+level_name[1] = "Farway Road";
+level_name[2] = "Yakflower Path";
+level_name[3] = "Habraf Lake";
+level_name[4] = "Beaowire Fortress";
+level_name[5] = "Northern Pass";
 level_name[5] = "?";
 level_name[6] = "?";
 level_name[7] = "?";
@@ -201,6 +203,50 @@ altar_grid[# 29, 3] = false;
 //1: Map X Location
 //2: May Y Location
 //3: Room Completion (saved)
+
+
+//Vostle Town Map
+vostleTown_map_ary[0][0] = "Vostle Town 00";
+vostleTown_map_ary[0][1] = 16;
+vostleTown_map_ary[0][2] = 18;
+vostleTown_map_ary[0][3] = 0;
+vostleTown_map_ary[1][0] = "Vostle Town 01";
+vostleTown_map_ary[1][1] = 32;
+vostleTown_map_ary[1][2] = 18;
+vostleTown_map_ary[1][3] = 0;
+vostleTown_map_ary[2][0] = "Vostle Town 02";
+vostleTown_map_ary[2][1] = 32;
+vostleTown_map_ary[2][2] = 27;
+vostleTown_map_ary[2][3] = 0;
+vostleTown_map_ary[3][0] = "Vostle Town 03";
+vostleTown_map_ary[3][1] = 16;
+vostleTown_map_ary[3][2] = 45;
+vostleTown_map_ary[3][3] = 0;
+vostleTown_map_ary[4][0] = "Vostle Town 04";
+vostleTown_map_ary[4][1] = 48;
+vostleTown_map_ary[4][2] = 45;
+vostleTown_map_ary[4][3] = 0;
+vostleTown_map_ary[5][0] = "Vostle Town 05";
+vostleTown_map_ary[5][1] = 64;
+vostleTown_map_ary[5][2] = 36;
+vostleTown_map_ary[5][3] = 0;
+vostleTown_map_ary[6][0] = "Vostle Town 06";
+vostleTown_map_ary[6][1] = 112;
+vostleTown_map_ary[6][2] = 45;
+vostleTown_map_ary[6][3] = 0;
+vostleTown_map_ary[7][0] = "Vostle Town 07";
+vostleTown_map_ary[7][1] = 128;
+vostleTown_map_ary[7][2] = 45;
+vostleTown_map_ary[7][3] = 0;
+vostleTown_map_ary[8][0] = "Vostle Town 08";
+vostleTown_map_ary[8][1] = 128;
+vostleTown_map_ary[8][2] = 54;
+vostleTown_map_ary[8][3] = 0;
+vostleTown_map_ary[9][0] = "Vostle Town 09";
+vostleTown_map_ary[9][1] = 80;
+vostleTown_map_ary[9][2] = 27;
+vostleTown_map_ary[9][3] = 0;
+
 
 //Farway Road Map
 farwayRoad_map_ary[0][0] = "Farway Road 00";
@@ -530,6 +576,7 @@ function scr_game_room_enemy_create(){
 //The X value represents the room, the y value represents the individual enemy.
 //Enemies have their "activate_args" set to a number that is unique the them within the room.
 //So if I want to have more than 30 enemies in a room, increase y value.
+vostleTown_enemy_grid = ds_grid_create(20,30);
 farwayRoad_enemy_grid = ds_grid_create(20,30);
 yakflowerPath_enemy_grid = ds_grid_create(20,30);
 lakePath_enemy_grid = ds_grid_create(20,30);
@@ -539,6 +586,13 @@ beaowireFortress_enemy_grid = ds_grid_create(20,30);
 northernPass_enemy_grid = ds_grid_create(20,30);
 room_enemy_grid = farwayRoad_enemy_grid;
 
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		vostleTown_enemy_grid[# i, j] = false;
+	}
+}
 for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 30; j = j + 1)
@@ -584,6 +638,13 @@ for (var i = 0; i < 20; i = i + 1)
 function scr_game_room_enemy_reset(){
 global.aggroCounter = 0;
 global.bossCounter = 0;
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		obj_game.vostleTown_enemy_grid[# i, j] = false;
+	}
+}
 for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 30; j = j + 1)
