@@ -7,7 +7,7 @@
 //Maps
 function scr_inventory_maps_create(){
 slot = obj_game.level_num;
-map_grid = ds_grid_create(19,3);
+map_grid = ds_grid_create(23,3);
 //region_grid = ds_grid_create(6,3);
 //region_grid[# 0, 0] = "Lenko Woodlands"
 //region_grid[# 0, 1] = true;
@@ -28,25 +28,27 @@ map_grid = ds_grid_create(19,3);
 //region_grid[# 5, 1] = false;
 //region_grid[# 5, 2] = LenkoMapMenuDraw;
 
-
-map_grid[# 0, 0] = "Farway Road"
+map_grid[# 0, 0] = "Vostle Town"
 map_grid[# 0, 1] = false;
-map_grid[# 0, 2] = scr_menu_map_farway_road;
-map_grid[# 1, 0] = "Yakflower Path"
+map_grid[# 0, 2] = scr_menu_map_vostle_town;
+map_grid[# 1, 0] = "Farway Road"
 map_grid[# 1, 1] = false;
-map_grid[# 1, 2] = scr_menu_map_yakflower_path;
-map_grid[# 2, 0] = "Habraf Lake"
+map_grid[# 1, 2] = scr_menu_map_farway_road;
+map_grid[# 2, 0] = "Yakflower Path"
 map_grid[# 2, 1] = false;
-map_grid[# 2, 2] = scr_menu_map_habraf_lake;
-map_grid[# 3, 0] = "Beaowire Fortress"
+map_grid[# 2, 2] = scr_menu_map_yakflower_path;
+map_grid[# 3, 0] = "Habraf Lake"
 map_grid[# 3, 1] = false;
-map_grid[# 3, 2] = scr_menu_map_beaowire_fortress;
-map_grid[# 4, 1] = "Northern Pass";
+map_grid[# 3, 2] = scr_menu_map_habraf_lake;
+map_grid[# 4, 0] = "Beaowire Fortress"
 map_grid[# 4, 1] = false;
-map_grid[# 4, 2] = scr_menu_map_northern_pass;
-map_grid[# 5, 0] = "Beetrap 2";
+map_grid[# 4, 2] = scr_menu_map_beaowire_fortress;
+map_grid[# 5, 1] = "Northern Pass";
 map_grid[# 5, 1] = false;
-map_grid[# 5, 2] = scr_menu_map_farway_road;
+map_grid[# 5, 2] = scr_menu_map_northern_pass;
+map_grid[# 6, 0] = "Beetrap 2";
+map_grid[# 6, 1] = false;
+map_grid[# 6, 2] = scr_menu_map_farway_road;
 
 if (slot != -1)
 {
@@ -140,6 +142,90 @@ if (map_selected != -1)
 //
 //
 //
+//Vostle Town Map Menu Draw
+function scr_menu_map_vostle_town(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _xPos = 64;
+var _yPos = 47;
+
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(159,39,"VOSTLE TOWN",1,1,0);
+
+if (obj_game.level_num = 0)
+{
+	var _mapRoomX = obj_inventory.vostleTown_map_ary[obj_game.room_num][1] 
+	var _mapRoomY = obj_inventory.vostleTown_map_ary[obj_game.room_num][2]
+	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
+	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
+	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
+	
+}
+
+
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 19, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.vostleTown_map_ary;
+			obj_game.level_num = 0;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.vostleTown_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 19, 1];
+			global.targetY = obj_inventory.altar_grid[# 19, 2];
+			global.targetRoom = rm_lenko_vostleTown_00;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+//if (obj_inventory.level_ary[1] = true)
+//{
+//	draw_sprite_ext(spr_map_arrow,0,_xPos + 137, _yPos + 67,1,1,0,c_white,1);
+//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 134,_yPos + 64,_xPos + 140,_yPos + 70))
+//	{
+//		draw_sprite(spr_map_arrow_highlight,0,_xPos + 137,_yPos + 67);
+//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+//		{
+//			slot = 1;
+//			map_selected = obj_inventory.map_grid[# 1, 2];
+//		}
+//	}
+//}
+}
+//
+//
+//
+//
+//
 //Farway Road Map Menu Draw
 function scr_menu_map_farway_road(){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -154,7 +240,7 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text_transformed(159,39,"FARWAY ROAD",1,1,0);
 
-if (obj_game.level_num = 0)
+if (obj_game.level_num = 1)
 {
 	var _mapRoomX = obj_inventory.farwayRoad_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.farwayRoad_map_ary[obj_game.room_num][2]
@@ -176,7 +262,7 @@ if (obj_inventory.altar_grid[# 0, 3] = true)
 		{
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
+			obj_game.level_num = 1;
 			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -215,7 +301,7 @@ if (obj_inventory.altar_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 5;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
+			obj_game.level_num = 1;
 			obj_game.room_num = 5;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -254,7 +340,7 @@ if (obj_inventory.altar_grid[# 2, 3] = true)
 		{
 			obj_inventory.room_num = 7;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
+			obj_game.level_num = 1;
 			obj_game.room_num = 7;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -294,7 +380,7 @@ if (obj_inventory.altar_grid[# 3, 3] = true)
 		{
 			obj_inventory.room_num = 10;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
-			obj_game.level_num = 0;
+			obj_game.level_num = 1;
 			obj_game.room_num = 10;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -333,7 +419,7 @@ if (obj_inventory.altar_grid[# 4, 3] = true)
 		{
 			obj_inventory.room_num = 14;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 0;
+			obj_game.level_num = 1;
 			obj_game.room_num = 14
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -370,8 +456,8 @@ if (obj_inventory.level_ary[1] = true)
 		draw_sprite(spr_map_arrow_highlight,0,_xPos + 137,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			slot = 1;
-			map_selected = obj_inventory.map_grid[# 1, 2];
+			slot = 0;
+			map_selected = obj_inventory.map_grid[# 0, 2];
 		}
 	}
 }
@@ -395,7 +481,7 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text_transformed(159,39,"YAKFLOWER PATH",1,1,0);
 
-if (obj_game.level_num = 1)
+if (obj_game.level_num = 2)
 {
 	var _mapRoomX = obj_inventory.yakflowerPath_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.yakflowerPath_map_ary[obj_game.room_num][2]
@@ -415,7 +501,7 @@ if (obj_inventory.altar_grid[# 5, 3] = true)
 		{
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 1;
+			obj_game.level_num = 2;
 			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -454,7 +540,7 @@ if (obj_inventory.altar_grid[# 6, 3] = true)
 		{
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 1;
+			obj_game.level_num = 2;
 			obj_game.room_num = 4;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -493,7 +579,7 @@ if (obj_inventory.altar_grid[# 7, 3] = true)
 		{
 			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 1;
+			obj_game.level_num = 2;
 			obj_game.room_num = 6;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -532,7 +618,7 @@ if (obj_inventory.altar_grid[# 8, 3] = true)
 		{
 			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 1;
+			obj_game.level_num = 2;
 			obj_game.room_num = 9;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -571,7 +657,7 @@ if (obj_inventory.altar_grid[# 9, 3] = true)
 		{
 			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
-			obj_game.level_num = 1;
+			obj_game.level_num = 2;
 			obj_game.room_num = 13;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -613,19 +699,19 @@ if (obj_inventory.level_ary[0] = true)
 		}
 	}
 }
-if (obj_inventory.level_ary[2] = true)
-{
-	draw_sprite_ext(spr_map_arrow,0,_xPos + 39, _yPos + 83,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 80,_xPos + 42,_yPos + 86))
-	{
-		draw_sprite(spr_map_arrow_highlight,0,_xPos + 23,_yPos + 83);
-		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-		{
-			slot = 2;
-			map_selected = obj_inventory.map_grid[# 2, 2];
-		}
-	}
-}
+//if (obj_inventory.level_ary[2] = true)
+//{
+//	draw_sprite_ext(spr_map_arrow,0,_xPos + 39, _yPos + 83,1,1,0,c_white,1);
+//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 80,_xPos + 42,_yPos + 86))
+//	{
+//		draw_sprite(spr_map_arrow_highlight,0,_xPos + 23,_yPos + 83);
+//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+//		{
+//			slot = 2;
+//			map_selected = obj_inventory.map_grid[# 2, 2];
+//		}
+//	}
+//}
 }
 //
 //
@@ -646,7 +732,7 @@ draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text_transformed(159,39,"HABRAF LAKE",1,1,0);
 
-if (obj_game.level_num = 2)
+if (obj_game.level_num = 3)
 {
 	var _mapRoomX = obj_inventory.habrafLake_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.habrafLake_map_ary[obj_game.room_num][2]
@@ -667,7 +753,7 @@ if (obj_inventory.altar_grid[# 10, 3] = true)
 		{
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.level_num = 2;
+			obj_game.level_num = 3;
 			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -706,7 +792,7 @@ if (obj_inventory.altar_grid[# 11, 3] = true)
 		{
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.level_num = 2;
+			obj_game.level_num = 3;
 			obj_game.room_num = 4;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -745,7 +831,7 @@ if (obj_inventory.altar_grid[# 12, 3] = true)
 		{
 			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.level_num = 2;
+			obj_game.level_num = 3;
 			obj_game.room_num = 6;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -785,7 +871,7 @@ if (obj_inventory.altar_grid[# 13, 3] = true)
 		{
 			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.level_num = 2;
+			obj_game.level_num = 3;
 			obj_game.room_num = 9;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -824,7 +910,7 @@ if (obj_inventory.altar_grid[# 14, 3] = true)
 		{
 			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
-			obj_game.level_num = 2;
+			obj_game.level_num = 3;
 			obj_game.room_num = 13;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -853,7 +939,7 @@ if (obj_inventory.altar_grid[# 14, 3] = true)
 		}
 	}
 }
-if (obj_inventory.level_ary[1] = true)
+if (obj_inventory.level_ary[0] = true)
 {
 	draw_sprite_ext(spr_map_arrow,2,_xPos + 119, _yPos + 6,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 116,_yPos + 3,_xPos + 122,_yPos + 9))
@@ -861,24 +947,24 @@ if (obj_inventory.level_ary[1] = true)
 		draw_sprite(spr_map_arrow_highlight,2,_xPos + 119,_yPos + 6);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			slot = 1;
-			map_selected = obj_inventory.map_grid[# 1, 2];
+			slot = 0;
+			map_selected = obj_inventory.map_grid[# 0, 2];
 		}
 	}
 }
-if (obj_inventory.level_ary[3] = true)
-{
-	draw_sprite_ext(spr_map_arrow,3,_xPos + 12, _yPos + 39,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 9,_yPos + 36,_xPos + 15,_yPos + 42))
-	{
-		draw_sprite(spr_map_arrow_highlight,3,_xPos + 12,_yPos + 39);
-		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-		{
-			slot = 3;
-			map_selected = obj_inventory.map_grid[# 3, 2];
-		}
-	}
-}
+//if (obj_inventory.level_ary[3] = true)
+//{
+//	draw_sprite_ext(spr_map_arrow,3,_xPos + 12, _yPos + 39,1,1,0,c_white,1);
+//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 9,_yPos + 36,_xPos + 15,_yPos + 42))
+//	{
+//		draw_sprite(spr_map_arrow_highlight,3,_xPos + 12,_yPos + 39);
+//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+//		{
+//			slot = 3;
+//			map_selected = obj_inventory.map_grid[# 3, 2];
+//		}
+//	}
+//}
 }
 //
 //
@@ -900,7 +986,7 @@ draw_set_color(c_white);
 draw_text_transformed(159,39,"BEAOWIRE FORTRESS",1,1,0);
 
 
-if (obj_game.level_num = 3)
+if (obj_game.level_num = 4)
 {
 	var _mapRoomX = obj_inventory.beaowireFortress_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.beaowireFortress_map_ary[obj_game.room_num][2]
@@ -921,7 +1007,7 @@ if (obj_inventory.altar_grid[# 15, 3] = true)
 		{
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
+			obj_game.level_num = 4;
 			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -960,7 +1046,7 @@ if (obj_inventory.altar_grid[# 16, 3] = true)
 		{
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
+			obj_game.level_num = 4;
 			obj_game.room_num = 4;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -999,7 +1085,7 @@ if (obj_inventory.altar_grid[# 17, 3] = true)
 		{
 			obj_inventory.room_num = 7;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
+			obj_game.level_num = 4;
 			obj_game.room_num = 7;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -1039,7 +1125,7 @@ if (obj_inventory.altar_grid[# 18, 3] = true)
 		{
 			obj_inventory.room_num = 10;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
+			obj_game.level_num = 4;
 			obj_game.room_num = 10;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -1078,7 +1164,7 @@ if (obj_inventory.altar_grid[# 19, 3] = true)
 		{
 			obj_inventory.room_num = 14;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
+			obj_game.level_num = 4;
 			obj_game.room_num = 14;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
@@ -1107,7 +1193,7 @@ if (obj_inventory.altar_grid[# 19, 3] = true)
 		}
 	}
 }
-if (obj_inventory.level_ary[2] = true)
+if (obj_inventory.level_ary[0] = true)
 {
 	draw_sprite_ext(spr_map_arrow,2,_xPos + 136, _yPos + 33,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 133,_yPos + 30,_xPos + 139,_yPos + 36))
@@ -1115,24 +1201,24 @@ if (obj_inventory.level_ary[2] = true)
 		draw_sprite(spr_map_arrow_highlight,2,_xPos + 136,_yPos + 33);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			slot = 2;
-			map_selected = obj_inventory.map_grid[# 2, 2];
+			slot = 0;
+			map_selected = obj_inventory.map_grid[# 0, 2];
 		}
 	}
 }
-if (obj_inventory.level_ary[4] = true)
-{
-	draw_sprite_ext(spr_map_arrow,3,_xPos + 61, _yPos + 12,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 58,_yPos + 9,_xPos + 64,_yPos + 15))
-	{
-		draw_sprite(spr_map_arrow_highlight,3,_xPos + 61,_yPos + 12);
-		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-		{
-			slot = 4;
-			map_selected = obj_inventory.map_grid[# 4, 2];
-		}
-	}
-}
+//if (obj_inventory.level_ary[4] = true)
+//{
+//	draw_sprite_ext(spr_map_arrow,3,_xPos + 61, _yPos + 12,1,1,0,c_white,1);
+//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 58,_yPos + 9,_xPos + 64,_yPos + 15))
+//	{
+//		draw_sprite(spr_map_arrow_highlight,3,_xPos + 61,_yPos + 12);
+//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+//		{
+//			slot = 4;
+//			map_selected = obj_inventory.map_grid[# 4, 2];
+//		}
+//	}
+//}
 }
 //
 //
