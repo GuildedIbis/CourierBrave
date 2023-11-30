@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets/LenkoTile.yy",
   },
   "spriteId": {
-    "name": "spr_tileset_smithy",
-    "path": "sprites/spr_tileset_smithy/spr_tileset_smithy.yy",
+    "name": "spr_tileset_lenko_home_interior",
+    "path": "sprites/spr_tileset_lenko_home_interior/spr_tileset_lenko_home_interior.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
