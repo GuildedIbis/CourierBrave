@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_effect_house_farwayRoad_mesa",
+  "name": "obj_effect_house_vostleTown_mesa",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -13,8 +13,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "FarwaySolidFX",
-    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/FarwaySolidFX.yy",
+    "name": "VostleSolidFX",
+    "path": "folders/Objects/Effects/SolidEffects/LenkoSolidFX/VostleSolidFX.yy",
   },
   "parentObjectId": {
     "name": "obj_effect",
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_house_farwayRoad_mesa",
-    "path": "sprites/spr_house_farwayRoad_mesa/spr_house_farwayRoad_mesa.yy",
+    "name": "spr_house_vostleTown_mesa",
+    "path": "sprites/spr_house_vostleTown_mesa/spr_house_vostleTown_mesa.yy",
   },
   "spriteMaskId": null,
   "visible": true,

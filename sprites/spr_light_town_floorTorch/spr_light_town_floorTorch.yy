@@ -35,8 +35,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "FarwayEffects",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/FarwayEffects.yy",
+    "name": "VostleEffects",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/VostleEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
