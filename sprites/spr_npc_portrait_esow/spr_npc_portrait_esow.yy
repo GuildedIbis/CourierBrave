@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_player_portrait_orodry",
+  "name": "spr_npc_portrait_esow",
   "bbox_bottom": 63,
   "bbox_left": 0,
   "bbox_right": 63,
@@ -35,7 +35,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_player_portrait_orodry",
+    "name": "spr_npc_portrait_esow",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -57,7 +57,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a72a087c-24c6-4158-b831-e7488b8a96f3","path":"sprites/spr_player_portrait_orodry/spr_player_portrait_orodry.yy",},},},"Disabled":false,"id":"a1f72678-2aa1-41bd-b2ad-0e7e55a3f80d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a72a087c-24c6-4158-b831-e7488b8a96f3","path":"sprites/spr_npc_portrait_esow/spr_npc_portrait_esow.yy",},},},"Disabled":false,"id":"42232cb4-bc48-4c5d-b011-fbcf4acbdd9f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
