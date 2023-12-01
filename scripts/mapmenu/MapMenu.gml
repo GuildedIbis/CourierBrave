@@ -168,12 +168,12 @@ if (obj_game.level_num = 0)
 
 
 //Draw Altars (Selectable for travel
-if (obj_inventory.altar_grid[# 19, 3] = true) 
+if (obj_inventory.altar_grid[# 20, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23)) and (altar = true)
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 47,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 45,_xPos + 89,_yPos + 48)) and (altar = true)
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 47);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 0;
@@ -183,8 +183,8 @@ if (obj_inventory.altar_grid[# 19, 3] = true)
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.vostleTown_enemy_grid;
-			global.targetX = obj_inventory.altar_grid[# 19, 1];
-			global.targetY = obj_inventory.altar_grid[# 19, 2];
+			global.targetX = obj_inventory.altar_grid[# 20, 1];
+			global.targetY = obj_inventory.altar_grid[# 20, 2];
 			global.targetRoom = rm_lenko_vostleTown_00;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
