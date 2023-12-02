@@ -704,6 +704,7 @@
     {"id":{"name":"snd_zerwerk_fireball","path":"sounds/snd_zerwerk_fireball/snd_zerwerk_fireball.yy",},},
     {"id":{"name":"obj_well","path":"objects/obj_well/obj_well.yy",},},
     {"id":{"name":"obj_pedestal_form","path":"objects/obj_pedestal_form/obj_pedestal_form.yy",},},
+    {"id":{"name":"spr_npc_portrait_harvo","path":"sprites/spr_npc_portrait_harvo/spr_npc_portrait_harvo.yy",},},
     {"id":{"name":"spr_enemy_rat_slash_hitbox","path":"sprites/spr_enemy_rat_slash_hitbox/spr_enemy_rat_slash_hitbox.yy",},},
     {"id":{"name":"spr_alert_radius32","path":"sprites/spr_alert_radius32/spr_alert_radius32.yy",},},
     {"id":{"name":"GameMenu","path":"scripts/GameMenu/GameMenu.yy",},},
@@ -792,6 +793,7 @@
     {"id":{"name":"spr_projectile_acolyte_ilanil","path":"sprites/spr_projectile_acolyte_ilanil/spr_projectile_acolyte_ilanil.yy",},},
     {"id":{"name":"snd_zerwerk_voidRift","path":"sounds/snd_zerwerk_voidRift/snd_zerwerk_voidRift.yy",},},
     {"id":{"name":"ZerkriftHook","path":"scripts/ZerkriftHook/ZerkriftHook.yy",},},
+    {"id":{"name":"rm_lenko_vostleTown_00_03","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},},
     {"id":{"name":"spr_enemy_folioBulb_rootRise1","path":"sprites/spr_enemy_folioBulb_rootRise1/spr_enemy_folioBulb_rootRise1.yy",},},
     {"id":{"name":"obj_door_farwayRoad_cemetery","path":"objects/obj_door_farwayRoad_cemetery/obj_door_farwayRoad_cemetery.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerMissiles2","path":"sprites/spr_enemy_tortoiseTroll_hammerMissiles2/spr_enemy_tortoiseTroll_hammerMissiles2.yy",},},
@@ -1664,6 +1666,7 @@
     {"roomId":{"name":"rm_lenko_vostleTown_02","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},},
     {"roomId":{"name":"rm_lenko_vostleTown_03","path":"rooms/rm_lenko_vostleTown_03/rm_lenko_vostleTown_03.yy",},},
     {"roomId":{"name":"rm_lenko_vostleTown_01_00","path":"rooms/rm_lenko_vostleTown_01_00/rm_lenko_vostleTown_01_00.yy",},},
+    {"roomId":{"name":"rm_lenko_vostleTown_00_03","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [
