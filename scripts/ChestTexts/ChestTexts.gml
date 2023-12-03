@@ -1,18 +1,21 @@
+//Chest Text Scripts
 //
 //
 //
 //
 //
-//Chest 000 Text: 100B, 1 Inventory Pouch
+//Chest 00 Text
 function scr_text_chest_00(){
-//Lenko, Lake Path 8, North of Bridge
-activate_args = 0;
-draw_set_font(xfnt_text);
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Format
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
+
 if (obj_game.gamePaused)
 {
 	with (all)
@@ -27,15 +30,143 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "CHEST OPENED:\n200 Beans\n1x Yellow Rog Stone"
+	text_string = "CHEST OPENED:\n5x Yellow Rog Stone"
 	_SubString = string_copy(text_string,1,letter_counter);
 	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
 }
 if (string_counter >= 1)
 {
-	obj_inventory.beans = obj_inventory.beans + 200;
-	obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 1;
-	obj_inventory.chest_list[activate_args] = true;
+	obj_inventory.rog_array[0] = obj_inventory.rog_array[0] + 5;
+	obj_inventory.chest_list[0] = true;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_font(xfnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Chest 01 Text
+function scr_text_chest_01(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Format
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+draw_set_color(c_white);
+
+if (obj_game.gamePaused)
+{
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+//Draw Based on String Counter
+var _SubString
+
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "CHEST OPENED:\n5x Blue Rog Stone"
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+if (string_counter >= 1)
+{
+	obj_inventory.rog_array[3] = obj_inventory.rog_array[3] + 5;
+	obj_inventory.chest_list[1] = true;
+	text_string = ""
+	string_counter = 0;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_font(xfnt_text);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_black);
+draw_text_transformed(69,140,_SubString,.5,.5,0);
+draw_set_color(c_white);
+draw_text_transformed(68,140,_SubString,.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Chest 02 Text
+function scr_text_chest_02(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Format
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+draw_set_color(c_white);
+
+if (obj_game.gamePaused)
+{
+	with (all)
+	{
+		game_paused_image_speed = image_speed;
+		image_speed = 0;
+	}
+}
+//Draw Based on String Counter
+var _SubString
+
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "CHEST OPENED:\n5x Blue Rog Stone"
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+if (string_counter >= 1)
+{
+	obj_inventory.chest_list[2] = true;
 	text_string = ""
 	string_counter = 0;
 	_SubString = string_copy(text_string,1,letter_counter);

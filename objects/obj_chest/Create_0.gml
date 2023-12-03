@@ -3,7 +3,7 @@
 event_inherited();
 image_speed = 0;
 image_index = 0;
-if (chest_sprite != -1) sprite_index = chest_sprite;
+if (entity_create != -1) script_execute(entity_create);
 
 
 
