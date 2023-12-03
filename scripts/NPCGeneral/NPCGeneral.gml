@@ -12,6 +12,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,radius)) and (global.aggroCoun
 	{
 		audio_sound_gain(sound,global.volumeEffects,1);
 		audio_play_sound(sound,0,false);
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		with (obj_text)
 		{
 			text_string = ""
