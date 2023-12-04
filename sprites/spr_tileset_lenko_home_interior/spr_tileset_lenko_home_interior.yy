@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tileset_lenko_home_interior",
-  "bbox_bottom": 271,
+  "bbox_bottom": 335,
   "bbox_left": 0,
   "bbox_right": 638,
   "bbox_top": 0,

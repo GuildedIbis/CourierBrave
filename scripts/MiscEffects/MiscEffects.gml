@@ -135,3 +135,33 @@ if (object_exists(obj_player))
 	obj_player.cursed_dur_timer = 30;
 }
 }
+	//
+//
+//
+//
+//
+//Effect Lekno Lake Path Rat Tent Create
+function scr_effect_house_chimneySmoke_create(){
+depth = -4700;
+image_speed = 1;
+image_xscale = 1;
+image_yscale = 1;
+image_index = irandom_range(0,image_number-1);
+sprite_index = spr_house_chimneySmoke;
+}
+	//
+//
+//
+//
+//
+//Effect Statue Moth
+function scr_effect_house_chimneySmoke(){
+if (obj_game.gamePaused = false)
+{
+depth = -4700;
+image_speed = 1;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_house_chimneySmoke;
+}
+}
