@@ -213,9 +213,9 @@
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":232.0,"y":152.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[
--191,0,4,2452,2453,2454,2455,-36,0,4,2532,2533,2534,2535,-36,0,4,1921,1922,1923,1924,-36,0,4,2001,2002,2003,2004,-36,0,4,2081,2082,2083,2084,-36,0,4,2161,2162,
-2163,2164,-36,0,4,2241,2242,2243,2244,-36,0,4,2321,2322,2323,2324,-70,0,8,631,632,633,634,635,636,637,638,-32,0,8,711,712,713,714,715,716,717,718,-32,0,
-8,791,792,793,794,795,796,797,798,-32,0,8,871,872,873,874,875,876,877,878,-247,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior_8","path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+-183,0,2,2284,2285,-6,0,4,2452,2453,2454,2455,-28,0,2,2364,2365,-6,0,4,2532,2533,2534,2535,-36,0,4,1921,1922,1923,1924,-36,0,4,2001,2002,2003,2004,-36,0,
+4,2081,2082,2083,2084,-36,0,4,2161,2162,2163,2164,-36,0,4,2241,2242,2243,2244,-36,0,4,2321,2322,2323,2324,-70,0,8,631,632,633,634,635,636,637,638,-32,0,8,
+711,712,713,714,715,716,717,718,-32,0,8,791,792,793,794,795,796,797,798,-32,0,8,871,872,873,874,875,876,877,878,-247,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior_8","path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"DetailTile","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -89,0,2,580,581,-11,0,4,614,615,616,617,-16,0,4,654,655,656,657,-31,
 0,1,190,-19,0,1,230,-19,0,1,270,-42,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior","path":"tilesets/tile_lenko_interior/tile_lenko_interior.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

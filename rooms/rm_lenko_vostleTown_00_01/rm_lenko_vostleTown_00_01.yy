@@ -145,7 +145,7 @@
 -102,0,3,614,615,616,-17,0,6,654,655,656,657,71,72,-18,0,2,111,112,
 -18,0,-2,265,-18,0,-2,305,-52,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior","path":"tilesets/tile_lenko_interior/tile_lenko_interior.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
--47,0,1,582,-4,0,1,344,-15,0,5,39,268,269,346,384,-13,0,7,829,
+-47,0,1,583,-4,0,1,344,-15,0,5,39,268,269,346,384,-13,0,7,829,
 0,829,308,309,386,424,-13,0,7,869,118,869,0,0,636,278,-13,0,7,275,
 0,0,315,316,317,318,-9,0,1,261,-3,0,1,315,-3,0,3,356,637,358,
 -9,0,1,301,-3,0,7,151,152,0,0,836,837,501,-19,0,1,541,-47,0,
