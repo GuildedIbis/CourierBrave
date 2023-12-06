@@ -176,9 +176,8 @@
 1,240,-4,259,9,241,242,243,244,245,246,247,257,258,-6,259,1,280,-4,299,
 9,281,282,283,284,285,286,287,297,298,-6,299,1,320,-4,339,9,321,322,323,
 324,325,326,327,337,338,-6,339,1,360,-4,379,9,361,362,363,364,365,366,367,
-377,378,-6,379,40,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,
-415,416,417,418,419,440,441,442,443,444,445,446,447,448,449,450,451,452,453,454,
-455,456,457,458,459,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior","path":"tilesets/tile_lenko_interior/tile_lenko_interior.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+377,378,-6,379,6,400,401,402,403,404,405,-4,1,10,410,411,412,413,414,415,
+416,417,418,419,-20,1,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko_interior","path":"tilesets/tile_lenko_interior/tile_lenko_interior.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":1400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "parent": {

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_house_vostleTown_tavern",
+  "name": "spr_house_vostleTown_tavern3",
   "bbox_bottom": 143,
   "bbox_left": 15,
   "bbox_right": 272,
@@ -17,7 +17,7 @@
   ],
   "gridX": 16,
   "gridY": 16,
-  "height": 192,
+  "height": 160,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"79408a5c-58e5-4b13-918f-f239cdfa940a","blendMode":0,"displayName":"Layer 2","isLocked":false,"opacity":50.0,"visible":true,},
@@ -34,7 +34,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_house_vostleTown_tavern",
+    "name": "spr_house_vostleTown_tavern3",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -56,13 +56,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_vostleTown_tavern/spr_house_vostleTown_tavern.yy",},},},"Disabled":false,"id":"ff15b691-422e-4df9-8434-0aa14fbbf524","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_vostleTown_tavern3/spr_house_vostleTown_tavern3.yy",},},},"Disabled":false,"id":"5df5ea5d-c007-4ef9-8435-eb6e07b81383","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 144,
-    "yorigin": 175,
+    "yorigin": 144,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
