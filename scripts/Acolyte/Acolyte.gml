@@ -198,7 +198,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timer1 <= 0) scr_enemy_chase();
+		if (timer1 <= 0) scr_enemy_chase_special(obj_game,obj_entity);
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
 			path_end();

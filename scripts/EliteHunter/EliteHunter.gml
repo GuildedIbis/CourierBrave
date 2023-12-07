@@ -91,7 +91,7 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
-			if (timerC <= 0) scr_enemy_chase();
+			if (timerC <= 0) scr_enemy_chase_special(obj_game,obj_entity);
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
