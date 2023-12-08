@@ -35,8 +35,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "VostleEffects",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/VostleEffects.yy",
+    "name": "LenkoLights",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/LenkoLights.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

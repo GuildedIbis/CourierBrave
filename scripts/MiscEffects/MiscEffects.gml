@@ -85,7 +85,7 @@ if (!point_in_rectangle(obj_wall.x,obj_wall.y,x-16,y-18,x+16,y))
 //
 //
 //
-//Effect Lekno Lake Path Rat Tent Create
+//Blank Window Create
 function scr_effect_light_window_blank_create(){
 image_speed = 1;
 depth = -y;
@@ -98,7 +98,7 @@ sprite_index = spr_blank;
 //
 //
 //
-//Effect Statue Moth
+//Blank Window
 function scr_effect_light_window_blank(){
 image_speed = 1;
 depth = -y;
@@ -149,7 +149,7 @@ image_yscale = 1;
 image_index = irandom_range(0,image_number-1);
 sprite_index = spr_house_chimneySmoke;
 }
-	//
+//
 //
 //
 //

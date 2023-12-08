@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_light",
+  "name": "obj_light_vostleTown_lantern",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -11,14 +11,16 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"value":"3600",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_vostleTown_lantern",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_vostleTown_lantern_create",},
   ],
   "parent": {
     "name": "Lights",
     "path": "folders/Objects/Effects/Lights.yy",
   },
   "parentObjectId": {
-    "name": "obj_effect",
-    "path": "objects/obj_effect/obj_effect.yy",
+    "name": "obj_light",
+    "path": "objects/obj_light/obj_light.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,13 +35,11 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"solar","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_torchWall_beaowire",
-    "path": "sprites/spr_torchWall_beaowire/spr_torchWall_beaowire.yy",
+    "name": "spr_effect_lantern",
+    "path": "sprites/spr_effect_lantern/spr_effect_lantern.yy",
   },
   "spriteMaskId": null,
   "visible": true,

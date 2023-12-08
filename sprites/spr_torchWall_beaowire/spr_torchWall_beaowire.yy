@@ -35,8 +35,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "BeaowireEffects",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/BeaowireEffects.yy",
+    "name": "LenkoLights",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/LenkoLights.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

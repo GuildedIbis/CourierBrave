@@ -43,8 +43,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "FarwayEffects",
-    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/FarwayEffects.yy",
+    "name": "LenkoLights",
+    "path": "folders/Sprites/Effects/Effects/LenkoEfEn/LenkoLights.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
