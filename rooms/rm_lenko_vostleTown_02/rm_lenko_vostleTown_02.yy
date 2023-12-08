@@ -223,8 +223,6 @@
     {"name":"inst_48B6186D","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_24B7C3CE","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_347D85F9","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
-    {"name":"inst_7C24FE61","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
-    {"name":"inst_71983C3B","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_623F429B","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_64D53DE4","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_7127EB93","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
@@ -255,6 +253,9 @@
     {"name":"inst_4FF903CE","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_6E18FFC6","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_4208488F","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
+    {"name":"inst_462E4B10","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
+    {"name":"inst_EEABD97","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
+    {"name":"inst_6A7D8162","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -962,14 +963,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6E6DAB04","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":232.0,"y":304.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7DB9B7B3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":232.0,"y":320.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6DC8ED41","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":248.0,"y":312.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7C24FE61","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_floorTorch_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_floorTorch",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":168.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_71983C3B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_floorTorch_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_farwayRoad_floorTorch",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":72.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_462E4B10","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light_vostleTown_torchFloor","path":"objects/obj_light_vostleTown_torchFloor/obj_light_vostleTown_torchFloor.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":152.0,"y":296.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_EEABD97","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light_vostleTown_torchFloor","path":"objects/obj_light_vostleTown_torchFloor/obj_light_vostleTown_torchFloor.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":200.0,"y":296.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6A7D8162","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light_vostleTown_torchFloor","path":"objects/obj_light_vostleTown_torchFloor/obj_light_vostleTown_torchFloor.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":72.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":45,"SerialiseWidth":40,"TileCompressedData":[
 -145,0,6,678,679,680,681,682,683,-34,0,6,758,759,760,761,762,763,-18,0,22,364,365,0,0,366,367,0,0,524,525,0,0,368,369,0,0,838,839,840,

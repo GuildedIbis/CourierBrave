@@ -62,6 +62,34 @@ sprite_index = spr_torchWall_beaowire;
 //
 //
 //
+//Effect Fireplace Create
+function scr_effect_fireplace_create(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_fireplace;
+
+}
+//
+//
+//
+//
+//
+//Effect Fireplace
+function scr_effect_fireplace(){
+image_speed = 1;
+depth = -y;
+image_xscale = 1;
+image_yscale = 1;
+sprite_index = spr_light_fireplace;
+
+}
+//
+//
+//
+//
+//
 //Effect Rat Campfire Create
 function scr_effect_campfire_farwayRoad_create(){
 image_speed = 1;

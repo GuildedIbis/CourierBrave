@@ -329,6 +329,7 @@
     {"name":"inst_6FD21E5D","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_64D193CA","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_39513E1","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
+    {"name":"inst_4322CC14","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -994,6 +995,10 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34BB02C4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_beaowire_light_torch_create",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":448.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4322CC14","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_light_window_blank_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"value":"True",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":920.0,"y":368.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Terrain","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":68,"SerialiseWidth":120,"TileCompressedData":[
