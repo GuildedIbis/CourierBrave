@@ -39,8 +39,8 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
-draw_sprite_stretched(spr_menu_beveled,3,258,120,70,70);
-draw_sprite(spr_npc_portrait_orodry,0,261,123);
+draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+draw_sprite(spr_npc_portrait_orodry,0,261,117);
 draw_set_color(c_white);
 var _name = "Orodry"
 
@@ -85,8 +85,6 @@ draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_text_transformed(69,141,_SubString,.6,.6,0);
-draw_set_valign(fa_middle);
-draw_text_transformed(64,132,"Press E to Continue",.5,.5,0);
-draw_set_halign(fa_right);
-draw_text_transformed(256,132,_name,.5,.5,0);
+draw_text_transformed(259,110,_name,.5,.5,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 }

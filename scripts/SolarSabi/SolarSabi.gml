@@ -108,10 +108,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	}
 	//Stone
 	if (obj_inventory.quest_grid[# 6, 1] >= 1)
@@ -154,10 +152,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);	
 	}
 }
 if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
@@ -217,10 +213,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -263,10 +257,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 3) or (obj_inventory.quest_grid[# 6, 1] =
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -329,10 +321,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 5)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -376,10 +366,8 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 }
@@ -438,10 +426,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);	
 	}
 	//Stone
 	if (obj_inventory.quest_grid[# 6, 1] >= 1)
@@ -484,10 +470,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);	
 	}
 }
 if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
@@ -539,10 +523,8 @@ if (obj_inventory.quest_grid[# 6, 1] < 3) or (obj_inventory.quest_grid[# 6, 1] >
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -594,10 +576,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 3)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -641,10 +621,8 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 }
@@ -703,10 +681,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);	
 	}
 	//Stone
 	if (obj_inventory.quest_grid[# 6, 1] >= 1)
@@ -749,10 +725,8 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		draw_text_transformed(69,141,_SubString,.6,.6,0);
-		draw_set_valign(fa_middle);
-		draw_text_transformed(64,132,_name,.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);	
+		draw_text_transformed(259,110,_name,.5,.5,0);
+		draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);	
 	}
 }
 if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
@@ -804,10 +778,8 @@ if (obj_inventory.quest_grid[# 6, 1] < 4)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -859,10 +831,8 @@ if (obj_inventory.quest_grid[# 6, 1] = 4) or (obj_inventory.quest_grid[# 6, 1] =
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 
@@ -906,10 +876,8 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_text_transformed(69,141,_SubString,.6,.6,0);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(64,132,_name,.5,.5,0);
-	draw_set_halign(fa_right);
-	draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 	
 }
 }
