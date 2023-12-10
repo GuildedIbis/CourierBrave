@@ -568,6 +568,7 @@
     {"id":{"name":"spr_pass","path":"sprites/spr_pass/spr_pass.yy",},},
     {"id":{"name":"spr_player_shadow","path":"sprites/spr_player_shadow/spr_player_shadow.yy",},},
     {"id":{"name":"spr_enemy_Giantcharger","path":"sprites/spr_enemy_Giantcharger/spr_enemy_Giantcharger.yy",},},
+    {"id":{"name":"spr_npc_portrait_dumire","path":"sprites/spr_npc_portrait_dumire/spr_npc_portrait_dumire.yy",},},
     {"id":{"name":"rm_lenko_beaowire_03","path":"rooms/rm_lenko_beaowire_03/rm_lenko_beaowire_03.yy",},},
     {"id":{"name":"spr_kephraStone_infograph_07","path":"sprites/spr_kephraStone_infograph_07/spr_kephraStone_infograph_07.yy",},},
     {"id":{"name":"spr_trollTortoise_flower_crush","path":"sprites/spr_trollTortoise_flower_crush/spr_trollTortoise_flower_crush.yy",},},
