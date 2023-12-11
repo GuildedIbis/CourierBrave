@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Fairez",
+  "name": "Dumire",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

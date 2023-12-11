@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "LenkoCharacters",
-    "path": "folders/Scripts/Entities/Characters/LenkoCharacters.yy",
+    "name": "LenkoNPC",
+    "path": "folders/Scripts/Entities/NPC/LenkoNPC.yy",
   },
 }
