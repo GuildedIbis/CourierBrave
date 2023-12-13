@@ -333,6 +333,7 @@
     {"id":{"name":"spr_rainforestLeaves","path":"sprites/spr_rainforestLeaves/spr_rainforestLeaves.yy",},},
     {"id":{"name":"spr_door_farwayRoad_cemetery_open","path":"sprites/spr_door_farwayRoad_cemetery_open/spr_door_farwayRoad_cemetery_open.yy",},},
     {"id":{"name":"spr_magic_allSpirit","path":"sprites/spr_magic_allSpirit/spr_magic_allSpirit.yy",},},
+    {"id":{"name":"rm_lenko_vostleTown_03_00","path":"rooms/rm_lenko_vostleTown_03_00/rm_lenko_vostleTown_03_00.yy",},},
     {"id":{"name":"spr_enemy_ofaWorm_hit","path":"sprites/spr_enemy_ofaWorm_hit/spr_enemy_ofaWorm_hit.yy",},},
     {"id":{"name":"snd_lilyCultist_lifeLeaf_heal","path":"sounds/snd_lilyCultist_lifeLeaf_heal/snd_lilyCultist_lifeLeaf_heal.yy",},},
     {"id":{"name":"snd_player_hit","path":"sounds/snd_player_hit/snd_player_hit.yy",},},
@@ -1710,6 +1711,7 @@
     {"roomId":{"name":"rm_lenko_vostleTown_00_05","path":"rooms/rm_lenko_vostleTown_00_05/rm_lenko_vostleTown_00_05.yy",},},
     {"roomId":{"name":"rm_lenko_vostleTown_04_00","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},},
     {"roomId":{"name":"rm_lenko_vostleTown_04_01","path":"rooms/rm_lenko_vostleTown_04_01/rm_lenko_vostleTown_04_01.yy",},},
+    {"roomId":{"name":"rm_lenko_vostleTown_03_00","path":"rooms/rm_lenko_vostleTown_03_00/rm_lenko_vostleTown_03_00.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

@@ -278,6 +278,7 @@
     {"name":"spr_rainforestLeaves","order":4,"path":"sprites/spr_rainforestLeaves/spr_rainforestLeaves.yy",},
     {"name":"spr_door_farwayRoad_cemetery_open","order":11,"path":"sprites/spr_door_farwayRoad_cemetery_open/spr_door_farwayRoad_cemetery_open.yy",},
     {"name":"spr_magic_allSpirit","order":1,"path":"sprites/spr_magic_allSpirit/spr_magic_allSpirit.yy",},
+    {"name":"rm_lenko_vostleTown_03_00","order":14,"path":"rooms/rm_lenko_vostleTown_03_00/rm_lenko_vostleTown_03_00.yy",},
     {"name":"spr_enemy_ofaWorm_hit","order":5,"path":"sprites/spr_enemy_ofaWorm_hit/spr_enemy_ofaWorm_hit.yy",},
     {"name":"snd_lilyCultist_lifeLeaf_heal","order":7,"path":"sounds/snd_lilyCultist_lifeLeaf_heal/snd_lilyCultist_lifeLeaf_heal.yy",},
     {"name":"snd_player_hit","order":3,"path":"sounds/snd_player_hit/snd_player_hit.yy",},

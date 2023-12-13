@@ -379,9 +379,10 @@
     {"name":"inst_3CD75B29","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
     {"name":"inst_563C5D1C","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
     {"name":"inst_172F5169","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
-    {"name":"inst_685CF1C9","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
     {"name":"inst_4782420E","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
     {"name":"inst_60F1FB1C","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
+    {"name":"inst_685CF1C9","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
+    {"name":"inst_98DE1BD","path":"rooms/rm_lenko_vostleTown_01/rm_lenko_vostleTown_01.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -471,7 +472,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_763FC419_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":0.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_685CF1C9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_house_vostleTown_farm","path":"objects/obj_effect_house_vostleTown_farm/obj_effect_house_vostleTown_farm.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":208.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4782420E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_vostleTown_01_00",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"176",},
@@ -1512,6 +1512,11 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":608.0,"y":104.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_60F1FB1C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light_vostleTown_torchFloor","path":"objects/obj_light_vostleTown_torchFloor/obj_light_vostleTown_torchFloor.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":88.0,"y":264.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_685CF1C9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_house_vostleTown_farm","path":"objects/obj_effect_house_vostleTown_farm/obj_effect_house_vostleTown_farm.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":208.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_98DE1BD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_chimneySmoke","path":"objects/obj_chimneySmoke/obj_chimneySmoke.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_house_chimneySmoke_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"value":"scr_effect_house_chimneySmoke",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":103.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Collision","depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":45,"SerialiseWidth":80,"TileCompressedData":[
 -40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-40,0,-22,-2147483648,-2,0,-16,-2147483648,-40,0,-22,-2147483648,-3,0,-15,-2147483648,-40,0,-22,-2147483648,-2,0,-16,-2147483648,-40,0,-21,-2147483648,1,0,-18,-2147483648,-40,0,-40,-2147483648,-40,0,-40,-2147483648,-27,0,4,2446,2447,2448,2449,-9,
