@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_npc_portrait_farmer",
+  "name": "spr_npc_portrait_basre",
   "bbox_bottom": 63,
   "bbox_left": 0,
   "bbox_right": 59,
@@ -35,7 +35,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_npc_portrait_farmer",
+    "name": "spr_npc_portrait_basre",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -57,7 +57,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a72a087c-24c6-4158-b831-e7488b8a96f3","path":"sprites/spr_npc_portrait_farmer/spr_npc_portrait_farmer.yy",},},},"Disabled":false,"id":"057ff194-c8a8-4798-9c6d-00554b6f6744","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a72a087c-24c6-4158-b831-e7488b8a96f3","path":"sprites/spr_npc_portrait_basre/spr_npc_portrait_basre.yy",},},},"Disabled":false,"id":"057ff194-c8a8-4798-9c6d-00554b6f6744","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
