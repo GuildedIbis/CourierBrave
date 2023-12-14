@@ -75,7 +75,7 @@ if (obj_inventory.quest_grid[# 2, 1] < 2) or (obj_inventory.quest_grid[# 2, 1] >
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "The pedestal came to life with orange, and we knew you\nhad arrived... What can I do for you Courier." 
+		text_string = "Courier, What an honor!\nWelcome to my humble shop. If I can be of assistance in any way\nyou need only mention it." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		page = 0;
 	}

@@ -13,7 +13,7 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a72a087c-24c6-4158-b831-e7488b8a96f3",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"65f6ef6c-c10b-4308-bfeb-dcb22f90b0e1",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -57,7 +57,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a72a087c-24c6-4158-b831-e7488b8a96f3","path":"sprites/spr_npc_portrait_nisma/spr_npc_portrait_nisma.yy",},},},"Disabled":false,"id":"edb86694-1e7c-4b16-9f8b-8e884cb0731d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"65f6ef6c-c10b-4308-bfeb-dcb22f90b0e1","path":"sprites/spr_npc_portrait_nisma/spr_npc_portrait_nisma.yy",},},},"Disabled":false,"id":"6aa222ba-9e23-4b93-bb47-f2d7c6d050a5","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
