@@ -24,7 +24,6 @@
     {"name":"inst_6CCA8960_1_1_2","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_72BEE1D6_1_1_2","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_1ECC1B0_1_1_2","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
-    {"name":"inst_3004AFDA_2_1_1","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_BBEEB9B_4_1_1","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_55DF05CB_1_1_1","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_241688F2_1_1_1","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
@@ -169,6 +168,7 @@
     {"name":"inst_57025AA8","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_1FB5837","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
     {"name":"inst_1C51D0B2","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
+    {"name":"inst_3004AFDA_2_1_1","path":"rooms/rm_lenko_farwayRoad_09/rm_lenko_farwayRoad_09.yy",},
   ],
   "isDnd": false,
   "layers": [

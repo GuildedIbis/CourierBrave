@@ -1259,7 +1259,6 @@
     {"id":{"name":"obj_itemPS","path":"objects/obj_itemPS/obj_itemPS.yy",},},
     {"id":{"name":"spr_scroll_bar1b","path":"sprites/spr_scroll_bar1b/spr_scroll_bar1b.yy",},},
     {"id":{"name":"spr_lock","path":"sprites/spr_lock/spr_lock.yy",},},
-    {"id":{"name":"spr_map_full","path":"sprites/spr_map_full/spr_map_full.yy",},},
     {"id":{"name":"spr_enemy_enragedMoth_rageRush_hitbox","path":"sprites/spr_enemy_enragedMoth_rageRush_hitbox/spr_enemy_enragedMoth_rageRush_hitbox.yy",},},
     {"id":{"name":"HabrafEffects","path":"scripts/HabrafEffects/HabrafEffects.yy",},},
     {"id":{"name":"tile_lenko_beaowire","path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},},

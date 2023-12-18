@@ -1108,7 +1108,6 @@
     {"name":"obj_itemPS","order":4,"path":"objects/obj_itemPS/obj_itemPS.yy",},
     {"name":"spr_scroll_bar1b","order":2,"path":"sprites/spr_scroll_bar1b/spr_scroll_bar1b.yy",},
     {"name":"spr_lock","order":2,"path":"sprites/spr_lock/spr_lock.yy",},
-    {"name":"spr_map_full","order":10,"path":"sprites/spr_map_full/spr_map_full.yy",},
     {"name":"spr_enemy_enragedMoth_rageRush_hitbox","order":4,"path":"sprites/spr_enemy_enragedMoth_rageRush_hitbox/spr_enemy_enragedMoth_rageRush_hitbox.yy",},
     {"name":"HabrafEffects","order":1,"path":"scripts/HabrafEffects/HabrafEffects.yy",},
     {"name":"tile_lenko_beaowire","order":6,"path":"tilesets/tile_lenko_beaowire/tile_lenko_beaowire.yy",},

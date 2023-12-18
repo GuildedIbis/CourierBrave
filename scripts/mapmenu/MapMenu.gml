@@ -207,19 +207,66 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 		}
 	}
 }
-//if (obj_inventory.level_ary[1] = true)
-//{
-//	draw_sprite_ext(spr_map_arrow,0,_xPos + 137, _yPos + 67,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 134,_yPos + 64,_xPos + 140,_yPos + 70))
-//	{
-//		draw_sprite(spr_map_arrow_highlight,0,_xPos + 137,_yPos + 67);
-//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-//		{
-//			slot = 1;
-//			map_selected = obj_inventory.map_grid[# 1, 2];
-//		}
-//	}
-//}
+
+//Farway Connector Arrow
+if (obj_inventory.level_ary[1] = true)
+{
+	draw_sprite_ext(spr_map_arrow,1,_xPos + 129, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 126,_yPos + 37,_xPos + 132,_yPos + 46))
+	{
+		draw_sprite(spr_map_arrow_highlight,1,_xPos + 129,_yPos + 40);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 1;
+			map_selected = obj_inventory.map_grid[# 1, 2];
+		}
+	}
+}
+
+//Yakflower Connector Arrow
+if (obj_inventory.level_ary[2] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 87, _yPos + 55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 52,_xPos + 90,_yPos + 58))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 87,_yPos + 55);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 2;
+			map_selected = obj_inventory.map_grid[# 2, 2];
+		}
+	}
+}
+
+//Farway Connector Arrow
+if (obj_inventory.level_ary[3] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 57, _yPos + 74,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 54,_yPos + 71,_xPos + 60,_yPos + 77))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 57,_yPos + 74);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 3;
+			map_selected = obj_inventory.map_grid[# 3, 2];
+		}
+	}
+}
+
+//Farway Connector Arrow
+if (obj_inventory.level_ary[4] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 41, _yPos + 47,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 44,_xPos + 44,_yPos + 50))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 41,_yPos + 47);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 4;
+			map_selected = obj_inventory.map_grid[# 4, 2];
+		}
+	}
+}
 }
 //
 //
@@ -448,13 +495,13 @@ if (obj_inventory.altar_grid[# 4, 3] = true)
 		}
 	}
 }
-if (obj_inventory.level_ary[1] = true)
+if (obj_inventory.level_ary[0] = true)
 {
-	draw_sprite_ext(spr_map_arrow,0,_xPos + 137, _yPos + 67,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 134,_yPos + 64,_xPos + 140,_yPos + 70))
+	draw_sprite_ext(spr_map_arrow,3,_xPos + 29, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 26,_yPos + 46,_xPos + 32,_yPos + 52))
 	{
-		draw_sprite(spr_map_arrow_highlight,0,_xPos + 137,_yPos + 67);
-		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		draw_sprite(spr_map_arrow_highlight,3,_xPos + 29,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))
 		{
 			slot = 0;
 			map_selected = obj_inventory.map_grid[# 0, 2];
@@ -699,19 +746,7 @@ if (obj_inventory.level_ary[0] = true)
 		}
 	}
 }
-//if (obj_inventory.level_ary[2] = true)
-//{
-//	draw_sprite_ext(spr_map_arrow,0,_xPos + 39, _yPos + 83,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 36,_yPos + 80,_xPos + 42,_yPos + 86))
-//	{
-//		draw_sprite(spr_map_arrow_highlight,0,_xPos + 23,_yPos + 83);
-//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-//		{
-//			slot = 2;
-//			map_selected = obj_inventory.map_grid[# 2, 2];
-//		}
-//	}
-//}
+
 }
 //
 //
@@ -952,19 +987,7 @@ if (obj_inventory.level_ary[0] = true)
 		}
 	}
 }
-//if (obj_inventory.level_ary[3] = true)
-//{
-//	draw_sprite_ext(spr_map_arrow,3,_xPos + 12, _yPos + 39,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 9,_yPos + 36,_xPos + 15,_yPos + 42))
-//	{
-//		draw_sprite(spr_map_arrow_highlight,3,_xPos + 12,_yPos + 39);
-//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-//		{
-//			slot = 3;
-//			map_selected = obj_inventory.map_grid[# 3, 2];
-//		}
-//	}
-//}
+
 }
 //
 //
@@ -1206,19 +1229,7 @@ if (obj_inventory.level_ary[0] = true)
 		}
 	}
 }
-//if (obj_inventory.level_ary[4] = true)
-//{
-//	draw_sprite_ext(spr_map_arrow,3,_xPos + 61, _yPos + 12,1,1,0,c_white,1);
-//	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 58,_yPos + 9,_xPos + 64,_yPos + 15))
-//	{
-//		draw_sprite(spr_map_arrow_highlight,3,_xPos + 61,_yPos + 12);
-//		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-//		{
-//			slot = 4;
-//			map_selected = obj_inventory.map_grid[# 4, 2];
-//		}
-//	}
-//}
+
 }
 //
 //
