@@ -494,8 +494,19 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Emerald Lock";
-var _text = "Escort the Emerald Pedestal\n"
+var _headerText = "The Emerald Lock";
+if (obj_inventory.quest_grid[# 14, 1] = 0)
+{
+	var _text = "Find the key to Einalad's chest.\n\nBeaowire was a tree, blessed by Kephra herself.\nThe fortress was built around it\nbut it was burned when the fortress fell,\nand many Lavos still lament.";
+}
+if (obj_inventory.quest_grid[# 14, 1] = 1)
+{
+	var _text = "Find the key to Einalad's chest.\n\nBeaowire was a tree, blessed by Kephra herself.\nThe fortress was built around it\nbut it was burned when the fortress fell,\nand many Lavos still lament.";
+}
+if (obj_inventory.quest_grid[# 14, 1] >= 2)
+{
+	var _text = "Take the key to Einalad's chest.\n\nBeaowire was a tree, blessed by Kephra herself.\nThe fortress was built around it\nbut it was burned when the fortress fell,\nand many Lavos still lament.";
+}
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

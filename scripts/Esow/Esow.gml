@@ -46,7 +46,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "Have you been to the old Fortress?\nThe Duke of Wiere sat there four seven generations." 
+	text_string = "Have you been to the old Fortress?\nThe Duke of Wiere sat there for eleven generations." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 if (string_counter = 1)
