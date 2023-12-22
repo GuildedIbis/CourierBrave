@@ -107,6 +107,7 @@ draw_sprite_ext(spr_home_title,0,80,0,1.0,1.0,0,c_white,1.0)
 draw_sprite_stretched(spr_menu_circle16,1,90,86,140,20);
 draw_sprite_stretched(spr_menu_circle16,1,90,108,140,20);
 draw_sprite_stretched(spr_menu_circle16,1,90,130,140,20);
+draw_sprite_stretched(spr_menu_circle16,1,90,152,140,20);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -114,23 +115,10 @@ draw_set_color(c_white);
 //draw_text_transformed(160,20,"COURIER BRAVE",2,2,0);
 //draw_text_transformed(160,48,"ADVENTURE",1,1,0);
 draw_text_transformed(160,92,"ADVENTURE",1,1,0);
-draw_text_transformed(160,114,"SETTINGS",1,1,0);
-draw_text_transformed(160,136,"QUIT GAME",1,1,0);
-//if (point_in_rectangle(_mouseX,_mouseY,90,44,230,64))//Settings Menu
-//{
-//	draw_sprite_stretched(spr_highlight_circle,0,89,43,142,22);
-//	if (mouse_check_button_pressed(mb_left))
-//	{
-//		//audio_sound_gain(snd_menu,global.volumeMenu,1);
-//		//audio_play_sound(snd_menu,0,false);
-//		//scr_game_load_settings();
-//		//home_menu = scr_menu_save_select;
-//		//restart = false;
-//		//restart2 = false;
-//		//restart3 = false;
-//	}
-//}
-if (point_in_rectangle(_mouseX,_mouseY,90,86,230,106))//Settings Menu
+draw_text_transformed(160,114,"ARCADE",1,1,0);
+draw_text_transformed(160,136,"SETTINGS",1,1,0);
+draw_text_transformed(160,158,"QUIT GAME",1,1,0);
+if (point_in_rectangle(_mouseX,_mouseY,90,86,230,106))//Adventure Save Select
 {
 	draw_sprite_stretched(spr_highlight_circle,0,89,85,142,22);
 	if (mouse_check_button_pressed(mb_left))
@@ -144,9 +132,29 @@ if (point_in_rectangle(_mouseX,_mouseY,90,86,230,106))//Settings Menu
 		restart3 = false;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,90,108,230,128))//Settings Menu
+if (point_in_rectangle(_mouseX,_mouseY,90,108,230,128))//Arcade Menu
 {
-	draw_sprite_stretched(spr_highlight_circle,0,89,107,142,22);
+	//draw_sprite_stretched(spr_highlight_circle,0,89,107,142,22);
+	//if (mouse_check_button_pressed(mb_left))
+	//{
+		//audio_sound_gain(snd_menu,global.volumeMenu,1);
+		//audio_play_sound(snd_menu,0,false);
+		//global.home = false;
+		//global.gameMode = 1;
+		//with (instance_create_layer(x,y,"Instances",obj_player))
+		//{
+		//	sprite_index = spr_player_regaliare_idle;
+		//	image_index = 3;
+		//	x = 160;
+		//	y = 90;
+		//	image_speed = 1;
+		//}
+		//room_goto(rm_arcade_00);
+	//}
+}
+if (point_in_rectangle(_mouseX,_mouseY,90,130,230,150))//Settings Menu
+{
+	draw_sprite_stretched(spr_highlight_circle,0,89,129,142,22);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
@@ -154,9 +162,9 @@ if (point_in_rectangle(_mouseX,_mouseY,90,108,230,128))//Settings Menu
 		home_menu = scr_menu_home_settings;
 	}
 }
-if (point_in_rectangle(_mouseX,_mouseY,90,130,230,150))//Settings Menu
+if (point_in_rectangle(_mouseX,_mouseY,90,152,230,172))//Settings Menu
 {
-	draw_sprite_stretched(spr_highlight_circle,0,89,129,142,22);
+	draw_sprite_stretched(spr_highlight_circle,0,89,151,142,22);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		game_end();
@@ -224,6 +232,7 @@ if (obj_game.time_played > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_1();
 				scr_player_reset();
@@ -264,6 +273,7 @@ if (obj_game.time_played > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				global.dayPhase = 2;
 				obj_game.night_fade = 1000;
 				obj_game.day_timer = 17000;
@@ -313,6 +323,7 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.gameMode = 0;
 			global.dayPhase = 2;
 			obj_game.night_fade = 1000;
 			obj_game.day_timer = 17000;
@@ -355,6 +366,7 @@ if (obj_game.time_played2 > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_2();
 				scr_player_reset();
@@ -393,6 +405,7 @@ if (obj_game.time_played2 > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				global.dayPhase = 2;
 				obj_game.night_fade = 1000;
 				obj_game.day_timer = 17000;
@@ -442,6 +455,7 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.gameMode = 0;
 			global.dayPhase = 2;
 			obj_game.night_fade = 1000;
 			obj_game.day_timer = 17000;
@@ -484,6 +498,7 @@ if (obj_game.time_played3 > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_3();
 				scr_player_reset();
@@ -522,6 +537,7 @@ if (obj_game.time_played3 > 0)
 				audio_sound_gain(snd_menu,global.volumeMenu,1);
 				audio_play_sound(snd_menu,0,false);
 				global.home = false;
+				global.gameMode = 0;
 				global.dayPhase = 2;
 				obj_game.night_fade = 1000;
 				obj_game.day_timer = 17000;
@@ -571,6 +587,7 @@ else
 			audio_sound_gain(snd_menu,global.volumeMenu,1);
 			audio_play_sound(snd_menu,0,false);
 			global.home = false;
+			global.gameMode = 0;
 			global.dayPhase = 2;
 			obj_game.night_fade = 1000;
 			obj_game.day_timer = 17000;

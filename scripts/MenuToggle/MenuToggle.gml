@@ -7,34 +7,39 @@
 //Inventory Open/Close
 function scr_inventory_toggle(){
 //Player Inventory - Main
-if (keyboard_check_pressed(vk_tab)) and (obj_inventory.quick_swap = false)
+
+//Adventure Mode
+if (global.gameMode = 0)
 {
-	if (global.home = false) and (global.transition = false)
+	if (keyboard_check_pressed(vk_tab)) and (obj_inventory.quick_swap = false)
 	{
-		if (textPaused = false) and (menuPaused = false)
+		if (global.home = false) and (global.transition = false)
 		{
-			if (invPaused = false) 
+			if (textPaused = false) and (menuPaused = false)
 			{
-				obj_inventory.inv_gui = -1;
-				audio_sound_gain(snd_menu,global.volumeMenu,1);
-				audio_play_sound(snd_menu,0,false);
-			}
-			gamePaused = !gamePaused;
-			invPaused = !invPaused;
-			if (gamePaused)
-			{
-			
-				with (all)
+				if (invPaused = false) 
 				{
-					game_paused_image_speed = image_speed;
-					image_speed = 0;
+					obj_inventory.inv_gui = -1;
+					audio_sound_gain(snd_menu,global.volumeMenu,1);
+					audio_play_sound(snd_menu,0,false);
 				}
-			}
-			else
-			{
-				with (all)
+				gamePaused = !gamePaused;
+				invPaused = !invPaused;
+				if (gamePaused)
 				{
-					image_speed = game_paused_image_speed;
+			
+					with (all)
+					{
+						game_paused_image_speed = image_speed;
+						image_speed = 0;
+					}
+				}
+				else
+				{
+					with (all)
+					{
+						image_speed = game_paused_image_speed;
+					}
 				}
 			}
 		}
