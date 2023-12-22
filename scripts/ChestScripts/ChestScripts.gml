@@ -8,7 +8,7 @@
 function scr_chest_create(){
 entity_step = scr_chest_free;
 shadow = true;
-shadow_size = 2;
+shadow_size = 1;
 sound = snd_chest;
 interact = 20;
 }

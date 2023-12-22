@@ -56,7 +56,6 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -92,7 +91,7 @@ if (obj_game.gamePaused)
 //Draw Based on String Counter
 var _SubString
 
-if (obj_inventory.quest_grid[# 14, 1] < 4)
+if (obj_inventory.quest_grid[# 14, 1] < 2)
 {
 	if (string_counter = 0)
 	{
@@ -158,7 +157,6 @@ if (obj_inventory.quest_grid[# 14, 1] >= 2)
 		buy_price = 0;
 	}
 }
-draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
@@ -224,7 +222,6 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_font(xfnt_text);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_black);
