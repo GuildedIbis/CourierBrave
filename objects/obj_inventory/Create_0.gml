@@ -2,8 +2,12 @@
 
 menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
-quick_swap = false;
+swap_menu = false;
+quest_menu = false;
+map_menu = false;
 altar = false;
+page = 0;
+slot = 0;
 inv_gui = -1;
 item_id = -1;
 

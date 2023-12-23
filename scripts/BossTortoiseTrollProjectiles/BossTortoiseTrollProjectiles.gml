@@ -292,7 +292,7 @@ enemy_move = spr_tortoiseTroll_spikedVine;
 
 //Stats
 enemy_spd = 2.0;
-damage = 65 + (10 * enemy_lvl);
+damage = 65;//+ (10 * enemy_lvl);
 
 //Snimation and Status
 invincible = true;

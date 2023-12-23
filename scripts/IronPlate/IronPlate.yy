@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "xArmor",
-    "path": "folders/Scripts/Player/xArmor.yy",
+    "path": "folders/Scripts/xRetiredScripts/xArmor.yy",
   },
 }

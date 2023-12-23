@@ -68,14 +68,14 @@ special_timer = 0;
 //receptivity = 0; //AMT
 
 //Effected Max Stats
-crystal_ary = array_create(11,-1);
-crystal_use = array_create(11,true);
-crystal_ary[0] = 0;
-crystal_use[0] = false;
-crystal_selected = 0;
-crystal_count = 1;//+ iteration;
+//crystal_ary = array_create(11,-1);
+//crystal_use = array_create(11,true);
+//crystal_ary[0] = 0;
+//crystal_use[0] = false;
+//crystal_selected = 0;
+//crystal_count = 1;//+ iteration;
 max_hp = 200;//+ (20 * vitality);
-max_charge = 200;//+ (10 * conviction); //50 + (3* (grace + round(grace/15)));
+max_charge = 200;//+ (20 * conviction); //50 + (3* (grace + round(grace/15)));
 max_stamina = 100;//+ (50 * energy);
 
 //Set Player Current Stats

@@ -21,7 +21,7 @@ walk_snd = snd_walk_regular
 //Stats
 form_type = 3;
 drop_amount = 20;
-max_hp = 190 + (95 * enemy_lvl);
+max_hp = 190;//+ (95 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 
@@ -157,7 +157,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40 + (8 * enemy_lvl);
+	damage = 40;//+ (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox);
 
 	//Animate
@@ -214,7 +214,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_ratArrow;
 			entity_step = home_state;
 			entity_drop = Idle;
@@ -227,7 +227,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 30 + (7 * other.enemy_lvl);
+			damage = 30;//+ (7 * other.enemy_lvl);
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
@@ -320,7 +320,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (9 * other.enemy_lvl)
+			damage = 50;//+ (9 * other.enemy_lvl)
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -390,7 +390,7 @@ if (obj_game.gamePaused = false)
 
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_hunterElite_shatterOrb;
 			path = -1;
 			timer1 = 130;
@@ -404,7 +404,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 20 + (6 * other.enemy_lvl);
+			damage = 20;//+ (6 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragWater;
@@ -421,7 +421,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_arrow_hit,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_hunterElite_shatterOrb;
 			path = -1
 			timer1 = 130;
@@ -435,7 +435,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 20 + (6 * other.enemy_lvl);
+			damage = 20;//+ (6 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragWater;
@@ -518,7 +518,7 @@ else
 //
 //Elite Hunter Drop
 function scr_enemy_hunterElite_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -543,41 +543,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 7)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 7)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 7) and (_drop1 < 15)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 7) and (_drop1 < 15)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 10)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 10)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 }
 
 

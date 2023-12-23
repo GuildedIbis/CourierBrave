@@ -32,27 +32,27 @@ scr_npc_interact(12);
 //
 //Altar Text
 function scr_text_altar_main(){
-//Tinted Background
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Format
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
-draw_sprite_stretched(spr_menu_beveled,3,121,65,78,46);
-draw_sprite_stretched(spr_menu,8,116,57,88,16);
-draw_sprite_stretched(spr_menu_circle16,1,126,74,32,32);
-draw_sprite_stretched(spr_menu_circle16,1,162,74,32,32);
-draw_sprite(spr_altar_menu_icons,0,126,74);
-draw_sprite(spr_altar_menu_icons,1,162,74);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+//draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+//draw_sprite(spr_npc_alter_portrait,0,273,129);
+draw_set_color(c_white);
+//var _name = "Altar"
 
 var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	//text_string = "You will return here when on death." 
+	text_string = "Health and charges restored.\nEnemies restored.\nYou will return here on death." 
 	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(118,52,"PRESS \"E\" TO RESUME",.5,.5,0);
 	altar = true;
-	scr_menu_altar_main();
 }
 
 if (string_counter >= 1)
@@ -78,8 +78,12 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_text_transformed(69,140,_SubString,.6,.6,0);
-draw_text_transformed(148,61,"ALTAR",1,1,0);
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+//draw_text_transformed(259,110,_name,.5,.5,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 
 
 //draw_sprite(spr_npc_alter36,0,258+6,136+6);
@@ -97,19 +101,19 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 
 	
-if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,125,73,34,34)
-	if (mouse_check_button_pressed(mb_left))
-	{
-		audio_sound_gain(snd_menu,global.volumeMenu,1);
-		audio_play_sound(snd_menu,0,false);
-		scr_game_room_enemy_reset();
-		scr_player_reset();
-		text_script = scr_menu_altar_crystal;
-		text_gui = -1;
-	}
-}
+//if (point_in_rectangle(_mouseX,_mouseY,126,74,158,106))
+//{
+//	draw_sprite_stretched(spr_highlight_circle,0,125,73,34,34)
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		audio_sound_gain(snd_menu,global.volumeMenu,1);
+//		audio_play_sound(snd_menu,0,false);
+//		scr_game_room_enemy_reset();
+//		scr_player_reset();
+//		text_script = scr_menu_altar_crystal;
+//		text_gui = -1;
+//	}
+//}
 if (point_in_rectangle(_mouseX,_mouseY,162,74,194,106))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,161,73,34,34)

@@ -7,30 +7,30 @@ if (scene = false) and (obj_game.textPaused = false)
 	
 	//Player Health, crystal Stones, and Rolling
 	var _hpPerc = (hp/max_hp) * 100;
-	var _selectX = 160 - (8*crystal_count) + (17 * crystal_selected);
+	//var _selectX = 160 - (8*crystal_count) + (17 * crystal_selected);
 	draw_healthbar(22,166,64,169,_hpPerc,c_black,c_maroon,c_red,0,1,0);
 	draw_sprite(spr_health_hud,0,4,156);
-	draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
+	//draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
 	//for (var i = 0; i < crystal_stone; i = i + 1)
 	//{
 	//	var _xPos = 27 + 4*i;
 	//	var _yPos = 164;
 	//	draw_sprite_ext(spr_crystal_tick,0,_xPos,_yPos,1.0,1.0,180,c_white,1.0);	
 	//}
-	for (var j = 0; j < crystal_count; j = j + 1)
-	{
-		var _xPos = (158 - (8*crystal_count)) + (17*j);
-		var _yPos = 164;
-		if (crystal_use[j] = false)
-		{
-			draw_sprite_ext(spr_hud_crystal,crystal_ary[j],_xPos,_yPos,1.0,1.0,0,c_white,1.0);
-		}
-		else
-		{
-			draw_sprite_ext(spr_hud_crystal_empty,0,_xPos,_yPos,1.0,1.0,0,c_white,1.0);
-		}
+	//for (var j = 0; j < crystal_count; j = j + 1)
+	//{
+	//	var _xPos = (158 - (8*crystal_count)) + (17*j);
+	//	var _yPos = 164;
+	//	if (crystal_use[j] = false)
+	//	{
+	//		draw_sprite_ext(spr_hud_crystal,crystal_ary[j],_xPos,_yPos,1.0,1.0,0,c_white,1.0);
+	//	}
+	//	else
+	//	{
+	//		draw_sprite_ext(spr_hud_crystal_empty,0,_xPos,_yPos,1.0,1.0,0,c_white,1.0);
+	//	}
 		
-	}
+	//}
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_middle);
@@ -38,8 +38,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_text_transformed(7,169,hp,.75,.75,0);
 	
 	var _rollPerc = (stamina/max_stamina) * 100;
-	draw_healthbar(23,173,35+(7 * energy),175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
-	draw_sprite(spr_roll_hud,energy,4,156);
+	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
+	draw_sprite(spr_roll_hud,0,4,156);
 	//draw_set_color(c_black);
 	//draw_text_transformed(262,159,stamina,.5,.5,0);
 	//draw_set_color(c_white);

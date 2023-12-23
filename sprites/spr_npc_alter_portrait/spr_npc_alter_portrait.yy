@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_npc_alter36",
+  "name": "spr_npc_alter_portrait",
   "bbox_bottom": 32,
   "bbox_left": 3,
   "bbox_right": 32,
@@ -25,14 +25,14 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Portrait36",
-    "path": "folders/Sprites/Entity/NPC/Portrait36.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Entity/NPC/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_npc_alter36",
+    "name": "spr_npc_alter_portrait",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"caf1c222-b29b-4c52-84f8-8260283cc0f2","path":"sprites/spr_npc_alter36/spr_npc_alter36.yy",},},},"Disabled":false,"id":"b5e2cdbf-0193-48e2-afb8-134f8fe9f862","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"caf1c222-b29b-4c52-84f8-8260283cc0f2","path":"sprites/spr_npc_alter_portrait/spr_npc_alter_portrait.yy",},},},"Disabled":false,"id":"b5e2cdbf-0193-48e2-afb8-134f8fe9f862","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

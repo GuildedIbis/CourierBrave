@@ -174,13 +174,13 @@ if (key_ability) and (stamina >= 50)
 
 
 //crystal Stone State
-if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
-{
-	var _crystalID = crystal_ary[crystal_selected];
-	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-	audio_play_sound(snd_player_crystal,0,false);
-	state_script = obj_inventory.crystal_script[_crystalID];
-}
+//if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
+//{
+//	var _crystalID = crystal_ary[crystal_selected];
+//	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
+//	audio_play_sound(snd_player_crystal,0,false);
+//	state_script = obj_inventory.crystal_script[_crystalID];
+//}
 
 //Switch Magic Fire
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 7, 3] = true)

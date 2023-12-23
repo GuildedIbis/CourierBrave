@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "xStorage",
+  "name": "xInventoryToggle",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

@@ -20,7 +20,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 4;
 drop_amount = 20;
-max_hp = 2200 + (1100 * enemy_lvl);
+max_hp = 2200;//+ (1100 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.25;
 
@@ -228,7 +228,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 50 + (7 * enemy_lvl);
+	damage = 50;//+ (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
 
 	//Animate
@@ -288,7 +288,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 50 + (7 * enemy_lvl);
+	damage = 50;//+ (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
 	
 	//Set Direction
@@ -341,7 +341,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60 + (9 * enemy_lvl);
+	damage = 60;//+ (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
 	//Animate
@@ -383,7 +383,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80 + (13 * enemy_lvl);
+	damage = 80;//+ (13 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	
 	//Jump Effect
@@ -506,7 +506,7 @@ if (obj_game.gamePaused = false)
 		{
 			direction = other.direction;
 			image_angle = direction;
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_trollTortoise_missile;
 			timer1 = 90;
 			timer2 = 30;
@@ -520,7 +520,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45 + (8 * enemy_lvl);
+			damage = 45;//+ (8 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -589,7 +589,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.25;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55 + (9 * enemy_lvl);
+			damage = 55;//+ (9 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -622,7 +622,7 @@ if (obj_game.gamePaused = false)
 //
 //Troll Tortoise Drop
 function scr_enemy_trollTortoise_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -647,41 +647,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 50)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 50)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 50) //Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 50) //Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 >= 0)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 >= 0)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 //obj_inventory.beaowire_dungeon[10] = 2;
 //obj_inventory.beaowire_dungeon[12] = 2;
 //obj_inventory.beaowire_dungeon[14] = 2;

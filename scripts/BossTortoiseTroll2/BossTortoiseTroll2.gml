@@ -20,7 +20,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 4;
 drop_amount = 20;
-max_hp = 2200 + (1100 * enemy_lvl);
+max_hp = 2200;//+ (1100 * enemy_lvl);
 hp = round(max_hp * .75);
 enemy_spd = 1.25;
 
@@ -272,7 +272,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60 + (9 * enemy_lvl);
+	damage = 60;//+ (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
 
 	//Animate
@@ -315,7 +315,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80 + (13 * enemy_lvl);
+	damage = 80;//+ (13 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox);
 	
 	//Jump Effect
@@ -411,7 +411,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl
+				//enemy_lvl = other.enemy_lvl
 				scr_projectile_trollTortoise_spikedVine_create();
 				direction = (point_direction(x,y,obj_player.x,obj_player.y-4)) - 15 + (15 * i);
 				image_angle = direction;
@@ -533,7 +533,7 @@ if (obj_game.gamePaused = false)
 		timer2 = 10;
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			direction = other.direction;
 			image_angle = direction;
 			home_state = scr_projectile_trollTortoise_missile;
@@ -549,7 +549,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45 + (8 * enemy_lvl);
+			damage = 45;//+ (8 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -605,7 +605,7 @@ if (obj_game.gamePaused = false)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl
+			//enemy_lvl = other.enemy_lvl
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
 			home_state = scr_projectile_trollTortoise_mound;
 			timer1 = 180;
@@ -620,7 +620,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.25;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55 + (9 * enemy_lvl);
+			damage = 55;//+ (9 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -678,7 +678,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y)) + round(11.25 * i);
 				image_angle = direction;
 				home_state = scr_projectile_trollTortoise_vineShot;
@@ -693,7 +693,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 1.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 30 + (10 * enemy_lvl);
+				damage = 30;//+ (10 * enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragPlant;

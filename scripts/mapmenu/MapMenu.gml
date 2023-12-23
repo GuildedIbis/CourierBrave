@@ -61,11 +61,12 @@ if (slot != -1)
 //
 //
 //Map GUI
-function scr_menu_map_base(){
+function scr_inventory_map(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
 draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
 draw_sprite_stretched(spr_menu,8,54,35,210,16)
@@ -104,7 +105,14 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 
-//draw_sprite(spr_map_farwayRoad,0,66,34);
+if (point_in_circle(obj_altar.x,obj_altar.y,obj_player.x,obj_player.y,64))
+{
+	altar = true;
+}
+else
+{
+	altar = false;
+}
 
 
 for (var i = 0; i < 4; i = i + 1)
@@ -176,6 +184,7 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 47);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.vostleTown_map_ary;
 			obj_game.level_num = 0;
@@ -196,6 +205,7 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 			obj_game.gamePaused = false;
 			obj_game.invPaused = false;
 			obj_game.textPaused = false;
+			
 			with (obj_player)
 			{
 				walk_snd = snd_walk_regular;
@@ -307,6 +317,7 @@ if (obj_inventory.altar_grid[# 0, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
@@ -346,6 +357,7 @@ if (obj_inventory.altar_grid[# 1, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 5;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
@@ -385,6 +397,7 @@ if (obj_inventory.altar_grid[# 2, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 7;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
@@ -425,6 +438,7 @@ if (obj_inventory.altar_grid[# 3, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 10;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
@@ -464,6 +478,7 @@ if (obj_inventory.altar_grid[# 4, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 14;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 1;
@@ -546,6 +561,7 @@ if (obj_inventory.altar_grid[# 5, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 39,_yPos + 14);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 2;
@@ -585,6 +601,7 @@ if (obj_inventory.altar_grid[# 6, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 53,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 2;
@@ -624,6 +641,7 @@ if (obj_inventory.altar_grid[# 7, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 59);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 2;
@@ -663,6 +681,7 @@ if (obj_inventory.altar_grid[# 8, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 85,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 2;
@@ -702,6 +721,7 @@ if (obj_inventory.altar_grid[# 9, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 2;
@@ -786,6 +806,7 @@ if (obj_inventory.altar_grid[# 10, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 119,_yPos + 13);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
 			obj_game.level_num = 3;
@@ -825,6 +846,7 @@ if (obj_inventory.altar_grid[# 11, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 23);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
 			obj_game.level_num = 3;
@@ -864,6 +886,7 @@ if (obj_inventory.altar_grid[# 12, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
 			obj_game.level_num = 3;
@@ -904,6 +927,7 @@ if (obj_inventory.altar_grid[# 13, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
 			obj_game.level_num = 3;
@@ -943,6 +967,7 @@ if (obj_inventory.altar_grid[# 14, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.habrafLake_map_ary;
 			obj_game.level_num = 3;
@@ -1028,6 +1053,7 @@ if (obj_inventory.altar_grid[# 15, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 136,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 4;
@@ -1067,6 +1093,7 @@ if (obj_inventory.altar_grid[# 16, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 4;
@@ -1106,6 +1133,7 @@ if (obj_inventory.altar_grid[# 17, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 71,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 7;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 4;
@@ -1146,6 +1174,7 @@ if (obj_inventory.altar_grid[# 18, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 38,_yPos + 58);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 10;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 4;
@@ -1185,6 +1214,7 @@ if (obj_inventory.altar_grid[# 19, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 40);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 14;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 4;
@@ -1270,6 +1300,7 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 22,_yPos + 76);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
 			obj_game.level_num = 4;
@@ -1309,6 +1340,7 @@ if (obj_inventory.altar_grid[# 21, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 3;
@@ -1348,6 +1380,7 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 3;
@@ -1388,6 +1421,7 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 103,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 3;
@@ -1427,6 +1461,7 @@ if (obj_inventory.altar_grid[# 24, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 40,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
+			obj_inventory.map_menu = false;
 			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
 			obj_game.level_num = 3;

@@ -5,7 +5,7 @@
 //
 //
 //Draw Stats
-function scr_menu_quest(){
+function scr_inventory_quest(){
 //Does not include mouse conversion to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -16,6 +16,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 //Menu Base and Buttons
+draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,44,35,110,96);
 draw_sprite_stretched(spr_menu,8,39,35,120,16);
 draw_text_transformed(101,39,"QUESTS",1,1,0);

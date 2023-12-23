@@ -52,7 +52,7 @@ for (var i = 0; i < 18; i = i + 1)
 				}
 				with (obj_inventory)
 				{
-					quick_swap = !quick_swap;
+					swap_menu = !swap_menu;
 				}
 				with (obj_game)
 				{

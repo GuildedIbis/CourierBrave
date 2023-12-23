@@ -16,7 +16,7 @@ enemy_move = spr_enemy_gorogKnife;
 
 //Stats
 enemy_spd = 3.5;
-damage = 55 + (10 * enemy_lvl);
+damage = 55;//+ (10 * enemy_lvl);
 
 //Animation and Status
 invincible = false;
@@ -90,7 +90,7 @@ special_draw = scr_projectile_gorogElite_chainHook_chain;
 enemy_move = spr_enemy_gorogE_chainHook;
 
 //Stats
-damage = 65 + (11 * enemy_lvl);
+damage = 65;//+ (11 * enemy_lvl);
 enemy_spd = 2.5;
 
 //Animation and Status

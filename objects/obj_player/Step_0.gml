@@ -27,7 +27,7 @@ flash = max(flash-0.05,0);
 if (obj_game.gamePaused = false)
 {
 	script_execute(state_script);
-	scr_player_crystal_select();
+	//scr_player_crystal_select();
 	depth = -y;
 	if (dmg_snd_delay > 0) dmg_snd_delay = dmg_snd_delay - 1;
 	

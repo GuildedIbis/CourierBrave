@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "xWeapons",
-    "path": "folders/Scripts/Player/xWeapons.yy",
+    "path": "folders/Scripts/xRetiredScripts/xWeapons.yy",
   },
 }

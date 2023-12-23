@@ -22,7 +22,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 0;
 drop_amount = 20;
-max_hp = 1250 + (625 * enemy_lvl);
+max_hp = 1250;//+ (625 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.25;
 
@@ -203,7 +203,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 40 + (8 * other.enemy_lvl);
+			damage = 40;//+ (8 * other.enemy_lvl);
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
@@ -262,7 +262,7 @@ if (obj_game.gamePaused = false)
 			projectile_sprite = spr_projectile_zealot_waterSlash;
 			dir_offX = 0;
 			dir_offY = 0;
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_waterSlash;
 			lit = true;
 			parent = other;
@@ -276,7 +276,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45 + (8 * enemy_lvl);
+			damage = 45 ;//+ (8 * enemy_lvl);
 			timer1 = 40;
 			timer2 = 20;
 			timer3 = 0;
@@ -416,7 +416,7 @@ if (obj_game.gamePaused = false)
 			image_alpha = 1;
 			scr_enemy_lilyCultist_create();
 			entity_step = scr_enemy_lilyCultist_zealotSpawn;
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			global.aggroCounter = global.aggroCounter + 1;
 			targeted = true;
 			break_object = other.break_object;
@@ -490,7 +490,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Calculate Attack
-	damage = 45 + (8 * other.enemy_lvl);
+	damage = 45;//+ (8 * other.enemy_lvl);
 	scr_enemy_attack_calculate(spr_projectile_zealot_waterSlash);
 	
 	//Clear Attack (Attack Hits Twice)
@@ -544,7 +544,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				home_state = scr_projectile_waterPin;
 				lit = true;
 				entity_step = home_state;
@@ -558,7 +558,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 1.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 30 + (7 * enemy_lvl);
+				damage = 30;//+ (7 * enemy_lvl);
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (40 * i);
 				image_angle = direction;
 				speed = enemy_spd;
@@ -656,7 +656,7 @@ else
 //
 //Zealot Siamire Drop
 function scr_enemy_zealot_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
@@ -681,41 +681,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 40)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 40)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 100)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 100)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 obj_inventory.quest_grid[# 16, 0] = true;
 obj_inventory.quest_grid[# 16, 1] = 1;
 }

@@ -16,7 +16,7 @@ enemy_move = spr_projectile_viceBubble32;
 
 //Stats
 enemy_spd = 2.5;
-damage = 70 + (11 * enemy_lvl);
+damage = 70;//+ (11 * enemy_lvl);
 
 //Animation and Status
 invincible = false;
