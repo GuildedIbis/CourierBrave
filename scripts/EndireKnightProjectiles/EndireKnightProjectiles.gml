@@ -20,7 +20,7 @@ timer1 = 0;
 enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 40 + (8 * enemy_lvl);
+damage = 40;//+ (8 * enemy_lvl);
 dir_wave = false;
 }
 //
@@ -104,7 +104,7 @@ timer1 = 30;
 enemy_spd = 1.5
 local_frame = 0;
 hit_by_attack = -1;
-damage = 30 + (8 * enemy_lvl);
+damage = 30;//+ (8 * enemy_lvl);
 dir_wave = false;
 }
 //

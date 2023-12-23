@@ -58,14 +58,14 @@ weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats
-vitality = 0; //HTH 
-iteration = 0; //CRL
-conviction = 0; //CRG
-might = 0; //WPN
-grace = 0; //CST
-divinity = 0; //SPC
-energy = 0; //RLL
-receptivity = 0; //AMT
+//vitality = 0; //HTH 
+//iteration = 0; //CRL
+//conviction = 0; //CRG
+//might = 0; //WPN
+//grace = 0; //CST
+//divinity = 0; //SPC
+//energy = 0; //RLL
+//receptivity = 0; //AMT
 
 //Effected Max Stats
 crystal_ary = array_create(11,-1);
@@ -73,10 +73,10 @@ crystal_use = array_create(11,true);
 crystal_ary[0] = 0;
 crystal_use[0] = false;
 crystal_selected = 0;
-crystal_count = iteration + 1;
-max_hp = 200 + (20 * vitality);
-max_charge = 200 + (10 * conviction); //50 + (3* (grace + round(grace/15)));
-max_stamina = 100 + (50 * energy);
+crystal_count = 1;//+ iteration;
+max_hp = 200;//+ (20 * vitality);
+max_charge = 200;//+ (10 * conviction); //50 + (3* (grace + round(grace/15)));
+max_stamina = 100;//+ (50 * energy);
 
 //Set Player Current Stats
 hp = max_hp
@@ -125,7 +125,7 @@ inv_dur_timer = 0;
 shielded = false;
 cursed = false
 cursed_dur_timer = 0;
-level = 1;
+//level = 1;
 break_object = obj_break;
 //
 //

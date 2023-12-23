@@ -21,7 +21,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 3;
 drop_amount = 15;
-max_hp = 900 + (450 * enemy_lvl);
+max_hp = 900;//+ (450 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.15;
 
@@ -189,7 +189,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 70 + (12 * enemy_lvl);
+	damage = 70;//+ (12 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
@@ -239,7 +239,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80 + (12 * enemy_lvl);
+	damage = 80;//+ (12 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
 	
 	//Animate
@@ -294,7 +294,7 @@ if (obj_game.gamePaused = false)
 			
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
 				image_angle = direction
@@ -312,7 +312,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60 + (10 * enemy_lvl);
+	damage = 60;//+ (10 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
@@ -370,7 +370,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 30) + (20 * i);
 				image_angle = direction;
@@ -391,7 +391,7 @@ if (obj_game.gamePaused = false)
 		timer3 = 12
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_heatacer_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
@@ -407,7 +407,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 65 + (11 * enemy_lvl);
+	damage = 65;//+ (11 * enemy_lvl);
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Check for entities
@@ -443,7 +443,7 @@ else{
 //
 //Inimar Drop
 function scr_enemy_endire_inimar_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -468,41 +468,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 25)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 25)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 25) and (_drop1 < 50)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 50)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 50)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 
 obj_inventory.quest_grid[# 7, 0] = true;
 obj_inventory.quest_grid[# 7, 1] = 1;

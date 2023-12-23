@@ -23,7 +23,7 @@ sound = snd_npc_mouse;
 //Stats
 form_type = 0;
 drop_amount = 20;
-max_hp = 600 + (305 * enemy_lvl);
+max_hp = 600 //+ (305 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.25;
 
@@ -292,7 +292,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 45 + (8 * enemy_lvl);
+	damage = 45 //+ (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 	
 	//Exit Before Death
@@ -466,7 +466,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 3.0;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 45 + (8 * other.enemy_lvl);
+				damage = 45 //+ (8 * other.enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragWhite;
@@ -496,7 +496,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 2.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 25 + (6 * other.enemy_lvl);
+				damage = 25 //+ (6 * other.enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragWhite;
@@ -564,7 +564,7 @@ if (obj_game.gamePaused = false)
 				image_alpha = 1;
 				scr_enemy_acolyteDecoy_create();
 				entity_step = scr_enemy_acolyteDecoy_spawn;
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = other.break_object;
@@ -579,7 +579,7 @@ if (obj_game.gamePaused = false)
 				invincible = true;
 				inv_dur_timer = 5;
 				entity_step = scr_enemy_acolyteDecoy_spawn;
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = other.break_object;
@@ -651,7 +651,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55 + (9 * other.enemy_lvl);
+			damage = 55 //+ (9 * other.enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragWhite;
@@ -971,7 +971,7 @@ if (obj_game.gamePaused = false)
 //
 //Acolyte Drop
 function scr_enemy_acolyte_drop(){
-var _objects = 7;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);
 var _angle = irandom_range(0,359);
@@ -996,41 +996,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 40)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 40)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 100)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 100)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 
 //Complete Quest
 obj_inventory.quest_grid[# 4, 0] = true;

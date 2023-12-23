@@ -33,7 +33,7 @@ if (save_num != -1)
 }
 
 scr_pause_toggle();
-scr_inventory_toggle();
+//scr_inventory_toggle();
 scr_swap_toggle();
 
 

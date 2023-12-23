@@ -21,7 +21,7 @@ walk_snd = snd_ofaWorm_dash;
 //Stats
 form_type = 2;
 drop_amount = 15;
-max_hp = 250 + (130 * enemy_lvl);
+max_hp = 250;//+ (130 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 5;
 
@@ -215,7 +215,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_whiteCrescent_create();
 			break_object = other.break_object;
 			shadow = 0;
@@ -229,7 +229,7 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
+				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_whiteRod_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) - 45 + (15 * i);
 				image_angle = direction;
@@ -288,7 +288,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_whiteRod_create();
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
@@ -332,8 +332,7 @@ if (obj_game.gamePaused = false)
 //
 //Ofa Moth Drop
 function scr_enemy_ofa_moth_drop(){
-
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99)	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -358,41 +357,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 7)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 7)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 7) and (_drop1 < 15)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 7) and (_drop1 < 15)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 15)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 15)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 //else instance_create_layer(x,y,"Instances",_objects[0])
 
 	

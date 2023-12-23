@@ -21,7 +21,7 @@ walk_snd = snd_walk_regular
 //Stats
 form_type = 0;
 drop_amount = 15;
-max_hp = 180 + (90 * enemy_lvl);
+max_hp = 180;//+ (90 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.1;
 
@@ -211,7 +211,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 30 + (8 * enemy_lvl);
+	damage = 30;//+ (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_ghost2_shadowShiftB_hitbox);
 	
 	//Return from Hiding
@@ -255,7 +255,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (9 * other.enemy_lvl);
+			damage = 50;//+ (9 * other.enemy_lvl);
 			direction = 315;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -281,7 +281,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (9 * other.enemy_lvl);
+			damage = 50;//+ (9 * other.enemy_lvl);
 			direction = 45;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -307,7 +307,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (9 * other.enemy_lvl);
+			damage = 50;//+ (9 * other.enemy_lvl);
 			direction = 135;
 			image_angle = direction;
 			speed = enemy_spd;
@@ -333,7 +333,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50 + (9 * other.enemy_lvl);
+			damage = 50;//+ (9 * other.enemy_lvl);
 			direction = 225;
 			image_angle = direction;
 			speed = enemy_spd;

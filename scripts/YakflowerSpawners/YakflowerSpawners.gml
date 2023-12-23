@@ -43,7 +43,7 @@ if (obj_inventory.quest_grid[# 8, 3] = false) and (global.aggroCounter <= 2)
 			{
 				image_alpha = 1;
 				scr_enemy_balurne_skirmisher_create();
-				enemy_lvl = 1;
+				//enemy_lvl = 1;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = obj_break;
@@ -92,7 +92,7 @@ if (obj_inventory.yakflowerPath_map_ary[14][3] < 2)
 			{
 				image_alpha = 1;
 				scr_enemy_ofa_worm_create();
-				enemy_lvl = 1;
+				//enemy_lvl = 1;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = obj_break;

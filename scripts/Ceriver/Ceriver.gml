@@ -28,10 +28,10 @@ max_weapon_count = 2;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.25;
-armor = 11 + (6 * (obj_inventory.form_grid[# 3, 6] -1));
-max_charge = 200 + (10 * conviction);
-max_stamina = 100 + (50 * energy);
-max_hp = 200 + (20 * vitality);
+armor = 11;//+ (6 * (obj_inventory.form_grid[# 3, 6] -1));
+max_charge = 200;//+ (10 * conviction);
+max_stamina = 100;//+ (50 * energy);
+max_hp = 200;//+ (20 * vitality);
 primary_cost = 4;
 special_cost = 40;
 }
@@ -211,7 +211,7 @@ function scr_player_ceriver_boomerang(){
 //Set
 attacking = true;
 casting = false;
-damage = round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
+damage = 10;//round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
 
 
 //Standard Timers
@@ -261,7 +261,7 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = 18 + (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+		damage = 18;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
 		projectile_sprite = spr_ceriver_boomerang;
 		projectile_script = scr_projectile_boomerang;
 		idle_sprite = spr_ceriver_boomerang;
@@ -443,7 +443,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 30;
-		damage = 8 + (5 * obj_player.grace) + (((obj_inventory.form_grid[# 3, 7])+ (_bubbleRand)) * (4));//
+		damage = 8 + (_bubbleRand * 4);//+ (5 * obj_player.grace) + (((obj_inventory.form_grid[# 3, 7]);//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = scr_projectile_polyorb;
 		idle_sprite = spr_ceriver_polyorb;
@@ -588,7 +588,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 15;
-		damage = 7 + (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 4);//
+		damage = 7;//+ (4 * obj_player.grace) + ((obj_inventory.form_grid[# 3, 7]) * 4);//
 		projectile_sprite = spr_ceriver_polyorb;
 		projectile_script = scr_projectile_lineorb;
 		idle_sprite = spr_ceriver_polyorb;
@@ -732,7 +732,7 @@ if (magic_timer <= 0)
 		fragment = obj_fragWater;
 		magic = true;
 		sd_timer = 60;
-		damage = 35 + (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
+		damage = 35;//+ (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
 		projectile_sprite = spr_ceriver_steelorb;
 		projectile_script = scr_projectile_steelorb;
 		idle_sprite = spr_ceriver_steelorb;

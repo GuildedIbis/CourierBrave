@@ -53,7 +53,7 @@ if (spawn_timer > 0)
 		{
 			image_alpha = 1;
 			scr_enemy_balurne_skirmisher_create();
-			enemy_lvl = 0;
+			//enemy_lvl = 0;
 			global.aggroCounter = global.aggroCounter + 1;
 			targeted = true;
 			break_object = obj_break;

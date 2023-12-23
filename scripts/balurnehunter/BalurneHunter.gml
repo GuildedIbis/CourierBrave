@@ -21,7 +21,7 @@ walk_snd = snd_walk_regular
 //Stats
 form_type = 1;
 drop_amount = 15;
-max_hp = 70 + (35 * enemy_lvl);
+max_hp = 70 //+ (35 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 
@@ -152,7 +152,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40 + (7 * enemy_lvl);
+	damage = 40 //+ (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox)
 
 	//Animation
@@ -222,7 +222,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 30 + (7 * other.enemy_lvl);
+			damage = 30 //+ (7 * other.enemy_lvl);
 			image_alpha = 1;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
@@ -274,7 +274,7 @@ if (obj_game.gamePaused = false)
 //
 //Balurne Hunter Drop
 function scr_enemy_balurne_hunter_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);	
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -299,41 +299,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 5)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 5)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 5) and (_drop1 < 10)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 5) and (_drop1 < 10)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 7)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 7)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 }
 
 

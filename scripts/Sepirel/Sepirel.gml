@@ -27,10 +27,10 @@ casting = false;
 max_weapon_count = -1;
 primary_timer = 0;
 walk_spd = 1.25;
-armor = 15 + (5 * (obj_inventory.form_grid[# 0, 6]));
-max_charge = 200 + (10 * conviction);
-max_stamina = 100 + (50 * energy);
-max_hp = 200 + (20 * vitality);
+armor = 15;//+ (5 * (obj_inventory.form_grid[# 0, 6]));
+max_charge = 200;//+ (10 * conviction);
+max_stamina = 100;//+ (50 * energy);
+max_hp = 200;//+ (20 * vitality);
 primary_cost = 6;
 special_cost = 100;
 }
@@ -214,7 +214,7 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_sepirel_melee(){
 //Set
 attacking = true;
-damage = 30 + (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
+damage = 30;//+ (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -351,7 +351,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 10 + (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
+		damage = 10;//+ (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
 		timer1 = 50;
 		projectile_sprite = spr_projectile_sepirel_helixStone;
 		projectile_script = scr_projectile_helixStone;
@@ -483,7 +483,7 @@ if (animation_end)
 		//audio_play_sound(snd_goldArcs,0,0);
 		timer1 = 120;
 		break_object = obj_player.break_object;
-		damage = 22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));
+		damage = 22;//+ (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));
 		idle_sprite = spr_projectile_sepirel_heatBomb;
 		projectile_sprite = spr_projectile_sepirel_heatBomb;
 		projectile_script = scr_projectile_heatBomb;

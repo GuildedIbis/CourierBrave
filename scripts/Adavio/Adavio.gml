@@ -24,10 +24,10 @@ obj_cursor.curs_script = scr_cursor_adavio;
 //Dynamic Variables
 magic_timer = 0;
 walk_spd = 1.25;
-armor = 9 + (5 * (obj_inventory.form_grid[# 2, 6] -1));
-max_charge = 200 + (10 * conviction);
-max_stamina = 100 + (50 * energy);
-max_hp = 200 + (20 * vitality);
+armor = 9 //+ (5 * (obj_inventory.form_grid[# 2, 6] -1));
+max_charge = 200 //+ (10 * conviction);
+max_stamina = 100 //+ (50 * energy);
+max_hp = 200 //+ (20 * vitality);
 primary_cost = 25;
 special_cost = 70;
 }
@@ -207,7 +207,7 @@ function scr_player_adavio_hookThrust(){
 //Set
 attacking = true;
 casting = false;
-damage = 20 + (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
+damage = 20 //+ (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
 
 //Standard Timers
 //scr_player_recharge(false,false,true,false,false,false);
@@ -294,7 +294,7 @@ if (timer1 <= 0)
 		fragment_count = 2;
 		fragment = obj_fragGold;
 		timer1 = 10;
-		damage = 15 + (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+		damage = 15 //+ (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
 		projectile_sprite = spr_adavio_hook_blast;
 		projectile_script = scr_projectile_hookBlast;
 		idle_sprite = spr_adavio_hook_blast;
@@ -432,7 +432,7 @@ if (magic_timer <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragPurple;
-			damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
+			damage = 12 //+ (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = scr_projectile_voidBit;
 			timer1 = 30;
@@ -605,7 +605,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragPurple;
-		damage = 22 + (obj_player.grace * 9) + ((obj_inventory.form_grid[# 2, 7])*(7));//
+		damage = 22 //+ (obj_player.grace * 9) + ((obj_inventory.form_grid[# 2, 7])*(7));//
 		projectile_sprite = spr_adavio_voidCycle;
 		projectile_script = scr_projectile_voidCycle;
 		timer1 = 20;
@@ -669,7 +669,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragGold;
-			damage = 13 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*6);////
+			damage = 13 //+ (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*6);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = scr_projectile_voidBit;
 			timer1 = 30;
@@ -887,7 +887,7 @@ if (special_timer <= 45)
 	y = dest_y;
 	if (timer1 > 0) timer1 = timer1 - 1;
 	sprite_index = spr_player_adavio_riftCrushB;
-	damage = 39 + (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
+	damage = 39 //+ (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
 		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,3,-1,-1,-1,-1,.2,5)
@@ -907,7 +907,7 @@ if (timer1 <= 0)
 			magic = true;
 			fragment_count = 2;
 			fragment = obj_fragPurple;
-			damage = 13 + (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 8])*6);////
+			damage = 13 //+ (6 * obj_player.divinity) + ((obj_inventory.form_grid[# 2, 8])*6);////
 			projectile_sprite = spr_adavio_voidBit;
 			projectile_script = scr_projectile_voidBit_special;
 			timer1 = 15;

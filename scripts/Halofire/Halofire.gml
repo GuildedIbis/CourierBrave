@@ -32,10 +32,10 @@ max_attack_counter = 0;
 walk_spd = 1.25;
 special_count = -1;
 max_special_count = -1;
-armor = 7 + (4 * (obj_inventory.form_grid[# 1, 6]));
-max_charge = 200 + (10 * conviction);
-max_stamina = 100 + (50 * energy);
-max_hp = 200 + (20 * vitality);
+armor = 7;//+ (4 * (obj_inventory.form_grid[# 1, 6]));
+max_charge = 200;//+ (10 * conviction);
+max_stamina = 100;//+ (50 * energy);
+max_hp = 200;//+ (20 * vitality);
 
 primary_cost = 18;
 special_cost = 100;
@@ -221,7 +221,7 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_halofire_hamaxe(){
 //Set
 attacking = true;
-damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 
 //Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -442,7 +442,7 @@ if (mouse_check_button_released(mb_right))
 function scr_player_halofire_hamaxe_backswing(){
 //Set
 attacking = true;
-damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -512,7 +512,7 @@ if (animation_end)
 function scr_player_halofire_hamaxe_backswingC(){
 //Set
 attacking = true;
-damage = 38 + (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
@@ -568,7 +568,7 @@ if (timer1 <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = 20 + (9 * obj_player.might) + (12 * obj_inventory.form_grid[# 1, 5]);//
+		damage = 20;//+ (9 * obj_player.might) + (12 * obj_inventory.form_grid[# 1, 5]);//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = scr_projectile_firespit;
 		idle_sprite = spr_halofire_firespit;
@@ -673,7 +673,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = 30 + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14));//
+		damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14));//
 		projectile_sprite = spr_meteor;
 		timer1 = 40;
 		projectile_script = scr_projectile_meteor;
@@ -781,7 +781,7 @@ if (magic_timer <= 0)
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = 3 + obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
+		damage = 3;//+ obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = scr_projectile_firespit;
 		idle_sprite = spr_halofire_firespit;
@@ -987,7 +987,7 @@ if (animation_end)
 		timer2 = 60;
 		target = -1;
 		break_object = obj_player.break_object;
-		damage = 32 + (12 * obj_player.divinity) + (9 * obj_inventory.form_grid[# 3, 8]);
+		damage = 32;//+ (12 * obj_player.divinity) + (9 * obj_inventory.form_grid[# 3, 8]);
 		idle_sprite = spr_flameCore;
 		projectile_sprite = spr_flameCore;
 		projectile_script = scr_projectile_flamecore;
@@ -1060,7 +1060,7 @@ if (timer2 <= 0)
 	{
 		
 		break_object = obj_player.break_object;
-		damage = 8 + (2 * obj_player.divinity) + (2 * obj_inventory.form_grid[# 3, 8]);
+		damage = 8;//+ (2 * obj_player.divinity) + (2 * obj_inventory.form_grid[# 3, 8]);
 		projectile_sprite = spr_fireSpark;
 		projectile_script = scr_projectile_firespark;
 		idle_sprite = spr_fireSpark;

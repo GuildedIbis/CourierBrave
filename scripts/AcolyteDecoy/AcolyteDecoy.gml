@@ -23,7 +23,7 @@ sound = snd_npc_mouse;
 //Stats
 form_type = 0;
 drop_amount = 10;
-max_hp = 100 + (50 * enemy_lvl);
+max_hp = 100 //+ (50 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.25;
 
@@ -174,7 +174,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 45 + (8 * enemy_lvl);
+	damage = 45 //+ (8 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 
 	//Animate

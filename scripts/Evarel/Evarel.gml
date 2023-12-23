@@ -31,10 +31,10 @@ max_attack_counter = 0;
 walk_spd = 1.25;
 special_count = -1;
 max_special_count = -1;
-armor = 9 + (5 * (obj_inventory.form_grid[# 4, 6] -1));
-max_charge = 200 + (10 * conviction);
-max_stamina = 100 + (50 * energy);
-max_hp = 200 + (20 * vitality);
+armor = 9;//+ (5 * (obj_inventory.form_grid[# 4, 6] -1));
+max_charge = 200;//+ (10 * conviction);
+max_stamina = 100;//+ (50 * energy);
+max_hp = 200;//+ (20 * vitality);
 primary_cost = 15;
 special_cost = 40;
 }
@@ -214,7 +214,7 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_evarel_daggerDash(){
 //Set
 attacking = true;
-damage = 19 + (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
 invincible = true;
 inv_dur_timer = 5;
 
@@ -360,7 +360,7 @@ if (magic_timer <= 0)
 		distance = 0;
 		fragment_count = 1;
 		fragment = obj_fragPlant;
-		damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
+		damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 		projectile_sprite = spr_evarel_bristlerod;
 		projectile_script = scr_projectile_bristlerod;
 		idle_sprite = spr_evarel_bristlerod;
@@ -401,7 +401,7 @@ function scr_projectile_bristlerod(){
 lit = true;
 speed = projectile_speed;
 distance = distance + 1;
-damage = 30  + (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
+damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 
 
 if (sprite_index != projectile_sprite)
@@ -507,7 +507,7 @@ if (magic_timer <= 0)
 		fragment_count = 2;
 		fragment = obj_fragPlant;
 		timer1 = 60;
-		damage = 12 + (6 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
+		damage = 12;//+ (6 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7])*(5));//
 		projectile_sprite = spr_evarel_reflexthorn;
 		projectile_script = scr_projectile_flexthorn;
 		idle_sprite = spr_evarel_reflexthorn;
@@ -643,7 +643,7 @@ if (animation_end)
 		timer1 = 300;
 		timer3 = 30;
 		break_object = obj_player.break_object;
-		damage = 11 + (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
+		damage = 11;//+ (6 * obj_player.divinity) + (4 * (obj_inventory.form_grid[# 4, 8]));
 		idle_sprite = spr_evarel_thornrise;
 		projectile_sprite = spr_evarel_thornrise;
 		projectile_script = scr_projectile_thornrise;

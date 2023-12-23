@@ -20,7 +20,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 2;
 drop_amount = 15;
-max_hp = 1100 + (550 * enemy_lvl);
+max_hp = 1300//+ (650 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.1;
 
@@ -226,7 +226,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 70 + (11 * enemy_lvl);
+	damage = 70;//+ (11 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
 
 	//Animate
@@ -274,7 +274,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 65 + (10 * enemy_lvl);
+	damage = 65;//+ (10 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
 
 	//Animate
@@ -329,7 +329,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_zerwerk_voidRift,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_riftslash_tail;
 			entity_step = home_state;
 			entity_drop = Idle;
@@ -482,7 +482,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 115 + (15 * enemy_lvl);
+	damage = 115;//+ (15 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
 
 	//Animate
@@ -554,7 +554,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60 + (9 * enemy_lvl);
+	damage = 60;//+ (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
 	
 	//Create Projectile
@@ -578,7 +578,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 1.8;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 75 + (11 * enemy_lvl)
+				damage = 75;//+ (11 * enemy_lvl)
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 44) + (i * 22);
 				image_angle = direction;
 				speed = enemy_spd;
@@ -620,7 +620,7 @@ if (obj_game.gamePaused = false)
 //
 //Zerwerk Drop
 function scr_enemy_zerwerk_drop(){
-var _objects = 5;
+var _objects = 2;
 var _drop1 = irandom_range(0,99);
 var _drop2 = irandom_range(0,99);	
 var _angle = irandom_range(0,359);
@@ -645,41 +645,41 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-if (_drop1 < 50)//Form Specific Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = obj_player.form_type;
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 4) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//if (_drop1 < 50)//Form Specific Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = obj_player.form_type;
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 4) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-	{
-		item_id = irandom_range(0,5);
-		sprite_index = spr_rog_all;
-		image_index = item_id;
-		direction = (360/_objects * 5) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
+//}
+//if (_drop1 >= 50) and (_drop1 < 100)//Random Rog Stone
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
+//	{
+//		item_id = irandom_range(0,5);
+//		sprite_index = spr_rog_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 5) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
 	
-}
-if (_drop2 < 100)
-{
-	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-	{
-		item_id = other.enemy_lvl;
-		sprite_index = spr_powerstone_all;
-		image_index = item_id;
-		direction = (360/_objects * 6) + _angle;
-		spd = .75 + (.3) + random(0.1);
-	}
-}
+//}
+//if (_drop2 < 100)
+//{
+//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
+//	{
+//		item_id = other.enemy_lvl;
+//		sprite_index = spr_powerstone_all;
+//		image_index = item_id;
+//		direction = (360/_objects * 6) + _angle;
+//		spd = .75 + (.3) + random(0.1);
+//	}
+//}
 obj_inventory.quest_grid[# 8, 0] = true;
 obj_inventory.quest_grid[# 8, 1] = obj_inventory.quest_grid[# 8, 2];
 obj_inventory.quest_grid[# 8, 3] = true;
@@ -844,7 +844,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Cacluate Attack
-	damage = 60 + (9 * enemy_lvl);
+	damage = 60;//+ (9 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
 
 	//Animate
