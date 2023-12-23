@@ -7,6 +7,8 @@
 //Form Array
 function scr_inventory_form_create(){
 form_grid = ds_grid_create(18,9);
+form_stone_list = array_create(18, false);
+form_stone_list[0] = true;
 
 //Regaliare 
 form_grid[# 0, 0] = "REGALIARE"
