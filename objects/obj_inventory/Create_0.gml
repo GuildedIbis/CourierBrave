@@ -3,6 +3,7 @@
 menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
 swap_menu = false;
+main_menu = false;
 quest_menu = false;
 map_menu = false;
 altar = false;

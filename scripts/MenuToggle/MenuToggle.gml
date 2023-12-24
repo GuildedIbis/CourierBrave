@@ -47,6 +47,69 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 //
 //
 //
+//Inventory Open/Close
+function scr_inventory_toggle(){
+//Player Inventory - Quick Swap (Weapon Wheel)
+if (keyboard_check_pressed(vk_tab))
+{
+	if (global.home = false) and (global.transition = false)
+	{
+		if (textPaused = false) and (menuPaused = false)
+		{
+			switch (invPaused) 
+			{
+				case true:
+					if (obj_inventory.main_menu = true)
+					{
+						gamePaused = false;
+						invPaused = false;
+						with (obj_inventory)
+						{
+							swap_menu = false;
+							main_menu = false;
+							//map_menu = false;
+							//quest_menu = false;
+						}
+						with (all)
+						{
+							image_speed = game_paused_image_speed;
+						}
+					}
+				break;
+				
+				case false:
+					if (obj_inventory.main_menu = false)
+					{
+						audio_sound_gain(snd_menu,global.volumeMenu,1);
+						audio_play_sound(snd_menu,0,false);
+						gamePaused = true;
+						invPaused = true;
+						with (obj_inventory)
+						{
+							swap_menu = false;
+							main_menu = true;
+							//map_menu = false;
+							//quest_menu = false;
+						}
+						with (all)
+						{
+							game_paused_image_speed = image_speed;
+							image_speed = 0;
+						}
+					}
+				break;
+
+			}
+		
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
 //Swap Menu Open/Close
 function scr_swap_toggle(){	
 //Player Inventory - Quick Swap (Weapon Wheel)
@@ -66,8 +129,8 @@ if (keyboard_check_pressed(ord("R")))
 						with (obj_inventory)
 						{
 							swap_menu = false;
-							map_menu = false;
-							quest_menu = false;
+							//map_menu = false;
+							//quest_menu = false;
 						}
 						with (all)
 						{
@@ -86,8 +149,8 @@ if (keyboard_check_pressed(ord("R")))
 						with (obj_inventory)
 						{
 							swap_menu = true;
-							map_menu = false;
-							quest_menu = false;
+							//map_menu = false;
+							//quest_menu = false;
 						}
 						with (all)
 						{
@@ -127,8 +190,7 @@ if (keyboard_check_pressed(ord("Q")))
 						with (obj_inventory)
 						{
 							swap_menu = false;
-							map_menu = false;
-							quest_menu = false;
+							main_menu = false
 						}
 						with (all)
 						{
@@ -147,8 +209,7 @@ if (keyboard_check_pressed(ord("Q")))
 						with (obj_inventory)
 						{
 							swap_menu = false;
-							map_menu = false;
-							quest_menu = true;
+							main_menu = true;
 						}
 						with (all)
 						{

@@ -61,12 +61,12 @@ if (slot != -1)
 //
 //
 //Map GUI
-function scr_inventory_map(){
+function scr_menu_inventory_map(){
 //Convert Mouse to GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+//draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
 draw_sprite_stretched(spr_menu_beveled,3,59,39,200,102);
 draw_sprite_ext(spr_map_level,slot,64,46,1.0,1.0,0,c_white,1.0);
 draw_sprite_stretched(spr_menu,8,54,35,210,16)
