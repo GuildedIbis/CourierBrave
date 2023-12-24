@@ -7,9 +7,10 @@ if (scene = false) and (obj_game.textPaused = false)
 	
 	//Player Health, crystal Stones, and Rolling
 	var _hpPerc = (hp/max_hp) * 100;
-	//var _selectX = 160 - (8*crystal_count) + (17 * crystal_selected);
-	draw_healthbar(22,166,64,169,_hpPerc,c_black,c_maroon,c_red,0,1,0);
-	draw_sprite(spr_health_hud,0,4,156);
+	var _hpBarEnd = 52 + (4 * ((max_hp - 200)/20));
+	var _hpBarIndex = (max_hp - 200)/20;
+	draw_healthbar(23,166,_hpBarEnd,169,_hpPerc,c_black,c_maroon,c_red,0,1,0);
+	draw_sprite(spr_health_hud,_hpBarIndex,4,156);
 	//draw_sprite_stretched(spr_button_background,0,_selectX,166,12,12)
 	//for (var i = 0; i < crystal_stone; i = i + 1)
 	//{
@@ -37,9 +38,11 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_color(c_white);
 	draw_text_transformed(7,169,hp,.75,.75,0);
 	
-	var _rollPerc = (stamina/max_stamina) * 100;
-	draw_healthbar(23,173,35,175,_rollPerc,c_black,c_yellow,c_yellow,0,1,0);
-	draw_sprite(spr_roll_hud,0,4,156);
+	var _stamPerc = (stamina/max_stamina) * 100;
+	var _stamBarEnd = 29 + (4 * ((max_stamina - 100)/50));
+	var _stamBarIndex = (max_stamina - 100)/50;
+	draw_healthbar(23,173,_stamBarEnd,175,_stamPerc,c_black,c_yellow,c_yellow,0,1,0);
+	draw_sprite(spr_stamina_hud,_stamBarIndex,4,156);
 	//draw_set_color(c_black);
 	//draw_text_transformed(262,159,stamina,.5,.5,0);
 	//draw_set_color(c_white);

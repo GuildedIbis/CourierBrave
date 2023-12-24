@@ -591,10 +591,10 @@ with (obj_player)
 	//blue_special = max(blue_special,round(max_charge/2));
 	//green_special = max(green_special,round(max_charge/2));
 	//red_special = max(red_special,round(max_charge/2));
-	for (var i = 0; i < 11; i = i + 1)
-	{
-		crystal_use[i] = false;
-	}
+	//for (var i = 0; i < 11; i = i + 1)
+	//{
+	//	crystal_use[i] = false;
+	//}
 }	
 }
 //
