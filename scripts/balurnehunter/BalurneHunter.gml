@@ -152,7 +152,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40 //+ (7 * enemy_lvl);
+	damage = 20; //+ (7 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox)
 
 	//Animation
@@ -222,7 +222,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 30 //+ (7 * other.enemy_lvl);
+			damage = 25;
 			image_alpha = 1;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);

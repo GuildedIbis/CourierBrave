@@ -83,10 +83,8 @@ if (weapon_timer > 0)
 }
 
 
-
 //Movement 2: Collision
 scr_player_collision();
-
 
 //Animation: Update Sprite
 var _oldSprite = sprite_index;
@@ -104,12 +102,12 @@ scr_player_animation();
 
 
 //Weapon Skill
-if (key_attackW)
+if (key_attackW) and (stamina >= 10)
 {
-	if (thundux = false)// and (stamina >= 20)
+	if (thundux = false)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		//stamina = stamina - 20;
+		stamina = stamina - 10;
 		attack_script = scr_player_regaliare_regalBlade;
 		state_script = scr_player_attack;
 	}
@@ -156,7 +154,6 @@ if (key_ability) and (stamina >= 75)
 		remain_dist = roll_dist;
 	}
 }
-
 
 //Switch Magic Fire Mode
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 3, 3] = true)

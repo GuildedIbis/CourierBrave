@@ -16,7 +16,7 @@ enemy_move = spr_enemy_razerSprout;
 
 //Stats
 enemy_spd = 1.5;
-damage = 40;//+ (7 * enemy_lvl);
+damage = 35;
 
 //Animation and Status
 invincible = false

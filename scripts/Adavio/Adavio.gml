@@ -43,7 +43,6 @@ walk_spd = 1.25;
 attacking = false;
 casting = false;
 
-
 //Movement 1: Speed
 if (knockback = false)
 {
@@ -52,7 +51,6 @@ if (knockback = false)
 }
 
 //Timers
-//scr_player_recharge(false,false,true,false,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -81,7 +79,6 @@ if (weapon_timer > 0)//Time between weapon uses
 	weapon_timer = weapon_timer - 1;
 }
 
-
 //Movement 2: Collision
 scr_player_collision();
 
@@ -95,19 +92,17 @@ if (input_mag != 0)
 else sprite_index = spr_player_adavio_idle;
 if (_oldSprite != sprite_index) local_frame = 0;
 
-
 //Update Index
 scr_player_animation();
 
-
 //Weapon Attack
-if (key_attackW)
+if (key_attackW) and (stamina >= 10)
 {
-	if (thundux = false)// and (stamina >= 15)
+	if (thundux = false)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		if (weapon_aim = false) direction = round(obj_player.direction/90) * 90;
-		//stamina = stamina - 15;
+		stamina = stamina - 10;
 		timer1 = 12;
 		attack_script = scr_player_adavio_hookThrust;
 		state_script = scr_player_attack;
@@ -156,16 +151,6 @@ if (key_ability) and (stamina >= 50)
 		remain_dist = roll_dist;
 	}
 }
-
-
-//crystal Stone State
-//if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
-//{
-//	var _crystalID = crystal_ary[crystal_selected];
-//	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-//	audio_play_sound(snd_player_crystal,0,false);
-//	state_script = obj_inventory.crystal_script[_crystalID];
-//}
 
 //Switch Magic Fire Mode
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 11, 3] = true)

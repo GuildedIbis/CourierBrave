@@ -174,7 +174,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 45 //+ (8 * enemy_lvl);
+	damage = 15;
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 
 	//Animate

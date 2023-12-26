@@ -54,9 +54,7 @@ if (knockback = false)
 	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 }
 
-
 //Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
@@ -85,8 +83,6 @@ if (weapon_timer > 0)
 	weapon_timer = weapon_timer - 1;
 }
 
-
-
 //Movement 2: Collision
 scr_player_collision();
 
@@ -106,7 +102,7 @@ scr_player_animation();
 
 
 //Melee Attack
-if (key_attackW)// and (stamina >= 30)
+if (key_attackW) and (stamina >= 15)
 {
 	if (thundux = false) and (weapon_count >= 1)
 	{
@@ -253,7 +249,7 @@ if (animation_end)
 	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
 	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
 	//melee_timer = 15;
-	//stamina = stamina - 30;
+	stamina = stamina - 15;
 	weapon_count = weapon_count - 1;
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
@@ -272,7 +268,7 @@ if (animation_end)
 		projectile_speed = 2.5;
 		returning = false;
 	}
-	if (mouse_check_button(mb_right))// and (stamina >= 30)
+	if (mouse_check_button(mb_right)) and (stamina >= 15)
 	{
 		if (thundux = false) and (weapon_count >= 1)
 		{

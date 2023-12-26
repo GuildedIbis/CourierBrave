@@ -79,15 +79,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -96,7 +87,6 @@ if (weapon_timer > 0) //Weapon time between attacks
 {
 	weapon_timer = weapon_timer - 1;
 }
-
 
 //Movement 2: Collision
 scr_player_collision();
@@ -111,18 +101,16 @@ if (input_mag != 0)
 else sprite_index = spr_player_halofire_idle;
 if (_oldSprite != sprite_index) local_frame = 0;
 
-
 //Update Index
 scr_player_animation();
 
-
 //Weapon Attack
-if (key_attackW)
+if (key_attackW) and (stamina >= 15)
 {
-	if (thundux = false)// and (stamina >= 25)
+	if (thundux = false)
 	{
 		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		//stamina = stamina - 25;
+		stamina = stamina - 15;
 		attack_script = scr_player_halofire_hamaxe;
 		state_script = scr_player_attack;
 		
@@ -157,7 +145,6 @@ if (key_attackS) and (orange_special >= 100)
 		state_script = scr_player_attack;
 	}
 }
-
 
 //Roll State
 if (key_ability) and (stamina >= 75)
@@ -221,7 +208,7 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_halofire_hamaxe(){
 //Set
 attacking = true;
-damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;
 
 //Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -232,15 +219,6 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -273,9 +251,9 @@ scr_player_animation();
 //Return to Free State or enter Charging state
 if (animation_end)
 {
-	if (mouse_check_button(mb_right))// and (stamina >= 15)
+	if (mouse_check_button(mb_right)) and (stamina >= 15)
 	{
-		//stamina = stamina - 15;
+		stamina = stamina - 15;
 		weapon_timer = 45;
 		fixed_dir = _cardinalDir
 		state_script = scr_player_halofire_hamaxe_charging;
@@ -312,15 +290,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -388,15 +357,6 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 		audio_play_sound(walk_snd,1,false);
 	}
 }
-//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -442,7 +402,7 @@ if (mouse_check_button_released(mb_right))
 function scr_player_halofire_hamaxe_backswing(){
 //Set
 attacking = true;
-damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -452,15 +412,6 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-//if (orange_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -512,7 +463,7 @@ if (animation_end)
 function scr_player_halofire_hamaxe_backswingC(){
 //Set
 attacking = true;
-damage = 38;//+ (8 * obj_player.might) + (7 * obj_inventory.form_grid[# 1, 5]);
+damage = 38;
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
@@ -523,15 +474,6 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-//if (orange_primary < max_charge) and (watervice = false)//Charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		orange_primary = orange_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;

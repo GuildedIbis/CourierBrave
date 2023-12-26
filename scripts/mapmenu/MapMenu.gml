@@ -105,9 +105,16 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 
-if (point_in_circle(obj_altar.x,obj_altar.y,obj_player.x,obj_player.y,64))
+if instance_exists(obj_altar)
 {
-	altar = true;
+	if (point_in_circle(obj_altar.x,obj_altar.y,obj_player.x,obj_player.y,64))
+	{
+		altar = true;
+	}
+	else
+	{
+		altar = false;
+	}
 }
 else
 {

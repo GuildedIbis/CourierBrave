@@ -221,7 +221,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 65;//+ (10 * enemy_lvl);
+	damage = 45;
 	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_A_hitbox)
 
 	//Animate
@@ -271,7 +271,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 50;//+ (9 * enemy_lvl);
+	damage = 50;
 	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_B_hitbox)
 
 	//Animate
@@ -326,7 +326,6 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl
 			script_execute(scr_projectile_gorogElite_chainHook_create);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
 			image_angle = direction;
@@ -415,7 +414,6 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl
 			script_execute(scr_projectile_gorogElite_knife_create);
 			direction = (point_direction(x,y,obj_player.x,obj_player.y))+irandom_range(-3,3);
 			image_angle = direction;

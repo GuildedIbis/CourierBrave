@@ -145,7 +145,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 70;//+ (8 * enemy_lvl);;
+	damage = 55;//+ (8 * enemy_lvl);;
 	scr_enemy_attack_calculate(spr_enemy_enragedWorm_explode_hitbox);
 	
 	//Fadeout

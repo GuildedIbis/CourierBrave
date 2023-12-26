@@ -204,7 +204,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 55 //+ (9 * enemy_lvl);
+	damage = 35;
 	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_A_hitbox)
 
 	//Animate
@@ -252,7 +252,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 65 //+ (10 * enemy_lvl);
+	damage = 40;
 	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_B_hitbox)
 
 	//Animate
@@ -318,7 +318,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45 //+ (8 * enemy_lvl);
+			damage = 25;
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) - 5;
 			image_angle = direction;
 			speed = enemy_spd;

@@ -143,7 +143,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 70;//+ (10 * enemy_lvl);
+	damage = 45;
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
 
 	//Animate
@@ -186,7 +186,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Calculate Attack
-	damage = 60;//+ (10 * enemy_lvl);
+	damage = 35;
 	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
 	
 	//Create Projectiles

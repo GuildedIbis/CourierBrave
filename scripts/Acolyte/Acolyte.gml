@@ -292,7 +292,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 45 //+ (8 * enemy_lvl);
+	damage = 35;
 	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
 	
 	//Exit Before Death
@@ -466,7 +466,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 3.0;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 45 //+ (8 * other.enemy_lvl);
+				damage = 45; //+ (8 * other.enemy_lvl);
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragWhite;
@@ -496,7 +496,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 2.5;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 25 //+ (6 * other.enemy_lvl);
+				damage = 20;
 				break_object = other.break_object;
 				fragment_count = 2;
 				fragment = obj_fragWhite;
@@ -651,7 +651,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55 //+ (9 * other.enemy_lvl);
+			damage = 30; 
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragWhite;

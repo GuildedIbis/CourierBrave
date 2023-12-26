@@ -294,6 +294,7 @@ if (obj_game.gamePaused = false)
 		path = path_add();
 		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
 		path_start(path, 3, 0, 0);
+		damage = 45;
 		scr_enemy_attack_calculate(spr_enemy_enragedMoth_rageRush_hitbox);
 	
 	}
@@ -424,9 +425,9 @@ entity_drop = Idle;
 enemy_move = spr_enragedMoth_wormEgg;
 
 //Stats
-max_hp = 60;//+ (30 * enemy_lvl);
+max_hp = 60;
 hp = max_hp;
-damage = 45;//+ (8 * enemy_lvl);
+damage = 45;
 enemy_spd = 1.5;
 
 //Animation and Status

@@ -164,7 +164,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40;//+ (8 * enemy_lvl);
+	damage = 30;
 	scr_enemy_attack_calculate(spr_enemy_rat_slash_hitbox)
 
 	//Animate
@@ -213,7 +213,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 55;//+ (9 * enemy_lvl);
+	damage = 40;
 	scr_enemy_attack_calculate(spr_enemy_eliteSkirmisher_spinSlash_hitbox);
 	
 	//Set Direction

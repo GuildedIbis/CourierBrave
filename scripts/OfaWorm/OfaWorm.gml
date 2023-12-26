@@ -132,7 +132,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 30;//+ (6 * enemy_lvl);
+	damage = 20;
 	scr_enemy_attack_calculate(spr_ofaWorm_headbutt_hitbox);
 
 	//Animate

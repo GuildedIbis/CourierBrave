@@ -226,7 +226,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 70;//+ (11 * enemy_lvl);
+	damage = 40;//+ (11 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
 
 	//Animate
@@ -274,7 +274,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 65;//+ (10 * enemy_lvl);
+	damage = 40;//+ (10 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
 
 	//Animate
@@ -482,7 +482,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 115;//+ (15 * enemy_lvl);
+	damage = 80;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
 
 	//Animate
@@ -554,7 +554,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60;//+ (9 * enemy_lvl);
+	damage = 60;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
 	
 	//Create Projectile
@@ -578,7 +578,7 @@ if (obj_game.gamePaused = false)
 				enemy_spd = 1.8;
 				local_frame = 0;
 				hit_by_attack = -1;
-				damage = 75;//+ (11 * enemy_lvl)
+				damage = 35;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 44) + (i * 22);
 				image_angle = direction;
 				speed = enemy_spd;
@@ -844,7 +844,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Cacluate Attack
-	damage = 60;//+ (9 * enemy_lvl);
+	damage = 50;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
 
 	//Animate

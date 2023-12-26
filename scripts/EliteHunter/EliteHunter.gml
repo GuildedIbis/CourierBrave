@@ -157,7 +157,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40;//+ (8 * enemy_lvl);
+	damage = 30;
 	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox);
 
 	//Animate
@@ -227,7 +227,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 3.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 30;//+ (7 * other.enemy_lvl);
+			damage = 35;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
@@ -320,7 +320,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 50;//+ (9 * other.enemy_lvl)
+			damage = 40;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -390,7 +390,6 @@ if (obj_game.gamePaused = false)
 
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_hunterElite_shatterOrb;
 			path = -1;
 			timer1 = 130;
@@ -404,7 +403,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 20;//+ (6 * other.enemy_lvl);
+			damage = 15;
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragWater;
