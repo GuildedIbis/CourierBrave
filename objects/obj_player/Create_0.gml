@@ -58,13 +58,13 @@ weapon_timer = 0;
 special_timer = 0;
 
 //Enhancable Stats
-//vitality = 0; //HTH 
+vitality = 0; //HTH 
 //iteration = 0; //CRL
-//conviction = 0; //CRG
+conviction = 0; //CRG
 //might = 0; //WPN
 //grace = 0; //CST
 //divinity = 0; //SPC
-//energy = 0; //RLL
+energy = 0; //RLL
 //receptivity = 0; //AMT
 
 //Effected Max Stats
@@ -74,9 +74,9 @@ special_timer = 0;
 //crystal_use[0] = false;
 //crystal_selected = 0;
 //crystal_count = 1;//+ iteration;
-max_hp = 200;//+ (20 * vitality);
-max_charge = 200;//+ (20 * conviction); //50 + (3* (grace + round(grace/15)));
-max_stamina = 100;//+ (50 * energy);
+max_hp = 200 + (20 * vitality);
+max_charge = 200 + (20 * conviction); //50 + (3* (grace + round(grace/15)));
+max_stamina = 200 + (50 * energy);
 
 //Set Player Current Stats
 hp = max_hp

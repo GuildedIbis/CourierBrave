@@ -32,10 +32,10 @@ max_attack_counter = 0;
 walk_spd = 1.25;
 special_count = -1;
 max_special_count = -1;
-armor = 7;//+ (4 * (obj_inventory.form_grid[# 1, 6]));
-max_charge = 200;//+ (10 * conviction);
-max_stamina = 100;//+ (50 * energy);
-max_hp = 200;//+ (20 * vitality);
+armor = 7;
+max_charge = 200 + (25 * conviction);
+max_stamina = 200 + (25 * energy);
+max_hp = 200 + (25 * vitality);
 
 primary_cost = 18;
 special_cost = 100;
@@ -160,13 +160,13 @@ if (key_attackS) and (orange_special >= 100)
 
 
 //Roll State
-if (key_ability) and (stamina >= 50)
+if (key_ability) and (stamina >= 75)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		stamina = stamina - 50;
+		stamina = stamina - 75;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}

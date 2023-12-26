@@ -27,10 +27,10 @@ casting = false;
 max_weapon_count = -1;
 primary_timer = 0;
 walk_spd = 1.25;
-armor = 15;//+ (5 * (obj_inventory.form_grid[# 0, 6]));
-max_charge = 200;//+ (10 * conviction);
-max_stamina = 100;//+ (50 * energy);
-max_hp = 200;//+ (20 * vitality);
+armor = 15;
+max_charge = 200 + (25 * conviction);
+max_stamina = 200 + (25 * energy);
+max_hp = 200 + (25 * vitality);
 primary_cost = 6;
 special_cost = 100;
 }

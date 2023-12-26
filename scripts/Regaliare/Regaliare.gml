@@ -27,10 +27,10 @@ casting = false;
 max_weapon_count = -1;
 primary_timer = 0;
 walk_spd = 1.25;
-armor = 15;//+ (5 * (obj_inventory.form_grid[# 0, 6]));
-max_charge = 200;//+ (10 * conviction);
-max_stamina = 100;//+ (50 * energy);
-max_hp = 200;//+ (20 * vitality);
+armor = 15;
+max_charge = 200 + (10 * conviction);
+max_stamina = 200 + (50 * energy);
+max_hp = 200 + (20 * vitality);
 primary_cost = 6;
 special_cost = 100;
 }
@@ -73,15 +73,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		yellow_primary = yellow_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -154,26 +145,18 @@ if (key_attackS) and (yellow_special >= 100)
 }
 
 //Roll State
-if (key_ability) and (stamina >= 50)
+if (key_ability) and (stamina >= 75)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		stamina = stamina - 50;
+		stamina = stamina - 75;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
 
-//crystal Stone State
-//if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
-//{
-//	var _crystalID = crystal_ary[crystal_selected];
-//	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-//	audio_play_sound(snd_player_crystal,0,false);
-//	state_script = obj_inventory.crystal_script[_crystalID];
-//}
 
 //Switch Magic Fire Mode
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 3, 3] = true)

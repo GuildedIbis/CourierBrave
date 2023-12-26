@@ -219,7 +219,6 @@ if (_red = true) and (red_primary < max_charge)
 //
 //Roll State
 function scr_player_roll(){
-//max_stamina = 50 + (3* (might + round(might/15)));
 inv_dur_timer = 30;
 //Charge Crystal??
 if (magic_timer > 0) //Magic time between shots
