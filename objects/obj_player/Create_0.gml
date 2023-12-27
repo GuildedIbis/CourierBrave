@@ -74,9 +74,9 @@ energy = 0; //RLL
 //crystal_use[0] = false;
 //crystal_selected = 0;
 //crystal_count = 1;//+ iteration;
-max_hp = 200 + (20 * vitality);
-max_charge = 200 + (20 * conviction); //50 + (3* (grace + round(grace/15)));
-max_stamina = 200 + (50 * energy);
+max_hp = 200 + (25 * vitality);
+max_stamina = 200 + (25 * energy);
+max_charge = 200 + (25 * conviction);
 
 //Set Player Current Stats
 hp = max_hp

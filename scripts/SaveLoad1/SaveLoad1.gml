@@ -12,7 +12,7 @@ var _saveData = array_create(0);
 
 //Save Scripts
 scr_save_player(_saveData);
-scr_save_inventory(_saveData);
+//scr_save_inventory(_saveData);
 scr_save_forms(_saveData);	
 scr_save_quests(_saveData);
 scr_save_rooms(_saveData);
@@ -54,7 +54,7 @@ if (file_exists("savedgame.save"))
 
 		//Load Scripts
 		scr_load_player(_loadEntity);
-		scr_load_inventory(_loadEntity);
+		//scr_load_inventory(_loadEntity);
 		scr_load_forms(_loadEntity);
 		scr_load_quests(_loadEntity);
 		scr_load_rooms(_loadEntity);

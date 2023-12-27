@@ -15,7 +15,8 @@ chest_list = array_create(50,false);
 //
 //Star Orb and Crull Flower Lists
 function scr_inventory_starOrb_create(){
-starOrb_pedestal_list = array_create(102,false);
+star_orb = 0;
+starOrb_pedestal_list = array_create(18,false);
 
 
 
@@ -224,26 +225,26 @@ vostleTown_map_ary[4][0] = "Vostle Town 04";
 vostleTown_map_ary[4][1] = 48;
 vostleTown_map_ary[4][2] = 54;
 vostleTown_map_ary[4][3] = 0;
-//vostleTown_map_ary[5][0] = "Vostle Town 05";
-//vostleTown_map_ary[5][1] = 64;
-//vostleTown_map_ary[5][2] = 36;
-//vostleTown_map_ary[5][3] = 0;
-//vostleTown_map_ary[6][0] = "Vostle Town 06";
-//vostleTown_map_ary[6][1] = 112;
-//vostleTown_map_ary[6][2] = 45;
-//vostleTown_map_ary[6][3] = 0;
-//vostleTown_map_ary[7][0] = "Vostle Town 07";
-//vostleTown_map_ary[7][1] = 128;
-//vostleTown_map_ary[7][2] = 45;
-//vostleTown_map_ary[7][3] = 0;
-//vostleTown_map_ary[8][0] = "Vostle Town 08";
-//vostleTown_map_ary[8][1] = 128;
-//vostleTown_map_ary[8][2] = 54;
-//vostleTown_map_ary[8][3] = 0;
-//vostleTown_map_ary[9][0] = "Vostle Town 09";
-//vostleTown_map_ary[9][1] = 80;
-//vostleTown_map_ary[9][2] = 27;
-//vostleTown_map_ary[9][3] = 0;
+vostleTown_map_ary[5][0] = "Vostle Town 05";
+vostleTown_map_ary[5][1] = 64;
+vostleTown_map_ary[5][2] = 36;
+vostleTown_map_ary[5][3] = 0;
+vostleTown_map_ary[6][0] = "Vostle Town 06";
+vostleTown_map_ary[6][1] = 112;
+vostleTown_map_ary[6][2] = 45;
+vostleTown_map_ary[6][3] = 0;
+vostleTown_map_ary[7][0] = "Vostle Town 07";
+vostleTown_map_ary[7][1] = 128;
+vostleTown_map_ary[7][2] = 45;
+vostleTown_map_ary[7][3] = 0;
+vostleTown_map_ary[8][0] = "Vostle Town 08";
+vostleTown_map_ary[8][1] = 128;
+vostleTown_map_ary[8][2] = 54;
+vostleTown_map_ary[8][3] = 0;
+vostleTown_map_ary[9][0] = "Vostle Town 09";
+vostleTown_map_ary[9][1] = 80;
+vostleTown_map_ary[9][2] = 27;
+vostleTown_map_ary[9][3] = 0;
 
 
 //Farway Road Map

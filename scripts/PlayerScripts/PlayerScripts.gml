@@ -565,7 +565,12 @@ if (iAlpha <= 0)
 function scr_player_reset(){
 with (obj_player)
 {
+	max_hp = 200 + (25 * vitality);
+	max_stamina = 200 + (25 * energy);
+	max_charge = 200 + (25 * conviction);
+
 	hp = max_hp;
+	stamina = max_stamina;
 	yellow_primary = max_charge;
 	orange_primary  = max_charge;
 	purple_primary  = max_charge;

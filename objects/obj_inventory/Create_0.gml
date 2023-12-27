@@ -12,8 +12,8 @@ slot = 0;
 inv_gui = -1;
 item_id = -1;
 
-scr_inventory_items_create();
-scr_inventory_crystal_create();
+//scr_inventory_items_create();
+//scr_inventory_crystal_create();
 scr_inventory_questlog_create();
 scr_inventory_form_create();
 //script_execute(DungeonlogCreate);

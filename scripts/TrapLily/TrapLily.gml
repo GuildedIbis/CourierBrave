@@ -146,7 +146,7 @@ if (obj_game.gamePaused = false)
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_viceBubble_free;
-			enemy_lvl = other.enemy_lvl
+			//enemy_lvl = other.enemy_lvl
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;

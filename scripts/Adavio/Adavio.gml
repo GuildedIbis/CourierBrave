@@ -24,7 +24,7 @@ obj_cursor.curs_script = scr_cursor_adavio;
 //Dynamic Variables
 magic_timer = 0;
 walk_spd = 1.25;
-armor = 9;
+armor = 8;
 max_charge = 200 + (25 * conviction);
 max_stamina = 200 + (25 * energy);
 max_hp = 200 + (25 * vitality);

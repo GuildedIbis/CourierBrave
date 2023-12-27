@@ -27,8 +27,8 @@ if (variable_struct_exists(_loadEntity,"starOrb14")) obj_inventory.starOrb_pedes
 if (variable_struct_exists(_loadEntity,"starOrb15")) obj_inventory.starOrb_pedestal_list[15] = _loadEntity.starOrb15;
 if (variable_struct_exists(_loadEntity,"starOrb16")) obj_inventory.starOrb_pedestal_list[16] = _loadEntity.starOrb16;
 if (variable_struct_exists(_loadEntity,"starOrb17")) obj_inventory.starOrb_pedestal_list[17] = _loadEntity.starOrb17;
-if (variable_struct_exists(_loadEntity,"starOrb18")) obj_inventory.starOrb_pedestal_list[18] = _loadEntity.starOrb18;
-if (variable_struct_exists(_loadEntity,"starOrb19")) obj_inventory.starOrb_pedestal_list[19] = _loadEntity.starOrb19;
+//if (variable_struct_exists(_loadEntity,"starOrb18")) obj_inventory.starOrb_pedestal_list[18] = _loadEntity.starOrb18;
+//if (variable_struct_exists(_loadEntity,"starOrb19")) obj_inventory.starOrb_pedestal_list[19] = _loadEntity.starOrb19;
 
 
 //Load Crull Upgrades
@@ -71,7 +71,7 @@ starOrb05 : obj_inventory.starOrb_pedestal_list[5],
 starOrb06 : obj_inventory.starOrb_pedestal_list[6],
 starOrb07 : obj_inventory.starOrb_pedestal_list[7],
 starOrb08 : obj_inventory.starOrb_pedestal_list[8],
-starOrb09 : obj_inventory.starOrb_pedestal_list[19],
+starOrb09 : obj_inventory.starOrb_pedestal_list[9],
 starOrb10 : obj_inventory.starOrb_pedestal_list[10],	
 starOrb11 : obj_inventory.starOrb_pedestal_list[11],	
 starOrb12 : obj_inventory.starOrb_pedestal_list[12],	
@@ -80,8 +80,8 @@ starOrb14 : obj_inventory.starOrb_pedestal_list[14],
 starOrb15 : obj_inventory.starOrb_pedestal_list[15],
 starOrb16 : obj_inventory.starOrb_pedestal_list[16],
 starOrb17 : obj_inventory.starOrb_pedestal_list[17],
-starOrb18 : obj_inventory.starOrb_pedestal_list[18],
-starOrb19 : obj_inventory.starOrb_pedestal_list[19],
+//starOrb18 : obj_inventory.starOrb_pedestal_list[18],
+//starOrb19 : obj_inventory.starOrb_pedestal_list[19],
 
 //Crull Upgrades
 //crullUpgrade00 : obj_inventory.crullUpgrade_list[0],
