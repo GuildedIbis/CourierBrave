@@ -693,6 +693,7 @@
     {"name":"WhiteCrescent","order":1,"path":"scripts/WhiteCrescent/WhiteCrescent.yy",},
     {"name":"spr_ghost_shadowShiftB_hitbox","order":8,"path":"sprites/spr_ghost_shadowShiftB_hitbox/spr_ghost_shadowShiftB_hitbox.yy",},
     {"name":"spr_enemy_skirmisher_slash","order":4,"path":"sprites/spr_enemy_skirmisher_slash/spr_enemy_skirmisher_slash.yy",},
+    {"name":"spr_form_stones_all","order":11,"path":"sprites/spr_form_stones_all/spr_form_stones_all.yy",},
     {"name":"spr_enemy_trapLily_exposed","order":1,"path":"sprites/spr_enemy_trapLily_exposed/spr_enemy_trapLily_exposed.yy",},
     {"name":"spr_goldBullet","order":5,"path":"sprites/spr_goldBullet/spr_goldBullet.yy",},
     {"name":"spr_player_ironPlate_slash","order":4,"path":"sprites/spr_player_ironPlate_slash/spr_player_ironPlate_slash.yy",},

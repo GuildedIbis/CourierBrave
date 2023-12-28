@@ -4,480 +4,223 @@
 //
 //
 //
-//Regaliare Selected Menu
-function scr_menu_regaliare(){
-//Convert Mouse to GUI
+//Regaliare Skills Menu GUI
+function scr_menu_skills_regaliare(){
+//Get mouse location on GUI
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _scriptList = array_create(4,-1)
-_scriptList[0] = scr_menu_regaliare_armor;
-_scriptList[1] = scr_menu_regaliare_weapon;
-_scriptList[2] = scr_menu_regaliare_primary;
-_scriptList[3] = scr_menu_regaliare_special;
 
-//Right-hand Menu and Buttons
-draw_sprite(spr_menu_rope,3,176,77);
-draw_sprite(spr_menu_rope,3,262,77);
-draw_sprite(spr_menu_rope,3,176,99);
-draw_sprite(spr_menu_rope,3,262,99);
-draw_sprite_stretched(spr_menu_beveled,3,166,35,110,44);
-draw_sprite_stretched(spr_menu_beveled,3,166,85,110,16);
-draw_sprite_stretched(spr_menu_beveled,3,166,107,110,16);
-draw_sprite_stretched(spr_menu_beveled,3,252,127,24,16);
-draw_sprite_stretched(spr_menu_beveled,3,226,127,24,16);
-draw_sprite_stretched(spr_menu,8,161,35,120,16);
-draw_sprite_stretched(spr_menu_circle16,3,167,127,50,16);
-
-//Title
+//Set
+draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text_transformed(101,39,"REGALIARE",1,1,0);
 
-for (var i = 0; i < 4; i = i + 1)
+//Base and Title
+draw_sprite_stretched(spr_menu_beveled,3,87,35,146,98);
+draw_sprite_stretched(spr_menu,8,82,35,156,16);
+draw_text_transformed(160,39,"REGALIARE SKILLS",1,1,0);
+
+//
+//Skill Buttons
+draw_sprite_stretched(spr_menu_circle16,1,95,53,21,21);
+draw_sprite(spr_armor_allGame,0,90,52);
+if (point_in_rectangle(_mouseX,_mouseY,95,53,116,75))
 {
-	var _originX = 50 + (26 * i);
-	var _originY = 53;
-	if (point_in_rectangle(_mouseX,_mouseY,_originX,_originY,_originX+21,_originY+21))
+	draw_sprite_stretched(spr_highlight_circle,0,94,52,23,23);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,1,_originX-1,_originY-1,23,23)
-		if (mouse_check_button_pressed(mb_left))
-		{
-			audio_sound_gain(snd_menu,global.volumeMenu,1);
-			audio_play_sound(snd_menu,0,false);
-			selected_info = _scriptList[i];
-		
-		}
+		page = 0;
+	}
+}
+draw_sprite_stretched(spr_menu_circle16,1,130,53,21,21);
+draw_sprite(spr_weapons_allGame,0,125,52);
+if (point_in_rectangle(_mouseX,_mouseY,130,53,151,75))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,129,52,23,23);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 1;
+	}
+}
+draw_sprite_stretched(spr_menu_circle16,1,166,53,21,21);
+draw_sprite(spr_primary_allGame,0,161,52);
+if (point_in_rectangle(_mouseX,_mouseY,166,53,187,75))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,165,52,23,23);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 2;
+	}
+}
+draw_sprite_stretched(spr_menu_circle16,1,202,53,21,21);
+draw_sprite(spr_special_allGame,0,197,52);
+if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,199,52,23,23);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 3;
 	}
 }
 
-
-
-//Draw Right Hand Menu
-if (selected_info != -1)
+//
+//Upgrade Buttons
+draw_sprite_stretched(spr_menu_circle16,1,95,76,21,16);
+draw_sprite(spr_form_stones_all,0,106,85);
+if (form_grid[# 0, 5] = false) draw_sprite(spr_lock,0,105,85)
+if (point_in_rectangle(_mouseX,_mouseY,95,76,116,93))
 {
-	script_execute(selected_info)
-}
-else
-{
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);
-	draw_set_color(c_white);
-	draw_text_transformed(222,39,"SELECT A SKILL",1,1,0);
-	draw_text_transformed(222,56,"SKILL DESCRIPTION",.5,.5,0); 
-	draw_text_transformed(222,91,"LEVEL",.5,.5,0); 
-	draw_text_transformed(222,112,"VALUE",.5,.5,0);
-}
-}
-//
-//
-//
-//
-//
-//Draw Regal Blade Menu in Inventory
-function scr_menu_regaliare_weapon(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _lvlY = 91;
-var _statY = 112;
-var _buttonY = 127;
-
-//Main Text
-draw_set_font(global.fnt_main_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_white);
-var _level = "Level: " + string(obj_inventory.form_grid[# 0, 5]) + " > " + string(obj_inventory.form_grid[# 0, 5]+1);
-var _stat = "Damage: " + string(30 + (7 * obj_player.might) + (8 * obj_inventory.form_grid[# 0, 5])) + " > " + string(30 + (7 * obj_player.might) + (8 * (obj_inventory.form_grid[# 0, 5] + 1)));
-var _title = "REGAL BLADE";
-var _describe = "A fast swinging sword that does\naverage damage and slight knockback";
-draw_text_transformed(_midX,_titleY,_title,1,1,0);
-draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
-draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
-draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
-	
-	
-//Level	
-switch (obj_inventory.form_grid[# 0, 5])
-{
-	case 0:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.ps_array[0] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 5] = 1;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
-	break;
-	
-	case 1:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 2) and (obj_inventory.ps_array[1] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 5] = 2;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 2;
-						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
-	break;
-}
-
-
-}
-//
-//
-//
-//
-//
-//Draw Regaliare's Armor Menu in Inventory
-function scr_menu_regaliare_armor(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _lvlY = 91;
-var _statY = 112;
-var _buttonY = 127;
-
-//Main Text
-draw_set_font(global.fnt_main_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_white);
-var _level = "Level: " + string(obj_inventory.form_grid[# 0, 6]) + " > " + string(obj_inventory.form_grid[# 0, 6]+1);
-var _stat = "Negates: " + string(12 + (6 * (obj_inventory.form_grid[# 0, 6]))) + " > " + string(12 + (6 * (obj_inventory.form_grid[# 0, 6] + 1)));
-var _title = "REGAL ARMOR";
-var _describe = "Heavy metal armor that blocks\na high amount of damage.";
-draw_text_transformed(_midX,_titleY,_title,1,1,0);
-draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
-draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
-draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
-	
-	
-//Level	
-switch (obj_inventory.form_grid[# 0, 6])
-{
-	case 0:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.ps_array[0] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 6] = 1;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
-	break;
-	
-	case 1:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 2) and (obj_inventory.ps_array[1] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 6] = 2;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 2;
-						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
-	break;
-}
-
-}
-//
-//
-//
-//
-//
-//Draw Gold Burst Menu in Inventory
-function scr_menu_regaliare_primary(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _lvlY = 91;
-var _statY = 112;
-var _buttonY = 127;
-
-//Main Text
-if (page = 0)
-{
-	//Main Text
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);
-	draw_set_color(c_white);
-	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
-	var _stat = "Damage: " + string(10 + (5 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(10 + (5 * obj_player.grace) + (5 * (obj_inventory.form_grid[# 0, 7] + 1)));
-	var _title = "GOLD BURST";
-	var _describe = "Rapidly fire small golden projec-\ntiles that deal average damage."; 
-	draw_text_transformed(_midX,_titleY,_title,1,1,0);
-	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
-	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
-}
-if (page = 1)
-{
-	//Main Text
-	draw_set_font(global.fnt_main_white);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);
-	draw_set_color(c_white);
-	var _level = "Level: " + string(obj_inventory.form_grid[# 0, 7]) + " > " + string(obj_inventory.form_grid[# 0, 7]+1);
-	var _stat = "Damage: " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7]))) + " > " + string(18 + (6 * obj_player.grace) + (6 * (obj_inventory.form_grid[# 0, 7] + 1)));
-	var _title = "HEAVY BURST";
-	var _describe = "Fire larger projectiles at a slower rate\nthat pass through enemies instead\nof breaking.";
-	draw_text_transformed(_midX,_titleY,_title,1,1,0);
-	draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
-	draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
-	draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
-}
-
-//Alt Magic
-if (obj_inventory.quest_grid[# 10, 3] = true)
-{
-	draw_sprite_stretched(spr_menu_circle16,3,277,55,16,16);
-	if (page = 0) draw_sprite_ext(spr_primaryAlt_allGame,0,269,55,1,1,0,c_white,1);
-	if (page = 1) draw_sprite_ext(spr_primary_allGame,0,269,55,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,277,55,293,71))
+	draw_sprite_stretched(spr_highlight_circle,0,94,75,23,18);
+	if (mouse_check_button_pressed(mb_left))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,276,54,18,18)
-		if (mouse_check_button_pressed(mb_left))
-		{
-			audio_sound_gain(snd_text02,global.volumeMenu,1);
-			audio_play_sound(snd_text02,0,false);
-			if (page = 0) page = 1;
-			else page = 0;
-		}
+		page = 4;
 	}
 }
-else page = 0;
-
-
-//Level	
-switch (obj_inventory.form_grid[# 0, 7])
+draw_sprite_stretched(spr_menu_circle16,1,130,76,21,16);
+draw_sprite(spr_form_stones_all,0,141,85);
+if (form_grid[# 0, 6] = false) draw_sprite(spr_lock,0,140,85)
+if (point_in_rectangle(_mouseX,_mouseY,130,76,151,93))
 {
-	case 0:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.ps_array[0] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 7] = 1;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
-				}
-			}
-		}
+	draw_sprite_stretched(spr_highlight_circle,0,129,75,23,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 5;
+	}
+}
+draw_sprite_stretched(spr_menu_circle16,1,166,76,21,16);
+draw_sprite(spr_form_stones_all,0,177,85);
+if (form_grid[# 0, 7] = false) draw_sprite(spr_lock,0,176,85)
+if (point_in_rectangle(_mouseX,_mouseY,166,76,187,93))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,165,75,23,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 6;
+	}
+}
+draw_sprite_stretched(spr_menu_circle16,1,202,76,21,16);
+draw_sprite(spr_form_stones_all,0,213,85);
+if (form_grid[# 0, 8] = false) draw_sprite(spr_lock,0,212,85)
+if (point_in_rectangle(_mouseX,_mouseY,202,76,223,93))
+{
+	draw_sprite_stretched(spr_highlight_circle,0,201,75,23,18);
+	if (mouse_check_button_pressed(mb_left))
+	{
+		page = 7;
+	}
+}
 
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
+//
+//Select Stat Info
+switch(page)
+{
+	case 0: 
+		draw_set_halign(fa_left);
+		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 2) and (obj_inventory.ps_array[1] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 7] = 2;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 2;
-						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 2: 
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 3: 
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 4: 
+		draw_set_halign(fa_left);
+		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 5: 
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 6: 
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
+	break;
+	
+	case 7: 
+		draw_set_halign(fa_left);
+		var _describe = ""
+		draw_sprite_stretched(spr_menu,8,97,94,92,16);
+		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
+		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 }
 
-}
 //
-//
-//
-//
-//
-//Draw Gold Arc Menu in Inventory
-function scr_menu_regaliare_special(){  
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);	
-var _midX = 222;
-var _leftX = 167;
-var _titleY = 39;
-var _descY = 56;
-var _lvlY = 91;
-var _statY = 112;
-var _buttonY = 127;
-
-//Main Text
-draw_set_font(global.fnt_main_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_top);
-draw_set_color(c_white);
-var _level = "Level: " + string(obj_inventory.form_grid[# 0, 8]) + " > " + string(obj_inventory.form_grid[# 0, 8]+1);
-var _stat = "Damage: " + string(22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]))) + " > " + string(22 + (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8] + 1)));
-var _title = "GOLD ARCS";
-var _describe = "Summon 2 golden arcs that encircle\nthe Courier, granting them invicibility\nand dealing damage on contact";
-draw_text_transformed(_midX,_titleY,_title,1,1,0);
-draw_text_transformed(_midX,_descY,_describe,.5,.5,0); 
-draw_text_transformed(_midX,_lvlY,_level,.5,.5,0); 
-draw_text_transformed(_midX,_statY,_stat,.5,.5,0);
-	
-	
-//Level	
-switch (obj_inventory.form_grid[# 0, 8])
+//Purchase
+if (page >= 4)
 {
-	case 0:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
+	draw_set_halign(fa_center);
+	draw_sprite_stretched(spr_menu,8,197,94,24,16);
+	draw_sprite(spr_form_stones_all,0,213,103);
+	draw_text_transformed(206,101,string(skill_stone[0]),.5,.5,0);
+	if (skill_stone[0] > 0)
+	{
+		draw_sprite_stretched(spr_menu_circle16,1,193,112,32,16);
+		draw_text_transformed(209,115,"PURCHASE\nUPGRADE",.5,.5,0);
+		if (point_in_rectangle(_mouseX,_mouseY,193,112,229,128))
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
+			draw_sprite_stretched(spr_highlight_circle,0,192,111,34,18);
 			if (mouse_check_button_pressed(mb_left))
 			{
-				if (obj_inventory.rog_array[0] >= 1) and (obj_inventory.ps_array[0] >= 1)
+				switch(page)
 				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 8] = 1;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 1;
-						obj_inventory.ps_array[0] = obj_inventory.ps_array[0] - 1;
+					case 4: 
+						skill_stone[0] = skill_stone[0] - 1;
+						form_grid[# 0, 5] = true;
+					break;
+				
+					case 5: 
+						skill_stone[0] = skill_stone[0] - 1;
+						form_grid[# 0, 6] = true;
+					break;
+				
+					case 6: 
+						skill_stone[0] = skill_stone[0] - 1;
+						form_grid[# 0, 7] = true;
+					break;
+					
+					case 7: 
+						skill_stone[0] = skill_stone[0] - 1;
+						form_grid[# 0, 8] = true;
+					break;
 				}
 			}
 		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,0,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"1\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[0])+")",.5,.5,0);
-	break;
-	
-	case 1:
-		//draw large weapon sprite
-		//draw_sprite_stretched(spr_menu,1,95,61,14,54);
-		if (point_in_rectangle(_mouseX,_mouseY,_leftX,_buttonY,_leftX+50,_buttonY+16))
-		{
-			draw_sprite_stretched(spr_highlight_circle,0,_leftX-1,_buttonY-1,52,18)
-			if (mouse_check_button_pressed(mb_left))
-			{
-				if (obj_inventory.rog_array[0] >= 2) and (obj_inventory.ps_array[1] >= 1)
-				{
-						audio_sound_gain(snd_text02,global.volumeMenu,1);
-						audio_play_sound(snd_text02,0,false);
-						obj_inventory.form_grid[# 0, 8] = 2;
-						obj_inventory.rog_array[0] = obj_inventory.rog_array[0] - 2;
-						obj_inventory.ps_array[1] = obj_inventory.ps_array[1] - 1;
-				}
-			}
-		}
-
-		draw_sprite_stretched(spr_rog_all,0,234,127,16,16);
-		draw_sprite_stretched(spr_powerstone_all,1,260,127,16,16);
-		draw_set_halign(fa_center);
-		draw_text_transformed(_leftX + 25,_buttonY + 5,"LEVEL UP",.5,.5,0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(235,133,"2\n("+ string(obj_inventory.rog_array[0])+")",.5,.5,0);
-		draw_text_transformed(263,133,"1\n("+ string(obj_inventory.ps_array[1])+")",.5,.5,0);	
-	break;
+	}
 }
 }

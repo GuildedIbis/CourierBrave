@@ -7,7 +7,22 @@
 //Load Form Stats
 //Path: obj_game > event Key Pressed "L"
 function scr_load_forms(_loadEntity){
-//Load Form Stones
+//Load Form and SKill Stone (Quantities)
+if (variable_struct_exists(_loadEntity,"formStones0")) obj_inventory.form_stone[0] = _loadEntity.formStones0;
+if (variable_struct_exists(_loadEntity,"formStones1")) obj_inventory.form_stone[1] = _loadEntity.formStones1;
+if (variable_struct_exists(_loadEntity,"formStones2")) obj_inventory.form_stone[2] = _loadEntity.formStones2;
+if (variable_struct_exists(_loadEntity,"formStones3")) obj_inventory.form_stone[3] = _loadEntity.formStones3;
+if (variable_struct_exists(_loadEntity,"formStones4")) obj_inventory.form_stone[4] = _loadEntity.formStones4;
+if (variable_struct_exists(_loadEntity,"formStones5")) obj_inventory.form_stone[5] = _loadEntity.formStones5;
+if (variable_struct_exists(_loadEntity,"skillStones0")) obj_inventory.skill_stone[0] = _loadEntity.skillStones0;
+if (variable_struct_exists(_loadEntity,"skillStones1")) obj_inventory.skill_stone[1] = _loadEntity.skillStones1;
+if (variable_struct_exists(_loadEntity,"skillStones2")) obj_inventory.skill_stone[2] = _loadEntity.skillStones2;
+if (variable_struct_exists(_loadEntity,"skillStones3")) obj_inventory.skill_stone[3] = _loadEntity.skillStones3;
+if (variable_struct_exists(_loadEntity,"skillStones4")) obj_inventory.skill_stone[4] = _loadEntity.skillStones4;
+if (variable_struct_exists(_loadEntity,"skillStones5")) obj_inventory.skill_stone[5] = _loadEntity.skillStones5;
+
+
+//Load Form Stones (Pedestal Found)
 if (variable_struct_exists(_loadEntity,"formStone0")) obj_inventory.form_stone_list[0] = _loadEntity.formStone0;
 if (variable_struct_exists(_loadEntity,"formStone1")) obj_inventory.form_stone_list[1] = _loadEntity.formStone1;
 if (variable_struct_exists(_loadEntity,"formStone2")) obj_inventory.form_stone_list[2] = _loadEntity.formStone2;
@@ -27,7 +42,7 @@ if (variable_struct_exists(_loadEntity,"formStone15")) obj_inventory.form_stone_
 if (variable_struct_exists(_loadEntity,"formStone16")) obj_inventory.form_stone_list[16] = _loadEntity.formStone16;
 if (variable_struct_exists(_loadEntity,"formStone17")) obj_inventory.form_stone_list[17] = _loadEntity.formStone17;
 
-//Load Form Stats
+//Load Forms and Skills (Unlocked Status)
 if (variable_struct_exists(_loadEntity,"form04")) obj_inventory.form_grid[# 0, 4] = _loadEntity.form04;
 if (variable_struct_exists(_loadEntity,"form05")) obj_inventory.form_grid[# 0, 5] = _loadEntity.form05;
 if (variable_struct_exists(_loadEntity,"form06")) obj_inventory.form_grid[# 0, 6] = _loadEntity.form06;
@@ -67,7 +82,21 @@ function scr_save_forms(_saveData){
 //What To Save As : What to Save
 var _saveWeapon = 
 {
-//Form Stones
+//Form and Skill Stones (Quantity)
+formStones0 : obj_inventory.form_stone[0],
+formStones1 : obj_inventory.form_stone[1],
+formStones2 : obj_inventory.form_stone[2],
+formStones3 : obj_inventory.form_stone[3],
+formStones4 : obj_inventory.form_stone[4],
+formStones5 : obj_inventory.form_stone[5],
+SkillStones0 : obj_inventory.skill_stone[0],
+skillStones1 : obj_inventory.skill_stone[1],
+SkillStones2 : obj_inventory.skill_stone[2],
+SkillStones3 : obj_inventory.skill_stone[3],
+SkillStones4 : obj_inventory.skill_stone[4],
+SkillStones5 : obj_inventory.skill_stone[5],
+
+//Form Stones (Pedestal Found)
 formStone0 : obj_inventory.form_stone_list[0],
 formStone1 : obj_inventory.form_stone_list[1],
 formStone2 : obj_inventory.form_stone_list[2],

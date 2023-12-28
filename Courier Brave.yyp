@@ -800,6 +800,7 @@
     {"id":{"name":"spr_ghost_shadowShiftB_hitbox","path":"sprites/spr_ghost_shadowShiftB_hitbox/spr_ghost_shadowShiftB_hitbox.yy",},},
     {"id":{"name":"spr_light_town_bonfire","path":"sprites/spr_light_town_bonfire/spr_light_town_bonfire.yy",},},
     {"id":{"name":"spr_enemy_skirmisher_slash","path":"sprites/spr_enemy_skirmisher_slash/spr_enemy_skirmisher_slash.yy",},},
+    {"id":{"name":"spr_form_stones_all","path":"sprites/spr_form_stones_all/spr_form_stones_all.yy",},},
     {"id":{"name":"spr_enemy_trapLily_exposed","path":"sprites/spr_enemy_trapLily_exposed/spr_enemy_trapLily_exposed.yy",},},
     {"id":{"name":"spr_goldBullet","path":"sprites/spr_goldBullet/spr_goldBullet.yy",},},
     {"id":{"name":"spr_player_ironPlate_slash","path":"sprites/spr_player_ironPlate_slash/spr_player_ironPlate_slash.yy",},},
