@@ -40,7 +40,7 @@ quest_grid[# 2, 4] = Idle;
 quest_grid[# 2, 5] = scr_inventory_questlog_text_02; 
 quest_grid[# 3, 0] = false;
 quest_grid[# 3, 1] = 0;
-quest_grid[# 3, 2] = 2; 
+quest_grid[# 3, 2] = 1; 
 quest_grid[# 3, 3] = false;
 quest_grid[# 3, 4] = Idle;
 quest_grid[# 3, 5] = scr_inventory_questlog_text_03;
@@ -249,7 +249,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "King Masgar's Ghost";
-var _text = "Defeat the ghost of King Masgar\nand collect the Skill Stone.\n\nThe war against the great evil saw the\nend of many lines, including the line\nof the Rempho King Masgar, who was\nentombed with his fallen kingsguard...";
+var _text = "Defeat the ghost of King Masgar.\n\nThe war against the great evil saw the\nend of many lines, including the line\nof the Rempho King Masgar, who was\nentombed with his fallen kingsguard...";
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);

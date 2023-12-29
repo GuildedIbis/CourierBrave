@@ -660,7 +660,7 @@
     {"id":{"name":"rm_lenko_yakflowerPath_10","path":"rooms/rm_lenko_yakflowerPath_10/rm_lenko_yakflowerPath_10.yy",},},
     {"id":{"name":"spr_aspects_icons","path":"sprites/spr_aspects_icons/spr_aspects_icons.yy",},},
     {"id":{"name":"tile_fields8","path":"tilesets/tile_fields8/tile_fields8.yy",},},
-    {"id":{"name":"AltSkillPedestal","path":"scripts/AltSkillPedestal/AltSkillPedestal.yy",},},
+    {"id":{"name":"SkillPedestal","path":"scripts/SkillPedestal/SkillPedestal.yy",},},
     {"id":{"name":"spr_game_logo_icon_itch","path":"sprites/spr_game_logo_icon_itch/spr_game_logo_icon_itch.yy",},},
     {"id":{"name":"tile_desert","path":"tilesets/tile_desert/tile_desert.yy",},},
     {"id":{"name":"spr_npc_nisma36","path":"sprites/spr_npc_nisma36/spr_npc_nisma36.yy",},},

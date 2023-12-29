@@ -23,7 +23,7 @@ form_type = 0;
 drop_amount = 20;
 max_hp = 1100;//+ (550 * enemy_lvl);
 hp = max_hp;
-enemy_spd = 1.25;
+enemy_spd = 1.0;
 
 //Animation and Status
 name = "Masgar's Ghost";
@@ -487,7 +487,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80;//+ (11 * other.enemy_lvl);
+	damage = 45;//+ (11 * other.enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_slash_hitbox)
 
 	//Animate
@@ -561,7 +561,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.5;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 85;//+ (12 * enemy_lvl);
+			damage = 55;//+ (12 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 3;
 			fragment = obj_fragGold;
@@ -614,10 +614,10 @@ if (timer2 <= 0)
 		enemy_move = spr_enemy_ghostMasgar_phantomDagger;
 		aggro_drop = 300;
 		healthbar = false;
-		enemy_spd = 2.5;
+		enemy_spd = 2.0;
 		local_frame = 0;
 		hit_by_attack = -1;
-		damage = 25;//+ (6 * other.enemy_lvl);
+		damage = 20;//+ (6 * other.enemy_lvl);
 		break_object = other.break_object;
 		fragment_count = 1;
 		fragment = obj_fragGold;
@@ -753,6 +753,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 //}
 obj_inventory.quest_grid[# 3, 0] = true;
 obj_inventory.quest_grid[# 3, 1] = 1;
+obj_inventory.quest_grid[# 3, 3] = true;
 }
 
 

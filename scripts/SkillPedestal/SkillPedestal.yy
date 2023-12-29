@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "AltSkillPedestal",
+  "name": "SkillPedestal",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

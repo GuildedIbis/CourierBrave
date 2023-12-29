@@ -68,6 +68,18 @@ if (variable_struct_exists(_loadEntity,"form45")) obj_inventory.form_grid[# 4, 5
 if (variable_struct_exists(_loadEntity,"form46")) obj_inventory.form_grid[# 4, 6] = _loadEntity.form46;
 if (variable_struct_exists(_loadEntity,"form47")) obj_inventory.form_grid[# 4, 7] = _loadEntity.form47;
 if (variable_struct_exists(_loadEntity,"form48")) obj_inventory.form_grid[# 4, 8] = _loadEntity.form48;
+
+//Load Skill Stones (Found)
+if (variable_struct_exists(_loadEntity,"skillStone0")) obj_inventory.skill_stone_list[0] = _loadEntity.skillStone0;
+if (variable_struct_exists(_loadEntity,"skillStone1")) obj_inventory.skill_stone_list[1] = _loadEntity.skillStone1;
+if (variable_struct_exists(_loadEntity,"skillStone2")) obj_inventory.skill_stone_list[2] = _loadEntity.skillStone2;
+if (variable_struct_exists(_loadEntity,"skillStone3")) obj_inventory.skill_stone_list[3] = _loadEntity.skillStone3;
+if (variable_struct_exists(_loadEntity,"skillStone4")) obj_inventory.skill_stone_list[4] = _loadEntity.skillStone4;
+if (variable_struct_exists(_loadEntity,"skillStone5")) obj_inventory.skill_stone_list[5] = _loadEntity.skillStone5;
+if (variable_struct_exists(_loadEntity,"skillStone6")) obj_inventory.skill_stone_list[6] = _loadEntity.skillStone6;
+if (variable_struct_exists(_loadEntity,"skillStone7")) obj_inventory.skill_stone_list[7] = _loadEntity.skillStone7;
+if (variable_struct_exists(_loadEntity,"skillStone8")) obj_inventory.skill_stone_list[8] = _loadEntity.skillStone8;
+if (variable_struct_exists(_loadEntity,"skillStone9")) obj_inventory.skill_stone_list[9] = _loadEntity.skillStone9;
 }
 //
 //
@@ -89,12 +101,12 @@ formStones2 : obj_inventory.form_stone[2],
 formStones3 : obj_inventory.form_stone[3],
 formStones4 : obj_inventory.form_stone[4],
 formStones5 : obj_inventory.form_stone[5],
-SkillStones0 : obj_inventory.skill_stone[0],
+skillStones0 : obj_inventory.skill_stone[0],
 skillStones1 : obj_inventory.skill_stone[1],
-SkillStones2 : obj_inventory.skill_stone[2],
-SkillStones3 : obj_inventory.skill_stone[3],
-SkillStones4 : obj_inventory.skill_stone[4],
-SkillStones5 : obj_inventory.skill_stone[5],
+skillStones2 : obj_inventory.skill_stone[2],
+skillStones3 : obj_inventory.skill_stone[3],
+skillStones4 : obj_inventory.skill_stone[4],
+skillStones5 : obj_inventory.skill_stone[5],
 
 //Form Stones (Pedestal Found)
 formStone0 : obj_inventory.form_stone_list[0],
@@ -143,7 +155,16 @@ form46 : obj_inventory.form_grid[# 4, 6],
 form47 : obj_inventory.form_grid[# 4, 7],
 form48 : obj_inventory.form_grid[# 4, 8],
 
-	
+skillStone0 : obj_inventory.skill_stone_list[0],	
+skillStone1 : obj_inventory.skill_stone_list[1],	
+skillStone2 : obj_inventory.skill_stone_list[2],	
+skillStone3 : obj_inventory.skill_stone_list[3],	
+skillStone4 : obj_inventory.skill_stone_list[4],	
+skillStone5 : obj_inventory.skill_stone_list[5],	
+skillStone6 : obj_inventory.skill_stone_list[6],	
+skillStone7 : obj_inventory.skill_stone_list[7],	
+skillStone8 : obj_inventory.skill_stone_list[8],	
+skillStone9 : obj_inventory.skill_stone_list[9],	
 }
 array_push(_saveData, _saveWeapon);
 }

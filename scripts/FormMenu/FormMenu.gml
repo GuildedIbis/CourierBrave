@@ -8,14 +8,14 @@
 function scr_inventory_form_create(){
 form_grid = ds_grid_create(18,9);
 form_stone_list = array_create(18, false);
+skill_stone_list = array_create(72, false);
 form_stone_list[0] = true;
 form_stone = array_create(6,0);
 skill_stone = array_create(6,0);
-skill_stone[0] = 1;
 
 //Regaliare 
 form_grid[# 0, 0] = "REGALIARE"
-form_grid[# 0, 1] = "Description"
+form_grid[# 0, 1] = Idle;
 form_grid[# 0, 2] = scr_player_regaliare_set; //Set Script
 form_grid[# 0, 3] = scr_menu_skills_regaliare;
 form_grid[# 0, 4] = true; //Unlocked Status
@@ -26,7 +26,7 @@ form_grid[# 0, 8] = false;
 
 //Halofire
 form_grid[# 1, 0] = "HALOFIRE"
-form_grid[# 1, 1] = "White Lavos with fire hair and orange accents"
+form_grid[# 1, 1] = scr_menu_skills_halofire_unlock;
 form_grid[# 1, 2] = scr_player_halofire_set; //Player Script
 form_grid[# 1, 3] = scr_menu_skills_halofire; //Inventory Script
 form_grid[# 1, 4] = false; //Unlocked Status
@@ -111,7 +111,37 @@ for (var i = 0; i < 18; i = i + 1)
 			}
 		}
 	}
+	if (obj_inventory.form_grid[# i, 4] = false) and (form_stone[i mod 6] > 0)
+	{
+		draw_sprite(spr_formSelect_icons,i,_x2 + 10,_y2 + 13);
+		if (point_in_rectangle(_mouseX,_mouseY,_x2,_y2,_x2+21,_y2+24))
+		{
+			draw_sprite_stretched_ext(spr_highlight_circle,1,_x2-1,_y2-1,23,26,c_white,1.0)
+			if (mouse_check_button_pressed(mb_left))
+			{
+				audio_sound_gain(snd_menu,global.volumeMenu,1);
+				audio_play_sound(snd_menu,0,false);
+				inv_gui = obj_inventory.form_grid[# i, 1];
+				selected_info = -1;
+				slot = i;
+			}
+		}
+	}
+	if (obj_inventory.form_grid[# i, 4] = false) and (form_stone[i mod 6] = 0)
+	{
+		draw_sprite(spr_lock,i,_x2 + 10,_y2 + 13);
+		
+	}
+	
 }
+
+draw_sprite_stretched(spr_menu_beveled,3,87,135,146,20);
+for (var i = 0; i < 6; i = i + 1)
+{
+	draw_sprite(spr_form_stones_all,i,100+(23*i),146);
+	draw_text_transformed(106+(23*i),144,string(form_stone[i]),.5,.5,0);
+}
+
 
 }
 
