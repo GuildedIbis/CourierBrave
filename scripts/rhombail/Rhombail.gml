@@ -44,20 +44,20 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "Courier... customer...\nGoods at a fair price." 
+	text_string = "Courier, a fellow traveler. Warmest of greetings." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
-if (string_counter = 1)
-{
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	text_script = scr_menu_rhombail_trade;
-	//DrawBuyMenu();
-	//DrawSelectedMenu(obj_inventory);
-}
+//if (string_counter = 1)
+//{
+//	text_string = ""
+//	string_counter = 0;
+//	_SubString = string_copy(text_string,1,letter_counter);
+//	//text_script = scr_menu_rhombail_trade;
+//	//DrawBuyMenu();
+//	//DrawSelectedMenu(obj_inventory);
+//}
 
-if (string_counter >= 2)
+if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;

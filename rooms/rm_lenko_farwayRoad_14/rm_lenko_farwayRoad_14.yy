@@ -595,7 +595,6 @@
     {"name":"inst_19566926","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_6E89B189","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_2A71A80A","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
-    {"name":"inst_5045EFF0","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_2291F6EF","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_206112AA","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_C95D6DB","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
@@ -771,9 +770,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"4",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.farwayRoad_resource_grid",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":288.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5045EFF0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":728.0,"y":264.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_173DA971","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_questItem","path":"objects/obj_questItem/obj_questItem.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_quest_item_02_04_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_quest_item_02_04",},

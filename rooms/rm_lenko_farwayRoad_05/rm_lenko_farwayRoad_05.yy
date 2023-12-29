@@ -857,7 +857,6 @@
     {"name":"inst_5CE5B271","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_167D3AC0","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_558F511F","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
-    {"name":"inst_1478EA7E","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_34ECEA9E","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_7058556","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
     {"name":"inst_695C33CB","path":"rooms/rm_lenko_farwayRoad_05/rm_lenko_farwayRoad_05.yy",},
@@ -1117,9 +1116,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_quest_item_02_01_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_quest_item_02_01",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":704.0,"y":144.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1478EA7E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-64.0,"y":168.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34ECEA9E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kephraStone","path":"objects/obj_kephraStone/obj_kephraStone.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"12",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":40.0,"y":264.0,},

@@ -110,15 +110,18 @@ if instance_exists(obj_altar)
 	if (point_in_circle(obj_altar.x,obj_altar.y,obj_player.x,obj_player.y,64))
 	{
 		altar = true;
+		draw_text_transformed(160,150,"SELECT AN ALTAR TO TRAVEL TO IT",.5,.5,0);
 	}
 	else
 	{
 		altar = false;
+		draw_text_transformed(160,150,"TRAVEL LOCKED - MUST BE NEAR AN ALTAR",.5,.5,0);
 	}
 }
 else
 {
 	altar = false;
+	draw_text_transformed(160,150,"TRAVEL LOCKED - MUST BE NEAR AN ALTAR",.5,.5,0);
 }
 
 

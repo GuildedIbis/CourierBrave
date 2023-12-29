@@ -79,15 +79,15 @@ if (obj_inventory.quest_grid[# 2, 1] < 2) or (obj_inventory.quest_grid[# 2, 1] >
 		_SubString = string_copy(text_string,1,letter_counter);
 		page = 0;
 	}
-	if (string_counter = 1)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		text_script = scr_menu_kovalad_trade;
-	}
+	//if (string_counter = 1)
+	//{
+	//	text_string = ""
+	//	string_counter = 0;
+	//	_SubString = string_copy(text_string,1,letter_counter);
+	//	text_script = scr_menu_kovalad_trade;
+	//}
 
-	if (string_counter >= 2)
+	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
@@ -173,13 +173,13 @@ if (obj_inventory.quest_grid[# 2, 1] = 3)
 		_SubString = string_copy(text_string,1,letter_counter);
 		page = 0;
 	}
-	if (string_counter = 2)
-	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		text_script = scr_menu_kovalad_trade;
-	}
+	//if (string_counter = 2)
+	//{
+	//	text_string = ""
+	//	string_counter = 0;
+	//	_SubString = string_copy(text_string,1,letter_counter);
+	//	text_script = scr_menu_kovalad_trade;
+	//}
 
 	if (string_counter >= 2)
 	{
@@ -216,14 +216,14 @@ if (obj_inventory.quest_grid[# 2, 1] = 4)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Here, take this enchantment-\nI'm no mage even with it." 
+		text_string = "Here, take this Power Stone-\nI'm no mage even with it." 
 		_SubString = string_copy(text_string,1,letter_counter);
 		page = 0;
 	}
 	if (string_counter = 2)
 	{
 		speaker = 1;
-		text_string = "Enchantment Received!" 
+		text_string = "Purple Skill Stone Received!" 
 		_SubString = string_copy(text_string,1,letter_counter);	
 		page = 0;
 	}
@@ -237,7 +237,8 @@ if (obj_inventory.quest_grid[# 2, 1] = 4)
 		obj_game.textPaused = false;
 		obj_inventory.quest_grid[# 2, 1] = 5;
 		obj_inventory.quest_grid[# 2, 3] = true;
-		obj_inventory.crystal_enchant[2] = true;
+		obj_inventory.skill_stone[2] = obj_inventory.skill_stone[2] + 1; //Purple 1/12
+		obj_inventory.skill_stone_list[3] = true;
 	
 		//Reset Buy/Sell Menu
 		page = 0;

@@ -308,10 +308,6 @@ farwayRoad_map_ary[14][0] = "Farway Road 14";
 farwayRoad_map_ary[14][1] = 64;
 farwayRoad_map_ary[14][2] = 63;
 farwayRoad_map_ary[14][3] = 0;
-farwayRoad_map_ary[15][0] = "Farway Road 15";
-farwayRoad_map_ary[15][1] = 64;
-farwayRoad_map_ary[15][2] = 63;
-farwayRoad_map_ary[15][3] = 0;
 
 
 //Yakflower Path Map
@@ -375,10 +371,6 @@ yakflowerPath_map_ary[14][0] = "Yakflower Path 14";
 yakflowerPath_map_ary[14][1] = 84;
 yakflowerPath_map_ary[14][2] = 37;
 yakflowerPath_map_ary[14][3] = 0;
-yakflowerPath_map_ary[15][0] = "Yakflower Path 15";
-yakflowerPath_map_ary[15][1] = 73;
-yakflowerPath_map_ary[15][2] = 17;
-yakflowerPath_map_ary[15][3] = 0;
 
 
 //Habraf Lake Map
