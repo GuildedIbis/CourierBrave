@@ -560,7 +560,7 @@ scr_enemy_alert();
 function scr_enemy_alert(){
 with (obj_enemy)
 {
-	if (bullet = false) and (point_in_circle(x,y,other.x,other.y,64))
+	if (bullet = false) and (point_in_circle(x,y,other.x,other.y,96))
 	{
 		if (targeted = false) 
 		{

@@ -215,4 +215,110 @@ draw_text_transformed(64,132,_name,.5,.5,0);
 draw_set_halign(fa_right);
 draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
 }
+//
+//
+//
+//
+//
+//Skill Pedestal 2 Text
+function scr_text_pedestal_skill_2(){
+//Stone
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Power Stone Pedestal"
+
+
+//Draw Based on String Counter
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "Purple Skill Stone found!\nSpend Skill Stones in the Form Menu of the Inventory." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+	
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.skill_stone[2] = skill_stone[2] + 1;
+	obj_inventory.skill_stone_list[2] = true; //Purple Skill Stone 1/12
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+//Skill Pedestal 3 Text - Stand-In, 3 actually obtained from Kovalad
+function scr_text_pedestal_skill_3(){
+//Stone
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Power Stone Pedestal"
+
+
+//Draw Based on String Counter
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "Blue Skill Stone found!\nSpend Skill Stones in the Form Menu of the Inventory." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
+}
+	
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.skill_stone[3] = skill_stone[3] + 1;
+	obj_inventory.skill_stone_list[3] = true; //Blue Skill Stone 1/12
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_set_valign(fa_middle);
+draw_text_transformed(64,132,_name,.5,.5,0);
+draw_set_halign(fa_right);
+draw_text_transformed(256,132,"Press E to Continue",.5,.5,0);
+}
 	
