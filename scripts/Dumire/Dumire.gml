@@ -46,7 +46,7 @@ var _SubString
 if (string_counter = 0)
 {
 	speaker = 1;
-	text_string = "Sure, the rats are a problem, but the economy is what\nscares me. 5 grapes for a single Rog is theft if you ask me." 
+	text_string = "Sure, the rats are a problem, but the economy is what\nscares me. The price of grapes is theft if you ask me." 
 	_SubString = string_copy(text_string,1,letter_counter);
 }
 if (string_counter >= 1)

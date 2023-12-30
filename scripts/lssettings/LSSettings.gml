@@ -32,15 +32,12 @@ function scr_save_settings(_saveData){
 var _savePlayer = 
 {
 	//Save Room
-	volMusic : global.volumeMusic, //CONCEPT: NOT FINAL
-	volMenu : global.volumeMenu, //CONCEPT: NOT FINAL
-	volEffects : global.volumeEffects, //CONCEPT: NOT FINAL
-	timePlayed : obj_game.time_played, //CONCEPT: NOT FINAL
-	timePlayed2 : obj_game.time_played2, //CONCEPT: NOT FINAL
-	timePlayed3 : obj_game.time_played3, //CONCEPT: NOT FINAL
-
-	
-	
+	volMusic : global.volumeMusic,
+	volMenu : global.volumeMenu,
+	volEffects : global.volumeEffects,
+	timePlayed : obj_game.time_played,
+	timePlayed2 : obj_game.time_played2,
+	timePlayed3 : obj_game.time_played3,
 }
 array_push(_saveData, _savePlayer);
 }

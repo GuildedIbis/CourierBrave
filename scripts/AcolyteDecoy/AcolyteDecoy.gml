@@ -212,7 +212,7 @@ if (obj_game.gamePaused = false)
 //
 //Acolyte Decoy Drop
 function scr_enemy_acolyteDecoy_drop(){
-var _objects = 2;
+var _objects = 3;
 var _angle = irandom_range(0,359);
 
 with (instance_create_layer(x,y,"Instances",obj_itemCharge))
@@ -230,6 +230,16 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	drop_amount = round(other.drop_amount/2);
 	sprite_index = spr_charge_drop;
 	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = round(other.drop_amount/2);
+	sprite_index = spr_charge_drop;
+	image_index = 6;
 	image_speed = 0;
 	direction = (360/_objects * 3) + _angle;
 	image_angle = direction;

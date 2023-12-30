@@ -8,25 +8,6 @@
 function scr_inventory_maps_create(){
 slot = obj_game.level_num;
 map_grid = ds_grid_create(23,3);
-//region_grid = ds_grid_create(6,3);
-//region_grid[# 0, 0] = "Lenko Woodlands"
-//region_grid[# 0, 1] = true;
-//region_grid[# 0, 2] = LenkoMapMenuDraw;
-//region_grid[# 1, 0] = "Beetrap Tundra"
-//region_grid[# 1, 1] = false;
-//region_grid[# 1, 2] = BeetrapMapMenuDraw;
-//region_grid[# 2, 0] = "Lenko Woodlands"
-//region_grid[# 2, 1] = false;
-//region_grid[# 2, 2] = LenkoMapMenuDraw;
-//region_grid[# 3, 0] = "Lenko Woodlands"
-//region_grid[# 3, 1] = false;
-//region_grid[# 3, 2] = LenkoMapMenuDraw;
-//region_grid[# 4, 0] = "Lenko Woodlands"
-//region_grid[# 4, 1] = false;
-//region_grid[# 4, 2] = LenkoMapMenuDraw;
-//region_grid[# 5, 0] = "Lenko Woodlands"
-//region_grid[# 5, 1] = false;
-//region_grid[# 5, 2] = LenkoMapMenuDraw;
 
 map_grid[# 0, 0] = "Vostle Town"
 map_grid[# 0, 1] = false;
@@ -373,10 +354,10 @@ if (obj_inventory.altar_grid[# 1, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 5;
+			obj_inventory.room_num = 4;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
-			obj_game.room_num = 5;
+			obj_game.room_num = 4;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
@@ -417,10 +398,10 @@ if (obj_inventory.altar_grid[# 2, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 7;
+			obj_inventory.room_num = 6;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
-			obj_game.room_num = 7;
+			obj_game.room_num = 6;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
@@ -462,10 +443,10 @@ if (obj_inventory.altar_grid[# 3, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 31);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 10;
+			obj_inventory.room_num = 9;
 			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
 			obj_game.level_num = 1;
-			obj_game.room_num = 10;
+			obj_game.room_num = 9;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
@@ -506,10 +487,10 @@ if (obj_inventory.altar_grid[# 4, 3] = true)
 		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 67);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
-			obj_inventory.room_num = 14;
+			obj_inventory.room_num = 13;
 			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
 			obj_game.level_num = 1;
-			obj_game.room_num = 14
+			obj_game.room_num = 13;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;

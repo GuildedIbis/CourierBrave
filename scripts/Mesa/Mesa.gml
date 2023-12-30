@@ -100,24 +100,11 @@ if (obj_inventory.quest_grid[# 2, 1] = 1)
 		text_string = "I don't believe it...  Thurn, the Courier found your Necklace! " 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
-	if (string_counter = 1)
-	{
-		speaker = 1;
-		text_string = "Thank you Courier. Please take this in return...\nI hope it helps."
-		_SubString = string_copy(text_string,1,letter_counter);
-	}
-	if (string_counter = 2)
-	{
-		speaker = 1;
-		text_string = "Star Orb Received!"
-		_SubString = string_copy(text_string,1,letter_counter);
-	}
-	if (string_counter >= 3)
+	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
 		obj_inventory.quest_grid[# 2, 1] = 2;
-		obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		_SubString = string_copy(text_string,1,letter_counter);
 	
 		//Reset Buy/Sell Menu
@@ -149,7 +136,7 @@ if (obj_inventory.quest_grid[# 2, 1] >= 2) and (obj_inventory.quest_grid[# 2, 1]
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Thanks again for finding her necklace!...\nThough truth be told it's in pretty rough shape." 
+		text_string = "Thanks for finding her necklace!...\nThough truth be told it's in pretty rough shape." 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter = 1)

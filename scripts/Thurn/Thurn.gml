@@ -92,24 +92,11 @@ if (obj_inventory.quest_grid[# 2, 1] = 1)
 		text_string = "Thank you Courier! It brings my heart joy to have it again!" 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
-	if (string_counter = 1)
-	{
-		speaker = 1;
-		text_string = "Please, take this." 
-		_SubString = string_copy(text_string,1,letter_counter);
-	}
-	if (string_counter = 2)
-	{
-		speaker = 1;
-		text_string = "Star Orb Received!"
-		_SubString = string_copy(text_string,1,letter_counter);
-	}
-	if (string_counter >= 3)
+	if (string_counter >= 1)
 	{
 		text_string = ""
 		string_counter = 0;
 		obj_inventory.quest_grid[# 2, 1] = 2;
-		obj_inventory.star_orb = obj_inventory.star_orb + 1;
 		_SubString = string_copy(text_string,1,letter_counter);
 		//obj_game.gamePaused = false;
 		//obj_game.textPaused = false;

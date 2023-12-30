@@ -196,7 +196,6 @@ var _text = "Halofire's form stone found.\n\nHalofire is the Courier of Star Fir
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
-
 }
 //
 //

@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "SaveLoad",
-    "path": "folders/Scripts/Game/SaveLoad.yy",
+    "name": "xRetiredScripts",
+    "path": "folders/Scripts/xRetiredScripts.yy",
   },
 }

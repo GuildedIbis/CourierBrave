@@ -20,8 +20,7 @@ if (variable_struct_exists(_loadEntity,"kephra006")) obj_inventory.kephra_grid[#
 if (variable_struct_exists(_loadEntity,"kephra007")) obj_inventory.kephra_grid[# 7, 1] = _loadEntity.kephra007;
 if (variable_struct_exists(_loadEntity,"kephra008")) obj_inventory.kephra_grid[# 8, 1] = _loadEntity.kephra008;
 if (variable_struct_exists(_loadEntity,"kephra009")) obj_inventory.kephra_grid[# 9, 1] = _loadEntity.kephra009;
-
-		
+	
 }
 //
 //

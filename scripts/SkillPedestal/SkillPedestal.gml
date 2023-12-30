@@ -192,7 +192,7 @@ if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;
-	obj_inventory.skill_stone[1] = skill_stone[1] + 1;
+	obj_inventory.skill_stone[1] = obj_inventory.skill_stone[1] + 1;
 	obj_inventory.skill_stone_list[1] = true;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
@@ -245,7 +245,7 @@ if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;
-	obj_inventory.skill_stone[2] = skill_stone[2] + 1;
+	obj_inventory.skill_stone[2] = obj_inventory.skill_stone[2] + 1;
 	obj_inventory.skill_stone_list[2] = true; //Purple Skill Stone 1/12
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
@@ -298,7 +298,7 @@ if (string_counter >= 1)
 {
 	text_string = ""
 	string_counter = 0;
-	obj_inventory.skill_stone[3] = skill_stone[3] + 1;
+	obj_inventory.skill_stone[3] = obj_inventory.skill_stone[3] + 1;
 	obj_inventory.skill_stone_list[3] = true; //Blue Skill Stone 1/12
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;

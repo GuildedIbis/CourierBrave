@@ -47,7 +47,7 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 	if (string_counter = 1)
 	{
 		speaker = 1;
-		text_string = "Crystal Enchantment: Bluine Received!\nStar Orb Received!" 
+		text_string = "Green Skill Stone Received!" 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter >= 2)
@@ -57,8 +57,8 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 		obj_inventory.quest_grid[# 10, 0] = true;
 		obj_inventory.quest_grid[# 10, 1] = 3;
 		obj_inventory.quest_grid[# 10, 3] = true;
-		obj_inventory.crystal_enchant[4] = true;
-		obj_inventory.star_orb = obj_inventory.star_orb + 1;
+		obj_inventory.skill_stone_list[11] = true;
+		obj_inventory.skill_stone[4] = obj_inventory.skill_stone[4] + 1;
 		_SubString = string_copy(text_string,1,letter_counter);
 		obj_game.gamePaused = false;
 		obj_game.textPaused = false;

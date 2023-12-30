@@ -193,6 +193,9 @@ if (point_in_rectangle(_mouseX,_mouseY,193,112,229,128))
 	draw_sprite_stretched(spr_highlight_circle,0,192,111,34,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
+		quest_grid[# 1, 0] = true;
+		quest_grid[# 1, 1] = 1;
+		quest_grid[# 1, 3] = true;
 		form_stone[1] = form_stone[1] - 1;
 		form_grid[# 1, 4] = true;
 		audio_sound_gain(snd_menu,global.volumeMenu,1);

@@ -7,7 +7,7 @@
 //Load Questlog
 //Path: obj_game > event Key Pressed "L"
 function scr_load_quests(_loadEntity){
-//Load Weapons
+//Load Quest Status
 if (variable_struct_exists(_loadEntity,"quest00")) obj_inventory.quest_grid[# 0, 0] = _loadEntity.quest00;
 if (variable_struct_exists(_loadEntity,"quest01")) obj_inventory.quest_grid[# 0, 1] = _loadEntity.quest01;
 if (variable_struct_exists(_loadEntity,"quest02")) obj_inventory.quest_grid[# 0, 2] = _loadEntity.quest02;
@@ -102,7 +102,7 @@ function scr_save_quests(_saveData){
 //What To Save As : What to Save
 var _saveQuest = 
 {
-//Save Quest Log
+//Save Quest Status
 quest00 : obj_inventory.quest_grid[# 0, 0],
 quest01 : obj_inventory.quest_grid[# 0, 1],
 quest02 : obj_inventory.quest_grid[# 0, 2],

@@ -6,7 +6,7 @@
 //
 //Load Player Inventory
 //Path: obj_game > event Key Pressed "L"
-function scr_load_inventory(_loadEntity){	
+function xscr_load_inventory(_loadEntity){	
 		
 		//Load Rog Stones
 		if (variable_struct_exists(_loadEntity,"rogArray0")) obj_inventory.rog_array[0] = _loadEntity.rogArray0;
@@ -76,7 +76,7 @@ function scr_load_inventory(_loadEntity){
 //
 //Save Player Inventory
 //Path: obj_game > event Key Pressed "S"
-function scr_save_inventory(_saveData){
+function xscr_save_inventory(_saveData){
 	
 var _saveInv = 
 {

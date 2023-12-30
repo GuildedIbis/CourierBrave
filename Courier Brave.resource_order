@@ -732,7 +732,7 @@
     {"name":"spr_enemy_folioBulb_run","order":7,"path":"sprites/spr_enemy_folioBulb_run/spr_enemy_folioBulb_run.yy",},
     {"name":"snd_walk_regular_2","order":9,"path":"sounds/snd_walk_regular_2/snd_walk_regular_2.yy",},
     {"name":"spr_door_habrafLake_redCrystal","order":11,"path":"sprites/spr_door_habrafLake_redCrystal/spr_door_habrafLake_redCrystal.yy",},
-    {"name":"LSInventory","order":4,"path":"scripts/LSInventory/LSInventory.yy",},
+    {"name":"LSInventory","order":8,"path":"scripts/LSInventory/LSInventory.yy",},
     {"name":"spr_enemy_ghost2_move","order":5,"path":"sprites/spr_enemy_ghost2_move/spr_enemy_ghost2_move.yy",},
     {"name":"obj_pedestal_starOrb","order":13,"path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},
     {"name":"obj_itemRog","order":3,"path":"objects/obj_itemRog/obj_itemRog.yy",},

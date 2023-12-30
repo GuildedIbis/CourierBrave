@@ -7,7 +7,6 @@
 //LoadRoomlog
 //Path: obj_game > event Key Pressed "L"
 function scr_load_rooms(_loadEntity){
-
 //Load Current Location
 if (variable_struct_exists(_loadEntity,"roomAry")) obj_inventory.room_ary = _loadEntity.roomAry;
 
@@ -106,7 +105,6 @@ altar26 : obj_inventory.altar_grid[# 26, 3],
 altar27 : obj_inventory.altar_grid[# 27, 3],
 altar28 : obj_inventory.altar_grid[# 28, 3],
 altar29 : obj_inventory.altar_grid[# 29, 3],
-
 
 //Save Levels
 level00: obj_inventory.level_ary[0],
