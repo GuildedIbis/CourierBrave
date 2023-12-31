@@ -482,7 +482,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80;
+	damage = 45;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
 
 	//Animate
@@ -554,7 +554,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 60;
+	damage = 40;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
 	
 	//Create Projectile
@@ -565,7 +565,6 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y+8,"Instances",obj_enemy_projectile))
 			{
-				enemy_lvl = other.enemy_lvl;
 				home_state = scr_enemy_projectile_voidcast;
 				entity_step = home_state;
 				entity_drop = Idle;
@@ -844,7 +843,7 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Cacluate Attack
-	damage = 50;
+	damage = 35;
 	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
 
 	//Animate

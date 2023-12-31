@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Tools",
-    "path": "folders/Objects/Game/Meta/Tools.yy",
+    "path": "folders/Objects/Game/Tools.yy",
   },
   "parentObjectId": null,
   "persistent": false,

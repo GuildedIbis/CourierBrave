@@ -745,7 +745,6 @@
     {"name":"inst_44F3F092","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_6FAB8E3C","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_196A5726","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_31F3979E","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_34EC2A4","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_9F68A81","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_15D3753","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
@@ -1287,22 +1286,6 @@
     {"name":"inst_5AE3A583","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_679879AA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_1E92DF09","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_201DF074","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_35CAFD83","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_13AA4FE3","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_32AF0B87","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_34B0DE2C","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_682A23B","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_4CD6E2B7","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_6E05419B","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_4246B910","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_55353E97","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_7D35407A","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_7DDBA5BC","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_140749A0","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_4B80879C","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_1FDC898","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_6EA5151F","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_659E02AA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_78D4CCBA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_31AB0ECC","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
@@ -1320,6 +1303,7 @@
     {"name":"inst_B881AA9","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_59B1604A","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_1AB42384","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
+    {"name":"inst_2DF3F8E2","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -1429,9 +1413,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.habrafLake_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.habrafLake_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":752.0,"y":528.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_31F3979E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"11",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":504.0,"y":456.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34EC2A4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_hunter_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"4",},
@@ -1516,70 +1497,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_knife_lily_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"25",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":456.0,"y":144.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_201DF074","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":856.0,"y":104.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_35CAFD83","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":632.0,"y":80.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_13AA4FE3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":760.0,"y":256.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_32AF0B87","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":552.0,"y":208.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34B0DE2C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"4",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":728.0,"y":328.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_682A23B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"5",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":728.0,"y":472.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4CD6E2B7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"6",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":912.0,"y":360.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6E05419B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"7",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":472.0,"y":64.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4246B910","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"8",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":408.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_55353E97","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"9",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":312.0,"y":216.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7D35407A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"11",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":288.0,"y":72.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7DDBA5BC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"12",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":280.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_140749A0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"13",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":360.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4B80879C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"14",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":224.0,"y":400.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1FDC898","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"15",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":568.0,"y":448.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6EA5151F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"16",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.habrafLake_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":456.0,"y":200.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_673D1C7A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_escort","path":"objects/obj_escort/obj_escort.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_effect_habrafLake_escort_create",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":896.0,"y":208.0,},
@@ -1589,6 +1506,11 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_457C7DA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2DF3F8E2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_form","path":"objects/obj_pedestal_form/obj_pedestal_form.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_pedestal_skill_3",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_pedestal_skill_3_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"8",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":504.0,"y":456.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3FEBC5F9_1_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

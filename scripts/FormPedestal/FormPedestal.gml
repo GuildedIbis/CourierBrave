@@ -36,6 +36,54 @@ pedestal_index = 2;
 //
 //
 //
+//Form Pedestal 3 Create
+function scr_pedestal_form_3_create(){
+entity_step = scr_pedestal_form_step;
+shadow = true;
+shadow_size = 2;
+sound = snd_text01;
+interact = 30;
+active_sprite = spr_form_pedestal;
+idle_sprite = spr_form_pedestal_empty;
+pedestal_index = 3;
+}
+//
+//
+//
+//
+//
+//Form Pedestal 4 Create
+function scr_pedestal_form_4_create(){
+entity_step = scr_pedestal_form_step;
+shadow = true;
+shadow_size = 2;
+sound = snd_text01;
+interact = 30;
+active_sprite = spr_form_pedestal;
+idle_sprite = spr_form_pedestal_empty;
+pedestal_index = 4;
+}
+//
+//
+//
+//
+//
+//Form Pedestal 5 Create
+function scr_pedestal_form_5_create(){
+entity_step = scr_pedestal_form_step;
+shadow = true;
+shadow_size = 2;
+sound = snd_text01;
+interact = 30;
+active_sprite = spr_form_pedestal;
+idle_sprite = spr_form_pedestal_empty;
+pedestal_index = 5;
+}
+//
+//
+//
+//
+//
 //Form Stone Pedestal Step
 function scr_pedestal_form_step(){
 if (obj_game.gamePaused = false)
@@ -43,7 +91,7 @@ if (obj_game.gamePaused = false)
 	
 	if (obj_inventory.form_stone_list[activate_args] = false)
 	{
-		scr_npc_interact(12);
+		scr_npc_interact_form_pedestal(12);
 		sprite_index = active_sprite;
 		image_speed = 0;
 		image_index = pedestal_index;
@@ -87,7 +135,6 @@ if (string_counter >= 1)
 	text_string = ""
 	string_counter = 0;
 	obj_inventory.form_stone[1] = obj_inventory.form_stone[1] + 1;
-	obj_inventory.form_stone_list[1] = true;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
@@ -138,7 +185,156 @@ if (string_counter >= 1)
 	text_string = ""
 	string_counter = 0;
 	obj_inventory.form_stone[2] = obj_inventory.form_stone[2] + 1;
-	obj_inventory.form_stone_list[2] = true;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_text_transformed(259,110,_name,.5,.5,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+// Form Pedestal 3 Text
+function scr_text_pedestal_form_3(){
+//Convert Mouse to GUI
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Form Pedestal"
+//
+//
+//
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "Blue Form Stone found!\nSpend Form Stones in the Form Menu of the Inventory." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	page = 0;
+}
+
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.form_stone[3] = obj_inventory.form_stone[3] + 1;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_text_transformed(259,110,_name,.5,.5,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+// Form Pedestal 4 Text
+function scr_text_pedestal_form_4(){
+//Convert Mouse to GUI
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Form Pedestal"
+//
+//
+//
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "Green Form Stone found!\nSpend Form Stones in the Form Menu of the Inventory." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	page = 0;
+}
+
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.form_stone[4] = obj_inventory.form_stone[4] + 1;
+	_SubString = string_copy(text_string,1,letter_counter);
+	obj_game.gamePaused = false;
+	obj_game.textPaused = false;
+	
+	//Reset Buy/Sell Menu
+	page = 0;
+	slot = -1;
+	item_id = -1;
+	item_name = -1;
+	sell_price = 0;
+	buy_price = 0;
+}
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_text_transformed(259,110,_name,.5,.5,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
+}
+//
+//
+//
+//
+//
+// Form Pedestal 3 Text
+function scr_text_pedestal_form_5(){
+//Convert Mouse to GUI
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_color(c_white);
+draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+var _name = "Form Pedestal"
+//
+//
+//
+var _SubString
+if (string_counter = 0)
+{
+	speaker = 1;
+	text_string = "Red Form Stone found!\nSpend Form Stones in the Form Menu of the Inventory." 
+	_SubString = string_copy(text_string,1,letter_counter);
+	page = 0;
+}
+
+if (string_counter >= 1)
+{
+	text_string = ""
+	string_counter = 0;
+	obj_inventory.form_stone[5] = obj_inventory.form_stone[5] + 1;
 	_SubString = string_copy(text_string,1,letter_counter);
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;

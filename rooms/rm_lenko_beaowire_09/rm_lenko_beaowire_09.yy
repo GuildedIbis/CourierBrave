@@ -150,13 +150,13 @@
     {"name":"inst_2597B603_2","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_4F91EDAC_2","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_A015DD7","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
-    {"name":"inst_3117C34","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_700CBC6D","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_61BE06B2","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_1E6F04F","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_36AEF169","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_16B2172E","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
     {"name":"inst_6EDC73E6","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
+    {"name":"inst_4A23CC3B","path":"rooms/rm_lenko_beaowire_09/rm_lenko_beaowire_09.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -209,9 +209,10 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_A015DD7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":32.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3117C34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"17",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":232.0,"y":96.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4A23CC3B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_pedestal_starorb",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":224.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4A6BD8AD_1_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

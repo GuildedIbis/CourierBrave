@@ -897,6 +897,7 @@
     {"name":"inst_57F14E88","path":"rooms/rm_lenko_vostleTown_00/rm_lenko_vostleTown_00.yy",},
     {"name":"inst_5BB6DCEB","path":"rooms/rm_lenko_vostleTown_00/rm_lenko_vostleTown_00.yy",},
     {"name":"inst_692093FC","path":"rooms/rm_lenko_vostleTown_00/rm_lenko_vostleTown_00.yy",},
+    {"name":"inst_737FE00","path":"rooms/rm_lenko_vostleTown_00/rm_lenko_vostleTown_00.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -998,7 +999,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"3",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.vostleTown_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.vostleTown_enemy_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":344.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.5,"x":176.0,"y":344.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_9045E55","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
@@ -1053,7 +1054,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"0",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.vostleTown_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.vostleTown_enemy_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":824.0,"y":248.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.5,"x":824.0,"y":248.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6FCC1147","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_vostleTown_00_04",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"144",},
@@ -1078,6 +1079,9 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.vostleTown_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.vostleTown_enemy_grid",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":400.0,"y":360.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_737FE00","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_vostleTown_00_create",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":296.0,"y":240.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_328CA8D1_1_1_2_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[
@@ -3327,21 +3331,21 @@
 -2147483648,5,164,209,162,162,0,-15,82,1,5,-6,0,1,4,-15,82,10,5,0,44,89,122,165,41,43,-2147483648,0,-8,-2147483648,3,163,162,162,-14,0,-2,202,2,87,5,-4,0,7,4,88,0,0,124,208,162,-10,0,9,87,5,0,44,2,2,
 45,43,-2147483648,-3,0,2,41,43,-4,-2147483648,3,164,122,122,-3,162,-5,202,-5,0,-3,162,12,161,41,0,0,4,82,88,0,124,202,208,162,-12,0,3,87,5,0,-3,-2147483648,1,44,-4,2,2,45,44,-7,2,-7,162,-7,0,-2,162,11,161,
 41,0,0,43,0,0,124,208,162,162,-6,0,-3,202,-4,162,3,-2147483648,87,5,-17,-2147483648,-3,162,1,0,-4,162,-6,0,19,162,121,86,45,0,0,43,0,0,163,162,162,0,0,162,0,202,202,208,-7,162,6,-2147483648,202,87,82,5,4,-14,
-82,-7,162,-7,0,3,122,86,45,-3,0,9,44,3,0,163,162,162,0,162,0,-5,162,2,0,122,-6,162,9,161,-2147483648,41,43,124,202,202,125,124,-4,202,1,125,-4,-2147483648,-8,162,-7,0,1,41,-5,0,8,43,0,163,162,0,0,162,
-0,-13,162,9,161,-2147483648,41,43,163,162,162,161,163,-4,162,1,201,-4,202,-5,162,3,206,122,122,-3,0,1,49,-3,0,1,41,-5,0,11,44,89,164,122,0,162,0,0,122,122,123,-10,162,9,161,86,45,43,208,162,162,161,163,-8,
-162,1,-2147483648,-4,162,1,121,-4,0,3,1,2,7,-3,2,11,45,0,0,4,82,5,0,43,0,0,49,-5,0,1,163,-10,162,4,161,41,4,88,-3,162,3,161,164,123,-12,162,6,161,-2147483648,-2147483648,0,0,81,-6,82,-2,0,9,43,-2147483648,
-87,82,84,2,2,7,89,-4,0,2,164,209,-9,162,4,161,41,43,163,-3,162,3,161,124,203,-12,162,1,201,-11,-2147483648,11,41,4,88,124,125,-2147483648,87,5,0,0,43,-5,0,6,164,122,122,0,49,163,-3,162,5,206,86,45,43,163,
--3,162,2,161,163,-4,162,-2,-2147483648,2,162,-2147483648,-6,162,1,207,-3,202,1,162,-5,-2147483648,13,86,45,43,124,208,207,161,-2147483648,87,5,0,44,89,-7,0,3,86,7,89,-3,122,5,-2147483648,41,4,88,203,-3,162,2,201,163,-7,162,1,-2147483648,-12,
-162,17,0,207,125,86,45,4,88,208,162,162,207,207,125,87,5,0,44,-7,2,3,45,0,44,-4,2,3,45,43,163,-5,162,2,161,123,-21,162,5,161,41,4,88,163,-5,162,3,161,0,87,-3,82,1,0,-13,82,2,88,203,-5,
-162,2,161,163,-21,162,5,161,41,43,124,208,-5,162,1,207,-17,202,-2,-2147483648,1,163,-5,162,3,206,205,203,-5,162,-2,-2147483648,-14,162,4,161,41,43,163,-8,162,1,208,-14,162,4,-2147483648,201,-2147483648,163,-5,162,2,161,163,-4,162,2,-2147483648,162,
--3,-2147483648,-13,162,5,161,41,43,163,0,-31,162,3,161,163,162,-8,-2147483648,-13,162,4,161,41,43,163,-23,162,-8,-2147483648,4,162,161,163,162,-9,-2147483648,-13,162,2,41,0,-24,162,-8,-2147483648,4,162,-2147483648,163,162,-8,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+82,-7,162,-7,0,15,122,86,45,4,82,5,44,3,0,163,162,162,0,162,0,-5,162,2,0,122,-6,162,9,161,-2147483648,41,43,124,202,202,125,124,-4,202,1,125,-4,-2147483648,-8,162,-7,0,14,41,0,43,0,41,0,43,0,163,162,0,
+0,162,0,-13,162,9,161,-2147483648,41,43,163,162,162,161,163,-4,162,1,201,-4,202,-5,162,3,206,122,122,-3,0,1,49,-3,0,17,41,0,44,2,45,0,44,89,164,122,0,162,0,0,122,122,123,-10,162,9,161,86,45,43,208,162,
+162,161,163,-8,162,1,-2147483648,-4,162,1,121,-4,0,3,1,2,7,-3,2,11,45,0,0,4,82,5,0,43,0,0,49,-5,0,1,163,-10,162,4,161,41,4,88,-3,162,3,161,164,123,-12,162,6,161,-2147483648,-2147483648,0,0,81,-6,82,-2,
+0,9,43,-2147483648,87,82,84,2,2,7,89,-4,0,2,164,209,-9,162,4,161,41,43,163,-3,162,3,161,124,203,-12,162,1,201,-11,-2147483648,11,41,4,88,124,125,-2147483648,87,5,0,0,43,-5,0,6,164,122,122,0,49,163,-3,162,5,206,
+86,45,43,163,-3,162,2,161,163,-4,162,-2,-2147483648,2,162,-2147483648,-6,162,1,207,-3,202,1,162,-5,-2147483648,13,86,45,43,124,208,207,161,-2147483648,87,5,0,44,89,-7,0,3,86,7,89,-3,122,5,-2147483648,41,4,88,203,-3,162,2,201,163,-7,
+162,1,-2147483648,-12,162,17,0,207,125,86,45,4,88,208,162,162,207,207,125,87,5,0,44,-7,2,3,45,0,44,-4,2,3,45,43,163,-5,162,2,161,123,-21,162,5,161,41,4,88,163,-5,162,3,161,0,87,-3,82,1,0,-13,82,
+2,88,203,-5,162,2,161,163,-21,162,5,161,41,43,124,208,-5,162,1,207,-17,202,-2,-2147483648,1,163,-5,162,3,206,205,203,-5,162,-2,-2147483648,-14,162,4,161,41,43,163,-8,162,1,208,-14,162,4,-2147483648,201,-2147483648,163,-5,162,2,161,163,-4,
+162,2,-2147483648,162,-3,-2147483648,-13,162,5,161,41,43,163,0,-31,162,3,161,163,162,-8,-2147483648,-13,162,4,161,41,43,163,-23,162,-8,-2147483648,4,162,161,163,162,-9,-2147483648,-13,162,2,41,0,-24,162,-8,-2147483648,4,162,-2147483648,163,162,-8,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"BaseTIle","depth":1400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":34,"SerialiseWidth":60,"TileCompressedData":[
 -50,80,-2,200,-58,80,-2,200,-58,80,-2,200,-57,80,-3,200,-56,80,-4,200,-56,80,-3,200,-49,80,-4,42,-4,80,-2,200,-30,80,1,200,-19,80,-4,42,-4,80,-2,200,-30,80,-3,200,-17,80,-5,42,-3,80,-2,200,-29,80,-4,200,
 -17,80,-6,42,1,80,-3,200,-20,80,1,200,-8,80,-2,200,-22,80,-3,42,-4,200,-18,80,-3,200,-33,80,-2,42,-3,200,-18,80,-5,200,-12,80,-3,200,-5,80,1,200,-12,80,-3,200,-18,80,-29,200,-5,42,1,200,-4,80,-2,200,
 -13,80,-35,200,-5,42,2,200,42,-3,80,-2,200,-13,80,-35,200,-8,42,-2,80,-2,200,-29,80,-8,200,-15,80,-6,42,-2,200,-4,80,-2,42,-24,80,-6,200,-17,80,-2,42,-10,200,1,42,-7,200,-17,80,-4,200,-20,80,1,42,-18,
-200,-16,80,-5,200,-21,80,-18,200,-15,80,-7,200,-22,80,-2,200,-29,80,-7,200,-22,80,-2,200,-25,80,1,200,-3,80,-8,200,-20,80,-3,200,-23,80,-14,200,-2,80,1,200,-17,80,-3,200,-23,80,-10,200,1,80,-7,200,-16,80,-2,
-200,-31,80,-3,200,-3,80,-5,200,-9,80,1,200,-5,80,-3,200,-30,80,-3,200,-5,80,-5,200,-7,80,-3,200,-4,80,-3,200,-29,80,-4,200,-6,80,-2,42,-18,200,-30,80,-3,200,-8,80,1,42,-18,200,-30,80,-2,200,-58,80,-2,
-200,-58,80,-2,200,-58,80,-2,200,-57,80,-3,200,-22,80,-10,162,-12,80,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+200,-16,80,-5,200,-21,80,-18,200,-15,80,-7,200,-22,80,-2,200,-29,80,-3,200,1,80,-3,200,-22,80,-2,200,-25,80,1,200,-3,80,-8,200,-20,80,-3,200,-23,80,-14,200,-2,80,1,200,-17,80,-3,200,-23,80,-10,200,1,80,-7,
+200,-16,80,-2,200,-31,80,-3,200,-3,80,-5,200,-9,80,1,200,-5,80,-3,200,-30,80,-3,200,-5,80,-5,200,-7,80,-3,200,-4,80,-3,200,-29,80,-4,200,-6,80,-2,42,-18,200,-30,80,-3,200,-8,80,1,42,-18,200,-30,80,-2,
+200,-58,80,-2,200,-58,80,-2,200,-58,80,-2,200,-57,80,-3,200,-22,80,-10,162,-12,80,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":1500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":true,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "parent": {
