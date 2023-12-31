@@ -14,7 +14,6 @@ interact = 30;
 active_sprite = spr_starOrb_pedestal;
 idle_sprite = spr_starOrb_pedestal_stone;
 }
-
 //
 //
 //
@@ -24,7 +23,7 @@ idle_sprite = spr_starOrb_pedestal_stone;
 function scr_inanimate_pedestal_starorb(){
 if (obj_game.gamePaused = false)
 {
-	scr_npc_interact(12);
+	scr_npc_interact_starorb_pedestal(12);
 	if (obj_inventory.starOrb_pedestal_list[activate_args] = false)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,64)) sprite_index = active_sprite;
@@ -46,7 +45,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //Star orb Text
-function scr_text_pedestal_starorb_00(){
+function scr_text_pedestal_starorb(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 //Set
@@ -77,7 +76,6 @@ if (string_counter >= 1)
 	
 	//Quests and Rewards
 	obj_inventory.star_orb = obj_inventory.star_orb + 1;
-	obj_inventory.starOrb_pedestal_list[0] = true;
 	
 	//Reset Buy/Sell Menu
 	page = 0;
@@ -91,10 +89,6 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_text_transformed(69,141,_SubString,.6,.6,0);
 draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
-
-
-
-
 }
 //
 //

@@ -133,7 +133,7 @@ if (obj_inventory.quest_grid[# 14, 1] >= 2)
 	}
 	if (string_counter >= 1)
 	{
-		obj_inventory.skill_stone[5] = obj_inventory.skill_stone[5] + 1;
+		obj_inventory.skill_stone[5] = obj_inventory.skill_stone[5] + 1; //Red 2/12
 		obj_inventory.skill_stone_list[15] = true;
 		obj_inventory.quest_grid[# 14, 0] = true;
 		obj_inventory.quest_grid[# 14, 1] = 3;

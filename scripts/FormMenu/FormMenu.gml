@@ -37,7 +37,7 @@ form_grid[# 1, 8] = false;
 
 //Adavoid
 form_grid[# 2, 0] = "ADAVIO"
-form_grid[# 2, 1] = "Purple armored Moros."
+form_grid[# 2, 1] = scr_menu_skills_adavio_unlock;
 form_grid[# 2, 2] = scr_player_adavio_set; //Player Script
 form_grid[# 2, 3] = scr_menu_skills_adavio; //Inventory Script
 form_grid[# 2, 4] = false; //Unlocked Status
@@ -48,7 +48,7 @@ form_grid[# 2, 8] = false;
 
 //Ceriver
 form_grid[# 3, 0] = "CERIVER"
-form_grid[# 3, 1] = "Blue and Green Remphos with boomerang, bubbles, and sp (water cannon with push?)"
+form_grid[# 3, 1] = scr_menu_skills_ceriver_unlock;
 form_grid[# 3, 2] = scr_player_ceriver_set; //Player Script
 form_grid[# 3, 3] = scr_menu_skills_ceriver; //Inventory Script
 form_grid[# 3, 4] = false; //Unlocked Status
@@ -59,7 +59,7 @@ form_grid[# 3, 8] = false;
 
 //Evarel
 form_grid[# 4, 0] = "EVAREL"
-form_grid[# 4, 1] = "Grey-green Lavos with green and brown tunic."
+form_grid[# 4, 1] = scr_menu_skills_evarel_unlock;
 form_grid[# 4, 2] = scr_player_evarel_set; //Player Script
 form_grid[# 4, 3] = scr_menu_skills_evarel; //Inventory Script
 form_grid[# 4, 4] = false; //Unlocked Status

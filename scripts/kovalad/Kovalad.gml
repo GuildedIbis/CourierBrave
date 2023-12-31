@@ -237,7 +237,7 @@ if (obj_inventory.quest_grid[# 2, 1] = 4)
 		obj_game.textPaused = false;
 		obj_inventory.quest_grid[# 2, 1] = 5;
 		obj_inventory.quest_grid[# 2, 3] = true;
-		obj_inventory.skill_stone[2] = obj_inventory.skill_stone[2] + 1; //Blue 1/12
+		obj_inventory.skill_stone[3] = obj_inventory.skill_stone[3] + 1; //Blue 1/12
 		obj_inventory.skill_stone_list[3] = true;
 	
 		//Reset Buy/Sell Menu

@@ -38,8 +38,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Altars",
-    "path": "folders/Sprites/Entity/Interactables/Altars.yy",
+    "name": "Pedestals",
+    "path": "folders/Sprites/Entity/Interactables/Pedestals.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
