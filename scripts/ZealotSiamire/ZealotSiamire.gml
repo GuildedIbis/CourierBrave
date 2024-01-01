@@ -16,7 +16,7 @@ enemy_idle = spr_enemy_zealot_idle;
 enemy_move = spr_enemy_zealot_run;
 enemy_damaged = spr_enemy_zealot_damaged;
 enemy_arm = spr_enemy_zealot_castArm;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -187,8 +187,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end)
 	{
 		attack_counter = attack_counter - 1;
-		audio_sound_gain(snd_arrow,global.volumeEffects,1);
-		audio_play_sound(snd_arrow,0,false);
+		audio_sound_gain(snd_enemy_rat_arrow,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_ratArrow;

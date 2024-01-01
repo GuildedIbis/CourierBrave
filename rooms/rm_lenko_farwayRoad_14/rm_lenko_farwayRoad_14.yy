@@ -454,7 +454,6 @@
     {"name":"inst_250C514","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_53D91E62","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_C035615","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
-    {"name":"inst_19566926","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_2A71A80A","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_2291F6EF","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
     {"name":"inst_206112AA","path":"rooms/rm_lenko_farwayRoad_14/rm_lenko_farwayRoad_14.yy",},
@@ -578,9 +577,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_gorog_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":344.0,"y":176.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_19566926","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_18A9C2FC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_skirmisher_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"4",},

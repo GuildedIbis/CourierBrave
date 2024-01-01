@@ -242,7 +242,7 @@ if (obj_game.time_played > 0)
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
 				audio_stop_all();
-			
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))//New Game 1
@@ -293,6 +293,7 @@ if (obj_game.time_played > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_1();
 				audio_stop_all();
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))
@@ -308,10 +309,8 @@ if (obj_game.time_played > 0)
 else
 {
 	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-	//draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
 	draw_text_transformed(58,21,"NEW GAME",2,2,0);
 	draw_text_transformed(58,49,"START",1,1,0);	
-	//draw_text_transformed(58,71,"NO",1,1,0);
 	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
 	{
 		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
@@ -343,6 +342,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_1();
 			audio_stop_all();
+			scr_audio_transition();
 		}
 	}
 }
@@ -376,6 +376,7 @@ if (obj_game.time_played2 > 0)
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
 				audio_stop_all();
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,86))//Restart Game 2
@@ -425,6 +426,7 @@ if (obj_game.time_played2 > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_2();
 				audio_stop_all();
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,686))
@@ -475,6 +477,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_2();
 			audio_stop_all();
+			scr_audio_transition();
 		}
 	}
 }
@@ -507,7 +510,8 @@ if (obj_game.time_played3 > 0)
 				room_goto(global.lastAltar);
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
-				audio_stop_all();	
+				audio_stop_all();
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,86))//Restart Game 3
@@ -557,6 +561,7 @@ if (obj_game.time_played3 > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_3();
 				audio_stop_all();
+				scr_audio_transition();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,686))//Return
@@ -607,6 +612,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_3();
 			audio_stop_all();
+			scr_audio_transition();
 		}
 	}
 }

@@ -672,42 +672,4 @@ for (var i = 0; i < 20; i = i + 1)
 	}
 }
 }
-//
-//
-//
-//
-//
-//Song List: Lenko
-function scr_game_song_list_main(){
-room_song = snd_theme_main;
 
-}
-//
-//
-//
-//
-//
-//Song List: Lenko
-function scr_game_song_list_lenko(){
-var _song = irandom_range(0,3)
-{
-	switch (_song)
-	{
-		case 0:
-			room_song = snd_song_farway_theme;
-		break;
-		
-		case 1:
-			room_song = snd_song_yakflower_theme;
-		break;
-		
-		case 2:
-			room_song = snd_song_habraf_theme;
-		break;
-		
-		case 3:
-			room_song = snd_song_beaowire_theme;
-		break;
-	}
-}
-}

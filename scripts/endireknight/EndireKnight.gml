@@ -15,7 +15,7 @@ entity_drop = scr_enemy_endire_knight_drop;
 enemy_idle = spr_enemy_endireKnight_idle;
 enemy_move = spr_enemy_endireKnight_run;
 enemy_damaged = spr_enemy_endireKnight_damaged;
-damaged_snd = snd_endireKnight_damaged;
+damaged_snd = snd_enemy_endireKnight_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -136,8 +136,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_fireStrike;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_fireStrike,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -192,8 +192,8 @@ if (obj_game.gamePaused = false)
 	//Create Projectiles
 	if (timer2 <= 0)
 	{
-		audio_sound_gain(snd_endireKnight_heatwave,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_heatwave,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_heatwave,0,false);
 		timer2 = 60;
 		for (var i = 0; i < 3; i = i + 1)
 		{

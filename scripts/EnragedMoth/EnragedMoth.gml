@@ -16,7 +16,7 @@ enemy_idle = spr_enemy_enragedMoth;
 enemy_move = spr_enemy_enragedMoth;
 enemy_damaged = spr_enemy_enragedMoth;
 damaged_snd = snd_enemy_ofa_moth_damaged;
-walk_snd = snd_ofaWorm_dash;
+walk_snd = snd_enemy_ofaWorm_dash;
 
 //Stats
 form_type = 2;
@@ -105,8 +105,8 @@ if (obj_game.gamePaused = false)
 			timer2 = 50;
 			attack_counter = 0;
 			entity_step = scr_enemy_enraged_moth_dustStep;
-			audio_sound_gain(snd_ofaMoth_dustStep,global.volumeEffects,1);
-			audio_play_sound(snd_ofaMoth_dustStep,0,false);
+			audio_sound_gain(snd_enemy_ofaMoth_dustStep,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_ofaMoth_dustStep,0,false);
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -208,8 +208,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_enragedMoth_rageCharge)
 	{
 		//Start Animation From Beginning
-		audio_sound_gain(snd_enragedMoth_rageCharge,global.volumeEffects,1);
-		audio_play_sound(snd_enragedMoth_rageCharge,0,false);
+		audio_sound_gain(snd_enemy_enragedMoth_rageCharge,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_enragedMoth_rageCharge,0,false);
 		sprite_index = spr_enemy_enragedMoth_rageCharge;
 		local_frame = 0;
 		image_index = 0;
@@ -225,8 +225,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end = true)
 	{
 		entity_step = scr_enemy_enraged_moth_rageRush;
-		audio_sound_gain(snd_enragedMoth_rageRush,global.volumeEffects,1);
-		audio_play_sound(snd_enragedMoth_rageRush,0,false);
+		audio_sound_gain(snd_enemy_enragedMoth_rageRush,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_enragedMoth_rageRush,0,false);
 		damage = 70;//+ (11 * enemy_lvl);
 		hor_spd = 0;
 		ver_spd = 0;
@@ -311,8 +311,8 @@ if (obj_game.gamePaused = false)
 		if (attack_counter <= 2)
 		{
 			animation_end = false;
-			audio_sound_gain(snd_enragedMoth_rageRush,global.volumeEffects,1);
-			audio_play_sound(snd_enragedMoth_rageRush,0,false);
+			audio_sound_gain(snd_enemy_enragedMoth_rageRush,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_enragedMoth_rageRush,0,false);
 			var _dir = round(point_direction(x,y,obj_player.x,obj_player.y)/90)
 			switch(_dir)
 			{
@@ -366,8 +366,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_enragedMoth_spawnOrb)
 	{
 		//Start Animation From Beginning
-		audio_sound_gain(snd_ofaMoth_orb,global.volumeEffects,1);
-		audio_play_sound(snd_ofaMoth_orb,0,false);
+		audio_sound_gain(snd_enemy_ofaMoth_orb,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofaMoth_orb,0,false);
 		sprite_index = spr_enemy_enragedMoth_spawnOrb;
 		local_frame = 0;
 		image_index = 0;
@@ -377,8 +377,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 25;
-		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
-		audio_play_sound(snd_ofaMoth_shoot,0,false);
+		audio_sound_gain(snd_enemy_ofaMoth_shoot,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			//enemy_lvl = other.enemy_lvl;

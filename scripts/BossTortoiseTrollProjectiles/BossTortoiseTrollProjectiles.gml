@@ -25,8 +25,8 @@ if (obj_game.gamePaused = false)
 	//Sound
 	if (timer2 <= 0)
 	{
-		audio_sound_gain(snd_tortoiseTroll_mound_move,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_mound_move,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_mound_move,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_mound_move,0,false);
 		timer2 = 60;
 	}
 	//Collision		
@@ -34,8 +34,8 @@ if (obj_game.gamePaused = false)
 	{
 		speed = 0;
 		path_end()
-		audio_sound_gain(snd_tortoiseTroll_blossom,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_blossom,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_blossom,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_blossom,0,false);
 		entity_step = scr_projectile_trollTortoise_blossom;
 		timer1 = 55;
 		timer2 = 60;
@@ -69,8 +69,8 @@ if (obj_game.gamePaused = false)
 	//Create Projectiles
 	if (timer1 <= 0)
 	{
-		audio_sound_gain(snd_tortoiseTroll_blossomShoot,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_blossomShoot,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_blossomShoot,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_blossomShoot,0,false);
 		timer1 = 120;
 		for (var i = 0; i < 3; i = i + 1)
 		{	
@@ -120,8 +120,8 @@ if (obj_game.gamePaused = false)
 	//Explode on player
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
 	{
-		audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-		audio_play_sound(snd_blossomOrb_explode,0,false);
+		audio_sound_gain(snd_enemy_blossomOrb_explode,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_blossomOrb_explode,0,false);
 		exploded = true;
 		speed = 0;
 	}
@@ -162,8 +162,8 @@ if (obj_game.gamePaused = false)
 	//Collision with solid objects
 	if (place_meeting(x,y,break_object)) and (exploded = false)
 	{
-		audio_sound_gain(snd_blossomOrb_explode,global.volumeEffects,1);
-		audio_play_sound(snd_blossomOrb_explode,0,false);
+		audio_sound_gain(snd_enemy_blossomOrb_explode,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_blossomOrb_explode,0,false);
 		sprite_index = spr_enemy_tortoiseTroll_blossomOrb_explode;
 		exploded = true;
 		speed = 0;

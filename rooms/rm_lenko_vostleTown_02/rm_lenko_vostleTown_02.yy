@@ -174,7 +174,6 @@
     {"name":"inst_48A77625_1","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_58A57035_1","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_53C9C8DE_1","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
-    {"name":"inst_31F946C3_1","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_74BF6BF3","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_6354B76C","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
     {"name":"inst_74BEEBBC","path":"rooms/rm_lenko_vostleTown_02/rm_lenko_vostleTown_02.yy",},
@@ -384,9 +383,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"8",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.farwayRoad_resource_grid",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-48.0,"y":48.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_31F946C3_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_74BEEBBC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_vostleTown_00",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"816",},

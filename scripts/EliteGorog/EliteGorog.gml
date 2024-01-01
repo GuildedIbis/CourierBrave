@@ -16,7 +16,7 @@ entity_drop = scr_enemy_gorogElite_drop;
 enemy_idle = spr_enemy_gorogE_idle;
 enemy_move = spr_enemy_gorogE_run;
 enemy_damaged = spr_enemy_gorogE_damaged;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -322,8 +322,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 120;
-		audio_sound_gain(snd_gorogKnife_throw,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_throw,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_throw,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			script_execute(scr_projectile_gorogElite_chainHook_create);
@@ -410,8 +410,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 15;
-		audio_sound_gain(snd_gorogKnife_throw,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_throw,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_throw,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			script_execute(scr_projectile_gorogElite_knife_create);

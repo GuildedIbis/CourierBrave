@@ -134,8 +134,6 @@
     {"name":"inst_5D1B25E9","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
     {"name":"inst_4B09FA5D","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
     {"name":"inst_DC521DD","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
-    {"name":"inst_50B3C7DA","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
-    {"name":"inst_7156314B","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
     {"name":"inst_64BECF9","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
     {"name":"inst_43F3E07A","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
     {"name":"inst_1893DB69","path":"rooms/rm_lenko_farwayRoad_13/rm_lenko_farwayRoad_13.yy",},
@@ -224,10 +222,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_ary","path":"objects/obj_door/obj_door.yy",},"value":"obj_inventory.farwayRoad_map_ary",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.farwayRoad_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":-24.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_50B3C7DA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7156314B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_64BECF9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_altar","path":"objects/obj_altar/obj_altar.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":184.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

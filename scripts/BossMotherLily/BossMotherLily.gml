@@ -13,7 +13,7 @@ entity_drop = scr_enemy_mother_lily_drop;
 //Assets
 enemy_idle = spr_enemy_motherLily;
 enemy_move = spr_enemy_motherLily_move;
-damaged_snd = snd_motherLily_damaged;
+damaged_snd = snd_enemy_motherLily_damaged;
 
 //Stats
 form_type = 1;
@@ -104,8 +104,8 @@ if (obj_game.gamePaused = false)
 			walk_snd_delay = 45;
 			path_end();
 			sprite_index = enemy_idle;
-			audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
-			audio_play_sound(snd_motherLily_leafSlash,0,false);
+			audio_sound_gain(snd_enemy_motherLily_leafSlash,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_motherLily_leafSlash,0,false);
 			timer1 = 23;
 			entity_step = scr_enemy_mother_lily_leafSlash;
 		}
@@ -167,8 +167,8 @@ if (obj_game.gamePaused = false)
 		if (!point_in_circle(obj_player.x,obj_player.y,x,y,96)) and (timer3 <= 0)
 		{
 			walk_snd_delay = 15;
-			audio_sound_gain(snd_motherLily_viceBomb,global.volumeEffects,1);
-			audio_play_sound(snd_motherLily_viceBomb,0,false);
+			audio_sound_gain(snd_enemy_motherLily_viceBomb,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_motherLily_viceBomb,0,false);
 			path_end();
 			sprite_index = enemy_idle;
 			timer1 = 23;
@@ -336,8 +336,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
-		audio_sound_gain(snd_motherLily_leafSlash,global.volumeEffects,1);
-		audio_play_sound(snd_motherLily_leafSlash,0,false);
+		audio_sound_gain(snd_enemy_motherLily_leafSlash,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_motherLily_leafSlash,0,false);
 	}
 	
 	//Animate
@@ -380,8 +380,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end)
 	{
 		var _dir = irandom_range(0,359);
-		audio_sound_gain(snd_motherLily_razerSprout,global.volumeEffects,1);
-		audio_play_sound(snd_motherLily_razerSprout,0,false);
+		audio_sound_gain(snd_enemy_motherLily_razerSprout,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_motherLily_razerSprout,0,false);
 		for (var i = 0; i < 8; i = i + 1)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))

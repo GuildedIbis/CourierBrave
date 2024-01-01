@@ -48,7 +48,7 @@ if (global.transition = true)
 		if (transition_timer >= 100)
 		{
 			room_goto(global.targetRoom);
-			audio_stop_all();
+			scr_audio_stop_enemy();
 			obj_player.x = global.targetX;
 			obj_player.y = global.targetY;
 			obj_camera.x = global.targetX;

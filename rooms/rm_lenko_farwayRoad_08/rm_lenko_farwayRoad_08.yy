@@ -180,7 +180,6 @@
     {"name":"inst_2C6C856A","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_3C1A8DBE","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_2C1FBBF6","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
-    {"name":"inst_72416153","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_6E9B1F2B","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_241688F2_1_1","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
     {"name":"inst_37E628F7_1_1","path":"rooms/rm_lenko_farwayRoad_08/rm_lenko_farwayRoad_08.yy",},
@@ -265,9 +264,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"level_num","path":"objects/obj_door/obj_door.yy",},"value":"1",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_altar","path":"objects/obj_door/obj_door.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":-2.0,"x":-72.0,"y":168.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_72416153","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6E9B1F2B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_starOrb","path":"objects/obj_pedestal_starOrb/obj_pedestal_starOrb.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_pedestal_starorb",},

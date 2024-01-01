@@ -16,7 +16,7 @@ enemy_idle = spr_enemy_acolyte_idle;
 enemy_move = spr_enemy_acolyte_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
 enemy_arm = spr_enemy_acolyte_castArm;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular;
 sound = snd_npc_mouse;
 
@@ -452,8 +452,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 			{
-				audio_sound_gain(snd_acolyte_nilchrome,global.volumeEffects,1);
-				audio_play_sound(snd_acolyte_nilchrome,0,0);
+				audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
+				audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_nil;
 				home_state = scr_projectile_nilchrome;	
 				entity_step = home_state;
@@ -482,8 +482,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 			{
-				audio_sound_gain(snd_acolyte_antichrome,global.volumeEffects,1);
-				audio_play_sound(snd_acolyte_antichrome,0,0);
+				audio_sound_gain(snd_enemy_acolyte_antichrome,global.volumeEffects,1);
+				audio_play_sound(snd_enemy_acolyte_antichrome,0,0);
 				projectile_sprite = spr_projectile_acolyte_anti;
 				home_state = scr_projectile_antichrome;
 				lit = true;
@@ -616,8 +616,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_acolyte_special;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_acolyte_ilanilCharge,global.volumeEffects,1);
-		audio_play_sound(snd_acolyte_ilanilCharge,0,0);
+		audio_sound_gain(snd_enemy_acolyte_ilanilCharge,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_acolyte_ilanilCharge,0,0);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -636,8 +636,8 @@ if (obj_game.gamePaused = false)
 		magic_counter = magic_counter + 1;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
-			audio_sound_gain(snd_acolyte_ilanilFire,global.volumeEffects,1);
-			audio_play_sound(snd_acolyte_ilanilFire,0,0);
+			audio_sound_gain(snd_enemy_acolyte_ilanilFire,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_acolyte_ilanilFire,0,0);
 			projectile_sprite = spr_projectile_acolyte_ilanil;
 			sprite_index = spr_projectile_acolyte_ilanil;
 			home_state = scr_projectile_ilanil;
@@ -687,8 +687,8 @@ if (obj_game.gamePaused = false)
 			sprite_index = spr_enemy_acolyte_special;
 			local_frame = 0;
 			image_index = 0;
-			audio_sound_gain(snd_acolyte_ilanilCharge,global.volumeEffects,1);
-			audio_play_sound(snd_acolyte_ilanilCharge,0,0);
+			audio_sound_gain(snd_enemy_acolyte_ilanilCharge,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_acolyte_ilanilCharge,0,0);
 			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 			ds_list_clear(hit_by_attack);
 		}

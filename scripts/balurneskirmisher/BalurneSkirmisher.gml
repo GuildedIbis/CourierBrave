@@ -15,7 +15,7 @@ entity_drop = scr_enemy_balurne_skirmisher_drop;
 enemy_idle = spr_enemy_skirmisher_idle;
 enemy_move = spr_enemy_skirmisher_run;
 enemy_damaged = spr_enemy_skirmisher_damaged;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats

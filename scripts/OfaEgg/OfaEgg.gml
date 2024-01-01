@@ -15,7 +15,7 @@ entity_drop = scr_enemy_ofa_egg_drop;
 enemy_idle = spr_enemy_ofaEgg;
 enemy_move = spr_enemy_ofaEgg;
 enemy_damaged = spr_enemy_ofaEgg;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular
 
 //Stats

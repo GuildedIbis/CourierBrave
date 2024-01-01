@@ -276,7 +276,6 @@
     {"name":"inst_61C275E_1_1","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
     {"name":"inst_7A7520B8_1_1","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
     {"name":"inst_7B0F06AA_1_1","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
-    {"name":"inst_763FC419_1_1","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
     {"name":"inst_79EC741","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
     {"name":"inst_5FB8FF86","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
     {"name":"inst_4ADF0A2F","path":"rooms/rm_lenko_vostleTown_04/rm_lenko_vostleTown_04.yy",},
@@ -520,9 +519,6 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Ledge","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":800,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_BBEEB9B_1_1_3_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":16.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_763FC419_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_79EC741","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_lenko_vostleTown_00",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"240",},

@@ -44,8 +44,8 @@ if (obj_game.gamePaused = false)
 	//Collision
 	if (place_meeting(x,y,obj_player))
 	{
-		audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_hit,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
 		with (obj_player)
 		{
 			if (invincible = false)
@@ -144,8 +144,8 @@ if (obj_game.gamePaused = false)
 	}
 	if (place_meeting(x,y,obj_player))
 	{
-		audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_hit,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
 		if (contacted = false)
 		{
 			with (obj_player)

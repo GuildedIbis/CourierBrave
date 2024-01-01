@@ -14,7 +14,7 @@ entity_drop = scr_enemy_trollTortoise_drop;
 //Assets
 enemy_idle = spr_enemy_tortoiseTroll_idle2;
 enemy_move = spr_enemy_tortoiseTroll_run2;
-damaged_snd = snd_tortoiseTroll_damaged;
+damaged_snd = snd_enemy_tortoiseTroll_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -79,15 +79,15 @@ if (obj_game.gamePaused = false)
 				case 0:
 					path_end();
 					sprite_index = enemy_idle;
-					audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
-					audio_play_sound(snd_tortoiseTroll_hammer,0,false);
+					audio_sound_gain(snd_enemy_tortoiseTroll_hammer,global.volumeEffects,1);
+					audio_play_sound(snd_enemy_tortoiseTroll_hammer,0,false);
 					entity_step = scr_enemy_trollTortoise_hammerSlam2;
 				break;
 				
 				case 1:
 					path_end();
-					audio_sound_gain(snd_tortoiseTroll_damaged02,global.volumeEffects,1);
-					audio_play_sound(snd_tortoiseTroll_damaged02,0,false);
+					audio_sound_gain(snd_enemy_tortoiseTroll_damaged02,global.volumeEffects,1);
+					audio_play_sound(snd_enemy_tortoiseTroll_damaged02,0,false);
 					sprite_index = enemy_idle;
 					timer1 = 55;
 					entity_step = scr_enemy_trollTortoise_vineErupt2;
@@ -119,8 +119,8 @@ if (obj_game.gamePaused = false)
 					path_end();
 					sprite_index = enemy_idle;
 					image_index = 0;
-					audio_sound_gain(snd_tortoiseTroll_vineToss,global.volumeEffects,1);
-					audio_play_sound(snd_tortoiseTroll_vineToss,0,false);
+					audio_sound_gain(snd_enemy_tortoiseTroll_vineToss,global.volumeEffects,1);
+					audio_play_sound(snd_enemy_tortoiseTroll_vineToss,0,false);
 					timer2 = 60;
 					entity_step = scr_enemy_trollTortoise_vineToss2;
 				break;
@@ -170,8 +170,8 @@ if (obj_game.gamePaused = false)
 	{
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
-			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
-			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
+			audio_sound_gain(snd_enemy_tortoiseTroll_lunge,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_tortoiseTroll_lunge,0,false);
 			entity_step = scr_enemy_trollTortoise_hammerLunge2;
 			animation_end = false;
 			timer1 = 12;
@@ -181,8 +181,8 @@ if (obj_game.gamePaused = false)
 		}
 		else
 		{
-			audio_sound_gain(snd_tortoiseTroll_lunge,global.volumeEffects,1);
-			audio_play_sound(snd_tortoiseTroll_lunge,0,false);
+			audio_sound_gain(snd_enemy_tortoiseTroll_lunge,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_tortoiseTroll_lunge,0,false);
 			entity_step = scr_enemy_trollTortoise_jumpslam2;
 			animation_end = false;
 			timer1 = 40;
@@ -240,8 +240,8 @@ if (obj_game.gamePaused = false)
 	{
 		speed = 0;
 		entity_step = scr_enemy_trollTortoise_backslam2;
-		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_hammer,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_hammer,0,false);
 		direction = (point_direction(x,y,obj_player.x,obj_player.y));
 		animation_end = false;
 	}
@@ -345,8 +345,8 @@ if (obj_game.gamePaused = false)
 	if (timerS <= 0)
 	{
 		timerS = 300;
-		audio_sound_gain(snd_tortoiseTroll_hammer,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_hammer,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_hammer,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_hammer,0,false);
 	}
 	
 	//Collision
@@ -405,8 +405,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 120;
-		audio_sound_gain(snd_gorogKnife_throw,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_throw,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_throw,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_throw,0,false);
 		for (var i = 0; i < 3; i = i + 1)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
@@ -528,8 +528,8 @@ if (obj_game.gamePaused = false)
 	//Create Projectiles (mid-animation)
 	if (timer2 <= 0)
 	{
-		audio_sound_gain(snd_tortoiseTroll_missiles,global.volumeEffects,1);
-		audio_play_sound(snd_tortoiseTroll_missiles,0,false);
+		audio_sound_gain(snd_enemy_tortoiseTroll_missiles,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_tortoiseTroll_missiles,0,false);
 		timer2 = 10;
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
 		{

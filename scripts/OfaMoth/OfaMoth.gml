@@ -16,7 +16,7 @@ enemy_idle = spr_enemy_ofaMoth;
 enemy_move = spr_enemy_ofaMoth;
 enemy_damaged = spr_enemy_ofaMoth;
 damaged_snd = snd_enemy_ofa_moth_damaged;
-walk_snd = snd_ofaWorm_dash;
+walk_snd = snd_enemy_ofaWorm_dash;
 
 //Stats
 form_type = 2;
@@ -96,8 +96,8 @@ if (obj_game.gamePaused = false)
 			timer2 = 50;
 			attack_counter = 0;
 			entity_step = scr_enemy_ofa_moth_dustStep;
-			audio_sound_gain(snd_ofaMoth_dustStep,global.volumeEffects,1);
-			audio_play_sound(snd_ofaMoth_dustStep,0,false);
+			audio_sound_gain(snd_enemy_ofaMoth_dustStep,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_ofaMoth_dustStep,0,false);
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -211,8 +211,8 @@ if (obj_game.gamePaused = false)
 	if (animation_end = true)
 	{
 		attack_counter = attack_counter + 1;
-		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
-		audio_play_sound(snd_ofaMoth_shoot,0,false);
+		audio_sound_gain(snd_enemy_ofaMoth_shoot,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			//enemy_lvl = other.enemy_lvl;
@@ -273,8 +273,8 @@ if (obj_game.gamePaused = false)
 	if (sprite_index != spr_enemy_ofaMoth_moonBlast)
 	{
 		//Start Animation From Beginning
-		audio_sound_gain(snd_ofaMoth_orb,global.volumeEffects,1);
-		audio_play_sound(snd_ofaMoth_orb,0,false);
+		audio_sound_gain(snd_enemy_ofaMoth_orb,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofaMoth_orb,0,false);
 		sprite_index = spr_enemy_ofaMoth_moonBlast;
 		local_frame = 0;
 		image_index = 0;
@@ -284,8 +284,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 10;
-		audio_sound_gain(snd_ofaMoth_shoot,global.volumeEffects,1);
-		audio_play_sound(snd_ofaMoth_shoot,0,false);
+		audio_sound_gain(snd_enemy_ofaMoth_shoot,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			//enemy_lvl = other.enemy_lvl;

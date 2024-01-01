@@ -15,7 +15,7 @@ entity_drop = scr_enemy_lilyCultist_drop;
 enemy_idle = spr_enemy_lilyCultist_idle;
 enemy_move = spr_enemy_lilyCultist_run;
 enemy_damaged = spr_enemy_lilyCultist_damaged;
-damaged_snd = snd_cultist_damaged;
+damaged_snd = snd_enemy_cultist_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -162,8 +162,8 @@ if (obj_game.gamePaused = false)
 	{
 		timer1 = 30;
 		attack_counter = attack_counter + 1;
-		audio_sound_gain(snd_lilyCultist_leafShoot,global.volumeEffects,1);
-		audio_play_sound(snd_lilyCultist_leafShoot,0,false);
+		audio_sound_gain(snd_enemy_cultist_leafShoot,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_cultist_leafShoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
 			home_state = scr_projectile_lifeLeaf_free;
@@ -253,8 +253,8 @@ if (obj_game.gamePaused = false)
 		if (place_meeting(x,y,obj_player))
 		{
 			heal = true;
-			audio_sound_gain(snd_lilyCultist_lifeLeaf_heal,global.volumeEffects,1);
-			audio_play_sound(snd_lilyCultist_lifeLeaf_heal,0,false);
+			audio_sound_gain(snd_enemy_cultist_lifeLeaf_heal,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_cultist_lifeLeaf_heal,0,false);
 			with (obj_player)
 			{
 				if (invincible = false)
@@ -275,16 +275,16 @@ if (obj_game.gamePaused = false)
 		{
 			heal = true;
 			sprite_index = spr_projectile_lifeLeaf_healBurst;
-			audio_sound_gain(snd_lilyCultist_lifeLeaf_heal,global.volumeEffects,1);
-			audio_play_sound(snd_lilyCultist_lifeLeaf_heal,0,false);
+			audio_sound_gain(snd_enemy_lilyCultist_lifeLeaf_heal,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_lilyCultist_lifeLeaf_heal,0,false);
 		}
 		if (!place_meeting(x,y,shooter))
 		{
 			if (place_meeting(x,y,obj_enemy))
 			{
 				heal = true;
-				audio_sound_gain(snd_lilyCultist_lifeLeaf_heal,global.volumeEffects,1);
-				audio_play_sound(snd_lilyCultist_lifeLeaf_heal,0,false);
+				audio_sound_gain(snd_enemy_lilyCultist_lifeLeaf_heal,global.volumeEffects,1);
+				audio_play_sound(snd_enemy_lilyCultist_lifeLeaf_heal,0,false);
 			}
 		}
 	}
@@ -362,8 +362,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_lilyCultist_slash;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_lilyCultist_stab,global.volumeEffects,1);
-		audio_play_sound(snd_lilyCultist_stab,0,false);
+		audio_sound_gain(snd_enemy_lilyCultist_stab,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_lilyCultist_stab,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}

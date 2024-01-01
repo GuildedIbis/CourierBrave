@@ -15,7 +15,7 @@ entity_drop = scr_enemy_endire_inimar_drop;
 enemy_idle = spr_enemy_endireKnight_inimar_idle;
 enemy_move = spr_enemy_endireKnight_inimar_run;
 enemy_damaged = spr_enemy_endireKnight_inimar_damaged;
-damaged_snd = snd_endireKnight_damaged;
+damaged_snd = snd_enemy_endireKnight_damaged;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -182,8 +182,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_inimar_fireStrike;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_fireStrike,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -224,8 +224,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_inimar_cinderDash;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_cinderDash,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_cinderDash,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_cinderDash,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_cinderDash,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -287,8 +287,8 @@ if (obj_game.gamePaused = false)
 	if (timer2 <= 0)
 	{
 		timer2 = 60;
-		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_heatwave_proj,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_heatwave_proj,0,false);
 		for (var i = 0; i < 3; i = i + 1)
 		{
 			
@@ -352,8 +352,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_inimar_heatwave;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_fireStrike,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -364,8 +364,8 @@ if (obj_game.gamePaused = false)
 	{
 		speed = 0;
 		timer2 = 48;
-		audio_sound_gain(snd_endireKnight_heatwave_proj,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_heatwave_proj,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_heatwave_proj,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_heatwave_proj,0,false);
 		for (var i = 0; i < 4; i = i + 1)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))

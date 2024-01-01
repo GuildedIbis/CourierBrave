@@ -131,7 +131,6 @@
     {"name":"inst_23A9C34","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"inst_146F9A2F","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"inst_4817EEF0","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
-    {"name":"inst_37D967C2","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"inst_65240EE6","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"inst_5E49537E","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
     {"name":"inst_4BD6E50D","path":"rooms/rm_lenko_farwayRoad_04/rm_lenko_farwayRoad_04.yy",},
@@ -224,9 +223,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_23A9C34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":112.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_146F9A2F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":120.0,"y":128.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4817EEF0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_environment_grassLenko","path":"objects/obj_environment_grassLenko/obj_environment_grassLenko.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":128.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_37D967C2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"propertyId":{"name":"song_list","path":"objects/obj_song/obj_song.yy",},"value":"scr_game_song_list_lenko",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_65240EE6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kephraStone","path":"objects/obj_kephraStone/obj_kephraStone.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"7",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":80.0,"y":56.0,},

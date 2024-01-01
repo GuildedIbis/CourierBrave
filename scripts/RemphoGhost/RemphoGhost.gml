@@ -15,7 +15,7 @@ entity_drop = scr_enemy_rempho_ghost_drop;
 enemy_idle = spr_enemy_ghost_idle;
 enemy_move = spr_enemy_ghost_move;
 enemy_damaged = spr_enemy_balurneHunter_damaged;
-damaged_snd = snd_rat_damaged;
+damaged_snd = snd_enemy_rat_damaged;
 walk_snd = snd_walk_regular
 
 //Stats
@@ -218,8 +218,8 @@ if (obj_game.gamePaused = false)
 	{	
 		passable = false;
 		timer2 = 84;
-		audio_sound_gain(snd_ghost_soulSkull,global.volumeEffects,1);
-		audio_play_sound(snd_ghost_soulSkull,0,false);
+		audio_sound_gain(snd_enemy_ghost_soulSkull,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ghost_soulSkull,0,false);
 	}
 	
 	//Animate
@@ -236,8 +236,8 @@ if (obj_game.gamePaused = false)
 			timer1 = 300;
 			attack_counter = 0;
 		}
-		audio_sound_gain(snd_ghost_soulFlare,global.volumeEffects,1);
-		audio_play_sound(snd_ghost_soulFlare,0,false);
+		audio_sound_gain(snd_enemy_ghost_soulFlare,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+22,y-8,"Instances",obj_enemy_projectile))
 		{
 			invincible = false;
