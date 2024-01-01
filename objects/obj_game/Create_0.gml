@@ -2,7 +2,7 @@
 
 //Randomize... and other random things
 randomize();
-scr_game_items_create();
+//scr_game_items_create();
 scr_game_room_enemy_create();
 scr_resource_grid_create();
 scr_game_activity_feed_create();

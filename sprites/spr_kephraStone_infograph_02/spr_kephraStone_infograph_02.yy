@@ -14,7 +14,6 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6b99cb6f-8caa-400f-a229-59736a8eb64f",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a7912580-e88a-4117-b5e1-80d308073dcb",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8d8b767b-08a9-466b-bc60-e5d70db92b6b",},
   ],
   "gridX": 0,
@@ -46,7 +45,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 3.0,
+    "length": 2.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -58,8 +57,7 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6b99cb6f-8caa-400f-a229-59736a8eb64f","path":"sprites/spr_kephraStone_infograph_02/spr_kephraStone_infograph_02.yy",},},},"Disabled":false,"id":"6f1d2cae-b80f-45b3-bf89-e5b238557f1f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a7912580-e88a-4117-b5e1-80d308073dcb","path":"sprites/spr_kephraStone_infograph_02/spr_kephraStone_infograph_02.yy",},},},"Disabled":false,"id":"2d7bc687-f755-4167-8156-b37e8e33a8f3","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8d8b767b-08a9-466b-bc60-e5d70db92b6b","path":"sprites/spr_kephraStone_infograph_02/spr_kephraStone_infograph_02.yy",},},},"Disabled":false,"id":"551ca114-2ace-42f9-a808-bb2a1cd7e1a2","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8d8b767b-08a9-466b-bc60-e5d70db92b6b","path":"sprites/spr_kephraStone_infograph_02/spr_kephraStone_infograph_02.yy",},},},"Disabled":false,"id":"551ca114-2ace-42f9-a808-bb2a1cd7e1a2","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -32,8 +32,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "MenuIcons",
-    "path": "folders/Sprites/Game/Menu/MenuIcons.yy",
+    "name": "xRetiredMenu",
+    "path": "folders/Sprites/xRetiredSprites/xRetiredMenu.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
