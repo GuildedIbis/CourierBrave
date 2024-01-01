@@ -46,7 +46,7 @@
   "origin": 9,
   "parent": {
     "name": "Unarmed",
-    "path": "folders/Sprites/xRetired/RetiredPlayer/Unarmed.yy",
+    "path": "folders/Sprites/xRetiredSprites/RetiredPlayer/Unarmed.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

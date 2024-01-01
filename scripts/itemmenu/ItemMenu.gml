@@ -1,5 +1,5 @@
 //Create Item Array
-function scr_inventory_items_create(){
+function xscr_inventory_items_create(){
 //Create Items
 beans = 0;
 star_orb = 0;
@@ -14,7 +14,7 @@ resource_array = array_create(40,0);
 //
 //
 //Menu: Upgrade Items
-function scr_menu_upgrade_items(){
+function xscr_menu_upgrade_items(){
 //Variable Declaration
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);
@@ -83,7 +83,7 @@ if (point_in_rectangle(_mouseX,_mouseY,256,35,272,51))
 //
 //
 //Menu: Resource Items
-function scr_menu_resource_items(){
+function xscr_menu_resource_items(){
 //Variable Declaration
 var _object = obj_inventory;
 var _mouseX = device_mouse_x_to_gui(0);

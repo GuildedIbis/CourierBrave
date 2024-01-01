@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "xRetiredMap",
-    "path": "folders/Sprites/Game/Menu/MapMenu/xRetiredMap.yy",
+    "name": "RetiredMap",
+    "path": "folders/Sprites/xRetiredSprites/xRetiredMenu/RetiredMap.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

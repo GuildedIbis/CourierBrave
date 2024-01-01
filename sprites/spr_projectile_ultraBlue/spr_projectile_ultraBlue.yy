@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "UltraProjectiles",
-    "path": "folders/Sprites/Player/UltraProjectiles.yy",
+    "path": "folders/Sprites/xRetiredSprites/RetiredPlayer/UltraProjectiles.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

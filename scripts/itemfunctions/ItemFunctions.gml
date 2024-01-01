@@ -5,7 +5,7 @@
 //
 //
 //Items Reference
-function scr_game_items_create(){
+function xscr_game_items_create(){
 //Beans is slot 0- this is made equal to the item_sprite with a locked icon as the 0 frame.
 	
 //global.items[# 0, 0]
@@ -103,7 +103,7 @@ global.items[# 19, 3] = "";
 //
 //
 //Item Drop
-function scr_entity_drop_object(_x,_y,_objects){
+function xscr_entity_drop_object(_x,_y,_objects){
 var _numObjects = array_length(_objects);
 if (_numObjects > 1)
 {
@@ -128,7 +128,7 @@ else instance_create_layer(_x,_y,"Instances",_objects[0])
 //
 //
 //Search for Item in Inventory. 
-function scr_inventory_items_search(rootObject,itemID){
+function xscr_inventory_items_search(rootObject,itemID){
 for (var i = 0; i < rootObject.item_slots ; i += 1)
 { 
 	if (rootObject.item_grid[# i, 0] == itemID)
@@ -144,7 +144,7 @@ return (-1);
 //
 //
 //Inventory Space
-function scr_inventory_items_space(rootObject,itemID){
+function xscr_inventory_items_space(rootObject,itemID){
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1)  //Matching Item Found
 {
@@ -166,7 +166,7 @@ if (_slot = -1) //No Matching Item Found
 //
 //
 //Remove Item From Inventory
-function scr_inventory_items_remove(rootObject,itemID,amount) {
+function xscr_inventory_items_remove(rootObject,itemID,amount) {
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1)
 {
@@ -212,7 +212,7 @@ else return false;
 //If it finds a matching object, it +1's, if not it searches for an empty slot
 //If it finds an empty slot, it changes the slot from -1 to the new ID and +1's it
 //If it does not find an empty slot, it returns false (the item_dropped is not destroyed)
-function scr_inventory_items_add(rootObject,itemID,amount) {
+function xscr_inventory_items_add(rootObject,itemID,amount) {
 var _slot = ItemsSearch(rootObject,itemID);
 if (_slot != -1) 
 {

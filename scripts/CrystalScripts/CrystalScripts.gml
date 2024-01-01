@@ -5,7 +5,7 @@
 //
 //
 //crystal Lists
-function scr_inventory_crystal_create(){
+function xscr_inventory_crystal_create(){
 crystal_script = array_create(25,0);
 crystal_enchant = array_create(25,false);
 crystal_enchant[1] = true;
@@ -33,7 +33,7 @@ crystal_script[12] = scr_player_crystal_blueUltra_cast;
 //
 //
 //Crystal Select
-function scr_player_crystal_select(){
+function xscr_player_crystal_select(){
 	
 if (mouse_wheel_up())
 {
@@ -64,7 +64,7 @@ if (mouse_wheel_down())
 //
 //
 //Crystal Natural
-function scr_player_crystal_natural_cast(){
+function xscr_player_crystal_natural_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -112,7 +112,7 @@ if (animation_end)
 //
 //
 //Crystal Spectral
-function scr_player_crystal_spectral_cast(){
+function xscr_player_crystal_spectral_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -161,7 +161,7 @@ if (animation_end)
 //
 //
 //Crystal Yelline
-function scr_player_crystal_yelline_cast(){
+function xscr_player_crystal_yelline_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -210,7 +210,7 @@ if (animation_end)
 //
 //
 //Crystal Orine
-function scr_player_crystal_orine_cast(){
+function xscr_player_crystal_orine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -259,7 +259,7 @@ if (animation_end)
 //
 //
 //Crystal Purple
-function scr_player_crystal_violine_cast(){
+function xscr_player_crystal_violine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -308,7 +308,7 @@ if (animation_end)
 //
 //
 //Crystal Blue
-function scr_player_crystal_bluine_cast(){
+function xscr_player_crystal_bluine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -357,7 +357,7 @@ if (animation_end)
 //
 //
 //Crystal Green
-function scr_player_crystal_grenine_cast(){
+function xscr_player_crystal_grenine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -406,7 +406,7 @@ if (animation_end)
 //
 //
 //Crystal Red
-function scr_player_crystal_redine_cast(){
+function xscr_player_crystal_redine_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -455,7 +455,7 @@ if (animation_end)
 //
 //
 //Crystal Cure
-function scr_player_crystal_cure_cast(){
+function xscr_player_crystal_cure_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -515,7 +515,7 @@ if (animation_end)
 //
 //
 //Crystal Blue Ultra
-function scr_player_crystal_blueUltra_cast(){
+function xscr_player_crystal_blueUltra_cast(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {

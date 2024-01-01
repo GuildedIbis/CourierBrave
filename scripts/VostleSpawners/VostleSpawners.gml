@@ -28,6 +28,16 @@ if (global.dayPhase = 0) or (global.dayPhase = 1)
 		home_y = y;
 		activate_script = scr_text_npc_esow;
 	}
+	with (instance_create_layer(776,232,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_basre_day_create();
+		x = 648;
+		y = 112;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_basre;
+	}
 }
 }
 //
@@ -69,6 +79,27 @@ if (global.dayPhase = 2)
 		home_x = x;
 		home_y = y;
 		activate_script = scr_text_npc_esow;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Vostle Town 00-03 NPC Spawner
+function scr_spawner_vostleTown_01_00_create(){
+if (global.dayPhase = 2)
+{
+	with (instance_create_layer(152,84,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_basre_night_create();
+		x = 160;
+		y = 96;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_basre;
 	}
 }
 }

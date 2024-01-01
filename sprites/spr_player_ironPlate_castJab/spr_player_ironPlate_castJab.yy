@@ -61,7 +61,7 @@
   "origin": 9,
   "parent": {
     "name": "IronPlate",
-    "path": "folders/Sprites/xRetired/RetiredPlayer/IronPlate.yy",
+    "path": "folders/Sprites/xRetiredSprites/RetiredPlayer/IronPlate.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_projectile_ultraBlue(){
+function xscr_projectile_ultraBlue(){
 //Set
 speed = projectile_speed;
 destructable = false;
@@ -35,7 +35,7 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 //
 //
 //Enraged Worm Dash
-function scr_projectile_ultraBlue_explode(){
+function xscr_projectile_ultraBlue_explode(){
 if (obj_game.gamePaused = false)
 {
 	if (timer1 > 0) timer1 = timer1 - 1;

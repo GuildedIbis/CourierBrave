@@ -4,22 +4,87 @@
 //
 //
 //
-//Basre Create
-function scr_npc_basre_create(){
-entity_step = scr_npc_basre_step;
+//
+//Basre Night Create
+function scr_npc_basre_night_create(){
+entity_step = scr_npc_basre_night_step;
+sprite_index = spr_npc_basre;
+npc_idle = spr_npc_basre;
+npc_move = spr_npc_basre_walk;
 sound = snd_npc_mouse;
 interact = 20;
+npc_spd = 1.0;
+path = -1;
 }
 //
 //
 //
 //
 //
-//Basre Step
-function scr_npc_basre_step(){
+//Basre Night Step
+function scr_npc_basre_night_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 2)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,64);
+	}
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_exit(175,144);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Basre Day Create
+function scr_npc_basre_day_create(){
+entity_step = scr_npc_basre_day_step;
 sprite_index = spr_npc_basre;
-scr_player_animation();
-scr_npc_interact(12);
+npc_idle = spr_npc_basre;
+npc_move = spr_npc_basre_walk;
+sound = snd_npc_mouse;
+interact = 20;
+npc_spd = 1.0;
+path = -1;
+}
+//
+//
+//
+//
+//
+//Basre Day Step
+function scr_npc_basre_day_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,360);
+	}
+	if (global.dayPhase = 2)
+	{
+		scr_npc_exit(959,296);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
 }
 //
 //

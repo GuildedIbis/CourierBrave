@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Inanimates",
-    "path": "folders/Scripts/Entities/Inanimates.yy",
+    "name": "xRetiredScripts",
+    "path": "folders/Scripts/xRetiredScripts.yy",
   },
 }

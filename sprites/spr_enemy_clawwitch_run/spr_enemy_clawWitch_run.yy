@@ -40,8 +40,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "xRetired",
-    "path": "folders/Sprites/xRetired.yy",
+    "name": "xRetiredSprites",
+    "path": "folders/Sprites/xRetiredSprites.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

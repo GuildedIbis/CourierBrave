@@ -105,7 +105,7 @@ if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
 //
 //
 //Crull Stone State
-function scr_player_crull(){
+function xscr_player_crull(){
 invincible = false;
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -600,6 +600,40 @@ with (obj_player)
 	//	crystal_use[i] = false;
 	//}
 }	
+}
+//
+//
+//
+//
+//
+//Draw Status Effects
+function scr_player_status_effects_gui(){
+if (ablaze = true)
+{
+	draw_sprite(spr_status_gui,0,2,64);
+}
+if (watervice = true)
+{
+	draw_sprite(spr_status_gui,1,2,64);
+}
+if (thundux = true)
+{
+	draw_sprite(spr_status_gui,2,2,64);
+}
+if (knockback = true)
+{
+	draw_sprite(spr_status_gui,3,2,64);
+}
+if (cursed = true)
+{
+	draw_sprite(spr_status_gui,4,2,64);
+}
+if (heal = true)
+{
+	draw_sprite(spr_status_gui,5,2,64);
+}
+
+	
 }
 //
 //

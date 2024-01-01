@@ -32,7 +32,7 @@
   "origin": 9,
   "parent": {
     "name": "QuestItem",
-    "path": "folders/Sprites/Effects/QuestItem.yy",
+    "path": "folders/Sprites/Effects/Items/QuestItem.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

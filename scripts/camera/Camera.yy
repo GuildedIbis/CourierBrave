@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Effects",
-    "path": "folders/Scripts/Game/Effects.yy",
+    "name": "General",
+    "path": "folders/Scripts/Game/General.yy",
   },
 }

@@ -49,8 +49,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Hud",
-    "path": "folders/Sprites/Game/Hud.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Effects/Effects/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

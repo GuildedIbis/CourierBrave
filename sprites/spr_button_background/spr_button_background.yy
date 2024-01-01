@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Hud",
-    "path": "folders/Sprites/Game/Hud.yy",
+    "name": "RetiredHUD",
+    "path": "folders/Sprites/Game/Hud/RetiredHUD.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -26,7 +26,7 @@
   "origin": 9,
   "parent": {
     "name": "RetiredWeapons",
-    "path": "folders/Sprites/xRetired/RetiredWeapons.yy",
+    "path": "folders/Sprites/xRetiredSprites/RetiredPlayer/RetiredWeapons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

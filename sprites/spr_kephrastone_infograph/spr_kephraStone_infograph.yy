@@ -33,8 +33,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Kephra",
-    "path": "folders/Sprites/Game/Menu/Kephra.yy",
+    "name": "RetiredOtherMenu",
+    "path": "folders/Sprites/xRetiredSprites/xRetiredMenu/RetiredOtherMenu.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -34,8 +34,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sprites/Effects/Effects/Other.yy",
+    "name": "xRetiredEffects",
+    "path": "folders/Sprites/xRetiredSprites/xRetiredEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

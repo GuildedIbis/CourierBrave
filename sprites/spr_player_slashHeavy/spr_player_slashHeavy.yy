@@ -63,7 +63,7 @@
   "origin": 9,
   "parent": {
     "name": "RetiredPlayer",
-    "path": "folders/Sprites/xRetired/RetiredPlayer.yy",
+    "path": "folders/Sprites/xRetiredSprites/RetiredPlayer.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
