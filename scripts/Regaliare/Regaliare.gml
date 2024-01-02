@@ -60,8 +60,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	if (walk_snd_delay <= 0)
 	{
 		walk_snd_delay = 18;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
-		audio_play_sound(walk_snd,1,false);
+		//audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		audio_play_sound(walk_snd,1,false,global.volumeEffects/2);
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -200,8 +200,7 @@ damage = 30;//+ (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
-	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
-	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	audio_play_sound(snd_regaliare_regalBlade,0,0,global.volumeEffects);
 	atk_snd_delay = 28;
 }
 //if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
@@ -271,8 +270,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	if (walk_snd_delay <= 0)
 	{
 		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
-		audio_play_sound(walk_snd,1,false);
+		//audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		audio_play_sound(walk_snd,1,false,global.volumeEffects/2);
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -325,8 +324,8 @@ if (magic_timer <= 0)
 	yellow_primary = yellow_primary - 6;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
+		//audio_sound_gain(snd_regaliare_goldBullet,global.volumeEffects,1);
+		audio_play_sound(snd_regaliare_goldBullet,0,0,global.volumeEffects);
 		break_object = other.break_object;
 		magic = true;
 		fragment_count = 2;
@@ -412,8 +411,8 @@ if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	if (walk_snd_delay <= 0)
 	{
 		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
-		audio_play_sound(walk_snd,1,false);
+		//audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		audio_play_sound(walk_snd,1,false,global.volumeEffects/2);
 	}
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
@@ -465,8 +464,8 @@ if (magic_timer <= 0)
 	yellow_primary = yellow_primary - 10;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		audio_play_sound(snd_goldBullet,0,0);
+		//audio_sound_gain(snd_regaliare_goldBullet,global.volumeEffects,1);
+		audio_play_sound(snd_regaliare_goldBullet,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
 		fragment_count = 2;
@@ -561,15 +560,6 @@ if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 		stamina = stamina + 1;
 	}
 }
-//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		yellow_primary = yellow_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1;
@@ -584,7 +574,6 @@ if (sprite_index != spr_player_regaliare_cast_special)
 {
 	//Start Animation From Beginning
 	sprite_index = spr_player_regaliare_cast_special;
-	//sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -601,8 +590,8 @@ if (animation_end)
 	invincible = true;
 	with (instance_create_layer(x,y-6,"Instances",obj_projectile))
 	{
-		audio_sound_gain(snd_goldArcs,global.volumeEffects,1);
-		audio_play_sound(snd_goldArcs,0,0);
+		//audio_sound_gain(snd_regaliare_goldArcs,global.volumeEffects,1);
+		audio_play_sound(snd_regaliare_goldArcs,0,0,global.volumeEffects);
 		timer1 = 120;
 		break_object = obj_player.break_object;
 		damage = 22;//+ (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));

@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SettingsMenu",
+  "name": "PlayerAudio",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "General",
-    "path": "folders/Scripts/Game/General.yy",
+    "name": "Other",
+    "path": "folders/Scripts/Player/Gameplay/Other.yy",
   },
 }

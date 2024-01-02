@@ -205,7 +205,6 @@
     {"name":"inst_7F2BF4F9","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_43FABD8F","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_7947479A","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
-    {"name":"inst_38164D64","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_7C2B2DD9","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_5B150CAF","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
     {"name":"inst_3BA52F6E","path":"rooms/rm_lenko_beaowire_08/rm_lenko_beaowire_08.yy",},
@@ -300,7 +299,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"9",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.beaowireFortress_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":160.0,"y":-24.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_38164D64","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":32.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6BA4E159_1_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[

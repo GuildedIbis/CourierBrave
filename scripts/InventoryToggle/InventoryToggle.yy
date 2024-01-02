@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "ActivityFeed",
+  "name": "InventoryToggle",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "xRetiredScripts",
-    "path": "folders/Scripts/xRetiredScripts.yy",
+    "name": "OtherMenus",
+    "path": "folders/Scripts/Player/Inventory/OtherMenus.yy",
   },
 }

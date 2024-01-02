@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "ActivityFeed",
+  "name": "GameAudio",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "xRetiredScripts",
-    "path": "folders/Scripts/xRetiredScripts.yy",
+    "name": "General",
+    "path": "folders/Scripts/Game/General.yy",
   },
 }

@@ -242,6 +242,7 @@ if (obj_game.time_played > 0)
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -293,6 +294,7 @@ if (obj_game.time_played > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_1();
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -342,6 +344,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_1();
 			audio_stop_all();
+			obj_song.song_timer = 600;
 			scr_audio_transition();
 		}
 	}
@@ -376,6 +379,7 @@ if (obj_game.time_played2 > 0)
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -426,6 +430,7 @@ if (obj_game.time_played2 > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_2();
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -477,6 +482,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_2();
 			audio_stop_all();
+			obj_song.song_timer = 600;
 			scr_audio_transition();
 		}
 	}
@@ -511,6 +517,7 @@ if (obj_game.time_played3 > 0)
 				obj_player.x = global.lastAltarX;
 				obj_player.y = global.lastAltarY;
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -561,6 +568,7 @@ if (obj_game.time_played3 > 0)
 				room_goto(rm_scene_00);
 				scr_game_save_3();
 				audio_stop_all();
+				obj_song.song_timer = 600;
 				scr_audio_transition();
 			}
 		}
@@ -612,6 +620,7 @@ else
 			room_goto(rm_scene_00);
 			scr_game_save_3();
 			audio_stop_all();
+			obj_song.song_timer = 600;
 			scr_audio_transition();
 		}
 	}
@@ -633,4 +642,47 @@ if (point_in_rectangle(_mouseX,_mouseY,16,148,32,164))//Home
 	}
 }
 }
-	
+//
+//
+//
+//
+//
+//Pause Open/Close
+function scr_pause_toggle(){
+if (keyboard_check_pressed(vk_escape)) and (global.home = false)
+{
+	if (textPaused = false) and (invPaused = false)
+	{
+		
+		if (menuPaused = false) 
+		{
+			audio_sound_gain(snd_menu,global.volumeMenu,1);
+			audio_play_sound(snd_menu,0,false);
+		}
+		gamePaused = !gamePaused;
+		menuPaused = !menuPaused;
+		//global.gamePaused = !global.gamePaused;
+		//global.menuPaused = !global.menuPaused;
+		if (gamePaused)
+		{
+			scr_audio_pause_enemy();
+			with (all)
+			{
+				game_paused_image_speed = image_speed;
+				image_speed = 0;
+			}
+		}
+		else
+		{
+			//global.gamePaused = false;
+			//global.menuPaused = false;
+			scr_audio_resume_enemy();
+			scr_game_save_settings();
+			with (all)
+			{
+				image_speed = game_paused_image_speed;
+			}
+		}
+	}
+}
+}

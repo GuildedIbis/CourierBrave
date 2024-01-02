@@ -1298,7 +1298,6 @@
     {"name":"inst_74155E31","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_6A8E9782","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_1B55D4E4","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
-    {"name":"inst_457C7DA","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_70AF8188","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_B881AA9","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
     {"name":"inst_59B1604A","path":"rooms/rm_lenko_habrafLake_05/rm_lenko_habrafLake_05.yy",},
@@ -1503,7 +1502,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_75D5B31B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door_habrafLake_stone","path":"objects/obj_door_habrafLake_stone/obj_door_habrafLake_stone.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":768.0,"y":528.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_457C7DA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2DF3F8E2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_form","path":"objects/obj_pedestal_form/obj_pedestal_form.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_pedestal_skill_3",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_pedestal_skill_3_create",},

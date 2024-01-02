@@ -177,7 +177,6 @@
     {"name":"inst_713347CE","path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
     {"name":"inst_2CEE68AC","path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
     {"name":"inst_186F418F","path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
-    {"name":"inst_4658D45B","path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
     {"name":"inst_44696FF1","path":"rooms/rm_lenko_beaowire_15/rm_lenko_beaowire_15.yy",},
   ],
   "isDnd": false,
@@ -438,7 +437,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_skirmisherElite_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"6",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":104.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4658D45B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_44696FF1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pedestal_form","path":"objects/obj_pedestal_form/obj_pedestal_form.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_pedestal_skill_3",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_pedestal_skill_3_create",},

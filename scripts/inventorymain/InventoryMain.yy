@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Other",
-    "path": "folders/Scripts/Player/Inventory/Other.yy",
+    "name": "OtherMenus",
+    "path": "folders/Scripts/Player/Inventory/OtherMenus.yy",
   },
 }

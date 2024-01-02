@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "QuickSwap",
+  "name": "InventorySwap",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Other",
-    "path": "folders/Scripts/Player/Inventory/Other.yy",
+    "name": "OtherMenus",
+    "path": "folders/Scripts/Player/Inventory/OtherMenus.yy",
   },
 }

@@ -1,27 +1,4 @@
-//Audio Scripts
-//
-//
-//
-//
-//
-//Create Songs
-function scr_audio_songs_create(){
-song_array = array_create(5,-1);
-song_list_array = array_create(26,0);
-
-song_array[0] = snd_theme_main;
-song_array[1] = snd_song_farway_theme;
-song_array[2] = snd_song_yakflower_theme;
-song_array[3] = snd_song_habraf_theme;
-song_array[4] = snd_song_beaowire_theme;
-
-song_list_array[0] = scr_game_song_list_main;
-song_list_array[1] = scr_game_song_list_lenko;
-song_list_array[2] = scr_game_song_list_lenko;
-song_list_array[3] = scr_game_song_list_lenko;
-song_list_array[4] = scr_game_song_list_lenko;
-song_list_array[5] = scr_game_song_list_lenko;
-}
+//Enemy Audio
 //
 //
 //
@@ -129,22 +106,6 @@ sound_enemy_array[61] = snd_enemy_zerwerk_voidRift;
 //
 //
 //
-function scr_audio_stop_song(){
-with (obj_song)
-{
-	var _size = array_length(song_array);
-	for (var i = 0; i < _size; i = i + 1)
-	{
-		audio_stop_sound(song_array[i]);
-	}
-}
-}
-//
-//
-//
-//
-//
-//
 function scr_audio_stop_enemy(){
 with (obj_game)
 {
@@ -160,37 +121,14 @@ with (obj_game)
 //
 //
 //
-//Song List: Main
-function scr_game_song_list_main(){
-room_song = snd_theme_main;
-
-}
 //
-//
-//
-//
-//
-//Song List: Lenko
-function scr_game_song_list_lenko(){
-var _song = irandom_range(0,3)
+function scr_audio_pause_enemy(){
+with (obj_game)
 {
-	switch (_song)
+	var _size = array_length(sound_enemy_array);
+	for (var i = 0; i < _size; i = i + 1)
 	{
-		case 0:
-			room_song = snd_song_farway_theme;
-		break;
-		
-		case 1:
-			room_song = snd_song_yakflower_theme;
-		break;
-		
-		case 2:
-			room_song = snd_song_habraf_theme;
-		break;
-		
-		case 3:
-			room_song = snd_song_beaowire_theme;
-		break;
+		audio_pause_sound(sound_enemy_array[i]);
 	}
 }
 }
@@ -199,11 +137,14 @@ var _song = irandom_range(0,3)
 //
 //
 //
-//Audio Transition Between Levels
-function scr_audio_transition(){
-with (obj_song)
+//
+function scr_audio_resume_enemy(){
+with (obj_game)
 {
-	song_timer = 600;
-	script_execute(song_list_array[obj_game.level_num + 1]);
+	var _size = array_length(sound_enemy_array);
+	for (var i = 0; i < _size; i = i + 1)
+	{
+		audio_resume_sound(sound_enemy_array[i]);
+	}
 }
 }

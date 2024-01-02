@@ -749,7 +749,6 @@
     {"name":"inst_509CF81A","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
     {"name":"inst_3C03D458","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
     {"name":"inst_1E02FC68","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
-    {"name":"inst_1EBB6E53","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
     {"name":"inst_251CD881","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
     {"name":"inst_1AE462F0","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
     {"name":"inst_75DE29BA","path":"rooms/rm_lenko_habrafLake_02/rm_lenko_habrafLake_02.yy",},
@@ -852,7 +851,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_trap_lily_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"11",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":144.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1EBB6E53","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-32.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_75DE29BA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_skirmisher_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"6",},

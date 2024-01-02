@@ -311,7 +311,6 @@
     {"name":"inst_12499B74","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_6FD21E5D","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_64D193CA","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
-    {"name":"inst_39513E1","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_4322CC14","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_3B569F65","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_7E11B1D9","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
@@ -786,7 +785,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_hunterElite_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"29",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":216.0,"y":152.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_39513E1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3B569F65","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_chest","path":"objects/obj_chest/obj_chest.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_chest_00",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_chest_create",},
