@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Tools",
-    "path": "folders/Objects/Game/Tools.yy",
+    "name": "xRetiredObjects",
+    "path": "folders/Objects/xRetiredObjects.yy",
   },
   "parentObjectId": null,
   "persistent": false,

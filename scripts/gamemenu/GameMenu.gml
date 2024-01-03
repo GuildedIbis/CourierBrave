@@ -666,6 +666,7 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 		if (gamePaused)
 		{
 			scr_audio_pause_enemy();
+			scr_audio_pause_player();
 			with (all)
 			{
 				game_paused_image_speed = image_speed;
@@ -677,6 +678,7 @@ if (keyboard_check_pressed(vk_escape)) and (global.home = false)
 			//global.gamePaused = false;
 			//global.menuPaused = false;
 			scr_audio_resume_enemy();
+			scr_audio_resume_player();
 			scr_game_save_settings();
 			with (all)
 			{

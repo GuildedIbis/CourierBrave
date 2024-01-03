@@ -269,7 +269,7 @@ if (timerC > 0)
 	}
 	//else 
 	//{
-	//	sprite_index = enemy_idle;
+	//	sprite_index = npc_idle;
 	//}
 
 

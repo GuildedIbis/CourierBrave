@@ -20,6 +20,8 @@ if (keyboard_check_pressed(vk_tab))
 					{
 						gamePaused = false;
 						invPaused = false;
+						scr_audio_resume_enemy();
+						scr_audio_resume_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;
@@ -39,6 +41,8 @@ if (keyboard_check_pressed(vk_tab))
 					{
 						audio_sound_gain(snd_menu,global.volumeMenu,1);
 						audio_play_sound(snd_menu,0,false);
+						scr_audio_pause_enemy();
+						scr_audio_pause_player();
 						gamePaused = true;
 						invPaused = true;
 						with (obj_inventory)
@@ -83,6 +87,8 @@ if (keyboard_check_pressed(ord("R")))
 					{
 						gamePaused = false;
 						invPaused = false;
+						scr_audio_resume_enemy();
+						scr_audio_resume_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;
@@ -103,6 +109,8 @@ if (keyboard_check_pressed(ord("R")))
 						audio_play_sound(snd_menu,0,false);
 						gamePaused = true;
 						invPaused = true;
+						scr_audio_pause_enemy();
+						scr_audio_pause_player();
 						with (obj_inventory)
 						{
 							swap_menu = true;
@@ -144,6 +152,8 @@ if (keyboard_check_pressed(ord("Q")))
 					{
 						gamePaused = false;
 						invPaused = false;
+						scr_audio_resume_enemy();
+						scr_audio_resume_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;
@@ -164,6 +174,8 @@ if (keyboard_check_pressed(ord("Q")))
 						audio_play_sound(snd_menu,0,false);
 						gamePaused = true;
 						invPaused = true;
+						scr_audio_pause_enemy();
+						scr_audio_pause_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;
@@ -207,6 +219,8 @@ if (keyboard_check_pressed(ord("M")))
 					{
 						gamePaused = false;
 						invPaused = false;
+						scr_audio_resume_enemy();
+						scr_audio_resume_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;
@@ -227,6 +241,8 @@ if (keyboard_check_pressed(ord("M")))
 						audio_play_sound(snd_menu,0,false);
 						gamePaused = true;
 						invPaused = true;
+						scr_audio_pause_enemy();
+						scr_audio_pause_player();
 						with (obj_inventory)
 						{
 							swap_menu = false;

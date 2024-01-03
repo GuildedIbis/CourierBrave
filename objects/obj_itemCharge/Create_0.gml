@@ -10,6 +10,6 @@ drop_amount = 0;
 timer1 = 15;
 image_xscale = choose(-1,1);
 image_yscale = choose(-1,1);
-
+game_paused_image_speed = 0;
 spd = 2;
 direction = random(360);

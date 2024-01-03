@@ -15,8 +15,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_resource_container_create",},
   ],
   "parent": {
-    "name": "Interactable",
-    "path": "folders/Objects/Entities/Interactable.yy",
+    "name": "xRetiredObjects",
+    "path": "folders/Objects/xRetiredObjects.yy",
   },
   "parentObjectId": {
     "name": "obj_interactable",

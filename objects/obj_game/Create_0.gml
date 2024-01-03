@@ -4,6 +4,7 @@
 randomize();
 scr_game_room_enemy_create();
 scr_audio_enemy_create();
+scr_audio_player_create()
 scr_resource_grid_create();
 scr_game_activity_feed_create();
 

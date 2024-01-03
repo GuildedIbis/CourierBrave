@@ -87,7 +87,25 @@ if (global.dayPhase = 2)
 //
 //
 //
-//Vostle Town 00-03 NPC Spawner
+//Vostle Town 00-04 NPC Spawner
+function scr_spawner_vostleTown_00_04_create(){
+with (instance_create_layer(152,84,"Instances",obj_npc))
+{
+	image_alpha = 1;
+	scr_npc_dumire_create();
+	x = 144;
+	y = 88;
+	home_x = x;
+	home_y = y;
+	activate_script = scr_text_npc_dumire;
+}
+}
+//
+//
+//
+//
+//
+//Vostle Town 01-00 NPC Spawner
 function scr_spawner_vostleTown_01_00_create(){
 if (global.dayPhase = 2)
 {
@@ -103,4 +121,46 @@ if (global.dayPhase = 2)
 	}
 }
 }
-
+//
+//
+//
+//
+//
+//Vostle Town 02 NPC Spawner
+function scr_spawner_vostleTown_02_create(){
+if (global.dayPhase = 0) or (global.dayPhase = 1)
+{
+	with (instance_create_layer(208,384,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_einalad_day_create();
+		x = 168;
+		y = 176;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_einalad;
+	}
+	
+}
+}
+//
+//
+//
+//
+//
+//Vostle Town 04-00 NPC Spawner
+function scr_spawner_vostleTown_04_00_create(){
+if (global.dayPhase = 2)
+{
+	with (instance_create_layer(152,84,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_einalad_night_create();
+		x = 88;
+		y = 80;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_einalad;
+	}
+}
+}

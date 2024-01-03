@@ -594,7 +594,6 @@
     {"name":"inst_1AB46F","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
     {"name":"inst_33677C8","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
     {"name":"inst_271AC4D9","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
-    {"name":"inst_1D56854B","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
     {"name":"inst_5F814BAC","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
     {"name":"inst_2A1BA0B8","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
     {"name":"inst_4190F1A1","path":"rooms/rm_lenko_yakflowerPath_05/rm_lenko_yakflowerPath_05.yy",},
@@ -1260,10 +1259,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_ofa_moth_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"15",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":672.0,"y":104.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1D56854B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource","path":"objects/obj_resource/obj_resource.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource/obj_resource.yy",},"value":"obj_game.yakflowerPath_resource_grid",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":176.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_721EDCBD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_solarSabi_01_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_solarSabi_01",},

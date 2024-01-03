@@ -93,12 +93,11 @@ if (string_counter >= 1)
 	sell_price = 0;
 	buy_price = 0;
 }
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 }
 //
 //
@@ -195,11 +194,10 @@ if (obj_inventory.quest_grid[# 14, 1] >= 2)
 		buy_price = 0;
 	}
 }
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
 draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text_transformed(69,141,_SubString,.6,.6,0);
+draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 
 }

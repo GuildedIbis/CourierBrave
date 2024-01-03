@@ -12,8 +12,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "Items",
-    "path": "folders/Objects/Effects/Items.yy",
+    "name": "xRetiredObjects",
+    "path": "folders/Objects/xRetiredObjects.yy",
   },
   "parentObjectId": {
     "name": "obj_fragment",

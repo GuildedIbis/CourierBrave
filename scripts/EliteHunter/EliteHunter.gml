@@ -306,7 +306,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_hunterElite_shatterArrow_free;
 			light_size = 24;
 			entity_step = home_state;
@@ -416,8 +416,8 @@ if (obj_game.gamePaused = false)
 	}
 	if (place_meeting(x,y,break_object)) 
 	{
-		audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-		audio_play_sound(snd_arrow_hit,0,false);
+		audio_sound_gain(snd_enemy_rat_arrow_hit,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_rat_arrow_hit,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
 			//enemy_lvl = other.enemy_lvl;
