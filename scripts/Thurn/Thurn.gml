@@ -1,30 +1,39 @@
 //NPC Thurn
-//Lenko West: Might Leveling
-
+//Vostle Town 00-02
+//
 //
 //
 //
 //Thurn Create
 function scr_npc_thurn_create(){
 entity_step = scr_npc_thurn_step;
+sprite_index = spr_npc_thurn;
+npc_idle = spr_npc_thurn;
+npc_move = spr_npc_thurn_walk;
 sound = snd_npc_mouse;
 interact = 20;
+npc_spd = 1.0;
+path = -1;
+timerW = irandom_range(0,120);
 }
-
-
-
 //
 //
 //
-//Mesa Step
+//
+//
+//Thurn Step
 function scr_npc_thurn_step(){
-sprite_index = spr_npc_thurn;
-scr_player_animation();
-scr_npc_interact(12);
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	scr_npc_wander_home_range(60,240,home_x,home_y,64);
+	scr_npc_animation();
 }
-
-
-
+else path_end();
+}
+//
+//
 //
 //
 //

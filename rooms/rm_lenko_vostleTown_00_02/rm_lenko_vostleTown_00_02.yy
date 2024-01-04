@@ -11,7 +11,6 @@
     {"name":"inst_44BE33F9_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_797C30F8_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_690E7629_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
-    {"name":"inst_3988E047_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_28D95144_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_9F62B0_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_4DD8588E_1_1","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
@@ -32,7 +31,6 @@
     {"name":"inst_58ADE83C","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_23C282AC","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_2F8D935C","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
-    {"name":"inst_7227B789","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_621E60CB","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_313FAA9F","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_9E7B488","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
@@ -44,6 +42,7 @@
     {"name":"inst_61B78E6","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_C6F0EC9","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
     {"name":"inst_43D2185B","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
+    {"name":"inst_7A19A425","path":"rooms/rm_lenko_vostleTown_00_02/rm_lenko_vostleTown_00_02.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -110,15 +109,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"altar_num","path":"objects/obj_door/obj_door.yy",},"value":"19",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"0",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":128.0,"y":136.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3988E047_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_mesa_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_npc_mesa",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":88.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_268EE372_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":16.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7227B789","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_thurn_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_npc_thurn",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7A19A425","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_vostleTown_00_02_create",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":40.0,"y":48.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7A05936B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"properties":[

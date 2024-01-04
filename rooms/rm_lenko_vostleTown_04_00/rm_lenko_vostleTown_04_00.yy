@@ -83,7 +83,6 @@
     {"name":"inst_3CD011A8","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},
     {"name":"inst_507F4932","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},
     {"name":"inst_6030411E","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},
-    {"name":"inst_530CE2B4","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},
     {"name":"inst_294D8CEC","path":"rooms/rm_lenko_vostleTown_04_00/rm_lenko_vostleTown_04_00.yy",},
   ],
   "isDnd": false,
@@ -193,11 +192,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6030411E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_sirvo_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_npc_sirvo",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.0,"y":112.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_530CE2B4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_rhombail_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_rhombail",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":88.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":240.0,"y":112.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_294D8CEC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_vostleTown_04_00_create",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":80.0,"y":96.0,},

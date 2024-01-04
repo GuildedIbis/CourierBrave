@@ -1,26 +1,92 @@
 //NPC Rhombhail
-//Lenko West: Vendor
+//Vostle Town 04-00
 //
 //
 //
 //
 //
-//Rombhail Create
-function scr_npc_rhombail_create(){
-entity_step = scr_npc_rhombail;
-sound = snd_npc_reptile;
+//Rhombail Create
+function scr_npc_rhombail_night_create(){
+entity_step = scr_npc_rhombail_night_step;
+sprite_index = spr_npc_rhombail;
+npc_idle = spr_npc_rhombail;
+npc_move = spr_npc_rhombail_walk;
+sound = snd_npc_mouse;
 interact = 20;
+npc_spd = 1.0;
+path = -1;
+timerW = irandom_range(0,120);
 }
 //
 //
 //
 //
 //
-//Rombhail Step
-function scr_npc_rhombail(){
+//Rhombail Step
+function scr_npc_rhombail_night_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 2)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,64);
+	}
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_exit(224,144);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Rhombail Create
+function scr_npc_rhombail_day_create(){
+entity_step = scr_npc_rhombail_day_step;
 sprite_index = spr_npc_rhombail;
-scr_player_animation();
-scr_npc_interact(12);
+npc_idle = spr_npc_rhombail;
+npc_move = spr_npc_rhombail_walk;
+sound = snd_npc_mouse;
+interact = 20;
+npc_spd = 1.0;
+path = -1;
+timerW = irandom_range(0,120);
+}
+//
+//
+//
+//
+//
+//Rhombail Step
+function scr_npc_rhombail_day_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,360);
+	}
+	if (global.dayPhase = 2)
+	{
+		scr_npc_exit(512,175);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
 }
 //
 //
@@ -28,7 +94,7 @@ scr_npc_interact(12);
 //
 //
 //Rombhail Text
-function scr_text_rhombail(){
+function scr_text_npc_rhombail(){
 
 //Formatting
 draw_set_font(global.fnt_main_white);

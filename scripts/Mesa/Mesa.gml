@@ -3,22 +3,89 @@
 //
 //
 //
-//Mesa Create
-function scr_npc_mesa_create(){
-entity_step = scr_npc_mesa_step;
+//
+//Mesa Night Create
+function scr_npc_mesa_night_create(){
+entity_step = scr_npc_mesa_night_step;
+sprite_index = spr_npc_mesa;
+npc_idle = spr_npc_mesa;
+npc_move = spr_npc_mesa_walk;
 sound = snd_npc_mouse;
 interact = 20;
+npc_spd = 1.0;
+path = -1;
+timerW = irandom_range(0,120);
 }
 //
 //
 //
 //
 //
-//Orodry Step
-function scr_npc_mesa_step(){
+//Mesa Night Step
+function scr_npc_mesa_night_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 2)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,64);
+	}
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_exit(144,144);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
+}
+//
+//
+//
+//
+//
+//Mesa Day Create
+function scr_npc_mesa_day_create(){
+entity_step = scr_npc_mesa_day_step;
 sprite_index = spr_npc_mesa;
-scr_player_animation();
-scr_npc_interact(12);
+npc_idle = spr_npc_mesa;
+npc_move = spr_npc_mesa_walk;
+sound = snd_npc_mouse;
+interact = 20;
+npc_spd = 1.0;
+path = -1;
+timerW = irandom_range(0,120);
+}
+//
+//
+//
+//
+//
+//Mesa Day Step
+function scr_npc_mesa_day_step(){
+if (obj_game.gamePaused = false)
+{
+	scr_npc_timer_countdown();
+	scr_npc_interact(12);
+	if (global.dayPhase = 0) or (global.dayPhase = 1)
+	{
+		scr_npc_wander_home_range(60,240,home_x,home_y,360);
+	}
+	if (global.dayPhase = 2)
+	{
+		scr_npc_exit(584,407);
+		if (place_meeting(x,y,obj_door))
+		{
+			instance_destroy();
+		}
+	}
+	scr_npc_animation();
+}
+else path_end();
 }
 //
 //

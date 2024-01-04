@@ -6,7 +6,7 @@
 //
 //Esow Night Create
 function scr_npc_esow_night_create(){
-entity_step = scr_npc_orodry_night_step;
+entity_step = scr_npc_esow_night_step;
 sprite_index = spr_npc_esow;
 npc_idle = spr_npc_esow;
 npc_move = spr_npc_esow_walk;
@@ -14,6 +14,7 @@ sound = snd_npc_mouse;
 interact = 20;
 npc_spd = 1.0;
 path = -1;
+timerW = irandom_range(0,120);
 }
 //
 //
@@ -49,7 +50,7 @@ else path_end();
 //
 //Esow Day Create
 function scr_npc_esow_day_create(){
-entity_step = scr_npc_orodry_day_step;
+entity_step = scr_npc_esow_day_step;
 sprite_index = spr_npc_esow;
 npc_idle = spr_npc_esow;
 npc_move = spr_npc_esow_walk;
@@ -57,6 +58,7 @@ sound = snd_npc_mouse;
 interact = 20;
 npc_spd = 1.0;
 path = -1;
+timerW = irandom_range(0,120);
 }
 //
 //

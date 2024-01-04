@@ -14,6 +14,7 @@ sound = snd_npc_mouse;
 interact = 20;
 npc_spd = 1.0;
 path = -1;
+timerW = irandom_range(0,120);
 }
 //
 //

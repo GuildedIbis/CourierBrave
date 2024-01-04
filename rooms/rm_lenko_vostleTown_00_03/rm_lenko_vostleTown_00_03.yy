@@ -36,7 +36,6 @@
     {"name":"inst_9E7B488_2","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
     {"name":"inst_7A05936B_2","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
     {"name":"inst_6677409B","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
-    {"name":"inst_472F4103","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
     {"name":"inst_56EFDC37","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
     {"name":"inst_467D4BF7","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
     {"name":"inst_531B304","path":"rooms/rm_lenko_vostleTown_00_03/rm_lenko_vostleTown_00_03.yy",},
@@ -109,10 +108,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.vostleTown_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":128.0,"y":136.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_268EE372_1_1_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_layerControl","path":"objects/obj_layerControl/obj_layerControl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-16.0,"y":16.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_472F4103","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_harvo_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_npc_harvo",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":120.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4A22BA87","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_vostleTown_00_03_create",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.0,"y":48.0,},

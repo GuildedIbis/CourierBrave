@@ -166,6 +166,7 @@
     {"name":"inst_24FFC405","path":"rooms/rm_lenko_farwayRoad_03/rm_lenko_farwayRoad_03.yy",},
     {"name":"inst_72D10240","path":"rooms/rm_lenko_farwayRoad_03/rm_lenko_farwayRoad_03.yy",},
     {"name":"inst_793F0562","path":"rooms/rm_lenko_farwayRoad_03/rm_lenko_farwayRoad_03.yy",},
+    {"name":"inst_1861A08F","path":"rooms/rm_lenko_farwayRoad_03/rm_lenko_farwayRoad_03.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -250,6 +251,9 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.vostleTown_enemy_grid",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"level_num","path":"objects/obj_door/obj_door.yy",},"value":"0",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":-2.0,"x":-24.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1861A08F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"propertyId":{"name":"spawn_create","path":"objects/obj_spawner/obj_spawner.yy",},"value":"scr_spawner_vostleTown_farwayBlock_create",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":88.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_46727E5B_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[
@@ -539,7 +543,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_65636DBE_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"propertyId":{"name":"variant","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"value":"1",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":24.0,"y":160.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":56.0,"y":168.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6FE812EF_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"value":"obj_break",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_effect_treeLakebirch","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"propertyId":{"name":"variant","path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},"value":"0",},
@@ -639,9 +643,9 @@
 0,0,51,50,53,51,52,53,11,12,0,0,52,53,52,53,13,11,0,0,
 164,122,122,11,52,53,52,53,13,-3,0,6,52,53,11,10,11,12,-5,0,
 12,10,11,11,51,52,53,0,0,13,12,13,10,-10,0,5,11,12,13,10,
-11,-19,0,1,82,-7,0,3,53,0,125,-11,0,15,11,0,10,11,12,11,
-87,0,82,0,82,88,11,12,53,-10,0,1,52,-12,0,1,12,-11,0,3,
-50,0,12,-5,0,1,11,-20,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+11,-27,0,3,53,0,125,-11,0,15,11,0,10,11,12,11,87,0,82,0,
+82,88,11,12,53,-10,0,1,52,-12,0,1,12,-11,0,3,50,0,12,-5,
+0,1,11,-20,0,],"TileDataFormat":1,},"tilesetId":{"name":"tile_lenko","path":"tilesets/tile_lenko/tile_lenko.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"MainTile","depth":1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":20,"TileCompressedData":[
 -8,162,2,161,163,-18,162,2,161,163,-17,162,4,206,165,164,209,-14,162,4,
 206,122,165,86,-3,2,3,89,122,164,-9,162,12,121,165,0,86,45,4,5,

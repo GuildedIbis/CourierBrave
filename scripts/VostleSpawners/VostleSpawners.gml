@@ -4,6 +4,33 @@
 //
 //
 //
+//Vostle Town 00-01 NPC Spawner
+function scr_spawner_vostleTown_farwayBlock_create(){
+if (obj_inventory.quest_grid[# 4, 3] = false)
+{
+	with (instance_create_layer(0,88,"Wall",obj_wall))
+	{
+		image_xscale = 2;
+		image_yscale = 6;
+		game_paused_image_speed = image_speed;
+	}
+	with (instance_create_layer(24,116,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_nisma_block_create();
+		x = 24;
+		y = 116;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_nisma_block;
+	}
+}
+}
+//
+//
+//
+//
+//
 //Vostle Town 00 NPC Spawner
 function scr_spawner_vostleTown_00_create(){
 if (global.dayPhase = 0) or (global.dayPhase = 1)
@@ -17,6 +44,16 @@ if (global.dayPhase = 0) or (global.dayPhase = 1)
 		home_x = x;
 		home_y = y;
 		activate_script = scr_text_npc_orodry;
+	}
+	with (instance_create_layer(616,424,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_mesa_day_create();
+		x = 616;
+		y = 424;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_mesa;
 	}
 	with (instance_create_layer(776,232,"Instances",obj_npc))
 	{
@@ -66,6 +103,37 @@ if (global.dayPhase = 2)
 //
 //
 //
+//Vostle Town 00-02 NPC Spawner
+function scr_spawner_vostleTown_00_02_create(){
+if (global.dayPhase = 2)
+{
+	with (instance_create_layer(104,232,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_mesa_night_create();
+		x = 160;
+		y = 88;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_mesa;
+	}
+}
+with (instance_create_layer(104,232,"Instances",obj_npc))
+{
+	image_alpha = 1;
+	scr_npc_thurn_create();
+	x = 112;
+	y = 128;
+	home_x = x;
+	home_y = y;
+	activate_script = scr_text_npc_thurn;
+}
+}
+//
+//
+//
+//
+//
 //Vostle Town 00-03 NPC Spawner
 function scr_spawner_vostleTown_00_03_create(){
 if (global.dayPhase = 2)
@@ -80,6 +148,16 @@ if (global.dayPhase = 2)
 		home_y = y;
 		activate_script = scr_text_npc_esow;
 	}
+}
+with (instance_create_layer(152,84,"Instances",obj_npc))
+{
+	image_alpha = 1;
+	scr_npc_harvo_create();
+	x = 160;
+	y = 120;
+	home_x = x;
+	home_y = y;
+	activate_script = scr_text_npc_harvo;
 }
 }
 //
@@ -148,11 +226,33 @@ if (global.dayPhase = 0) or (global.dayPhase = 1)
 //
 //
 //
+//Vostle Town 04 NPC Spawner
+function scr_spawner_vostleTown_04_create(){
+if (global.dayPhase = 0) or (global.dayPhase = 1)
+{
+	with (instance_create_layer(472,232,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_rhombail_day_create();
+		x = 472;
+		y = 232;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_rhombail;
+	}
+	
+}
+}
+//
+//
+//
+//
+//
 //Vostle Town 04-00 NPC Spawner
 function scr_spawner_vostleTown_04_00_create(){
 if (global.dayPhase = 2)
 {
-	with (instance_create_layer(152,84,"Instances",obj_npc))
+	with (instance_create_layer(88,80,"Instances",obj_npc))
 	{
 		image_alpha = 1;
 		scr_npc_einalad_night_create();
@@ -161,6 +261,16 @@ if (global.dayPhase = 2)
 		home_x = x;
 		home_y = y;
 		activate_script = scr_text_npc_einalad;
+	}
+	with (instance_create_layer(136,88,"Instances",obj_npc))
+	{
+		image_alpha = 1;
+		scr_npc_rhombail_night_create();
+		x = 136;
+		y = 88;
+		home_x = x;
+		home_y = y;
+		activate_script = scr_text_npc_rhombail;
 	}
 }
 }
