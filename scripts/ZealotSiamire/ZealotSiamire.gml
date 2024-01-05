@@ -345,7 +345,7 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_zealot_waterEdge,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			home_state = scr_projectile_waterEdge;
 			lit = true;
 			entity_step = home_state;
@@ -360,7 +360,7 @@ if (obj_game.gamePaused = false)
 			local_frame = 0;
 			hit_by_attack = -1;
 			timer1 = 600;
-			damage = 50 + (8 * enemy_lvl);
+			damage = 50;// + (8 * enemy_lvl);
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

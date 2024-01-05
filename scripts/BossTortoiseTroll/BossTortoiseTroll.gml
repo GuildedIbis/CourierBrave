@@ -383,7 +383,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 80;//+ (13 * enemy_lvl);
+	damage = 60;//+ (13 * enemy_lvl);
 	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
 	
 	//Jump Effect
@@ -520,7 +520,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 2.0;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 45;//+ (8 * enemy_lvl);
+			damage = 35;//+ (8 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
@@ -574,7 +574,7 @@ if (obj_game.gamePaused = false)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			enemy_lvl = other.enemy_lvl;
+			//enemy_lvl = other.enemy_lvl;
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
 			home_state = scr_projectile_trollTortoise_mound;
 			timer1 = 180;
@@ -589,7 +589,7 @@ if (obj_game.gamePaused = false)
 			enemy_spd = 1.25;
 			local_frame = 0;
 			hit_by_attack = -1;
-			damage = 55;//+ (9 * enemy_lvl);
+			damage = 45;//+ (9 * enemy_lvl);
 			break_object = other.break_object;
 			fragment_count = 2;
 			fragment = obj_fragPlant;
