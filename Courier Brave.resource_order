@@ -1143,7 +1143,7 @@
     {"name":"spr_frag_stoneGrey","order":6,"path":"sprites/spr_frag_stoneGrey/spr_frag_stoneGrey.yy",},
     {"name":"spr_hitbox_acolyte_slash","order":4,"path":"sprites/spr_hitbox_acolyte_slash/spr_hitbox_acolyte_slash.yy",},
     {"name":"PlayerProjectile","order":3,"path":"scripts/PlayerProjectile/PlayerProjectile.yy",},
-    {"name":"snd_enemy_trapLily_hittrapLily_hit","order":9,"path":"sounds/snd_enemy_trapLily_hittrapLily_hit/snd_enemy_trapLily_hittrapLily_hit.yy",},
+    {"name":"snd_enemy_trapLily_hit","order":9,"path":"sounds/snd_enemy_trapLily_hit/snd_enemy_trapLily_hit.yy",},
     {"name":"spr_enemy_knifeLily_knifeSpin_hitbox","order":7,"path":"sprites/spr_enemy_knifeLily_knifeSpin_hitbox/spr_enemy_knifeLily_knifeSpin_hitbox.yy",},
     {"name":"spr_player_ironPlate_castSlash","order":5,"path":"sprites/spr_player_ironPlate_castSlash/spr_player_ironPlate_castSlash.yy",},
     {"name":"spr_stair3","order":2,"path":"sprites/spr_stair3/spr_stair3.yy",},

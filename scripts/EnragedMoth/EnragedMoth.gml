@@ -477,7 +477,7 @@ if (obj_game.gamePaused = false)
 		with instance_create_layer(x,y,"Instances",obj_enemy)
 		{
 			image_alpha = 1;
-			enemy_lvl =  other.enemy_lvl;
+			//enemy_lvl =  other.enemy_lvl;
 			scr_enemy_enraged_worm_create();
 			timer1 = 20;
 			entity_step = scr_enemy_enraged_worm_explode;

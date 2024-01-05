@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_enemy_trapLily_hittrapLily_hit",
+  "name": "snd_enemy_trapLily_hit",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_enemy_trapLily_hittrapLily_hit.wav",
+  "soundFile": "snd_enemy_trapLily_hit.wav",
   "type": 0,
   "volume": 0.3,
 }

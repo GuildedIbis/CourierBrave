@@ -99,25 +99,25 @@ if (obj_game.gamePaused = false)
 	if (flash > 0) entity_step = scr_enemy_damaged;
 	
 	//Toggle Aggro 
-	if (targeted = false)
-	{
-		lit = false;
-		if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
-		{
-			scr_enemy_alert();
-			aggro_drop = 300;
-			targeted = true;
-		}
-	}	
-	if (aggro_drop <= 0)
-	{
-		image_speed = 0;
-		sprite_index = enemy_idle;
-		path_end();
-		aggro_drop = 300;
-		targeted = false;
-		global.aggroCounter = global.aggroCounter - 1;
-	}
+	//if (targeted = false)
+	//{
+	//	lit = false;
+	//	if (point_in_rectangle(obj_player.x, obj_player.y,x-64,y-64,x+64,y+64)) and (!collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))
+	//	{
+	//		scr_enemy_alert();
+	//		aggro_drop = 300;
+	//		targeted = true;
+	//	}
+	//}	
+	//if (aggro_drop <= 0)
+	//{
+	//	image_speed = 0;
+	//	sprite_index = enemy_idle;
+	//	path_end();
+	//	aggro_drop = 300;
+	//	targeted = false;
+	//	global.aggroCounter = global.aggroCounter - 1;
+	//}
 	
 	//While Aggro is on
 	if (targeted = true)

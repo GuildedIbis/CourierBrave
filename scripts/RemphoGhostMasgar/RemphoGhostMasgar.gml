@@ -124,8 +124,8 @@ if (obj_game.gamePaused = false)
 			timerS = 0;
 			timer2 = 23;
 			entity_step = scr_enemy_masgar_ghost_shadowShiftA;
-			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
-			audio_play_sound(snd_ghost_shift_up,0,false);
+			audio_sound_gain(snd_enemy_ghost_shift_up,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_ghost_shift_up,0,false);
 		}
 		if (timer3 <= 0)
 		{
@@ -195,8 +195,8 @@ if (obj_game.gamePaused = false)
 		y = obj_player.y;
 		entity_step = scr_enemy_masgar_ghost_shadowShiftB;
 		animation_end = false;
-		audio_sound_gain(snd_ghost_shift_down,global.volumeEffects,1);
-		audio_play_sound(snd_ghost_shift_down,0,false);
+		audio_sound_gain(snd_enemy_ghost_shift_down,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ghost_shift_down,0,false);
 	}
 }
 }
@@ -653,8 +653,8 @@ if (obj_game.gamePaused = false)
 	//Collision
 	if (place_meeting(x,y,obj_player))
 	{
-		audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_hit,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
 		with (obj_player)
 		{
 			if (invincible = false)
@@ -674,8 +674,8 @@ if (obj_game.gamePaused = false)
 	}
 	if (place_meeting(x,y,break_object)) 
 	{
-		audio_sound_gain(snd_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_gorogKnife_hit,0,false);
+		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
 		instance_destroy();
 	}
 }

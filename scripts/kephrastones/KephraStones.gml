@@ -309,7 +309,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 var _text = array_create(2,-1)
 _text[0] = "Enemies drop essence (magic\ncharge) when they are damaged by\nweapons and when they die."
-_text[1] = "Enemies respawn when the Courier\nvisits and alter or dies."
+_text[1] = "Enemies respawn when the Courier\nvisits an alter or dies."
 //Sprite
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -363,7 +363,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _text = array_create(2,-1)
 _text[0] = "Press \"TAB\" to open/close the\nCourier's inventory."
 _text[1] = "From the \"STATS\" menu, the\nCourier's stats can be leveled up\nwith Star Orbs."
-_text[2] = "From the \"FORMS\" menu, the\nindividual skills of different\nCourier forms can be leveled up\nwith Rog Stones and Power Stones."
+_text[2] = "From the \"FORMS\" menu, you\ncan view the individual skills\nand upgrades for each form."
 _text[3] = "From the \"QUESTS\" menu, the\nplayer can see the current\nstatus different quests."
 _text[4] = "From the \"MAP\" menu, the player\ncan see where they are, and travel\nbetween altars they've visited."
 //Sprite

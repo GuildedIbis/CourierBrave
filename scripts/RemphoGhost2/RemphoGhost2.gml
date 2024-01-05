@@ -104,8 +104,8 @@ if (obj_game.gamePaused = false)
 			timer1 = 36;
 			timer2 = 120;
 			entity_step = scr_enemy_rempho_ghost2_shadowShiftA;
-			audio_sound_gain(snd_ghost_shift_up,global.volumeEffects,1);
-			audio_play_sound(snd_ghost_shift_up,0,false);
+			audio_sound_gain(snd_enemy_ghost_shift_up,global.volumeEffects,1);
+			audio_play_sound(snd_enemy_ghost_shift_up,0,false);
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -181,8 +181,8 @@ if (obj_game.gamePaused = false)
 		timer2 = 42;
 		entity_step = scr_enemy_rempho_ghost2_shadowShiftB;
 		animation_end = false;
-		audio_sound_gain(snd_ghost_shift_down,global.volumeEffects,1);
-		audio_play_sound(snd_ghost_shift_down,0,false);
+		audio_sound_gain(snd_enemy_ghost_shift_down,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_ghost_shift_down,0,false);
 	}
 	
 	

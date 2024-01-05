@@ -15,7 +15,7 @@ entity_drop = scr_enemy_lily_pod_drop;
 enemy_idle = spr_enemy_lily_pod;
 enemy_move = spr_enemy_lily_pod;
 enemy_damaged = spr_enemy_lily_pod;
-damaged_snd = snd_trapLily_hit;
+damaged_snd = snd_enemy_trapLily_hit;
 walk_snd = snd_walk_regular;
 
 //Stats

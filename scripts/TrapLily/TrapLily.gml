@@ -15,7 +15,7 @@ entity_drop = scr_enemy_trap_lily_drop;
 enemy_idle = spr_enemy_trapLily;
 enemy_move = spr_enemy_trapLily;
 enemy_damaged = spr_enemy_trapLily;
-damaged_snd = snd_trapLily_hit;
+damaged_snd = snd_enemy_trapLily_hit;
 walk_snd = snd_walk_regular;
 
 //Stats

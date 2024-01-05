@@ -137,7 +137,7 @@ if (obj_game.gamePaused = false)
 					entity_step = scr_enemy_mother_lily_scissorLeaf;
 					with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 					{
-						enemy_lvl = other.enemy_lvl;
+						//enemy_lvl = other.enemy_lvl;
 						home_state = scr_projectile_scissorLeaf;
 						timer1 = 30;
 						timer2 = 10;
@@ -150,7 +150,7 @@ if (obj_game.gamePaused = false)
 						enemy_spd = 4.0;
 						local_frame = 0;
 						hit_by_attack = -1;
-						damage = 65 + (10 * enemy_lvl);
+						damage = 65;// + (10 * enemy_lvl);
 						break_object = other.break_object;
 						parent = other;
 						fragment_count = 3;
@@ -182,7 +182,7 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
-				enemy_lvl = other.enemy_lvl;
+				//Enemy_lvl = other.enemy_lvl;
 				scr_enemy_lily_pod_create();
 				timer1 = 30;
 				timer2 = 30;

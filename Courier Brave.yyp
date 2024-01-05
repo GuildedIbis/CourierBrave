@@ -1298,7 +1298,7 @@
     {"id":{"name":"spr_frag_stoneGrey","path":"sprites/spr_frag_stoneGrey/spr_frag_stoneGrey.yy",},},
     {"id":{"name":"spr_hitbox_acolyte_slash","path":"sprites/spr_hitbox_acolyte_slash/spr_hitbox_acolyte_slash.yy",},},
     {"id":{"name":"PlayerProjectile","path":"scripts/PlayerProjectile/PlayerProjectile.yy",},},
-    {"id":{"name":"snd_enemy_trapLily_hittrapLily_hit","path":"sounds/snd_enemy_trapLily_hittrapLily_hit/snd_enemy_trapLily_hittrapLily_hit.yy",},},
+    {"id":{"name":"snd_enemy_trapLily_hit","path":"sounds/snd_enemy_trapLily_hit/snd_enemy_trapLily_hit.yy",},},
     {"id":{"name":"spr_enemy_knifeLily_knifeSpin_hitbox","path":"sprites/spr_enemy_knifeLily_knifeSpin_hitbox/spr_enemy_knifeLily_knifeSpin_hitbox.yy",},},
     {"id":{"name":"snd_enemy_endire_flame","path":"sounds/snd_enemy_endire_flame/snd_enemy_endire_flame.yy",},},
     {"id":{"name":"spr_player_ironPlate_castSlash","path":"sprites/spr_player_ironPlate_castSlash/spr_player_ironPlate_castSlash.yy",},},

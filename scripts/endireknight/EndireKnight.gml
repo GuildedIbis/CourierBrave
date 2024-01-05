@@ -179,8 +179,8 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_endireKnight_heatwave;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_endireKnight_fireStrike,global.volumeEffects,1);
-		audio_play_sound(snd_endireKnight_fireStrike,0,false);
+		audio_sound_gain(snd_enemy_endireKnight_fireStrike,global.volumeEffects,1);
+		audio_play_sound(snd_enemy_endireKnight_fireStrike,0,false);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}

@@ -15,7 +15,7 @@ entity_drop = scr_enemy_knife_lily_drop;
 enemy_idle = spr_enemy_knifeLily;
 enemy_move = spr_enemy_knifeLily;
 enemy_damaged = spr_enemy_knifeLily;
-damaged_snd = snd_trapLily_hit;
+damaged_snd = snd_enemy_trapLily_hit;
 walk_snd = snd_walk_regular;
 
 //Stats
@@ -148,7 +148,7 @@ if (obj_game.gamePaused = false)
 		{
 			home_state = scr_projectile_returnLeaf_free;
 			parent = other;
-			enemy_lvl = other.enemy_lvl
+			//enemy_lvl = other.enemy_lvl
 			entity_step = home_state;
 			invincible = false;
 			inv_dur_timer = 0;

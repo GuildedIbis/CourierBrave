@@ -568,6 +568,8 @@ if (obj_game.gamePaused = false)
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = other.break_object;
+				sprite_index = spr_enemy_acolyte_decoySpawn;
+				local_frame = 0;
 			}
 		}
 		if (!place_meeting(x+16,y,obj_entity))
