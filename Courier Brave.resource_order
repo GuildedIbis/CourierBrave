@@ -1389,6 +1389,7 @@
     {"name":"CrystalUltras","order":12,"path":"scripts/CrystalUltras/CrystalUltras.yy",},
     {"name":"spr_enemy_zealot_damaged","order":5,"path":"sprites/spr_enemy_zealot_damaged/spr_enemy_zealot_damaged.yy",},
     {"name":"rm_lenko_yakflowerPath_12","order":21,"path":"rooms/rm_lenko_yakflowerPath_12/rm_lenko_yakflowerPath_12.yy",},
+    {"name":"obj_entity_pathway","order":3,"path":"objects/obj_entity_pathway/obj_entity_pathway.yy",},
     {"name":"spr_npc_portrait_einalad","order":13,"path":"sprites/spr_npc_portrait_einalad/spr_npc_portrait_einalad.yy",},
     {"name":"spr_enemy_zealot_runCast","order":12,"path":"sprites/spr_enemy_zealot_runCast/spr_enemy_zealot_runCast.yy",},
     {"name":"snd_enemy_rat_arrow_hit","order":4,"path":"sounds/snd_enemy_rat_arrow_hit/snd_enemy_rat_arrow_hit.yy",},

@@ -13,7 +13,7 @@ else
 	//}
 	
 	//Flash, Shader, Self
-	
+	if (path_exists(path)) draw_path(path,x,y,false);
 	var _castDir = (point_direction(x,y-7,obj_player.x,obj_player.y - 4));
 	var _castDepth
 	var _armY 

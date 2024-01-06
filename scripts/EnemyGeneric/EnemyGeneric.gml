@@ -66,24 +66,12 @@ function scr_enemy_chase(){
 if (knockback = false)
 {
 	//Chase: create and execute a path towards player
-	if (place_meeting(x,y,obj_entity))
-	{
-		if (path_exists(path)) path_delete(path);
-		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
-		sprite_index = enemy_move;
-	}
-	else
-	{
-		if (path_exists(path)) path_delete(path);
-		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
-		sprite_index = enemy_move;
-	}
+	if (path_exists(path)) path_delete(path);
+	path = path_add();
+	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+	path_start(path, enemy_spd, 0, 0);
+	image_speed = 1;
+	sprite_index = enemy_move;
 }
 else path_end(); 
 }
@@ -499,6 +487,26 @@ else animation_end = false;
 //
 //
 //
+//8 Directional Animation
+function scr_enemy_animation_8(){
+var _totalFrames = sprite_get_number(sprite_index) / 8;
+image_index = local_frame + (_cardinalDir * _totalFrames);
+local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+//Cuts the degree by 90 to give you a number between 0 and 3
+//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+//Local frame then increments in the speed of the animation
+if (local_frame >= _totalFrames)
+{
+	animation_end = true;
+	local_frame = local_frame - _totalFrames;
+}
+else animation_end = false;
+}
+//
+//
+//
+//
+//
 //Animation 
 function scr_enemy_animation_cast(){
 var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4)/90);
@@ -712,7 +720,7 @@ while (_entityCount > 0)
 	var _entityCheck = _entityList[| 0];
 	if (_entityCheck.collision == true)
 	{
-		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right+1;
+		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right + 1;
 		else _snapX = _entityCheck.bbox_left - 1;
 		x = _snapX;
 		hor_spd = 0;
@@ -725,7 +733,7 @@ while (_entityCount > 0)
 
 
 //Horizontal Move
-x += hor_spd;
+if (knockback = false) x += hor_spd;
 
 //Clear List Between Axis
 ds_list_clear(_entityList);
@@ -751,7 +759,7 @@ while (_entityCount > 0)
 }
 
 //Vertical Move
-y += ver_spd;
+if (knockback = false) y += ver_spd;
 
 ds_list_destroy(_entityList);
 
@@ -813,35 +821,3 @@ if (image_xscale <= 0) or (image_yscale <= 0)
 	instance_destroy();
 }
 }
-//
-//
-//
-//
-//
-//Wander
-function xEnemyWanderOld(_moveDelay){
-	
-//Direction
-if (timer2 > 0) timer2 = timer2 - 1;
-if (timer2 <= 0)
-{
-	hor_spd = irandom_range(-1,1);
-	ver_spd = irandom_range(-1,1);
-	timer2 = _moveDelay;
-}
-
-//Animation
-var _oldSprite = sprite_index;
-if (hor_spd != 0) or (ver_spd != 0) 
-{
-	direction = point_direction(0,0,hor_spd, ver_spd)
-	sprite_index = enemy_move;
-}
-else sprite_index = enemy_idle;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-//Collision
-EnemyCollision();
-
-}
-

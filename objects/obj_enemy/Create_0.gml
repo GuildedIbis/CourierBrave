@@ -16,7 +16,7 @@ dir_offX = 0;
 dir_offY = 0;
 ldX = 0;
 ldY = 0;
-
+path = path_add();
 
 //Status Effects
 scr_entity_status_effects();

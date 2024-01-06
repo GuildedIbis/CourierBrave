@@ -1571,6 +1571,7 @@
     {"id":{"name":"CrystalUltras","path":"scripts/CrystalUltras/CrystalUltras.yy",},},
     {"id":{"name":"spr_enemy_zealot_damaged","path":"sprites/spr_enemy_zealot_damaged/spr_enemy_zealot_damaged.yy",},},
     {"id":{"name":"rm_lenko_yakflowerPath_12","path":"rooms/rm_lenko_yakflowerPath_12/rm_lenko_yakflowerPath_12.yy",},},
+    {"id":{"name":"obj_entity_pathway","path":"objects/obj_entity_pathway/obj_entity_pathway.yy",},},
     {"id":{"name":"spr_npc_portrait_einalad","path":"sprites/spr_npc_portrait_einalad/spr_npc_portrait_einalad.yy",},},
     {"id":{"name":"spr_enemy_zealot_runCast","path":"sprites/spr_enemy_zealot_runCast/spr_enemy_zealot_runCast.yy",},},
     {"id":{"name":"snd_enemy_rat_arrow_hit","path":"sounds/snd_enemy_rat_arrow_hit/snd_enemy_rat_arrow_hit.yy",},},

@@ -21,6 +21,7 @@ hor_spd = 0;
 ver_spd = 0;
 home_x = x;
 home_y = y;
+path = path_add();
 //
 //
 //

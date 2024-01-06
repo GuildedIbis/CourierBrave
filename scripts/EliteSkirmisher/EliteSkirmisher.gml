@@ -77,7 +77,8 @@ if (obj_game.gamePaused = false)
 	{
 		image_speed = 0;
 		sprite_index = enemy_idle;
-		path_end();
+		hor_spd = 0;
+		ver_spd = 0;
 		aggro_drop = 300;
 		targeted = false;
 		home_x = x;
@@ -94,43 +95,52 @@ if (obj_game.gamePaused = false)
 		{
 			if (!point_in_rectangle(obj_player.x,obj_player.y,x-8,y-8,x+8,y+8))
 			{
-				scr_enemy_chase_special(obj_game,obj_entity);
-				
+				timerC = 15;
+				path_delete(path);
+				path = path_add();
+				target_x = obj_player.x;
+				target_y = obj_player.y;
+				mp_grid_path(obj_entity_pathway.grid,path,x,y,target_x,target_y,true);
+				path_start(path,enemy_spd,path_action_stop,false);
+				sprite_index = enemy_move;
 			}
 			else
 			{
 				path_end();
-				walk_snd_delay = 15;
+				//path_delete(path);
+				//walk_snd_delay = 15;
 				sprite_index = enemy_idle;
 			}
 		}
 		//Attacks Furtherst to Shortest Range
-		if (point_in_rectangle(obj_player.x,obj_player.y,x-32,y-32,x+32,y+32)) and (timer2 <= 0)
-		{
-			path_end();
-			walk_snd_delay = 15;
-			timer2 = 20;
-			hor_spd = 0;
-			ver_spd = 0;
-			return_x = x;
-			return_y = y;
-			direction = (point_direction(x,y,obj_player.x,obj_player.y));
-			image_speed = 1;
-			entity_step = scr_enemy_skirmisherElite_spinSlash;
-		}
-		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12)) and (timer1 <= 0) 
-		{
-			path_end();
-			walk_snd_delay = 15;
-			sprite_index = enemy_idle;
-			direction = (point_direction(x,y,obj_player.x,obj_player.y));
-			entity_step = scr_enemy_skirmisherElite_slash;
+		//if (point_in_rectangle(obj_player.x,obj_player.y,x-32,y-32,x+32,y+32)) and (timer2 <= 0)
+		//{
+		//	hor_spd = 0;
+		//	ver_spd = 0;
+		//	walk_snd_delay = 15;
+		//	timer2 = 20;
+		//	hor_spd = 0;
+		//	ver_spd = 0;
+		//	return_x = x;
+		//	return_y = y;
+		//	direction = (point_direction(x,y,obj_player.x,obj_player.y));
+		//	image_speed = 1;
+		//	entity_step = scr_enemy_skirmisherElite_spinSlash;
+		//}
+		//if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12)) and (timer1 <= 0) 
+		//{
+		//	hor_spd = 0;
+		//	ver_spd = 0;
+		//	walk_snd_delay = 15;
+		//	sprite_index = enemy_idle;
+		//	direction = (point_direction(x,y,obj_player.x,obj_player.y));
+		//	entity_step = scr_enemy_skirmisherElite_slash;
 
-		}
-		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
-		{
-			aggro_drop = aggro_drop - 1;
-		}
+		//}
+		//if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
+		//{
+		//	aggro_drop = aggro_drop - 1;
+		//}
 	}
 	
 	//Animation
@@ -227,11 +237,11 @@ if (obj_game.gamePaused = false)
 	//Collision
 	var _collided
 	var _collided = scr_enemy_collision();
-	if (_collided = true)
-	{
-		hor_spd = 0;
-		ver_spd = 0;
-	}
+	//if (_collided = true)
+	//{
+	//	hor_spd = 0;
+	//	ver_spd = 0;
+	//}
 
 	//Animate
 	scr_enemy_animation();
@@ -239,18 +249,24 @@ if (obj_game.gamePaused = false)
 	//End
 	if (animation_end) or (_collided = true)
 	{
-		speed = 0;
-		sprite_index = enemy_idle;
-		timer2 = 360;
 		timerC = 60;
-		hor_spd = irandom_range(-1,1);
-		ver_spd = irandom_range(-1,1);
-		if (hor_spd = 0) and (ver_spd = 0)
-		{
-			hor_spd = choose(-1,1)
-			ver_spd = choose(-1,1)
-		}
-		entity_step = scr_enemy_skirmisherElite_reposition;
+		entity_step = home_state;
+		sprite_index = enemy_idle;
+		
+		
+		
+		speed = 0;
+		//sprite_index = enemy_idle;
+		//timer2 = 360;
+		//timerC = 60;
+		//hor_spd = irandom_range(-1,1);
+		//ver_spd = irandom_range(-1,1);
+		//if (hor_spd = 0) and (ver_spd = 0)
+		//{
+		//	hor_spd = choose(-1,1)
+		//	ver_spd = choose(-1,1)
+		//}
+		//entity_step = scr_enemy_skirmisherElite_reposition;
 		animation_end = false;
 	}
 }
