@@ -95,7 +95,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timerC <= 0) scr_enemy_chase_special(obj_game,obj_entity);
+		if (timerC <= 0) scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		
 		//Short Range Attacks - Slash

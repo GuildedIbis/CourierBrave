@@ -17,8 +17,8 @@
     "path": "folders/Objects/Entities/Collision.yy",
   },
   "parentObjectId": {
-    "name": "obj_entity",
-    "path": "objects/obj_entity/obj_entity.yy",
+    "name": "obj_collision",
+    "path": "objects/obj_collision/obj_collision.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

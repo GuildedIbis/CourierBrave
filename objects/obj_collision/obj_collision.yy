@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_break",
+  "name": "obj_collision",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
@@ -17,8 +17,8 @@
     "path": "folders/Objects/Entities/Collision.yy",
   },
   "parentObjectId": {
-    "name": "obj_collision",
-    "path": "objects/obj_collision/obj_collision.yy",
+    "name": "obj_entity",
+    "path": "objects/obj_entity/obj_entity.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -35,10 +35,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_collisionBreak",
-    "path": "sprites/spr_collisionBreak/spr_collisionBreak.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

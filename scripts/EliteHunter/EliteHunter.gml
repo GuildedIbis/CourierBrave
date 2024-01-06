@@ -91,7 +91,7 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timer2 > 0) or (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) //(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{	
-			if (timerC <= 0) scr_enemy_chase_special(obj_game,obj_entity);
+			if (timerC <= 0) scr_enemy_chase();
 			if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 			{
 				path_end();
@@ -474,7 +474,7 @@ if (obj_game.gamePaused = false)
 	{
 		if (path_exists(path)) path_delete(path);
 		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_wall);
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_collision);
 		path_start(path, enemy_spd, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;

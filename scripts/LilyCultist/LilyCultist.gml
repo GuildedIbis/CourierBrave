@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 	//While Aggro is on
 	if (targeted = true)
 	{
-		scr_enemy_chase_special(obj_game,obj_entity);
+		scr_enemy_chase();
 		lit = true;
 		if (point_in_circle(obj_player.x, obj_player.y,x,y,64)) 
 		{

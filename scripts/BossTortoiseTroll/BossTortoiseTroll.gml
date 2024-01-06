@@ -155,7 +155,7 @@ if (obj_game.gamePaused = false)
 		lit = true;
 		if (timerC <= 0)
 		{
-			scr_enemy_chase_special(obj_game,obj_entity);
+			scr_enemy_chase();
 		}
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
@@ -289,23 +289,34 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 50;//+ (7 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox);
 	
 	//Set Direction
 	if (timer1 <= 0)
 	{
 		hor_spd = lengthdir_x(4,direction);
 		ver_spd = lengthdir_y(4,direction);
+		var _xDest = x + hor_spd;
+		var _yDest = y + ver_spd;
+		if (place_meeting(_xDest, _yDest,obj_entity))
+		{
+			timer1 = 120;
+			hor_spd = 0;
+			ver_spd = 0;
+		}
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, 4, 0, 0);
+		image_speed = 1;
 	}
 	
-	//Collision
-	var _collided = scr_enemy_collision();
+	
 
 	//Animate
 	scr_enemy_animation();
 	
 	//End
-	if (animation_end) or (_collided = true)
+	if (animation_end)// or (_collided = true)
 	{
 		speed = 0;
 		entity_step = scr_enemy_trollTortoise_hammerBackslam;
@@ -395,12 +406,13 @@ if (obj_game.gamePaused = false)
 	{
 		if (z > 0) z = z - 1;
 	}
-	
+	if (z < 0) z = 0;
 	//Movement
 	if (timer1 > 0)
 	{
 		hor_spd = lengthdir_x(2.25,direction);
 		ver_spd = lengthdir_y(2.25,direction);
+		
 	}
 	else
 	{
@@ -418,14 +430,23 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Collision
-	var _collided = scr_enemy_collision();
-	if (_collided = true) or (timer1 < 0)
+	var _xDest = x + hor_spd;
+	var _yDest = y + ver_spd;
+	if (place_meeting(_xDest, _yDest,obj_entity)) or (timer1 <= 0)
 	{
-		z = 0;
+		path_end();
+		timer1 = 0;
 		hor_spd = 0;
 		ver_spd = 0;
 		speed = 0;
 	}
+	else
+	{
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, 2.25, 0, 0);
+	}
+	image_speed = 1;
 	
 	//Animate
 	scr_enemy_animation();

@@ -78,6 +78,7 @@ if (obj_game.gamePaused = false)
 			{
 				direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
 				home_state = scr_projectile_trollTortoise_blossomOrb;
+				timer2 = 360;
 				lit = true;
 				light_size = 20;
 				exploded = false;
@@ -118,6 +119,8 @@ function scr_projectile_trollTortoise_blossomOrb(){
 if (obj_game.gamePaused = false)
 {
 	//Explode on player
+	timer2 = timer2 - 1;
+	if (timer2 <= 0) instance_destroy();
 	if (point_in_circle(obj_player.x,obj_player.y,x,y,6)) and (exploded = false)
 	{
 		audio_sound_gain(snd_enemy_blossomOrb_explode,global.volumeEffects,1);

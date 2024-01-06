@@ -67,7 +67,7 @@ if (obj_game.gamePaused = false)
 	if (targeted = true) and (thundux = false)
 	{
 		lit = true;
-		scr_enemy_chase_special(obj_game,obj_entity);
+		scr_enemy_chase();
 		walk_snd_delay = walk_snd_delay - 1;
 		if (point_in_circle(obj_player.x,obj_player.y,x,y,8))
 		{

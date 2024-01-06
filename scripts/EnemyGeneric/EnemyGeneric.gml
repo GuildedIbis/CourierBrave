@@ -62,7 +62,6 @@ if (aggro_drop <= 0)
 //
 //Chase Player
 function scr_enemy_chase(){
-
 if (knockback = false)
 {
 	//Chase: create and execute a path towards player
@@ -72,39 +71,6 @@ if (knockback = false)
 	path_start(path, enemy_spd, 0, 0);
 	image_speed = 1;
 	sprite_index = enemy_move;
-}
-else path_end(); 
-}
-//
-//
-//
-//
-//
-//Chase Player
-function scr_enemy_chase_special(object_stuck,object_norm){
-
-if (knockback = false)
-{
-	//Chase: create and execute a path towards player
-	if (place_meeting(x,y,obj_entity))
-	{
-		if (path_exists(path)) path_delete(path);
-		path = path_add();
-		if (return_x != -1) and (return_y != -1) mp_potential_path_object(path, return_x, return_y, 1, 2, object_stuck);
-		else mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, object_stuck);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
-		sprite_index = enemy_move;
-	}
-	else
-	{
-		if (path_exists(path)) path_delete(path);
-		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, object_norm);
-		path_start(path, enemy_spd, 0, 0);
-		image_speed = 1;
-		sprite_index = enemy_move;
-	}
 }
 else path_end(); 
 }
@@ -487,26 +453,6 @@ else animation_end = false;
 //
 //
 //
-//8 Directional Animation
-function scr_enemy_animation_8(){
-var _totalFrames = sprite_get_number(sprite_index) / 8;
-image_index = local_frame + (_cardinalDir * _totalFrames);
-local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
-//Cuts the degree by 90 to give you a number between 0 and 3
-//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
-//Local frame then increments in the speed of the animation
-if (local_frame >= _totalFrames)
-{
-	animation_end = true;
-	local_frame = local_frame - _totalFrames;
-}
-else animation_end = false;
-}
-//
-//
-//
-//
-//
 //Animation 
 function scr_enemy_animation_cast(){
 var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4)/90);
@@ -558,7 +504,6 @@ if (flash <= 0) entity_step = home_state;
 scr_enemy_alert();
 
 }
-
 //
 //
 //
@@ -619,6 +564,67 @@ if (_hits > 0)
 			}
 		}
 		
+	}
+}
+	
+ds_list_destroy(_hitByAttack);
+mask_index = enemy_idle;
+}
+//
+//
+//
+//
+//
+//Attack Calculate
+function scr_enemy_attack_calculate_friendly(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc){
+//Collision with Entities
+mask_index = _hitbox;
+
+var _hitByAttack = ds_list_create();
+var _hits = instance_place_list(x,y,obj_enemy,_hitByAttack,false);
+if (_hits > 0)
+{
+	for (var i = 0; i < _hits; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _hitID = _hitByAttack[| i];
+		if (ds_list_find_index(hit_by_attack, _hitID) == -1)
+		{
+			ds_list_add(hit_by_attack,_hitID);
+			with (_hitID)
+			{
+				if (passable = false) and (break_object == other.break_object)
+				{
+					//image_blend = c_red;
+					if (hit_script != -1) and (bullet = false)
+					{
+						//script_execute(hit_script); 
+						if (invincible = false) and (npc = false)
+						{
+							if (_azDur != -1) ablaze_dur_timer = _azDur;
+							if (_txDur != -1) thundux_dur_timer = _txDur;
+							if (_vsDur != -1) voidsick_dur_timer = _vsDur;
+							if (_wvDur != -1) watervice_dur_timer = _wvDur;
+							if (_drainPerc != -1) 
+							{
+								//obj_player.heal = true;
+								//obj_player.heal_dur_timer = 60;
+								//obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
+							}
+							if (boss = false) and (_kbDur != -1) 
+							{
+								knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+								knockback_dur = _kbDur
+							}
+						}
+						with (other) 
+						{
+							//if (destructable = true) instance_destroy();
+						}
+					}
+				}
+			}
+		}
 	}
 }
 	
