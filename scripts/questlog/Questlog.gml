@@ -359,7 +359,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Inimar the Endire Knight";
-var _text = "Defeat Inimar the Endire Knight\nand collect the Skill Stone.\n\nThe Endire Knights travel the land doing the bidding\nof the Beetra Throne, no matter who sits upon it.";
+var _text = "Defeat Inimar the Endire Knight.\n\nThe Endire Knights travel the land doing the bidding\nof the Beetra Throne, no matter who sits upon it.";
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
@@ -437,7 +437,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Enraged Moth";
-var _text = "Defeat the Enraged Moth and\ncollect the Skill Stone.\n\nAn unusual mutation on an already\ndangerous creature. Perhaps the\npowers of the nearby red crystals\nhave given their spawn their\nexplosive nature.";
+var _text = "Defeat the Enraged Moth.\n\nAn unusual mutation on an already\ndangerous creature. Perhaps the\npowers of the nearby red crystals\nhave given their spawn their\nexplosive nature.";
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -524,7 +524,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Zealot Siamire";
-var _text = "Defeat the Zealot Siamire and\ncollect the Skill Stone.\n\nLily Cultist offer their bodies as\nhosts to the parasitic lilies. They may\nlive many years this way but the hosts\nmind is forever poisoned."
+var _text = "Defeat the Zealot Siamire\n\nLily Cultist offer their bodies as\nhosts to the parasitic lilies. They may\nlive many years this way but the hosts\nmind is forever poisoned."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

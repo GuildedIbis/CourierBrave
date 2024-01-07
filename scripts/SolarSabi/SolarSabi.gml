@@ -74,8 +74,10 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_top)
 		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 		draw_set_color(c_white);
-		var _name = "Mysterious Stone"
+		var _name = "First Solar Sabi"
 
 
 		//Draw Based on String Counter
@@ -118,8 +120,10 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_top)
 		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 		draw_set_color(c_white);
-		var _name = "Solar Sabi"
+		var _name = "First Solar Sabi"
 
 
 		//Draw Based on String Counter
@@ -165,8 +169,10 @@ if (obj_inventory.quest_grid[# 6, 1] = 2)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "First Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -225,8 +231,10 @@ if (obj_inventory.quest_grid[# 6, 1] = 3) or (obj_inventory.quest_grid[# 6, 1] =
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "First Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -269,8 +277,10 @@ if (obj_inventory.quest_grid[# 6, 1] = 5)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "First Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -334,8 +344,10 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "First Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -396,7 +408,7 @@ if (global.dayPhase = 2)
 		draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
 		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 		draw_set_color(c_white);
-		var _name = "Mysterious Stone"
+		var _name = "Second Solar Sabi"
 
 
 		//Draw Based on String Counter
@@ -442,7 +454,7 @@ if (global.dayPhase = 2)
 		draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
 		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 		draw_set_color(c_white);
-		var _name = "Solar Sabi"
+		var _name = "Second Solar Sabi"
 
 
 		//Draw Based on String Counter
@@ -491,7 +503,7 @@ if (obj_inventory.quest_grid[# 6, 1] < 3) or (obj_inventory.quest_grid[# 6, 1] >
 	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
 	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Second Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -543,9 +555,9 @@ if (obj_inventory.quest_grid[# 6, 1] = 3)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
-		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Second Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -598,9 +610,9 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
-		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Second Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -658,8 +670,10 @@ if (global.dayPhase = 2)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_top)
 		draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+		draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+		draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 		draw_set_color(c_white);
-		var _name = "Mysterious Stone"
+		var _name = "Third Solar Sabi"
 
 
 		//Draw Based on String Counter
@@ -749,8 +763,10 @@ if (obj_inventory.quest_grid[# 6, 1] < 4)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Third Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -801,8 +817,10 @@ if (obj_inventory.quest_grid[# 6, 1] = 4) or (obj_inventory.quest_grid[# 6, 1] =
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Third Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString
@@ -854,8 +872,10 @@ if (obj_inventory.quest_grid[# 6, 1] >= 6)
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
+	draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
+	draw_sprite(spr_npc_portrait_solarSabi,0,261,117);
 	draw_set_color(c_white);
-	var _name = "Solar Sabi"
+	var _name = "Third Solar Sabi"
 
 	//Draw Based on String Counter
 	var _SubString

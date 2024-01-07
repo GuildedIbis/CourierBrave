@@ -364,7 +364,7 @@ var _text = array_create(2,-1)
 _text[0] = "Press \"TAB\" to open/close the\nCourier's inventory."
 _text[1] = "From the \"STATS\" menu, the\nCourier's stats can be leveled up\nwith Star Orbs."
 _text[2] = "From the \"FORMS\" menu, you\ncan view the individual skills\nand upgrades for each form."
-_text[3] = "From the \"QUESTS\" menu, the\nplayer can see the current\nstatus different quests."
+_text[3] = "From the \"QUESTS\" menu, the\nplayer can see the current\nstatus of different quests."
 _text[4] = "From the \"MAP\" menu, the player\ncan see where they are, and travel\nbetween altars they've visited."
 //Sprite
 draw_set_font(global.fnt_main_white);

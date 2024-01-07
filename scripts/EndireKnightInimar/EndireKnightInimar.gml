@@ -478,6 +478,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 }
 obj_inventory.quest_grid[# 7, 0] = true;
 obj_inventory.quest_grid[# 7, 1] = 1;
+obj_inventory.quest_grid[# 7, 3] = true;
 
 }
 //

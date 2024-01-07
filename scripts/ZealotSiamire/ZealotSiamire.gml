@@ -690,6 +690,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	spd = .75 + (.3) + random(0.1);
 }
 
-obj_inventory.quest_grid[# 16, 0] = true;
-obj_inventory.quest_grid[# 16, 1] = 1;
+obj_inventory.quest_grid[# 15, 0] = true;
+obj_inventory.quest_grid[# 15, 1] = 1;
+obj_inventory.quest_grid[# 15, 2] = true;
 }

@@ -11,7 +11,7 @@ if (obj_inventory.quest_grid[# 4, 3] = false)
 	with (instance_create_layer(0,88,"Wall",obj_wall))
 	{
 		image_xscale = 2;
-		image_yscale = 6;
+		image_yscale = 8;
 		game_paused_image_speed = image_speed;
 	}
 	with (instance_create_layer(24,116,"Instances",obj_npc))

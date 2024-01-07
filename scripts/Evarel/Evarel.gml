@@ -707,7 +707,7 @@ function scr_cursor_evarel(){
 image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
-curs_form = 3;
+curs_form = 4;
 
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;

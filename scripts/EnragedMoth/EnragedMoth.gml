@@ -553,6 +553,7 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 
 obj_inventory.quest_grid[# 11, 0] = true;
 obj_inventory.quest_grid[# 11, 1] = 1;
+obj_inventory.quest_grid[# 11, 3] = true;
 }
 
 

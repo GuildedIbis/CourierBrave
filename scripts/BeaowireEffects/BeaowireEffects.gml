@@ -241,7 +241,7 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 
-if (obj_inventory.beaowireFortress_map_ary[15][3] < 2)
+if (obj_inventory.beaowireFortress_map_ary[14][3] < 2)
 {
 	sprite_index = spr_escort_beaowireEnd_idle;
 	if (instance_exists(obj_escort))
@@ -250,17 +250,17 @@ if (obj_inventory.beaowireFortress_map_ary[15][3] < 2)
 		{
 			sprite_index = spr_escort_beaowireEnd;
 			image_speed = 1;
-			obj_inventory.beaowireFortress_map_ary[15][3] = 2;
+			obj_inventory.beaowireFortress_map_ary[14][3] = 2;
 		}
 		else 
 		{
 			sprite_index = spr_escort_beaowireEnd_idle;
 			image_speed = 1;
-			obj_inventory.beaowireFortress_map_ary[15][3] = 1;
+			obj_inventory.beaowireFortress_map_ary[14][3] = 1;
 		}
 	}
 }
-if (obj_inventory.beaowireFortress_map_ary[15][3] >= 2)
+if (obj_inventory.beaowireFortress_map_ary[14][3] >= 2)
 {
 	sprite_index = spr_escort_beaowireEnd;
 	obj_inventory.quest_grid[# 14, 1] = 1;
