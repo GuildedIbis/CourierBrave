@@ -221,10 +221,6 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 	
-	//Cacluate Attack
-	damage = 70;
-	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_shadowShiftB_hitbox)
-	
 	//Return from Hiding
 	if (timerS <= 0)
 	{	
@@ -252,210 +248,67 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+22,y-8,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 0;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y-24,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 90;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-22,y-8,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 180;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y+16,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 270;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y+6,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 315;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y-21,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 45;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y-21,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 135;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y+6,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_soulFlare_create();
 			direction = 225;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 
 	}
@@ -488,7 +341,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 45;//+ (11 * other.enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_ghostMasgar_slash_hitbox,-1,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();
@@ -540,35 +393,14 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ghost_phantomBlades,0,false);
 		with (instance_create_layer(x,y-4,"Instances",obj_enemy_projectile))
 		{
+			scr_projectile_phantomBlade_create();
 			dir_x = obj_player.x;
 			dir_y = obj_player.y;
 			direction = (point_direction(x,y,dir_x,dir_y));
 			image_angle = direction;
-			home_state = scr_projectile_phantomBlade;
-			lit = true;
-			//enemy_lvl = other.enemy_lvl;
-			attack_counter = 0;
-			timer1 = 300;
-			timer2 = 60;
-			timer3 = 30;
-			path = -1;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_ghostMasgar_phantomBlade;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 2.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 55;//+ (12 * enemy_lvl);
-			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragGold;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
-			sprite_index = enemy_move;
+			break_object = other.break_object;
+			
 		}
 	}
 }
@@ -579,7 +411,42 @@ if (obj_game.gamePaused = false)
 //
 //
 //Projectile Phantom Blade
-function scr_projectile_phantomBlade(){
+function scr_projectile_phantomBlade_create(){
+home_state = scr_projectile_phantomBlade_step;
+entity_step = home_state;
+	
+lit = true;
+attack_counter = 0;
+timer1 = 300;
+timer2 = 60;
+timer3 = 30;
+path = -1;
+invincible = true;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_ghostMasgar_phantomBlade;
+enemy_idle = spr_enemy_ghostMasgar_phantomBlade;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 55;
+fragment_count = 3;
+fragment = obj_fragGold;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+speed = enemy_spd;
+sprite_index = enemy_move;
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Projectile Phantom Blade
+function scr_projectile_phantomBlade_step(){
 if (obj_game.gamePaused = false)
 {
 	
@@ -587,6 +454,8 @@ if (obj_game.gamePaused = false)
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer3 > 0) timer3 = timer3 - 1;
+invincible = true;
+inv_dur_timer = 30;
 
 if (timer3 <= 0) or (point_in_circle(dir_x,dir_y,x,y,8))
 {
@@ -601,33 +470,14 @@ if (timer2 <= 0)
 	timer2 = 10;
 	with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 	{
+		scr_projectile_phantomDagger_create();
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_angle = direction;
-		sprite_index = spr_enemy_ghostMasgar_phantomDagger;
-		home_state = scr_projectile_phantomDagger;
-		lit = true;
-		exploded = false;
-		path = -1;
-		entity_step = home_state;
-		invincible = false;
-		inv_dur_timer = 0;
-		enemy_move = spr_enemy_ghostMasgar_phantomDagger;
-		aggro_drop = 300;
-		healthbar = false;
-		enemy_spd = 2.0;
-		local_frame = 0;
-		hit_by_attack = -1;
-		damage = 20;//+ (6 * other.enemy_lvl);
 		break_object = other.break_object;
-		fragment_count = 1;
-		fragment = obj_fragGold;
-		bullet = true;
-		hit_script = scr_entity_hit_destroy;
-		speed = enemy_spd;
 	}
 }
 if (timer1 <= 0) instance_destroy();
-
+scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 if (place_meeting(x,y,break_object)) 
 {
 	speed = 0;
@@ -644,38 +494,47 @@ else
 //
 //
 //Projectile Phantom Dagger
-function scr_projectile_phantomDagger(){
+function scr_projectile_phantomDagger_create(){
+home_state = scr_projectile_phantomDagger_step;
+lit = true;
+exploded = false;
+path = -1;
+entity_step = home_state;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_ghostMasgar_phantomDagger;
+enemy_idle = spr_enemy_ghostMasgar_phantomDagger;
+sprite_index = spr_enemy_ghostMasgar_phantomDagger;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.0;
+speed = enemy_spd;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 25;
+fragment_count = 1;
+fragment = obj_fragGold;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Projectile Phantom Dagger
+function scr_projectile_phantomDagger_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume Speed
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
-		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
 		instance_destroy();
 	}
 }
@@ -716,41 +575,8 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-//if (_drop1 < 40)//Form Specific Rog Stone
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-//	{
-//		item_id = obj_player.form_type;
-//		sprite_index = spr_rog_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 4) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-	
-//}
-//if (_drop1 >= 40) and (_drop1 < 80)//Random Rog Stone
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-//	{
-//		item_id = irandom_range(0,5);
-//		sprite_index = spr_rog_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 5) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-	
-//}
-//if (_drop2 < 50)
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-//	{
-//		item_id = other.enemy_lvl;
-//		sprite_index = spr_powerstone_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 6) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-//}
+
+//Quest Complete
 obj_inventory.quest_grid[# 3, 0] = true;
 obj_inventory.quest_grid[# 3, 1] = 1;
 obj_inventory.quest_grid[# 3, 3] = true;

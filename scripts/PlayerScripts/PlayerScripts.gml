@@ -217,6 +217,26 @@ if (_red = true) and (red_primary < max_charge)
 //
 //
 //
+function scr_player_overshield(){
+if (damaged_timer > 0)
+{
+	damaged_timer = damaged_timer - 1;
+}
+if (damaged_timer <= 0)
+{
+	overshield_timer = overshield_timer - 1;
+	if (overshield_timer <= 0) and (overshield < 20)
+	{
+		overshield_timer = 30;
+		overshield = overshield + 1;
+	}
+}
+}
+//
+//
+//
+//
+//
 //Roll State
 function scr_player_roll(){
 inv_dur_timer = 30;

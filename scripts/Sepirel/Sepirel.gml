@@ -33,6 +33,7 @@ max_stamina = 200 + (25 * energy);
 max_hp = 200 + (25 * vitality);
 primary_cost = 6;
 special_cost = 100;
+overshield = 0;
 }
 //
 //

@@ -153,7 +153,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 20; //+ (7 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animation
 	scr_enemy_animation();
@@ -210,29 +210,13 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_ratArrow;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_rat_arrow;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 3.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_ratArrow_create();
 			image_alpha = 1;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{

@@ -175,7 +175,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 15;
-	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash)
+	scr_enemy_attack_calculate(spr_hitbox_acolyte_slash,-1,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();

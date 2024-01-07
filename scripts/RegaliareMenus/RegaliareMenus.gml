@@ -117,7 +117,7 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 10 damage from weapon attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -125,7 +125,7 @@ switch(page)
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Quickly swing a sword at the cost\nof 10 stamina."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -133,7 +133,7 @@ switch(page)
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Rapidly fire projectiles that deal\n10 damage each. Continuing to fire reduces\naccuracy."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -141,7 +141,7 @@ switch(page)
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Summon a pair of golden arcs that\nthat protect you and deal 22 damage and knockback\nper hit."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Hold the weapon skill button to\ncharge a spin attack."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -165,7 +165,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot heavy projectiles that deal\n24 damage and pierce through\nenemies. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Press shift again to send the spinning\narcs out in the direction of the\ncursor."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

@@ -6,19 +6,26 @@
 //
 //Rat Arrow Create
 function scr_projectile_ratArrow_create(){
-home_state = scr_projectile_ratArrow;
+home_state = scr_projectile_ratArrow_step;
 entity_step = home_state;
 entity_drop = Idle;
 invincible = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_rat_arrow;
+enemy_idle = spr_enemy_rat_arrow;
 aggro_drop = 300;
 healthbar = false;
 bullet = true;
 enemy_spd = 3.0;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 40;//+ (5 * enemy_lvl);
+damage = 25;
+fragment_count = 3;
+fragment = obj_fragWood;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -26,34 +33,14 @@ damage = 40;//+ (5 * enemy_lvl);
 //
 //
 //Rat Arrow Free
-function scr_projectile_ratArrow(){
+function scr_projectile_ratArrow_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume Speed
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_enemy_rat_arrow_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_rat_arrow_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

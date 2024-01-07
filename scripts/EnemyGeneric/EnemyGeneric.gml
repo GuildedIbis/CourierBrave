@@ -531,7 +531,7 @@ with (obj_enemy)
 //
 //
 //Attack Calculate
-function scr_enemy_attack_calculate(_hitbox){
+function xscr_enemy_attack_calculate(_hitbox){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -551,6 +551,7 @@ if (_hits > 0)
 				if (invincible = false) and (dead = false)
 				{
 					inv_dur_timer = 15;
+					damaged_timer = 300;
 					if (dmg_snd_delay <= 0)
 					{
 						dmg_snd_delay = 15;
@@ -558,8 +559,188 @@ if (_hits > 0)
 						audio_play_sound(snd_player_hit,0,false);
 					}
 					var _damageTaken = max(1,other.damage - armor);
-					hp = hp - _damageTaken;
-					flash = .7;
+					if (overshield <= 0)
+					{
+						hp = hp - _damageTaken;
+						flash = .7;
+					}
+					if (overshield > 0)
+					{
+						if (_damageTaken > overshield)
+						{
+							overshield = 0;
+							hp = hp - (_damageTaken - overshield);
+							flash = .7;
+						}
+						if (_damageTaken <= overshield)
+						{
+							overshield = overshield - _damageTaken;
+							flash = .7;
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
+	
+ds_list_destroy(_hitByAttack);
+mask_index = enemy_idle;
+}
+//
+//
+//
+//
+//
+//Attack Calculate Status
+function scr_enemy_attack_calculate(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc){
+//Collision with Entities
+mask_index = _hitbox;
+
+var _hitByAttack = ds_list_create();
+var _hits = instance_place_list(x,y,obj_player,_hitByAttack,false);
+if (_hits > 0)
+{
+	for (var i = 0; i < _hits; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _hitID = _hitByAttack[| i];
+		if (ds_list_find_index(hit_by_attack, _hitID) == -1)
+		{
+			ds_list_add(hit_by_attack,_hitID);
+			with (_hitID)
+			{
+				if (invincible = false) and (dead = false)
+				{
+					inv_dur_timer = 15;
+					damaged_timer = 300;
+					if (_azDur != -1) ablaze_dur_timer = _azDur;
+					if (_txDur != -1) thundux_dur_timer = _txDur;
+					if (_vsDur != -1) voidsick_dur_timer = _vsDur;
+					if (_wvDur != -1) watervice_dur_timer = _wvDur;
+					if (_drainPerc != -1) 
+					{
+						//obj_player.heal = true;
+						//obj_player.heal_dur_timer = 60;
+						//obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
+					}
+					if (_kbDur != -1) 
+					{
+						knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+						knockback_dur = _kbDur
+					}
+					if (dmg_snd_delay <= 0)
+					{
+						dmg_snd_delay = 15;
+						audio_sound_gain(snd_player_hit,global.volumeEffects,1);
+						audio_play_sound(snd_player_hit,0,false);
+					}
+					var _damageTaken = max(1,other.damage - armor);
+					if (overshield <= 0)
+					{
+						hp = hp - _damageTaken;
+						flash = .7;
+					}
+					if (overshield > 0)
+					{
+						if (_damageTaken > overshield)
+						{
+							overshield = 0;
+							hp = hp - (_damageTaken - overshield);
+							flash = .7;
+						}
+						if (_damageTaken <= overshield)
+						{
+							overshield = overshield - _damageTaken;
+							flash = .7;
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
+	
+ds_list_destroy(_hitByAttack);
+mask_index = enemy_idle;
+}
+//
+//
+//
+//
+//
+//Attack Calculate Status (Projectile)
+function scr_enemy_attack_calculate_projectile(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc){
+//Collision with Entities
+mask_index = _hitbox;
+
+var _hitByAttack = ds_list_create();
+var _hits = instance_place_list(x,y,obj_player,_hitByAttack,false);
+if (_hits > 0)
+{
+	for (var i = 0; i < _hits; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _hitID = _hitByAttack[| i];
+		if (ds_list_find_index(hit_by_attack, _hitID) == -1)
+		{
+			ds_list_add(hit_by_attack,_hitID);
+			with (_hitID)
+			{
+				if (invincible = false) and (dead = false)
+				{
+					inv_dur_timer = 15;
+					damaged_timer = 300;
+					if (_azDur != -1) ablaze_dur_timer = _azDur;
+					if (_txDur != -1) thundux_dur_timer = _txDur;
+					if (_vsDur != -1) voidsick_dur_timer = _vsDur;
+					if (_wvDur != -1) watervice_dur_timer = _wvDur;
+					if (_drainPerc != -1) 
+					{
+						//obj_player.heal = true;
+						//obj_player.heal_dur_timer = 60;
+						//obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
+					}
+					if (_kbDur != -1) 
+					{
+						knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+						knockback_dur = _kbDur
+					}
+					if (dmg_snd_delay <= 0)
+					{
+						dmg_snd_delay = 15;
+						audio_sound_gain(snd_player_hit,global.volumeEffects,1);
+						audio_play_sound(snd_player_hit,0,false);
+					}
+					var _damageTaken = max(1,other.damage - armor);
+					if (overshield <= 0)
+					{
+						hp = hp - _damageTaken;
+						flash = .7;
+					}
+					if (overshield > 0)
+					{
+						if (_damageTaken > overshield)
+						{
+							overshield = 0;
+							hp = hp - (_damageTaken - overshield);
+							flash = .7;
+						}
+						if (_damageTaken <= overshield)
+						{
+							overshield = overshield - _damageTaken;
+							flash = .7;
+						}
+					}
+					with (other) 
+					{
+						if (bullet = true) and (invincible = false)
+						{
+							instance_destroy();
+						}
+					}
 				}
 			}
 		}
@@ -660,8 +841,23 @@ if (_hits > 0)
 					audio_play_sound(snd_player_hit,0,false);
 					ablaze_dur_timer = (_duration * 60);
 					var _damageTaken = max(0,other.damage - armor);
-					hp = hp - _damageTaken;
-					flash = .7;
+					if (overshield <= 0)
+					{
+						hp = hp - _damageTaken;
+						flash = .7;
+					}
+					if (overshield > 0)
+					{
+						if (_damageTaken > overshield)
+						{
+							overshield = 0;
+							hp = hp - (_damageTaken - overshield)
+						}
+						if (_damageTaken <= overshield)
+						{
+							overshield = overshield - _damageTaken;
+						}
+					}
 				}
 			}
 		}

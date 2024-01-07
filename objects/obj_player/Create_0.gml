@@ -34,6 +34,7 @@ dmg_snd = snd_player_hit;
 dmg_snd_delay = 0;
 
 
+
 //Scripts and Movement
 state_script = Idle;
 free_script = Idle;
@@ -56,24 +57,14 @@ magic_timer = 0;
 melee_timer = 0;
 weapon_timer = 0;
 special_timer = 0;
+damaged_timer = 0;
+overshield_timer = 0;
+
 
 //Enhancable Stats
 vitality = 0; //HTH 
-//iteration = 0; //CRL
 conviction = 0; //CRG
-//might = 0; //WPN
-//grace = 0; //CST
-//divinity = 0; //SPC
 energy = 0; //RLL
-//receptivity = 0; //AMT
-
-//Effected Max Stats
-//crystal_ary = array_create(11,-1);
-//crystal_use = array_create(11,true);
-//crystal_ary[0] = 0;
-//crystal_use[0] = false;
-//crystal_selected = 0;
-//crystal_count = 1;//+ iteration;
 max_hp = 200 + (25 * vitality);
 max_stamina = 200 + (25 * energy);
 max_charge = 200 + (25 * conviction);
@@ -81,7 +72,9 @@ max_charge = 200 + (25 * conviction);
 //Set Player Current Stats
 hp = max_hp
 stamina = max_stamina;
-armor = 0; //negates damage in enemy damage calc
+armor = 0;
+overshield = 0;
+
 //Color Specific Crystal
 selected_primary = -1;
 yellow_primary = max_charge;

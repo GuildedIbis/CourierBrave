@@ -33,6 +33,7 @@ max_stamina = 200 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 6;
 special_cost = 100;
+overshield = 0;
 }
 //
 //
@@ -82,6 +83,11 @@ if (weapon_timer > 0)
 	weapon_timer = weapon_timer - 1;
 }
 
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
 
 //Movement 2: Collision
 scr_player_collision();
@@ -143,20 +149,20 @@ if (key_attackS) and (yellow_special >= 100)
 }
 
 //Roll State
-if (key_ability) and (stamina >= 75)
+if (key_ability) and (stamina >= 50)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		stamina = stamina - 75;
+		stamina = stamina - 50;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
 }
 
 //Switch Magic Fire Mode
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 3, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 0, 7] = true)
 {
 	if (magic_primary = true)
 	{
@@ -203,15 +209,6 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_regaliare_regalBlade,0,0,global.volumeEffects);
 	atk_snd_delay = 28;
 }
-//if (yellow_primary < max_charge) and (watervice = false)//charge Recharge
-//{
-//	if (charge_timer > 0) charge_timer = charge_timer - 1;
-//	if (charge_timer <= 0) 
-//	{
-//		charge_timer = 6;
-//		yellow_primary = yellow_primary + 1;
-//	}
-//}
 if (magic_timer > 0) //Magic time between shots
 {
 	magic_timer = magic_timer - 1; 
@@ -221,6 +218,7 @@ if (weapon_timer > 0)
 	weapon_timer = weapon_timer - 1;
 }
 
+//
 
 //Attack Start
 if (sprite_index != spr_player_regaliare_slash)

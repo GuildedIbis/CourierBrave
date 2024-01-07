@@ -205,7 +205,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 35;
-	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_A_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_A_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -253,7 +253,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 40;
-	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_B_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorog_heavySlash_B_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -305,53 +305,19 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_balurne_gorog_knife;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_gorogKnife;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 2.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_balurne_gorog_knife_create();
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) - 5;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragMetal;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_balurne_gorog_knife;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_gorogKnife;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 3.0
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 45 //+ (8 * enemy_lvl);
+			scr_projectile_balurne_gorog_knife_create();
 			direction = (point_direction(x,y,obj_player.x,obj_player.y)) + 5;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragMetal;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	
@@ -482,77 +448,50 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 	image_angle = direction;
 	spd = .75 + (.3) + random(0.1);
 }
-//if (_drop1 < 10)//Form Specific Rog Stone
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-//	{
-//		item_id = obj_player.form_type;
-//		sprite_index = spr_rog_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 4) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-	
-//}
-//if (_drop1 >= 10) and (_drop1 < 20)//Random Rog Stone
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemRog))
-//	{
-//		item_id = irandom_range(0,5);
-//		sprite_index = spr_rog_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 5) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-	
-//}
-//if (_drop2 < 10)
-//{
-//	with (instance_create_layer(x,y,"Instances",obj_itemPS))
-//	{
-//		item_id = other.enemy_lvl;
-//		sprite_index = spr_powerstone_all;
-//		image_index = item_id;
-//		direction = (360/_objects * 6) + _angle;
-//		spd = .75 + (.3) + random(0.1);
-//	}
-//}
 }
 //
 //
 //
 //
 //
-//Gorog Knife Free
-function scr_projectile_balurne_gorog_knife(){
+//Gorog Knife Create 
+function scr_projectile_balurne_gorog_knife_create(){
+home_state = scr_projectile_balurne_gorog_knife_step;
+entity_step = home_state;
+entity_drop = Idle;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_gorogKnife;
+enemy_idle = spr_enemy_gorogKnife;
+sprite_index = enemy_idle;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 2.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 25;
+fragment_count = 3;
+fragment = obj_fragMetal;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Gorog Knife Step
+function scr_projectile_balurne_gorog_knife_step(){
 if (obj_game.gamePaused = false)
 {
-	//Set
-	sprite_index = enemy_move;
+	//Resume Speed
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_enemy_gorogKnife_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_gorogKnife_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

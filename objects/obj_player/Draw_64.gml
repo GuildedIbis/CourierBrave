@@ -21,7 +21,9 @@ if (scene = false) and (obj_game.textPaused = false)
 
 	//Health (Bottom Left)
 	var _hpColor = make_color_rgb(255,127,246);
+	var _osColor = make_color_rgb(109,208,247);
 	draw_ring_healthbar(12,169,hp,max_hp,_hpColor,9,1,3);
+	if (overshield > 0) draw_ring_healthbar(12,169,overshield,20,_osColor,9,1,3);
 	draw_sprite(spr_hud_meter_round,0,0,157);
 	draw_sprite(spr_formSelect_icons,form,12,170);
 	

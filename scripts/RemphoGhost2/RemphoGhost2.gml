@@ -210,9 +210,6 @@ if (obj_game.gamePaused = false)
 		image_index = 0;
 	}
 	
-	//Cacluate Attack
-	damage = 30;//+ (8 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_ghost2_shadowShiftB_hitbox);
 	
 	//Return from Hiding
 	if (timer2 <= 0)
@@ -241,107 +238,35 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ghost_soulFlare,0,false);
 		with (instance_create_layer(x+16,y+6,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_soulFlare_create();
 			direction = 315;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x+16,y-21,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_soulFlare_create();
 			direction = 45;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y-21,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_soulFlare_create();
 			direction = 135;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		with (instance_create_layer(x-16,y+6,"Instances",obj_enemy_projectile))
 		{
-			invincible = false;
-			inv_dur_timer = 0;
-			home_state = scr_projectile_soulFlare;
-			entity_step = home_state;
-			entity_drop = Idle;
-			lit = true;
-			light_size = 16;
-			enemy_move = spr_ghost_soulFlare;
-			sprite_index = spr_ghost_soulFlare;
-			aggro_drop = 300;
-
-			enemy_spd = 3.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 25;
+			scr_projectile_soulFlare_create();
 			direction = 225;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 
 	}
