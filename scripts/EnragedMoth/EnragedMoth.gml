@@ -146,7 +146,7 @@ if (obj_game.gamePaused = false)
 	lit = false;
 	healthbar = false;
 	
-	//Collision Damage
+	//Collision 
 	if (timer1 <= 0)
 	{
 		//Chase: create and execute a path towards player
@@ -295,7 +295,7 @@ if (obj_game.gamePaused = false)
 		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
 		path_start(path, 3, 0, 0);
 		damage = 45;
-		scr_enemy_attack_calculate(spr_enemy_enragedMoth_rageRush_hitbox);
+		scr_enemy_attack_calculate(spr_enemy_enragedMoth_rageRush_hitbox,self,-1,-1,-1,-1,-1,-1);
 	
 	}
 	else speed = 0;
@@ -381,18 +381,13 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_wormEgg_create();
-			lit = true;
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragment;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
+			
 		}
 	}
 	
@@ -417,16 +412,16 @@ if (obj_game.gamePaused = false)
 //Worm Egg Create
 function scr_projectile_wormEgg_create(){
 //Scripts
-home_state = scr_projectile_wormEgg_free; 
-entity_step = scr_projectile_wormEgg_free;
+home_state = scr_projectile_wormEgg_step; 
+entity_step = scr_projectile_wormEgg_step;
+hit_script = scr_entity_hit_destroy;
 entity_drop = Idle;
 
 //Assets
 enemy_move = spr_enragedMoth_wormEgg;
+enemy_idle = spr_enragedMoth_wormEgg;
 
 //Stats
-max_hp = 60;
-hp = max_hp;
 damage = 45;
 enemy_spd = 1.5;
 
@@ -440,7 +435,13 @@ aggro_drop = 300;
 timer1 = 150;
 local_frame = 0;
 hit_by_attack = -1;
+lit = true;
+fragment_count = 0;
+fragment = obj_fragment;
+bullet = true;
 
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -454,30 +455,16 @@ if (obj_game.gamePaused = false)
 	//Resume
 	sprite_index = enemy_move;
 	speed = enemy_spd;
+	invincible = true;
+	inv_dur_timer = 30;
 	
 	//Collision
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,obj_player))
 	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		}
 		with instance_create_layer(x,y,"Instances",obj_enemy)
 		{
 			image_alpha = 1;
-			//enemy_lvl =  other.enemy_lvl;
 			scr_enemy_enraged_worm_create();
 			timer1 = 20;
 			entity_step = scr_enemy_enraged_worm_explode;

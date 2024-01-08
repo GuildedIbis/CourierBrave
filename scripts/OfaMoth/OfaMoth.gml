@@ -215,30 +215,19 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_whiteCrescent_create();
 			break_object = other.break_object;
-			shadow = 0;
-			fragment_count = 3;
-			fragment = obj_fragWhite;
-			healthbar = true;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
+			
 		}
 		for (var i = 0; i < 6; i = i + 1)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_whiteRod_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) - 45 + (15 * i);
 				image_angle = direction;
 				speed = enemy_spd;
 				break_object = other.break_object;
-				fragment_count = 2;
-				fragment = obj_fragWhite;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 			}
 		}
 		if (attack_counter >= 4)
@@ -288,17 +277,12 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_ofaMoth_shoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_whiteRod_create();
 			depth = other.depth - 1;
 			direction = point_direction(x,y,obj_player.x,obj_player.y) + irandom_range(-3,3);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 5;
-			fragment = obj_fragWhite;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	

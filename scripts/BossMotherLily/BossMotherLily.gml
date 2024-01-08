@@ -126,8 +126,6 @@ if (obj_game.gamePaused = false)
 					
 				case 1:
 					walk_snd_delay = 15;
-					//audio_sound_gain(snd_motherLily_viceBomb,global.volumeEffects,1);
-					//audio_play_sound(snd_motherLily_viceBomb,0,false);
 					path_end();
 					direction = point_direction(x,y,obj_player.x,obj_player.y);
 					sprite_index = enemy_idle;
@@ -137,27 +135,9 @@ if (obj_game.gamePaused = false)
 					entity_step = scr_enemy_mother_lily_scissorLeaf;
 					with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 					{
-						//enemy_lvl = other.enemy_lvl;
-						home_state = scr_projectile_scissorLeaf;
-						timer1 = 30;
-						timer2 = 10;
-						entity_step = home_state;
-						invincible = false;
-						inv_dur_timer = 0;
-						enemy_move = spr_motherLily_scissorLeaf;
-						aggro_drop = 300;
-						healthbar = false;
-						enemy_spd = 4.0;
-						local_frame = 0;
-						hit_by_attack = -1;
-						damage = 65;// + (10 * enemy_lvl);
+						scr_projectile_scissorLeaf_create();
+						image_angle = other.direction;	
 						break_object = other.break_object;
-						parent = other;
-						fragment_count = 3;
-						fragment = obj_fragPlant;
-						bullet = true;
-						hit_script = scr_entity_hit_damage;
-						image_angle = other.direction;
 					}
 				break;
 			}
@@ -172,7 +152,7 @@ if (obj_game.gamePaused = false)
 			path_end();
 			sprite_index = enemy_idle;
 			timer1 = 23;
-			entity_step =scr_enemy_mother_lily_viceBomb;
+			entity_step = scr_enemy_mother_lily_viceBomb;
 		}
 		
 		//Drop Lily Pods
@@ -182,7 +162,6 @@ if (obj_game.gamePaused = false)
 			with (instance_create_layer(x,y,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
-				//Enemy_lvl = other.enemy_lvl;
 				scr_enemy_lily_pod_create();
 				timer1 = 30;
 				timer2 = 30;
@@ -229,8 +208,8 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 55;//(9 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_motherLily_leafSlash_hitbox);
+	damage = 55;
+	scr_enemy_attack_calculate(spr_enemy_motherLily_leafSlash_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -269,9 +248,6 @@ if (obj_game.gamePaused = false)
 		ds_list_clear(hit_by_attack);
 	}
 	
-	//Calculate Attack
-	damage = 50;//+ (9 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_motherLily_scissorLeaf);
 	
 	//Collision
 	var _collided = scr_enemy_collision();
@@ -294,7 +270,6 @@ if (obj_game.gamePaused = false)
 	//End
 	if (timer2 <= 0)
 	{
-		//audio_play_sound(snd_viceBubble,0,false);
 		timer2 = 120;
 		timerC = 60;
 		entity_step = home_state;
@@ -309,13 +284,45 @@ if (obj_game.gamePaused = false)
 //
 //
 //
+//Scissor Leaf create
+function scr_projectile_scissorLeaf_create(){
+home_state = scr_projectile_scissorLeaf_step;
+hit_script = scr_entity_hit_damage;
+entity_step = home_state;
+
+timer1 = 30;
+timer2 = 10;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_motherLily_scissorLeaf;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 4.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 45;
+parent = other;
+fragment_count = 0;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Scissor Leaf Free
-function scr_projectile_scissorLeaf(){
+function scr_projectile_scissorLeaf_step(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
+	invincible = true;
+	inv_dur_timer = 30;
 	
 	//Setup
 	if (sprite_index != spr_motherLily_scissorLeaf)
@@ -340,6 +347,9 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_motherLily_leafSlash,0,false);
 	}
 	
+	//Collision
+	scr_enemy_attack_calculate_projectile(spr_motherLily_scissorLeaf,self,-1,-1,-1,-1,-1,-1);
+	
 	//Animate
 	scr_enemy_animation_one();
 	
@@ -355,7 +365,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Mother Lily Left Slash 
+//Mother Lily Razer Sprout
 function scr_enemy_mother_lily_razerSprout(){
 if (obj_game.gamePaused = false)
 {
@@ -386,14 +396,8 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
-				script_execute(scr_projectile_razorSprout_create);
-				timer1 = 0;
+				scr_projectile_razorSprout_create();
 				break_object = other.break_object;
-				fragment_count = 3;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 				speed = enemy_spd;
 				direction = _dir + (45 * i)
 				if (i > 3) image_xscale = -1;
@@ -440,23 +444,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_lily_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_viceBomb_free;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_projectile_viceBubble32;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 3.0
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 60;
+			scr_projectile_viceBomb_create();
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
@@ -553,75 +542,7 @@ if (obj_inventory.quest_grid[# 12, 3] = false)
 	obj_inventory.quest_grid[# 12, 3] = true;
 }
 }
-//
-//
-//
-//
-//
-//MotherLily Victory Text
-function scr_text_mother_lily_victory(){
 
-draw_set_font(xfnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
-if (obj_game.gamePaused)
-{
-	with (all)
-	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
-	}
-}
-//Draw Based on String Counter
-var _SubString
-if (string_counter = 0)
-{
-	speaker = 1;
-	text_string = "Mother Lily Defeated." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter = 1)
-{
-	speaker = 1;
-	text_string = "Quest Complete - Lair: Habraf Lake\nREWARD: 1000 Beans"
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter >= 2)
-{
-
-	obj_inventory.beans = obj_inventory.beans + 1000;
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
-	with (all)
-	{
-		image_speed = game_paused_image_speed;
-	}
-	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_font(xfnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
-
-}
 
 
 

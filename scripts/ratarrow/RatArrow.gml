@@ -7,8 +7,10 @@
 //Rat Arrow Create
 function scr_projectile_ratArrow_create(){
 home_state = scr_projectile_ratArrow_step;
+hit_script = scr_entity_hit_destroy;
 entity_step = home_state;
 entity_drop = Idle;
+
 invincible = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_rat_arrow;
@@ -23,7 +25,7 @@ damage = 25;
 fragment_count = 3;
 fragment = obj_fragWood;
 bullet = true;
-hit_script = scr_entity_hit_destroy;
+
 if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 ds_list_clear(hit_by_attack);
 }

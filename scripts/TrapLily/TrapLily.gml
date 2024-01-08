@@ -145,24 +145,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_lily_viceBubble,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_viceBubble_free;
-			//enemy_lvl = other.enemy_lvl
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_projectile_viceBubble;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 2.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			timer1 = 60;
-			damage = 65;//+ (10 * enemy_lvl);
+			scr_projectile_viceBubble_create();
 			break_object = other.break_object;
-			fragment_count = 5;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;

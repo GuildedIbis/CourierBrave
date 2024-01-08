@@ -9,10 +9,12 @@ function scr_projectile_razorSprout_create(){
 //Scripts
 home_state = scr_projectile_razorSprout;
 entity_step = scr_projectile_razorSprout;
+hit_script = scr_entity_hit_destroy;
 entity_drop = Idle;
 
 //Assets
 enemy_move = spr_enemy_razerSprout;
+enemy_idle = spr_enemy_razerSprout;
 
 //Stats
 enemy_spd = 1.5;
@@ -27,6 +29,13 @@ aggro_drop = 300;
 timer1 = 60;
 local_frame = 0;
 hit_by_attack = -1;
+timer1 = 0;
+fragment_count = 3;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -52,26 +61,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

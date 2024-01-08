@@ -151,31 +151,14 @@ if (obj_game.gamePaused = false)
 		timer1 = 3;
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_proj_ofaPupa_cocoonSpike;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 2.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;//+ (7 * enemy_lvl);
-			lit = true;
 			audio_sound_gain(snd_enemy_ofa_pupa_cocoonSpike,global.volumeEffects,1);
 			audio_play_sound(snd_enemy_ofa_pupa_cocoonSpike,0,false);
+			scr_projectile_pupaSpike_create();
 			direction = other.proj_dir;
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 0;
-			fragment = obj_fragWhite;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
-			home_state = scr_projectile_pupaSpike_free;
-			entity_step = home_state;
+			
 		}
 	}
 	
@@ -230,29 +213,11 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
-				entity_drop = Idle;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_proj_ofaPupa_cocoonSpike;
-				aggro_drop = 300;
-				healthbar = false;
-				bullet = true;
-				enemy_spd = 3.0;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 35;//+ (7 * enemy_lvl);
-				lit = true;
+				scr_projectile_pupaWad_create();
 				direction = (point_direction(x,y,obj_player.x,obj_player.y)- 60) + (15*i) ;
 				image_angle = direction;
 				speed = enemy_spd;
 				break_object = other.break_object;
-				fragment_count = 0;
-				fragment = obj_fragWhite;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
-				home_state = scr_projectile_pupaWad_free;
-				entity_step = home_state;
 			}
 		}
 	}
@@ -269,8 +234,7 @@ if (obj_game.gamePaused = false)
 		animation_end = false;
 	}
 }
-}
-//
+}//
 //
 //
 //
@@ -317,6 +281,37 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 //
 //
 //Ofa Pupa Spike Free
+function scr_projectile_pupaSpike_create(){
+home_state = scr_projectile_pupaSpike_free;
+entity_drop = Idle;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_proj_ofaPupa_cocoonSpike;
+enemy_idle = spr_proj_ofaPupa_cocoonSpike;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 2.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 35;
+lit = true;
+fragment_count = 0;
+fragment = obj_fragWhite;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Ofa Pupa Spike Free
 function scr_projectile_pupaSpike_free(){
 if (obj_game.gamePaused = false)
 {
@@ -325,27 +320,7 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();
@@ -361,6 +336,37 @@ else
 //
 //
 //
+//Ofa Pupa Wad Create
+function scr_projectile_pupaWad_create(){
+hit_script = scr_entity_hit_destroy;
+home_state = scr_projectile_pupaWad_free;
+entity_step = home_state;
+entity_drop = Idle;
+
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_proj_ofaPupa_cocoonSpike;
+enemy_idle = spr_proj_ofaPupa_cocoonSpike;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 3.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 35;
+lit = true;
+fragment_count = 0;
+fragment = obj_fragWhite;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Ofa Pupa Wad Free
 function scr_projectile_pupaWad_free(){
 if (obj_game.gamePaused = false)
@@ -370,27 +376,7 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

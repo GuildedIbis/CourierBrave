@@ -6,22 +6,33 @@
 //
 //Heatwave Create
 function scr_projectile_heatwave_create(){
-home_state = scr_projectile_heatwave;
-light_size = 24;
-entity_step = home_state;
+home_state = scr_projectile_heatwave_step;
+hit_script = scr_entity_hit_destroy;
 entity_drop = Idle;
+entity_step = home_state;
+
+damage = 40;
+fragment_count = 3;
+fragment = obj_fragPlant;
+lit = true;
+light_size = 16;
+bullet = true;
+light_size = 24;
 invincible = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_heatwave;
+enemy_idle = spr_enemy_heatwave;
 healthbar = false;
 bullet = true;
 aggro_drop = 300;
-timer1 = 0;
+timer1 = irandom_range(0,14);
 enemy_spd = 2.0;
 local_frame = 0;
 hit_by_attack = -1;
-damage = 40;//+ (8 * enemy_lvl);
 dir_wave = false;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -29,7 +40,7 @@ dir_wave = false;
 //
 //
 //Heatwave Free
-function scr_projectile_heatwave(){
+function scr_projectile_heatwave_step(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -44,34 +55,14 @@ if (obj_game.gamePaused = false)
 	{
 		if (dir_wave = false) dir_wave = true;
 		else dir_wave = false;
-		timer1 = 30;
+		timer1 = 15;
 	}
 	if (dir_wave = false) direction = direction - 2;
 	if (dir_wave = true) direction = direction + 2;
 	image_angle = direction;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();
@@ -89,14 +80,16 @@ else
 //
 //Endire Knight Inimar Heatacer Create
 function scr_projectile_heatacer_create(){
-home_state = scr_projectile_heatacer;
+home_state = scr_projectile_heatacer_step;
+hit_script = scr_entity_hit_destroy;
+entity_drop = Idle;
 entity_step = home_state;
 
 light_size = 24;
-entity_drop = Idle;
 invincible = false;
 inv_dur_timer = 0;
 enemy_move = spr_enemy_heatacer;
+enemy_idle = spr_enemy_heatacer;
 healthbar = false;
 bullet = true;
 aggro_drop = 300;
@@ -104,8 +97,17 @@ timer1 = 30;
 enemy_spd = 1.5
 local_frame = 0;
 hit_by_attack = -1;
-damage = 30;//+ (8 * enemy_lvl);
+damage = 30;
 dir_wave = false;
+
+fragment_count = 3;
+fragment = obj_fragFire;
+lit = true;
+light_size = 16;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -113,7 +115,7 @@ dir_wave = false;
 //
 //
 //Heatacer Free
-function scr_projectile_heatacer(){
+function scr_projectile_heatacer_step(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -124,27 +126,7 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

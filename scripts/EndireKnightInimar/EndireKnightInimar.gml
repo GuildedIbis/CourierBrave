@@ -190,7 +190,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 50;
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_fireStrike_hitbox,self,-1,420,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();
@@ -240,7 +240,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 55;
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_cinderDash_hitbox,7);
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_cinderDash_hitbox,self,-1,420,-1,-1,-1,-1)
 	
 	//Animate
 	scr_enemy_animation();
@@ -294,26 +294,18 @@ if (obj_game.gamePaused = false)
 			
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
-				direction = point_direction(x,y,obj_player.x,obj_player.y) + (20 * i);
+				break_object = other.break_object;
+				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
 				speed = 1.1;
-				damage = 40;
-				break_object = other.break_object;
-				fragment_count = 3;
-				fragment = obj_fragPlant;
-				lit = true;
-				light_size = 16;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
 	
 	//Cacluate Attack
 	damage = 60;//+ (10 * enemy_lvl);
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_heatwave_hitbox,self,-1,7,-1,-1,-1,-1)
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -370,18 +362,11 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
-				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 30) + (20 * i);
-				image_angle = direction;
-				speed = 1.1;
 				break_object = other.break_object;
-				fragment_count = 3;
-				lit = true;
-				light_size = 16;
-				fragment = obj_fragFire;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
+				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 30) + (20 * i);
+				image_angle = direction
+				speed = 1.1;
 			}
 			
 		}
@@ -391,24 +376,17 @@ if (obj_game.gamePaused = false)
 		timer3 = 12
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
 			scr_projectile_heatacer_create();
+			break_object = other.break_object;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = 1.1;
-			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragFire;
-			lit = true;
-			light_size = 16;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 	}
 	
 	//Cacluate Attack
 	damage = 65;//+ (11 * enemy_lvl);
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_heatwave_hitbox,self,-1,7,-1,-1,-1,-1)
 	
 	//Check for entities
 	if (place_meeting(x + speed, y, obj_entity)) or (place_meeting(x - speed, y, obj_entity))
@@ -479,73 +457,5 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 obj_inventory.quest_grid[# 7, 0] = true;
 obj_inventory.quest_grid[# 7, 1] = 1;
 obj_inventory.quest_grid[# 7, 3] = true;
-
-}
-//
-//
-//
-//
-//
-//Inimar Victory Text
-function xEndireKnightInimarVictoryText(){
-
-draw_set_font(xfnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_sprite_stretched(menu_sprite,3,64,136,192,48);
-draw_set_color(c_white);
-//draw_sprite(spr_dialoguePort_all,speaker,447,391);
-if (obj_game.gamePaused)
-{
-	with (all)
-	{
-		game_paused_image_speed = image_speed;
-		image_speed = 0;
-	}
-}
-//Draw Based on String Counter
-var _SubString
-if (string_counter = 0)
-{
-	speaker = 1;
-	text_string = "Endire Knight Inimar Defeated." 
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter = 1)
-{
-	speaker = 1;
-	text_string = "REWARD:\n250 Beans\nEndire's Flame Unlocked"
-	_SubString = string_copy(text_string,1,letter_counter);
-	draw_text_transformed(68,28,"Press E to Continue",.5,.5,0);
-}
-if (string_counter >= 2)
-{
-
-	text_string = ""
-	string_counter = 0;
-	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
-	with (all)
-	{
-		image_speed = game_paused_image_speed;
-	}
-	
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
-}
-draw_set_font(xfnt_text);
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_color(c_black);
-draw_text_transformed(69,140,_SubString,.5,.5,0);
-draw_set_color(c_white);
-draw_text_transformed(68,140,_SubString,.5,.5,0);
 
 }

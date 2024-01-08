@@ -226,8 +226,8 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Cacluate Attack
-	damage = 40;//+ (11 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash)
+	damage = 40;
+	scr_enemy_attack_calculate(spr_enemy_hitbox_tailLash,self,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();
@@ -275,7 +275,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 40;//+ (10 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_voidBlade,self,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();
@@ -329,34 +329,8 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_zerwerk_voidRift,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_riftslash_tail;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_riftSlash;
-			enemy_idle = spr_enemy_riftSlash;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 1.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			//damage = 45 + (8 * enemy_lvl);
-			direction = point_direction(x,y,obj_player.x,obj_player.y);
-			//image_angle = direction;
-			speed = enemy_spd;
+			scr_projectile_riftslash_tail_create();
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragFlesh;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
-			
-			lit = true;
-			light_size = 32;
-			timer1 = 42;
-			timer2 = 54;
 			x = obj_player.x;
 			y = obj_player.y;
 		}
@@ -483,7 +457,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 45;
-	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownA,self,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation_one();
@@ -555,7 +529,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 40;
-	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB)
+	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlamDownB,self,-1,-1,-1,-1,-1,-1)
 	
 	//Create Projectile
 	if (timer1 <= 0)
@@ -565,28 +539,11 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y+8,"Instances",obj_enemy_projectile))
 			{
-				home_state = scr_enemy_projectile_voidcast;
-				entity_step = home_state;
-				entity_drop = Idle;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_enemy_voidCast;
-				aggro_drop = 300;
-				healthbar = false;
-				bullet = true;
-				enemy_spd = 1.8;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 35;
+				scr_enemy_projectile_voidcast_create();
+				break_object = other.break_object;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 44) + (i * 22);
 				image_angle = direction;
 				speed = enemy_spd;
-				break_object = other.break_object;
-				projectile_sprite = spr_enemy_voidCast;
-				fragment_count = 6;
-				fragment = obj_fragFire;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 			}
 		}
 	}
@@ -763,7 +720,38 @@ draw_text_transformed(68,140,_SubString,.5,.5,0);
 //
 //
 //Zerwerk Void Cast Free
-function scr_enemy_projectile_voidcast(){
+function scr_enemy_projectile_voidcast_create(){
+home_state = scr_enemy_projectile_voidcast_step;
+hit_script = scr_entity_hit_destroy;
+entity_drop = Idle;
+entity_step = home_state;
+
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_voidCast;
+enemy_idle = spr_enemy_voidCast;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 1.8;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 35;
+projectile_sprite = spr_enemy_voidCast;
+fragment_count = 6;
+fragment = obj_fragFire;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Zerwerk Void Cast Free
+function scr_enemy_projectile_voidcast_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume Speed
@@ -771,26 +759,11 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
+	if (place_meeting(x,y,break_object)) 
 	{
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-				with (other) instance_destroy();
-			}
-		}
-	
+		instance_destroy();
 	}
-	if (place_meeting(x,y,break_object)) instance_destroy();
 }
 else
 {
@@ -803,12 +776,51 @@ else
 //
 //
 //Rift Slash Tail Free
-function scr_projectile_riftslash_tail(){
+function scr_projectile_riftslash_tail_create(){
+home_state = scr_projectile_riftslash_tail_step;
+hit_script = scr_entity_hit_destroy;
+entity_drop = Idle;
+entity_step = home_state;
+
+invincible = true;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_riftSlash;
+enemy_idle = spr_enemy_riftSlash;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 1.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 45;
+fragment_count = 3;
+fragment = obj_fragFlesh;
+bullet = true;		
+lit = true;
+light_size = 32;
+timer1 = 42;
+timer2 = 54;
+
+direction = point_direction(x,y,obj_player.x,obj_player.y);
+speed = enemy_spd;	
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Rift Slash Tail Free
+function scr_projectile_riftslash_tail_step(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
 	if (timer2 > 0) timer2 = timer2 - 1;
 	if (timer1 > 0) timer1 = timer1 - 1;
+	invincible = true;
+	inv_dur_timer = 30;
 	
 	//Setup
 	if (sprite_index != spr_enemy_riftSlash)
@@ -844,7 +856,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 35;
-	scr_enemy_attack_calculate(spr_enemy_hitbox_riftSlash)
+	scr_enemy_attack_calculate_projectile(spr_enemy_hitbox_riftSlash,self,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation_one();

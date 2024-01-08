@@ -166,30 +166,9 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_cultist_leafShoot,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_lifeLeaf_free;
-			lit = true;
-			//enemy_lvl = other.enemy_lvl;
+			scr_projectile_lifeLeaf_create();
 			shooter = other;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_projectile_lifeLeaf;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 2.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			heal = false
-			target = other.target
-			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-			ds_list_clear(hit_by_attack);
-			timer1 = 60;
-			damage = 30;//+ (6 * enemy_lvl);
-			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragPlant;
-			bullet = true;
-			//hit_script = EntityHitDestroy;
+			target = other.target;
 			if (target != -1) and (instance_exists(target))
 			{
 				if (target.hp < target.max_hp) and (!collision_line(x,y,target.x,target.y,obj_wall,true,true))
@@ -240,11 +219,44 @@ if (obj_game.gamePaused = false)
 //
 //
 //Cultist Life Leaf Free
-function scr_projectile_lifeLeaf_free(){
+function scr_projectile_lifeLeaf_create(){
+home_state = scr_projectile_lifeLeaf_step;
+entity_step = home_state;
+
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_lifeLeaf;
+enemy_idle = spr_projectile_lifeLeaf;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.0;
+local_frame = 0;
+hit_by_attack = -1;
+heal = false
+timer1 = 60;
+damage = 30;
+break_object = other.break_object;
+fragment_count = 3;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Cultist Life Leaf Free
+function scr_projectile_lifeLeaf_step(){
 if (obj_game.gamePaused = false)
 {
 	//Set
 	sprite_index = enemy_move;
+	invincible = true;
+	inv_dur_timer = 30;
 
 	//Before Collision
 	if (heal = false)
@@ -255,21 +267,7 @@ if (obj_game.gamePaused = false)
 			heal = true;
 			audio_sound_gain(snd_enemy_cultist_lifeLeaf_heal,global.volumeEffects,1);
 			audio_play_sound(snd_enemy_cultist_lifeLeaf_heal,0,false);
-			with (obj_player)
-			{
-				if (invincible = false)
-				{
-					if (dmg_snd_delay <= 0)
-					{
-						dmg_snd_delay = 15;
-						audio_sound_gain(dmg_snd,global.volumeEffects,1);
-						audio_play_sound(dmg_snd,0,false);
-					}
-					flash = .35;
-					hp = hp - (other.damage - armor);
-				}
-			}
-	
+			scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 		}
 		if (place_meeting(x,y,break_object)) 
 		{
@@ -370,7 +368,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 30;
-	scr_enemy_attack_calculate(spr_enemy_lilyCultist_slash_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_lilyCultist_slash_hitbox,self,-1,-1,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();

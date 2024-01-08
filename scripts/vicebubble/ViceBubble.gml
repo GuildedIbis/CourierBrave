@@ -7,12 +7,14 @@
 //Vice Bubble Create
 function scr_projectile_viceBubble_create(){
 //Scripts
-home_state = scr_projectile_viceBubble_free;
+home_state = scr_projectile_viceBubble_step;
+hit_script = scr_entity_hit_destroy;
 entity_step = home_state;
 entity_drop = Idle;
 
 //Assets
 enemy_move = spr_projectile_viceBubble;
+enemy_idle = spr_projectile_viceBubble;
 
 //Stats
 enemy_spd = 2.0;
@@ -25,6 +27,14 @@ bullet = true;
 aggro_drop = 300;
 local_frame = 0;
 hit_by_attack = -1;
+timer1 = 60;
+damage = 65;
+fragment_count = 5;
+fragment = obj_fragWater;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //
@@ -32,7 +42,7 @@ hit_by_attack = -1;
 //
 //
 //Vice Bubble Free
-function scr_projectile_viceBubble_free(){
+function scr_projectile_viceBubble_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -40,27 +50,7 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_enemy_lily_viceBubble_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_lily_viceBubble_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(snd_player_hit,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();

@@ -144,7 +144,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 45;
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_fireStrike_hitbox,7)
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_fireStrike_hitbox,self,-1,420,-1,-1,-1,-1)
 
 	//Animate
 	scr_enemy_animation();
@@ -187,7 +187,7 @@ if (obj_game.gamePaused = false)
 	
 	//Calculate Attack
 	damage = 35;
-	scr_enemy_attack_calculate_ablaze(spr_enemy_endireKnight_heatwave_hitbox,7);
+	scr_enemy_attack_calculate(spr_enemy_endireKnight_heatwave_hitbox,self,-1,7,-1,-1,-1,-1)
 	
 	//Create Projectiles
 	if (timer2 <= 0)
@@ -199,19 +199,11 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
 				scr_projectile_heatwave_create();
-				timer1 = 15;
+				break_object = other.break_object;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y) - 20) + (20 * i);
 				image_angle = direction
-				speed = enemy_spd;
-				break_object = other.break_object;
-				fragment_count = 3;
-				lit = true;
-				light_size = 16;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
+				speed = 1.1;
 			}
 		}
 	}
