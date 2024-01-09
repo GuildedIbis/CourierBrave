@@ -996,6 +996,7 @@
     {"name":"xfnt_inventory","order":2,"path":"fonts/xfnt_inventory/xfnt_inventory.yy",},
     {"name":"tile_desert8","order":2,"path":"tilesets/tile_desert8/tile_desert8.yy",},
     {"name":"snd_projectile_hit","order":8,"path":"sounds/snd_projectile_hit/snd_projectile_hit.yy",},
+    {"name":"spr_player_regaliare_spinSlash_charge","order":18,"path":"sprites/spr_player_regaliare_spinSlash_charge/spr_player_regaliare_spinSlash_charge.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerJumpslam","order":4,"path":"sprites/spr_enemy_tortoiseTroll_hammerJumpslam/spr_enemy_tortoiseTroll_hammerJumpslam.yy",},
     {"name":"spr_enemy_tortoiseTroll_hammerSlam2","order":7,"path":"sprites/spr_enemy_tortoiseTroll_hammerSlam2/spr_enemy_tortoiseTroll_hammerSlam2.yy",},
     {"name":"Sprite414","order":11,"path":"sprites/Sprite414/Sprite414.yy",},

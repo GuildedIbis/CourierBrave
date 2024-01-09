@@ -1136,6 +1136,7 @@
     {"id":{"name":"xfnt_inventory","path":"fonts/xfnt_inventory/xfnt_inventory.yy",},},
     {"id":{"name":"tile_desert8","path":"tilesets/tile_desert8/tile_desert8.yy",},},
     {"id":{"name":"snd_projectile_hit","path":"sounds/snd_projectile_hit/snd_projectile_hit.yy",},},
+    {"id":{"name":"spr_player_regaliare_spinSlash_charge","path":"sprites/spr_player_regaliare_spinSlash_charge/spr_player_regaliare_spinSlash_charge.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerJumpslam","path":"sprites/spr_enemy_tortoiseTroll_hammerJumpslam/spr_enemy_tortoiseTroll_hammerJumpslam.yy",},},
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerSlam2","path":"sprites/spr_enemy_tortoiseTroll_hammerSlam2/spr_enemy_tortoiseTroll_hammerSlam2.yy",},},
     {"id":{"name":"Sprite414","path":"sprites/Sprite414/Sprite414.yy",},},

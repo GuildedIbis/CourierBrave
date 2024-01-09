@@ -57,7 +57,7 @@ draw_sprite_stretched(spr_menu_circle16,1,202,53,21,21);
 draw_sprite(spr_special_allGame,3,197,52);
 if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,199,52,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,201,52,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		page = 3;
@@ -262,7 +262,7 @@ draw_sprite_stretched(spr_menu_circle16,1,202,53,21,21);
 draw_sprite(spr_special_allGame,3,197,52);
 if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,199,52,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,201,52,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		page = 3;
@@ -387,7 +387,7 @@ switch(page)
 
 //
 //Purchase
-if (page >= 4)
+if (page >= 4) and (form_grid[# 3, page + 1] = false)
 {
 	draw_set_halign(fa_center);
 	draw_sprite_stretched(spr_menu,8,197,94,24,16);

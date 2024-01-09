@@ -33,6 +33,7 @@ max_stamina = 200 + (50 * energy);
 max_hp = 200 + (20 * vitality);
 primary_cost = 6;
 special_cost = 100;
+special_timer = 0;
 overshield = 0;
 }
 //
@@ -81,6 +82,10 @@ if (magic_timer > 0) //Magic time between shots
 if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
+}
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
 }
 
 //Armor Skill (Overshield)
@@ -140,7 +145,7 @@ if (key_attackM)
 //Special Attack
 if (key_attackS) and (yellow_special >= 100)
 {
-	if (watervice = false)
+	if (watervice = false) and (special_timer <= 0)
 	{
 		yellow_special = yellow_special - 100;
 		attack_script = scr_player_regaliare_goldArcs;
@@ -217,8 +222,16 @@ if (weapon_timer > 0)
 {
 	weapon_timer = weapon_timer - 1;
 }
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
+}
 
-//
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
 
 //Attack Start
 if (sprite_index != spr_player_regaliare_slash)
@@ -289,7 +302,16 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
+}
 
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
 
 //Movement 1: Speed
 if (knockback = false)
@@ -430,7 +452,15 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
+}
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
 
 //Movement 1: Speed
 if (knockback = false)
@@ -566,6 +596,11 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
 
 //Initiate Attack
 if (sprite_index != spr_player_regaliare_cast_special)
@@ -584,12 +619,14 @@ if (sprite_index != spr_player_regaliare_cast_special)
 scr_player_animation();
 if (animation_end)
 {
+	special_timer = 120;
 	inv_dur_timer = 120;
 	invincible = true;
 	with (instance_create_layer(x,y-6,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_regaliare_goldArcs,global.volumeEffects,1);
 		audio_play_sound(snd_regaliare_goldArcs,0,0,global.volumeEffects);
+		follow = true;
 		timer1 = 120;
 		break_object = obj_player.break_object;
 		damage = 22;//+ (obj_player.divinity * 13) + (6 * (obj_inventory.form_grid[# 0, 8]));
@@ -623,8 +660,18 @@ if (timer1  > 0) timer1 = timer1  - 1;
 if (timer2  > 0) timer2 = timer2  - 1;
 //
 //State
-x = obj_player.x;
-y = obj_player.y - 6;
+if (follow = true)
+{
+	x = obj_player.x;
+	y = obj_player.y - 6;
+}
+
+if (keyboard_check_pressed(vk_shift)) and (obj_inventory.form_grid[# 0, 8] = true)
+{
+	follow = false;
+	direction = point_direction(x,y,obj_cursor.x,obj_cursor.y);
+	speed = 1.5;
+}
 if (sprite_index != spr_goldArc)
 {
 	//Start Animation From Beginning

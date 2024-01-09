@@ -57,7 +57,7 @@ draw_sprite_stretched(spr_menu_circle16,1,202,53,21,21);
 draw_sprite(spr_special_allGame,0,197,52);
 if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
 {
-	draw_sprite_stretched(spr_highlight_circle,0,199,52,23,23);
+	draw_sprite_stretched(spr_highlight_circle,0,201,52,23,23);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		page = 3;
@@ -149,7 +149,7 @@ switch(page)
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "Gain 20 overshield that recharges\nafter 5 seconds without being\ndamaged."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = "Press shift again to send the spinning\narcs out in the direction of the\ncursor."
+		var _describe = "Press SHIFT again to send the\n spinningarcs out in the direction\nof the cursor."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -182,13 +182,13 @@ switch(page)
 
 //
 //Purchase
-if (page >= 4)
+if (page >= 4) and (form_grid[# 0, page + 1] = false)
 {
 	draw_set_halign(fa_center);
 	draw_sprite_stretched(spr_menu,8,197,94,24,16);
 	draw_sprite(spr_form_stones_all,0,213,103);
 	draw_text_transformed(206,101,string(skill_stone[0]),.5,.5,0);
-	if (skill_stone[0] > 0)
+	if (skill_stone[0] > 0) 
 	{
 		draw_sprite_stretched(spr_menu_circle16,1,193,112,32,16);
 		draw_text_transformed(209,115,"PURCHASE\nUPGRADE",.5,.5,0);
