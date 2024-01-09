@@ -191,28 +191,13 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_ratArrow;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_rat_arrow;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 3.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 40;//+ (8 * other.enemy_lvl);
+			scr_projectile_ratArrow_create();
+			image_alpha = 1;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		if (attack_counter > 0)
 		{
@@ -258,36 +243,13 @@ if (obj_game.gamePaused = false)
 		timer1 = 45;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
+			scr_projectile_waterSlash_create();
 			
-			projectile_sprite = spr_projectile_zealot_waterSlash;
-			dir_offX = 0;
-			dir_offY = 0;
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_waterSlash;
-			lit = true;
-			parent = other;
-			entity_step = home_state;
-			invincible = true;
-			inv_dur_timer = 0;
-			enemy_move = projectile_sprite;
-			enemy_idle = projectile_sprite;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 3.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 45 ;//+ (8 * enemy_lvl);
-			timer1 = 40;
-			timer2 = 20;
-			timer3 = 0;
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			direction = point_direction(x,y,obj_player.x,obj_player.y-4)
 			image_angle = direction;
 			speed = enemy_spd;
+			break_object = other.break_object;
+			parent = other;
 		}
 	}
 	
@@ -345,30 +307,11 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_zealot_waterEdge,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_waterEdge;
-			lit = true;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_projectile_zealot_waterEdge;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = .75;
-			local_frame = 0;
-			hit_by_attack = -1;
-			timer1 = 600;
-			damage = 50;// + (8 * enemy_lvl);
+			scr_projectile_waterEdge_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 
 		timer3 = 480;
@@ -435,7 +378,42 @@ if (obj_game.gamePaused = false)
 //
 //
 //Zealot Siamire Projectile Waterslash
-function scr_projectile_waterSlash(){
+function scr_projectile_waterSlash_create(){
+home_state = scr_projectile_waterSlash_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+projectile_sprite = spr_projectile_zealot_waterSlash;
+dir_offX = 0;
+dir_offY = 0;
+lit = true;
+invincible = true;
+inv_dur_timer = 0;
+enemy_move = projectile_sprite;
+enemy_idle = projectile_sprite;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 3.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 45 ;
+timer1 = 40;
+timer2 = 20;
+timer3 = 0;
+fragment_count = 2;
+fragment = obj_fragWater;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Zealot Siamire Projectile Waterslash
+function scr_projectile_waterSlash_step(){
 if (obj_game.gamePaused = false)
 {
 	//Timer
@@ -490,8 +468,8 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Calculate Attack
-	damage = 45;//+ (8 * other.enemy_lvl);
-	scr_enemy_attack_calculate(spr_projectile_zealot_waterSlash);
+	damage = 45;
+	scr_enemy_attack_calculate(spr_projectile_zealot_waterSlash,self,-1,-1,-1,-1,-1,-1);
 	
 	//Clear Attack (Attack Hits Twice)
 	if (timer2 <= 0)
@@ -519,7 +497,38 @@ else
 //
 //
 //Zealot Water Edge Projectile
-function scr_projectile_waterEdge(){
+function scr_projectile_waterEdge_create(){
+home_state = scr_projectile_waterEdge_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+entity_drop = Idle;
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_zealot_waterEdge;
+enemy_idle = spr_projectile_zealot_waterEdge;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = .75;
+local_frame = 0;
+hit_by_attack = -1;
+timer1 = 600;
+damage = 50;
+fragment_count = 3;
+fragment = obj_fragWater;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Zealot Water Edge Projectile
+function scr_projectile_waterEdge_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -544,56 +553,19 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
-				home_state = scr_projectile_waterPin;
-				lit = true;
-				entity_step = home_state;
-				entity_drop = Idle;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_projectile_zealot_waterPin;
-				aggro_drop = 300;
-				healthbar = false;
-				bullet = true;
-				enemy_spd = 1.5;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 30;//+ (7 * enemy_lvl);
+				scr_projectile_waterPin_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y) + (40 * i);
 				image_angle = direction;
 				speed = enemy_spd;
 				break_object = other.break_object;
-				fragment_count = 3;
-				fragment = obj_fragWater;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
+				
 			}
 		}
 		instance_destroy();
 	}
 
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-		//audio_play_sound(snd_arrow_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
 		instance_destroy();
@@ -609,8 +581,37 @@ else
 //
 //
 //
+//Zealot Water Pin Create
+function scr_projectile_waterPin_create(){
+home_state = scr_projectile_waterPin_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+entity_drop = Idle;
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_zealot_waterPin;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 1.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 30;
+fragment_count = 3;
+fragment = obj_fragWater;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Zealot Water Pin
-function scr_projectile_waterPin(){
+function scr_projectile_waterPin_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume

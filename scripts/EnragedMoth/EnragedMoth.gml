@@ -21,7 +21,7 @@ walk_snd = snd_enemy_ofaWorm_dash;
 //Stats
 form_type = 2;
 drop_amount = 20;
-max_hp = 915;//+ (450 * enemy_lvl);
+max_hp = 1365;
 hp = max_hp;
 enemy_spd = 5;
 
@@ -449,7 +449,7 @@ ds_list_clear(hit_by_attack);
 //
 //
 //Worm Egg Free
-function scr_projectile_wormEgg_free(){
+function scr_projectile_wormEgg_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -474,14 +474,17 @@ if (obj_game.gamePaused = false)
 		}
 		instance_destroy();
 	}
-	if (place_meeting(x,y,break_object)) 
+	
+	var _xDest = x + lengthdir_x(enemy_spd,direction);
+	var _yDest = y + lengthdir_y(enemy_spd,direction);
+	if (place_meeting(_xDest,_yDest,break_object)) 
 	{
+		speed = 0;
 		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
 		audio_play_sound(snd_projectile_hit,0,false);
 		with instance_create_layer(x,y,"Instances",obj_enemy)
 		{
 			image_alpha = 1;
-			//enemy_lvl =  other.enemy_lvl;
 			scr_enemy_enraged_worm_create();
 			timer1 = 20;
 			entity_step = scr_enemy_enraged_worm_free;

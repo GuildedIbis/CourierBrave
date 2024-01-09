@@ -160,7 +160,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 60;
-	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerSlam_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -220,7 +220,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 50;
-	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox);
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerLunge_hitbox,self,-1,-1,-1,-1,-1,-1);
 	
 	//Set Direction
 	if (timer1 <= 0)
@@ -284,7 +284,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 60;//+ (9 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerBackslam_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -327,7 +327,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 60;//+ (13 * enemy_lvl);
-	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_tortoiseTroll_hammerJumpslam_hitbox,self,-1,-1,-1,-1,-1,-1);
 	
 	//Jump Effect
 	if (timer3 > 0)
@@ -432,17 +432,12 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl
 				scr_projectile_trollTortoise_spikedVine_create();
 				direction = (point_direction(x,y,obj_player.x,obj_player.y-4)) - 15 + (15 * i);
 				image_angle = direction;
-				enemy_spd = 3.5;
 				parent = other;
 				break_object = other.break_object;
-				fragment_count = 3;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
+
 			}
 		}
 	}
@@ -554,29 +549,11 @@ if (obj_game.gamePaused = false)
 		timer2 = 10;
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
+			scr_projectile_trollTortoise_missile_create();
 			direction = other.direction;
 			image_angle = direction;
-			home_state = scr_projectile_trollTortoise_missile;
-			timer1 = 150;
-			timer2 = 30;
-			path = -1;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_trollTortoise_missile;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 2.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 45;//+ (8 * enemy_lvl);
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragPlant;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
+			break_object = other.break_object;
 		}
 	}
 	
@@ -626,28 +603,10 @@ if (obj_game.gamePaused = false)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl
+			scr_projectile_trollTortoise_mound_create();
 			direction = (point_direction(x,y,obj_player.x,obj_player.y));
-			home_state = scr_projectile_trollTortoise_mound;
-			timer1 = 180;
-			timer2 = 0;
-			path = -1;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_tortoiseTroll_mound;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 1.25;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 55;//+ (9 * enemy_lvl);
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragPlant;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 			speed = enemy_spd;
+			break_object = other.break_object;
 		}
 		timer2 = 29;
 	}
@@ -699,27 +658,10 @@ if (obj_game.gamePaused = false)
 		{
 			with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 			{
-				//enemy_lvl = other.enemy_lvl;
+				scr_projectile_trollTortoise_vineShot_create();
+				break_object = other.break_object;
 				direction = (point_direction(x,y,obj_player.x,obj_player.y)) + round(11.25 * i);
 				image_angle = direction;
-				home_state = scr_projectile_trollTortoise_vineShot;
-				timer1 = 180;
-				path = -1;
-				entity_step = home_state;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_enemy_tortoiseTroll_vineShot;
-				aggro_drop = 300;
-				healthbar = false;
-				enemy_spd = 1.5;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 30;//+ (10 * enemy_lvl);
-				break_object = other.break_object;
-				fragment_count = 2;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 				speed = enemy_spd;
 				image_speed = 0;
 				image_index = irandom_range(0,4);

@@ -295,6 +295,7 @@ timer2 = 10;
 invincible = false;
 inv_dur_timer = 0;
 enemy_move = spr_motherLily_scissorLeaf;
+enemy_idle = spr_motherLily_scissorLeaf;
 aggro_drop = 300;
 healthbar = false;
 enemy_spd = 4.0;

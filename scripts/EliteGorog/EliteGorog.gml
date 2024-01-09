@@ -222,7 +222,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 45;
-	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_A_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_A_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -272,7 +272,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 50;
-	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_B_hitbox)
+	scr_enemy_attack_calculate(spr_enemy_gorogE_heavySlash_B_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -326,16 +326,14 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_gorogKnife_throw,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			script_execute(scr_projectile_gorogElite_chainHook_create);
+			scr_projectile_gorogElite_chainHook_create();
 			direction = (point_direction(x,y,obj_player.x,obj_player.y-4));
 			image_angle = direction;
-			enemy_spd = 4.5;
+			
 			parent = other;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragMetal;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
+			
+			
 		}
 	}
 	

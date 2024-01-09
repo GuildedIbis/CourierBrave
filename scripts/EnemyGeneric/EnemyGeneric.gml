@@ -80,6 +80,25 @@ else path_end();
 //
 //
 //Chase Player
+function scr_enemy_chase_unstick(){
+if (knockback = false)
+{
+	//Chase: create and execute a path towards player
+	if (path_exists(path)) path_delete(path);
+	path = path_add();
+	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_interactable);
+	path_start(path, enemy_spd, 0, 0);
+	image_speed = 1;
+	sprite_index = enemy_move;
+}
+else path_end(); 
+}
+//
+//
+//
+//
+//
+//Chase Player
 function scr_enemy_chase_escort(){
 
 //Chase: create and execute a path towards player
@@ -122,38 +141,6 @@ if (knockback = false)
 	}
 }
 else path_end(); 
-}
-//
-//
-//
-//
-//
-//Chase Player
-function scr_enemy_chase_custom(){
-
-	//Chase: create and execute a path towards player
-	if (path_exists(path)) path_delete(path);
-	path = path_add();
-	mp_potential_path_object(path, _destX, _destY, 1, 2, obj_entity);
-	path_start(path, enemy_spd, 0, 0);
-	image_speed = 1;
-	sprite_index = enemy_move
-}
-//
-//
-//
-//
-//
-//Chase Player
-function scr_enemy_chase_custom_ext(_destX,_destY,_spd,_chaseSprite){
-
-	//Chase: create and execute a path towards player
-	if (path_exists(path)) path_delete(path);
-	path = path_add();
-	mp_potential_path_object(path, _destX, _destY, 1, 2, obj_entity);
-	path_start(path, _spd, 0, 0);
-	image_speed = 1;
-	sprite_index = _chaseSprite
 }
 //
 //

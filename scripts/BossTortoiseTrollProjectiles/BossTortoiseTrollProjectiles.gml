@@ -4,8 +4,39 @@
 //
 //
 //
-//Troll Tortoise Mound
-function scr_projectile_trollTortoise_mound(){
+//Troll Tortoise Mound Create
+function scr_projectile_trollTortoise_mound_create(){
+home_state = scr_projectile_trollTortoise_mound_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+timer1 = 180;
+timer2 = 0;
+path = -1;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_tortoiseTroll_mound;
+enemy_idle = spr_enemy_tortoiseTroll_mound;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 1.25;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 45;
+fragment_count = 2;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Mound Step
+function scr_projectile_trollTortoise_mound_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -76,30 +107,10 @@ if (obj_game.gamePaused = false)
 		{	
 			with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 			{
+				scr_projectile_trollTortoise_blossomOrb_create();
 				direction = ((point_direction(x,y,obj_player.x,obj_player.y) - 10) + (10 * i));
-				home_state = scr_projectile_trollTortoise_blossomOrb;
-				timer2 = 360;
-				lit = true;
-				light_size = 20;
-				exploded = false;
-				timer1 = 19;
-				path = -1;
-				entity_step = home_state;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_enemy_tortoiseTroll_blossomOrb;
-				aggro_drop = 300;
-				healthbar = false;
-				enemy_spd = 2.25;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 35;
-				break_object = other.break_object;
-				fragment_count = 2;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
 				speed = enemy_spd;
+				break_object = other.break_object;
 			}
 		}
 
@@ -114,8 +125,42 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Troll Tortoise Blossom Orb
-function scr_projectile_trollTortoise_blossomOrb(){
+//Troll Tortoise Blossom Orb Create
+function scr_projectile_trollTortoise_blossomOrb_create(){
+home_state = scr_projectile_trollTortoise_blossomOrb_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+timer2 = 360;
+lit = true;
+light_size = 20;
+exploded = false;
+timer1 = 19;
+path = -1;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_tortoiseTroll_blossomOrb;
+enemy_idle = spr_enemy_tortoiseTroll_blossomOrb;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.25;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 35;
+fragment_count = 2;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Blossom Orb Step
+function scr_projectile_trollTortoise_blossomOrb_step(){
 if (obj_game.gamePaused = false)
 {
 	//Explode on player
@@ -140,27 +185,9 @@ if (obj_game.gamePaused = false)
 		speed = enemy_spd;
 	}
 	
-	//Collision	with player (damage)	
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				inv_dur_timer = 30;
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		}
-	}
+	//Collision With Player
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
+
 	
 	//Collision with solid objects
 	if (place_meeting(x,y,break_object)) and (exploded = false)
@@ -183,7 +210,38 @@ else
 //
 //
 //Troll Tortoise Missile
-function scr_projectile_trollTortoise_missile(){
+function scr_projectile_trollTortoise_missile_create(){
+home_state = scr_projectile_trollTortoise_missile_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+timer1 = 90;
+timer2 = 30;
+path = -1;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_trollTortoise_missile;
+enemy_idle = spr_trollTortoise_missile;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 35;//+ (8 * enemy_lvl);
+fragment_count = 2;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Missile
+function scr_projectile_trollTortoise_missile_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -195,32 +253,11 @@ if (obj_game.gamePaused = false)
 	if (timer1 > 0) timer1 = timer1 - 1;
 	if (timer2 > 0) timer2 = timer2 - 1;
 
-
-	//Collision		
-	if (place_meeting(x,y,obj_player))
-	{
-
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				inv_dur_timer = 30;
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		}
-		instance_destroy();
-	}
+	//Collision
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
-		direction = point_direction(x,y,obj_player.x,obj_player.y);
-		image_angle = direction;
+		instance_destroy();
 	}
 	
 	//Self Destruct
@@ -237,7 +274,37 @@ else
 //
 //
 //Troll Tortoise Vine Shot
-function scr_projectile_trollTortoise_vineShot(){
+function scr_projectile_trollTortoise_vineShot_create(){
+home_state = scr_projectile_trollTortoise_vineShot_step;
+hit_script = scr_entity_hit_destroy;
+
+timer1 = 180;
+path = -1;
+entity_step = home_state;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_tortoiseTroll_vineShot;
+enemy_idle = spr_enemy_tortoiseTroll_vineShot;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 1.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 30;
+fragment_count = 2;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Troll Tortoise Vine Shot
+function scr_projectile_trollTortoise_vineShot_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
@@ -246,30 +313,9 @@ if (obj_game.gamePaused = false)
 	speed = enemy_spd;
 	
 	//Collision
-	if (place_meeting(x,y,obj_player))
-	{
-		audio_sound_gain(snd_projectile_hit,global.volumeEffects,1);
-		audio_play_sound(snd_projectile_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			
-			}
-		}
-		instance_destroy();
-	}
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,break_object)) 
 	{
-
 		instance_destroy();
 	}
 }
@@ -289,13 +335,15 @@ home_state = scr_projectile_trollTortoise_spikedVine_free;
 entity_step = scr_projectile_trollTortoise_spikedVine_free;
 entity_drop = Idle;
 special_draw = scr_projectile_trollTortoise_spikedVine_rope;
+hit_script = scr_entity_hit_destroy;
 
 //Assets
 enemy_move = spr_tortoiseTroll_spikedVine;
+enemy_idle = spr_tortoiseTroll_spikedVine;
 
 //Stats
 enemy_spd = 2.0;
-damage = 65;//+ (10 * enemy_lvl);
+damage = 65;
 
 //Snimation and Status
 invincible = true;
@@ -308,7 +356,13 @@ timer1 = 45;
 local_frame = 0;
 hit_by_attack = -1;
 returning = false;
+enemy_spd = 3.5;
+fragment_count = 3;
+fragment = obj_fragPlant;
+				
 
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
 }
 //
 //

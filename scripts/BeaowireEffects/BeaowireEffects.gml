@@ -121,25 +121,11 @@ if (obj_game.gamePaused = false)
 			audio_play_sound(snd_escort_beaowire_shoot,0,false);
 			with (instance_create_layer(x,y-19,"Instances",obj_enemy_projectile))
 			{
-				home_state = scr_enemy_projectile_beowireEscort_burst;
-				entity_step = home_state;
-				invincible = false;
-				inv_dur_timer = 0;
-				enemy_move = spr_escort_beaowire_burst;
-				aggro_drop = 300;
-				healthbar = false;
-				enemy_spd = 2;
-				local_frame = 0;
-				hit_by_attack = -1;
-				damage = 30;
-				break_object = other.break_object;
-				fragment_count = 2;
-				fragment = obj_fragPlant;
-				bullet = true;
-				hit_script = scr_entity_hit_destroy;
+				scr_projectile_beowireEscort_burst_create();
 				direction = point_direction(x,y,obj_player.x,obj_player.y);
 				image_angle = direction;
 				speed = enemy_spd;
+				break_object = other.break_object;
 			}
 		}
 		if (escort_timer <= 0)
@@ -163,38 +149,47 @@ if (obj_game.gamePaused = false)
 //
 //
 //
+//
+function scr_projectile_beowireEscort_burst_create(){
+home_state = scr_projectile_beowireEscort_burst_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_escort_beaowire_burst;
+enemy_idle = spr_escort_beaowire_burst;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 30;
+fragment_count = 2;
+fragment = obj_fragPlant;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Beaowire Escort Burst Projectile
-function scr_enemy_projectile_beowireEscort_burst(){
+function scr_projectile_beowireEscort_burst_step(){
 if (obj_game.gamePaused = false)
 {
-sprite_index = enemy_move;
-speed = enemy_spd;
-if (place_meeting(x,y,obj_player))
-{
-	audio_sound_gain(snd_enemy_rat_arrow_hit,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_rat_arrow_hit,0,false);
-	with (obj_player)
+	sprite_index = enemy_move;
+	speed = enemy_spd;
+	//Collision
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
+	if (place_meeting(x,y,break_object)) 
 	{
-		if (invincible = false)
-		{
-			if (dmg_snd_delay <= 0)
-			{
-				dmg_snd_delay = 15;
-				audio_sound_gain(dmg_snd,global.volumeEffects,1);
-				audio_play_sound(snd_player_hit,0,false);
-			}
-			flash = .35;
-			hp = hp - (other.damage - armor);
-		}
+		instance_destroy();
 	}
-	instance_destroy();
-}
-if (place_meeting(x,y,break_object)) 
-{
-	//audio_sound_gain(snd_arrow_hit,global.volumeEffects,1);
-	//audio_play_sound(snd_arrow_hit,0,false);
-	instance_destroy();
-}
 }
 else
 {

@@ -158,7 +158,7 @@ if (obj_game.gamePaused = false)
 	
 	//Cacluate Attack
 	damage = 30;
-	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox);
+	scr_enemy_attack_calculate(spr_enemy_balurneHunter_slash_hitbox,self,-1,-1,-1,-1,-1,-1);
 
 	//Animate
 	scr_enemy_animation();
@@ -214,29 +214,13 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_ratArrow;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_rat_arrow;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 3.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 35;
+			scr_projectile_ratArrow_create();
+			image_alpha = 1;
 			sprite_index = enemy_move;
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
@@ -306,29 +290,12 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow,0,false);
 		with (instance_create_layer(x,y-8,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_hunterElite_shatterArrow_free;
-			light_size = 24;
-			entity_step = home_state;
-			entity_drop = Idle;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_enemy_rat_arrowShatter;
-			aggro_drop = 300;
-			healthbar = false;
-			bullet = true;
-			enemy_spd = 2.5;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 40;
+			scr_projectile_hunterElite_shatterArrow_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y);
 			image_angle = direction;
 			speed = enemy_spd;
 			break_object = other.break_object;
-			fragment_count = 3;
-			fragment = obj_fragWood;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
+			
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false))//(point_in_circle(obj_player.x,obj_player.y,x,y,48))
 		{
@@ -360,57 +327,58 @@ if (obj_game.gamePaused = false)
 //
 //
 //
+//Shatter Arrow Create
+function scr_projectile_hunterElite_shatterArrow_create(){
+home_state = scr_projectile_hunterElite_shatterArrow_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+entity_drop = Idle;
+
+
+light_size = 24;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_enemy_rat_arrowShatter;
+enemy_idle = spr_enemy_rat_arrowShatter;
+aggro_drop = 300;
+healthbar = false;
+bullet = true;
+enemy_spd = 2.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 40;
+fragment_count = 3;
+fragment = obj_fragWood;
+bullet = true;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Elite Hunter Shatter Arrow Free
-function scr_projectile_hunterElite_shatterArrow_free(){
+function scr_projectile_hunterElite_shatterArrow_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
 	sprite_index = enemy_move;
 	speed = enemy_spd;
+	invincible = true;
+	inv_dur_timer = 30;
 
 	//Collision
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
 	if (place_meeting(x,y,obj_player))
 	{
-		audio_sound_gain(snd_enemy_rat_arrow_hit,global.volumeEffects,1);
-		audio_play_sound(snd_enemy_rat_arrow_hit,0,false);
-		with (obj_player)
-		{
-			if (invincible = false)
-			{
-				if (dmg_snd_delay <= 0)
-				{
-					dmg_snd_delay = 15;
-					audio_sound_gain(dmg_snd,global.volumeEffects,1);
-					audio_play_sound(dmg_snd,0,false);
-				}
-				flash = .35;
-				hp = hp - (other.damage - armor);
-			}
-		}
-
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			home_state = scr_projectile_hunterElite_shatterOrb;
-			path = -1;
-			timer1 = 130;
-			timer2 = 15;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_shatterOrb;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 1.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 15;
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
+			scr_projectile_hunterElite_shatterOrb_create();
 			image_angle = irandom_range(0,359);
 			speed = enemy_spd;
+			break_object = other.break_object;
 		}
 		instance_destroy();
 	}
@@ -420,29 +388,10 @@ if (obj_game.gamePaused = false)
 		audio_play_sound(snd_enemy_rat_arrow_hit,0,false);
 		with (instance_create_layer(x,y,"Instances",obj_enemy_projectile))
 		{
-			//enemy_lvl = other.enemy_lvl;
-			home_state = scr_projectile_hunterElite_shatterOrb;
-			path = -1
-			timer1 = 130;
-			timer2 = 15;
-			entity_step = home_state;
-			invincible = false;
-			inv_dur_timer = 0;
-			enemy_move = spr_shatterOrb;
-			aggro_drop = 300;
-			healthbar = false;
-			enemy_spd = 1.0;
-			local_frame = 0;
-			hit_by_attack = -1;
-			damage = 20;//+ (6 * other.enemy_lvl);
-			break_object = other.break_object;
-			fragment_count = 2;
-			fragment = obj_fragWater;
-			bullet = true;
-			hit_script = scr_entity_hit_destroy;
-			direction = point_direction(x,y,obj_player.x,obj_player.y);
+			scr_projectile_hunterElite_shatterOrb_create();
 			image_angle = irandom_range(0,359);
 			speed = enemy_spd;
+			break_object = other.break_object;
 		}
 		instance_destroy();
 	}
@@ -457,8 +406,40 @@ else
 //
 //
 //
+//Shatter Orb Create
+function scr_projectile_hunterElite_shatterOrb_create(){
+home_state = scr_projectile_hunterElite_shatterOrb_step;
+hit_script = scr_entity_hit_destroy;
+entity_step = home_state;
+
+path = -1;
+timer1 = 130;
+timer2 = 15;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_shatterOrb;
+enemy_idle = spr_shatterOrb;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 1.0;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 15;
+fragment_count = 2;
+fragment = obj_fragWater;
+bullet = true;
+
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
 //Elite Hunter Shatter Orb
-function scr_projectile_hunterElite_shatterOrb(){
+function scr_projectile_hunterElite_shatterOrb_step(){
 if (obj_game.gamePaused = false)
 {
 	//Resume
