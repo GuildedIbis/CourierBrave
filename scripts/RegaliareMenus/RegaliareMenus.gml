@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = "Hold the weapon skill button to\ncharge a spin attack."
+		var _describe = "Hold the weapon skill button to\ncharge a spin attack that adds up\nto 50 damage (total 80)."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

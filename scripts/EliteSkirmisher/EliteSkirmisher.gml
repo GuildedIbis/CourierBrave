@@ -20,7 +20,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 0;
 drop_amount = 10;
-max_hp = 130;//+ (65 * enemy_lvl);
+max_hp = 110;
 hp = max_hp;
 enemy_spd = 1.2;
 

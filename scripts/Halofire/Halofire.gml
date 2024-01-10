@@ -244,7 +244,7 @@ if (sprite_index != spr_player_halofire_hamaxe)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,2,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,-1,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();
@@ -258,6 +258,8 @@ if (animation_end)
 		weapon_timer = 45;
 		fixed_dir = _cardinalDir
 		state_script = scr_player_halofire_hamaxe_charging;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
 	}
 	else
 	{

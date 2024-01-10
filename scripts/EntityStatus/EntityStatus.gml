@@ -73,17 +73,28 @@ if (knockback_dur > 0)
 	knockback = true;
 	if (knockback_dir != -1)
 	{
-		var xx = lengthdir_x(knockback_dur,knockback_dir);
-		var yy = lengthdir_y(knockback_dur,knockback_dir);
-		if (!place_meeting(x+xx,y+yy,obj_entity))
+		var _xDest = x + hor_spd;
+		var _yDest = y + ver_spd;
+		if (place_meeting(_xDest, _yDest,obj_entity))
 		{
-			x = x + xx;
-			y = y + yy;
+			hor_spd = 0;
+			ver_spd = 0;
+			path_end();
 		}
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+		path_start(path, 2.5, 0, 0);
 	}
 	knockback_dur = knockback_dur - 1/10;
 }
-else knockback = false;
+else
+{
+	if (knockback = true)
+	{
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
+		knockback = false;
+	}
+}
 
 //Cursed
 if (cursed_dur_timer > 0)

@@ -422,9 +422,13 @@ else speed = 0;
 //
 //Animation 
 function scr_enemy_animation(){
+
 var _totalFrames = sprite_get_number(sprite_index) / 4;
-image_index = local_frame + (_cardinalDir * _totalFrames);
-local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+if (knockback = false)
+{
+	image_index = local_frame + (_cardinalDir * _totalFrames);
+	local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+}
 //Cuts the degree by 90 to give you a number between 0 and 3
 //The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
 //Local frame then increments in the speed of the animation
@@ -434,6 +438,7 @@ if (local_frame >= _totalFrames)
 	local_frame = local_frame - _totalFrames;
 }
 else animation_end = false;
+
 }
 //
 //
@@ -442,20 +447,31 @@ else animation_end = false;
 //
 //Animation 
 function scr_enemy_animation_cast(){
-var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4)/90);
-//direction = _aimDir * 90;
-var _totalFrames = sprite_get_number(sprite_index) / 4;
-image_index = local_frame + (_aimDir * _totalFrames);
-local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
-//Cuts the degree by 90 to give you a number between 0 and 3
-//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
-//Local frame then increments in the speed of the animation
-if (local_frame >= _totalFrames)
+if (knockback = false)
 {
-	animation_end = true;
-	local_frame = local_frame - _totalFrames;
+	var _aimDir = round(point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4)/90);
+	//direction = _aimDir * 90;
+	var _totalFrames = sprite_get_number(sprite_index) / 4;
+	if (knockback = false)
+	{
+		image_index = local_frame + (_aimDir * _totalFrames);
+		local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+	}
+	//Cuts the degree by 90 to give you a number between 0 and 3
+	//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+	//Local frame then increments in the speed of the animation
+	if (local_frame >= _totalFrames)
+	{
+		animation_end = true;
+		local_frame = local_frame - _totalFrames;
+	}
+	else animation_end = false;
 }
-else animation_end = false;
+else
+{
+	image_speed = 0;
+
+}
 }
 //
 //
@@ -464,18 +480,28 @@ else animation_end = false;
 //
 //Animation 1 Direction 
 function scr_enemy_animation_one(){
-var _totalFrames = sprite_get_number(sprite_index);
-image_index = local_frame;
-local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
-//Cuts the degree by 90 to give you a number between 0 and 3
-//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
-//Local frame then increments in the speed of the animation
-if (local_frame >= _totalFrames)
+if (knockback = false)
 {
-	animation_end = true;
-	local_frame = local_frame - _totalFrames
+	var _totalFrames = sprite_get_number(sprite_index);
+	image_index = local_frame;
+	if (knockback = false)
+	{
+		local_frame = local_frame + sprite_get_speed(sprite_index) / _frameRate;
+	}
+	//Cuts the degree by 90 to give you a number between 0 and 3
+	//The 0-3 is multiplied by the 1/4 frame number because all four sprites are within a single sprite.
+	//Local frame then increments in the speed of the animation
+	if (local_frame >= _totalFrames)
+	{
+		animation_end = true;
+		local_frame = local_frame - _totalFrames
+	}
+	else animation_end = false;
 }
-else animation_end = false;
+else
+{
+	image_speed = 0;
+}
 }
 //
 //

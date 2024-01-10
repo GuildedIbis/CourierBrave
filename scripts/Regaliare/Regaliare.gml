@@ -249,7 +249,181 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,1,-1,-1,-1,-1,-1,5);
+
+//Animate
+scr_player_animation();
+if (animation_end)
+{
+	if (obj_inventory.form_grid[# 0, 6] = true)
+	{
+		if (mouse_check_button(mb_right)) and (stamina >= 15)
+		{
+			stamina = stamina - 15;
+			fixed_dir = _cardinalDir
+			state_script = scr_player_regaliare_regalBlade_charge;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+			weapon_charge = 0;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+		}
+		else
+		{
+			attacking = false;
+			state_script = free_state;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+		}
+	}
+	else
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Regaliare RegalBlade State
+function scr_player_regaliare_regalBlade_charge(){
+//Set
+attacking = true;
+walk_spd = .75;
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	audio_play_sound(snd_regaliare_regalBlade,0,0,global.volumeEffects);
+	atk_snd_delay = 28;
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1; 
+}
+if (weapon_timer > 0)
+{
+	weapon_timer = weapon_timer - 1;
+}
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
+}
+
+weapon_charge = weapon_charge + 1;
+
+
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
+
+//Movement 1: Set
+hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
+
+//Movement 2: Collision
+scr_player_collision();
+
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
+{
+	direction = input_dir;
+	sprite_index = spr_player_regaliare_spinSlash_chargeMove;
+}
+else sprite_index = spr_player_regaliare_spinSlash_charge;
+//if (_oldSprite != sprite_index) local_frame = 0;
+
+//Attack Start
+//if (sprite_index != spr_player_regaliare_spinSlash_charge)
+//{
+//	//Start Animation From Beginning
+//	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
+//	sprite_index = spr_player_regaliare_spinSlash_charge;
+//	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+//	local_frame = 0;
+//	image_index = 0;
+//	//Clear Hit List
+//	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+//	ds_list_clear(hit_by_attack);
+//}
+
+
+
+//Animate
+scr_player_animation_fixed();
+if (animation_end) or (mouse_check_button_released(mb_right))
+{
+	attacking = false;
+	state_script = scr_player_regaliare_regalBlade_release;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
+}
+//
+//
+//
+//
+//
+//Regaliare RegalBlade Release
+function scr_player_regaliare_regalBlade_release(){
+//Set
+attacking = true;
+damage = 30 + round(weapon_charge/3);
+
+//Standard Timers
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	audio_play_sound(snd_regaliare_regalBlade,0,0,global.volumeEffects);
+	atk_snd_delay = 28;
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1; 
+}
+if (weapon_timer > 0)
+{
+	weapon_timer = weapon_timer - 1;
+}
+if (special_timer > 0)
+{
+	special_timer = special_timer - 1;
+}
+
+//Armor Skill (Overshield)
+if (obj_inventory.form_grid[# 0, 5] = true)
+{
+	scr_player_overshield();
+}
+
+//Attack Start
+if (sprite_index != spr_player_regaliare_spinSlash_release)
+{
+	sprite_index = spr_player_regaliare_spinSlash_release;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+
+//Calcuate Hit Entitites
+scr_player_attack_calculate_weapon(spr_player_regaliare_spinSlash_release_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();
@@ -260,6 +434,8 @@ if (animation_end)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
+	weapon_charge = 0;
+
 }
 }
 //
@@ -552,7 +728,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_interactable)) 
 {
-	scr_player_attack_calculate_magic(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,2);
+	scr_player_attack_calculate_magic(projectile_sprite,self,.5,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
@@ -685,7 +861,7 @@ if (sprite_index != spr_goldArc)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	scr_player_attack_calculate_magic(spr_goldArc,obj_player,3,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(spr_goldArc,obj_player,2,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {

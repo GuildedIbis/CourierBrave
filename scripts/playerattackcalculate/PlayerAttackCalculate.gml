@@ -91,8 +91,13 @@ if (_hits > 0)
 							}
 							if (boss = false) and (_kbDur != -1) 
 							{
-								knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
-								knockback_dur = _kbDur
+								if (knockback = false)
+								{
+									knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+									knockback_dur = _kbDur;
+									hor_spd = lengthdir_x(knockback_dur,knockback_dir);
+									ver_spd = lengthdir_y(knockback_dur,knockback_dir);
+								}
 							}
 							with (obj_player)
 							{
@@ -166,8 +171,13 @@ if (_hits > 0)
 							}
 							if (boss = false) and (_kbDur != -1) 
 							{
-								knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
-								knockback_dur = _kbDur
+								if (knockback = false)
+								{
+									knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
+									knockback_dur = _kbDur;
+									hor_spd = lengthdir_x(knockback_dur,knockback_dir);
+									ver_spd = lengthdir_y(knockback_dur,knockback_dir);
+								}
 							}
 							
 							//Charge 

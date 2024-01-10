@@ -21,7 +21,7 @@ walk_snd = snd_walk_regular
 //Stats
 form_type = 1;
 drop_amount = 15;
-max_hp = 70 //+ (35 * enemy_lvl);
+max_hp = 80;
 hp = max_hp;
 enemy_spd = 1.2;
 
@@ -142,6 +142,7 @@ if (obj_game.gamePaused = false)
 	//Setup
 	if (sprite_index != spr_enemy_balurneHunter_slash)
 	{
+		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		sprite_index = spr_enemy_balurneHunter_slash;
 		local_frame = 0;
 		image_index = 0;

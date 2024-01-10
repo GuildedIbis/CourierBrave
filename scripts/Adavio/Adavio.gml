@@ -232,7 +232,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,2.0,-1,-1,-1,-1,-1,4);
+scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,-1,-1,-1,-1,-1,-1,4);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
