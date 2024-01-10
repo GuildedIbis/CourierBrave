@@ -244,7 +244,7 @@ if (sprite_index != spr_player_halofire_hamaxe)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,-1,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,10,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();
@@ -440,7 +440,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,-1,-1,-1,-1,-1,6);
+scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,-1,-1,-1,-1,-1,6);
 
 //Animate
 scr_player_animation_fixed();
@@ -500,7 +500,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,2.5,300,-1,-1,-1,-1,7);
+scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,300,-1,-1,-1,-1,7);
 
 if (timer1 <= 0)
 {

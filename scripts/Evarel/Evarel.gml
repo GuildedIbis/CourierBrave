@@ -256,7 +256,7 @@ if (_collided = true)
 }
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_evarel_daggerDash_hitbox,obj_player,-1,-1,-1,-1,-1,-1,6);
+scr_player_attack_calculate_weapon(spr_player_evarel_daggerDash_hitbox,obj_player,10,-1,-1,-1,-1,-1,6);
 
 //Animate
 scr_player_animation();

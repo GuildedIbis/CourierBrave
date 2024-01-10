@@ -249,7 +249,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,1,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,10,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();
@@ -423,7 +423,7 @@ if (sprite_index != spr_player_regaliare_spinSlash_release)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_spinSlash_release_hitbox,obj_player,1.5,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_spinSlash_release_hitbox,obj_player,15,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();
@@ -728,7 +728,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_interactable)) 
 {
-	scr_player_attack_calculate_magic(projectile_sprite,self,.5,-1,-1,-1,-1,-1,2);
+	scr_player_attack_calculate_magic(projectile_sprite,self,5,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
@@ -861,7 +861,7 @@ if (sprite_index != spr_goldArc)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	scr_player_attack_calculate_magic(spr_goldArc,obj_player,2,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(spr_goldArc,obj_player,20,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
 {

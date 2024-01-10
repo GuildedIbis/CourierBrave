@@ -85,7 +85,7 @@ if (knockback_dur > 0)
 		mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
 		path_start(path, 2.5, 0, 0);
 	}
-	knockback_dur = knockback_dur - 1/10;
+	knockback_dur = knockback_dur - 1;
 }
 else
 {
