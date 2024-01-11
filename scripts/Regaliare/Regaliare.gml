@@ -249,7 +249,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,10,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,5,-1,-1,-1,-1,-1,5);
 
 //Animate
 scr_player_animation();

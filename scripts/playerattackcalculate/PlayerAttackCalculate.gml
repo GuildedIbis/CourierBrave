@@ -173,6 +173,8 @@ if (_hits > 0)
 							{
 								if (knockback = false)
 								{
+									knockback = true;
+									current_dir = direction;
 									knockback_dir = point_direction(x,y,_hitBy.x,_hitBy.y) + 180;
 									knockback_dur = _kbDur;
 									hor_spd = lengthdir_x(knockback_dur,knockback_dir);
@@ -260,6 +262,44 @@ if (_hits > 0)
 			}
 		}
 		
+	}
+}
+	
+ds_list_destroy(_hitByAttack);
+mask_index = idle_sprite;
+}
+//
+//
+//
+//
+//
+//Attack Calculate Friendly
+function scr_player_attack_calculate_friendly(_hitbox,_hitBy,_heal){
+//Collision with Entities
+mask_index = _hitbox;
+
+var _hitByAttack = ds_list_create();
+var _hits = instance_place_list(x,y,obj_player,_hitByAttack,false);
+if (_hits > 0)
+{
+	for (var i = 0; i < _hits; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _hitID = _hitByAttack[| i];
+		if (ds_list_find_index(hit_by_attack, _hitID) == -1)
+		{
+			ds_list_add(hit_by_attack,_hitID);
+			with (_hitID)
+			{
+				heal = true;
+				heal_dur_timer = 60;
+				hp = hp + _heal;
+				if (hp > max_hp)
+				{
+					hp = max_hp;
+				}
+			}
+		}
 	}
 }
 	

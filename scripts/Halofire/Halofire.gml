@@ -148,13 +148,23 @@ if (key_attackS) and (orange_special >= 100)
 }
 
 //Roll State
-if (key_ability) and (stamina >= 50)
+var _staminaCost
+if (obj_inventory.form_grid[# 1, 5] = true)
+{
+	if (hp <= round(max_hp/3))
+	{
+		_staminaCost = 25;
+	}
+	else _staminaCost = 50;
+}
+else _staminaCost = 50;
+if (key_ability) and (stamina >= _staminaCost)
 {
 	if (thundux = false)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
-		stamina = stamina - 50;
+		stamina = stamina - _staminaCost;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
 	}
@@ -171,7 +181,7 @@ if (key_ability) and (stamina >= 50)
 //}
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 7, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 1, 7] = true)
 {
 	if (magic_primary = true)
 	{
@@ -209,7 +219,15 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_halofire_hamaxe(){
 //Set
 attacking = true;
-damage = 38;
+if (obj_inventory.form_grid[# 1, 5] = true)
+{
+	if (hp <= round(max_hp/3))
+	{
+		damage = 76;
+	}
+	else damage = 38;
+}
+else damage = 38;
 
 //Stamdard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -252,14 +270,25 @@ scr_player_animation();
 //Return to Free State or enter Charging state
 if (animation_end)
 {
-	if (mouse_check_button(mb_right)) and (stamina >= 15)
+	if (obj_inventory.form_grid[# 1, 6] = true)
 	{
-		stamina = stamina - 15;
-		weapon_timer = 45;
-		fixed_dir = _cardinalDir
-		state_script = scr_player_halofire_hamaxe_charging;
-		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-		ds_list_clear(hit_by_attack);
+		if (mouse_check_button(mb_right)) and (stamina >= 15)
+		{
+			stamina = stamina - 15;
+			weapon_timer = 45;
+			fixed_dir = _cardinalDir
+			state_script = scr_player_halofire_hamaxe_charging;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+		}
+		else
+		{
+			attacking = false;
+			state_script = free_state;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+		}
 	}
 	else
 	{
@@ -405,7 +434,15 @@ if (mouse_check_button_released(mb_right))
 function scr_player_halofire_hamaxe_backswing(){
 //Set
 attacking = true;
-damage = 38;
+if (obj_inventory.form_grid[# 1, 5] = true)
+{
+	if (hp <= round(max_hp/3))
+	{
+		damage = 76;
+	}
+	else damage = 38;
+}
+else damage = 38;
 
 //Standard Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -466,7 +503,15 @@ if (animation_end)
 function scr_player_halofire_hamaxe_backswingC(){
 //Set
 attacking = true;
-damage = 38;
+if (obj_inventory.form_grid[# 1, 5] = true)
+{
+	if (hp <= round(max_hp/3))
+	{
+		damage = 76;
+	}
+	else damage = 38;
+}
+else damage = 38;
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
@@ -505,25 +550,36 @@ scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,o
 if (timer1 <= 0)
 {
 	timer1 = 24;
-	with (instance_create_layer(obj_player.x, obj_player.y,"Instances",obj_projectile))
+	for (var i = 0; i < 3; i = i + 1)
 	{
-		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
-		audio_play_sound(snd_halofire_firespit,0,0,global.volumeEffects);
-		break_object = obj_player.break_object;
-		magic = true;
-		fragment_count = 0;
-		fragment = obj_fragFire;
-		damage = 20;//+ (9 * obj_player.might) + (12 * obj_inventory.form_grid[# 1, 5]);//
-		projectile_sprite = spr_halofire_firespit;
-		projectile_script = scr_projectile_firespit;
-		idle_sprite = spr_halofire_firespit;
-		image_index = irandom_range(0,5);
-		hit_by_attack = -1;
-		direction = obj_player.fixed_dir * 90;
-		timer1 = irandom_range(20,30);
-		timer2 = 150;
-		projectile_speed = 2.0;
-		speed = projectile_speed;
+		with (instance_create_layer(obj_player.x, obj_player.y,"Instances",obj_projectile))
+		{
+			audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
+			audio_play_sound(snd_halofire_firespit,0,0,global.volumeEffects);
+			break_object = obj_player.break_object;
+			magic = true;
+			fragment_count = 0;
+			fragment = obj_fragFire;
+			if (obj_inventory.form_grid[# 1, 5] = true)
+			{
+				if (obj_player.hp <= round(obj_player.max_hp/3))
+				{
+					damage = 40;
+				}
+				else damage = 20;
+			}
+			else damage = 20;
+			projectile_sprite = spr_halofire_firespit;
+			projectile_script = scr_projectile_firespit;
+			idle_sprite = spr_halofire_firespit;
+			image_index = i;
+			hit_by_attack = -1;
+			direction = ((obj_player.fixed_dir * 90) - 30) + (30 * i);
+			timer1 = irandom_range(20,30);
+			timer2 = 150;
+			projectile_speed = 2.0;
+			speed = projectile_speed;
+		}
 	}
 }
 
@@ -618,7 +674,7 @@ if (magic_timer <= 0)
 		//follow_timer = 28;
 		fragment_count = 2;
 		fragment = obj_fragFire;
-		damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 1, 7])*(14));//
+		damage = 30;
 		projectile_sprite = spr_meteor;
 		timer1 = 40;
 		projectile_script = scr_projectile_meteor;
@@ -1028,6 +1084,19 @@ if (timer2 <= 0)
 }
 if (timer1 <= 0)
 {
+	if (obj_inventory.form_grid[# 1, 8] = true)
+	{
+		with (instance_create_layer(x,y,"Instances",obj_projectile))
+		{
+			projectile_script = scr_projectile_flamecore_healblast;
+			depth = -y;
+			hit_by_attack = -1;
+			break_object = obj_player.break_object;
+			projectile_sprite = spr_halofire_flamecore_healblast;
+			idle_sprite = spr_halofire_flamecore_healblast;
+			timer1 = 40;
+		}
+	}
 	instance_destroy();
 }
 ds_list_clear(enemy_in_range);
@@ -1064,6 +1133,33 @@ if (place_meeting(x,y,break_object))
 	instance_destroy();
 }
 
+}
+//
+//
+//
+//
+//
+//Flamecore Healblast
+function scr_projectile_flamecore_healblast(){
+image_speed = 1;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+scr_player_attack_calculate_friendly(spr_halofire_flamecore_healblast_hitbox,self,20);
+
+if (timer1 <= 0)
+{
+	instance_destroy();
+}
 }
 //
 //

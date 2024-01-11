@@ -168,17 +168,21 @@ if (obj_game.gamePaused = false)
 	//Timer
 	scr_enemy_timer_countdown();
 	
-	//Setup
-	if (sprite_index != spr_enemy_gorogE_shield)
-	{
-		//Start Animation From Beginning
-		sprite_index = spr_enemy_gorogE_shield;
-		local_frame = 0;
-		image_index = 0;
-	}
 	
 	//Track Player
 	direction = point_direction(x,y,obj_player.x,obj_player.y);
+	
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
+	{
+		path_end();
+		sprite_index = spr_enemy_gorogE_shield;
+	}
+	else
+	{
+		enemy_move = spr_enemy_gorogE_shieldMove;
+		enemy_spd = .5;
+		scr_enemy_chase();	
+	}
 	
 	//Shielded
 	shielded = true;

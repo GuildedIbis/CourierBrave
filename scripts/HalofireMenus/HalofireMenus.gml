@@ -119,37 +119,37 @@ switch(page)
 		draw_set_halign(fa_left);
 		var _describe = "Negates 6 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"FIREWARD TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "A slow swinging axe that does\n38 damage per hit."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FIERY HAMAXE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Slowly fire meteors that\ndeal 30 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"METEOR BURST",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Send out a turret that stops\nwhen you release shift. Turret\nprojectile deal 8 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"FLAMECORE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "While under 1/3 health, weapons\nand their effects do 2x damage\nand rolling costs 25 stamina."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Hold the weapon skill button to\ncharge up 3 projectiles that\neach deal 20 damage and burn."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -165,7 +165,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Rapidly shoot fiery projectiles,\neach dealing 3 damage and burn.\n(Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "When the turret disappears, it\nsends out a healing wave."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -325,37 +325,37 @@ switch(page)
 		draw_set_halign(fa_left);
 		var _describe = "Negates 6 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"FIREWARD TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "A slow swinging axe that does\n38 damage per hit."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FIERY HAMAXE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Slowly fire meteors that\ndeal 30 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"METEOR BURST",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Send out a turret that stops\nwhen you release shift. Turret\nprojectile deal 8 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"FLAMECORE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "While under 1/3 health, weapons\nand their effects do 2x damage\nand rolling costs 25 stamina."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -363,7 +363,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Hold the weapon skill button to\ncharge up 3 projectiles that\neach deal 20 damage and burn."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -371,7 +371,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Rapidly shoot fiery projectiles,\neach dealing 3 damage and burn.\n(Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -379,7 +379,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "When the turret disappears, it\nsends out a healing wave."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

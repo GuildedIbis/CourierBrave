@@ -91,6 +91,8 @@ else
 {
 	if (knockback = true)
 	{
+		path_end();
+		//knockback_dir = point_direction(x,y,obj_player.x,obj_player.y);
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		knockback = false;
 	}
