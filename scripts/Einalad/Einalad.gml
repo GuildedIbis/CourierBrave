@@ -42,7 +42,12 @@ if (obj_game.gamePaused = false)
 	}
 	scr_npc_animation();
 }
-else path_end();
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
+}
 }
 //
 //
@@ -86,7 +91,12 @@ if (obj_game.gamePaused = false)
 	}
 	scr_npc_animation();
 }
-else path_end();
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
+}
 }
 //
 //

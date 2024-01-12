@@ -23,7 +23,14 @@ obj_cursor.curs_script = scr_cursor_adavio;
 
 //Dynamic Variables
 magic_timer = 0;
-walk_spd = 1.25;
+if (obj_inventory.form_grid[# 2, 5] = false)
+{
+	walk_spd = 1.25;
+}
+else
+{
+	walk_spd = 1.5;
+}
 armor = 8;
 max_charge = 200 + (25 * conviction);
 max_stamina = 200 + (25 * energy);
@@ -40,7 +47,14 @@ overshield = 0;
 //Adavio Free (home) state
 function scr_player_adavio_free(){
 //Set
-walk_spd = 1.25;
+if (obj_inventory.form_grid[# 2, 5] = false)
+{
+	walk_spd = 1.25;
+}
+else
+{
+	walk_spd = 1.5;
+}
 attacking = false;
 casting = false;
 
@@ -154,7 +168,7 @@ if (key_ability) and (stamina >= 50)
 }
 
 //Switch Magic Fire Mode
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 11, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 2, 7] = true)
 {
 	if (magic_primary = true)
 	{
@@ -193,7 +207,7 @@ function scr_player_adavio_hookThrust(){
 //Set
 attacking = true;
 casting = false;
-damage = 20 //+ (9 * obj_player.might) + (5 * obj_inventory.form_grid[# 2, 5]);
+damage = 20;
 
 //Standard Timers
 //scr_player_recharge(false,false,true,false,false,false);
@@ -232,7 +246,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,-1,-1,-1,-1,-1,-1,4);
+scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,5,-1,-1,-1,-1,-1,4);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
@@ -267,30 +281,32 @@ switch(_dirPos)
 //Animate
 scr_player_animation();
 
-if (timer1 <= 0)
+if (obj_inventory.form_grid[# 2, 6] = true)
 {
-	timer1 = 60;
-	with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+	if (timer1 <= 0)
 	{
-		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		//audio_play_sound(snd_goldBullet,0,0);
-		//depth = obj_player.depth - 1;
-		break_object = obj_player.break_object;
-		magic = true;
-		fragment_count = 2;
-		fragment = obj_fragGold;
-		timer1 = 10;
-		damage = 15 //+ (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
-		projectile_sprite = spr_adavio_hook_blast;
-		projectile_script = scr_projectile_hookBlast;
-		idle_sprite = spr_adavio_hook_blast;
-		hit_by_attack = -1;
-		direction = (round(obj_player.direction)/90)*90;
-		image_angle = direction;
-		projectile_speed = 3.5;
+		timer1 = 60;
+		with (instance_create_layer(obj_player.x + dir_offX,obj_player.y + dir_offY,"Instances",obj_projectile))
+		{
+			//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
+			//audio_play_sound(snd_goldBullet,0,0);
+			//depth = obj_player.depth - 1;
+			break_object = obj_player.break_object;
+			magic = true;
+			fragment_count = 2;
+			fragment = obj_fragGold;
+			timer1 = 10;
+			damage = 15 //+ (obj_player.might * 11) + ((obj_inventory.form_grid[# 2, 5])*(7));//
+			projectile_sprite = spr_adavio_hook_blast;
+			projectile_script = scr_projectile_hookBlast;
+			idle_sprite = spr_adavio_hook_blast;
+			hit_by_attack = -1;
+			direction = (round(obj_player.direction)/90)*90;
+			image_angle = direction;
+			projectile_speed = 3.5;
+		}
 	}
 }
-
 if (animation_end)
 {
 	attacking = false;
@@ -345,7 +361,14 @@ if (place_meeting(x,y,break_object))
 //Adavio Void Cycle State
 function scr_player_adavio_voidSpread(){
 //Set
-walk_spd = 1.0;
+if (obj_inventory.form_grid[# 2, 5] = false)
+{
+	walk_spd = 1.0;
+}
+else
+{
+	walk_spd = 1.1;
+}
 attacking = true;
 casting = true;
 
@@ -521,7 +544,14 @@ if (place_meeting(x,y,break_object)) or (timer1 = 0)
 //AdavioMagicA
 function scr_player_adavio_voidCycle(){
 //Set
-walk_spd = 1.0;
+if (obj_inventory.form_grid[# 2, 5] = false)
+{
+	walk_spd = 1.0;
+}
+else
+{
+	walk_spd = 1.1;
+}
 attacking = true;
 casting = true;
 
@@ -862,6 +892,16 @@ ver_spd = 0;
 //Movement 2: Collision
 scr_player_collision();
 
+var _healAmt
+if (obj_inventory.form_grid[# 2, 8] = true)
+{
+	_healAmt = .2;
+}
+else
+{
+	_healAmt = -1;
+}
+
 //Animation: Update Sprite
 if (special_timer > 45)
 {
@@ -876,7 +916,7 @@ if (special_timer <= 45)
 	damage = 39 //+ (obj_player.divinity * 18) + ((obj_inventory.form_grid[# 2, 8])*17);
 	if (special_timer <= 30)
 	{
-		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,20,-1,-1,-1,-1,.2,5)
+		scr_player_attack_calculate_weapon(spr_player_adavio_riftCrushB_hitbox,obj_player,20,-1,-1,-1,-1,_healAmt,5)
 	}
 }
 

@@ -170,6 +170,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"Chests","order":14,"path":"folders/Scripts/Entities/Inanimates/Chests.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -367,7 +368,7 @@
     {"name":"rm_scene_00","order":6,"path":"rooms/rm_scene_00/rm_scene_00.yy",},
     {"name":"tile_beetrap_8","order":1,"path":"tilesets/tile_beetrap_8/tile_beetrap_8.yy",},
     {"name":"spr_enemy_riftSlash","order":7,"path":"sprites/spr_enemy_riftSlash/spr_enemy_riftSlash.yy",},
-    {"name":"Chests","order":13,"path":"scripts/Chests/Chests.yy",},
+    {"name":"Chest01","order":1,"path":"scripts/Chest01/Chest01.yy",},
     {"name":"spr_enemy_skirmisher_idle","order":2,"path":"sprites/spr_enemy_skirmisher_idle/spr_enemy_skirmisher_idle.yy",},
     {"name":"BossMotherLily","order":1,"path":"scripts/BossMotherLily/BossMotherLily.yy",},
     {"name":"obj_resource_container","order":5,"path":"objects/obj_resource_container/obj_resource_container.yy",},

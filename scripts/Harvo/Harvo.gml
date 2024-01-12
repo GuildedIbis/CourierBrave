@@ -8,6 +8,7 @@
 function scr_npc_harvo_create(){
 entity_step = scr_npc_harvo_step;
 sprite_index = spr_npc_harvo;
+image_speed = 0;
 npc_idle = spr_npc_harvo;
 npc_move = spr_npc_harvo_walk;
 sound = snd_npc_mouse;
@@ -30,7 +31,12 @@ if (obj_game.gamePaused = false)
 	scr_npc_wander_home_range(60,240,home_x,home_y,64);
 	scr_npc_animation();
 }
-else path_end();
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
+}
 }
 //
 //

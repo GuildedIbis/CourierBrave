@@ -12,6 +12,7 @@ shadow_size = 1;
 sound = snd_npc_mouse;
 timer1 = 40;
 idle_sprite = spr_npc_emissary;
+npc_idle = spr_npc_emissary;
 scene = false;
 interact = 20;
 sprite_index = spr_npc_emissary_scene_00;
@@ -85,6 +86,12 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 		
 	}
 }
+}
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
 }
 }
 //

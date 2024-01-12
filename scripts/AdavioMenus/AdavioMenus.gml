@@ -117,39 +117,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 6 damage from attacks\nand projectiles."
+		var _describe = "Negates 8 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"VOID ARMOR",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Quickly thrust forward a hook\nthat deals 20 damage and medium\nknockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"VOID HOOK",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a burst of 5 void bits\nin a wide spread, each dealing\n12 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"RIFT BURST",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Slam down onto a traget for 39\ndamage, also sending out projec-\ntiles for 13 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"RIFT SLAM",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "Gain a permenant speed increase."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "The void hook now shoots out a\npowerful blast in the direction\nit's facing for 15 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -165,7 +165,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a projectile that bursts\ninto 5 smaller projectiles for 12\ndamage each. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Heal 20% of the damage dealt\nwith the drop (not the spread of\nprojectiles)."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -323,39 +323,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 8 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"VOID ARMOR",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Quickly thrust forward a hook\nthat deals 20 damage and medium\nknockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"VOID HOOK",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a burst of 5 void bits\nin a wide spread, each dealing\n12 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"RIFT BURST",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Slam down onto a traget for 39\ndamage, also sending out projec-\ntiles for 13 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"RIFT SLAM",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "Gain a permenant speed increase."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -363,7 +363,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "The void hook now shoots out a\npowerful blast in the direction\nit's facing for 15 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -371,7 +371,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a projectile that bursts\ninto 5 smaller projectiles for 12\ndamage each. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -379,7 +379,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Heal 20% of the damage dealt\nwith the drop (not the spread of\nprojectiles)."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

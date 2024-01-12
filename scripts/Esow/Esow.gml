@@ -29,7 +29,7 @@ if (obj_game.gamePaused = false)
 	scr_npc_interact(12);
 	if (global.dayPhase = 2)
 	{
-		scr_npc_wander_home_range(240,180,home_x,home_y,64);
+		scr_npc_wander_home_range(180,240,home_x,home_y,64);
 	}
 	if (global.dayPhase = 0) or (global.dayPhase = 1)
 	{
@@ -41,7 +41,12 @@ if (obj_game.gamePaused = false)
 	}
 	scr_npc_animation();
 }
-else path_end();
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
+}
 }
 //
 //
@@ -52,6 +57,7 @@ else path_end();
 function scr_npc_esow_day_create(){
 entity_step = scr_npc_esow_day_step;
 sprite_index = spr_npc_esow;
+image_speed = 0;
 npc_idle = spr_npc_esow;
 npc_move = spr_npc_esow_walk;
 sound = snd_npc_mouse;
@@ -85,7 +91,12 @@ if (obj_game.gamePaused = false)
 	}
 	scr_npc_animation();
 }
-else path_end();
+else
+{
+	sprite_index = npc_idle;
+	image_speed = 0;
+	path_end();
+}
 }
 //
 //
