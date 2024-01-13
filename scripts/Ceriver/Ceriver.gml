@@ -23,8 +23,18 @@ obj_cursor.curs_script = scr_cursor_ceriver;
 
 
 //Dynamic Variables
-weapon_count = 2;
-max_weapon_count = 2;
+if (obj_inventory.form_grid[# 3, 6] = true)
+{
+	
+	weapon_count = 3;
+	max_weapon_count = 3;
+}
+else 
+{
+	weapon_count = 2;
+	max_weapon_count = 2;
+}
+weapon_cycle = 3;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.25;
@@ -212,7 +222,7 @@ function scr_player_ceriver_boomerang(){
 //Set
 attacking = true;
 casting = false;
-damage = 10;//round(might/2) + (10 * obj_inventory.form_grid[# 1, 5]);
+damage = 10;
 
 
 //Standard Timers
@@ -225,6 +235,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
+
 //Custom Timers
 
 
@@ -256,23 +267,80 @@ if (animation_end)
 	//melee_timer = 15;
 	stamina = stamina - 15;
 	weapon_count = weapon_count - 1;
-	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	if (weapon_cycle = 0)
 	{
-		return_timer = 35;
-		sd_timer = 120;
-		break_object = obj_player.break_object;
-		magic = false;
-		damage = 18;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
-		projectile_sprite = spr_ceriver_boomerang;
-		projectile_script = scr_projectile_boomerang;
-		idle_sprite = spr_ceriver_boomerang;
-		hit_by_attack = -1;
-		//script_execute(LeafArcCreate);
-		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
-		image_angle = direction;
-		projectile_speed = 2.5;
-		returning = false;
+		weapon_cycle = 3;
 	}
+	if (weapon_cycle > 0)
+	{
+		weapon_cycle = weapon_cycle - 1;
+	}
+	if (obj_inventory.form_grid[# 3, 6] = true)
+	{
+		max_weapon_count = 3;
+		if (weapon_cycle = 0)
+		{
+			with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+			{
+				return_timer = 22;
+				sd_timer = 120;
+				break_object = obj_player.break_object;
+				magic = false;
+				damage = 30;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+				projectile_sprite = spr_ceriver_boomerang_steel;
+				projectile_script = scr_projectile_steelboom;
+				idle_sprite = spr_ceriver_boomerang_steel;
+				hit_by_attack = -1;
+				//script_execute(LeafArcCreate);
+				direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+				image_angle = direction;
+				projectile_speed = 4.0;
+				returning = false;
+			}
+		}
+		else
+		{
+			with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+			{
+				return_timer = 35;
+				sd_timer = 120;
+				break_object = obj_player.break_object;
+				magic = false;
+				damage = 18;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+				projectile_sprite = spr_ceriver_boomerang;
+				projectile_script = scr_projectile_boomerang;
+				idle_sprite = spr_ceriver_boomerang;
+				hit_by_attack = -1;
+				//script_execute(LeafArcCreate);
+				direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+				image_angle = direction;
+				projectile_speed = 2.5;
+				returning = false;
+			}
+		}
+	}
+	else 
+	{
+		max_weapon_count = 2;
+		with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+		{
+			return_timer = 35;
+			sd_timer = 120;
+			break_object = obj_player.break_object;
+			magic = false;
+			damage = 18;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+			projectile_sprite = spr_ceriver_boomerang;
+			projectile_script = scr_projectile_boomerang;
+			idle_sprite = spr_ceriver_boomerang;
+			hit_by_attack = -1;
+			//script_execute(LeafArcCreate);
+			direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+			image_angle = direction;
+			projectile_speed = 2.5;
+			returning = false;
+		}
+	}
+	
 	if (mouse_check_button(mb_right)) and (stamina >= 15)
 	{
 		if (thundux = false) and (weapon_count >= 1)
@@ -326,6 +394,69 @@ if (returning = false)
 {
 	return_timer = return_timer - 1;
 	scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,3);
+	if (place_meeting(x,y,obj_enemy)) 
+	{
+	
+		//scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
+		returning = true;
+	}
+	if (place_meeting(x,y,break_object)) or (return_timer <= 0)
+	{
+		returning = true;
+	}
+	if (place_meeting(x,y,obj_resource)) or (return_timer <= 0)
+	{
+		//scr_player_attack_calculate_weapon(projectile_sprite,self,1.5,-1,-1,-1,-1,-1,3);
+		returning = true;
+	}
+}
+if (returning = true)
+{
+	direction = point_direction(x,y,obj_player.x,obj_player.y-6);
+	if (place_meeting(x,y,obj_player))
+	{
+		obj_player.weapon_count = obj_player.weapon_count + 1;
+		instance_destroy();
+	}
+	if (place_meeting(x,y,obj_enemy)) 
+	{
+	
+		scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,3);
+		returning = true;
+	}
+}
+if (sd_timer <= 0)
+{
+	obj_player.weapon_count = obj_player.weapon_count + 1;
+	instance_destroy();
+}
+
+}
+//
+//
+//
+//
+//
+//Steel Boom Free Script
+function scr_projectile_steelboom(){
+//Set
+if (sd_timer > 0) sd_timer = sd_timer - 1; 
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+if (returning = false)
+{
+	return_timer = return_timer - 1;
+	scr_player_attack_calculate_weapon(projectile_sprite,self,10,-1,-1,-1,-1,-1,3);
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	

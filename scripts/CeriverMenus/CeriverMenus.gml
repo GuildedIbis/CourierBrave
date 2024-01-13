@@ -412,6 +412,7 @@ if (page >= 4) and (form_grid[# 3, page + 1] = false)
 					case 5: 
 						skill_stone[3] = skill_stone[3] - 1;
 						form_grid[# 3, 6] = true;
+						obj_player.weapon_count = obj_player.weapon_count + 1;
 					break;
 				
 					case 6: 

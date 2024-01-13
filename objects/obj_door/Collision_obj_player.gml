@@ -45,6 +45,10 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 		}
 		global.transition = true;
 		global.fadeOut = true;
+		with (obj_projectile)
+		{
+			instance_destroy();
+		}
 		with (obj_player)
 		{
 			if (max_weapon_count != -1)
