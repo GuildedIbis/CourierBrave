@@ -49,6 +49,7 @@
     {"name":"LenkoMainEnemy","order":9,"path":"folders/Scripts/Entities/Enemy/xRetired/xEnemyOld/LenkoEnemyAll/LenkoMainEnemy.yy",},
     {"name":"YakflowerEnemy","order":10,"path":"folders/Scripts/Entities/Enemy/xRetired/xEnemyOld/LenkoEnemyAll/YakflowerEnemy.yy",},
     {"name":"Inanimates","order":2,"path":"folders/Scripts/Entities/Inanimates.yy",},
+    {"name":"Chests","order":14,"path":"folders/Scripts/Entities/Inanimates/Chests.yy",},
     {"name":"NPC","order":1,"path":"folders/Scripts/Entities/NPC.yy",},
     {"name":"General","order":2,"path":"folders/Scripts/Game/General.yy",},
     {"name":"Player","order":3,"path":"folders/Scripts/Player.yy",},
@@ -170,7 +171,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Chests","order":14,"path":"folders/Scripts/Entities/Inanimates/Chests.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -965,6 +965,7 @@
     {"name":"snd_walk_water_1","order":10,"path":"sounds/snd_walk_water_1/snd_walk_water_1.yy",},
     {"name":"obj_itemBean","order":2,"path":"objects/obj_itemBean/obj_itemBean.yy",},
     {"name":"spr_adavio_gravibit","order":11,"path":"sprites/spr_adavio_gravibit/spr_adavio_gravibit.yy",},
+    {"name":"spr_ceriver_boomerang_steel","order":21,"path":"sprites/spr_ceriver_boomerang_steel/spr_ceriver_boomerang_steel.yy",},
     {"name":"spr_enemy_hitbox_riftSlamDownA","order":11,"path":"sprites/spr_enemy_hitbox_riftSlamDownA/spr_enemy_hitbox_riftSlamDownA.yy",},
     {"name":"spr_npc_harvo_walk","order":39,"path":"sprites/spr_npc_harvo_walk/spr_npc_harvo_walk.yy",},
     {"name":"spr_player_adavio_cast","order":5,"path":"sprites/spr_player_adavio_cast/spr_player_adavio_cast.yy",},

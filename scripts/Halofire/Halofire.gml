@@ -60,16 +60,20 @@ if (knockback = false)
 	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 }
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
-		walk_snd_delay = 18;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		walk_snd_delay = 16;
+		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
 		audio_play_sound(walk_snd,1,false);
 	}
+}
+if (hor_spd = 0) and (ver_spd = 0)
+{
+	walk_snd_delay = 8;	
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -608,16 +612,20 @@ walk_spd = 1.0;
 attacking = true;
 casting = true;
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
 		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
 		audio_play_sound(walk_snd,1,false);
 	}
+}
+if (hor_spd = 0) and (ver_spd = 0)
+{
+	walk_snd_delay = 10;	
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
@@ -717,16 +725,20 @@ walk_spd = 1.0;
 attacking = true;
 casting = true;
 
-//Timers
+//Standard Timers
 if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 {
 	walk_snd_delay = walk_snd_delay - 1;
 	if (walk_snd_delay <= 0)
 	{
 		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,(global.volumeEffects)/2,1);
+		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
 		audio_play_sound(walk_snd,1,false);
 	}
+}
+if (hor_spd = 0) and (ver_spd = 0)
+{
+	walk_snd_delay = 10;	
 }
 if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 {
