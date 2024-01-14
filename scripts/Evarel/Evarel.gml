@@ -113,12 +113,26 @@ scr_player_animation();
 //Weapon Attack
 if (key_attackW) and (stamina >= 25)
 {
-	if (thundux = false)
+	if (obj_inventory.form_grid[# 4, 6] = true) and (keyboard_check(vk_control))
 	{
-		if (weapon_aim = true) direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-		stamina = stamina - 25;
-		attack_script = scr_player_evarel_daggerDash;
-		state_script = scr_player_attack;
+		
+			stamina = stamina - 25;
+			fixed_dir = _cardinalDir
+			state_script = scr_player_evarel_daggerToss;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+			weapon_charge = 0;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+	}
+	else
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
 	}
 }
 
@@ -203,7 +217,174 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //
-//Ceriver Orb Rush State
+//Evarl Dagger Toss State
+function scr_player_evarel_daggerToss(){
+//Set
+attacking = true;
+damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+invincible = true;
+inv_dur_timer = 5;
+
+//Standard Timers
+//scr_player_recharge(false,false,false,true,false,false);
+if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
+if (atk_snd_delay <= 0)
+{
+	//audio_sound_gain(snd_slash01,global.volumeEffects,1);
+	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
+	atk_snd_delay = 28;
+}
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1; 
+}
+if (weapon_timer > 0)
+{
+	weapon_timer = weapon_timer - 1;
+}
+if (timer1 > 0)
+{
+	timer1 = timer1 - 1;
+}
+
+//Attack Start
+if (sprite_index != spr_player_evarel_daggerToss)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_player_evarel_daggerToss;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+
+if (timer1 <= 0)
+{
+	timer1 = 120;
+	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	{
+		scr_projectile_evarel_dagger_create();
+		direction = (point_direction(x,y,obj_cursor.x,obj_cursor.y)) - 10;
+		image_angle = direction;
+		speed = 3;
+		break_object = other.break_object;
+	}
+	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	{
+		scr_projectile_evarel_dagger_create();
+		direction = (point_direction(x,y,obj_cursor.x,obj_cursor.y));
+		image_angle = direction;
+		speed = 3;
+		break_object = other.break_object;
+	}
+	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	{
+		scr_projectile_evarel_dagger_create();
+		direction = (point_direction(x,y,obj_player.x,obj_player.y)) + 10;
+		image_angle = direction;
+		speed = 3;
+		break_object = other.break_object;
+	}
+}
+//Animate
+scr_player_animation();
+if (animation_end)
+{
+	if (obj_inventory.form_grid[# 4, 6] = true) and (stamina >= 25)
+	{
+		if (mouse_check_button(mb_right)) and (keyboard_check(vk_control))
+		{
+			stamina = stamina - 25;
+			fixed_dir = _cardinalDir
+			state_script = scr_player_evarel_daggerToss;
+			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+			ds_list_clear(hit_by_attack);
+			weapon_charge = 0;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+		}
+		else
+		{
+			attacking = false;
+			state_script = free_state;
+			damage = 0;
+			animation_end = false;
+			atk_snd_delay = 0;
+		}
+	}
+	else
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
+}
+}
+//
+//
+//
+//
+//
+//
+//Evarel Dagger Create
+function scr_projectile_evarel_dagger_create(){
+magic = false;
+fragment_count = 2;
+fragment = obj_fragMetal;
+damage = 7;
+projectile_sprite = spr_goldBullet;
+idle_sprite = spr_goldBullet;
+projectile_script = scr_projectile_evarel_dagger;
+hit_by_attack = -1;
+projectile_speed = 3.0;
+}
+//
+//
+//
+//
+//
+//Evarel Dagger
+function scr_projectile_evarel_dagger(){
+//Set
+lit = true;
+speed = projectile_speed;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	scr_player_attack_calculate_magic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
+
+}
+if (place_meeting(x,y,break_object)) or (timer1 <= 0)
+{
+	instance_destroy();
+}
+
+
+}
+//
+//
+//
+//
+//
+//Evarel Dagger Dash State
 function scr_player_evarel_daggerDash(){
 //Set
 attacking = true;
