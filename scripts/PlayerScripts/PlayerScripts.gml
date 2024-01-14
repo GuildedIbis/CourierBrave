@@ -397,7 +397,7 @@ var _snapX;
 while (_entityCount > 0)
 {
 	var _entityCheck = _entityList[| 0];
-	if (_entityCheck.collision == true)
+	if (_entityCheck.collision == true) or (_entityCheck.npc == true)
 	{
 		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right + 1;
 		else _snapX = _entityCheck.bbox_left - 1;
@@ -424,7 +424,7 @@ var _snapY;
 while (_entityCount > 0)
 {
 	var _entityCheck = _entityList[| 0];
-	if (_entityCheck.collision == true)
+	if (_entityCheck.collision == true) or (_entityCheck.npc == true)
 	{
 		if (sign(ver_spd) == -1) _snapY = _entityCheck.bbox_bottom+1;
 		else _snapY = _entityCheck.bbox_top - 1;
