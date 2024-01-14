@@ -117,39 +117,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 9 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"RIVERWARD",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Throw up to two boomerans that\nreturn and deal 18 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FLOWING BOOMERANG",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a rapid variety of bubble\nprojectiles that deal 8-20 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"POLYORB",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a projectile that deals 20\ndamage and destroys incoming\nenemy projectiles on contact."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"STEELORB",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "Throwing boomerangs no longer\ncost stamina."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Gain a third boomerang. Every\nthird boomerang is a steelboom,\ndealing 30 damage and knockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -165,7 +165,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Fire small bubble projectiles at\nan extreme rate, dealing 8\ndamage each. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot out a bubble wall in addition\nto the Steelorb. The Steelorb now\ncontinues until self-destruction."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -322,39 +322,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 9 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"RIVERWARD",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Throw up to two boomerans that\nreturn and deal 18 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FLOWING BOOMERANG",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a rapid variety of bubble\nprojectiles that deal 8-20 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"POLYORB",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a projectile that deals 20\ndamage and destroys incoming\nenemy projectiles on contact."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"STEELORB",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "Throwing boomerangs no longer\ncost stamina."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -362,7 +362,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Gain a third boomerang. Every\nthird boomerang is a steelboom,\ndealing 30 damage and knockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -370,7 +370,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Fire small bubble projectiles at\nan extreme rate, dealing 8\ndamage each. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -378,7 +378,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot out a bubble wall in addition\nto the Steelorb. The Steelorb now\ncontinues until self-destruction."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

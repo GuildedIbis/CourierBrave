@@ -115,9 +115,17 @@ if (_oldSprite != sprite_index) local_frame = 0;
 //Update Index
 scr_player_animation();
 
-
 //Melee Attack
-if (key_attackW) and (stamina >= 15)
+var _weaponCost
+if (obj_inventory.form_grid[# 3, 5] = false)
+{
+	_weaponCost = 15;
+}
+else
+{
+	_weaponCost = 0;
+}
+if (key_attackW) and (stamina >= _weaponCost)
 {
 	if (thundux = false) and (weapon_count >= 1)
 	{
@@ -149,7 +157,7 @@ if (key_attackM)
 
 }
 
-//Special Attack
+//Special Attack 
 if (key_attackS) and (blue_special >= 40)
 {
 	if (watervice = false)
@@ -158,7 +166,6 @@ if (key_attackS) and (blue_special >= 40)
 		state_script = scr_player_attack;
 	}
 }
-
 //Roll State
 if (key_ability) and (stamina >= 50)
 {
@@ -172,17 +179,8 @@ if (key_ability) and (stamina >= 50)
 	}
 }
 
-//crystal Stone State
-//if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
-//{
-//	var _crystalID = crystal_ary[crystal_selected];
-//	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-//	audio_play_sound(snd_player_crystal,0,false);
-//	state_script = obj_inventory.crystal_script[_crystalID];
-//}
-
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 15, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 3, 7] = true)
 {
 	if (magic_primary = true)
 	{
@@ -226,7 +224,6 @@ damage = 10;
 
 
 //Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
 if (magic_timer > 0) //Magic time between projectiles
 {
 	magic_timer = magic_timer - 1;
@@ -235,10 +232,6 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-
-//Custom Timers
-
-
 
 //Attack Start
 if (sprite_index != spr_player_ceriver_boomerangThrow)
@@ -254,18 +247,27 @@ if (sprite_index != spr_player_ceriver_boomerangThrow)
 	ds_list_clear(hit_by_attack);
 }
 
-
 //Animate
 scr_player_animation();
-
 
 //Return to Free State or Continue Throwing Boomerangs (if possible)
 if (animation_end)
 {
+	//Set Cost
+	var _weaponCost
+	if (obj_inventory.form_grid[# 3, 5] = false)
+	{
+		_weaponCost = 15;
+	}
+	else
+	{
+		_weaponCost = 0;
+	}
+	
+	//Throw Boomerang
 	audio_sound_gain(snd_ceriver_boomerang,global.volumeEffects,1);
 	audio_play_sound(snd_ceriver_boomerang,0,0,global.volumeEffects);
-	//melee_timer = 15;
-	stamina = stamina - 15;
+	stamina = stamina - _weaponCost;
 	weapon_count = weapon_count - 1;
 	if (weapon_cycle = 0)
 	{
@@ -341,7 +343,8 @@ if (animation_end)
 		}
 	}
 	
-	if (mouse_check_button(mb_right)) and (stamina >= 15)
+	//Restart or return
+	if (mouse_check_button(mb_right)) and (stamina >= _weaponCost)
 	{
 		if (thundux = false) and (weapon_count >= 1)
 		{
@@ -863,25 +866,72 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	blue_special = blue_special - 40;
-	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+	if (obj_inventory.form_grid[# 3, 8] = true)
 	{
-		audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
-		audio_play_sound(snd_ceriver_steelorb,0,0);
-		break_object = obj_player.break_object;
-		fragment_count = 3;
-		fragment = obj_fragWater;
-		magic = true;
-		sd_timer = 60;
-		damage = 35;//+ (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
-		projectile_sprite = spr_ceriver_steelorb;
-		projectile_script = scr_projectile_steelorb;
-		idle_sprite = spr_ceriver_steelorb;
-		image_index = 0;
-		projectile_speed = 3;
-		hit_by_attack = -1;
-		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y);
-		image_angle = direction;
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+		{
+			audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
+			audio_play_sound(snd_ceriver_steelorb,0,0);
+			break_object = obj_player.break_object;
+			timer1 = 15;
+			fragment_count = 3;
+			fragment = obj_fragWater;
+			magic = true;
+			sd_timer = 120;
+			damage = 20;
+			projectile_sprite = spr_ceriver_steelorb_wall;
+			projectile_script = scr_projectile_steelorb_wall;
+			idle_sprite = spr_ceriver_steelorb_wall;
+			image_index = 0;
+			projectile_speed = 3;
+			hit_by_attack = -1;
+			speed = projectile_speed;
+			direction = point_direction(x,y,mouse_x,mouse_y);
+			image_angle = direction;
+		}
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+		{
+			audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
+			audio_play_sound(snd_ceriver_steelorb,0,0);
+			break_object = obj_player.break_object;
+			fragment_count = 3;
+			fragment = obj_fragWater;
+			magic = true;
+			sd_timer = 60;
+			damage = 35;//+ (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
+			projectile_sprite = spr_ceriver_steelorb;
+			projectile_script = scr_projectile_steelorb;
+			idle_sprite = spr_ceriver_steelorb;
+			image_index = 0;
+			projectile_speed = 3;
+			hit_by_attack = -1;
+			speed = projectile_speed;
+			direction = point_direction(x,y,mouse_x,mouse_y);
+			image_angle = direction;
+		}
+	}
+	else
+	{
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
+		{
+			audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
+			audio_play_sound(snd_ceriver_steelorb,0,0);
+			break_object = obj_player.break_object;
+			fragment_count = 3;
+			fragment = obj_fragWater;
+			magic = true;
+			sd_timer = 60;
+			damage = 35;//+ (12 * obj_player.divinity) + ((obj_inventory.form_grid[# 3, 8]) * (10));//
+			projectile_sprite = spr_ceriver_steelorb;
+			projectile_script = scr_projectile_steelorb;
+			idle_sprite = spr_ceriver_steelorb;
+			image_index = 0;
+			projectile_speed = 3;
+			hit_by_attack = -1;
+			speed = projectile_speed;
+			direction = point_direction(x,y,mouse_x,mouse_y);
+			image_angle = direction;
+		}
 	}
 	magic_timer = 30;
 }
@@ -923,7 +973,21 @@ if (sprite_index != projectile_sprite)
 
 //Timers
 if (sd_timer > 0) sd_timer = sd_timer - 1;
-if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
+if (projectile_speed > 0) and (obj_inventory.form_grid[# 3, 8] = false)
+{
+	projectile_speed = projectile_speed - .15;
+}
+if (obj_inventory.form_grid[# 3, 8] = true)
+{
+	if (projectile_speed > 1)
+	{
+		projectile_speed = projectile_speed - .15;
+	}
+	if (projectile_speed < 1)
+	{ 
+		projectile_speed = 1;
+	}
+}
 
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
@@ -932,6 +996,61 @@ if (place_meeting(x,y,obj_enemy))
 	scr_player_attack_calculate_magic(projectile_sprite,self,20,-1,-1,-1,-1,-1,10);
 	//instance_destroy();
 }
+if (place_meeting(x,y,obj_enemy_projectile)) 
+{
+	
+	scr_player_attack_calculate_projectile(projectile_sprite);
+}
+if (place_meeting(x,y,break_object))
+{
+	speed = 0;
+}
+if (sd_timer <= 0) instance_destroy();
+
+}
+//
+//
+//
+//
+//
+//
+//Ceriver Steelorb Wall Projectile Script
+function scr_projectile_steelorb_wall(){
+//Set
+lit = true;
+destructable = false;
+speed = projectile_speed;
+depth = -4700;
+if (timer1 >= 0)
+{
+	image_speed = 1;
+	timer1 = timer1 - 1;
+}
+else 
+{
+	image_speed = 0;
+}
+//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Timers
+if (sd_timer > 0) sd_timer = sd_timer - 1;
+if (projectile_speed > 0) projectile_speed = projectile_speed - .15;
+
+//Collision
+//if (place_meeting(x,y,obj_enemy)) 
+//{
+	
+//	scr_player_attack_calculate_magic(projectile_sprite,self,10,-1,-1,-1,-1,-1,10);
+//	//instance_destroy();
+//}
 if (place_meeting(x,y,obj_enemy_projectile)) 
 {
 	

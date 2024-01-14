@@ -29,7 +29,7 @@ if (obj_inventory.form_grid[# 2, 5] = false)
 }
 else
 {
-	walk_spd = 1.5;
+	walk_spd = 1.6;
 }
 armor = 8;
 max_charge = 200 + (25 * conviction);
@@ -53,7 +53,7 @@ if (obj_inventory.form_grid[# 2, 5] = false)
 }
 else
 {
-	walk_spd = 1.5;
+	walk_spd = 1.6;
 }
 attacking = false;
 casting = false;
