@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_frag_blue",
-    "path": "sprites/spr_frag_blue/spr_frag_blue.yy",
+    "name": "spr_frag_green",
+    "path": "sprites/spr_frag_green/spr_frag_green.yy",
   },
   "spriteMaskId": null,
   "visible": true,

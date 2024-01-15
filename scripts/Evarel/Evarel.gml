@@ -115,21 +115,26 @@ if (key_attackW) and (stamina >= 25)
 {
 	if (obj_inventory.form_grid[# 4, 6] = true) and (keyboard_check(vk_control))
 	{
-		
-			stamina = stamina - 25;
-			fixed_dir = _cardinalDir
-			state_script = scr_player_evarel_daggerToss;
-			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-			ds_list_clear(hit_by_attack);
-			weapon_charge = 0;
-			damage = 0;
-			animation_end = false;
-			atk_snd_delay = 0;
+		direction = point_direction(x,y,obj_cursor.x,obj_cursor.y);
+		stamina = stamina - 25;
+		fixed_dir = _cardinalDir
+		state_script = scr_player_evarel_daggerToss;
+		timer1 = 12;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+		weapon_charge = 0;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
 	}
 	else
 	{
-		attacking = false;
-		state_script = free_state;
+		stamina = stamina - 25;
+		fixed_dir = _cardinalDir
+		state_script = scr_player_evarel_daggerDash;
+		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+		ds_list_clear(hit_by_attack);
+		weapon_charge = 0;
 		damage = 0;
 		animation_end = false;
 		atk_snd_delay = 0;
@@ -149,9 +154,9 @@ if (key_attackM)
 		}
 		if (magic_primary = false) and (green_primary >= 15)
 		{
-			audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
-			audio_play_sound(snd_evarel_bristlerod,0,0);
-			magic_timer = 60;
+			audio_sound_gain(snd_evarel_bristlerod_charge,global.volumeEffects,1);
+			audio_play_sound(snd_evarel_bristlerod_charge,0,0);
+			timer1 = 0;
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
 		}
@@ -176,6 +181,29 @@ if (key_ability) and (stamina >= 50)
 	{
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
+		if (obj_inventory.form_grid[# 4, 5] = true)
+		{
+			if (!ds_exists(enemy_in_range,ds_type_list)) enemy_in_range = ds_list_create();
+			ds_list_clear(enemy_in_range);
+			var _num = collision_circle_list(x,y,64,obj_enemy,false,false,enemy_in_range,true);
+			if (_num > 0)
+			{
+				target = enemy_in_range[| 0];
+			}
+			if (instance_exists(target)) and (target != -1) 
+			{
+				with (instance_create_layer(x,y-4,"Instances",obj_projectile))
+				{
+					scr_projectile_evarel_dagger_create();
+					direction = point_direction(x,y,other.target.x,other.target.y-4);
+					image_angle = direction;
+					speed = 3;
+					break_object = other.break_object;
+					timer1 = 30;		
+				}
+				
+			}
+		}
 		stamina = stamina - 50;
 		state_script = scr_player_roll;
 		remain_dist = roll_dist;
@@ -183,13 +211,13 @@ if (key_ability) and (stamina >= 50)
 }
 
 //Switch Magic Fire
-if (keyboard_check_pressed(ord("F"))) and (obj_inventory.quest_grid[# 22, 3] = true)
+if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 4, 7] = true)
 {
 	if (magic_primary = true)
 	{
 		magic_primary = false;
 		attack_script = magicA_script;
-		primary_cost = 15;
+		primary_cost = 20;
 	}
 	else
 	{
@@ -221,9 +249,9 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_evarel_daggerToss(){
 //Set
 attacking = true;
-damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
-invincible = true;
-inv_dur_timer = 5;
+//damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+//invincible = true;
+//inv_dur_timer = 5;
 
 //Standard Timers
 //scr_player_recharge(false,false,false,true,false,false);
@@ -263,15 +291,7 @@ if (sprite_index != spr_player_evarel_daggerToss)
 
 if (timer1 <= 0)
 {
-	timer1 = 120;
-	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
-	{
-		scr_projectile_evarel_dagger_create();
-		direction = (point_direction(x,y,obj_cursor.x,obj_cursor.y)) - 10;
-		image_angle = direction;
-		speed = 3;
-		break_object = other.break_object;
-	}
+	timer1 = 20;
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
 		scr_projectile_evarel_dagger_create();
@@ -279,14 +299,7 @@ if (timer1 <= 0)
 		image_angle = direction;
 		speed = 3;
 		break_object = other.break_object;
-	}
-	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
-	{
-		scr_projectile_evarel_dagger_create();
-		direction = (point_direction(x,y,obj_player.x,obj_player.y)) + 10;
-		image_angle = direction;
-		speed = 3;
-		break_object = other.break_object;
+		timer1 = 30;
 	}
 }
 //Animate
@@ -297,13 +310,14 @@ if (animation_end)
 	{
 		if (mouse_check_button(mb_right)) and (keyboard_check(vk_control))
 		{
+			//scr_projectile_evarel_dagger_create();
+			direction = point_direction(x,y,obj_cursor.x,obj_cursor.y);
 			stamina = stamina - 25;
 			fixed_dir = _cardinalDir
 			state_script = scr_player_evarel_daggerToss;
 			if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 			ds_list_clear(hit_by_attack);
 			weapon_charge = 0;
-			damage = 0;
 			animation_end = false;
 			atk_snd_delay = 0;
 		}
@@ -336,13 +350,14 @@ if (animation_end)
 function scr_projectile_evarel_dagger_create(){
 magic = false;
 fragment_count = 2;
-fragment = obj_fragMetal;
-damage = 7;
-projectile_sprite = spr_goldBullet;
-idle_sprite = spr_goldBullet;
+fragment = obj_fragGreen;
+damage = 20;
+projectile_sprite = spr_evarel_dagger;
+idle_sprite = spr_evarel_dagger;
 projectile_script = scr_projectile_evarel_dagger;
 hit_by_attack = -1;
 projectile_speed = 3.0;
+timer1 = 60;
 }
 //
 //
@@ -369,7 +384,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
-	scr_player_attack_calculate_magic(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
+	scr_player_attack_calculate_weapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
 
 }
 if (place_meeting(x,y,break_object)) or (timer1 <= 0)
@@ -388,7 +403,7 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 function scr_player_evarel_daggerDash(){
 //Set
 attacking = true;
-damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
+damage = 35;
 invincible = true;
 inv_dur_timer = 5;
 
@@ -424,8 +439,8 @@ if (sprite_index != spr_player_evarel_daggerDash)
 	ds_list_clear(hit_by_attack);
 }
 
-hor_spd = lengthdir_x(3,direction);
-ver_spd = lengthdir_y(3,direction);
+hor_spd = lengthdir_x(3,fixed_dir * 90);
+ver_spd = lengthdir_y(3,fixed_dir * 90);
 var _collided = scr_player_collision();
 
 
@@ -498,7 +513,7 @@ if (weapon_timer > 0)//Time between weapon uses
 {
 	weapon_timer = weapon_timer - 1;
 }
-
+timer1 = timer1 + 1;
 
 //Movement 1: Speed
 if (knockback = false)
@@ -525,28 +540,31 @@ scr_player_projectile_spawn();
 
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
-if (magic_timer <= 0)
+if (mouse_check_button_released(mb_left)) or (timer1 > 119)
 {	
-	green_primary = green_primary - 15;
+	audio_stop_sound(snd_evarel_bristlerod_charge);
+	green_primary = green_primary - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_goldBullet,global.volumeEffects,1);
-		//audio_play_sound(snd_goldBullet,0,0);
+		audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
+		audio_play_sound(snd_evarel_bristlerod,0,0);
+		sap = false;
 		break_object = other.break_object;
 		magic = true;
 		timer1 = 6;
-		distance = 0;
 		fragment_count = 1;
 		fragment = obj_fragPlant;
-		damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
+		damage = 30 + round(other.timer1 * .5)
 		projectile_sprite = spr_evarel_bristlerod;
 		projectile_script = scr_projectile_bristlerod;
 		idle_sprite = spr_evarel_bristlerod;
 		hit_by_attack = -1;
 		direction = point_direction(x,y,mouse_x,mouse_y);
 		image_angle = direction;
-		projectile_speed = 7.0;
+		projectile_speed = 6.0;
 	}
+	timer1 = 0;
+	
 	if (mouse_check_button(mb_left) = false) or (green_primary < 20)
 	{
 		attacking = false;
@@ -557,8 +575,8 @@ if (magic_timer <= 0)
 	}
 	else
 	{
-		audio_sound_gain(snd_evarel_bristlerod,global.volumeEffects,1);
-		audio_play_sound(snd_evarel_bristlerod,0,0);
+		audio_sound_gain(snd_evarel_bristlerod_charge,global.volumeEffects,1);
+		audio_play_sound(snd_evarel_bristlerod_charge,0,0);
 		magic_timer = 60;
 	}
 }
@@ -578,9 +596,18 @@ function scr_projectile_bristlerod(){
 //Set
 lit = true;
 speed = projectile_speed;
-distance = distance + 1;
-damage = 30;//+ (16 * obj_player.grace) + ((obj_inventory.form_grid[# 4, 7] + 1)*(distance));
 
+var _sapDrain
+if (sap = true)
+{
+	_sapDrain = .1;
+	projectile_sprite = spr_evarel_bristlerod_sap;
+}
+else
+{
+	_sapDrain = -1;
+	projectile_sprite = spr_evarel_bristlerod;
+}
 
 if (sprite_index != projectile_sprite)
 {
@@ -597,7 +624,7 @@ if (sprite_index != projectile_sprite)
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,-1,5);
+	scr_player_attack_calculate_magic(projectile_sprite,self,3,-1,-1,-1,-1,_sapDrain,5);
 	//instance_destroy();
 	
 }
@@ -684,6 +711,7 @@ if (magic_timer <= 0)
 	{
 		audio_sound_gain(snd_evarel_reflexthorn,global.volumeEffects,1);
 		audio_play_sound(snd_evarel_reflexthorn,0,0);
+		sap = false;
 		break_object = other.break_object;
 		magic = true;
 		fragment_count = 2;
@@ -753,11 +781,24 @@ if (sprite_index != projectile_sprite)
 	ds_list_clear(hit_by_attack);
 }
 
+//Sap Drain
+var _sapDrain
+if (sap = true)
+{
+	_sapDrain = .1;
+	projectile_sprite = spr_evarel_reflexthorn_sap;
+}
+else
+{
+	_sapDrain = -1;
+	projectile_sprite = spr_evarel_reflexthorn;
+}
+
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
 	
-	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,_sapDrain,1);
 	//instance_destroy();
 	
 }
@@ -852,14 +893,16 @@ function scr_projectile_thornrise(){
 //Timers
 lit = true;
 destructable = false;
+
+
 if (timer1 > 0) timer1 = timer1 - 1;
 if (timer2 > 0) timer2 = timer2 - 1;
 if (timer3 > 0) timer3 = timer3 - 1;
 
-if (sprite_index != spr_evarel_thornrise)
+if (sprite_index != projectile_sprite)
 {
 	//Start Animation From Beginning
-	sprite_index = spr_evarel_thornrise;
+	sprite_index = projectile_sprite;
 	local_frame = 0;
 	image_index = 0;
 	//Clear Hit List
@@ -868,7 +911,16 @@ if (sprite_index != spr_evarel_thornrise)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
-	scr_player_attack_calculate_magic(spr_evarel_thornrise,obj_player,-1,-1,-1,-1,-1,-1,1);
+	scr_player_attack_calculate_magic(spr_evarel_thornrise,self,-1,-1,-1,-1,-1,-1,1);
+}
+if (obj_inventory.form_grid[# 4, 8] = true)
+{
+	projectile_sprite = spr_evarel_thornrise_sap;
+	scr_player_evarel_thornrise_sapApply(spr_evarel_thornrise,self);
+}
+else
+{
+	projectile_sprite = spr_evarel_thornrise;
 }
 if (timer2 <= 0)
 {
@@ -921,4 +973,36 @@ if (obj_game.gamePaused = false)
 
 
 depth = -5000;
+}
+//
+//
+//
+//
+//
+//Attack Calculate Status
+function scr_player_evarel_thornrise_sapApply(_hitbox,_hitBy){
+//Collision with Entities
+mask_index = _hitbox;
+
+var _hitByAttack = ds_list_create();
+var _hits = instance_place_list(x,y,obj_projectile,_hitByAttack,false);
+if (_hits > 0)
+{
+	for (var i = 0; i < _hits; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _hitID = _hitByAttack[| i];
+		if (ds_list_find_index(hit_by_attack, _hitID) == -1)
+		{
+			ds_list_add(hit_by_attack,_hitID);
+			with (_hitID)
+			{
+				sap = true;
+			}
+		}
+	}
+}
+	
+ds_list_destroy(_hitByAttack);
+mask_index = idle_sprite;
 }

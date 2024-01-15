@@ -117,39 +117,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 5 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"EVERGREEN TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Perform a dash attack that does\n35 damage and slight knockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FOREST DAGGER",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a burst of 3 projectiles\nthat bounce and deal 12 damage\neach."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"FLEXTHORN",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Summon thorns in an area around\nthe Courier that deal 11 damage\n every .25 seconds."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"THORNRISE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "The Courier will now throw a dagger\nat the nearest (if any) enemy\nfor 20 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -157,7 +157,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "By holding CTRL, the Courier will\nthrow daggers for 20 damage each\ninstead of dashing forward."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -165,7 +165,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Hold to charge up a projectile\nthat does more damage the longer\nit's charged (30-90 damage)."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -173,7 +173,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "If Evarel's projetiles pass over\nthe thorns, they gain a health\ndraining effect."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -322,39 +322,39 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 10 damage from attacks\nand projectiles."
+		var _describe = "Negates 5 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL ARMOR",1,1,0);
+		draw_text_transformed(101,98,"EVERGREEN TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Perform a dash attack that does\n35 damage and slight knockback."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"REGAL BLADE",1,1,0);
+		draw_text_transformed(101,98,"FOREST DAGGER",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Shoot a burst of 3 projectiles\nthat bounce and deal 12 damage\neach."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD BURST",1,1,0);
+		draw_text_transformed(101,98,"FLEXTHORN",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Summon thorns in an area around\nthe Courier that deal 11 damage\n every .25 seconds."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"GOLD ARC",1,1,0);
+		draw_text_transformed(101,98,"THORNRISE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Gain 20 overshield that recharges\nwhile no enemies are targeting\nyou."
+		var _describe = "The Courier will now throw a dagger\nat the nearest (if any) enemy\nfor 20 damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -362,7 +362,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "By holding CTRL, the Courier will\nthrow daggers for 20 damage each\ninstead of dashing forward."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -370,7 +370,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "Hold to charge up a projectile\nthat does more damage the longer\nit's charged (30-90 damage)."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -378,7 +378,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = ""
+		var _describe = "If Evarel's projetiles pass over\nthe thorns, they gain a health\ndraining effect."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
