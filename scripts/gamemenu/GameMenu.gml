@@ -295,7 +295,7 @@ if (obj_game.time_played > 0)
 				scr_game_save_1();
 				audio_stop_all();
 				obj_song.song_timer = 600;
-				scr_audio_transition();
+				scr_game_song_list_main();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))
@@ -345,7 +345,7 @@ else
 			scr_game_save_1();
 			audio_stop_all();
 			obj_song.song_timer = 600;
-			scr_audio_transition();
+			scr_game_song_list_main();
 		}
 	}
 }
@@ -431,7 +431,7 @@ if (obj_game.time_played2 > 0)
 				scr_game_save_2();
 				audio_stop_all();
 				obj_song.song_timer = 600;
-				scr_audio_transition();
+				scr_game_song_list_main();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,686))
@@ -483,7 +483,7 @@ else
 			scr_game_save_2();
 			audio_stop_all();
 			obj_song.song_timer = 600;
-			scr_audio_transition();
+			scr_game_song_list_main();
 		}
 	}
 }
@@ -569,7 +569,7 @@ if (obj_game.time_played3 > 0)
 				scr_game_save_3();
 				audio_stop_all();
 				obj_song.song_timer = 600;
-				scr_audio_transition();
+				scr_game_song_list_main();
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,686))//Return
@@ -621,7 +621,7 @@ else
 			scr_game_save_3();
 			audio_stop_all();
 			obj_song.song_timer = 600;
-			scr_audio_transition();
+			scr_game_song_list_main();
 		}
 	}
 }

@@ -5,97 +5,70 @@
 //
 //
 //Free State
-function xPlayerStateFree(){
+function scr_player_standard_timers(_walkDelay = -1,_stam = true,_wpn = true,_prmy = true,_spc = true,_spread = -1){
 
 
-//Movement 1: Set
-hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
-ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
-
-
-//Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
+if (_walkDelay != -1)
 {
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
+	if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
 	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
+		walk_snd_delay = walk_snd_delay - 1;
+		if (walk_snd_delay <= 0)
+		{
+			walk_snd_delay = _walkDelay;
+			audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
+			audio_play_sound(walk_snd,1,false);
+		}
+	}
+	if (hor_spd = 0) and (ver_spd = 0)
+	{
+		walk_snd_delay = _walkDelay * .5;	
 	}
 }
-if (stamina < max_stamina) //Roll Recharge
+
+if (_stam = true)
 {
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
+	if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
 	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
+		if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
+		if (stamina_timer <= 0) 
+		{
+			stamina_timer = 3;
+			stamina = stamina + 1;
+		}
 	}
 }
-if (meleeS_timer < max_meleeS_timer) meleeS_timer = meleeS_timer + 1;
-if (magicS_timer < max_magicS_timer) magicS_timer = magicS_timer + 1;
 
-
-
-//Movement 2: Collision
-PlayerCollision();
-
-//Movement 3: Environtment
-PlayerEnvironment();
-
-//Animation: Update Sprite
-var _oldSprite = sprite_index;
-if (input_mag != 0)
+if (_prmy = true)
 {
-	direction = input_dir;
-	sprite_index = run_sprite;
-}
-else sprite_index = idle_sprite;
-if (_oldSprite != sprite_index) local_frame = 0;
-
-
-//Update Index
-PlayerAnimation();
-
-
-//Melee Attack
-script_execute(melee_main);
-
-
-//Magic Attack
-script_execute(magic_main);
-
-//Roll State
-if (key_ability) and (roll_energy >= 50)
-{
-	audio_sound_gain(snd_player_roll,global.volumeEffects,1);
-	audio_play_sound(snd_player_roll,0,false);
-	roll_energy = roll_energy - 50;
-	state_script = PlayerStateRoll;
-	remain_dist = roll_dist;
+	if (magic_timer > 0) //Magic time between shots
+	{
+		magic_timer = magic_timer - 1;
+	}
 }
 
-//Recharge Magic State
-if (keyboard_check_pressed(ord("R"))) and (magic_count < max_magic_count)
+if (_wpn = true)
 {
-	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-	audio_play_sound(snd_player_crystal,0,false);
-	magic_count = max_magic_count;
-	state_script = PlayerStateRecharge;
-	
+	if (weapon_timer > 0)
+	{
+		weapon_timer = weapon_timer - 1;
+	}
 }
 
-//Crull Stone State
-if (keyboard_check_pressed(ord("C"))) and (crull_stone >= 1)
+if (_spc = true)
 {
-	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-	audio_play_sound(snd_player_crystal,0,false);
-	crull_stone = crull_stone - 1;
-	hp = hp + 100;
-	if (hp > max_hp) hp = max_hp;
-	state_script = PlayerStateCrull;
-	
+	if (special_timer > 0)
+	{
+		special_timer = special_timer - 1;
+	}
+}
+
+if (_spread != -1)
+{
+	if (projectile_spread > _spread)
+	{
+		projectile_spread = projectile_spread * .9;
+	}
 }
 
 }

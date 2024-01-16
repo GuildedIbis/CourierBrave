@@ -67,7 +67,7 @@ if (point_in_circle(obj_player.x,obj_player.y,x,y,12))
 {
 	if (keyboard_check_pressed(ord("E"))) 
 	{
-		audio_stop_all();
+		//audio_stop_all();
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		image_index = _cardinalDir;
 		sprite_index = spr_npc_emissary;
