@@ -145,22 +145,24 @@ if (obj_inventory.quest_grid[# 6, 1] < 1)
 	}
 	if (string_counter >= 5)
 	{
+		scr_text_end();
+		_SubString = string_copy(text_string,1,letter_counter);
 		obj_inventory.quest_grid[# 6, 0] = true;
 		obj_inventory.quest_grid[# 6, 1] = 1;
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
-		//Revert if broken^
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
+		////Revert if broken^
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -201,19 +203,21 @@ if (obj_inventory.quest_grid[# 6, 1] = 1) //and (obj_inventory.quest_grid[# 6, 1
 	}
 	if (string_counter >= 2)
 	{
-		text_string = ""
-		string_counter = 0;
+		scr_text_end();
 		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -254,19 +258,22 @@ if (obj_inventory.quest_grid[# 6, 1] >= 2) and (obj_inventory.quest_grid[# 6, 1]
 	}
 	if (string_counter >= 2)
 	{
-		text_string = ""
-		string_counter = 0;
+		scr_text_end();
 		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -307,19 +314,21 @@ if (obj_inventory.quest_grid[# 6, 1] = 6)
 	}
 	if (string_counter >= 2)
 	{
-		text_string = ""
-		string_counter = 0;
+		scr_text_end();
 		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);

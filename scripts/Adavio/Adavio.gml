@@ -250,7 +250,7 @@ if (sprite_index != spr_player_adavio_hookThrust)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,5,-1,-1,-1,-1,-1,4);
+scr_player_attack_calculate_weapon(spr_adavio_hookThrust_hitbox,obj_player,5,-1,-1,-1,-1,-1,4,1,5);
 
 //Hook Blast Spawn Position
 var _dirPos = round(obj_player.direction/90);
@@ -438,6 +438,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
+	scr_camera_screen_shake(2,8);
 	purple_primary = purple_primary - 25;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
@@ -624,6 +625,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	//magic_count = magic_count - 1;
+	scr_camera_screen_shake(1,5);
 	purple_primary = purple_primary - 25;
 	audio_sound_gain(snd_adavio_voidCycle,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidCycle,0,0);
@@ -937,6 +939,7 @@ if (timer1 <= 0)
 	timer1 = 90;
 	audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
 	audio_play_sound(snd_adavio_voidBits,0,0);
+	scr_camera_screen_shake(3,12);
 	for (var i = 0; i < 8; i = i + 1)
 	{
 		with (instance_create_layer(x,y,"Instances",obj_projectile))

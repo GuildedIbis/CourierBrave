@@ -35,6 +35,8 @@ primary_cost = 6;
 special_cost = 100;
 special_timer = 0;
 overshield = 0;
+projectile_spread = 4;
+projectile_spread_timer = 30;
 }
 //
 //
@@ -91,6 +93,10 @@ if (special_timer > 0)
 {
 	special_timer = special_timer - 1;
 }
+if (projectile_spread > 4)
+{
+	projectile_spread = projectile_spread * .9;
+}
 
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
@@ -136,6 +142,8 @@ if (key_attackM)
 		if (magic_primary = true) and (yellow_primary >= 5)
 		{
 			attack_script = magicP_script;
+			projectile_spread = 4;
+			projectile_spread_timer = 30;
 			state_script = scr_player_attack;
 		}
 		if (magic_primary = false) and (yellow_primary >= 10)
@@ -253,7 +261,7 @@ if (sprite_index != spr_player_regaliare_slash)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,5,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_slash_hitbox,obj_player,5,-1,-1,-1,-1,-1,5,1,5);
 
 //Animate
 scr_player_animation();
@@ -427,7 +435,7 @@ if (sprite_index != spr_player_regaliare_spinSlash_release)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_regaliare_spinSlash_release_hitbox,obj_player,15,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_player_regaliare_spinSlash_release_hitbox,obj_player,15,-1,-1,-1,-1,-1,5,2,8);
 
 //Animate
 scr_player_animation();
@@ -490,6 +498,10 @@ if (special_timer > 0)
 {
 	special_timer = special_timer - 1;
 }
+if (projectile_spread_timer > 0)
+{
+	projectile_spread_timer = projectile_spread_timer - 1;
+}
 
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
@@ -522,26 +534,35 @@ scr_player_projectile_spawn();
 
 
 //Create Bullet at end timer - timer is length of weapon sprite animation
+
 if (magic_timer <= 0)
 {	
-	//magic_count = magic_count - 1;
+	if (projectile_spread_timer <= 0)
+	{
+		scr_camera_screen_shake(1,5);
+		if (projectile_spread < 10)
+		{
+			projectile_spread  = projectile_spread + 1;
+		}
+	}
 	yellow_primary = yellow_primary - 6;
+	
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_regaliare_goldBullet,global.volumeEffects,1);
+		projectile_spread = other.projectile_spread;
 		audio_play_sound(snd_regaliare_goldBullet,0,0,global.volumeEffects);
 		break_object = other.break_object;
 		magic = true;
 		fragment_count = 2;
 		fragment = obj_fragGold;
-		damage = 10;//+ (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
+		damage = 13;//+ (2 * obj_player.grace) + (3 * (obj_inventory.form_grid[# 0, 7]));//
 		timer1 = 50;
 		projectile_sprite = spr_goldBullet;
 		projectile_script = scr_projectile_goldBurst;
 		idle_sprite = spr_goldBullet;
 		hit_by_attack = -1;
 		//script_execute(LeafArcCreate);
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-4,4);
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-projectile_spread,projectile_spread);//4
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -678,6 +699,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	yellow_primary = yellow_primary - 10;
+	scr_camera_screen_shake(1.5,5);
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		//audio_sound_gain(snd_regaliare_goldBullet,global.volumeEffects,1);
@@ -852,14 +874,15 @@ if (follow = true)
 {
 	x = obj_player.x;
 	y = obj_player.y - 6;
+	if (keyboard_check_pressed(vk_shift)) and (obj_inventory.form_grid[# 0, 8] = true)
+	{
+		follow = false;
+		direction = point_direction(x,y,obj_cursor.x,obj_cursor.y);
+		speed = 1.5;
+	}
 }
 
-if (keyboard_check_pressed(vk_shift)) and (obj_inventory.form_grid[# 0, 8] = true)
-{
-	follow = false;
-	direction = point_direction(x,y,obj_cursor.x,obj_cursor.y);
-	speed = 1.5;
-}
+
 if (sprite_index != spr_goldArc)
 {
 	//Start Animation From Beginning
@@ -873,6 +896,10 @@ if (sprite_index != spr_goldArc)
 }
 if (place_meeting(x,y,obj_enemy)) 
 {	
+	if (follow = true)
+	{
+		scr_camera_screen_shake(2,7);
+	}
 	scr_player_attack_calculate_magic(spr_goldArc,obj_player,20,-1,-1,-1,-1,-1,1);
 }
 if (timer2 <= 0)
@@ -903,7 +930,11 @@ curs_form = 0;
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 
-if (obj_player.magic_primary = true) spread = 10;
+if (obj_player.magic_primary = true)
+{
+	var _plyrSpread = 10 - ((obj_player.projectile_spread - 4) * 1.6);
+	spread = max(3,_plyrSpread);
+}
 if (obj_player.magic_primary = false) spread = 6;
 if (obj_game.gamePaused = false)
 {

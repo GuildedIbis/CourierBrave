@@ -266,7 +266,7 @@ if (sprite_index != spr_player_halofire_hamaxe)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,10,-1,-1,-1,-1,-1,5);
+scr_player_attack_calculate_weapon(spr_halofire_hamaxe_hitbox,obj_player,10,-1,-1,-1,-1,-1,5,1,5);
 
 //Animate
 scr_player_animation();
@@ -481,7 +481,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing)
 
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,-1,-1,-1,-1,-1,6);
+scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,-1,-1,-1,-1,-1,6,1,5);
 
 //Animate
 scr_player_animation_fixed();
@@ -549,7 +549,7 @@ if (sprite_index != spr_player_halofire_hamaxe_backswing_charged)
 }
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,300,-1,-1,-1,-1,7);
+scr_player_attack_calculate_weapon(spr_player_halofire_hamaxe_backswing_hitbox,obj_player,15,300,-1,-1,-1,-1,7,1,5);
 
 if (timer1 <= 0)
 {
@@ -672,6 +672,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {
+	scr_camera_screen_shake(1,5);
 	orange_primary = orange_primary - 18;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
@@ -786,15 +787,18 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	orange_primary = orange_primary - 4;
+	scr_camera_screen_shake(.5,3);
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
+		image_xscale = .25;
+		image_yscale = .25;
 		audio_sound_gain(snd_halofire_firespit,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_firespit,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
 		fragment_count = 0;
 		fragment = obj_fragFire;
-		damage = 3;//+ obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
+		damage = 4;//+ obj_player.grace + ((obj_inventory.form_grid[# 1, 7]));//
 		projectile_sprite = spr_halofire_firespit;
 		projectile_script = scr_projectile_firespit;
 		idle_sprite = spr_halofire_firespit;
@@ -872,7 +876,15 @@ function scr_projectile_firespit(){
 //Set
 lit = true;
 destructable = false;
-if (timer1 > 0) timer1 = timer1 - 1;
+if (timer1 > 0)
+{
+	timer1 = timer1 - 1;
+	image_angle = direction + 90;
+	if (image_xscale < 1) image_xscale = image_xscale * 1.1;
+	if (image_yscale < 1) image_yscale = image_yscale * 1.1;
+	if (image_xscale > 1) image_xscale = 1;
+	if (image_yscale > 1) image_yscale = 1;
+}
 if (timer2 > 0) timer2 = timer2 - 1;
 if (sprite_index != projectile_sprite)
 {
@@ -887,6 +899,19 @@ if (sprite_index != projectile_sprite)
 if (timer1 <= 0)
 {
 	speed = 0;
+	if (image_angle != 0) 
+	{
+		if (image_angle > 180)
+		{
+			image_angle = image_angle + timer2/4;
+		}
+		else 
+		{
+			image_angle = image_angle - timer2/4;
+		}
+	}
+	if (image_angle < 0) image_angle = 0;
+	if (image_angle > 360) image_angle = 0;
 }
 if (timer2 <= 0)
 {
@@ -994,6 +1019,7 @@ scr_player_animation();
 
 if (animation_end)
 {
+	scr_camera_screen_shake(2,8);
 	with (instance_create_layer(obj_player.x+dir_offX,obj_player.y+dir_offY,"Instances",obj_projectile))
 	{
 		timer1 = 240;

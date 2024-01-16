@@ -384,7 +384,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_enemy)) 
 {
-	scr_player_attack_calculate_weapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1);	
+	scr_player_attack_calculate_weapon(projectile_sprite,obj_player,-1,-1,-1,-1,-1,-1,1,-1,-1);	
 
 }
 if (place_meeting(x,y,break_object)) or (timer1 <= 0)
@@ -455,7 +455,7 @@ if (_collided = true)
 }
 
 //Calcuate Hit Entitites
-scr_player_attack_calculate_weapon(spr_player_evarel_daggerDash_hitbox,obj_player,10,-1,-1,-1,-1,-1,6);
+scr_player_attack_calculate_weapon(spr_player_evarel_daggerDash_hitbox,obj_player,10,-1,-1,-1,-1,-1,6,1,5);
 
 //Animate
 scr_player_animation();
@@ -542,6 +542,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (mouse_check_button_released(mb_left)) or (timer1 > 119)
 {	
+	scr_camera_screen_shake(2,8);
 	audio_stop_sound(snd_evarel_bristlerod_charge);
 	green_primary = green_primary - 20;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
@@ -705,6 +706,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
+	scr_camera_screen_shake(1,5);
 	attack_counter = attack_counter + 1;
 	green_primary = green_primary - 5;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
@@ -859,6 +861,7 @@ if (sprite_index != spr_player_evarel_thornrise_cast)
 scr_player_animation();
 if (animation_end)
 {
+	scr_camera_screen_shake(1,5);
 	with (instance_create_layer(x,y,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_evarel_thornrise,global.volumeEffects,1);

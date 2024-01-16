@@ -137,20 +137,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[0] = obj_inventory.skill_stone[0] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[0] = obj_inventory.skill_stone[0] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);
@@ -189,20 +191,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[1] = obj_inventory.skill_stone[1] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[1] = obj_inventory.skill_stone[1] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);
@@ -241,20 +245,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[2] = obj_inventory.skill_stone[2] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[2] = obj_inventory.skill_stone[2] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);
@@ -293,20 +299,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[3] = obj_inventory.skill_stone[3] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[3] = obj_inventory.skill_stone[3] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);
@@ -345,20 +353,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[4] = obj_inventory.skill_stone[4] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[4] = obj_inventory.skill_stone[4] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);
@@ -397,20 +407,22 @@ if (string_counter = 0)
 	
 if (string_counter >= 1)
 {
-	text_string = ""
-	string_counter = 0;
-	obj_inventory.skill_stone[5] = obj_inventory.skill_stone[5] + 1;
+	scr_text_end();
 	_SubString = string_copy(text_string,1,letter_counter);
-	obj_game.gamePaused = false;
-	obj_game.textPaused = false;
+	obj_inventory.skill_stone[5] = obj_inventory.skill_stone[5] + 1;
+	//text_string = ""
+	//string_counter = 0;
+	//_SubString = string_copy(text_string,1,letter_counter);
+	//obj_game.gamePaused = false;
+	//obj_game.textPaused = false;
 
-	//Reset Buy/Sell Menu
-	page = 0;
-	slot = -1;
-	item_id = -1;
-	item_name = -1;
-	sell_price = 0;
-	buy_price = 0;
+	////Reset Buy/Sell Menu
+	//page = 0;
+	//slot = -1;
+	//item_id = -1;
+	//item_name = -1;
+	//sell_price = 0;
+	//buy_price = 0;
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);

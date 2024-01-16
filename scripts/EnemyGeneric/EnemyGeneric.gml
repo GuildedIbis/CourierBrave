@@ -564,6 +564,7 @@ if (_hits > 0)
 			{
 				if (invincible = false) and (dead = false)
 				{
+					scr_camera_screen_shake(1,5);
 					inv_dur_timer = 15;
 					damaged_timer = 300;
 					if (dmg_snd_delay <= 0)
@@ -627,6 +628,7 @@ if (_hits > 0)
 			{
 				if (invincible = false) and (dead = false)
 				{
+					scr_camera_screen_shake(1,5);
 					inv_dur_timer = 15;
 					damaged_timer = 300;
 					if (_azDur != -1) ablaze_dur_timer = _azDur;
@@ -705,6 +707,7 @@ if (_hits > 0)
 			{
 				if (invincible = false) and (dead = false)
 				{
+					scr_camera_screen_shake(1,5);
 					inv_dur_timer = 15;
 					damaged_timer = 300;
 					if (_azDur != -1) ablaze_dur_timer = _azDur;

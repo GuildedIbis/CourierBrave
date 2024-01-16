@@ -68,24 +68,26 @@ if (obj_inventory.quest_grid[# 10, 3] = false)
 	}
 	if (string_counter >= 2)
 	{
-		text_string = ""
-		string_counter = 0;
 		obj_inventory.quest_grid[# 10, 0] = true;
 		obj_inventory.quest_grid[# 10, 1] = 3;
 		obj_inventory.quest_grid[# 10, 3] = true;
 		obj_inventory.skill_stone_list[11] = true;
 		obj_inventory.skill_stone[4] = obj_inventory.skill_stone[4] + 1; //Green 2/12
+		scr_text_end();
 		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);
@@ -105,19 +107,20 @@ if (obj_inventory.quest_grid[# 10, 3] = true)
 
 	if (string_counter >= 1)
 	{
-		text_string = ""
-		string_counter = 0;
-		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
+		scr_text_end();
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
 	
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 	}
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);

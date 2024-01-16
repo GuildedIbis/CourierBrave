@@ -1290,6 +1290,7 @@
     {"name":"obj_effect_treeMolen","order":2,"path":"objects/obj_effect_treeMolen/obj_effect_treeMolen.yy",},
     {"name":"spr_enemy_eliteHunter_shoot","order":10,"path":"sprites/spr_enemy_eliteHunter_shoot/spr_enemy_eliteHunter_shoot.yy",},
     {"name":"spr_lighting_box2","order":4,"path":"sprites/spr_lighting_box2/spr_lighting_box2.yy",},
+    {"name":"TextScripts","order":10,"path":"scripts/TextScripts/TextScripts.yy",},
     {"name":"spr_kephraStone_infograph_08","order":15,"path":"sprites/spr_kephraStone_infograph_08/spr_kephraStone_infograph_08.yy",},
     {"name":"snd_regaliare_goldBullet","order":1,"path":"sounds/snd_regaliare_goldBullet/snd_regaliare_goldBullet.yy",},
     {"name":"spr_home_small","order":1,"path":"sprites/spr_home_small/spr_home_small.yy",},

@@ -135,7 +135,7 @@ mask_index = idle_sprite;
 //
 //
 //Attack Calculate Status
-function scr_player_attack_calculate_weapon(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc,_charge){
+function scr_player_attack_calculate_weapon(_hitbox,_hitBy,_kbDur = -1,_azDur = -1,_txDur = -1,_vsDur = -1,_wvDur = -1,_drainPerc = -1,_charge = -1,_shakeMag = -1,_shakeLen = -1){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -143,6 +143,7 @@ var _hitByAttack = ds_list_create();
 var _hits = instance_place_list(x,y,obj_entity,_hitByAttack,false);
 if (_hits > 0)
 {
+	
 	for (var i = 0; i < _hits; i = i + 1)
 	{
 		//If not yet hit, hit it
@@ -159,6 +160,10 @@ if (_hits > 0)
 						script_execute(hit_script); 
 						if (invincible = false) and (npc = false)
 						{
+							if (_shakeMag != -1) and (_shakeLen != -1)
+							{
+								scr_camera_screen_shake(_shakeMag,_shakeLen);
+							}
 							if (_azDur != -1) ablaze_dur_timer = _azDur;
 							if (_txDur != -1) thundux_dur_timer = _txDur;
 							if (_vsDur != -1) voidsick_dur_timer = _vsDur;

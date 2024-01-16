@@ -388,19 +388,21 @@ if (obj_inventory.quest_grid[# 0, 0] = true) and (page = 1)
 	}
 	if (string_counter >= 5)
 	{
-		text_script = Idle;
-		text_string = ""
-		string_counter = 0;
+		scr_text_end();
 		_SubString = string_copy(text_string,1,letter_counter);
-		obj_game.gamePaused = false;
-		obj_game.textPaused = false;
-		//Reset Buy/Sell Menu
-		page = 0;
-		slot = -1;
-		item_id = -1;
-		item_name = -1;
-		sell_price = 0;
-		buy_price = 0;
+		//text_script = Idle;
+		//text_string = ""
+		//string_counter = 0;
+		//_SubString = string_copy(text_string,1,letter_counter);
+		//obj_game.gamePaused = false;
+		//obj_game.textPaused = false;
+		////Reset Buy/Sell Menu
+		//page = 0;
+		//slot = -1;
+		//item_id = -1;
+		//item_name = -1;
+		//sell_price = 0;
+		//buy_price = 0;
 		
 	}
 	draw_set_color(c_white);

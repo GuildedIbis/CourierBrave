@@ -459,7 +459,7 @@ if (sprite_index != projectile_sprite)
 if (returning = false)
 {
 	return_timer = return_timer - 1;
-	scr_player_attack_calculate_weapon(projectile_sprite,self,10,-1,-1,-1,-1,-1,3);
+	scr_player_attack_calculate_weapon(projectile_sprite,self,10,-1,-1,-1,-1,-1,3,-1,-1);
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
@@ -487,7 +487,7 @@ if (returning = true)
 	if (place_meeting(x,y,obj_enemy)) 
 	{
 	
-		scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,3);
+		scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,3,-1,-1);
 		returning = true;
 	}
 }
@@ -571,6 +571,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
+	scr_camera_screen_shake(1,3);
 	blue_primary = blue_primary - 4;
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
@@ -722,6 +723,7 @@ scr_player_projectile_spawn();
 if (magic_timer <= 0)
 {	
 	blue_primary = blue_primary - 4;
+	scr_camera_screen_shake(1,3);
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
@@ -865,6 +867,7 @@ scr_player_projectile_spawn();
 //Create Bullet at end timer - timer is length of weapon sprite animation
 if (magic_timer <= 0)
 {	
+	scr_camera_screen_shake(2,8);
 	blue_special = blue_special - 40;
 	if (obj_inventory.form_grid[# 3, 8] = true)
 	{
