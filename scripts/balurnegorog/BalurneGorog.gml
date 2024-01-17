@@ -184,6 +184,10 @@ if (obj_game.gamePaused = false)
 		animation_end = false;
 	}
 }
+else
+{
+	path_end();
+}
 }
 //
 //

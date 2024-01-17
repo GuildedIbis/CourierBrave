@@ -66,37 +66,7 @@ if (knockback = false)
 }
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 16;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 8;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(16,true,true,true,true,-1);
 
 //Movement 2: Collision
 scr_player_collision();
@@ -137,6 +107,8 @@ if (key_attackM)
 		{
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
+			base_spread = 12;
+			projectile_spread = 12;
 		}
 		if (magic_primary = false) and (purple_primary >= 25)
 		{
@@ -213,8 +185,9 @@ attacking = true;
 casting = false;
 damage = 20;
 
-//Standard Timers
-//scr_player_recharge(false,false,true,false,false,false);
+
+///Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,-1);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -222,14 +195,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_adavio_hookThrust,0,0);
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 
 //Custom Timer
 if (timer1 > 0) timer1 = timer1 - 1; 
@@ -376,39 +342,8 @@ else
 attacking = true;
 casting = true;
 
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) //Roll Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 
 //Movement 1: Speed
@@ -564,38 +499,8 @@ else
 attacking = true;
 casting = true;
 
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 
 //Movement 1: Speed
@@ -735,35 +640,9 @@ if (place_meeting(x,y,break_object))
 function scr_player_adavio_riftCrush_cast(){
 //
 //Timers
-//Standard Timers
-//scr_player_recharge(false,false,true,false,false,false);
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(-1,true,true,true,false,-1);
+
 
 
 //Movement 1: Speed
@@ -867,38 +746,9 @@ function scr_player_adavio_riftCrush_drop(){
 //Standard Timers
 inv_dur_timer = 30;
 invincible = true;
-//scr_player_recharge(false,false,true,false,false,false);
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-if (special_timer > 0)//Time for special affects
-{
-	special_timer = special_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(-1,true,true,true,true,-1);
+
 speed = 0;
 hor_spd = 0;
 ver_spd = 0;

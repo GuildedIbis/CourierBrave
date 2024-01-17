@@ -27,6 +27,8 @@ weapon_count = -1;
 max_weapon_count = -1;
 magic_timer = 0;
 attack_counter = 0;
+base_spread = 0;
+projectile_spread = 0;
 max_attack_counter = 0;
 walk_spd = 1.25;
 special_count = -1;
@@ -59,37 +61,7 @@ if (knockback = false)
 }
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 16;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 8;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Weapon time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(16,true,true,true,true,base_spread);
 
 
 //Movement 2: Collision
@@ -249,12 +221,10 @@ if (keyboard_check_pressed(ord("Z")))
 function scr_player_evarel_daggerToss(){
 //Set
 attacking = true;
-//damage = 19;//+ (9 * obj_player.might) + (7 * obj_inventory.form_grid[# 4, 5]);
-//invincible = true;
-//inv_dur_timer = 5;
+
 
 //Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
+scr_player_standard_timers(-1,false,true,true,true,-1);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -262,18 +232,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1; 
-}
-if (weapon_timer > 0)
-{
-	weapon_timer = weapon_timer - 1;
-}
-if (timer1 > 0)
-{
-	timer1 = timer1 - 1;
-}
+
 
 //Attack Start
 if (sprite_index != spr_player_evarel_daggerToss)
@@ -408,7 +367,7 @@ invincible = true;
 inv_dur_timer = 5;
 
 //Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
+scr_player_standard_timers(-1,false,true,true,true,-1);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -416,14 +375,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1; 
-}
-if (weapon_timer > 0)
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 
 //Attack Start
 if (sprite_index != spr_player_evarel_daggerDash)
@@ -482,37 +434,7 @@ attacking = true;
 casting = true;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
 timer1 = timer1 + 1;
 
 //Movement 1: Speed
@@ -647,37 +569,7 @@ attacking = true;
 casting = true;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 //Movement 1: Speed
 if (knockback = false)
@@ -825,7 +717,7 @@ function scr_player_evarel_thornrise(){
 attacking = true;
 
 //Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
+scr_player_standard_timers(-1,true,true,true,false,-1);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -833,15 +725,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0)
 	atk_snd_delay = 20;
 }
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 
 //Initiate Attack
 if (sprite_index != spr_player_evarel_thornrise_cast)

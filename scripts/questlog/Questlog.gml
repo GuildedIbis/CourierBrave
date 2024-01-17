@@ -358,8 +358,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "Inimar the Endire Knight";
-var _text = "Defeat Inimar the Endire Knight.\n\nThe Endire Knights travel the land doing the bidding\nof the Beetra Throne, no matter who sits upon it.";
+var _headerText = "Captain Inimar";
+var _text = "Defeat Inimar the Endire Knight.\n\nThe Endire Knights travel the land\ndoing the bidding of the Beetra Throne,\nno matter who sits upon it.";
 
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);

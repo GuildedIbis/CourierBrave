@@ -35,6 +35,8 @@ else
 	max_weapon_count = 2;
 }
 weapon_cycle = 3;
+base_spread = 6;
+projectile_spread = 6;
 magic_timer = 0;
 melee_timer = 0;
 walk_spd = 1.25;
@@ -66,37 +68,7 @@ if (knockback = false)
 }
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 16;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 8;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(16,true,true,true,true,base_spread);
 
 //Movement 2: Collision
 scr_player_collision();
@@ -146,12 +118,16 @@ if (key_attackM)
 		{
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
+			base_spread = 6;
+			projectile_spread = 6;
 		}
 		//Dynorb
 		if (magic_primary = false) and (blue_primary >= 4)
 		{
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
+			base_spread = 0;
+			projectile_spread = 0;
 		}
 	}
 
@@ -187,12 +163,16 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 3, 7] = tru
 		magic_primary = false;
 		attack_script = magicA_script;
 		primary_cost = 4;
+		projectile_spread = 0;
+		base_spread = 0;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
 		primary_cost = 4;
+		projectile_spread = 6;
+		base_spread = 6;
 	}
 }
 
@@ -223,15 +203,8 @@ casting = false;
 damage = 10;
 
 
-//Standard Timers
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,-1);
 
 //Attack Start
 if (sprite_index != spr_player_ceriver_boomerangThrow)
@@ -510,38 +483,8 @@ walk_spd = 1.0;
 attacking = true;
 casting = true;
 
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 
 //Movement 1: Speed
@@ -573,8 +516,13 @@ if (magic_timer <= 0)
 {	
 	scr_camera_screen_shake(1,3);
 	blue_primary = blue_primary - 4;
+	if (projectile_spread < 12)
+	{
+		projectile_spread = projectile_spread + 1;
+	}
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
+		projectile_spread = other.projectile_spread;
 		audio_sound_gain(snd_ceriver_dynorb,global.volumeEffects,1);
 		audio_play_sound(snd_ceriver_dynorb,0,0);
 		var _bubbleRand = irandom_range(0,3);
@@ -592,7 +540,7 @@ if (magic_timer <= 0)
 		image_speed = 0;
 		hit_by_attack = -1;
 		speed = projectile_speed;
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-12,12);
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-projectile_spread,projectile_spread);
 		image_angle = direction;
 	}
 	magic_timer = 5;
@@ -662,38 +610,8 @@ walk_spd = 1.0;
 attacking = true;
 casting = true;
 
-//Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 
 //Movement 1: Speed
@@ -810,35 +728,8 @@ walk_spd = 1.0;
 attacking = true;
 casting = true;
 
-//Standard Timers
-//scr_player_recharge(false,false,false,true,false,false);
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,false,-1);
 
 
 //Movement 1: Speed
@@ -1083,7 +974,11 @@ curs_form = 3;
 //Move toward variables set to player XY
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
-if (obj_player.magic_primary = true) spread = 2;
+if (obj_player.magic_primary = true)
+{
+	var _plyrSpread = 6 - ((obj_player.projectile_spread - 6) * 1);
+	spread = max(2,_plyrSpread);
+}
 if (obj_player.magic_primary = false) spread = 24;
 if (obj_game.gamePaused = false)
 {

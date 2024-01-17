@@ -25,6 +25,8 @@ obj_cursor.curs_script = scr_cursor_halofire;
 
 //Dynamic Variables
 weapon_count = -1;
+base_spread = 2;
+projectile_spread = 6;
 max_weapon_count = -1;
 magic_timer = 0;
 attack_counter = 0;
@@ -61,37 +63,8 @@ if (knockback = false)
 }
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 16;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 8;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Weapon time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(16,true,true,true,true,base_spread);
+
 
 //Movement 2: Collision
 scr_player_collision();
@@ -131,11 +104,15 @@ if (key_attackM)
 		{
 			attack_script = magicP_script;
 			state_script = scr_player_attack;
+			projectile_spread = 2;
+			base_spread = 2;
 		}
 		if (magic_primary = false) and (orange_primary >= 4)
 		{
 			attack_script = magicA_script;
 			state_script = scr_player_attack;
+			projectile_spread = 12;
+			base_spread = 12;
 		}
 	}
 }
@@ -175,14 +152,6 @@ if (key_ability) and (stamina >= _staminaCost)
 }
 
 
-//crystal Stone State
-//if (keyboard_check_pressed(ord("C"))) and (crystal_use[crystal_selected] = false)
-//{
-//	var _crystalID = crystal_ary[crystal_selected];
-//	audio_sound_gain(snd_player_crystal,global.volumeEffects,1);
-//	audio_play_sound(snd_player_crystal,0,false);
-//	state_script = obj_inventory.crystal_script[_crystalID];
-//}
 
 //Switch Magic Fire
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 1, 7] = true)
@@ -192,12 +161,16 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 1, 7] = tru
 		magic_primary = false;
 		attack_script = magicA_script;
 		primary_cost = 4;
+		base_spread = 12;
+		projectile_spread = 12;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
 		primary_cost = 16;
+		base_spread = 2;
+		projectile_spread = 2;
 	}
 }
 
@@ -233,7 +206,8 @@ if (obj_inventory.form_grid[# 1, 5] = true)
 }
 else damage = 38;
 
-//Stamdard Timers
+///Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -242,14 +216,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Weapon time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 
 //Attack Start
 if (sprite_index != spr_player_halofire_hamaxe)
@@ -316,25 +283,7 @@ attacking = true;
 walk_spd = .75;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Weapon time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
-
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 
 //Switch to charged state
 if (weapon_timer <= 0)
@@ -383,24 +332,7 @@ attacking = true;
 walk_spd = .75;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 15;
-		audio_sound_gain(walk_snd,global.volumeEffects,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Weapon time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 
 //Movement 1: Set
 hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
@@ -449,6 +381,7 @@ if (obj_inventory.form_grid[# 1, 5] = true)
 else damage = 38;
 
 //Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -456,14 +389,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 
 
 //Attack Start
@@ -519,20 +445,13 @@ else damage = 38;
 if (timer1 > 0) timer1 = timer1 - 1;
 
 //Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	audio_play_sound(snd_halofire_hamaxe_slash,0,0,global.volumeEffects)
 	atk_snd_delay = 28;
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
@@ -611,39 +530,12 @@ function scr_player_halofire_meteorSling(){
 walk_spd = 1.0;
 attacking = true;
 casting = true;
+base_spread = 2;
+
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
+
 
 //Movement 1: Speed
 if (knockback = false)
@@ -674,8 +566,13 @@ if (magic_timer <= 0)
 {
 	scr_camera_screen_shake(1,5);
 	orange_primary = orange_primary - 18;
+	if (projectile_spread < 12)
+	{
+		projectile_spread = projectile_spread + 2;
+	}
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
+		projectile_spread = other.projectile_spread;
 		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
@@ -689,7 +586,7 @@ if (magic_timer <= 0)
 		projectile_script = scr_projectile_meteor;
 		idle_sprite = spr_meteor;
 		hit_by_attack = -1;
-		direction = irandom_range(-8,8) + (point_direction(x,y,mouse_x,mouse_y));
+		direction = irandom_range(-projectile_spread,projectile_spread) + (point_direction(x,y,mouse_x,mouse_y));
 		if (direction < 135) and (direction > 45)
 		{
 			inv_timer = 0;
@@ -698,20 +595,26 @@ if (magic_timer <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
-	magic_timer = 25;
 }
 
 //Animate
 scr_player_animation_cast();
 
 //Reset or return to free sate
-if (mouse_check_button(mb_left) = false) or (orange_primary < 18)
+if (magic_timer <= 0)
 {
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
+	if (mouse_check_button(mb_left) = false) or (orange_primary < 18)
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
+	else
+	{
+		magic_timer = 25;
+	}
 }
 }
 //
@@ -727,37 +630,7 @@ attacking = true;
 casting = true;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
 
 //Movement 1: Speed
 if (knockback = false)
@@ -945,29 +818,13 @@ function scr_player_halofire_flamecore(){
 attacking = true;
 
 //Standard Timers
+scr_player_standard_timers(-1,true,true,true,true,base_spread);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	audio_sound_gain(snd_halofire_flamecore,global.volumeEffects,1);
 	audio_play_sound(snd_halofire_flamecore,0,0,global.volumeEffects);
 	atk_snd_delay = 20;
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between projectiles
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0) //Melee time between attacks
-{
-	weapon_timer = weapon_timer - 1;
 }
 
 //Attack Start
@@ -1208,6 +1065,15 @@ if (timer1 <= 0)
 function scr_cursor_halofire(){
 //cursPlay_sprite = spr_cursor_play;
 //sprite_index = cursPlay_sprite;
+//projectile_spread = spread
+//22 = 1.5 //Adavio Shotgun
+//12 = 2 //Ceriver Polyorb
+//10 = 3 //Gold Burst Max
+//7 = 5 //Heavy Burst Max
+//6 = 6 
+//4 = 10
+//2 = 12 //Halofire Meteor Base
+//0 = 24
 image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
@@ -1217,8 +1083,15 @@ curs_form = 1;
 x = x + (follow_x - x) / 15;
 y = y + (follow_y - y) / 15;
 
-if (obj_player.magic_primary = true) spread = 4;
-if (obj_player.magic_primary = false) spread = 4;
+if (obj_player.magic_primary = true)
+{
+	var _plyrSpread = 12 - ((obj_player.projectile_spread - 2) * 2);
+	spread = max(2,_plyrSpread);
+}
+if (obj_player.magic_primary = false) 
+{
+	spread = 4;
+}
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);

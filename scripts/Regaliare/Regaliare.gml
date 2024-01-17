@@ -35,6 +35,7 @@ primary_cost = 6;
 special_cost = 100;
 special_timer = 0;
 overshield = 0;
+base_spread = 4;
 projectile_spread = 4;
 projectile_spread_timer = 30;
 }
@@ -58,33 +59,8 @@ if (knockback = false)
 }
 
 //Standard Timers
-scr_player_standard_timers(16,true,true,true,true,4);
+scr_player_standard_timers(16,true,true,true,true,base_spread);
 
-//if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-//{
-//	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-//	if (stamina_timer <= 0) 
-//	{
-//		stamina_timer = 3;
-//		stamina = stamina + 1;
-//	}
-//}
-//if (magic_timer > 0) //Magic time between shots
-//{
-//	magic_timer = magic_timer - 1;
-//}
-//if (weapon_timer > 0)
-//{
-//	weapon_timer = weapon_timer - 1;
-//}
-//if (special_timer > 0)
-//{
-//	special_timer = special_timer - 1;
-//}
-//if (projectile_spread > 4)
-//{
-//	projectile_spread = projectile_spread * .9;
-//}
 
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
@@ -130,6 +106,7 @@ if (key_attackM)
 		if (magic_primary = true) and (yellow_primary >= 5)
 		{
 			attack_script = magicP_script;
+			base_spread = 4;
 			projectile_spread = 4;
 			projectile_spread_timer = 30;
 			state_script = scr_player_attack;
@@ -137,6 +114,8 @@ if (key_attackM)
 		if (magic_primary = false) and (yellow_primary >= 10)
 		{
 			attack_script = magicA_script;
+			base_spread = 4;
+			projectile_spread = 4;
 			state_script = scr_player_attack;
 		}
 	}
@@ -174,12 +153,14 @@ if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 0, 7] = tru
 		magic_primary = false;
 		attack_script = magicA_script;
 		primary_cost = 10;
+		base_spread = 4;
 	}
 	else
 	{
 		magic_primary = true;
 		attack_script = magicP_script;
 		primary_cost = 5;
+		base_spread = 4;
 	}
 }
 
@@ -208,7 +189,7 @@ attacking = true;
 damage = 30;//+ (7 * might) + (8 * obj_inventory.form_grid[# 0, 5]);
 
 //Standard Timers
-scr_player_standard_timers(-1,false,true,true,true,4);
+scr_player_standard_timers(-1,false,true,true,true,base_spread);
 
 //Special Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
@@ -314,18 +295,6 @@ if (atk_snd_delay <= 0)
 }
 weapon_charge = weapon_charge + 1;
 
-//if (magic_timer > 0) //Magic time between shots
-//{
-//	magic_timer = magic_timer - 1; 
-//}
-//if (weapon_timer > 0)
-//{
-//	weapon_timer = weapon_timer - 1;
-//}
-//if (special_timer > 0)
-//{
-//	special_timer = special_timer - 1;
-//}
 
 
 //Armor Skill (Overshield)
@@ -390,24 +359,16 @@ attacking = true;
 damage = 30 + round(weapon_charge/3);
 
 //Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,4);
+
+//Special Timers
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
 	audio_play_sound(snd_regaliare_regalBlade,0,0,global.volumeEffects);
 	atk_snd_delay = 28;
 }
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1; 
-}
-if (weapon_timer > 0)
-{
-	weapon_timer = weapon_timer - 1;
-}
-if (special_timer > 0)
-{
-	special_timer = special_timer - 1;
-}
+
 
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
@@ -455,47 +416,15 @@ function scr_player_regaliare_goldBurst(){
 walk_spd = 1.0;
 attacking = true;
 casting = true;
+base_spread = 4;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-if (special_timer > 0)
-{
-	special_timer = special_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
 if (projectile_spread_timer > 0)
 {
 	projectile_spread_timer = projectile_spread_timer - 1;
 }
+
 
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
@@ -622,43 +551,11 @@ function scr_player_regaliare_heavyBurst(){
 walk_spd = 1.0;
 attacking = true;
 casting = true;
+base_spread = 4;
 
 //Standard Timers
-if (hor_spd != 0) or (ver_spd != 0) //Walk Audio
-{
-	walk_snd_delay = walk_snd_delay - 1;
-	if (walk_snd_delay <= 0)
-	{
-		walk_snd_delay = 20;
-		audio_sound_gain(walk_snd,global.volumeEffects * .75,1);
-		audio_play_sound(walk_snd,1,false);
-	}
-}
-if (hor_spd = 0) and (ver_spd = 0)
-{
-	walk_snd_delay = 10;	
-}
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
-if (special_timer > 0)
-{
-	special_timer = special_timer - 1;
-}
+scr_player_standard_timers(20,true,true,true,true,-1);
+
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
 {
@@ -694,9 +591,13 @@ if (magic_timer <= 0)
 {	
 	yellow_primary = yellow_primary - 10;
 	scr_camera_screen_shake(1.5,5);
+	if (projectile_spread < 7)
+	{
+		projectile_spread  = projectile_spread + 1;
+	}
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
-		//audio_sound_gain(snd_regaliare_goldBullet,global.volumeEffects,1);
+		projectile_spread = other.projectile_spread;
 		audio_play_sound(snd_regaliare_goldBullet,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
@@ -708,7 +609,7 @@ if (magic_timer <= 0)
 		projectile_script = scr_projectile_heavyBurst;
 		idle_sprite = spr_heavyBullet;
 		hit_by_attack = -1;
-		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-6,6);
+		direction = point_direction(x,y,mouse_x,mouse_y) + irandom_range(-projectile_spread,projectile_spread);
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
@@ -756,7 +657,7 @@ if (sprite_index != projectile_sprite)
 //Collision
 if (place_meeting(x,y,obj_interactable)) 
 {
-	scr_player_attack_calculate_magic(projectile_sprite,self,5,-1,-1,-1,-1,-1,2);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,-1,2);
 }
 if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
@@ -776,6 +677,7 @@ function scr_player_regaliare_goldArcs(){
 attacking = true;
 
 //Standard Timers
+scr_player_standard_timers(-1,true,true,true,false,-1);
 if (atk_snd_delay > 0) atk_snd_delay = atk_snd_delay -1;
 if (atk_snd_delay <= 0)
 {
@@ -783,23 +685,7 @@ if (atk_snd_delay <= 0)
 	audio_play_sound(snd_slash01,0,0)
 	atk_snd_delay = 20;
 }
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (weapon_timer > 0)//Time between weapon uses
-{
-	weapon_timer = weapon_timer - 1;
-}
+
 //Armor Skill (Overshield)
 if (obj_inventory.form_grid[# 0, 5] = true)
 {
@@ -929,7 +815,11 @@ if (obj_player.magic_primary = true)
 	var _plyrSpread = 10 - ((obj_player.projectile_spread - 4) * 1.6);
 	spread = max(3,_plyrSpread);
 }
-if (obj_player.magic_primary = false) spread = 6;
+if (obj_player.magic_primary = false) 
+{
+	var _plyrSpread = 10 - ((obj_player.projectile_spread - 4) * 2);
+	spread = max(5,_plyrSpread);
+}
 if (obj_game.gamePaused = false)
 {
 	var _xClampF = clamp(window_mouse_get_x(),16,window_get_width()-32);

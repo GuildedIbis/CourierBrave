@@ -398,7 +398,7 @@ if (obj_game.gamePaused = false)
 			{
 				//var _xDest = x + (lengthdir_x(1,point_direction(x,y,obj_player.x,obj_player.y)))
 				//var _yDest = y + (lengthdir_y(1,point_direction(x,y,obj_player.x,obj_player.y)))
-				if (point_in_circle(obj_player.x, obj_player.y,x,y,4))
+				if (point_in_circle(obj_player.x, obj_player.y,x,y,10))
 				{
 					speed = 0;
 				}
