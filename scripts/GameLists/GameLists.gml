@@ -52,7 +52,7 @@ room_ary = farwayRoad_map_ary;
 
 
 //Levels Unlocked
-level_ary[0] = true;
+level_ary[0] = false;
 level_ary[1] = false;
 level_ary[2] = false;
 level_ary[3] = false;

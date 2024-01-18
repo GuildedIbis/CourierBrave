@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_menu",
+  "name": "snd_halofire_flamecore_explode",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -12,12 +12,12 @@
   "conversionMode": 0,
   "duration": 3.2,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sounds/Menu.yy",
+    "name": "Halofire",
+    "path": "folders/Sounds/Player/Halofire.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_menu.wav",
+  "soundFile": "snd_halofire_flamecore_explode.wav",
   "type": 0,
   "volume": 1.0,
 }

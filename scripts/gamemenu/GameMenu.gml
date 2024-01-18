@@ -236,7 +236,7 @@ if (obj_game.time_played > 0)
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_1();
 				scr_player_reset();
-				crull_ary[0] = 0;
+				//crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
 				room_goto(global.lastAltar);
 				obj_player.x = global.lastAltarX;
@@ -286,7 +286,7 @@ if (obj_game.time_played > 0)
 					state_script = scr_player_scene_00;
 					scene_script = scr_player_scene_00_text;
 					timer1 = 0;
-					crull_ary[0] = 0;
+					//crull_ary[0] = 0;
 					x = 144;
 					y = 160;
 					image_speed = 1;
@@ -336,7 +336,7 @@ else
 				state_script = scr_player_scene_00;
 				scene_script = scr_player_scene_00_text;
 				timer1 = 0;
-				crull_ary[0] = 0;
+				//crull_ary[0] = 0;
 				x = 144;
 				y = 160;
 				image_speed = 1;
@@ -373,7 +373,7 @@ if (obj_game.time_played2 > 0)
 				instance_create_layer(x,y,"Instances",obj_player);
 				scr_game_load_2();
 				scr_player_reset();
-				crull_ary[0] = 0;
+				//crull_ary[0] = 0;
 				obj_player.hp = obj_player.max_hp;
 				room_goto(global.lastAltar);
 				obj_player.x = global.lastAltarX;
@@ -421,7 +421,7 @@ if (obj_game.time_played2 > 0)
 					image_index = 3;
 					state_script = scr_player_scene_00;
 					scene_script = scr_player_scene_00_text;
-					crull_ary[0] = 0;
+					//crull_ary[0] = 0;
 					timer1 = 0;
 					x = 144;
 					y = 160;

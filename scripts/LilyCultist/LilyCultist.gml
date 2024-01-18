@@ -428,7 +428,7 @@ if (obj_game.gamePaused = false)
 				//sprite_index = enemy_idle;
 			}
 			path = path_add();
-			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			mp_potential_path_object(path, _xDest, _yDest, 1, 4, obj_entity);
 			path_start(path, enemy_spd, 0, 0);
 			image_speed = 1;
 			sprite_index = enemy_move;

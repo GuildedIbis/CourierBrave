@@ -573,7 +573,7 @@ if (magic_timer <= 0)
 	with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 	{
 		projectile_spread = other.projectile_spread;
-		audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
+		//audio_sound_gain(snd_halofire_meteor,global.volumeEffects,1);
 		audio_play_sound(snd_halofire_meteor,0,0,global.volumeEffects);
 		break_object = obj_player.break_object;
 		magic = true;
@@ -595,26 +595,20 @@ if (magic_timer <= 0)
 		image_angle = direction;
 		projectile_speed = 4.0;
 	}
+	magic_timer = 25;
 }
 
 //Animate
 scr_player_animation_cast();
 
 //Reset or return to free sate
-if (magic_timer <= 0)
+if (mouse_check_button(mb_left) = false) or (orange_primary < 18)
 {
-	if (mouse_check_button(mb_left) = false) or (orange_primary < 18)
-	{
-		attacking = false;
-		state_script = free_state;
-		damage = 0;
-		animation_end = false;
-		atk_snd_delay = 0;
-	}
-	else
-	{
-		magic_timer = 25;
-	}
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
 }
 }
 //
@@ -981,6 +975,8 @@ if (timer1 <= 0)
 {
 	if (obj_inventory.form_grid[# 1, 8] = true)
 	{
+
+		audio_play_sound(snd_halofire_flamecore_explode,0,0,global.volumeEffects);
 		with (instance_create_layer(x,y,"Instances",obj_projectile))
 		{
 			projectile_script = scr_projectile_flamecore_healblast;

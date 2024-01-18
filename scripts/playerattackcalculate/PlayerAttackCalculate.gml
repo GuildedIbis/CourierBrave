@@ -85,6 +85,7 @@ if (_hits > 0)
 							if (_wvDur != -1) watervice_dur_timer = _wvDur;
 							if (_drainPerc != -1) 
 							{
+								audio_play_sound(snd_status_healed,0,0,global.volumeEffects);
 								obj_player.heal = true;
 								obj_player.heal_dur_timer = 60;
 								obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
@@ -170,6 +171,7 @@ if (_hits > 0)
 							if (_wvDur != -1) watervice_dur_timer = _wvDur;
 							if (_drainPerc != -1)
 							{
+								audio_play_sound(snd_status_healed,0,0,global.volumeEffects);
 								obj_player.heal = true;
 								obj_player.heal_dur_timer = 60;
 								obj_player.hp = min(obj_player.max_hp,obj_player.hp + round(other.damage * _drainPerc));
@@ -296,6 +298,7 @@ if (_hits > 0)
 			ds_list_add(hit_by_attack,_hitID);
 			with (_hitID)
 			{
+				
 				heal = true;
 				heal_dur_timer = 60;
 				hp = hp + _heal;

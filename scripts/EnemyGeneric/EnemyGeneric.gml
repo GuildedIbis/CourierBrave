@@ -67,7 +67,7 @@ if (knockback = false)
 	//Chase: create and execute a path towards player
 	if (path_exists(path)) path_delete(path);
 	path = path_add();
-	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_entity);
 	path_start(path, enemy_spd, 0, 0);
 	image_speed = 1;
 	sprite_index = enemy_move;
@@ -86,7 +86,7 @@ if (knockback = false)
 	//Chase: create and execute a path towards player
 	if (path_exists(path)) path_delete(path);
 	path = path_add();
-	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_interactable);
+	mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_interactable);
 	path_start(path, enemy_spd, 0, 0);
 	image_speed = 1;
 	sprite_index = enemy_move;
@@ -104,7 +104,7 @@ function scr_enemy_chase_escort(){
 //Chase: create and execute a path towards player
 if (path_exists(path)) path_delete(path);
 path = path_add();
-mp_potential_path_object(path, obj_escort.x, obj_escort.y, 1, 2, obj_entity);
+mp_potential_path_object(path, obj_escort.x, obj_escort.y, 1, 4, obj_entity);
 path_start(path, enemy_spd, 0, 0);
 image_speed = 1;
 sprite_index = enemy_move;
@@ -125,7 +125,7 @@ if (knockback = false)
 	{
 		if (path_exists(path)) path_delete(path);
 		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_wall);
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_wall);
 		path_start(path, _spd, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;
@@ -134,7 +134,7 @@ if (knockback = false)
 	{
 		if (path_exists(path)) path_delete(path);
 		path = path_add();
-		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 2, obj_entity);
+		mp_potential_path_object(path, obj_player.x, obj_player.y, 1, 4, obj_entity);
 		path_start(path, _spd, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;
@@ -219,71 +219,75 @@ if (timerC > 0)
 	{
 		var _xDest = x + (hor_spd * (enemy_spd/2))
 		var _yDest = y + (ver_spd * (enemy_spd/2))
+		if (place_meeting(_xDest, _yDest,obj_entity))
+		{
+			hor_spd = -hor_spd;
+			ver_spd = -ver_spd;
+			//sprite_index = enemy_idle;
+		}
 		if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
 		{
 			hor_spd = -hor_spd;
 			ver_spd = -ver_spd;
 		}
-		direction = point_direction(x,y,_xDest,_yDest);
+		path = path_add();
+		mp_potential_path_object(path, _xDest, _yDest, 1, 4, obj_entity);
+		path_start(path, enemy_spd, 0, 0);
 		image_speed = 1;
 		sprite_index = enemy_move;
 	}
-	//else 
+
+
+	////Horizontal Entities
+	//var _entityCount = instance_position_list(x+hor_spd, y, obj_entity, _entityList,false);
+	//var _snapX;
+	//while (_entityCount > 0)
 	//{
-	//	sprite_index = enemy_idle;
+	//	var _entityCheck = _entityList[| 0];
+	//	if (_entityCheck.collision == true)
+	//	{
+	//		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right+1;
+	//		else _snapX = _entityCheck.bbox_left - 1;
+	//		x = _snapX;
+	//		hor_spd = -hor_spd;
+	//		ver_spd = -ver_spd;
+	//		_collision = true;
+	//		_entityCount = 0;
+	//	}
+	//	ds_list_delete(_entityList,0);
+	//	_entityCount = _entityCount - 1;
 	//}
 
-
-	//Horizontal Entities
-	var _entityCount = instance_position_list(x+hor_spd, y, obj_entity, _entityList,false);
-	var _snapX;
-	while (_entityCount > 0)
-	{
-		var _entityCheck = _entityList[| 0];
-		if (_entityCheck.collision == true)
-		{
-			if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right+1;
-			else _snapX = _entityCheck.bbox_left - 1;
-			x = _snapX;
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			_collision = true;
-			_entityCount = 0;
-		}
-		ds_list_delete(_entityList,0);
-		_entityCount = _entityCount - 1;
-	}
-
-	//Horizontal Move
-	x += hor_spd;
+	////Horizontal Move
+	//x += hor_spd;
 
 
-	//Clear List Between Axis
-	ds_list_clear(_entityList);
+	////Clear List Between Axis
+	//ds_list_clear(_entityList);
 
 
 	//Vertical Entity Collision
-	var _entityCount = instance_position_list(x, y + ver_spd, obj_entity, _entityList,false);
-	var _snapY;
-	while (_entityCount > 0)
-	{
-		var _entityCheck = _entityList[| 0];
-		if (_entityCheck.collision == true)
-		{
-			if (sign(ver_spd) == -1) _snapY = _entityCheck.bbox_bottom+1;
-			else _snapY = _entityCheck.bbox_top - 1;
-			y = _snapY;
-			hor_spd = -hor_spd;
-			ver_spd = -ver_spd;
-			_collision = true;
-			_entityCount = 0;
-		}
-		ds_list_delete(_entityList,0);
-		_entityCount = _entityCount - 1;
-	}
+	//var _entityCount = instance_position_list(x, y + ver_spd, obj_entity, _entityList,false);
+	//var _snapY;
+	//while (_entityCount > 0)
+	//{
+	//	var _entityCheck = _entityList[| 0];
+	//	if (_entityCheck.collision == true)
+	//	{
+	//		if (sign(ver_spd) == -1) _snapY = _entityCheck.bbox_bottom+1;
+	//		else _snapY = _entityCheck.bbox_top - 1;
+	//		y = _snapY;
+	//		hor_spd = -hor_spd;
+	//		ver_spd = -ver_spd;
+	//		_collision = true;
+	//		_entityCount = 0;
+	//	}
+	//	ds_list_delete(_entityList,0);
+	//	_entityCount = _entityCount - 1;
+	//}
 
-	//Vertical Move
-	y += ver_spd;
+	////Vertical Move
+	//y += ver_spd;
 }
 else 
 {
