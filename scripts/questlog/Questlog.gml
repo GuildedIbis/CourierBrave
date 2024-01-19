@@ -418,7 +418,26 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Late for Dinner";
-var _text = "Fairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
+switch(obj_inventory.quest_grid[# 10, 1])
+{
+	case 0:
+		var _text = "Look for red crystals.\n\nFairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
+	break;
+	
+	case 1:
+		var _text = "Figure out what destroying the\ncrystals did.\n\nFairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
+	break;
+	
+	case 2:
+		var _text = "Talk to Fairez.\n\nFairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
+	break;
+	
+	case 3:
+		var _text = "Fairez left for Habraf Lake and never\ncame back... Something about red\ncrystals she saw there.";
+	break;
+	
+	
+}
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 
@@ -543,7 +562,7 @@ var _descY = 56;
 var _compY = 111;
 
 var _headerText = "Troll Tortoise";
-var _text = "Defeat the Troll Tortoise.\n\nThought once to be extinct, Troll's have\nlong been hunted for as creatures of\nevil. Even without any training or\nenchanted weapons they are dangerous by nature."
+var _text = "Defeat the Troll Tortoise.\n\nThought once to be extinct, Troll's have\nlong been hunted for as creatures of\nevil. Even without any training or\nenchanted weapons they are dangerous\nby nature."
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

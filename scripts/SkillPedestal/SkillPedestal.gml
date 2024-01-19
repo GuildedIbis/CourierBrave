@@ -96,12 +96,13 @@ pedestal_index = 5;
 //
 //Skill Stone Pedestal Step
 function scr_pedestal_skill_step(){
-scr_npc_interact_skill_pedestal(12);
+
 if (obj_inventory.skill_stone_list[activate_args] = false)
 {
-		sprite_index = active_sprite;
-		image_speed = 0;
-		image_index = pedestal_index;
+	scr_npc_interact_skill_pedestal(12);
+	sprite_index = active_sprite;
+	image_speed = 0;
+	image_index = pedestal_index;
 }
 else
 {

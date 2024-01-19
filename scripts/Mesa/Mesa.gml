@@ -181,7 +181,7 @@ if (obj_inventory.quest_grid[# 2, 1] = 1)
 	}
 	if (string_counter >= 1)
 	{
-		scr_text_end();
+		scr_text_end(false);
 		_SubString = string_copy(text_string,1,letter_counter);
 		//text_string = ""
 		//string_counter = 0;
@@ -265,7 +265,7 @@ if (obj_inventory.quest_grid[# 2, 1] >= 5)
 	if (string_counter = 0)
 	{
 		speaker = 1;
-		text_string = "Kovalad's polish has Thurn's necklace\nshining brilliantly!\nThanks again Courier!" 
+		text_string = "Kovalad's polish has Thurn's necklace shining\nbrilliantly! Thanks again Courier!" 
 		_SubString = string_copy(text_string,1,letter_counter);
 	}
 	if (string_counter >= 1)

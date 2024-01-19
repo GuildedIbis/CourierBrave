@@ -7,7 +7,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 {
 	//show_debug_message(string(obj_player.break_object))
 	//obj_inventory.quest_grid[# 16, 0] = false;
-	//obj_inventory.quest_grid[# 16, 1] = 0;
+	//obj_inventory.quest_grid[# 2, 1] = 5;
 	//obj_inventory.quest_grid[# 16, 3] = false;
 	if (locked = false) and (global.aggroCounter <= 0)
 	{

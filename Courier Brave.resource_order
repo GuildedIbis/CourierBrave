@@ -87,6 +87,7 @@
     {"name":"Entity","order":1,"path":"folders/Sounds/World/Entity.yy",},
     {"name":"Lenko","order":7,"path":"folders/Sounds/World/Music/Lenko.yy",},
     {"name":"Other","order":8,"path":"folders/Sounds/World/Music/Other.yy",},
+    {"name":"Status","order":4,"path":"folders/Sounds/World/Status.yy",},
     {"name":"Sprites","order":8,"path":"folders/Sprites.yy",},
     {"name":"Effects","order":1,"path":"folders/Sprites/Effects.yy",},
     {"name":"Effects","order":1,"path":"folders/Sprites/Effects/Effects.yy",},
@@ -170,7 +171,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Status","order":4,"path":"folders/Sounds/World/Status.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},

@@ -56,6 +56,7 @@ if (variable_struct_exists(_loadEntity,"farway14")) obj_inventory.farwayRoad_map
 if (variable_struct_exists(_loadEntity,"yakflower10")) obj_inventory.yakflowerPath_map_ary[10][3] = _loadEntity.yakflower10;
 if (variable_struct_exists(_loadEntity,"yakflower14")) obj_inventory.yakflowerPath_map_ary[14][3] = _loadEntity.yakflower14;
 if (variable_struct_exists(_loadEntity,"habraf10")) obj_inventory.habrafLake_map_ary[10][3] = _loadEntity.habraf10;
+if (variable_struct_exists(_loadEntity,"habraf14")) obj_inventory.habrafLake_map_ary[14][3] = _loadEntity.habraf14;
 if (variable_struct_exists(_loadEntity,"beaowire11")) obj_inventory.beaowireFortress_map_ary[11][3] = _loadEntity.beaowire11;
 }
 //
@@ -119,6 +120,7 @@ farway14 : obj_inventory.farwayRoad_map_ary[14][3],
 yakflower10 : obj_inventory.yakflowerPath_map_ary[10][3],
 yakflower14 : obj_inventory.yakflowerPath_map_ary[14][3],
 habraf10 : obj_inventory.habrafLake_map_ary[10][3],
+habraf14 : obj_inventory.habrafLake_map_ary[14][3],
 beaowire11 : obj_inventory.beaowireFortress_map_ary[11][3],
 }
 array_push(_saveData, _saveQuest);

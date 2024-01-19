@@ -214,9 +214,6 @@
     {"name":"inst_26EF6DE7","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_E17E7C8","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_45705816","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
-    {"name":"inst_6825A99F","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
-    {"name":"inst_24C91545","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
-    {"name":"inst_3CCD5C56","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_6AC8ABD9","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_3DA59D76","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
     {"name":"inst_7797DF6A","path":"rooms/rm_lenko_beaowire_05/rm_lenko_beaowire_05.yy",},
@@ -671,18 +668,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_gorogElite_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"15",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":864.0,"y":200.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6825A99F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource_container/obj_resource_container.yy",},"value":"obj_game.beaowireFortress_resource_grid",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"11",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":472.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24C91545","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource_container/obj_resource_container.yy",},"value":"obj_game.beaowireFortress_resource_grid",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"17",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":136.0,"y":184.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3CCD5C56","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_resource_container","path":"objects/obj_resource_container/obj_resource_container.yy",},"propertyId":{"name":"resource_grid","path":"objects/obj_resource_container/obj_resource_container.yy",},"value":"obj_game.beaowireFortress_resource_grid",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"18",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":264.0,"y":184.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_761D9B84","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_gorogElite_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"16",},
