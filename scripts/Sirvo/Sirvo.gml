@@ -64,28 +64,60 @@ if (string_counter = 0)
 	speaker = 1;
 	text_string = "I've got beds open if you need rest.\nDon't worry about pay- a rat killer is a welcome guest." 
 	_SubString = string_copy(text_string,1,letter_counter);
+	
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
+	draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 }
 if (string_counter >= 1)
 {
-	scr_text_end();
+	speaker = 1;
+	e_page = false;
+	//draw_sprite_stretched(menu_sprite,3,258,136,48,48);
+	text_string = "Anything I can do for you?"
 	_SubString = string_copy(text_string,1,letter_counter);
-	//text_string = ""
-	//string_counter = 0;
-	//_SubString = string_copy(text_string,1,letter_counter);
-	//obj_game.gamePaused = false;
-	//obj_game.textPaused = false;
-
-	////Reset Buy/Sell Menu
-	//page = 0;
-	//selected = -1;
-	//item_name = -1;
-	//sell_price = 0;
-	//buy_price = 0;
+	if (letter_counter >= string_length(text_string))
+	{
+		draw_set_font(global.fnt_main_white);
+		draw_set_halign(fa_left)
+		draw_set_valign(fa_middle)
+		draw_sprite_stretched(spr_menu_circle16,1,70,92,180,20);
+		draw_sprite_stretched(spr_menu_circle16,1,70,114,180,20);
+		var _buttonString = "I dunno, make a card game or something."
+		var _buttonString2 = "No, thank you Sirvo."
+		draw_text_transformed(76,102,_buttonString,.6,.6,0);
+		draw_text_transformed(76,124,_buttonString2,.6,.6,0);
+		if (point_in_rectangle(_mouseX,_mouseY,70,92,250,112))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,69,91,182,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				scr_text_end(false);
+				_SubString = string_copy(text_string,1,letter_counter);
+				text_script = scr_cards_main;
+			}
+		}
+		if (point_in_rectangle(_mouseX,_mouseY,70,114,250,134))
+		{
+			draw_sprite_stretched(spr_highlight_circle,0,69,113,182,22);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				scr_text_end();
+				_SubString = string_copy(text_string,1,letter_counter);
+				e_page = true;
+			}
+		}
+		draw_set_valign(fa_middle);
+		draw_set_halign(fa_right);
+		draw_text_transformed(69,86,"SELECT ONE",.5,.5,0);
+	}
+	draw_set_color(c_white);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(69,141,_SubString,.6,.6,0);
+	draw_text_transformed(259,110,_name,.5,.5,0);
 }
-draw_set_color(c_white);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_text_transformed(69,141,_SubString,.6,.6,0);
-draw_text_transformed(259,110,_name,.5,.5,0);
-draw_text_transformed(69,132,"Press E to Continue",.5,.5,0);
 }

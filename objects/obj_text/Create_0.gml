@@ -13,7 +13,8 @@ text_string = "";
 menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
 
-
+//CG
+scr_card_game_create();
 
 //Paging and Buttons
 e_page = true;

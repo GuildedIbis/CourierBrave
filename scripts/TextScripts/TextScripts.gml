@@ -1,5 +1,9 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+//General Text Scripts
+//
+//
+//
+//
+//End Text Script
 function scr_text_end(_unpause = true){
 text_gui = 0;
 text_string = ""
@@ -10,11 +14,12 @@ if (_unpause = true)
 {
 	obj_game.gamePaused = false;
 	obj_game.textPaused = false;
+	with (all)
+	{
+		image_speed = game_paused_image_speed;
+	}
 }
-with (all)
-{
-	image_speed = game_paused_image_speed;
-}
+
 
 //Reset Buy/Sell Menu
 page = 0;
