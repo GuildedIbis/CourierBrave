@@ -1340,7 +1340,7 @@ draw_set_color(c_white);
 draw_text_transformed(159,39,"NORTHERN PASS",1,1,0);
 
 
-if (obj_game.level_num = 4)
+if (obj_game.level_num = 5)
 {
 	var _mapRoomX = obj_inventory.northernPass_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.northernPass_map_ary[obj_game.room_num][2]
@@ -1351,7 +1351,7 @@ if (obj_game.level_num = 4)
 
 
 //Draw Altars (Selectable for travel
-if (obj_inventory.altar_grid[# 20, 3] = true)
+if (obj_inventory.altar_grid[# 21, 3] = true)
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 22, _yPos + 76,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77)) and (altar = true)
@@ -1361,57 +1361,14 @@ if (obj_inventory.altar_grid[# 20, 3] = true)
 		{
 			obj_inventory.room_num = 0;
 			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
-			obj_game.level_num = 4;
+			obj_game.level_num = 5;
 			obj_game.room_num = 0;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
 			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
-			global.targetX = obj_inventory.altar_grid[# 20, 1];
-			global.targetY = obj_inventory.altar_grid[# 20, 2];
-			global.targetRoom = rm_beetrap_northernPass_00;
-			global.targetAltar = true;
-			scr_game_room_enemy_reset();
-			global.lastAltar = global.targetRoom;
-			global.lastAltarX = global.targetX;
-			global.lastAltarY = global.targetY;
-			global.transition = true;
-			global.fadeOut = true;
-			obj_game.gamePaused = false;
-			obj_game.invPaused = false;
-			obj_game.textPaused = false;
-			obj_inventory.swap_menu = false;
-			obj_inventory.main_menu = false;
-			obj_inventory.quest_menu = false;
-			obj_inventory.map_menu = false;
-			with (obj_player)
-			{
-				walk_snd = snd_walk_regular;
-				if (max_weapon_count != -1)
-				{
-					weapon_count = max_weapon_count;
-				}
-			}
-		}
-	}
-}
-if (obj_inventory.altar_grid[# 21, 3] = true) 
-{
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70)) and (altar = true)
-	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
-		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
-		{
-			obj_inventory.room_num = 4;
-			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
-			obj_game.level_num = 3;
-			obj_game.room_num = 4;
-			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
-			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
 			global.targetX = obj_inventory.altar_grid[# 21, 1];
 			global.targetY = obj_inventory.altar_grid[# 21, 2];
-			global.targetRoom = rm_lenko_beaowire_04;
+			global.targetRoom = rm_beetrap_northernPass_00;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
 			global.lastAltar = global.targetRoom;
@@ -1439,6 +1396,49 @@ if (obj_inventory.altar_grid[# 21, 3] = true)
 }
 if (obj_inventory.altar_grid[# 22, 3] = true) 
 {
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 104, _yPos + 68,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 101,_yPos + 67,_xPos + 106,_yPos + 70)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 104,_yPos + 68);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 4;
+			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
+			obj_game.level_num = 3;
+			obj_game.room_num = 4;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 22, 1];
+			global.targetY = obj_inventory.altar_grid[# 22, 2];
+			global.targetRoom = rm_lenko_beaowire_04;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.altar_grid[# 23, 3] = true) 
+{
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
 	{
@@ -1446,14 +1446,14 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 6;
-			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
 			obj_game.level_num = 3;
 			obj_game.room_num = 6;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.altar_grid[# 17, 1];
-			global.targetY = obj_inventory.altar_grid[# 17, 2];
+			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 23, 1];
+			global.targetY = obj_inventory.altar_grid[# 23, 2];
 			global.targetRoom = rm_lenko_beaowire_06;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
@@ -1481,7 +1481,7 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 23, 3] = true) 
+if (obj_inventory.altar_grid[# 24, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 50,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
@@ -1490,14 +1490,14 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 9;
-			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
 			obj_game.level_num = 3;
 			obj_game.room_num = 9;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.altar_grid[# 18, 1];
-			global.targetY = obj_inventory.altar_grid[# 18, 2];
+			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 24, 1];
+			global.targetY = obj_inventory.altar_grid[# 24, 2];
 			global.targetRoom = rm_lenko_beaowire_09;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
@@ -1524,7 +1524,7 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 24, 3] = true) 
+if (obj_inventory.altar_grid[# 25, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 76,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 37,_yPos + 47,_xPos + 42,_yPos + 50)) and (altar = true)
@@ -1533,14 +1533,14 @@ if (obj_inventory.altar_grid[# 24, 3] = true)
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 13;
-			obj_inventory.room_ary = obj_inventory.beaowireFortress_map_ary;
+			obj_inventory.room_ary = obj_inventory.northernPass_map_ary;
 			obj_game.level_num = 3;
 			obj_game.room_num = 13;
 			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
 			obj_game.room_name_timer = 180;
-			obj_game.room_enemy_grid = obj_game.beaowireFortress_enemy_grid;
-			global.targetX = obj_inventory.altar_grid[# 19, 1];
-			global.targetY = obj_inventory.altar_grid[# 19, 2];
+			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 25, 1];
+			global.targetY = obj_inventory.altar_grid[# 25, 2];
 			global.targetRoom = rm_lenko_beaowire_13;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
