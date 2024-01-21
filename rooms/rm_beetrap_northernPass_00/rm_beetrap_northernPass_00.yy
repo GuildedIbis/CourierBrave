@@ -149,6 +149,7 @@
     {"name":"inst_46BCA1F","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_515185EC","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
     {"name":"inst_1C0BCBA0","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
+    {"name":"inst_7A82A574","path":"rooms/rm_beetrap_northernPass_00/rm_beetrap_northernPass_00.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -240,6 +241,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.northernPass_enemy_grid",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"level_num","path":"objects/obj_door/obj_door.yy",},"value":"5",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":96.0,"y":-24.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7A82A574","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_npc_sirvo_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_script","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_text_npc_sirvo",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":64.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":800,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3773C037","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeMolen_snowy","path":"objects/obj_effect_treeMolen_snowy/obj_effect_treeMolen_snowy.yy",},"properties":[
