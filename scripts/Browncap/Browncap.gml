@@ -20,10 +20,10 @@ walk_snd = snd_walk_regular;
 
 //Stats
 form_type = 0;
-drop_amount = 10;
+drop_amount = 4;
 max_hp = 60; //+ (45 * enemy_lvl);
 hp = max_hp;
-enemy_spd = 1.0;
+enemy_spd = 1.1;
 
 //Animation and Status
 bullet = false;
@@ -92,7 +92,7 @@ if (obj_game.gamePaused = false)
 	{
 		lit = true;
 		if (timer1 <= 0) scr_enemy_chase();
-		if (point_in_rectangle(obj_player.x,obj_player.y,x-12,y-12,x+12,y+12))
+		if (point_in_circle(obj_player.x,obj_player.y,x,y,6))
 		{
 			path_end();
 			walk_snd_delay = 15;
