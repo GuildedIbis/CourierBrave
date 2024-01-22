@@ -97,6 +97,7 @@ if (string_counter >= 1)
 			{
 				scr_text_end(false);
 				_SubString = string_copy(text_string,1,letter_counter);
+				scr_card_game_create();
 				text_script = scr_cards_main;
 			}
 		}

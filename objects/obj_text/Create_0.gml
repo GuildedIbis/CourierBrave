@@ -14,7 +14,8 @@ menu_sprite = spr_menu_beveled;
 button_sprite = spr_menu;
 
 //CG
-scr_card_game_create();
+card_selected = -1;
+hand_slot = -1;
 
 //Paging and Buttons
 e_page = true;
