@@ -40,6 +40,18 @@ phand_array =
 	[0,"Name",scr_cg_0000_hand_selected,0],
 ];
 
+
+//Create Active Lane
+pactive_array = array_create(6);
+pactive_array = 
+[
+	[-1,-1,-1,-1],
+	[-1,-1,-1,-1],
+	[-1,-1,-1,-1],
+	[-1,-1,-1,-1],
+	[-1,-1,-1,-1],
+	[-1,-1,-1,-1]
+];
 }
 //
 //
@@ -47,7 +59,7 @@ phand_array =
 //
 //
 //Card Main Engine
-function scr_cards_main(){
+function scr_card_game_step(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 //
@@ -74,6 +86,31 @@ if (point_in_rectangle(_mouseX,_mouseY,8,8,24,24))
 }
 //
 //Draw Hand
+scr_draw_cg_player_hand();
+//
+//Draw Deck
+scr_draw_cg_player_deck();
+//
+//Draw Active
+scr_draw_cg_player_active();
+//
+//Selected Card
+if (card_selected != -1)
+{
+	script_execute(card_selected);
+}
+}
+//
+//
+//
+//
+//
+//Draw Player Hand
+function scr_draw_cg_player_hand(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+
 var _handSize = array_length(phand_array);
 for (var i = 0; i < _handSize; i = i + 1)
 {
@@ -111,8 +148,17 @@ for (var i = 0; i < _handSize; i = i + 1)
 		}
 	}
 }
+}
 //
-//Draw Deck
+//
+//
+//
+//
+//Draw Player Deck
+function scr_draw_cg_player_deck(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
 draw_sprite_ext(spr_card_allS_back,0,252,92,1,1,0,c_white,1);
 draw_text_transformed(279,92,string(array_length(pdeck_array)),1,1,0);
 if (point_in_rectangle(_mouseX,_mouseY,252,92,277,127))
@@ -125,38 +171,19 @@ if (point_in_rectangle(_mouseX,_mouseY,252,92,277,127))
 		array_delete(pdeck_array,0,1);
 	}
 }
-//
-//Selected Card
-if (card_selected != -1)
-{
-	script_execute(card_selected);
-}
 }
 //
 //
 //
 //
 //
-//Deck Shuffle
-function scr_cg_deck_shuffle(){
-var _size = array_length(pdeck_array);
-var _tempDeck = array_create(_size);
+//Draw Player Active
+function scr_draw_cg_player_active(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
-//Save Temporary Copy of Deck
-for (var j = 0; j < _size; j = j + 1)
+if (pactive_array[0,0] != -1)
 {
-	_tempDeck[j, 0] = pdeck_array[j, 0];
-	_tempDeck[j, 1] = pdeck_array[j, 1];
-	_tempDeck[j, 2] = pdeck_array[j, 2];
-}
-
-//Reset Deck Randomly
-for (var i = 0; i < _size; i = i + 1)
-{
-	var _shuffleID = irandom_range(0,_size - (1+i));
-	pdeck_array[i, 0] = _tempDeck[_shuffleID, 0];
-	pdeck_array[i, 1] = _tempDeck[_shuffleID, 1];
-	pdeck_array[i, 2] = _tempDeck[_shuffleID, 2];
-	array_delete(_tempDeck,_shuffleID,1);
+	draw_sprite_ext(spr_card_allS,pactive_array[0,0],80,92,1.0,1.0,0,c_white,1);//80,92
 }
 }

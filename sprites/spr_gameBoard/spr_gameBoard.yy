@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_gameBoard",
   "bbox_bottom": 175,
-  "bbox_left": 12,
+  "bbox_left": 0,
   "bbox_right": 319,
   "bbox_top": 0,
   "bboxMode": 0,

@@ -160,17 +160,6 @@ if (timer2 <= 0)
 	timer1 = _moveDelay + irandom_range(-15,15);
 }
 
-//Audio
-
-//if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
-//{
-//	walk_snd_delay = walk_snd_delay - 1;
-//	if (walk_snd_delay <= 0)
-//	{
-//		walk_snd_delay = 15;
-//		audio_play_sound(snd_walk_regular,1,0);
-//	}
-//}
 //Animation
 if (hor_spd != 0) or (ver_spd != 0) 
 {
@@ -223,7 +212,6 @@ if (timerC > 0)
 		{
 			hor_spd = -hor_spd;
 			ver_spd = -ver_spd;
-			//sprite_index = enemy_idle;
 		}
 		if (!point_in_circle(_xDest,_yDest,_homeX,_homeY,64))
 		{
@@ -236,68 +224,11 @@ if (timerC > 0)
 		image_speed = 1;
 		sprite_index = enemy_move;
 	}
-
-
-	////Horizontal Entities
-	//var _entityCount = instance_position_list(x+hor_spd, y, obj_entity, _entityList,false);
-	//var _snapX;
-	//while (_entityCount > 0)
-	//{
-	//	var _entityCheck = _entityList[| 0];
-	//	if (_entityCheck.collision == true)
-	//	{
-	//		if (sign(hor_spd) == -1) _snapX = _entityCheck.bbox_right+1;
-	//		else _snapX = _entityCheck.bbox_left - 1;
-	//		x = _snapX;
-	//		hor_spd = -hor_spd;
-	//		ver_spd = -ver_spd;
-	//		_collision = true;
-	//		_entityCount = 0;
-	//	}
-	//	ds_list_delete(_entityList,0);
-	//	_entityCount = _entityCount - 1;
-	//}
-
-	////Horizontal Move
-	//x += hor_spd;
-
-
-	////Clear List Between Axis
-	//ds_list_clear(_entityList);
-
-
-	//Vertical Entity Collision
-	//var _entityCount = instance_position_list(x, y + ver_spd, obj_entity, _entityList,false);
-	//var _snapY;
-	//while (_entityCount > 0)
-	//{
-	//	var _entityCheck = _entityList[| 0];
-	//	if (_entityCheck.collision == true)
-	//	{
-	//		if (sign(ver_spd) == -1) _snapY = _entityCheck.bbox_bottom+1;
-	//		else _snapY = _entityCheck.bbox_top - 1;
-	//		y = _snapY;
-	//		hor_spd = -hor_spd;
-	//		ver_spd = -ver_spd;
-	//		_collision = true;
-	//		_entityCount = 0;
-	//	}
-	//	ds_list_delete(_entityList,0);
-	//	_entityCount = _entityCount - 1;
-	//}
-
-	////Vertical Move
-	//y += ver_spd;
 }
 else 
 {
 	local_frame = 0;
-	//image_index = 0;
 	sprite_index = enemy_idle;
-	//var _totalFrames = sprite_get_number(sprite_index) / 4;
-	//image_index = (_cardinalDir * _totalFrames);
-	//hor_spd = 0;
-	//ver_spd = 0;
 }
 
 ds_list_destroy(_entityList);
@@ -993,11 +924,11 @@ return _collision;
 //
 //
 //
-function scr_enemy_projectile_spawn(){
+function scr_enemy_projectile_spawn(_len = 6){
 var _aimAngle = point_direction(x + dir_offX,y + dir_offY,obj_player.x,obj_player.y-4);
 var _dirPos = round(_aimAngle/90);
-ldX = x + lengthdir_x(6, _aimAngle);
-ldY = y + lengthdir_y(6, _aimAngle);
+ldX = x + lengthdir_x(_len, _aimAngle);
+ldY = y + lengthdir_y(_len, _aimAngle);
 switch(_dirPos)
 {
 	case 0:

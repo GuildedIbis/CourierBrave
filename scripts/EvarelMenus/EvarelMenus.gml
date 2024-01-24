@@ -117,7 +117,7 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 5 damage from attacks\nand projectiles."
+		var _describe = "Negates 6 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"EVERGREEN TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -322,7 +322,7 @@ switch(page)
 {
 	case 0: 
 		draw_set_halign(fa_left);
-		var _describe = "Negates 5 damage from attacks\nand projectiles."
+		var _describe = "Negates 6 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"EVERGREEN TUNIC",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "GeneralCard",
+  "name": "CGMain",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
