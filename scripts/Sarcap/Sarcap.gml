@@ -99,7 +99,7 @@ if (obj_game.gamePaused = false)
 			if (timer1 <= 0)
 			{
 				walk_snd_delay = 15;
-				timer1 = 120;
+				timer1 = 32;
 				entity_step = scr_enemy_sarcap_slash;
 			}
 		}
@@ -161,6 +161,24 @@ if (obj_game.gamePaused = false)
 
 	//Animate
 	scr_enemy_animation();
+	scr_enemy_projectile_spawn(8);
+	
+	if (timer1 <= 0)
+	{
+		timer1 = 180;
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
+		{
+			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
+			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
+			scr_projectile_sarcap_sporeWall_create();
+			image_speed = 1;
+			direction = other.direction;
+			image_angle = direction;
+			speed = enemy_spd;
+			sprite_index = projectile_sprite;
+			break_object = other.break_object;
+		}
+	}
 	
 	//End
 	if (animation_end)
@@ -214,22 +232,6 @@ if (obj_game.gamePaused = false)
 	{
 		scr_enemy_chase();
 	}
-	//if (hor_spd != 0) or (ver_spd != 0) 
-	//{
-	//	var _xDest = x + (hor_spd)
-	//	var _yDest = y + (ver_spd)
-	//	if (place_meeting(_xDest, _yDest,obj_entity))
-	//	{
-	//		hor_spd = -hor_spd;
-	//		ver_spd = -ver_spd;
-	//	}
-	//	path = path_add();
-	//	mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
-	//	path_start(path, 1, 0, 0);
-	//	image_speed = 1;
-	//	sprite_index = enemy_move;
-	
-	//}
 	
 	//Animate
 	scr_enemy_animation_cast();
@@ -328,6 +330,90 @@ else
 {
 	speed = 0;
 }
+}
+//
+//
+//
+//
+//
+//
+//Sarcap Spore Wall Projectile Script Create
+function scr_projectile_sarcap_sporeWall_create(){
+home_state = scr_projectile_sarcap_sporeWall_step;
+entity_step = home_state;
+
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_sarcap_sporeWall;
+enemy_idle = spr_projectile_sarcap_sporeWall;
+projectile_sprite = spr_projectile_sarcap_sporeWall;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 2.5;
+timer1 = 20;
+sd_timer = 300;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 0;
+fragment_count = 2;
+fragment = obj_fragYellow;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+// 
+//Sarcap Spore Wall Projectile Script Step
+function scr_projectile_sarcap_sporeWall_step(){
+//Set
+lit = true;
+destructable = false;
+speed = enemy_spd;
+depth = -4700;
+if (timer1 >= 0)
+{
+	image_speed = 1;
+	timer1 = timer1 - 1;
+}
+else 
+{
+	image_speed = 0;
+}
+//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Timers
+if (sd_timer > 0) sd_timer = sd_timer - 1;
+if (enemy_spd > 0) enemy_spd = enemy_spd - .10;
+if (enemy_spd < 0) enemy_spd = 0;
+
+//Collision
+if (place_meeting(x,y,obj_projectile)) 
+{
+	
+	scr_enemy_attack_calculate_shield(enemy_move,self);
+}
+if (place_meeting(x,y,break_object))
+{
+	speed = 0;
+}
+if (sd_timer <= 0) instance_destroy();
+
 }
 //
 //

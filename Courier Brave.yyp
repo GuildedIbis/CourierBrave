@@ -1223,6 +1223,7 @@
     {"id":{"name":"spr_enemy_riftSabi_idle","path":"sprites/spr_enemy_riftSabi_idle/spr_enemy_riftSabi_idle.yy",},},
     {"id":{"name":"spr_quickswap_groupMeter2","path":"sprites/spr_quickswap_groupMeter2/spr_quickswap_groupMeter2.yy",},},
     {"id":{"name":"spr_charge_drop","path":"sprites/spr_charge_drop/spr_charge_drop.yy",},},
+    {"id":{"name":"spr_projectile_sarcap_sporeWall","path":"sprites/spr_projectile_sarcap_sporeWall/spr_projectile_sarcap_sporeWall.yy",},},
     {"id":{"name":"snd_adavio_hookThrust","path":"sounds/snd_adavio_hookThrust/snd_adavio_hookThrust.yy",},},
     {"id":{"name":"rm_lenko_beaowire_01","path":"rooms/rm_lenko_beaowire_01/rm_lenko_beaowire_01.yy",},},
     {"id":{"name":"spr_enemy_eliteSkirmisher_run","path":"sprites/spr_enemy_eliteSkirmisher_run/spr_enemy_eliteSkirmisher_run.yy",},},
