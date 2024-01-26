@@ -1032,6 +1032,7 @@ if (place_meeting(x,y,break_object))
 //
 //Flamecore Healblast
 function scr_projectile_flamecore_healblast(){
+destructable = false;
 image_speed = 1;
 if (timer1 > 0) timer1 = timer1 - 1;
 if (sprite_index != projectile_sprite)

@@ -194,6 +194,8 @@ if (obj_game.gamePaused = false)
 	if (timer3 <= 0)
 	{
 		timer3 = 180;
+		enemy_move = spr_enemy_gorogE_run;
+		enemy_idle = spr_enemy_gorogE_idle;
 		entity_step = home_state;
 		animation_end = false;
 	}

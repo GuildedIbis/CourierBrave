@@ -9,7 +9,7 @@ function scr_enemy_sarcap_create(){
 //Scripts
 home_state = scr_enemy_sarcap_free;
 entity_step = scr_enemy_sarcap_free;
-entity_drop = scr_enemy_balurne_sarcap_drop;
+entity_drop = scr_enemy_sarcap_drop;
 
 //Assets
 enemy_idle = spr_enemy_sarcap_idle;
@@ -98,6 +98,7 @@ if (obj_game.gamePaused = false)
 			sprite_index = enemy_idle;
 			if (timer1 <= 0)
 			{
+				attack_counter = 0;
 				walk_snd_delay = 15;
 				timer1 = 32;
 				entity_step = scr_enemy_sarcap_slash;
@@ -117,6 +118,13 @@ if (obj_game.gamePaused = false)
 				enemy_idle = spr_enemy_sarcap_cast;
 				enemy_move = spr_enemy_sarcap_runCast;
 				entity_step = scr_enemy_sarcap_sporeBlast;
+			}
+			if (timer4 <= 0)
+			{
+				path_end();
+				sprite_index = enemy_idle;
+				timer4 = 120;
+				entity_step = scr_enemy_sarcap_browncap_spawn;
 			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
@@ -183,17 +191,28 @@ if (obj_game.gamePaused = false)
 	//End
 	if (animation_end)
 	{
-		timer1 = 180;
-		timerC = 60;
-		hor_spd = irandom_range(-1,1);
-		ver_spd = irandom_range(-1,1);
-		if (hor_spd = 0) and (ver_spd = 0)
+		if (attack_counter < 2)
 		{
-			hor_spd = choose(-1,1)
-			ver_spd = choose(-1,1)
+			attack_counter = attack_counter + 1;
+			walk_snd_delay = 15;
+			timer1 = 32;
+			entity_step = scr_enemy_sarcap_slash;
+			direction = choose(0,90,180,270);
 		}
-		entity_step = scr_enemy_reposition;
-		animation_end = false;
+		else
+		{
+			timer1 = 180;
+			timerC = 60;
+			hor_spd = irandom_range(-1,1);
+			ver_spd = irandom_range(-1,1);
+			if (hor_spd = 0) and (ver_spd = 0)
+			{
+				hor_spd = choose(-1,1)
+				ver_spd = choose(-1,1)
+			}
+			entity_step = scr_enemy_reposition;
+			animation_end = false;
+		}
 	}
 }
 }
@@ -202,7 +221,7 @@ if (obj_game.gamePaused = false)
 //
 //
 //
-//Acolyte Magic
+//Sarcap Sporeblast State
 function scr_enemy_sarcap_sporeBlast(){
 if (obj_game.gamePaused = false)
 {
@@ -273,6 +292,146 @@ if (obj_game.gamePaused = false)
 //
 //
 //
+//Acolyte Magic
+function scr_enemy_sarcap_browncap_spawn(){
+if (obj_game.gamePaused = false)
+{
+
+	//Timers
+	scr_enemy_timer_countdown();
+	
+	
+	//Set
+	if (sprite_index != spr_enemy_sarcap_browncapSpawn)
+	{
+		sprite_index = spr_enemy_sarcap_browncapSpawn;
+		local_frame = 0;
+		image_index = 0;
+	}
+
+	//Animate
+	scr_enemy_animation_one()
+
+	//Spawn Decoy Enemies (mid-animation)
+	if (timer4 <= 0)
+	{
+		timer4 = 660;
+		if (!place_meeting(x-16,y,obj_entity))
+		{
+			with (instance_create_layer(x-16,y,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_browncap_create();
+				entity_step = scr_enemy_browncap_spawn;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+				sprite_index = spr_enemy_browncap_spawn;
+				local_frame = 0;
+			}
+		}
+		if (!place_meeting(x+16,y,obj_entity))
+		{
+			with (instance_create_layer(x+16,y,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_browncap_create();
+				invincible = true;
+				inv_dur_timer = 5;
+				entity_step = scr_enemy_browncap_spawn;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+				sprite_index = spr_enemy_browncap_spawn;
+				local_frame = 0;
+			}
+		}
+		if (!place_meeting(x,y-16,obj_entity))
+		{
+			with (instance_create_layer(x,y-16,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_browncap_create();
+				entity_step = scr_enemy_browncap_spawn;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+				sprite_index = spr_enemy_browncap_spawn;
+				local_frame = 0;
+			}
+		}
+		if (!place_meeting(x,y+16,obj_entity))
+		{
+			with (instance_create_layer(x,y+16,"Instances",obj_enemy))
+			{
+				image_alpha = 1;
+				scr_enemy_browncap_create();
+				entity_step = scr_enemy_browncap_spawn;
+				global.aggroCounter = global.aggroCounter + 1;
+				targeted = true;
+				break_object = other.break_object;
+				sprite_index = spr_enemy_browncap_spawn;
+				local_frame = 0;
+			}
+		}
+		entity_step = scr_enemy_sarcap_free;
+		timer4 = 600;
+	}
+}
+}
+//
+//
+//
+//
+//
+//Sarcap Drop
+function scr_enemy_sarcap_drop(){
+var _objects = 3;	
+var _angle = irandom_range(0,359);
+
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = round(other.drop_amount/2);
+	sprite_index = spr_charge_drop;
+	image_index = obj_player.form_type;
+	image_speed = 0;
+	direction = (360/_objects) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = round(other.drop_amount/2);
+	sprite_index = spr_charge_drop;
+	image_index = irandom_range(0,5);
+	image_speed = 0;
+	direction = (360/_objects * 2) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+with (instance_create_layer(x,y,"Instances",obj_itemCharge))
+{
+	drop_amount = round(other.drop_amount/2);
+	sprite_index = spr_charge_drop;
+	image_index = 6;
+	image_speed = 0;
+	direction = (360/_objects * 3) + _angle;
+	image_angle = direction;
+	spd = .75 + (.3) + random(0.1);
+}
+}
+//
+//
+//
+//
+//
+//Projectiles
+//
+//
+//
+//
+//
+//Sarcap Projectile Sporeblast Create
 function scr_projectile_sporeBlast_create(){
 home_state = scr_projectile_sporeBlast_step;
 entity_step = home_state;
@@ -304,7 +463,7 @@ ds_list_clear(hit_by_attack);
 //
 //
 //
-//Acolyte Antichrome Projectile
+//Sarcap Projectile Sporeblast Step
 function scr_projectile_sporeBlast_step(){
 if (obj_game.gamePaused = false)
 {
@@ -337,7 +496,7 @@ else
 //
 //
 //
-//Sarcap Spore Wall Projectile Script Create
+//Sarcap Projectile Spore Wall Create
 function scr_projectile_sarcap_sporeWall_create(){
 home_state = scr_projectile_sarcap_sporeWall_step;
 entity_step = home_state;
@@ -371,8 +530,10 @@ ds_list_clear(hit_by_attack);
 //
 //
 // 
-//Sarcap Spore Wall Projectile Script Step
+//Sarcap Projectile Spore Wall Step
 function scr_projectile_sarcap_sporeWall_step(){
+if (obj_game.gamePaused = false)
+{
 //Set
 lit = true;
 destructable = false;
@@ -413,49 +574,9 @@ if (place_meeting(x,y,break_object))
 	speed = 0;
 }
 if (sd_timer <= 0) instance_destroy();
+}
+}
 
-}
-//
-//
-//
-//
-//
-//Balurne sarcap Drop
-function scr_enemy_balurne_sarcap_drop(){
-var _objects = 3;	
-var _angle = irandom_range(0,359);
-
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
-{
-	drop_amount = round(other.drop_amount/2);
-	sprite_index = spr_charge_drop;
-	image_index = obj_player.form_type;
-	image_speed = 0;
-	direction = (360/_objects) + _angle;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
-{
-	drop_amount = round(other.drop_amount/2);
-	sprite_index = spr_charge_drop;
-	image_index = irandom_range(0,5);
-	image_speed = 0;
-	direction = (360/_objects * 2) + _angle;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-with (instance_create_layer(x,y,"Instances",obj_itemCharge))
-{
-	drop_amount = round(other.drop_amount/2);
-	sprite_index = spr_charge_drop;
-	image_index = 6;
-	image_speed = 0;
-	direction = (360/_objects * 3) + _angle;
-	image_angle = direction;
-	spd = .75 + (.3) + random(0.1);
-}
-}
 
 
 

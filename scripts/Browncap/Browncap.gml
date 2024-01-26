@@ -53,6 +53,38 @@ path = -1;
 //
 //
 //
+//Browncap Spawn
+function scr_enemy_browncap_spawn()
+{
+if (obj_game.gamePaused = false)
+{
+	//Invincible During Spawn Animation
+	invincible = true;
+	inv_dur_timer = 5;
+	
+	//Setup
+	if (sprite_index != spr_enemy_browncap_spawn)
+	{
+		sprite_index = spr_enemy_browncap_spawn;
+		local_frame = 0;
+		image_index = 0;
+	}
+	
+	//Animate
+	scr_enemy_animation();
+	
+	//End
+	if (animation_end = true)
+	{
+		entity_step = home_state;
+	}
+}
+}
+//
+//
+//
+//
+//
 //Browncap Free State
 function scr_enemy_browncap_free(){
 if (obj_game.gamePaused = false)
