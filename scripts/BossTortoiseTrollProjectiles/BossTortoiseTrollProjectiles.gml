@@ -186,7 +186,7 @@ if (obj_game.gamePaused = false)
 	}
 	
 	//Collision With Player
-	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1);
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1,-1);
 
 	
 	//Collision with solid objects

@@ -142,7 +142,6 @@ if (obj_game.gamePaused = false)
 		entity_step = scr_enemy_acolyte_escape;
 		aggro_drop = 300;
 		targeted = false;
-		global.aggroCounter = global.aggroCounter - 1;
 		audio_sound_gain(sound,global.volumeEffects,1);
 		audio_play_sound(sound,0,false);
 		with (obj_text)
@@ -947,6 +946,7 @@ if (obj_game.gamePaused = false)
 	//End
 	if (animation_end)
 	{
+		global.aggroCounter = global.aggroCounter - 1;
 		instance_destroy();
 		scr_enemy_acolyte_drop();
 	}

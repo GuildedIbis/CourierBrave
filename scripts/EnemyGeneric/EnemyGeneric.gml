@@ -623,7 +623,7 @@ mask_index = enemy_idle;
 //
 //
 //Attack Calculate Status (Projectile)
-function scr_enemy_attack_calculate_projectile(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc){
+function scr_enemy_attack_calculate_projectile(_hitbox,_hitBy,_kbDur=-1,_azDur=-1,_txDur=-1,_vsDur=-1,_wvDur=-1,invDur=-1,_drainPerc=-1){
 //Collision with Entities
 mask_index = _hitbox;
 
@@ -643,12 +643,12 @@ if (_hits > 0)
 				if (invincible = false) and (dead = false)
 				{
 					scr_camera_screen_shake(1,5);
-					inv_dur_timer = 15;
 					damaged_timer = 300;
 					if (_azDur != -1) ablaze_dur_timer = _azDur;
 					if (_txDur != -1) thundux_dur_timer = _txDur;
 					if (_vsDur != -1) voidsick_dur_timer = _vsDur;
 					if (_wvDur != -1) watervice_dur_timer = _wvDur;
+					if (invDur != -1) inv_dur_timer = invDur;
 					if (_drainPerc != -1) 
 					{
 						//obj_player.heal = true;
@@ -844,7 +844,7 @@ if (_hits > 0)
 			ds_list_add(hit_by_attack,_hitID);
 			with (_hitID)
 			{
-				var _healGiven = other.damage;
+				var _healGiven = other.damage * .5;
 				heal = true;
 				heal_dur_timer = 60;
 				hp = hp + _healGiven;

@@ -56,8 +56,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Sarcap",
-    "path": "folders/Sprites/Entity/Enemy/Beetrap/Sarcap.yy",
+    "name": "SarcapMage",
+    "path": "folders/Sprites/Entity/Enemy/Beetrap/SarcapMage.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
