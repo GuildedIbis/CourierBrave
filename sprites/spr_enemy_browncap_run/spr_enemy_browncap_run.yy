@@ -56,8 +56,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Browncap",
-    "path": "folders/Sprites/Entity/Enemy/Beetrap/Browncap.yy",
+    "name": "Redcap",
+    "path": "folders/Sprites/Entity/Enemy/Beetrap/Redcap.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

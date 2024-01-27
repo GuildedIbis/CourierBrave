@@ -175,6 +175,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"Redcap","order":8,"path":"folders/Sprites/Entity/Enemy/Beetrap/Redcap.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -258,6 +259,7 @@
     {"name":"obj_song","order":3,"path":"objects/obj_song/obj_song.yy",},
     {"name":"spr_starOrb_pedestal_empty","order":16,"path":"sprites/spr_starOrb_pedestal_empty/spr_starOrb_pedestal_empty.yy",},
     {"name":"Sprite624","order":17,"path":"sprites/Sprite624/Sprite624.yy",},
+    {"name":"spr_enemy_redcap_damaged","order":2,"path":"sprites/spr_enemy_redcap_damaged/spr_enemy_redcap_damaged.yy",},
     {"name":"rm_lenko_beaowire_10","order":1,"path":"rooms/rm_lenko_beaowire_10/rm_lenko_beaowire_10.yy",},
     {"name":"EnragedMoth","order":9,"path":"scripts/EnragedMoth/EnragedMoth.yy",},
     {"name":"spr_weapon_endiresFlame_spinFlame","order":8,"path":"sprites/spr_weapon_endiresFlame_spinFlame/spr_weapon_endiresFlame_spinFlame.yy",},
@@ -524,6 +526,7 @@
     {"name":"snd_npc_mouse","order":1,"path":"sounds/snd_npc_mouse/snd_npc_mouse.yy",},
     {"name":"EscortLillyShrineSpawner","order":5,"path":"scripts/EscortLillyShrineSpawner/EscortLillyShrineSpawner.yy",},
     {"name":"spr_enemy_nudeCultist_idle","order":25,"path":"sprites/spr_enemy_nudeCultist_idle/spr_enemy_nudeCultist_idle.yy",},
+    {"name":"spr_enemy_redcap_run","order":8,"path":"sprites/spr_enemy_redcap_run/spr_enemy_redcap_run.yy",},
     {"name":"obj_effect_house_vostleTown_tavern","order":8,"path":"objects/obj_effect_house_vostleTown_tavern/obj_effect_house_vostleTown_tavern.yy",},
     {"name":"spr_map_small","order":2,"path":"sprites/spr_map_small/spr_map_small.yy",},
     {"name":"Dumire","order":11,"path":"scripts/Dumire/Dumire.yy",},

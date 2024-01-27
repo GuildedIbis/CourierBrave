@@ -197,7 +197,7 @@ if (obj_game.gamePaused = false)
 			walk_snd_delay = 15;
 			timer1 = 32;
 			entity_step = scr_enemy_sarcap_slash;
-			direction = choose(0,90,180,270);
+			direction = point_direction(x,y,obj_player.x,obj_player.y);
 		}
 		else
 		{
