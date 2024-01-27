@@ -108,6 +108,7 @@
     {"name":"Entity","order":6,"path":"folders/Sprites/Entity.yy",},
     {"name":"Beetrap","order":1,"path":"folders/Sprites/Entity/Enemy/Beetrap.yy",},
     {"name":"Browncap","order":3,"path":"folders/Sprites/Entity/Enemy/Beetrap/Browncap.yy",},
+    {"name":"Redcap","order":8,"path":"folders/Sprites/Entity/Enemy/Beetrap/Redcap.yy",},
     {"name":"Sarcap","order":7,"path":"folders/Sprites/Entity/Enemy/Beetrap/Sarcap.yy",},
     {"name":"Lenko","order":2,"path":"folders/Sprites/Entity/Enemy/Lenko.yy",},
     {"name":"Acolyte","order":6,"path":"folders/Sprites/Entity/Enemy/Lenko/Acolyte.yy",},
@@ -175,7 +176,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Redcap","order":8,"path":"folders/Sprites/Entity/Enemy/Beetrap/Redcap.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},

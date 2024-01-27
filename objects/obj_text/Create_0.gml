@@ -16,6 +16,7 @@ button_sprite = spr_menu;
 //CG
 card_selected = -1;
 hand_slot = -1;
+active_slot = -1;
 
 //Paging and Buttons
 e_page = true;

@@ -37,7 +37,7 @@ scr_cg_deck_shuffle();
 phand_array = array_create(1);
 phand_array = 
 [
-	[0,"Name",scr_cg_0000_hand_selected,0],
+	[0,"Yellow Combatant",scr_cg_0000_hand_selected,0],
 ];
 
 
@@ -129,11 +129,11 @@ for (var i = 0; i < _handSize; i = i + 1)
 	}
 	if (hand_slot = i)
 	{
-		draw_sprite_ext(spr_card_allS,phand_array[i,0],_cardX,145,1.0,1.0,0,c_white,1);
+		draw_sprite_ext(spr_card_all_xl,phand_array[i,0],_cardX,145,.05,.05,0,c_white,1);
 	}
 	else
 	{
-		draw_sprite_ext(spr_card_allS,phand_array[i,0],_cardX,170,1.0,1.0,0,c_white,1);
+		draw_sprite_ext(spr_card_all_xl,phand_array[i,0],_cardX,170,.05,.05,0,c_white,1);
 	}
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX,170,_cardX + _space,180))
 	{
@@ -141,7 +141,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 		{
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,169,27,37);
 		}
-		if (mouse_check_button_pressed(mb_left))
+		if (mouse_check_button_released(mb_left))
 		{
 			hand_slot = i;
 			card_selected = phand_array[i,2];	
@@ -184,6 +184,31 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 if (pactive_array[0,0] != -1)
 {
-	draw_sprite_ext(spr_card_allS,pactive_array[0,0],80,92,1.0,1.0,0,c_white,1);//80,92
+	draw_sprite_ext(spr_card_all_xl,pactive_array[0,0],80,92,.05,.05,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,80,92,105,127)) and (card_selected = -1)
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,79,91,27,37);
+		if (mouse_check_button_released(mb_left))
+		{
+			hand_slot = -1;
+			active_slot = 0;
+			card_selected = pactive_array[0,2];	
+		}
+	}
+}
+
+if (pactive_array[1,0] != -1)
+{
+	draw_sprite_ext(spr_card_all_xl,pactive_array[1,0],107,92,.05,.05,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,107,92,132,127)) and (card_selected = -1)
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,106,91,27,37);
+		if (mouse_check_button_released(mb_left))
+		{
+			hand_slot = -1;
+			active_slot = 1;
+			card_selected = pactive_array[1,2];	
+		}
+	}
 }
 }
