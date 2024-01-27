@@ -55,9 +55,10 @@ mask_index = idle_sprite;
 //
 //Attack Calculate Status
 function scr_player_attack_calculate_magic(_hitbox,_hitBy,_kbDur,_azDur,_txDur,_vsDur,_wvDur,_drainPerc,_charge){
-//Collision with Entities
+//Set
 mask_index = _hitbox;
 
+//Collide with Entities
 var _hitByAttack = ds_list_create();
 var _hits = instance_place_list(x,y,obj_entity,_hitByAttack,false);
 if (_hits > 0)
@@ -126,8 +127,36 @@ if (_hits > 0)
 		}
 	}
 }
-	
 ds_list_destroy(_hitByAttack);
+
+//Collide with Shields
+var _shieldCollide = ds_list_create();
+var _shields = instance_place_list(x,y,obj_shield,_shieldCollide,false);
+if (_shields > 0)
+{
+	for (var i = 0; i < _shields; i = i + 1)
+	{
+		//If not yet hit, hit it
+		var _shieldID = _shieldCollide[| i];
+		if (ds_list_find_index(hit_by_attack, _shieldID) == -1)
+		{
+			ds_list_add(hit_by_attack,_shieldID);
+			with (_shieldID)
+			{
+				if (enemy = true) and (break_object == other.break_object)
+				{
+					with (other) 
+					{
+						if (destructable = true) instance_destroy();
+					}
+				}
+			}
+		}
+	}
+}
+ds_list_destroy(_shieldCollide);
+
+//Reset
 mask_index = idle_sprite;
 }
 //

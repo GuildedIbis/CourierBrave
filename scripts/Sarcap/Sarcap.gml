@@ -174,7 +174,7 @@ if (obj_game.gamePaused = false)
 	if (timer1 <= 0)
 	{
 		timer1 = 180;
-		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
+		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_shield))
 		{
 			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
 			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
@@ -501,6 +501,7 @@ function scr_projectile_sarcap_sporeWall_create(){
 home_state = scr_projectile_sarcap_sporeWall_step;
 entity_step = home_state;
 
+enemy = true;
 lit = true;
 invincible = false;
 inv_dur_timer = 0;
@@ -536,6 +537,7 @@ if (obj_game.gamePaused = false)
 {
 //Set
 lit = true;
+enemy = true;
 destructable = false;
 speed = enemy_spd;
 depth = -4700;
@@ -567,7 +569,7 @@ if (enemy_spd < 0) enemy_spd = 0;
 if (place_meeting(x,y,obj_projectile)) 
 {
 	
-	scr_enemy_attack_calculate_shield(enemy_move,self);
+	scr_shield_enemy_calculate(enemy_move,self);
 }
 if (place_meeting(x,y,break_object))
 {
