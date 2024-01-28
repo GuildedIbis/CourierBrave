@@ -89,6 +89,7 @@ draw_sprite_stretched(spr_menu_beveled,3,60,50,200,80);
 draw_sprite_ext(spr_card_all_xl,0,65,55,.1,.1,0,c_white,1);
 
 draw_sprite_stretched(spr_menu_circle16,3,117,55,138,20);
+draw_text_transformed(279,92,"Move Forward",1,1,0);
 if (point_in_rectangle(_mouseX,_mouseY,117,55,255,75)) and (pactive_array[active_slot + 1, 0] = -1)
 {
 	draw_sprite_stretched(spr_highlight_circle,0,116,54,140,22);

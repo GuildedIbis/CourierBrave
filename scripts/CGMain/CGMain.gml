@@ -182,33 +182,52 @@ function scr_draw_cg_player_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-if (pactive_array[0,0] != -1)
+
+for (var i = 0; i < 6; i = i + 1)
 {
-	draw_sprite_ext(spr_card_all_xl,pactive_array[0,0],80,92,.05,.05,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,80,92,105,127)) and (card_selected = -1)
+	if (pactive_array[i,0] != -1)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,79,91,27,37);
-		if (mouse_check_button_released(mb_left))
+		draw_sprite_ext(spr_card_all_xl,pactive_array[i,0],80 + (27 * i),92,.05,.05,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,80 + (27 * i),92,105 + (27 * i),127)) and (card_selected = -1)
 		{
-			hand_slot = -1;
-			active_slot = 0;
-			card_selected = pactive_array[0,2];	
+			draw_sprite_stretched(spr_highlight_nineslice,0,79 + (27 * i),91,27,37);
+			if (mouse_check_button_released(mb_left))
+			{
+				hand_slot = -1;
+				active_slot = i;
+				card_selected = pactive_array[i,2];	
+			}
 		}
 	}
 }
 
-if (pactive_array[1,0] != -1)
-{
-	draw_sprite_ext(spr_card_all_xl,pactive_array[1,0],107,92,.05,.05,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,107,92,132,127)) and (card_selected = -1)
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,106,91,27,37);
-		if (mouse_check_button_released(mb_left))
-		{
-			hand_slot = -1;
-			active_slot = 1;
-			card_selected = pactive_array[1,2];	
-		}
-	}
-}
+//if (pactive_array[0,0] != -1)
+//{
+//	draw_sprite_ext(spr_card_all_xl,pactive_array[0,0],80,92,.05,.05,0,c_white,1);//80,92
+//	if (point_in_rectangle(_mouseX,_mouseY,80,92,105,127)) and (card_selected = -1)
+//	{
+//		draw_sprite_stretched(spr_highlight_nineslice,0,79,91,27,37);
+//		if (mouse_check_button_released(mb_left))
+//		{
+//			hand_slot = -1;
+//			active_slot = 0;
+//			card_selected = pactive_array[0,2];	
+//		}
+//	}
+//}
+	
+//if (pactive_array[1,0] != -1)
+//{
+//	draw_sprite_ext(spr_card_all_xl,pactive_array[1,0],107,92,.05,.05,0,c_white,1);//80,92
+//	if (point_in_rectangle(_mouseX,_mouseY,107,92,132,127)) and (card_selected = -1)
+//	{
+//		draw_sprite_stretched(spr_highlight_nineslice,0,106,91,27,37);
+//		if (mouse_check_button_released(mb_left))
+//		{
+//			hand_slot = -1;
+//			active_slot = 1;
+//			card_selected = pactive_array[1,2];	
+//		}
+//	}
+//}
 }
