@@ -552,6 +552,7 @@ var _hitByAttack = ds_list_create();
 var _hits = instance_place_list(x,y,obj_player,_hitByAttack,false);
 if (_hits > 0)
 {
+	hit_success = true;
 	for (var i = 0; i < _hits; i = i + 1)
 	{
 		//If not yet hit, hit it

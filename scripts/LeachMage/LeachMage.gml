@@ -144,11 +144,12 @@ if (obj_game.gamePaused = false)
 				enemy_move = spr_enemy_leachMage_runCast;
 				entity_step = scr_enemy_leachMage_speedSpore;
 			}
-			if (timer4 <= 0)
+			if (timer4 <= 0) and (!place_meeting(x,y+16,obj_entity))
 			{
 				path_end();
 				sprite_index = enemy_idle;
 				timer4 = 120;
+				audio_play_sound(snd_enemy_leachMage_spawn_start,0,0,global.volumeEffects);
 				entity_step = scr_enemy_leachMage_redcap_spawn;
 			}
 		}
@@ -234,8 +235,7 @@ if (obj_game.gamePaused = false)
 		timer3 = 60;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
-			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
-			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
+			audio_play_sound(snd_enemy_leachMage_speedSpore,0,0,global.volumeEffects);
 			scr_projectile_speedSpore_create();
 			direction = point_direction(x,y,obj_player.x,obj_player.y-4);
 			image_angle = direction;
@@ -254,7 +254,7 @@ if (obj_game.gamePaused = false)
 		enemy_move = spr_enemy_leachMage_run;
 		sprite_index = enemy_idle;
 		entity_step = scr_enemy_leachMage_free;
-		timer2 = 360;
+		timer2 = 240;
 		timerC = max(timerC,180);
 	}
 }
@@ -289,10 +289,12 @@ if (obj_game.gamePaused = false)
 	{
 		if (!place_meeting(x,y+16,obj_entity))
 		{
+			audio_play_sound(snd_enemy_leachMage_spawn,0,0,global.volumeEffects);
 			with (instance_create_layer(x,y+16,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
 				scr_enemy_redcap_create();
+				parent = other;
 				entity_step = scr_enemy_redcap_spawn;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;

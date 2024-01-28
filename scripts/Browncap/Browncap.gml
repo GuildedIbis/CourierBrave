@@ -168,8 +168,7 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_browncap_sporeSlam;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		audio_play_sound(snd_enemy_browncap_sporeSlam,0,0,global.volumeEffects);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}

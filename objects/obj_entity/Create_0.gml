@@ -15,6 +15,7 @@ lit = false;
 light_size = (sprite_width + 4);
 shadow = false;
 shadow_size = 0;
+hit_success = false;
 drop_amount = -1;
 form_type = -1;
 hor_spd = 0;

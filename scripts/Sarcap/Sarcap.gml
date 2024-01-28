@@ -124,6 +124,7 @@ if (obj_game.gamePaused = false)
 				path_end();
 				sprite_index = enemy_idle;
 				timer4 = 120;
+				audio_play_sound(snd_enemy_sarcap_spawn_start,0,0,global.volumeEffects);
 				entity_step = scr_enemy_sarcap_browncap_spawn;
 			}
 		}
@@ -157,8 +158,7 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_sarcap_slash;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		audio_play_sound(snd_enemy_sarcap_slash,0,0,global.volumeEffects);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -176,8 +176,7 @@ if (obj_game.gamePaused = false)
 		timer1 = 180;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_shield))
 		{
-			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
-			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
+			audio_play_sound(snd_enemy_sarcap_shield,0,0,global.volumeEffects);
 			scr_projectile_sarcap_sporeWall_create();
 			image_speed = 1;
 			direction = other.direction;
@@ -262,8 +261,7 @@ if (obj_game.gamePaused = false)
 		timer3 = 3;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
-			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
-			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
+			audio_play_sound(snd_enemy_sarcap_sporeBlast,0,0,global.volumeEffects);
 			scr_projectile_sporeBlast_create();
 			image_speed = 0;
 			image_index = irandom_range(0,2);
@@ -316,6 +314,7 @@ if (obj_game.gamePaused = false)
 	if (timer4 <= 0)
 	{
 		timer4 = 660;
+		audio_play_sound(snd_enemy_sarcap_spawn,0,0,global.volumeEffects);
 		if (!place_meeting(x-16,y,obj_entity))
 		{
 			with (instance_create_layer(x-16,y,"Instances",obj_enemy))

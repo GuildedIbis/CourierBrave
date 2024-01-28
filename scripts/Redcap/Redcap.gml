@@ -168,8 +168,7 @@ if (obj_game.gamePaused = false)
 		sprite_index = spr_enemy_redcap_drainSpore;
 		local_frame = 0;
 		image_index = 0;
-		audio_sound_gain(snd_slash01,global.volumeEffects,1);
-		audio_play_sound(snd_slash01,0,false);
+		audio_play_sound(snd_enemy_redcap_drainSpore,0,0,global.volumeEffects);
 		if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 		ds_list_clear(hit_by_attack);
 	}
@@ -184,7 +183,82 @@ if (obj_game.gamePaused = false)
 	//End
 	if (animation_end)
 	{
+		if (instance_exists(parent)) and (hit_success = true)
+		{
+			enemy_idle = spr_enemy_redcap_return_idle;
+			enemy_move = spr_enemy_redcap_return_run;
+			entity_step = scr_enemy_redcap_returnHeal;
+		}
+		else
+		{
+			timer1 = 60;
+			hit_success = false;
+			hor_spd = irandom_range(-1,1);
+			ver_spd = irandom_range(-1,1);
+			if (hor_spd = 0) and (ver_spd = 0)
+			{
+				hor_spd = choose(-1,1)
+				ver_spd = choose(-1,1)
+			}
+			entity_step = scr_enemy_reposition;
+			animation_end = false;
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Redcap Return Heal
+function scr_enemy_redcap_returnHeal(){
+if (obj_game.gamePaused = false)
+{
+	//Timers
+	scr_enemy_timer_countdown();
+	if (flash > 0) entity_step = scr_enemy_damaged;
+	
+	//
+	if (instance_exists(parent))
+	{
+		if (knockback = false)
+		{
+			//Chase: create and execute a path towards player
+			if (path_exists(path)) path_delete(path);
+			path = path_add();
+			mp_potential_path_object(path, parent.x, parent.y, 1, 4, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
+		}
+		else path_end();
+		
+		//Heal Parent and Return to Chase
+		if (point_in_circle(parent.x,parent.y,x,y,8))
+		{
+			//path_end();
+			hit_success = false;
+			walk_snd_delay = 15;
+			sprite_index = enemy_idle;
+			entity_step = scr_enemy_redcap_free;
+			enemy_idle = spr_enemy_redcap_idle;
+			enemy_move = spr_enemy_redcap_run;
+			audio_play_sound(snd_enemy_redcap_heal,0,0,global.volumeEffects);
+			with (parent)
+			{
+				hp = min(max_hp,hp + 15);
+			}
+				
+		}
+	}	
+	else
+	{
+		hit_success = false;
+		enemy_idle = spr_enemy_redcap_idle;
+		enemy_move = spr_enemy_redcap_run;
 		timer1 = 60;
+		hit_success = false;
 		hor_spd = irandom_range(-1,1);
 		ver_spd = irandom_range(-1,1);
 		if (hor_spd = 0) and (ver_spd = 0)
@@ -195,9 +269,14 @@ if (obj_game.gamePaused = false)
 		entity_step = scr_enemy_reposition;
 		animation_end = false;
 	}
-}
-}
+	
 
+	
+	//Animation
+	scr_enemy_animation();
+}
+else path_end();
+}
 //
 //
 //
