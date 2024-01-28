@@ -22,7 +22,7 @@ walk_snd = snd_walk_regular;
 //Stats
 form_type = 0;
 drop_amount = 10;
-max_hp = 200; //+ (45 * enemy_lvl);
+max_hp = 400; //+ (45 * enemy_lvl);
 hp = max_hp;
 enemy_spd = 1.2;
 
@@ -61,6 +61,7 @@ if (obj_game.gamePaused = false)
 	//Timers
 	scr_enemy_timer_countdown();
 	if (flash > 0) entity_step = scr_enemy_damaged;
+	casting = false;
 	
 	
 	//Toggle Aggro 
@@ -91,19 +92,43 @@ if (obj_game.gamePaused = false)
 	if (targeted = true)
 	{
 		lit = true;
-		if (timerC <= 0) scr_enemy_chase();
-		//if (point_in_circle(obj_player.x,obj_player.y,x,y,16))
-		//{
-		//	path_end();
-		//	sprite_index = enemy_idle;
-		//	if (timer1 <= 0)
-		//	{
-		//		attack_counter = 0;
-		//		walk_snd_delay = 15;
-		//		timer1 = 32;
-		//		entity_step = scr_enemy_sarcap_slash;
-		//	}
-		//}
+		if (timerC <= 0)
+		{
+			if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
+			{
+				if (hor_spd = 0) and (ver_spd = 0) 
+				{
+					hor_spd = irandom_range(-1,1);
+					ver_spd = irandom_range(-1,1);
+				}
+		
+				if (hor_spd != 0) or (ver_spd != 0) 
+				{
+					var _xDest = x + (hor_spd * (enemy_spd))
+					var _yDest = y + (ver_spd * (enemy_spd))
+					if (place_meeting(_xDest, _yDest,obj_entity))
+					{
+						hor_spd = -hor_spd;
+						ver_spd = -ver_spd;
+						//sprite_index = enemy_idle;
+					}
+					path = path_add();
+					mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+					path_start(path, enemy_spd, 0, 0);
+					image_speed = 1;
+					sprite_index = enemy_move;
+	
+				}
+			}
+			else
+			{
+				speed = 0;
+				sprite_index = enemy_idle;
+				hor_spd = 0;
+				ver_spd = 0;
+				path_end();
+			}	
+		}	
 		if (!point_in_circle(obj_player.x,obj_player.y,x,y,16))
 		{
 			
@@ -113,19 +138,19 @@ if (obj_game.gamePaused = false)
 				direction = (round(point_direction(x,y,obj_player.x,obj_player.y)/90)) * 90;
 				sprite_index = enemy_idle;
 				walk_snd_delay = 15;
-				timer2 = irandom_range(60,120);
-				timer3 = 0;
+				timer2 = choose(120,180,240);
+				timer3 = 60;
 				enemy_idle = spr_enemy_leachMage_cast;
 				enemy_move = spr_enemy_leachMage_runCast;
-				entity_step = scr_enemy_leachMage_sporeBlast;
+				entity_step = scr_enemy_leachMage_speedSpore;
 			}
-			//if (timer4 <= 0)
-			//{
-			//	path_end();
-			//	sprite_index = enemy_idle;
-			//	timer4 = 120;
-			//	entity_step = scr_enemy_sarcap_browncap_spawn;
-			//}
+			if (timer4 <= 0)
+			{
+				path_end();
+				sprite_index = enemy_idle;
+				timer4 = 120;
+				entity_step = scr_enemy_leachMage_redcap_spawn;
+			}
 		}
 		if (collision_line(x,y,obj_player.x,obj_player.y,obj_wall,false,false)) and (aggro_drop > 0)
 		{
@@ -144,7 +169,7 @@ else path_end();
 //
 //
 //Leach Mage Sporeblast State
-function scr_enemy_leachMage_sporeBlast(){
+function scr_enemy_leachMage_speedSpore(){
 if (obj_game.gamePaused = false)
 {
 	//Timers
@@ -164,14 +189,39 @@ if (obj_game.gamePaused = false)
 
 	
 	//Move
-	if (point_in_circle(obj_player.x,obj_player.y,x,y,32))
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,64))
 	{
-		path_end();
-		sprite_index = enemy_idle;
+		if (hor_spd = 0) and (ver_spd = 0) 
+		{
+			hor_spd = irandom_range(-1,1);
+			ver_spd = irandom_range(-1,1);
+		}
+		
+		if (hor_spd != 0) or (ver_spd != 0) 
+		{
+			var _xDest = x + (hor_spd * (enemy_spd))
+			var _yDest = y + (ver_spd * (enemy_spd))
+			if (place_meeting(_xDest, _yDest,obj_entity))
+			{
+				hor_spd = -hor_spd;
+				ver_spd = -ver_spd;
+				//sprite_index = enemy_idle;
+			}
+			path = path_add();
+			mp_potential_path_object(path, _xDest, _yDest, 1, 2, obj_entity);
+			path_start(path, enemy_spd, 0, 0);
+			image_speed = 1;
+			sprite_index = enemy_move;
+	
+		}
 	}
 	else
 	{
-		scr_enemy_chase();
+		speed = 0;
+		sprite_index = enemy_idle;
+		hor_spd = 0;
+		ver_spd = 0;
+		path_end();
 	}
 	
 	//Animate
@@ -181,16 +231,14 @@ if (obj_game.gamePaused = false)
 	//Create Projectiles (mid-animation, several bursts)
 	if (timer3 <= 0)
 	{
-		timer3 = 3;
+		timer3 = 60;
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_enemy_projectile))
 		{
 			//audio_sound_gain(snd_enemy_acolyte_nilchrome,global.volumeEffects,1);
 			//audio_play_sound(snd_enemy_acolyte_nilchrome,0,0);
-			scr_projectile_sporeBlast_create();
-			image_speed = 0;
-			image_index = irandom_range(0,2);
-			direction = point_direction(x,y,obj_player.x,obj_player.y-4) + (irandom_range(-12,12));
-			image_angle = irandom_range(0,359);
+			scr_projectile_speedSpore_create();
+			direction = point_direction(x,y,obj_player.x,obj_player.y-4);
+			image_angle = direction;
 			speed = enemy_spd;
 			sprite_index = enemy_move;
 			break_object = other.break_object;
@@ -204,6 +252,7 @@ if (obj_game.gamePaused = false)
 		casting = false;
 		enemy_idle = spr_enemy_leachMage_idle;
 		enemy_move = spr_enemy_leachMage_run;
+		sprite_index = enemy_idle;
 		entity_step = scr_enemy_leachMage_free;
 		timer2 = 360;
 		timerC = max(timerC,180);
@@ -225,9 +274,9 @@ if (obj_game.gamePaused = false)
 	
 	
 	//Set
-	if (sprite_index != spr_enemy_sarcap_browncapSpawn)
+	if (sprite_index != spr_enemy_leachMage_redcapSpawn)
 	{
-		sprite_index = spr_enemy_sarcap_browncapSpawn;
+		sprite_index = spr_enemy_leachMage_redcapSpawn;
 		local_frame = 0;
 		image_index = 0;
 	}
@@ -235,69 +284,24 @@ if (obj_game.gamePaused = false)
 	//Animate
 	scr_enemy_animation_one()
 
-	//Spawn Decoy Enemies (mid-animation)
+	//Spawn Recap Enemy
 	if (timer4 <= 0)
 	{
-		timer4 = 660;
-		if (!place_meeting(x-16,y,obj_entity))
-		{
-			with (instance_create_layer(x-16,y,"Instances",obj_enemy))
-			{
-				image_alpha = 1;
-				scr_enemy_browncap_create();
-				entity_step = scr_enemy_browncap_spawn;
-				global.aggroCounter = global.aggroCounter + 1;
-				targeted = true;
-				break_object = other.break_object;
-				sprite_index = spr_enemy_browncap_spawn;
-				local_frame = 0;
-			}
-		}
-		if (!place_meeting(x+16,y,obj_entity))
-		{
-			with (instance_create_layer(x+16,y,"Instances",obj_enemy))
-			{
-				image_alpha = 1;
-				scr_enemy_browncap_create();
-				invincible = true;
-				inv_dur_timer = 5;
-				entity_step = scr_enemy_browncap_spawn;
-				global.aggroCounter = global.aggroCounter + 1;
-				targeted = true;
-				break_object = other.break_object;
-				sprite_index = spr_enemy_browncap_spawn;
-				local_frame = 0;
-			}
-		}
-		if (!place_meeting(x,y-16,obj_entity))
-		{
-			with (instance_create_layer(x,y-16,"Instances",obj_enemy))
-			{
-				image_alpha = 1;
-				scr_enemy_browncap_create();
-				entity_step = scr_enemy_browncap_spawn;
-				global.aggroCounter = global.aggroCounter + 1;
-				targeted = true;
-				break_object = other.break_object;
-				sprite_index = spr_enemy_browncap_spawn;
-				local_frame = 0;
-			}
-		}
 		if (!place_meeting(x,y+16,obj_entity))
 		{
 			with (instance_create_layer(x,y+16,"Instances",obj_enemy))
 			{
 				image_alpha = 1;
-				scr_enemy_browncap_create();
-				entity_step = scr_enemy_browncap_spawn;
+				scr_enemy_redcap_create();
+				entity_step = scr_enemy_redcap_spawn;
 				global.aggroCounter = global.aggroCounter + 1;
 				targeted = true;
 				break_object = other.break_object;
-				sprite_index = spr_enemy_browncap_spawn;
+				sprite_index = spr_enemy_redcap_spawn;
 				local_frame = 0;
 			}
 		}
-		entity_step = scr_enemy_sarcap_free;
+		entity_step = scr_enemy_leachMage_free;
 		timer4 = 600;
 	}
 }
@@ -349,6 +353,63 @@ with (instance_create_layer(x,y,"Instances",obj_itemCharge))
 //
 //
 //Projectiles
+//
+//
+//
+//
+//
+//Leach Mage Projectile Speedspore Create
+function scr_projectile_speedSpore_create(){
+home_state = scr_projectile_speedSpore_step;
+entity_step = home_state;
 
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_leachMage_speedSpore;
+enemy_idle = spr_projectile_leachMage_speedSpore;
+aggro_drop = 300;
+healthbar = false;
+enemy_spd = 4.5;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 40;
+fragment_count = 2;
+fragment = obj_fragBlue;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+
+sprite_index = enemy_idle;
+speed = enemy_spd;
+image_speed = 1;
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+//Leach Mage Projectile Speedspore Step
+function scr_projectile_speedSpore_step(){
+if (obj_game.gamePaused = false)
+{
+	//Resume Speed
+	speed = enemy_spd;
+	image_speed = 0;
+	
+	//Collision
+	scr_enemy_attack_calculate_projectile(sprite_index,self,-1,-1,-1,-1,-1,-1,-1);
+	if (place_meeting(x,y,break_object)) 
+	{
+		instance_destroy();
+	}
+}
+else
+{
+	speed = 0;
+}
+}
 
 
