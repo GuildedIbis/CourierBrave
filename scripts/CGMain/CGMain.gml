@@ -11,47 +11,54 @@ function scr_card_game_create(){
 //0: Card ID #
 //1: Name
 //2: Draw Script
-pdeck_array = array_create(12);
-pdeck_array = 
-[
-	[0,"Name",scr_cg_0000_draw],
-	[1,"Name",scr_cg_0001_draw],
-	[2,"Name",scr_cg_0002_draw],
-	[3,"Name",scr_cg_0003_draw],
-	[0,"Name",scr_cg_0000_draw],
-	[1,"Name",scr_cg_0001_draw],
-	[2,"Name",scr_cg_0002_draw],
-	[3,"Name",scr_cg_0003_draw],
-	[0,"Name",scr_cg_0000_draw],
-	[1,"Name",scr_cg_0001_draw],
-	[2,"Name",scr_cg_0002_draw],
-	[3,"Name",scr_cg_0003_draw],
-];
+with (instance_create_layer(0,0,"Instances",obj_cardGame))
+{
+	pdeck_array = array_create(12);
+	pdeck_array = 
+	[
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+	];
+	scr_cg_deck_shuffle();
+	
+	//Create Hand
+	//0: Card ID #
+	//1: Name
+	//2: Play Script
+	//3: Type
+	phand_array = array_create(1);
+	phand_array = 
+	[
+		[0,"Yellow Combatant",scr_cg_0000_hand_selected,0],
+	];
 
-scr_cg_deck_shuffle();
-//Create Hand
-//0: Card ID #
-//1: Name
-//2: Play Script
-//3: Type
-phand_array = array_create(1);
-phand_array = 
-[
-	[0,"Yellow Combatant",scr_cg_0000_hand_selected,0],
-];
+
+	//Create Active Lane
+	pactive_array = array_create(6);
+	pactive_array = 
+	[
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1]
+	];
+}
 
 
-//Create Active Lane
-pactive_array = array_create(6);
-pactive_array = 
-[
-	[-1,-1,-1,-1],
-	[-1,-1,-1,-1],
-	[-1,-1,-1,-1],
-	[-1,-1,-1,-1],
-	[-1,-1,-1,-1],
-	[-1,-1,-1,-1]
-];
+
+
 }
 //
 //
@@ -73,17 +80,17 @@ draw_set_color(c_white);
 var _title = "Card Game"
 //
 //Exit
-draw_sprite_stretched(spr_menu_circle16,1,8,8,16,16);
-if (point_in_rectangle(_mouseX,_mouseY,8,8,24,24))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,7,7,18,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		scr_text_end();
-		_SubString = string_copy(text_string,1,letter_counter);
-		e_page = true;
-	}
-}
+//draw_sprite_stretched(spr_menu_circle16,1,8,8,16,16);
+//if (point_in_rectangle(_mouseX,_mouseY,8,8,24,24))
+//{
+//	draw_sprite_stretched(spr_highlight_circle,0,7,7,18,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		scr_text_end();
+//		_SubString = string_copy(text_string,1,letter_counter);
+//		e_page = true;
+//	}
+//}
 //
 //Draw Hand
 scr_draw_cg_player_hand();

@@ -98,7 +98,7 @@ if (string_counter >= 1)
 				scr_text_end(false);
 				_SubString = string_copy(text_string,1,letter_counter);
 				scr_card_game_create();
-				text_script = scr_card_game_step;
+				text_script = scr_text_card_game;
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,70,114,250,134))

@@ -21,6 +21,7 @@ gamePaused = false; //Game Paused Controls All other objects, actually pauses ga
 menuPaused = false; //This and invPaused control what the menu object draws.
 invPaused = false;
 textPaused = false;
+cardPaused = false;
 event_live = false;
 save_num = -1;
 gameplay_timer = 60;
