@@ -94,13 +94,13 @@ var _title = "Card Game"
 //
 //Draw Hand
 scr_draw_cg_player_hand();
-//
+
 //Draw Deck
 scr_draw_cg_player_deck();
-//
+
 //Draw Active
 scr_draw_cg_player_active();
-//
+
 //Selected Card
 if (card_selected != -1)
 {
@@ -123,30 +123,30 @@ for (var i = 0; i < _handSize; i = i + 1)
 {
 	if (_handSize < 11)
 	{
-		var _leftAlign = 160 - (_handSize * 13);
-		var _space = 26;
-		var _cardX = _leftAlign + (26 * i);
+		var _leftAlign = 224 - (_handSize * 8);
+		var _space = 16;
+		var _cardX = _leftAlign + (16 * i);
 	}
 	else
 	{
-		var _leftAlign = 160 - (11 * 13);
+		var _leftAlign = 224 - (11 * 8);
 		//var _space = max(1,26 - ((_handSize - 11)));
-		var _space = max(1,277/_handSize);
+		var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 		var _cardX = _leftAlign + (_space * i);
 	}
 	if (hand_slot = i)
 	{
-		draw_sprite_ext(spr_card_all_xl,phand_array[i,0],_cardX,145,.05,.05,0,c_white,1);
+		draw_sprite_ext(spr_card_all,phand_array[i,0],_cardX,154,1,1,0,c_white,1);
 	}
 	else
 	{
-		draw_sprite_ext(spr_card_all_xl,phand_array[i,0],_cardX,170,.05,.05,0,c_white,1);
+		draw_sprite_ext(spr_card_all,phand_array[i,0],_cardX,161,1,1,0,c_white,1);
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX,170,_cardX + _space,180))
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176))
 	{
 		if (hand_slot != i)
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,169,27,37);
+			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,160,17,23);
 		}
 		if (mouse_check_button_released(mb_left))
 		{
@@ -166,11 +166,11 @@ function scr_draw_cg_player_deck(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-draw_sprite_ext(spr_card_allS_back,0,252,92,1,1,0,c_white,1);
-draw_text_transformed(279,92,string(array_length(pdeck_array)),1,1,0);
-if (point_in_rectangle(_mouseX,_mouseY,252,92,277,127))
+draw_sprite_ext(spr_card_all_back,0,295,98,1,1,0,c_white,1);
+draw_text_transformed(310,98,string(array_length(pdeck_array)),1,1,0);
+if (point_in_rectangle(_mouseX,_mouseY,295,98,310,119))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,251,91,27,37);
+	draw_sprite_stretched(spr_highlight_nineslice,0,294,97,17,23);
 	if (mouse_check_button_pressed(mb_left)) and (pdeck_array[0, 0] != -1)
 	{
 		array_resize(phand_array,array_length(phand_array) + 1);

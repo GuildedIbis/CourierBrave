@@ -28,24 +28,25 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 //draw_sprite_stretched(spr_menu_circle16,1,42,50,16,16);
 //draw_sprite_ext(spr_menu_arrow,2,50,58,1,1,0,c_white,1);
-if (!point_in_rectangle(_mouseX,_mouseY,60,50,260,130))
+//if (!point_in_rectangle(_mouseX,_mouseY,60,50,260,130))
+//{
+//	//draw_sprite_stretched(spr_highlight_circle,0,41,49,18,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		hand_slot = -1;
+//		card_selected = -1;
+//	}
+//}
+
+
+//draw_sprite_stretched(spr_menu_beveled,3,60,50,200,80);
+draw_sprite_ext(spr_card_all_full,0,1,4,1,1,0,c_white,1);
+
+draw_sprite_stretched(spr_menu_circle16,8,5,88,115,20);
+draw_text_transformed(279,92,"Move Forward",1,1,0);
+if (point_in_rectangle(_mouseX,_mouseY,5,88,120,108))
 {
-	//draw_sprite_stretched(spr_highlight_circle,0,41,49,18,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		hand_slot = -1;
-		card_selected = -1;
-	}
-}
-
-
-draw_sprite_stretched(spr_menu_beveled,3,60,50,200,80);
-draw_sprite_ext(spr_card_all_xl,0,65,55,.1,.1,0,c_white,1);
-
-draw_sprite_stretched(spr_menu_circle16,3,117,55,138,20);
-if (point_in_rectangle(_mouseX,_mouseY,117,55,255,75))
-{
-	draw_sprite_stretched(spr_highlight_circle,0,116,54,140,22);
+	draw_sprite_stretched(spr_highlight_circle,0,4,87,117,22);
 	if (mouse_check_button_pressed(mb_left)) and (pactive_array[0,0] = -1)
 	{
 		//Set to Active
@@ -74,25 +75,25 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 //draw_sprite_stretched(spr_menu_circle16,1,42,50,16,16);
 //draw_sprite_ext(spr_menu_arrow,2,50,58,1,1,0,c_white,1);
-if (!point_in_rectangle(_mouseX,_mouseY,60,50,260,130))
-{
-	//draw_sprite_stretched(spr_highlight_circle,0,41,49,18,18);
-	if (mouse_check_button_pressed(mb_left))
-	{
-		hand_slot = -1;
-		card_selected = -1;
-	}
-}
+//if (!point_in_rectangle(_mouseX,_mouseY,60,50,260,130))
+//{
+//	//draw_sprite_stretched(spr_highlight_circle,0,41,49,18,18);
+//	if (mouse_check_button_pressed(mb_left))
+//	{
+//		hand_slot = -1;
+//		card_selected = -1;
+//	}
+//}
 
 
-draw_sprite_stretched(spr_menu_beveled,3,60,50,200,80);
-draw_sprite_ext(spr_card_all_xl,0,65,55,.1,.1,0,c_white,1);
+//draw_sprite_stretched(spr_menu_beveled,3,60,50,200,80);
+draw_sprite_ext(spr_card_all_full,0,1,4,1,1,0,c_white,1);
 
-draw_sprite_stretched(spr_menu_circle16,3,117,55,138,20);
+draw_sprite_stretched(spr_menu_circle16,8,5,88,115,20);
 draw_text_transformed(279,92,"Move Forward",1,1,0);
-if (point_in_rectangle(_mouseX,_mouseY,117,55,255,75)) and (pactive_array[active_slot + 1, 0] = -1)
+if (point_in_rectangle(_mouseX,_mouseY,5,88,120,108)) and (pactive_array[active_slot + 1, 0] = -1)
 {
-	draw_sprite_stretched(spr_highlight_circle,0,116,54,140,22);
+	draw_sprite_stretched(spr_highlight_circle,0,4,87,117,22);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		//Set to Active
