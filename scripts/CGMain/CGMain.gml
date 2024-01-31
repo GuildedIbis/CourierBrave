@@ -7,12 +7,16 @@
 //Cards Create
 function scr_card_game_create(){
 
+//Change To Structs instead of arrays?
+
 //Create Deck
+
 //0: Card ID #
 //1: Name
 //2: Draw Script
 with (instance_create_layer(0,0,"Instances",obj_cardGame))
 {
+
 	pdeck_array = array_create(12);
 	pdeck_array = 
 	[
@@ -194,10 +198,10 @@ for (var i = 0; i < 6; i = i + 1)
 {
 	if (pactive_array[i,0] != -1)
 	{
-		draw_sprite_ext(spr_card_all_xl,pactive_array[i,0],80 + (27 * i),92,.05,.05,0,c_white,1);//80,92
-		if (point_in_rectangle(_mouseX,_mouseY,80 + (27 * i),92,105 + (27 * i),127)) and (card_selected = -1)
+		draw_sprite_ext(spr_card_all,pactive_array[i,0],165 + (20 * i),98,1,1,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119)) and (card_selected = -1)
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,79 + (27 * i),91,27,37);
+			draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * i),97,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
 				hand_slot = -1;

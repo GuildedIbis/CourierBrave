@@ -1256,6 +1256,7 @@
     {"id":{"name":"Mesa","path":"scripts/Mesa/Mesa.yy",},},
     {"id":{"name":"spr_tileset_beaowire","path":"sprites/spr_tileset_beaowire/spr_tileset_beaowire.yy",},},
     {"id":{"name":"spr_player_halofire_hamaxe_charging","path":"sprites/spr_player_halofire_hamaxe_charging/spr_player_halofire_hamaxe_charging.yy",},},
+    {"id":{"name":"spr_card_slot_effect","path":"sprites/spr_card_slot_effect/spr_card_slot_effect.yy",},},
     {"id":{"name":"spr_enemy_riftSabi_idle","path":"sprites/spr_enemy_riftSabi_idle/spr_enemy_riftSabi_idle.yy",},},
     {"id":{"name":"spr_quickswap_groupMeter2","path":"sprites/spr_quickswap_groupMeter2/spr_quickswap_groupMeter2.yy",},},
     {"id":{"name":"spr_charge_drop","path":"sprites/spr_charge_drop/spr_charge_drop.yy",},},

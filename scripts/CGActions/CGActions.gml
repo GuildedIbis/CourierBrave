@@ -27,3 +27,59 @@ for (var i = 0; i < _size; i = i + 1)
 	array_delete(_tempDeck,_shuffleID,1);
 }
 }
+//
+//
+//
+//
+//
+//Move Between Active Spaces
+function scr_cg_active_move(){
+if (active_slot <= 4) and (pactive_array[active_slot + 1, 0] = -1)
+{
+	draw_sprite_ext(spr_card_slot_effect,0,165 + (20 * (active_slot + 1)),98,1,1,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * (active_slot + 1)),98,180 + (20 * (active_slot + 1)),119)) 
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * (active_slot + 1)),97,17,23);
+		if (mouse_check_button_released(mb_left))
+		{
+			//Set to Active
+			pactive_array[active_slot + 1, 0] = pactive_array[active_slot, 0];
+			pactive_array[active_slot + 1, 1] = pactive_array[active_slot, 1];
+			pactive_array[active_slot + 1, 2] = pactive_array[active_slot, 2];
+			pactive_array[active_slot + 1, 3] = pactive_array[active_slot, 3];
+			pactive_array[active_slot, 0] = -1;
+			pactive_array[active_slot, 1] = -1;
+			pactive_array[active_slot, 2] = -1;
+			pactive_array[active_slot, 3] = -1;
+
+			active_slot = -1;
+			hand_slot = -1;
+			card_selected = -1;
+		}
+	}
+}
+if (active_slot >= 1) and (pactive_array[active_slot - 1, 0] = -1)
+{
+	draw_sprite_ext(spr_card_slot_effect,0,165 + (20 * (active_slot - 1)),98,1,1,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * (active_slot - 1)),98,180 + (20 * (active_slot - 1)),119)) 
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * (active_slot - 1)),97,17,23);
+		if (mouse_check_button_released(mb_left))
+		{
+			//Set to Active
+			pactive_array[active_slot - 1, 0] = pactive_array[active_slot, 0];
+			pactive_array[active_slot - 1, 1] = pactive_array[active_slot, 1];
+			pactive_array[active_slot - 1, 2] = pactive_array[active_slot, 2];
+			pactive_array[active_slot - 1, 3] = pactive_array[active_slot, 3];
+			pactive_array[active_slot, 0] = -1;
+			pactive_array[active_slot, 1] = -1;
+			pactive_array[active_slot, 2] = -1;
+			pactive_array[active_slot, 3] = -1;
+
+			active_slot = -1;
+			hand_slot = -1;
+			card_selected = -1;
+		}
+	}
+}
+}

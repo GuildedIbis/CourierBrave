@@ -1103,6 +1103,7 @@
     {"name":"Mesa","order":2,"path":"scripts/Mesa/Mesa.yy",},
     {"name":"spr_tileset_beaowire","order":17,"path":"sprites/spr_tileset_beaowire/spr_tileset_beaowire.yy",},
     {"name":"spr_player_halofire_hamaxe_charging","order":19,"path":"sprites/spr_player_halofire_hamaxe_charging/spr_player_halofire_hamaxe_charging.yy",},
+    {"name":"spr_card_slot_effect","order":8,"path":"sprites/spr_card_slot_effect/spr_card_slot_effect.yy",},
     {"name":"spr_enemy_riftSabi_idle","order":4,"path":"sprites/spr_enemy_riftSabi_idle/spr_enemy_riftSabi_idle.yy",},
     {"name":"spr_projectile_sarcap_sporeWall","order":10,"path":"sprites/spr_projectile_sarcap_sporeWall/spr_projectile_sarcap_sporeWall.yy",},
     {"name":"spr_enemy_eliteSkirmisher_run","order":7,"path":"sprites/spr_enemy_eliteSkirmisher_run/spr_enemy_eliteSkirmisher_run.yy",},
