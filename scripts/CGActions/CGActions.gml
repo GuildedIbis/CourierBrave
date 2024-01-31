@@ -32,34 +32,6 @@ for (var i = 0; i < _size; i = i + 1)
 //
 //
 //
-//Deck Shuffle
-function scr_cg_player_deck_shuffle(){
-var _size = array_length(deck_array);
-var _tempDeck = array_create(_size);
-
-//Save Temporary Copy of Deck
-for (var j = 0; j < _size; j = j + 1)
-{
-	_tempDeck[j, 0] = deck_array[j, 0];
-	_tempDeck[j, 1] = deck_array[j, 1];
-	_tempDeck[j, 2] = deck_array[j, 2];
-}
-
-//Reset Deck Randomly
-for (var i = 0; i < _size; i = i + 1)
-{
-	var _shuffleID = irandom_range(0,_size - (1+i));
-	deck_array[i, 0] = _tempDeck[_shuffleID, 0];
-	deck_array[i, 1] = _tempDeck[_shuffleID, 1];
-	deck_array[i, 2] = _tempDeck[_shuffleID, 2];
-	array_delete(_tempDeck,_shuffleID,1);
-}
-}
-//
-//
-//
-//
-//
 //Move Between Active Spaces
 function scr_cg_player_active_move(){
 var _mouseX = device_mouse_x_to_gui(0);

@@ -10,10 +10,6 @@ function scr_card_game_create(){
 //0: Card ID #
 //1: Name
 //2: Draw Script
-with (instance_create_layer(0,0,"Instances",obj_cardGame))
-{
-	
-}
 with (instance_create_layer(0,0,"Instances",obj_player_cg))
 {
 	//Create Deck
@@ -22,43 +18,6 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	//2: Draw Script
 	//Create Opponent Deck and Shuffle
 	player = 0;
-	deck_array = array_create(12);
-	deck_array = 
-	[
-		[0,"Name",scr_cg_0000_draw],
-		[1,"Name",scr_cg_0001_draw],
-		[2,"Name",scr_cg_0002_draw],
-		[3,"Name",scr_cg_0003_draw],
-		[0,"Name",scr_cg_0000_draw],
-		[1,"Name",scr_cg_0001_draw],
-		[2,"Name",scr_cg_0002_draw],
-		[3,"Name",scr_cg_0003_draw],
-		[0,"Name",scr_cg_0000_draw],
-		[1,"Name",scr_cg_0001_draw],
-		[2,"Name",scr_cg_0002_draw],
-		[3,"Name",scr_cg_0003_draw],
-	];
-	scr_cg_deck_shuffle(0);
-	//Create Hand
-	//0: Card ID #
-	//1: Name
-	//2: Play Script
-	//3: Type
-	hand_array = array_create(1);
-	hand_array = 
-	[
-		[0,"Yellow Combatant",scr_cg_0000_hand_selected,0],
-	];
-}
-
-with (instance_create_layer(0,0,"Instances",obj_player_cg))
-{
-	//Create Deck
-	//0: Card ID #
-	//1: Name
-	//2: Draw Script
-	//Create Opponent Deck and Shuffle
-	player = 1;
 	deck_array = array_create(12);
 	deck_array = 
 	[
@@ -84,7 +43,7 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	hand_array = array_create(1);
 	hand_array = 
 	[
-		[0,"Yellow Combatant",scr_cg_0000_hand_selected,0],
+		[0,"Yellow Combatant",scr_cg_player_0000_hand_selected,0],
 	];
 	//Create Active Lane
 	active_array = array_create(6);
@@ -97,20 +56,56 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 		[-1,-1,-1,-1],
 		[-1,-1,-1,-1]
 	];
+}
+
+with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
+{
+	//Create Deck
+	//0: Card ID #
+	//1: Name
+	//2: Draw Script
+	//Create Opponent Deck and Shuffle 
+	deck_array = array_create(12);
+	deck_array = 
+	[
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+		[0,"Name",scr_cg_0000_draw],
+		[1,"Name",scr_cg_0001_draw],
+		[2,"Name",scr_cg_0002_draw],
+		[3,"Name",scr_cg_0003_draw],
+	];
+	scr_cg_deck_shuffle();
+	//Create Hand
+	//0: Card ID #
+	//1: Name
+	//2: Play Script
+	//3: Type
+	hand_array = array_create(1);
+	hand_array = 
+	[
+		[0,"Yellow Combatant",scr_cg_opp_0000_hand,0],
+	];
+	//Create Active Lane
+	active_array = array_create(6);
+	active_array = 
+	[
+		[0,"Yellow Combatant",scr_cg_opp_0000_active_selected,0],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1],
+		[-1,-1,-1,-1]
+	];
 	
 }
 	
-	
-	
-	
-
-
-	
-
-
-
-
-
 }
 //
 //
@@ -143,7 +138,7 @@ if (p_card_selected != -1)
 //Draw Opponent
 //scr_draw_cg_opp_hand();
 //scr_draw_cg_opp_deck();
-//scr_draw_cg_opp_active();
+scr_draw_cg_opp_active();
 if (o_card_selected != -1)
 {
 	script_execute(o_card_selected);
@@ -248,34 +243,35 @@ for (var i = 0; i < 6; i = i + 1)
 		}
 	}
 }
+}
+//
+//
+//
+//
+//
+//Draw Opponent Active
+function scr_draw_cg_opp_active(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
-//if (p_active_array[0,0] != -1)
-//{
-//	draw_sprite_ext(spr_card_all_xl,p_active_array[0,0],80,92,.05,.05,0,c_white,1);//80,92
-//	if (point_in_rectangle(_mouseX,_mouseY,80,92,105,127)) and (card_selected = -1)
-//	{
-//		draw_sprite_stretched(spr_highlight_nineslice,0,79,91,27,37);
-//		if (mouse_check_button_released(mb_left))
-//		{
-//			hand_slot = -1;
-//			active_slot = 0;
-//			card_selected = p_active_array[0,2];	
-//		}
-//	}
-//}
-	
-//if (p_active_array[1,0] != -1)
-//{
-//	draw_sprite_ext(spr_card_all_xl,p_active_array[1,0],107,92,.05,.05,0,c_white,1);//80,92
-//	if (point_in_rectangle(_mouseX,_mouseY,107,92,132,127)) and (card_selected = -1)
-//	{
-//		draw_sprite_stretched(spr_highlight_nineslice,0,106,91,27,37);
-//		if (mouse_check_button_released(mb_left))
-//		{
-//			hand_slot = -1;
-//			active_slot = 1;
-//			card_selected = p_active_array[1,2];	
-//		}
-//	}
-//}
+with (obj_opponent_cg)
+{
+	for (var i = 0; i < 6; i = i + 1)
+	{
+		if (active_array[i,0] != -1)
+		{
+			draw_sprite_ext(spr_card_all,active_array[i,0],280 - (20 * i),83,1,1,180,c_white,1);//80,92
+			if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
+			{
+				draw_sprite_stretched(spr_highlight_nineslice,0,264 + (20 * i),62,17,23);
+				if (mouse_check_button_released(mb_left))
+				{
+					hand_slot = -1;
+					active_slot = i;
+					other.o_card_selected = active_array[i,2];	
+				}
+			}
+		}
+	}
+}
 }

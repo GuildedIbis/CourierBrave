@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "OpponentCGActions",
+  "name": "CGActions",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
