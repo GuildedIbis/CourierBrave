@@ -131,8 +131,6 @@
     {"name":"inst_555678CE","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_6057CCB5","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_7387867D","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
-    {"name":"inst_40D6D78D","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
-    {"name":"inst_405E2586","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_64E562E3","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_26B5966B","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_765D4DCA","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
@@ -175,6 +173,7 @@
     {"name":"inst_52FE4771","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_60A99EF8","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
     {"name":"inst_5FA86A1E","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
+    {"name":"inst_41E4A083","path":"rooms/rm_beetrap_northernPass_01/rm_beetrap_northernPass_01.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -267,19 +266,11 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6057CCB5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_sarcap_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"0",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":56.0,"y":112.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":152.0,"y":72.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7387867D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_skirmisher_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_browncap_create",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"1",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":56.0,"y":48.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_40D6D78D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_skirmisherElite_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":216.0,"y":120.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_405E2586","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_balurne_hunter_create",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"3",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":240.0,"y":104.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":88.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5FA86A1E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"value":"rm_beetrap_northernPass_02",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"value":"224",},
@@ -288,6 +279,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_num","path":"objects/obj_door/obj_door.yy",},"value":"2",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"value":"obj_game.northernPass_enemy_grid",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":208.0,"y":-24.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_41E4A083","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"value":"scr_enemy_browncap_create",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"activate_args","path":"objects/obj_entity/obj_entity.yy",},"value":"2",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":56.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","depth":800,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3773C037_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_effect_treeMolen_snowy","path":"objects/obj_effect_treeMolen_snowy/obj_effect_treeMolen_snowy.yy",},"properties":[

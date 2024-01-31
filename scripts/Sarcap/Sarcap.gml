@@ -374,7 +374,7 @@ if (obj_game.gamePaused = false)
 			}
 		}
 		entity_step = scr_enemy_sarcap_free;
-		timer4 = 600;
+		timer4 = 780;
 	}
 }
 }
