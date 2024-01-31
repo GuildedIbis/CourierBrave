@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Card0003",
+  "name": "PlayerCGActions",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Cards",
-    "path": "folders/Scripts/Game/CardGame/Cards.yy",
+    "name": "CardGame",
+    "path": "folders/Scripts/Game/CardGame.yy",
   },
 }
