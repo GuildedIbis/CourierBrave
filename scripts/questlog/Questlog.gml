@@ -127,7 +127,7 @@ quest_grid[# 17, 1] = 0;
 quest_grid[# 17, 2] = 2; 
 quest_grid[# 17, 3] = false;
 quest_grid[# 17, 4] = Idle;
-quest_grid[# 17, 5] = Idle;
+quest_grid[# 17, 5] = scr_inventory_questlog_text_17;
 quest_grid[# 18, 0] = false;//Yakflower Path Lair
 quest_grid[# 18, 1] = 0;
 quest_grid[# 18, 2] = 5; // Intro, 2 swarms, capture, and boss
@@ -572,7 +572,7 @@ draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 //
 //
 //
-//Quest Inventory Text: 17
+//Quest Inventory Text: 17 - Unlock Daethex
 function scr_inventory_questlog_text_17(){
 var _midX = 222;
 var _leftX = 167;
@@ -580,8 +580,8 @@ var _titleY = 39;
 var _descY = 56;
 var _compY = 111;
 
-var _headerText = "";
-var _text = ""
+var _headerText = "Unlock Daethex";
+var _text = "Unlock Daethex"
 draw_text_transformed(_midX-1,_titleY,_headerText,1,1,0);
 draw_text_transformed(_midX-1,_descY,_text,.5,.5,0);
 

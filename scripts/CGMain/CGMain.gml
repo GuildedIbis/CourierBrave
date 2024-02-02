@@ -6,8 +6,10 @@
 //
 //Cards Create
 function scr_card_game_create(){
-instance_create_layer(0,0,"Instances",obj_cardGame);
-
+with (instance_create_layer(0,0,"Instances",obj_cardGame))
+{
+	depth = obj_cursor.depth + 2;
+}
 	
 //Create Deck
 //0: Card ID #

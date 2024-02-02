@@ -68,6 +68,17 @@ form_grid[# 4, 6] = false;
 form_grid[# 4, 7] = false; 
 form_grid[# 4, 8] = false; 
 
+//Daethex
+form_grid[# 5, 0] = "DAETHEX"
+form_grid[# 5, 1] = scr_menu_skills_daethex_unlock;
+form_grid[# 5, 2] = scr_player_daethex_set; //Player Script
+form_grid[# 5, 3] = scr_menu_skills_daethex; //Inventory Script
+form_grid[# 5, 4] = false; //Unlocked Status
+form_grid[# 5, 5] = false; 
+form_grid[# 5, 6] = false; 
+form_grid[# 5, 7] = false; 
+form_grid[# 5, 8] = false; 
+
 }
 //
 //
