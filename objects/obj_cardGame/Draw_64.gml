@@ -1,5 +1,5 @@
 //Draw Game
-scr_card_game_step();
+draw_sprite_stretched(spr_gameBoard,0,0,0,320,180);
 
 
 

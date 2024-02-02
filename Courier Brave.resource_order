@@ -165,6 +165,7 @@
     {"name":"Tiles","order":7,"path":"folders/Sprites/Game/Tiles.yy",},
     {"name":"Tools","order":3,"path":"folders/Sprites/Game/Tools.yy",},
     {"name":"Ceriver","order":5,"path":"folders/Sprites/Player/Ceriver.yy",},
+    {"name":"Daethex","order":10,"path":"folders/Sprites/Player/Daethex.yy",},
     {"name":"Evarel","order":7,"path":"folders/Sprites/Player/Evarel.yy",},
     {"name":"Halofire","order":3,"path":"folders/Sprites/Player/Halofire.yy",},
     {"name":"Other","order":4,"path":"folders/Sprites/Player/Other.yy",},
@@ -184,7 +185,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Daethex","order":10,"path":"folders/Sprites/Player/Daethex.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -1321,6 +1321,7 @@
     {"name":"Salekt","order":6,"path":"scripts/Salekt/Salekt.yy",},
     {"name":"spr_npc_emissary36","order":15,"path":"sprites/spr_npc_emissary36/spr_npc_emissary36.yy",},
     {"name":"spr_npc_knightAvita36","order":1,"path":"sprites/spr_npc_knightAvita36/spr_npc_knightAvita36.yy",},
+    {"name":"Daethex","order":6,"path":"scripts/Daethex/Daethex.yy",},
     {"name":"BalurneSkirmisher","order":2,"path":"scripts/BalurneSkirmisher/BalurneSkirmisher.yy",},
     {"name":"spr_player_sivach_castArm","order":8,"path":"sprites/spr_player_sivach_castArm/spr_player_sivach_castArm.yy",},
     {"name":"spr_font_main_white","order":2,"path":"sprites/spr_font_main_white/spr_font_main_white.yy",},

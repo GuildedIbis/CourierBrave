@@ -6,12 +6,16 @@
 //
 //Cards Create
 function scr_card_game_create(){
+instance_create_layer(0,0,"Instances",obj_cardGame);
+
+	
 //Create Deck
 //0: Card ID #
 //1: Name
 //2: Draw Script
 with (instance_create_layer(0,0,"Instances",obj_player_cg))
 {
+	depth = obj_cardGame.depth - 1;
 	//Create Deck
 	//0: Card ID #
 	//1: Name
@@ -60,6 +64,7 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 
 with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 {
+	depth = obj_cardGame.depth - 1;
 	//Create Deck
 	//0: Card ID #
 	//1: Name
@@ -121,8 +126,6 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_sprite_stretched(spr_menu_beveled,3,0,0,320,180);
-draw_sprite_stretched(spr_gameBoard,0,0,0,320,180);
 draw_set_color(c_white);
 var _title = "Card Game"
 //
@@ -136,9 +139,6 @@ if (p_card_selected != -1)
 }
 //
 //Draw Opponent
-//scr_draw_cg_opp_hand();
-//scr_draw_cg_opp_deck();
-scr_draw_cg_opp_active();
 if (o_card_selected != -1)
 {
 	script_execute(o_card_selected);
@@ -201,17 +201,33 @@ for (var i = 0; i < _handSize; i = i + 1)
 function scr_draw_cg_player_deck(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _deckLen = array_length(deck_array);
 
-draw_sprite_ext(spr_card_all_back,0,295,98,1,1,0,c_white,1);
-draw_text_transformed(310,98,string(array_length(deck_array)),1,1,0);
-if (point_in_rectangle(_mouseX,_mouseY,295,98,310,119))
+if (deck_array[0, 0] != -1)
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,294,97,17,23);
-	if (mouse_check_button_pressed(mb_left)) and (deck_array[0, 0] != -1)
+	draw_sprite_ext(spr_card_all_back,0,295,98,1,1,0,c_white,1);
+	draw_text_transformed(310,98,string(_deckLen),1,1,0);
+	if (point_in_rectangle(_mouseX,_mouseY,295,98,310,119))
 	{
-		array_resize(hand_array,array_length(hand_array) + 1);
-		script_execute(deck_array[0,2]);
-		array_delete(deck_array,0,1);
+		draw_sprite_stretched(spr_highlight_nineslice,0,294,97,17,23);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			if ((_deckLen) > 1)
+			{
+				array_resize(hand_array,array_length(hand_array) + 1);
+				script_execute(deck_array[0,2]);
+				array_delete(deck_array,0,1);
+			}
+			if ((_deckLen) = 1)
+			{
+				array_resize(hand_array,array_length(hand_array) + 1);
+				script_execute(deck_array[0,2]);
+				deck_array[0,0] = -1;
+				deck_array[0,1] = -1;
+				deck_array[0,2] = -1;
+				deck_array[0,3] = -1;
+			}
+		}
 	}
 }
 }
@@ -254,22 +270,20 @@ function scr_draw_cg_opp_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-with (obj_opponent_cg)
+
+for (var i = 0; i < 6; i = i + 1)
 {
-	for (var i = 0; i < 6; i = i + 1)
+	if (active_array[i,0] != -1)
 	{
-		if (active_array[i,0] != -1)
+		draw_sprite_ext(spr_card_all,active_array[i,0],280 - (20 * i),84,1,1,180,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
 		{
-			draw_sprite_ext(spr_card_all,active_array[i,0],280 - (20 * i),83,1,1,180,c_white,1);//80,92
-			if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
+			draw_sprite_stretched(spr_highlight_nineslice,0,264 + (20 * i),62,17,23);
+			if (mouse_check_button_released(mb_left))
 			{
-				draw_sprite_stretched(spr_highlight_nineslice,0,264 + (20 * i),62,17,23);
-				if (mouse_check_button_released(mb_left))
-				{
-					hand_slot = -1;
-					active_slot = i;
-					other.o_card_selected = active_array[i,2];	
-				}
+				//hand_slot = -1;
+				//active_slot = i;
+				obj_player_cg.o_card_selected = active_array[i,2];	
 			}
 		}
 	}

@@ -6,11 +6,11 @@
 //
 //Draw From Deck
 function scr_cg_0001_draw(){
-var _newCard = array_length(phand_array) - 1;
-phand_array[_newCard, 0] = 1;
-phand_array[_newCard, 1] = "Orange Combatant";
-phand_array[_newCard, 2] = scr_cg_0001_hand_selected;
-phand_array[_newCard, 3] = 1;
+var _newCard = array_length(hand_array) - 1;
+hand_array[_newCard, 0] = 1;
+hand_array[_newCard, 1] = "Orange Combatant";
+hand_array[_newCard, 2] = scr_cg_0001_hand_selected;
+hand_array[_newCard, 3] = 1;
 }
 //
 //

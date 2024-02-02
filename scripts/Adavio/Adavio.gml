@@ -16,8 +16,8 @@ magicA_script = scr_player_adavio_voidCycle;
 magic_primary = true;
 idle_sprite = spr_player_adavio_idle;
 roll_sprite = spr_player_adavio_roll;
-crystal_sprite = spr_player_adavio_crystal;
-recharge_sprite = spr_player_regaliare_recharge;
+//crystal_sprite = spr_player_adavio_crystal;
+//recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_adavio_castArm;
 obj_cursor.curs_script = scr_cursor_adavio;
 

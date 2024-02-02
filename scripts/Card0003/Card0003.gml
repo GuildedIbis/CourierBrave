@@ -6,11 +6,11 @@
 //
 //Draw From Deck
 function scr_cg_0003_draw(){
-var _newCard = array_length(phand_array) - 1;
-phand_array[_newCard, 0] = 3;
-phand_array[_newCard, 1] = "Name";
-phand_array[_newCard, 2] = scr_cg_0003_hand_selected;
-phand_array[_newCard, 3] = 3;
+var _newCard = array_length(hand_array) - 1;
+hand_array[_newCard, 0] = 3;
+hand_array[_newCard, 1] = "Name";
+hand_array[_newCard, 2] = scr_cg_0003_hand_selected;
+hand_array[_newCard, 3] = 3;
 }
 //
 //
@@ -27,7 +27,7 @@ if (point_in_rectangle(_mouseX,_mouseY,8,98,24,114))
 	draw_sprite_stretched(spr_highlight_circle,0,7,97,18,18);
 	if (mouse_check_button_pressed(mb_left))
 	{
-		array_delete(phand_array,hand_slot,1);
+		array_delete(hand_array,hand_slot,1);
 		hand_slot = -1;
 		card_selected = -1;
 	}

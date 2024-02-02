@@ -17,8 +17,8 @@ magicA_script = scr_player_regaliare_heavyBurst;
 magic_primary = true;
 idle_sprite = spr_player_regaliare_idle;
 roll_sprite = spr_player_regaliare_roll;
-crystal_sprite = spr_player_regaliare_crystal;
-recharge_sprite = spr_player_regaliare_recharge;
+//crystal_sprite = spr_player_regaliare_crystal;
+//recharge_sprite = spr_player_regaliare_recharge;
 arm_sprite = spr_player_regaliare_castArm;
 obj_cursor.curs_script = scr_cursor_regaliare;
 //

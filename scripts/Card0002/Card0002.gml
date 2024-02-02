@@ -6,11 +6,11 @@
 //
 //Draw From Deck
 function scr_cg_0002_draw(){
-var _newCard = array_length(phand_array) - 1;
-phand_array[_newCard, 0] = 2;
-phand_array[_newCard, 1] = "Name";
-phand_array[_newCard, 2] = scr_cg_0002_hand_selected;
-phand_array[_newCard, 3] = 2;
+var _newCard = array_length(hand_array) - 1;
+hand_array[_newCard, 0] = 2;
+hand_array[_newCard, 1] = "Name";
+hand_array[_newCard, 2] = scr_cg_0002_hand_selected;
+hand_array[_newCard, 3] = 2;
 }
 //
 //
