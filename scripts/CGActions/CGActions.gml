@@ -69,6 +69,7 @@ if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 			active_slot = -1;
 			hand_slot = -1;
 			p_card_selected = -1;
+			action_state = false;
 		}
 	}
 }
@@ -98,6 +99,7 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 			active_slot = -1;
 			hand_slot = -1;
 			p_card_selected = -1;
+			action_state = false;
 		}
 	}
 }

@@ -50,15 +50,26 @@ if (player = 1)
 function scr_cg_player_0000_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 3;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
 //
 //
 //
 //
 //Set 
-if (active_array[0,0] = -1)
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		action_state = true;
+	}
+}
+	
+if (active_array[0,0] = -1) and (action_state = true)
 {
 	draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
 	if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
@@ -79,6 +90,7 @@ if (active_array[0,0] = -1)
 			array_delete(hand_array,hand_slot,1);
 			hand_slot = -1;
 			p_card_selected = -1;
+			action_state = false;
 		}
 	}
 }
@@ -93,13 +105,27 @@ if (active_array[0,0] = -1)
 function scr_cg_player_0000_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 3;
 
 //Draw Full Card
 draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
 
-//Move (Standard)
-scr_cg_player_active_move();
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		action_state = true;
+	}
+}
 
+//
+if (action_state = true)
+{
+//Move (Standard)
+	scr_cg_player_active_move();
+}
 //Test Attack - 
 //Select attack - enter attack state
 //If obj_opp.active_array[x,0] != -1 and (correct placement)

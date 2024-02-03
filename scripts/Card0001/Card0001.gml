@@ -50,6 +50,8 @@ if (player = 1)
 function scr_cg_player_0001_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 3;
 
 //Draw Full Card
 draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
@@ -58,31 +60,45 @@ draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
 //
 //
 //Set 
-if (active_array[0,0] = -1)
-{
-	draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
-		if (mouse_check_button_released(mb_left)) 
-		{
-			//Set to Active
-			active_array[0,0] = 1;
-			active_array[0,1] = "Lightray Knight";
-			active_array[0,2] = 0;
-			active_array[0,3] = 1;
-			active_array[0,4] = 9;
-			active_array[0,5] = scr_cg_player_0001_active_selected;
 
-		
-			//Remove From Hand
-			array_delete(hand_array,hand_slot,1);
-			hand_slot = -1;
-			p_card_selected = -1;
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		action_state = true;
+	}
+}
+if (action_state = true)
+{
+	for (var i = 0; i < 6; i = i + 1)
+	{
+		if (active_array[i,0] = 0)
+		{
+			draw_sprite_ext(spr_card_slot_effect,1,165 + (20 * i),98,1,1,0,c_white,1);//80,92
+			//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
+			if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119))// and (p_card_selected = -1)
+			{
+				//card_hover = string(active_array[i,1]);
+				draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * i),97,17,23);
+				if (mouse_check_button_released(mb_left))
+				{
+					active_array[i,0] = 1;
+					active_array[i,1] = "Lightray Knight";
+					active_array[i,2] = 0;
+					active_array[i,3] = 1;
+					active_array[i,4] = 9;
+					active_array[i,5] = scr_cg_player_0001_active_selected;
+				
+					//Discard? Leave under?
+					array_delete(hand_array,hand_slot,1);
+					hand_slot = -1;
+					action_state = false;
+				}
+			}
 		}
 	}
 }
-
 }
 //
 //
@@ -93,13 +109,27 @@ if (active_array[0,0] = -1)
 function scr_cg_player_0001_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 3;
 
 //Draw Full Card
 draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
 
-//Move (Standard)
-scr_cg_player_active_move();
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		action_state = true;
+	}
+}
 
+//
+if (action_state = true)
+{
+//Move (Standard)
+	scr_cg_player_active_move();
+}
 //Test Attack - 
 //Select attack - enter attack state
 //If obj_opp.active_array[x,0] != -1 and (correct placement)

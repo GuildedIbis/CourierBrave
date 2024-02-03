@@ -185,7 +185,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 		draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,161,1,1,0,c_white,1);
 		draw_text_transformed(_cardX + 8, 176,string(hand_array[i,4]),.75,.75,0);
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176))
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176)) and (action_state = false)
 	{
 		card_hover = string(hand_array[i,1]);
 		if (hand_slot != i)
@@ -260,8 +260,9 @@ for (var i = 0; i < 6; i = i + 1)
 	{
 		draw_sprite_ext(spr_card_all,active_array[i,2],165 + (20 * i),98,1,1,0,c_white,1);//80,92
 		draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
-		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119)) and (p_card_selected = -1)
+		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119)) and (action_state = false)
 		{
+			card_hover = string(active_array[i,1]);
 			draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * i),97,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
@@ -272,6 +273,8 @@ for (var i = 0; i < 6; i = i + 1)
 		}
 	}
 }
+
+
 }
 //
 //
@@ -291,6 +294,7 @@ for (var i = 0; i < 6; i = i + 1)
 		draw_sprite_ext(spr_card_all,active_array[i,0],280 - (20 * i),84,1,1,180,c_white,1);//80,92
 		if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
 		{
+			obj_player_cg.card_hover = string(active_array[i,1]);
 			draw_sprite_stretched(spr_highlight_nineslice,0,264 + (20 * i),62,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
