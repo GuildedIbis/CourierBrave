@@ -123,7 +123,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_color(c_white);
-var _title = "Card Game"
+
 //
 //Draw Player
 scr_draw_cg_player_hand();
@@ -139,6 +139,11 @@ if (o_card_selected != -1)
 {
 	script_execute(o_card_selected);
 }
+
+if (card_hover != -1)
+{
+	draw_text_transformed(_mouseX,_mouseY-8,card_hover,.5,.5,0);
+}
 }
 //
 //
@@ -149,7 +154,11 @@ if (o_card_selected != -1)
 function scr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-//
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+card_hover = -1;
 var _handSize = array_length(hand_array);
 for (var i = 0; i < _handSize; i = i + 1)
 {
@@ -168,16 +177,17 @@ for (var i = 0; i < _handSize; i = i + 1)
 	}
 	if (hand_slot = i)
 	{
-		draw_sprite_ext(spr_card_all,hand_array[i,0],_cardX,154,1,1,0,c_white,1);
-		draw_text_transformed(_cardX + 8 + (20 * i), 169,string(active_array[i,4]),.75,.75,0);
+		draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,154,1,1,0,c_white,1);
+		draw_text_transformed(_cardX + 8, 169,string(hand_array[i,4]),.75,.75,0);
 	}
 	else
 	{
-		draw_sprite_ext(spr_card_all,hand_array[i,0],_cardX,161,1,1,0,c_white,1);
-		draw_text_transformed(_cardX + 8 + (20 * i), 176,string(active_array[i,4]),.75,.75,0);
+		draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,161,1,1,0,c_white,1);
+		draw_text_transformed(_cardX + 8, 176,string(hand_array[i,4]),.75,.75,0);
 	}
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176))
 	{
+		card_hover = string(hand_array[i,1]);
 		if (hand_slot != i)
 		{
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,160,17,23);
@@ -248,7 +258,7 @@ for (var i = 0; i < 6; i = i + 1)
 {
 	if (active_array[i,0] != -1)
 	{
-		draw_sprite_ext(spr_card_all,active_array[i,0],165 + (20 * i),98,1,1,0,c_white,1);//80,92
+		draw_sprite_ext(spr_card_all,active_array[i,2],165 + (20 * i),98,1,1,0,c_white,1);//80,92
 		draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119)) and (p_card_selected = -1)
 		{

@@ -15,6 +15,9 @@ for (var j = 0; j < _size; j = j + 1)
 	_tempDeck[j, 0] = deck_array[j, 0];
 	_tempDeck[j, 1] = deck_array[j, 1];
 	_tempDeck[j, 2] = deck_array[j, 2];
+	_tempDeck[j, 3] = deck_array[j, 3];
+	_tempDeck[j, 4] = deck_array[j, 4];
+	_tempDeck[j, 5] = deck_array[j, 5];
 }
 
 //Reset Deck Randomly
@@ -24,6 +27,9 @@ for (var i = 0; i < _size; i = i + 1)
 	deck_array[i, 0] = _tempDeck[_shuffleID, 0];
 	deck_array[i, 1] = _tempDeck[_shuffleID, 1];
 	deck_array[i, 2] = _tempDeck[_shuffleID, 2];
+	deck_array[i, 3] = _tempDeck[_shuffleID, 3];
+	deck_array[i, 4] = _tempDeck[_shuffleID, 4];
+	deck_array[i, 5] = _tempDeck[_shuffleID, 5];
 	array_delete(_tempDeck,_shuffleID,1);
 }
 }
