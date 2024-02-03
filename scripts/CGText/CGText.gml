@@ -7,6 +7,7 @@
 function scr_text_card_game(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+depth = obj_cursor.depth + 1;
 
 if (keyboard_check_pressed(vk_escape))
 {
@@ -30,11 +31,11 @@ if (obj_game.cardPaused = true)
 			{
 				instance_destroy();
 			}
-			with(obj_deck)
+			with(obj_player_cg)
 			{
 				instance_destroy();
 			}
-			with(obj_card)
+			with(obj_opponent_cg)
 			{
 				instance_destroy();
 			}
@@ -42,6 +43,7 @@ if (obj_game.cardPaused = true)
 			scr_text_end();
 			_SubString = string_copy(text_string,1,letter_counter);
 			e_page = true;
+			obj_game.cardPaused = false;
 		}
 	}
 	if (point_in_rectangle(_mouseX,_mouseY,125,93,195,109))

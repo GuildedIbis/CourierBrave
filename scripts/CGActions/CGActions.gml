@@ -50,10 +50,15 @@ if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 			active_array[active_slot + 1, 1] = active_array[active_slot, 1];
 			active_array[active_slot + 1, 2] = active_array[active_slot, 2];
 			active_array[active_slot + 1, 3] = active_array[active_slot, 3];
+			active_array[active_slot + 1, 4] = active_array[active_slot, 4];
+			active_array[active_slot + 1, 5] = active_array[active_slot, 5];
 			active_array[active_slot, 0] = -1;
 			active_array[active_slot, 1] = -1;
 			active_array[active_slot, 2] = -1;
 			active_array[active_slot, 3] = -1;
+			active_array[active_slot, 4] = -1;
+			active_array[active_slot, 5] = -1;
+
 
 			active_slot = -1;
 			hand_slot = -1;
@@ -74,10 +79,15 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 			active_array[active_slot - 1, 1] = active_array[active_slot, 1];
 			active_array[active_slot - 1, 2] = active_array[active_slot, 2];
 			active_array[active_slot - 1, 3] = active_array[active_slot, 3];
+			active_array[active_slot - 1, 4] = active_array[active_slot, 4];
+			active_array[active_slot - 1, 5] = active_array[active_slot, 5];
 			active_array[active_slot, 0] = -1;
 			active_array[active_slot, 1] = -1;
 			active_array[active_slot, 2] = -1;
 			active_array[active_slot, 3] = -1;
+			active_array[active_slot, 4] = -1;
+			active_array[active_slot, 5] = -1;
+
 
 			active_slot = -1;
 			hand_slot = -1;

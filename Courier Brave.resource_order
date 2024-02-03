@@ -1478,6 +1478,7 @@
     {"name":"spr_card_all_back","order":7,"path":"sprites/spr_card_all_back/spr_card_all_back.yy",},
     {"name":"spr_enemy_gorogE_chainHook_wait","order":12,"path":"sprites/spr_enemy_gorogE_chainHook_wait/spr_enemy_gorogE_chainHook_wait.yy",},
     {"name":"spr_enemy_sarcap_runCast","order":8,"path":"sprites/spr_enemy_sarcap_runCast/spr_enemy_sarcap_runCast.yy",},
+    {"name":"CGDatabase","order":8,"path":"scripts/CGDatabase/CGDatabase.yy",},
     {"name":"YakflowerSpawners","order":3,"path":"scripts/YakflowerSpawners/YakflowerSpawners.yy",},
     {"name":"spr_enemy_folioBulb_pitFire","order":2,"path":"sprites/spr_enemy_folioBulb_pitFire/spr_enemy_folioBulb_pitFire.yy",},
     {"name":"spr_solarSabi1_active","order":9,"path":"sprites/spr_solarSabi1_active/spr_solarSabi1_active.yy",},

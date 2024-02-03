@@ -1,3 +1,12 @@
+//Card Array Guide
+//
+//0: Card ID # - 0,1,2...
+//1: Name String - "Name"
+//2: Type - Combatants 0-7, Spells 8, Enchantments 9, Pylon 10-15
+//3: Stage - 0,1,2...
+//4: HP - 4,5,6...
+//5: Active/Hand Script - scr_cg_player...
+//
 //Card 0000 - Player
 //
 //
@@ -15,15 +24,21 @@ if (player = 0)
 {
 	hand_array[_newCard, 0] = 0;
 	hand_array[_newCard, 1] = "Yellow Combatant";
-	hand_array[_newCard, 2] = scr_cg_player_0000_hand_selected;
+	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
+	hand_array[_newCard, 4] = 4;
+	hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+
 }
 if (player = 1)
 {
 	hand_array[_newCard, 0] = 0;
 	hand_array[_newCard, 1] = "Yellow Combatant";
-	hand_array[_newCard, 2] = scr_cg_opp_0000_hand;
+	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
+	hand_array[_newCard, 4] = 4;
+	hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+
 }
 }
 //
@@ -38,7 +53,10 @@ var _mouseY = device_mouse_y_to_gui(0);
 
 //Draw Full Card
 draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
-
+//
+//
+//
+//
 //Set 
 if (active_array[0,0] = -1)
 {
@@ -51,8 +69,11 @@ if (active_array[0,0] = -1)
 			//Set to Active
 			active_array[0,0] = 0;
 			active_array[0,1] = "Yellow Combatant";
-			active_array[0,2] = scr_cg_player_0000_active_selected;
+			active_array[0,2] = 0;
 			active_array[0,3] = 0;
+			active_array[0,4] = 4;
+			active_array[0,5] = scr_cg_player_0000_active_selected;
+
 		
 			//Remove From Hand
 			array_delete(hand_array,hand_slot,1);
@@ -78,6 +99,11 @@ draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
 
 //Move (Standard)
 scr_cg_player_active_move();
+
+//Test Attack - 
+//Select attack - enter attack state
+//If obj_opp.active_array[x,0] != -1 and (correct placement)
+//
 
 
 }
