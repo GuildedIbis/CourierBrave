@@ -1,4 +1,5 @@
 //
+hit_by_attack = -1;
 magic = false;
 lit = false;
 destructable = true;

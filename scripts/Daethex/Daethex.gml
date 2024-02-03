@@ -76,25 +76,16 @@ if (_oldSprite != sprite_index) local_frame = 0;
 scr_player_animation();
 
 //Melee Attack
-//var _weaponCost
-//if (obj_inventory.form_grid[# 3, 5] = false)
-//{
-//	_weaponCost = 15;
-//}
-//else
-//{
-//	_weaponCost = 0;
-//}
-//if (key_attackW) and (stamina >= _weaponCost)
-//{
-//	if (thundux = false) and (weapon_count >= 1)
-//	{
-//		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
-//		timer1 = 15;
-//		attack_script = scr_player_daethex_boomerang;
-//		state_script = scr_player_attack;
-//	}
-//}
+var _weaponCost
+if (key_attackW) and (stamina >= 20)
+{
+	if (thundux = false)
+	{
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		attack_script = scr_player_daethex_shoot;
+		state_script = scr_player_attack;
+	}
+}
 
 //Magic Attack
 if (key_attackM)
@@ -177,6 +168,68 @@ if (keyboard_check_pressed(ord("Z")))
 	}
 }
 //End Daethex Free State
+}
+//
+//
+//
+//
+//
+//Daethex Shoot (Melee)
+function scr_player_daethex_shoot(){
+//Set
+attacking = true;
+casting = false;
+damage = 10;
+
+
+///Standard Timers
+scr_player_standard_timers(-1,false,true,true,true,-1);
+
+//Attack Start
+if (sprite_index != spr_player_daethex_shoot)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_player_daethex_shoot;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Animate
+scr_player_animation();
+
+
+if (animation_end)
+{
+	stamina = stamina - 20;
+	audio_sound_gain(snd_enemy_rat_arrow,global.volumeEffects,1);
+	audio_play_sound(snd_enemy_rat_arrow,0,false);
+	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	{
+		sd_timer = 120;
+		break_object = obj_player.break_object;
+		magic = false;
+		damage = 30;
+		projectile_speed = 3.0;
+		fragment_count = 1;
+		fragment = obj_fragWood;
+		projectile_sprite = spr_projectile_daethex_arrow;
+		projectile_script = scr_projectile_daethex_arrow;
+		idle_sprite = spr_projectile_daethex_arrow;
+		hit_by_attack = -1;
+		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+		image_angle = direction;
+		
+	}
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+}
 }
 //
 //
@@ -333,6 +386,43 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 	instance_destroy();
 }
 }//
+//
+//
+//
+//
+//
+function scr_projectile_daethex_arrow(){
+//Set
+if (sd_timer > 0) sd_timer = sd_timer - 1; 
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object))
+{
+	instance_destroy();
+}
+
+//Self Destruct
+if (sd_timer <= 0)
+{
+	instance_destroy();
+}
+}
 //
 //
 //
