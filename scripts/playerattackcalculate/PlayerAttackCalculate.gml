@@ -80,6 +80,14 @@ if (_hits > 0)
 						script_execute(hit_script); 
 						if (invincible = false) and (npc = false)
 						{
+							if (other.hit = false)
+							{
+								other.hit_target = self;
+								other.hit = true;
+								other.distX = x - other.x;
+								other.distY = y - other.y;
+							}
+							
 							if (_azDur != -1) ablaze_dur_timer = _azDur;
 							if (_txDur != -1) thundux_dur_timer = _txDur;
 							if (_vsDur != -1) voidsick_dur_timer = _vsDur;
@@ -190,6 +198,14 @@ if (_hits > 0)
 						script_execute(hit_script); 
 						if (invincible = false) and (npc = false)
 						{
+							if (other.hit = false)
+							{
+								other.hit_target = self;
+								other.hit = true;
+								other.distX = x - other.x;
+								other.distY = y - other.y;
+							}
+							
 							if (_shakeMag != -1) and (_shakeLen != -1)
 							{
 								scr_camera_screen_shake(_shakeMag,_shakeLen);

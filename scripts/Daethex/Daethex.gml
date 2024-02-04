@@ -354,9 +354,12 @@ if (timer1 <= 0)
 	audio_play_sound(snd_daethex_bloodKnife,0,0,global.volumeEffects);
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
+		hit = false;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = 40;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+		damage = 10;
+		timer1 = 0;
+		sd_timer = 300;
 		projectile_sprite = spr_projectile_daethex_knife;
 		projectile_script = scr_projectile_daethex_bloodKnife;
 		idle_sprite = spr_projectile_daethex_knife;
@@ -365,6 +368,7 @@ if (timer1 <= 0)
 		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
 		image_angle = direction;
 		projectile_speed = 2.5;
+		speed = projectile_speed;
 		returning = false;
 	}
 	attacking = false;
@@ -494,6 +498,9 @@ if (sd_timer <= 0)
 //
 function scr_projectile_daethex_bloodKnife(){
 //Set
+destructable = false;
+if (timer1 > 0) timer1 = timer1 - 1;
+if (sd_timer > 0) sd_timer = sd_timer - 1;
 speed = projectile_speed;
 if (sprite_index != projectile_sprite)
 {
@@ -506,16 +513,32 @@ if (sprite_index != projectile_sprite)
 	ds_list_clear(hit_by_attack);
 }
 
+if (sd_timer <= 0) instance_destroy();
+
 //Collision
-if (place_meeting(x,y,obj_enemy)) 
+if (place_meeting(x,y,obj_enemy)) and (timer1 <= 0)
 {
-	scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,-1,-1,-1);
-	instance_destroy();
+	projectile_sprite = spr_projectile_daethex_bloodKnife;
+	ds_list_clear(hit_by_attack);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,.5,-1,-1,-1);
+	timer1 = 30;
 }
+if (hit = true)
+{
+	speed = 0;
+	projectile_speed = 0;
+	if (instance_exists(hit_target))
+	{
+		x = hit_target.x - distX;
+		y = hit_target.y - distY;
+	}
+}
+
 if (place_meeting(x,y,break_object))
 {
 	instance_destroy();
 }
+
 
 }
 //

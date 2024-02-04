@@ -1,5 +1,9 @@
 //
 hit_by_attack = -1;
+hit_target = -1;
+hit = false;
+distX = -1;
+distY = -1;
 magic = false;
 lit = false;
 destructable = true;

@@ -1704,6 +1704,7 @@
     {"id":{"name":"spr_npc_portrait_einalad","path":"sprites/spr_npc_portrait_einalad/spr_npc_portrait_einalad.yy",},},
     {"id":{"name":"spr_enemy_zealot_runCast","path":"sprites/spr_enemy_zealot_runCast/spr_enemy_zealot_runCast.yy",},},
     {"id":{"name":"snd_enemy_rat_arrow_hit","path":"sounds/snd_enemy_rat_arrow_hit/snd_enemy_rat_arrow_hit.yy",},},
+    {"id":{"name":"spr_projectile_daethex_bloodKnife","path":"sprites/spr_projectile_daethex_bloodKnife/spr_projectile_daethex_bloodKnife.yy",},},
     {"id":{"name":"spr_projectile_sivach_helixStone","path":"sprites/spr_projectile_sivach_helixStone/spr_projectile_sivach_helixStone.yy",},},
     {"id":{"name":"spr_player_ironPlate_recharge","path":"sprites/spr_player_ironPlate_recharge/spr_player_ironPlate_recharge.yy",},},
     {"id":{"name":"spr_keyClaw_active","path":"sprites/spr_keyClaw_active/spr_keyClaw_active.yy",},},
