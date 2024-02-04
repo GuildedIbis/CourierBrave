@@ -88,6 +88,7 @@
     {"name":"Adavio","order":10,"path":"folders/Sounds/Player/Adavio.yy",},
     {"name":"All","order":3,"path":"folders/Sounds/Player/All.yy",},
     {"name":"Ceriver","order":9,"path":"folders/Sounds/Player/Ceriver.yy",},
+    {"name":"Daethex","order":12,"path":"folders/Sounds/Player/Daethex.yy",},
     {"name":"Evarel","order":11,"path":"folders/Sounds/Player/Evarel.yy",},
     {"name":"Halofire","order":8,"path":"folders/Sounds/Player/Halofire.yy",},
     {"name":"Regaliare","order":7,"path":"folders/Sounds/Player/Regaliare.yy",},
@@ -185,7 +186,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Daethex","order":12,"path":"folders/Sounds/Player/Daethex.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},

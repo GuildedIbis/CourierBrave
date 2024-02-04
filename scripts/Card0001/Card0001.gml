@@ -52,6 +52,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 3;
+var _atkName1 = "SWORD ATTACK";
 
 //Draw Full Card
 draw_set_font(global.fnt_main_white);
@@ -59,6 +60,8 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,hand_array[hand_slot,1],1,1,0);
+draw_set_halign(fa_left);
+draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 //
 //
 //
@@ -116,6 +119,8 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 3;
+var _atkName1 = "SWORD ATTACK";
+
 
 //Draw Full Card
 draw_set_font(global.fnt_main_white);
@@ -123,6 +128,8 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,active_array[active_slot,1],1,1,0);
+draw_set_halign(fa_left);
+draw_text_transformed(_cardX + 10,_cardY + 102,_atkName1,.75,.75,0);
 
 
 if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
@@ -131,14 +138,32 @@ if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_ca
 	if (mouse_check_button_released(mb_left)) 
 	{
 		action_state = true;
+		action_choose = 0;
 	}
 }
-
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 100,_cardX + 89,_cardY + 109))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 99,82,12);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		action_state = true;
+		action_choose = 1;
+	}
+}
+//89,109
 //
 if (action_state = true)
 {
-//Move (Standard)
-	scr_cg_player_active_move();
+	switch (action_choose)
+	{
+		case 0:
+			scr_cg_player_active_move();
+		break;
+		
+		case 1:
+			scr_cg_player_0001_atk_0();
+		break;
+	}
 }
 //Test Attack - 
 //Select attack - enter attack state
@@ -146,4 +171,32 @@ if (action_state = true)
 //
 
 
+}
+//
+//
+//
+//
+//
+//Card 0001 - Player Attack 0
+function scr_cg_player_0001_atk_0(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _targetNum = 5 - active_slot;
+var _targetPos = obj_opponent_cg.active_array[_targetNum,0]
+var _targetX = 265 - (20 * _targetNum)
+
+if (_targetPos != -1)
+{
+	draw_sprite_ext(spr_card_slot_effect,2,_targetX,63,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_targetX,63,_targetX + 15,84))
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,_targetX - 1,62,17,23);
+		if (mouse_check_button_pressed(mb_left)) 
+		{
+			action_state = false;
+			obj_opponent_cg.active_array[_targetNum,4] -= 2;
+		}
+	}
+}
 }
