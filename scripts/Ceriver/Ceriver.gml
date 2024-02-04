@@ -765,7 +765,7 @@ if (magic_timer <= 0)
 		with (instance_create_layer(ldX + dir_offX, ldY + dir_offY,"Instances",obj_projectile))
 		{
 			audio_sound_gain(snd_ceriver_steelorb,global.volumeEffects,1);
-			audio_play_sound(snd_ceriver_steelorb,0,0);
+			audio_play_sound(snd_ceriver_steelorb,0,0,global.volumeEffects);
 			break_object = obj_player.break_object;
 			timer1 = 15;
 			fragment_count = 3;

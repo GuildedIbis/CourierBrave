@@ -113,26 +113,29 @@ if (key_attackM)
 }
 
 //Special Attack 
-//if (key_attackS) and (blue_special >= 40)
-//{
-//	if (watervice = false)
-//	{
-//		attack_script = scr_player_daethex_steelorb;
-//		state_script = scr_player_attack;
-//	}
-//}
+if (key_attackS) and (red_special >= 40)
+{
+	if (watervice = false)
+	{
+		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		attack_script = scr_player_daethex_bloodKnife;
+		timer1 = 20;
+		state_script = scr_player_attack;
+	}
+}
+
 ////Roll State
-//if (key_ability) and (stamina >= 50)
-//{
-//	if (thundux = false)
-//	{
-//		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
-//		audio_play_sound(snd_player_roll,0,false);
-//		stamina = stamina - 50;
-//		state_script = scr_player_roll;
-//		remain_dist = roll_dist;
-//	}
-//}
+if (key_ability) and (stamina >= 50)
+{
+	if (thundux = false)
+	{
+		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
+		audio_play_sound(snd_player_roll,0,false);
+		stamina = stamina - 50;
+		state_script = scr_player_roll;
+		remain_dist = roll_dist;
+	}
+}
 
 //Switch Magic Fire
 if (keyboard_check_pressed(ord("F"))) and (obj_inventory.form_grid[# 5, 7] = true)
@@ -174,7 +177,7 @@ if (keyboard_check_pressed(ord("Z")))
 //
 //
 //
-//Daethex Shoot (Melee)
+//Daethex Shoot (Weapon)
 function scr_player_daethex_shoot(){
 //Set
 attacking = true;
@@ -205,8 +208,7 @@ scr_player_animation();
 if (animation_end)
 {
 	stamina = stamina - 20;
-	audio_sound_gain(snd_enemy_rat_arrow,global.volumeEffects,1);
-	audio_play_sound(snd_enemy_rat_arrow,0,false);
+	audio_play_sound(snd_daethex_bowShot,0,0,global.volumeEffects);
 	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
 	{
 		sd_timer = 120;
@@ -236,7 +238,7 @@ if (animation_end)
 //
 //
 //
-//Adavio Void Cycle State
+//Daethex Blood Needle State (Primary)
 function scr_player_daethex_bloodNeedle(){
 //Set
 walk_spd = 1.1;
@@ -276,8 +278,7 @@ if (magic_timer <= 0)
 	//magic_count = magic_count - 1;
 	scr_camera_screen_shake(1,5);
 	red_primary = red_primary - 8;
-	//audio_sound_gain(snd_adavio_voidBits,global.volumeEffects,1);
-	//audio_play_sound(snd_adavio_voidBits,0,0);
+	audio_play_sound(snd_daethex_bloodNeedle,0,0,global.volumeEffects);
 	for (var i = 0; i < 7; i = i + 1)
 	{
 		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
@@ -311,6 +312,67 @@ if (mouse_check_button(mb_left) = false) or (red_primary < 8)
 	damage = 0;
 	animation_end = false;
 	atk_snd_delay = 0;
+}
+}
+//
+//
+//
+//
+//
+//Daethex Blood Knife State (Special)
+function scr_player_daethex_bloodKnife(){
+//Set
+attacking = true;
+
+
+///Standard Timers
+scr_player_standard_timers(20,true,true,true,false,-1);
+if (timer1 > 0) timer1 = timer1 - 1;
+//Attack Start
+if (sprite_index != spr_player_daethex_knifeThrow)
+{
+	//Start Animation From Beginning
+	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
+	sprite_index = spr_player_daethex_knifeThrow;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Animate
+scr_player_animation();
+
+//Return to Free State or Continue Throwing Boomerangs (if possible)
+if (timer1 <= 0)
+{
+	
+	red_special = red_special - 40;
+	//Throw Boomerang
+	audio_play_sound(snd_daethex_bloodKnife,0,0,global.volumeEffects);
+	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	{
+		break_object = obj_player.break_object;
+		magic = false;
+		damage = 40;//+ (6 * obj_player.might) + ((obj_inventory.form_grid[# 3, 6])*5);//
+		projectile_sprite = spr_projectile_daethex_knife;
+		projectile_script = scr_projectile_daethex_bloodKnife;
+		idle_sprite = spr_projectile_daethex_knife;
+		hit_by_attack = -1;
+		//script_execute(LeafArcCreate);
+		direction = (point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y));
+		image_angle = direction;
+		projectile_speed = 2.5;
+		returning = false;
+	}
+	attacking = false;
+	state_script = free_state;
+	damage = 0;
+	animation_end = false;
+	atk_snd_delay = 0;
+	
 }
 }
 //
@@ -385,7 +447,8 @@ if (place_meeting(x,y,break_object)) or (timer1 <= 0)
 {
 	instance_destroy();
 }
-}//
+}
+//
 //
 //
 //
@@ -422,6 +485,38 @@ if (sd_timer <= 0)
 {
 	instance_destroy();
 }
+}
+//
+//
+//
+//
+//
+//
+function scr_projectile_daethex_bloodKnife(){
+//Set
+speed = projectile_speed;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+//Collision
+if (place_meeting(x,y,obj_enemy)) 
+{
+	scr_player_attack_calculate_weapon(projectile_sprite,self,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+	instance_destroy();
+}
+if (place_meeting(x,y,break_object))
+{
+	instance_destroy();
+}
+
 }
 //
 //
