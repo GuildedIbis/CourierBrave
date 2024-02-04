@@ -23,7 +23,7 @@ var _newCard = array_length(hand_array) - 1; //"-1" because the array was alread
 if (player = 0)
 {
 	hand_array[_newCard, 0] = 1;
-	hand_array[_newCard, 1] = "Lightray Knight";
+	hand_array[_newCard, 1] = "LIGHTRAY KNIGHT";
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 1;
 	hand_array[_newCard, 4] = 9;
@@ -33,7 +33,7 @@ if (player = 0)
 if (player = 1)
 {
 	hand_array[_newCard, 0] = 1;
-	hand_array[_newCard, 1] = "Lightray Knight";
+	hand_array[_newCard, 1] = "LIGHTRAY KNIGHT";
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 1;
 	hand_array[_newCard, 4] = 9;
@@ -54,16 +54,20 @@ var _cardX = 0;
 var _cardY = 3;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,hand_array[hand_slot,1],1,1,0);
 //
 //
 //
 //
 //Set 
 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 81,_cardX + 102,_cardY + 90))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 80,95,12);
 	if (mouse_check_button_released(mb_left)) 
 	{
 		action_state = true;
@@ -84,7 +88,7 @@ if (action_state = true)
 				if (mouse_check_button_released(mb_left))
 				{
 					active_array[i,0] = 1;
-					active_array[i,1] = "Lightray Knight";
+					active_array[i,1] = "LIGHTRAY KNIGHT";
 					active_array[i,2] = 0;
 					active_array[i,3] = 1;
 					active_array[i,4] = 9;
@@ -92,6 +96,7 @@ if (action_state = true)
 				
 					//Discard? Leave under?
 					array_delete(hand_array,hand_slot,1);
+					p_card_selected = -1;
 					hand_slot = -1;
 					action_state = false;
 				}
@@ -113,11 +118,16 @@ var _cardX = 0;
 var _cardY = 3;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,active_array[active_slot,1],1,1,0);
 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 	if (mouse_check_button_released(mb_left)) 
 	{
 		action_state = true;

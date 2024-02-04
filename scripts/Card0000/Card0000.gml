@@ -23,7 +23,7 @@ var _newCard = array_length(hand_array) - 1; //"-1" because the array was alread
 if (player = 0)
 {
 	hand_array[_newCard, 0] = 0;
-	hand_array[_newCard, 1] = "Yellow Combatant";
+	hand_array[_newCard, 1] = "KAFFARI GAURD";
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 4;
@@ -33,7 +33,7 @@ if (player = 0)
 if (player = 1)
 {
 	hand_array[_newCard, 0] = 0;
-	hand_array[_newCard, 1] = "Yellow Combatant";
+	hand_array[_newCard, 1] = "KAFFARI GAURD";
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 4;
@@ -53,16 +53,23 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 3;
 
+//Card Text
+var _cName = string(hand_array[hand_slot,1]);
+
 //Draw Full Card
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 //
 //
 //
 //
 //Set 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 81,_cardX + 102,_cardY + 90))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 80,95,12);
 	if (mouse_check_button_released(mb_left)) 
 	{
 		action_state = true;
@@ -79,7 +86,7 @@ if (active_array[0,0] = -1) and (action_state = true)
 		{
 			//Set to Active
 			active_array[0,0] = 0;
-			active_array[0,1] = "Yellow Combatant";
+			active_array[0,1] = "KAFFARI GAURD";
 			active_array[0,2] = 0;
 			active_array[0,3] = 0;
 			active_array[0,4] = 4;
@@ -109,11 +116,16 @@ var _cardX = 0;
 var _cardY = 3;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
+var _cName = active_array[active_slot,1];
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 90,_cardY + 160,_cardX + 99,_cardY + 169))
+if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 89,_cardY + 159,12,12);
+	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 	if (mouse_check_button_released(mb_left)) 
 	{
 		action_state = true;
@@ -142,9 +154,15 @@ if (action_state = true)
 function scr_cg_opp_0000_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 3;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,0,0,3,1,1,0,c_white,1);
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,hand_array[hand_slot,1],1,1,0);
 
 //Set 
 if (active_array[0,0] = -1)
@@ -157,7 +175,7 @@ if (active_array[0,0] = -1)
 		{
 			//Set to Active
 			active_array[0,0] = 0;
-			active_array[0,1] = "Yellow Combatant";
+			active_array[0,1] = "KAFFARI GAURD";
 			active_array[0,2] = scr_cg_player_0000_active_selected;
 			active_array[0,3] = 0;
 		
