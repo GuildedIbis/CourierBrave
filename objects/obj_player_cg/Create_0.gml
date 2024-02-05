@@ -7,6 +7,10 @@ active_slot = -1;
 card_hover = -1;
 action_state = false
 
+//Per Turn
+draw_pt = false;
+move_pt = false;
+
 
 
 

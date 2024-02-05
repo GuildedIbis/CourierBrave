@@ -91,7 +91,9 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	hand_array = array_create(1);
 	hand_array = 
 	[
-		[0,"Yellow Combatant",0,0,4,scr_cg_opp_0000_hand],
+		[0,"KAFFARI GUARD",0,0,4,scr_cg_opp_0000_hand],
+		[1,"LIGHTRAY KNIGHT",0,1,9,scr_cg_opp_0001_hand],
+		[2,"CAPTAIN HOLON",0,2,14,scr_cg_opp_0002_hand],
 	];
 	//Create Active Lane
 	active_array = array_create(6);
@@ -99,7 +101,7 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	[
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
-		[0,"Yellow Combatant",0,0,4,scr_cg_opp_0000_active_selected],
+		[0,"KAFFARI GUARD",0,0,4,scr_cg_opp_0000_active_selected],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1]
@@ -123,6 +125,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
+
 
 //
 //Draw Player
@@ -222,11 +225,12 @@ if (deck_array[0, 0] != -1)
 {
 	draw_sprite_ext(spr_card_all_back,0,295,98,1,1,0,c_white,1);
 	draw_text_transformed(310,98,string(_deckLen),1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,295,98,310,119))
+	if (obj_cardGame.turn = 0)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,294,97,17,23);
-		if (mouse_check_button_pressed(mb_left))
+		if (draw_pt = false)
 		{
+			draw_pt = true;
+		
 			if ((_deckLen) > 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
@@ -244,6 +248,21 @@ if (deck_array[0, 0] != -1)
 				deck_array[0,4] = -1;
 				deck_array[0,5] = -1;
 			}
+		}
+	}
+}
+
+if (obj_cardGame.turn = 0)
+{
+	if (point_in_rectangle(_mouseX,_mouseY,131,132,159,146)) and (action_state = false)
+	{
+
+		draw_sprite_stretched(spr_highlight_nineslice,0,130,131,30,16);
+		if (mouse_check_button_released(mb_left))
+		{
+			draw_pt = false;
+			move_pt = false;
+			obj_cardGame.turn = 1;
 		}
 	}
 }
@@ -289,6 +308,59 @@ for (var i = 0; i < 6; i = i + 1)
 //
 //
 //
+//Draw Opponent Deck
+function scr_draw_cg_opp_deck(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _deckLen = array_length(deck_array);
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+
+if (deck_array[0, 0] != -1)
+{
+	draw_sprite_ext(spr_card_all_back,0,135,63,1,1,0,c_white,1);
+	draw_text_transformed(130,63,string(_deckLen),1,1,0);
+	if (obj_cardGame.turn = 1)
+	{
+		if (draw_pt = false)
+		{
+			draw_pt = true;
+		
+			if ((_deckLen) > 1)
+			{
+				array_resize(hand_array,array_length(hand_array) + 1);
+				script_execute(deck_array[0,5]);
+				array_delete(deck_array,0,1);
+			}
+			if ((_deckLen) = 1)
+			{
+				array_resize(hand_array,array_length(hand_array) + 1);
+				script_execute(deck_array[0,5]);
+				deck_array[0,0] = -1;
+				deck_array[0,1] = -1;
+				deck_array[0,2] = -1;
+				deck_array[0,3] = -1;
+				deck_array[0,4] = -1;
+				deck_array[0,5] = -1;
+			}
+		}
+	}
+}
+
+if (obj_cardGame.turn = 1)
+{
+	draw_pt = false;
+	move_pt = false;
+	obj_cardGame.turn = 0;
+}
+}
+//
+//
+//
+//
+//
 //Draw Opponent Active
 function scr_draw_cg_opp_active(){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -302,7 +374,7 @@ for (var i = 0; i < 6; i = i + 1)
 {
 	if (active_array[i,0] != -1)
 	{
-		draw_sprite_ext(spr_card_all,active_array[i,0],265 - (20 * i),63,1,1,0,c_white,1);//80,92
+		draw_sprite_ext(spr_card_all,active_array[i,0],265 - (20 * i),63,1,1,0,c_white,1);
 		draw_text_transformed(273 - (20 * i), 76,string(active_array[i,4]),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
 		{
@@ -310,11 +382,45 @@ for (var i = 0; i < 6; i = i + 1)
 			draw_sprite_stretched(spr_highlight_nineslice,0,264 - (20 * i),62,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
-				//hand_slot = -1;
-				//active_slot = i;
 				obj_player_cg.p_card_selected = active_array[i,5];	
 			}
 		}
 	}
+}
+
+}
+//
+//
+//
+//
+//
+//Draw Opponent Hand
+function scr_draw_cg_opp_hand(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+
+var _handSize = array_length(hand_array);
+for (var i = 0; i < _handSize; i = i + 1)
+{
+	if (_handSize < 11)
+	{
+		var _leftAlign = 224 - (_handSize * 8);
+		var _space = 16;
+		var _cardX = _leftAlign + (16 * i);
+	}
+	else
+	{
+		var _leftAlign = 224 - (11 * 8);
+		//var _space = max(1,26 - ((_handSize - 11)));
+		var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
+		var _cardX = _leftAlign + (_space * i);
+	}
+	
+	draw_sprite_ext(spr_card_all_back,0,_cardX,4,1,1,0,c_white,1);
+	
 }
 }

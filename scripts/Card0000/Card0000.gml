@@ -67,41 +67,43 @@ draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 //
 //
 //Set 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 81,_cardX + 102,_cardY + 90))
+if (obj_cardGame.turn = 0)
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 80,95,12);
-	if (mouse_check_button_released(mb_left)) 
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 81,_cardX + 102,_cardY + 90))
 	{
-		action_state = true;
-	}
-}
-	
-if (active_array[0,0] = -1) and (action_state = true)
-{
-	draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
+		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 80,95,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			//Set to Active
-			active_array[0,0] = 0;
-			active_array[0,1] = "KAFFARI GAURD";
-			active_array[0,2] = 0;
-			active_array[0,3] = 0;
-			active_array[0,4] = 4;
-			active_array[0,5] = scr_cg_player_0000_active_selected;
+			action_state = true;
+		}
+	}
+	
+	if (active_array[0,0] = -1) and (action_state = true)
+	{
+		draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
+		{
+			draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
+			if (mouse_check_button_released(mb_left)) 
+			{
+				//Set to Active
+				active_array[0,0] = 0;
+				active_array[0,1] = "KAFFARI GAURD";
+				active_array[0,2] = 0;
+				active_array[0,3] = 0;
+				active_array[0,4] = 4;
+				active_array[0,5] = scr_cg_player_0000_active_selected;
 
 		
-			//Remove From Hand
-			array_delete(hand_array,hand_slot,1);
-			hand_slot = -1;
-			p_card_selected = -1;
-			action_state = false;
+				//Remove From Hand
+				array_delete(hand_array,hand_slot,1);
+				hand_slot = -1;
+				p_card_selected = -1;
+				action_state = false;
+			}
 		}
 	}
 }
-
 }
 //
 //
@@ -123,27 +125,23 @@ draw_set_valign(fa_top);
 draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 
-if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
+if (obj_cardGame.turn = 0)
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
-	if (mouse_check_button_released(mb_left)) 
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
 	{
-		action_state = true;
+		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
+		if (mouse_check_button_released(mb_left)) 
+		{
+			action_state = true;
+		}
+	}
+
+	if (action_state = true)
+	{
+		//Move (Standard)
+		scr_cg_player_active_move();
 	}
 }
-
-//
-if (action_state = true)
-{
-//Move (Standard)
-	scr_cg_player_active_move();
-}
-//Test Attack - 
-//Select attack - enter attack state
-//If obj_opp.active_array[x,0] != -1 and (correct placement)
-//
-
-
 }
 //
 //
@@ -165,24 +163,27 @@ draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,hand_array[hand_slot,1],1,1,0);
 
 //Set 
-if (active_array[0,0] = -1)
+if (obj_cardGame.turn = 1)
 {
-	draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
+	if (active_array[0,0] = -1)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
-		if (mouse_check_button_released(mb_left)) 
+		draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
 		{
-			//Set to Active
-			active_array[0,0] = 0;
-			active_array[0,1] = "KAFFARI GAURD";
-			active_array[0,2] = scr_cg_player_0000_active_selected;
-			active_array[0,3] = 0;
+			draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
+			if (mouse_check_button_released(mb_left)) 
+			{
+				//Set to Active
+				active_array[0,0] = 0;
+				active_array[0,1] = "KAFFARI GAURD";
+				active_array[0,2] = scr_cg_player_0000_active_selected;
+				active_array[0,3] = 0;
 		
-			//Remove From Hand
-			array_delete(hand_array,hand_slot,1);
-			hand_slot = -1;
-			p_card_selected = -1;
+				//Remove From Hand
+				array_delete(hand_array,hand_slot,1);
+				hand_slot = -1;
+				p_card_selected = -1;
+			}
 		}
 	}
 }
