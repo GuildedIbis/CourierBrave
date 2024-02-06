@@ -118,8 +118,9 @@ if (key_attackS) and (red_special >= 40)
 	if (watervice = false)
 	{
 		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
+		audio_play_sound(snd_daethex_bloodKnife_charge,0,0,global.volumeEffects);
 		attack_script = scr_player_daethex_bloodKnife;
-		timer1 = 20;
+		timer1 = 45;
 		state_script = scr_player_attack;
 	}
 }
@@ -322,37 +323,42 @@ if (mouse_check_button(mb_left) = false) or (red_primary < 8)
 //Daethex Blood Knife State (Special)
 function scr_player_daethex_bloodKnife(){
 //Set
+walk_spd = 1.1;
 attacking = true;
-
+casting = true;
 
 ///Standard Timers
 scr_player_standard_timers(20,true,true,true,false,-1);
-if (timer1 > 0) timer1 = timer1 - 1;
-//Attack Start
-if (sprite_index != spr_player_daethex_knifeThrow)
+timer1 = timer1 - 1;
+//Movement 1: Speed
+if (knockback = false)
 {
-	//Start Animation From Beginning
-	//var _atkSpeed = round(15 * (1 + (obj_inventory.form_grid[# 0, 5]/10)));
-	sprite_index = spr_player_daethex_knifeThrow;
-	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
-	ds_list_clear(hit_by_attack);
+	hor_spd = lengthdir_x(input_mag * walk_spd, input_dir);
+	ver_spd = lengthdir_y(input_mag * walk_spd, input_dir);
 }
 
-//Animate
-scr_player_animation();
+//Movement 2: Collision
+scr_player_collision();
 
-//Return to Free State or Continue Throwing Boomerangs (if possible)
-if (timer1 <= 0)
+//Animation: Update Sprite
+var _oldSprite = sprite_index;
+if (input_mag != 0)
 {
-	
+	direction = input_dir;
+	sprite_index = spr_player_daethex_runCast;
+}
+else sprite_index = spr_player_daethex_cast;
+if (_oldSprite != sprite_index) local_frame = 0;
+
+//Bullet Spawn Position
+scr_player_projectile_spawn();
+
+//Create Bullet at end timer - timer is length of weapon sprite animation
+if (timer1 <= 0)
+{	
 	red_special = red_special - 40;
-	//Throw Boomerang
-	audio_play_sound(snd_daethex_bloodKnife,0,0,global.volumeEffects);
-	with (instance_create_layer(x,y-8,"Instances",obj_projectile))
+	audio_play_sound(snd_daethex_bloodKnife_throw,0,0,global.volumeEffects);
+	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
 	{
 		hit = false;
 		break_object = obj_player.break_object;
@@ -371,13 +377,27 @@ if (timer1 <= 0)
 		speed = projectile_speed;
 		returning = false;
 	}
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-	
+	timer1 = 45;
+	if (keyboard_check(vk_shift) = false) or (red_special < 40)
+	{
+		//audio_stop_sound(snd_daethex_bloodKnife_charge);
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
+	else
+	{
+		audio_play_sound(snd_daethex_bloodKnife_charge,0,0,global.volumeEffects);
+	}
 }
+
+//Animate
+scr_player_animation_cast();
+
+//Reset or return to free state
+
 }
 //
 //
@@ -520,7 +540,7 @@ if (place_meeting(x,y,obj_enemy)) and (timer1 <= 0)
 {
 	projectile_sprite = spr_projectile_daethex_bloodKnife;
 	ds_list_clear(hit_by_attack);
-	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,.5,-1,-1,-1);
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,.2,-1,-1,-1);
 	timer1 = 30;
 }
 if (hit = true)

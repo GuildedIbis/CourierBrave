@@ -15,6 +15,8 @@
 //
 //Cards Create
 function scr_card_game_create(){
+	
+
 with (instance_create_layer(0,0,"Instances",obj_cardGame))
 {
 	depth = obj_cursor.depth + 3;
@@ -22,6 +24,7 @@ with (instance_create_layer(0,0,"Instances",obj_cardGame))
 	
 with (instance_create_layer(0,0,"Instances",obj_player_cg))
 {
+	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
 	player = 0;
 	deck_array = array_create(12);
@@ -60,6 +63,7 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 
 with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 {
+	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
 	//Create Deck
 	//0: Card ID #
@@ -132,15 +136,15 @@ draw_set_color(c_white);
 scr_draw_cg_player_hand();
 scr_draw_cg_player_deck();
 scr_draw_cg_player_active();
-if (p_card_selected != -1)
+if (p_card_selected != -1) //Primary Card View (Left Click)
 {
 	script_execute(p_card_selected);
 }
 //
 //Draw Opponent
-if (o_card_selected != -1)
+if (s_card_selected != -1) //Secondary Card View (Right Click)
 {
-	script_execute(o_card_selected);
+	script_execute(s_card_selected);
 }
 
 if (card_hover != -1)
@@ -201,7 +205,12 @@ for (var i = 0; i < _handSize; i = i + 1)
 		if (mouse_check_button_released(mb_left))
 		{
 			hand_slot = i;
-			p_card_selected = hand_array[i,5];	
+			p_card_selected = cg_select_database[hand_array[i,0],0];	
+		}
+		if (mouse_check_button_released(mb_right))
+		{
+			hand_slot = i;
+			s_card_selected = cg_select_database[hand_array[i,0],1];	
 		}
 	}
 }
