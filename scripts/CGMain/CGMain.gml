@@ -5,7 +5,7 @@
 //2: Type - Combatants 0-7, Spells 8, Enchantments 9, Pylon 10-15
 //3: Stage - 0,1,2...
 //4: HP - 4,5,6...
-//5: Active/Hand Script - scr_cg_player...
+//5: Draw/Select Script
 //
 //Card Scripts
 //
@@ -30,24 +30,24 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	deck_array = array_create(12);
 	deck_array = 
 	[
-		[0,"Name",0,0,4,scr_cg_0000_draw],
-		[1,"Name",1,0,4,scr_cg_0001_draw],
-		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
-		[0,"Name",0,0,4,scr_cg_0000_draw],
-		[1,"Name",1,0,4,scr_cg_0001_draw],
-		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
-		[0,"Name",0,0,4,scr_cg_0000_draw],
-		[1,"Name",1,0,4,scr_cg_0001_draw],
-		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
+		[0,"Name",0,0,4],
+		[1,"Name",1,0,4],
+		[2,"Name",2,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[1,"Name",1,0,4],
+		[2,"Name",2,0,4],
+		[1,"Name",1,0,4],
+		[0,"Name",0,0,4],
+		[1,"Name",1,0,4],
+		[2,"Name",2,0,4],
+		[2,"Name",2,0,4],
 	];
 	scr_cg_deck_shuffle();
 	hand_array = array_create(1);
 	hand_array = 
 	[
-		[0,"Yellow Combatant",0,0,4,scr_cg_player_0000_hand_selected],
+		[0,"Yellow Combatant",0,0,4],
 	];
 	active_array = array_create(6);
 	active_array = 
@@ -63,49 +63,45 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 
 with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 {
+	//Copy Database
 	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
-	//Create Deck
-	//0: Card ID #
-	//1: Name
-	//2: Draw Script
-	//Create Opponent Deck and Shuffle 
+	
+	//Create and Shuffle Deck
 	deck_array = array_create(12);
 	deck_array = 
 	[
 		[0,"Name",0,0,4,scr_cg_0000_draw],
 		[1,"Name",1,0,4,scr_cg_0001_draw],
 		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
+		[0,"Name",0,0,4,scr_cg_0000_draw],
 		[0,"Name",0,0,4,scr_cg_0000_draw],
 		[1,"Name",1,0,4,scr_cg_0001_draw],
 		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
+		[1,"Name",1,0,4,scr_cg_0001_draw],
 		[0,"Name",0,0,4,scr_cg_0000_draw],
 		[1,"Name",1,0,4,scr_cg_0001_draw],
 		[2,"Name",2,0,4,scr_cg_0002_draw],
-		[3,"Name",3,0,4,scr_cg_0003_draw],
+		[2,"Name",2,0,4,scr_cg_0002_draw],
 	];
 	scr_cg_deck_shuffle();
+	
 	//Create Hand
-	//0: Card ID #
-	//1: Name
-	//2: Play Script
-	//3: Type
 	hand_array = array_create(1);
 	hand_array = 
 	[
-		[0,"KAFFARI GUARD",0,0,4,scr_cg_opp_0000_hand],
-		[1,"LIGHTRAY KNIGHT",0,1,9,scr_cg_opp_0001_hand],
-		[2,"CAPTAIN HOLON",0,2,14,scr_cg_opp_0002_hand],
+		[0,"KAFFARI GUARD",0,0,4],
+		[1,"LIGHTRAY KNIGHT",0,1,9],
+		[2,"CAPTAIN HOLON",0,2,14],
 	];
+	
 	//Create Active Lane
 	active_array = array_create(6);
 	active_array = 
 	[
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
-		[0,"KAFFARI GUARD",0,0,4,scr_cg_opp_0000_active_selected],
+		[0,"KAFFARI GUARD",0,0,4],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1]
@@ -136,15 +132,9 @@ draw_set_color(c_white);
 scr_draw_cg_player_hand();
 scr_draw_cg_player_deck();
 scr_draw_cg_player_active();
-if (p_card_selected != -1) //Primary Card View (Left Click)
+if (card_selected != -1) //Primary Card View (Left Click)
 {
-	script_execute(p_card_selected);
-}
-//
-//Draw Opponent
-if (s_card_selected != -1) //Secondary Card View (Right Click)
-{
-	script_execute(s_card_selected);
+	script_execute(card_selected);
 }
 
 if (card_hover != -1)
@@ -198,6 +188,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176)) and (action_state = false)
 	{
 		card_hover = string(hand_array[i,1]);
+		var _cardNum = hand_array[i,0];
 		if (hand_slot != i)
 		{
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,160,17,23);
@@ -205,12 +196,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 		if (mouse_check_button_released(mb_left))
 		{
 			hand_slot = i;
-			p_card_selected = cg_select_database[hand_array[i,0],0];	
-		}
-		if (mouse_check_button_released(mb_right))
-		{
-			hand_slot = i;
-			s_card_selected = cg_select_database[hand_array[i,0],1];	
+			card_selected = cg_script_database[_cardNum,1];	
 		}
 	}
 }
@@ -239,17 +225,17 @@ if (deck_array[0, 0] != -1)
 		if (draw_pt = false)
 		{
 			draw_pt = true;
-		
+			var _cardNum = deck_array[0,0];
 			if ((_deckLen) > 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(deck_array[0,5]);
+				script_execute(cg_script_database[_cardNum,0]);
 				array_delete(deck_array,0,1);
 			}
 			if ((_deckLen) = 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(deck_array[0,5]);
+				script_execute(cg_script_database[_cardNum,0]);
 				deck_array[0,0] = -1;
 				deck_array[0,1] = -1;
 				deck_array[0,2] = -1;
@@ -298,13 +284,14 @@ for (var i = 0; i < 6; i = i + 1)
 		draw_text_transformed(173 + (20 * i), 110,string(active_array[i,4]),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119)) and (action_state = false)
 		{
+			var _cardNum = active_array[i,0];
 			card_hover = string(active_array[i,1]);
 			draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * i),97,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
 				hand_slot = -1;
 				active_slot = i;
-				p_card_selected = active_array[i,5];	
+				card_selected = cg_script_database[_cardNum,2];	
 			}
 		}
 	}
@@ -337,16 +324,17 @@ if (deck_array[0, 0] != -1)
 		{
 			draw_pt = true;
 		
+			var _cardNum = deck_array[0,0];
 			if ((_deckLen) > 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(deck_array[0,5]);
+				script_execute(cg_script_database[_cardNum,0]);
 				array_delete(deck_array,0,1);
 			}
 			if ((_deckLen) = 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(deck_array[0,5]);
+				script_execute(cg_script_database[_cardNum,0]);
 				deck_array[0,0] = -1;
 				deck_array[0,1] = -1;
 				deck_array[0,2] = -1;
@@ -391,7 +379,7 @@ for (var i = 0; i < 6; i = i + 1)
 			draw_sprite_stretched(spr_highlight_nineslice,0,264 - (20 * i),62,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
-				obj_player_cg.p_card_selected = active_array[i,5];	
+				obj_player_cg.card_selected = active_array[i,4];	
 			}
 		}
 	}

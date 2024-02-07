@@ -27,7 +27,7 @@ if (player = 0)
 	hand_array[_newCard, 2] = 1;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 5;
-	hand_array[_newCard, 5] = scr_cg_player_0003_hand_selected;
+	//hand_array[_newCard, 5] = scr_cg_player_0003_hand_selected;
 
 }
 if (player = 1)
@@ -37,7 +37,7 @@ if (player = 1)
 	hand_array[_newCard, 2] = 1;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 5;
-	hand_array[_newCard, 5] = scr_cg_player_0003_hand_selected;
+	//hand_array[_newCard, 5] = scr_cg_player_0003_hand_selected;
 
 }
 }

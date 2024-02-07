@@ -17,7 +17,7 @@ for (var j = 0; j < _size; j = j + 1)
 	_tempDeck[j, 2] = deck_array[j, 2];
 	_tempDeck[j, 3] = deck_array[j, 3];
 	_tempDeck[j, 4] = deck_array[j, 4];
-	_tempDeck[j, 5] = deck_array[j, 5];
+	//_tempDeck[j, 5] = deck_array[j, 5];
 }
 
 //Reset Deck Randomly
@@ -29,7 +29,7 @@ for (var i = 0; i < _size; i = i + 1)
 	deck_array[i, 2] = _tempDeck[_shuffleID, 2];
 	deck_array[i, 3] = _tempDeck[_shuffleID, 3];
 	deck_array[i, 4] = _tempDeck[_shuffleID, 4];
-	deck_array[i, 5] = _tempDeck[_shuffleID, 5];
+	//deck_array[i, 5] = _tempDeck[_shuffleID, 5];
 	array_delete(_tempDeck,_shuffleID,1);
 }
 }
@@ -57,13 +57,13 @@ if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 			active_array[active_slot + 1, 2] = active_array[active_slot, 2];
 			active_array[active_slot + 1, 3] = active_array[active_slot, 3];
 			active_array[active_slot + 1, 4] = active_array[active_slot, 4];
-			active_array[active_slot + 1, 5] = active_array[active_slot, 5];
+			//active_array[active_slot + 1, 5] = active_array[active_slot, 5];
 			active_array[active_slot, 0] = -1;
 			active_array[active_slot, 1] = -1;
 			active_array[active_slot, 2] = -1;
 			active_array[active_slot, 3] = -1;
 			active_array[active_slot, 4] = -1;
-			active_array[active_slot, 5] = -1;
+			//active_array[active_slot, 5] = -1;
 
 
 			active_slot = -1;
@@ -87,13 +87,13 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 			active_array[active_slot - 1, 2] = active_array[active_slot, 2];
 			active_array[active_slot - 1, 3] = active_array[active_slot, 3];
 			active_array[active_slot - 1, 4] = active_array[active_slot, 4];
-			active_array[active_slot - 1, 5] = active_array[active_slot, 5];
+			//active_array[active_slot - 1, 5] = active_array[active_slot, 5];
 			active_array[active_slot, 0] = -1;
 			active_array[active_slot, 1] = -1;
 			active_array[active_slot, 2] = -1;
 			active_array[active_slot, 3] = -1;
 			active_array[active_slot, 4] = -1;
-			active_array[active_slot, 5] = -1;
+			//active_array[active_slot, 5] = -1;
 
 
 			active_slot = -1;
