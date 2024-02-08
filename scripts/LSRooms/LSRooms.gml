@@ -49,6 +49,7 @@ if (variable_struct_exists(_loadEntity,"level01")) obj_inventory.level_ary[1] = 
 if (variable_struct_exists(_loadEntity,"level02")) obj_inventory.level_ary[2] = _loadEntity.level02;
 if (variable_struct_exists(_loadEntity,"level03")) obj_inventory.level_ary[3] = _loadEntity.level03;
 if (variable_struct_exists(_loadEntity,"level04")) obj_inventory.level_ary[4] = _loadEntity.level04;
+if (variable_struct_exists(_loadEntity,"level05")) obj_inventory.level_ary[5] = _loadEntity.level05;
 
 //Room Saves
 if (variable_struct_exists(_loadEntity,"farway10")) obj_inventory.farwayRoad_map_ary[10][3] = _loadEntity.farway10;
@@ -113,6 +114,7 @@ level01: obj_inventory.level_ary[1],
 level02: obj_inventory.level_ary[2],
 level03: obj_inventory.level_ary[3],
 level04: obj_inventory.level_ary[4],
+level05: obj_inventory.level_ary[5],
 
 //Individual Room Saves
 farway10 : obj_inventory.farwayRoad_map_ary[10][3],
