@@ -230,7 +230,7 @@ draw_text_transformed(160,39,"DAETHEX SKILLS",1,1,0);
 //
 //Skill Buttons
 draw_sprite_stretched(spr_menu_circle16,1,95,53,21,21);
-draw_sprite(spr_armor_allGame,1,90,52);
+draw_sprite(spr_armor_allGame,5,90,52);
 if (point_in_rectangle(_mouseX,_mouseY,95,53,116,75))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,94,52,23,23);
@@ -240,7 +240,7 @@ if (point_in_rectangle(_mouseX,_mouseY,95,53,116,75))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,130,53,21,21);
-draw_sprite(spr_weapons_allGame,1,125,52);
+draw_sprite(spr_weapons_allGame,5,125,52);
 if (point_in_rectangle(_mouseX,_mouseY,130,53,151,75))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,129,52,23,23);
@@ -250,7 +250,7 @@ if (point_in_rectangle(_mouseX,_mouseY,130,53,151,75))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,166,53,21,21);
-draw_sprite(spr_primary_allGame,1,161,52);
+draw_sprite(spr_primary_allGame,5,161,52);
 if (point_in_rectangle(_mouseX,_mouseY,166,53,187,75))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,165,52,23,23);
@@ -260,7 +260,7 @@ if (point_in_rectangle(_mouseX,_mouseY,166,53,187,75))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,202,53,21,21);
-draw_sprite(spr_special_allGame,1,197,52);
+draw_sprite(spr_special_allGame,5,197,52);
 if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,201,52,23,23);
@@ -273,8 +273,8 @@ if (point_in_rectangle(_mouseX,_mouseY,202,53,223,75))
 //
 //Upgrade Buttons
 draw_sprite_stretched(spr_menu_circle16,1,95,76,21,16);
-draw_sprite(spr_form_stones_all,1,106,85);
-if (form_grid[# 1, 5] = false) draw_sprite(spr_lock,0,105,85)
+draw_sprite(spr_form_stones_all,5,106,85);
+if (form_grid[# 5, 5] = false) draw_sprite(spr_lock,0,105,85)
 if (point_in_rectangle(_mouseX,_mouseY,95,76,116,93))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,94,75,23,18);
@@ -284,8 +284,8 @@ if (point_in_rectangle(_mouseX,_mouseY,95,76,116,93))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,130,76,21,16);
-draw_sprite(spr_form_stones_all,1,141,85);
-if (form_grid[# 1, 6] = false) draw_sprite(spr_lock,0,140,85)
+draw_sprite(spr_form_stones_all,5,141,85);
+if (form_grid[# 5, 6] = false) draw_sprite(spr_lock,0,140,85)
 if (point_in_rectangle(_mouseX,_mouseY,130,76,151,93))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,129,75,23,18);
@@ -295,8 +295,8 @@ if (point_in_rectangle(_mouseX,_mouseY,130,76,151,93))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,166,76,21,16);
-draw_sprite(spr_form_stones_all,1,177,85);
-if (form_grid[# 1, 7] = false) draw_sprite(spr_lock,0,176,85)
+draw_sprite(spr_form_stones_all,5,177,85);
+if (form_grid[# 5, 7] = false) draw_sprite(spr_lock,0,176,85)
 if (point_in_rectangle(_mouseX,_mouseY,166,76,187,93))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,165,75,23,18);
@@ -306,8 +306,8 @@ if (point_in_rectangle(_mouseX,_mouseY,166,76,187,93))
 	}
 }
 draw_sprite_stretched(spr_menu_circle16,1,202,76,21,16);
-draw_sprite(spr_form_stones_all,1,213,85);
-if (form_grid[# 1, 8] = false) draw_sprite(spr_lock,0,212,85)
+draw_sprite(spr_form_stones_all,5,213,85);
+if (form_grid[# 5, 8] = false) draw_sprite(spr_lock,0,212,85)
 if (point_in_rectangle(_mouseX,_mouseY,202,76,223,93))
 {
 	draw_sprite_stretched(spr_highlight_circle,0,201,75,23,18);
@@ -325,37 +325,37 @@ switch(page)
 		draw_set_halign(fa_left);
 		var _describe = "Negates 6 damage from attacks\nand projectiles."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"FIREWARD TUNIC",1,1,0);
+		draw_text_transformed(101,98,"CRIMSON GARB",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = "A slow swinging axe that does\n38 damage per hit."
+		var _describe = "Shoot arrows that deal\n30 damage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"FIERY HAMAXE",1,1,0);
+		draw_text_transformed(101,98,"CRIMSON BOW",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = "Slowly fire meteors that\ndeal 30 damage each."
+		var _describe = "Rapidly fire a spread of\n7 projectiles that deal 5 damage each\nand quickly dissapate."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"METEOR BURST",1,1,0);
+		draw_text_transformed(101,98,"BLOOD NEEDLES",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = "Send out a turret that stops\nwhen you release shift. Turret\nprojectile deal 8 damage each."
+		var _describe = "Shoot a magic knife that\nsticks to it's target, dealing\n10 damage and healing 2, twice a second."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
-		draw_text_transformed(101,98,"FLAMECORE",1,1,0);
+		draw_text_transformed(101,98,"BLOOD KNIFE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
 	break;
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "While under 1/3 health, weapons\nand their effects do 2x damage\nand rolling costs 25 stamina."
+		var _describe = "Armor Upgrade"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -363,7 +363,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = "Hold the weapon skill button to\ncharge up 3 projectiles that\neach deal 20 damage and burn."
+		var _describe = "Weapon Upgrade"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -371,7 +371,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = "Rapidly shoot fiery projectiles,\neach dealing 3 damage and burn.\n(Swap modes with F)"
+		var _describe = "Primary Upgrade"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -379,7 +379,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = "When the turret disappears, it\nsends out a healing wave."
+		var _describe = "Special Upgrade"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -388,12 +388,12 @@ switch(page)
 
 //
 //Purchase
-if (page >= 4) and (form_grid[# 1, page + 1] = false)
+if (page >= 4) and (form_grid[# 5, page + 1] = false)
 {
 	draw_set_halign(fa_center);
 	draw_sprite_stretched(spr_menu,8,197,94,24,16);
-	draw_sprite(spr_form_stones_all,1,213,103);
-	draw_text_transformed(206,101,string(skill_stone[1]),.5,.5,0);
+	draw_sprite(spr_form_stones_all,5,213,103);
+	draw_text_transformed(206,101,string(skill_stone[5]),.5,.5,0);
 	if (skill_stone[1] > 0)
 	{
 		draw_sprite_stretched(spr_menu_circle16,1,193,112,32,16);
@@ -406,23 +406,23 @@ if (page >= 4) and (form_grid[# 1, page + 1] = false)
 				switch(page)
 				{
 					case 4: 
-						skill_stone[1] = skill_stone[1] - 1;
-						form_grid[# 1, 5] = true;
+						skill_stone[5] = skill_stone[5] - 1;
+						form_grid[# 5, 5] = true;
 					break;
 				
 					case 5: 
-						skill_stone[1] = skill_stone[1] - 1;
-						form_grid[# 1, 6] = true;
+						skill_stone[5] = skill_stone[5] - 1;
+						form_grid[# 5, 6] = true;
 					break;
 				
 					case 6: 
-						skill_stone[1] = skill_stone[1] - 1;
-						form_grid[# 1, 7] = true;
+						skill_stone[5] = skill_stone[5] - 1;
+						form_grid[# 5, 7] = true;
 					break;
 					
 					case 7: 
-						skill_stone[1] = skill_stone[1] - 1;
-						form_grid[# 1, 8] = true;
+						skill_stone[5] = skill_stone[5] - 1;
+						form_grid[# 5, 8] = true;
 					break;
 				}
 			}
