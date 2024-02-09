@@ -316,6 +316,7 @@
     {"id":{"name":"spr_enemy_tortoiseTroll_vineToss_wait","path":"sprites/spr_enemy_tortoiseTroll_vineToss_wait/spr_enemy_tortoiseTroll_vineToss_wait.yy",},},
     {"id":{"name":"spr_grassTall","path":"sprites/spr_grassTall/spr_grassTall.yy",},},
     {"id":{"name":"rm_lenko_habrafLake_00","path":"rooms/rm_lenko_habrafLake_00/rm_lenko_habrafLake_00.yy",},},
+    {"id":{"name":"rm_beetrap_northernPass_05","path":"rooms/rm_beetrap_northernPass_05/rm_beetrap_northernPass_05.yy",},},
     {"id":{"name":"spr_npc_emissary","path":"sprites/spr_npc_emissary/spr_npc_emissary.yy",},},
     {"id":{"name":"spr_frag_white","path":"sprites/spr_frag_white/spr_frag_white.yy",},},
     {"id":{"name":"obj_door_beaowireStone","path":"objects/obj_door_beaowireStone/obj_door_beaowireStone.yy",},},
@@ -1898,6 +1899,7 @@
     {"roomId":{"name":"rm_beetrap_northernPass_02","path":"rooms/rm_beetrap_northernPass_02/rm_beetrap_northernPass_02.yy",},},
     {"roomId":{"name":"rm_beetrap_northernPass_03","path":"rooms/rm_beetrap_northernPass_03/rm_beetrap_northernPass_03.yy",},},
     {"roomId":{"name":"rm_beetrap_northernPass_04","path":"rooms/rm_beetrap_northernPass_04/rm_beetrap_northernPass_04.yy",},},
+    {"roomId":{"name":"rm_beetrap_northernPass_05","path":"rooms/rm_beetrap_northernPass_05/rm_beetrap_northernPass_05.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

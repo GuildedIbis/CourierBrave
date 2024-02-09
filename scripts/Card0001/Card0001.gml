@@ -50,15 +50,18 @@ function scr_cg_player_0001_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
-var _cardY = 3;
+var _cardY = 5;
+var _cName = "LIGHTRAY KNIGHT";
 var _atkName1 = "SWORD ATTACK";
+
 
 //Draw Full Card
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
+draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-draw_text_transformed(_cardX + 63,_cardY + 5,hand_array[hand_slot,1],1,1,0);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 draw_set_halign(fa_left);
 draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 //
@@ -99,7 +102,7 @@ if (obj_cardGame.turn = 0)
 				
 						//Discard? Leave under?
 						array_delete(hand_array,hand_slot,1);
-						p_card_selected = -1;
+						card_selected = -1;
 						hand_slot = -1;
 						action_state = false;
 					}
@@ -120,7 +123,8 @@ function scr_cg_player_0001_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
-var _cardY = 3;
+var _cardY = 5;
+var _cName = "LIGHTRAY KNIGHT";
 var _atkName1 = "SWORD ATTACK";
 
 
@@ -128,10 +132,11 @@ var _atkName1 = "SWORD ATTACK";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
+draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-draw_text_transformed(_cardX + 63,_cardY + 5,active_array[active_slot,1],1,1,0);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 draw_set_halign(fa_left);
-draw_text_transformed(_cardX + 31,_cardY + 102,_atkName1,.75,.75,0);
+draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 
 if (obj_cardGame.turn = 0)
 {
@@ -210,9 +215,12 @@ if (_targetPos != -1)
 function scr_cg_opp_0001_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 5;
 
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,1,0,3,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,1,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 
 //Move (Standard)
 

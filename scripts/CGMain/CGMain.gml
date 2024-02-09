@@ -375,11 +375,12 @@ for (var i = 0; i < 6; i = i + 1)
 		draw_text_transformed(273 - (20 * i), 76,string(active_array[i,4]),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,265 - (20 * i),63,280 - (20 * i),84))
 		{
+			var _cardNum = active_array[i,0];
 			obj_player_cg.card_hover = string(active_array[i,1]);
 			draw_sprite_stretched(spr_highlight_nineslice,0,264 - (20 * i),62,17,23);
 			if (mouse_check_button_released(mb_left))
 			{
-				obj_player_cg.card_selected = active_array[i,4];	
+				obj_player_cg.card_selected = cg_script_database[_cardNum,3];		
 			}
 		}
 	}

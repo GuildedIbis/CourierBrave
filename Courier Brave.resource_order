@@ -257,6 +257,7 @@
     {"name":"spr_npc_rhombail36","order":3,"path":"sprites/spr_npc_rhombail36/spr_npc_rhombail36.yy",},
     {"name":"spr_enemy_tortoiseTroll_vineToss_wait","order":14,"path":"sprites/spr_enemy_tortoiseTroll_vineToss_wait/spr_enemy_tortoiseTroll_vineToss_wait.yy",},
     {"name":"spr_grassTall","order":1,"path":"sprites/spr_grassTall/spr_grassTall.yy",},
+    {"name":"rm_beetrap_northernPass_05","order":5,"path":"rooms/rm_beetrap_northernPass_05/rm_beetrap_northernPass_05.yy",},
     {"name":"spr_npc_emissary","order":3,"path":"sprites/spr_npc_emissary/spr_npc_emissary.yy",},
     {"name":"spr_frag_white","order":13,"path":"sprites/spr_frag_white/spr_frag_white.yy",},
     {"name":"obj_door_beaowireStone","order":3,"path":"objects/obj_door_beaowireStone/obj_door_beaowireStone.yy",},

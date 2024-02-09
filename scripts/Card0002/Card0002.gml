@@ -40,9 +40,24 @@ if (player = 1)
 function scr_cg_player_0002_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 5;
+var _cName = "CAPTAIN HOLON";
+var _atkName1 = "ABILITY";
 
-//Draw Full Card
-draw_sprite_ext(spr_card_all_full,2,0,3,1,1,0,c_white,1);
+
+//Draw Card
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,2,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+draw_set_halign(fa_left);
+draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
+
 //
 //
 //
@@ -70,7 +85,7 @@ if (obj_cardGame.turn = 0)
 				//Remove From Hand
 				array_delete(hand_array,hand_slot,1);
 				hand_slot = -1;
-				p_card_selected = -1;
+				card_selected = -1;
 			}
 		}
 	}
@@ -86,9 +101,23 @@ if (obj_cardGame.turn = 0)
 function scr_cg_player_0002_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 0;
+var _cardY = 5;
+var _cName = "CAPTAIN HOLON";
+var _atkName1 = "ABILITY";
 
-//Draw Full Card
-draw_sprite_ext(spr_card_all_full,2,0,3,1,1,0,c_white,1);
+
+//Draw Card
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,2,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+draw_set_halign(fa_left);
+draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 
 //Move (Standard)
 if (obj_cardGame.turn = 0)
@@ -109,9 +138,11 @@ if (obj_cardGame.turn = 0)
 function scr_cg_opp_0002_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-
+var _cardX = 0;
+var _cardY = 5;
 //Draw Full Card
-draw_sprite_ext(spr_card_all_full,2,0,3,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,1,_cardX,0,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,2,_cardX,_cardY,1,1,0,c_white,1);
 
 //Move (Standard)
 
