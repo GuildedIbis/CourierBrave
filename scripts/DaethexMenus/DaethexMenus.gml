@@ -339,7 +339,7 @@ switch(page)
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = "Rapidly fire a spread of\n7 projectiles that deal 5 damage each\nand quickly dissapate."
+		var _describe = "Rapidly fire a spread of\n7 projectiles that deal 5\ndamage each and quickly dissapate."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"BLOOD NEEDLES",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -355,7 +355,7 @@ switch(page)
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Armor Upgrade"
+		var _describe = "Rolling through an enemy\nnow does a small amount of\ndamageand healing."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -363,7 +363,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = "Weapon Upgrade"
+		var _describe = "Hold to charge the bow shot. Charged shots go further, faster, and do more damage."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -371,7 +371,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = "Primary Upgrade"
+		var _describe = "Shoot a burst of four needles that have a medium spread and explode on a timer"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -379,7 +379,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = "Special Upgrade"
+		var _describe = "Knives heal a greater percent of damage dealt and slow down inflicted targets."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -394,7 +394,7 @@ if (page >= 4) and (form_grid[# 5, page + 1] = false)
 	draw_sprite_stretched(spr_menu,8,197,94,24,16);
 	draw_sprite(spr_form_stones_all,5,213,103);
 	draw_text_transformed(206,101,string(skill_stone[5]),.5,.5,0);
-	if (skill_stone[1] > 0)
+	if (skill_stone[5] > 0)
 	{
 		draw_sprite_stretched(spr_menu_circle16,1,193,112,32,16);
 		draw_text_transformed(209,115,"PURCHASE\nUPGRADE",.5,.5,0);

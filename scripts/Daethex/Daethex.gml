@@ -133,7 +133,7 @@ if (key_ability) and (stamina >= 50)
 		audio_sound_gain(snd_player_roll,global.volumeEffects,1);
 		audio_play_sound(snd_player_roll,0,false);
 		stamina = stamina - 50;
-		state_script = scr_player_roll;
+		state_script = scr_player_daethex_roll;
 		remain_dist = roll_dist;
 	}
 }
@@ -560,6 +560,68 @@ if (place_meeting(x,y,break_object))
 }
 
 
+}
+//
+//
+//
+//
+//
+//Roll State
+function scr_player_daethex_roll(){
+inv_dur_timer = 30;
+//Charge Crystal??
+if (magic_timer > 0) //Magic time between shots
+{
+	magic_timer = magic_timer - 1;
+}
+if (melee_timer > 0)
+{
+	melee_timer = melee_timer - 1;
+}
+//Attack Start
+if (sprite_index != spr_player_daethex_roll)
+{
+	//Start Animation From Beginning
+	sprite_index = spr_player_daethex_roll;
+	sprite_set_speed(sprite_index,15,spritespeed_framespersecond);
+	local_frame = 0;
+	image_index = 0;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
+
+hor_spd = lengthdir_x(roll_spd,direction);
+ver_spd = lengthdir_y(roll_spd,direction);
+remain_dist = max(0, remain_dist - roll_spd);
+var _collided = scr_player_collision();
+
+//Update Sprite
+sprite_index = roll_sprite;
+var _totalFrames = sprite_get_number(sprite_index)/4;
+image_index = (_cardinalDir * _totalFrames) + min(((1 - (remain_dist / roll_dist)) * _totalFrames), _totalFrames - 1);
+
+
+//Free State
+if (remain_dist <= 0)
+{
+	state_script = free_state;
+}
+
+if (obj_inventory.form_grid[# 5, 5] = true)
+{
+	damage = 2;
+	//Calcuate Hit Entitites
+	scr_player_attack_calculate_weapon(spr_player_daethex_roll,obj_player,-1,-1,-1,-1,-1,.5,-1,1,5);
+}
+
+
+//Collision
+if (_collided = true)
+{
+	state_script = free_state;
+	scr_camera_screen_shake(4,15);
+}
 }
 //
 //
