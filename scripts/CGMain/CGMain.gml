@@ -143,6 +143,13 @@ if (card_hover != -1)
 	draw_set_valign(fa_top);
 	draw_text_transformed(_mouseX,_mouseY-14,card_hover,.5,.5,0);
 }
+
+if (action_text != -1)
+{
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_text_transformed(128,80,action_text,.5,.5,0);//126,85
+}
 }
 //
 //
@@ -153,6 +160,7 @@ if (card_hover != -1)
 function scr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardY = 161
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -175,28 +183,29 @@ for (var i = 0; i < _handSize; i = i + 1)
 		var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 		var _cardX = _leftAlign + (_space * i);
 	}
-	if (hand_slot = i)
-	{
-		draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,154,1,1,0,c_white,1);
-		draw_text_transformed(_cardX + 8, 166,string(hand_array[i,4]),.75,.75,0);
-	}
-	else
-	{
-		draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,161,1,1,0,c_white,1);
-		draw_text_transformed(_cardX + 8, 173,string(hand_array[i,4]),.75,.75,0);
-	}
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX,161,_cardX + _space,176)) and (action_state = false)
+
+	draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,_cardY,1,1,0,c_white,1);
+	draw_text_transformed(_cardX + 8,_cardY+12,string(hand_array[i,4]),.75,.75,0);
+
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX,_cardY,_cardX + _space,_cardY + 21)) and (action_state = false)
 	{
 		card_hover = string(hand_array[i,1]);
 		var _cardNum = hand_array[i,0];
 		if (hand_slot != i)
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,160,17,23);
+			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX-1,_cardY-1,17,23);
 		}
 		if (mouse_check_button_released(mb_left))
 		{
 			hand_slot = i;
 			card_selected = cg_script_database[_cardNum,1];	
+			with (obj_card_effect) instance_destroy();
+			with (instance_create_layer(_cardX-1,_cardY-1,"Instances",obj_card_effect))
+			{
+				depth = obj_cardGame.depth - 2;
+				slot = i;
+				effect_draw = scr_cg_effect_selected;
+			}
 		}
 	}
 }
@@ -271,6 +280,8 @@ if (obj_cardGame.turn = 0)
 function scr_draw_cg_player_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 165;
+var _cardY = 103;
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);

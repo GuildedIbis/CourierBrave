@@ -5,6 +5,7 @@ hand_slot = -1;
 active_slot = -1;
 card_hover = -1;
 action_state = false
+action_text = -1;
 
 //Per Turn
 draw_pt = false;

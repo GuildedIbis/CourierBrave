@@ -64,6 +64,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play."
 		}
 	}
 	
