@@ -46,6 +46,8 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _cName = "KAFFARI GUARD";
 var _cardX = 0;
 var _cardY = 5;
+var _actX = 165;
+var _actY = 105;
 
 //Draw Card
 draw_set_font(global.fnt_main_white);
@@ -70,10 +72,10 @@ if (obj_cardGame.turn = 0)
 	
 	if (active_array[0,0] = -1) and (action_state = true)
 	{
-		draw_sprite_ext(spr_card_slot_effect,0,165,98,1,1,0,c_white,1);//80,92
-		if (point_in_rectangle(_mouseX,_mouseY,165,98,180,119))
+		draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,164,97,17,23);
+			draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
 			if (mouse_check_button_released(mb_left)) 
 			{
 				//Set to Active
@@ -86,6 +88,7 @@ if (obj_cardGame.turn = 0)
 
 		
 				//Remove From Hand
+				with (obj_card_effect) instance_destroy();
 				array_delete(hand_array,hand_slot,1);
 				hand_slot = -1;
 				card_selected = -1;
@@ -107,6 +110,8 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 5;
+var _actX = 165;
+var _actY = 105;
 
 //Draw Full Card
 var _cName = "KAFFARI GUARD";

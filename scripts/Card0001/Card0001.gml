@@ -51,6 +51,8 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 5;
+var _actX = 165;
+var _actY = 105;
 var _cName = "LIGHTRAY KNIGHT";
 var _atkName1 = "SWORD ATTACK";
 
@@ -85,12 +87,12 @@ if (obj_cardGame.turn = 0)
 		{
 			if (active_array[i,0] = 0)
 			{
-				draw_sprite_ext(spr_card_slot_effect,1,165 + (20 * i),98,1,1,0,c_white,1);//80,92
+				draw_sprite_ext(spr_card_slot_effect,1,_actX + (20 * i),_actY,1,1,0,c_white,1);//80,92
 				//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
-				if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),98,180 + (20 * i),119))// and (p_card_selected = -1)
+				if (point_in_rectangle(_mouseX,_mouseY,_actX + (20 * i),_actY,(_actX + 15) + (20 * i),_actY + 21))// and (p_card_selected = -1)
 				{
 					//card_hover = string(active_array[i,1]);
-					draw_sprite_stretched(spr_highlight_nineslice,0,164 + (20 * i),97,17,23);
+					draw_sprite_stretched(spr_highlight_nineslice,0,(_actX - 1) + (20 * i),_actY - 1,17,23);
 					if (mouse_check_button_released(mb_left))
 					{
 						active_array[i,0] = 1;
@@ -101,6 +103,7 @@ if (obj_cardGame.turn = 0)
 						//active_array[i,5] = scr_cg_player_0001_active_selected;
 				
 						//Discard? Leave under?
+						with (obj_card_effect) instance_destroy();
 						array_delete(hand_array,hand_slot,1);
 						card_selected = -1;
 						hand_slot = -1;
@@ -194,14 +197,15 @@ var _targetX = 265 - (20 * _targetNum)
 
 if (_targetPos != -1)
 {
-	draw_sprite_ext(spr_card_slot_effect,2,_targetX,63,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_targetX,63,_targetX + 15,84))
+	draw_sprite_ext(spr_card_slot_effect,2,_targetX,56,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_targetX,56,_targetX + 15,76))
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_targetX - 1,62,17,23);
+		draw_sprite_stretched(spr_highlight_nineslice,0,_targetX - 1,55,17,23);
 		if (mouse_check_button_pressed(mb_left)) 
 		{
 			action_state = false;
 			obj_opponent_cg.active_array[_targetNum,4] -= 2;
+			with (obj_card_effect) instance_destroy();
 		}
 	}
 }
