@@ -40,6 +40,10 @@ if (obj_game.cardPaused = true)
 			{
 				instance_destroy();
 			}
+			with(obj_card_effect)
+			{
+				instance_destroy();
+			}
 		
 			scr_text_end();
 			_SubString = string_copy(text_string,1,letter_counter);

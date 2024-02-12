@@ -67,6 +67,7 @@ weapon_timer = 0;
 special_timer = 0;
 damaged_timer = 0;
 overshield_timer = 0;
+max_magic_timer = 0;
 
 
 //Enhancable Stats
