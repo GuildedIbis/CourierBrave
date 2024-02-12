@@ -34,6 +34,54 @@ for (var i = 0; i < _size; i = i + 1)
 }
 }
 //
+
+//
+//
+//
+//Draw Card from Deck
+function scr_cg_cardDraw_deck(){
+//Temporary Variables
+var _cardNum = deck_array[0,0];
+var _cardY = 161;
+
+//Update Hand Array
+array_resize(hand_array,array_length(hand_array) + 1);
+hand_size = array_length(hand_array);	
+script_execute(cg_script_database[_cardNum,0]);
+
+//Se
+hand_slot = hand_size - 1;
+var _newSelect = hand_array[hand_slot,0];
+card_selected = cg_script_database[_newSelect,1];	
+	
+//Select Drawn Card
+for (var i = 0; i < hand_size; i = i + 1)
+{
+
+	if (hand_size < 11)
+	{
+		var _leftAlign = 208 - (hand_size * 8);
+		var _space = 16;
+		var _cardX = _leftAlign + (16 * hand_size);
+	}
+	else
+	{
+		var _leftAlign = 208 - (11 * 8);
+		//var _space = max(1,26 - ((_handSize - 11)));
+		var _space = max(1,170/hand_size); //It's 185 from one edge to the other, -15 for the width of the card
+		var _cardX = _leftAlign + (_space * hand_size);
+	}
+}
+with (obj_card_effect) instance_destroy();
+with (instance_create_layer(_cardX-1,_cardY-1,"Instances",obj_card_effect))
+{
+	depth = obj_cardGame.depth - 2;
+	slot = other.hand_slot;
+	effect_draw = scr_cg_effect_selected;
+}
+
+}
+//
 //
 //
 //

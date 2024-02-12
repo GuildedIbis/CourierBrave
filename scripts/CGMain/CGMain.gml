@@ -238,14 +238,14 @@ if (deck_array[0, 0] != -1)
 			var _cardNum = deck_array[0,0];
 			if ((_deckLen) > 1)
 			{
-				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(cg_script_database[_cardNum,0]);
+				
+				scr_cg_cardDraw_deck();
 				array_delete(deck_array,0,1);
 			}
 			if ((_deckLen) = 1)
 			{
 				array_resize(hand_array,array_length(hand_array) + 1);
-				script_execute(cg_script_database[_cardNum,0]);
+				scr_cg_cardDraw_deck();
 				deck_array[0,0] = -1;
 				deck_array[0,1] = -1;
 				deck_array[0,2] = -1;
