@@ -79,6 +79,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			action_text = "Select a combatant to put LIGHTRAY KNIGHT onto.\n\n\nESC to exit action."
 		}
 	}
 	if (action_state = true)
@@ -104,6 +105,7 @@ if (obj_cardGame.turn = 0)
 				
 						//Discard? Leave under?
 						with (obj_card_effect) instance_destroy();
+						action_text = "Select a card."
 						array_delete(hand_array,hand_slot,1);
 						card_selected = -1;
 						hand_slot = -1;
@@ -150,6 +152,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			action_text = "Select a slot to move LIGHTRAY KNIGHT to.\n\n\nESC to exit action."
 			action_choose = 0;
 		}
 	}
@@ -160,6 +163,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			action_text = "Select a target for LIGHTRAY KNIGHT's attack.\n\n\nESC to exit action."
 			action_choose = 1;
 		}
 	}
@@ -204,7 +208,9 @@ if (_targetPos != -1)
 		if (mouse_check_button_pressed(mb_left)) 
 		{
 			action_state = false;
+			action_text = "Select a card."
 			obj_opponent_cg.active_array[_targetNum,4] -= 2;
+			card_selected = -1;
 			with (obj_card_effect) instance_destroy();
 		}
 	}

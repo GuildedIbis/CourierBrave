@@ -116,6 +116,7 @@ if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 			//active_array[active_slot, 5] = -1;
 			
 			with (obj_card_effect) instance_destroy();
+			action_text = "Select a card."
 			action_state = false;
 			card_selected = -1;
 			active_slot = -1;
@@ -147,6 +148,7 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 			//active_array[active_slot, 5] = -1;
 
 			with (obj_card_effect) instance_destroy();
+			action_text = "Select a card."
 			card_selected = -1;
 			action_state = false;
 			active_slot = -1;

@@ -11,8 +11,15 @@ depth = obj_cursor.depth + 1;
 
 if (keyboard_check_pressed(vk_escape))
 {
-	if (obj_player_cg.action_state = false) obj_game.cardPaused = !obj_game.cardPaused;
-	else obj_player_cg.action_state = false;
+	if (obj_player_cg.action_state = false)
+	{
+		obj_game.cardPaused = !obj_game.cardPaused;
+	}
+	else
+	{
+		obj_player_cg.action_state = false;
+		obj_player_cg.action_text = "Select a card.";
+	}
 }
 
 if (obj_game.cardPaused = true)

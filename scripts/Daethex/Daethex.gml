@@ -104,8 +104,7 @@ if (key_attackM)
 		if (magic_primary = false) and (red_primary >= 4)
 		{
 			attack_script = magicA_script;
-			magic_timer = 90;
-			max_magic_timer = 2;
+			magic_charge = 0;
 			state_script = scr_player_attack;
 			base_spread = 12;
 			projectile_spread = 12;
@@ -356,47 +355,55 @@ if (_oldSprite != sprite_index) local_frame = 0;
 //Bullet Spawn Position
 scr_player_projectile_spawn();
 
-//Create Bullet at end timer - timer is length of weapon sprite animation
-if (magic_timer <= 0)
-{	
-	//magic_count = magic_count - 1;
-	scr_camera_screen_shake(1,5);
-	red_primary = red_primary - 4;
-	//audio_play_sound(snd_daethex_bloodNeedle,0,0,global.volumeEffects);
 
-	with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
+if (mouse_check_button(mb_left))
+{
+	if (magic_charge < 90)
 	{
-		spread = min((1 + ((other.max_magic_timer - 3) * .1)),4);
-		break_object = obj_player.break_object;
-		magic = true;
-		fragment_count = 1;
-		fragment = obj_fragRed;
-		damage = 15; //+ (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
-		projectile_sprite = spr_projectile_daethex_bloodNeedle;
-		projectile_script = scr_projectile_daethex_bloodNeedle;
-		timer1 = 30;
-		idle_sprite = spr_projectile_daethex_bloodNeedle;
-		hit_by_attack = -1;
-		direction = (point_direction(x,y,mouse_x,mouse_y) + irandom_range(-spread,spread));
-		image_angle = direction;
-		projectile_speed = max(2.0,4.0 - (other.max_magic_timer * .05))
+		magic_charge = magic_charge + 1;
 	}
-	max_magic_timer = max_magic_timer + 1;
-	magic_timer = max_magic_timer;
+}
+else
+{
+	//Create Bullet at end timer - timer is length of weapon sprite animation
+	if (magic_timer <= 0) and (magic_charge >= 15)
+	{	
+		magic_charge = magic_charge - 15;
+		scr_camera_screen_shake(1,5);
+		red_primary = red_primary - 4;
+		//audio_play_sound(snd_daethex_bloodNeedle,0,0,global.volumeEffects);
+
+		with (instance_create_layer(x+dir_offX,y+dir_offY,"Instances",obj_projectile))
+		{
+			break_object = obj_player.break_object;
+			magic = true;
+			fragment_count = 1;
+			fragment = obj_fragRed;
+			damage = 15; //+ (6 * obj_player.grace) + ((obj_inventory.form_grid[# 2, 7])*8);//
+			projectile_sprite = spr_projectile_daethex_bloodNeedle;
+			projectile_script = scr_projectile_daethex_bloodNeedle;
+			timer1 = 30;
+			idle_sprite = spr_projectile_daethex_bloodNeedle;
+			hit_by_attack = -1;
+			direction = (point_direction(x,y,mouse_x,mouse_y) + irandom_range(-2,2));
+			image_angle = direction;
+			projectile_speed =4.0;
+		}
+		magic_timer = 2;
+	}
+	if (magic_charge < 15) or (red_primary < 4)
+	{
+		attacking = false;
+		state_script = free_state;
+		damage = 0;
+		animation_end = false;
+		atk_snd_delay = 0;
+	}
 }
 
 //Animate
 scr_player_animation_cast();
 
-//Reset or return to free state
-if (mouse_check_button(mb_left) = false) or (red_primary < 4)
-{
-	attacking = false;
-	state_script = free_state;
-	damage = 0;
-	animation_end = false;
-	atk_snd_delay = 0;
-}
 }
 //
 //

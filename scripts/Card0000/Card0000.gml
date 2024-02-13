@@ -66,7 +66,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
-			action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play."
+			action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
 		}
 	}
 	
@@ -90,6 +90,7 @@ if (obj_cardGame.turn = 0)
 				//Remove From Hand
 				with (obj_card_effect) instance_destroy();
 				array_delete(hand_array,hand_slot,1);
+				action_text = "Select a card."
 				hand_slot = -1;
 				card_selected = -1;
 				action_state = false;
@@ -132,6 +133,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
 		}
 	}
 
