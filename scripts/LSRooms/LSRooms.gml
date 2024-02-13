@@ -33,7 +33,7 @@ if (variable_struct_exists(_loadEntity,"altar18")) obj_inventory.altar_grid[# 18
 if (variable_struct_exists(_loadEntity,"altar19")) obj_inventory.altar_grid[# 19, 3] = _loadEntity.altar19;
 if (variable_struct_exists(_loadEntity,"altar20")) obj_inventory.altar_grid[# 20, 3] = _loadEntity.altar20;
 if (variable_struct_exists(_loadEntity,"altar21")) obj_inventory.altar_grid[# 21, 3] = _loadEntity.altar21;
-if (variable_struct_exists(_loadEntity,"altar22")) obj_inventory.altar_grid[# 22, 2] = _loadEntity.altar22;
+if (variable_struct_exists(_loadEntity,"altar22")) obj_inventory.altar_grid[# 22, 3] = _loadEntity.altar22;
 if (variable_struct_exists(_loadEntity,"altar23")) obj_inventory.altar_grid[# 23, 3] = _loadEntity.altar23;
 if (variable_struct_exists(_loadEntity,"altar24")) obj_inventory.altar_grid[# 24, 3] = _loadEntity.altar24;
 if (variable_struct_exists(_loadEntity,"altar25")) obj_inventory.altar_grid[# 25, 3] = _loadEntity.altar25;
