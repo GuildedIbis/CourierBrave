@@ -77,57 +77,6 @@ if (_spread != -1)
 //
 //
 //
-//Crull Stone State
-function xscr_player_crull(){
-invincible = false;
-if (stamina < max_stamina) and (thundux = false)//Stamina Recharge
-{
-	if (stamina_timer > 0) stamina_timer = stamina_timer - 1;
-	if (stamina_timer <= 0) 
-	{
-		stamina_timer = 3;
-		stamina = stamina + 1;
-	}
-}
-//Charge Crystal?
-if (magic_timer > 0) //Magic time between shots
-{
-	magic_timer = magic_timer - 1;
-}
-if (melee_timer > 0)
-{
-	melee_timer = melee_timer - 1;
-}
-//Animation Start
-if (sprite_index != crull_sprite)
-{
-	//Start Animation From Beginning
-	sprite_index = crull_sprite;
-	local_frame = 0;
-	image_index = 0;
-	//Clear Hit List
-}
-
-//Animate
-PlayerAnimation();
-
-if (animation_end)
-{
-	crull_stone = crull_stone - 1;
-	hp = hp + (100 + (25 * receptivity));
-	if (hp > max_hp) hp = max_hp;
-	state_script = free_state;
-	animation_end = false;
-}
-	
-	
-	
-}
-//
-//
-//
-//
-//
 //Recharge State
 function scr_player_recharge(_yellow,_orange,_purple,_blue,_green,_red){
 if (_yellow = true) and (yellow_primary < max_charge)

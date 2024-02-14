@@ -81,6 +81,10 @@ if (key_attackW) and (stamina >= 20)
 {
 	if (thundux = false)
 	{
+		if (obj_inventory.form_grid[# 5, 6] = true)
+		{
+			bow_timer = 24;
+		}
 		direction = round(point_direction(x,y,mouse_x,mouse_y)/90) * 90;
 		attack_script = scr_player_daethex_shoot;
 		state_script = scr_player_attack;
@@ -204,8 +208,27 @@ if (sprite_index != spr_player_daethex_shoot)
 }
 
 //Animate
-scr_player_animation();
+if (obj_inventory.form_grid[# 5, 6] = true)
+{
+	bow_timer = bow_timer - 1;
+	if (bow_timer > 0)
+	{
+		scr_player_animation();
+	}
+	else
+	{
+		image_speed = 0;
+	}
+}
+else
+{
+	scr_player_animation();
+}
 
+if (mouse_check_button_released(mb_right))
+{
+	bow_timer = 48;
+}
 
 if (animation_end)
 {
@@ -216,8 +239,13 @@ if (animation_end)
 		sd_timer = 120;
 		break_object = obj_player.break_object;
 		magic = false;
-		damage = 30;
+		damage = 20;
 		projectile_speed = 3.0;
+		if (obj_inventory.form_grid[# 5, 6] = true) 
+		{
+			projectile_speed = 4.5;
+			damage = 30;
+		}
 		fragment_count = 1;
 		fragment = obj_fragWood;
 		projectile_sprite = spr_projectile_daethex_arrow;
@@ -417,6 +445,7 @@ walk_spd = 1.1;
 attacking = true;
 casting = true;
 
+
 ///Standard Timers
 scr_player_standard_timers(20,true,true,true,false,-1);
 timer1 = timer1 - 1;
@@ -452,7 +481,8 @@ if (timer1 <= 0)
 	{
 		hit = false;
 		break_object = obj_player.break_object;
-		magic = false;
+		magic = true;
+		lit = true;
 		damage = 10;
 		timer1 = 0;
 		sd_timer = 300;
@@ -630,7 +660,16 @@ if (place_meeting(x,y,obj_enemy)) and (timer1 <= 0)
 {
 	projectile_sprite = spr_projectile_daethex_bloodKnife;
 	ds_list_clear(hit_by_attack);
-	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,.2,-1,-1,-1);
+	var _healPerc
+	if (obj_inventory.form_grid[# 5, 8] = true)
+	{
+		_healPerc = .4;
+	}
+	else
+	{
+		_healPerc = .2;
+	}
+	scr_player_attack_calculate_magic(projectile_sprite,self,-1,-1,-1,-1,-1,_healPerc,-1);
 	timer1 = 30;
 }
 if (hit = true)
@@ -641,6 +680,14 @@ if (hit = true)
 	{
 		x = hit_target.x - distX;
 		y = hit_target.y - distY;
+		if (obj_inventory.form_grid[# 5, 8] = true)
+		{
+			with (hit_target)
+			{
+				slow = true;
+				slow_timer = 15;
+			}
+		}
 	}
 }
 
@@ -712,22 +759,4 @@ if (_collided = true)
 	state_script = free_state;
 	scr_camera_screen_shake(4,15);
 }
-}
-//
-//
-//
-//
-//Daethex Cursor Draw
-function xDaethexCursorDraw(){
-if (curs_width > 8) or (curs_height > 8)
-{
-	var xOff = ((curs_width/2))
-	var yOff = ((curs_height/2))
-}
-else 
-{
-	var xOff = 0
-	var yOff = 0
-}
-draw_sprite_stretched(spr_cursor_play,curs_form,x-xOff,y-yOff,curs_width,curs_height);
 }

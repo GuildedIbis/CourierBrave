@@ -67,6 +67,7 @@ if (heal_dur_timer <= 0)
 {
 	heal = false;
 }
+
 //Knockback
 if (knockback_dur > 0)
 {
@@ -96,6 +97,17 @@ else
 		direction = point_direction(x,y,obj_player.x,obj_player.y);
 		knockback = false;
 	}
+}
+
+//Slow
+if (slow_dur_timer > 0)
+{
+	slow_dur_timer = slow_dur_timer - 1;
+	slow = true;
+}
+if (slow_dur_timer <= 0)
+{
+	slow = false;
 }
 
 //Cursed

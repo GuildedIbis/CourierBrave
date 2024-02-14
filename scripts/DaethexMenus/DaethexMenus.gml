@@ -331,7 +331,7 @@ switch(page)
 	
 	case 1:
 		draw_set_halign(fa_left);
-		var _describe = "Shoot arrows that deal\n30 damage each."
+		var _describe = "Shoot arrows that deal 20\ndamage each."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"CRIMSON BOW",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -339,7 +339,7 @@ switch(page)
 	
 	case 2: 
 		draw_set_halign(fa_left);
-		var _describe = "Rapidly fire a spread of\n7 projectiles that deal 5\ndamage each and quickly dissapate."
+		var _describe = "Rapidly fire a spread of 7\nprojectiles that deal 5 damage\neach and quickly dissapate."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"BLOOD NEEDLES",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -347,7 +347,7 @@ switch(page)
 	
 	case 3: 
 		draw_set_halign(fa_left);
-		var _describe = "Shoot a magic knife that\nsticks to it's target, dealing\n10 damage and healing 2, twice a second."
+		var _describe = "Shoot a magic knife that\ndoes 20 DPS and slightly heals\nthe player."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"BLOOD KNIFE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -355,7 +355,7 @@ switch(page)
 	
 	case 4: 
 		draw_set_halign(fa_left);
-		var _describe = "Rolling through an enemy\nnow does a small amount of\ndamageand healing."
+		var _describe = "Rolling through an enemy now\ndoes a small amount of damage\nand healing."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"ARMOR UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -363,7 +363,7 @@ switch(page)
 	
 	case 5: 
 		draw_set_halign(fa_left);
-		var _describe = "Hold to charge the bow shot. Charged shots go further, faster, and do more damage."
+		var _describe = "Arrows now deal 30 damage,\ntravel faster, and can be\nheld nocked."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"WEAPON UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -371,7 +371,7 @@ switch(page)
 	
 	case 6: 
 		draw_set_halign(fa_left);
-		var _describe = "Shoot a burst of four needles that have a medium spread and explode on a timer"
+		var _describe = "Hold to charge a burst of\nneedles that deal 15 damage\neach. (Swap modes with F)"
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"PRIMARY UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
@@ -379,7 +379,7 @@ switch(page)
 	
 	case 7: 
 		draw_set_halign(fa_left);
-		var _describe = "Knives heal a greater percent of damage dealt and slow down inflicted targets."
+		var _describe = "Knives heal a greater percent\nof damage dealt and slow down\ninflicted targets."
 		draw_sprite_stretched(spr_menu,8,97,94,92,16);
 		draw_text_transformed(101,98,"SPECIAL UPGRADE",1,1,0);
 		draw_text_transformed(101,111,_describe,.5,.5,0);
