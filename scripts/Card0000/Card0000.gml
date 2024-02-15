@@ -145,7 +145,32 @@ if (obj_cardGame.turn = 0)
 }
 
 }
+//
+//
+//
+//
+//
+//While Selected in Hand
+function scr_cg_opp_0000_hand_playcheck(){
+if (active_array[0,0] = -1)
+{
+	//Set to Active
+	active_array[0,0] = 0;
+	active_array[0,1] = "KAFFARI GAURD";
+	active_array[0,2] = 0;
+	active_array[0,3] = 0;
+	active_array[0,4] = 4;
 
+	hand_selected = true;
+	obj_player_cg.action_text = "Opponent played KAFARRI GUARD."
+	action_timer = 60;
+	with (obj_card_effect) instance_destroy();
+	obj_player_cg.card_selected = scr_cg_opp_0000_active_selected;//cg_script_database[0,3];
+	array_delete(hand_array,hand_slot,1);
+}
+
+
+}
 //
 //
 //

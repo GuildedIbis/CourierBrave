@@ -128,7 +128,14 @@ if (obj_cardGame.turn = 0)
 
 
 }
+//
+//
+//
+//
+//Opponent Check to Play
+function scr_cg_opp_0002_hand_playcheck(){
 
+}
 //
 //
 //

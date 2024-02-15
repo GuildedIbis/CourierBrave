@@ -1,5 +1,5 @@
 //Draw
-scr_card_game_step();
+scr_draw_cg_player();
 
 
 

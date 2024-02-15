@@ -220,6 +220,14 @@ if (_targetPos != -1)
 //
 //
 //
+//Opponent Check to Play
+function scr_cg_opp_0001_hand_playcheck(){
+
+}
+//
+//
+//
+//
 //
 //While Selected in Hand
 function scr_cg_opp_0001_active_selected(){
