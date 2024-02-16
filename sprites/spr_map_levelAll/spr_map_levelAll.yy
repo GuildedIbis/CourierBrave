@@ -25,6 +25,7 @@
   "height": 360,
   "HTile": false,
   "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"879c8917-041b-4a64-b267-c046f52432b7","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3f40fa85-87c6-47b3-9b59-988069a7571d","blendMode":0,"displayName":"Town","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2d01cd89-2621-43c7-915d-84a90c02c427","blendMode":0,"displayName":"Farway Road","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1e911933-f56d-422c-ada4-943f9d9b077c","blendMode":0,"displayName":"Layer 3","isLocked":false,"opacity":100.0,"visible":true,},

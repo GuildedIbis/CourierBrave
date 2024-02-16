@@ -549,6 +549,7 @@
     {"id":{"name":"spr_enemy_ofaPupa_cocoonSpike","path":"sprites/spr_enemy_ofaPupa_cocoonSpike/spr_enemy_ofaPupa_cocoonSpike.yy",},},
     {"id":{"name":"spr_menu_player_statO","path":"sprites/spr_menu_player_statO/spr_menu_player_statO.yy",},},
     {"id":{"name":"spr_enemy_bossZerwerk_riftSlamDownB","path":"sprites/spr_enemy_bossZerwerk_riftSlamDownB/spr_enemy_bossZerwerk_riftSlamDownB.yy",},},
+    {"id":{"name":"spr_boss_concept_a","path":"sprites/spr_boss_concept_a/spr_boss_concept_a.yy",},},
     {"id":{"name":"obj_door_yakflowerPath_stone","path":"objects/obj_door_yakflowerPath_stone/obj_door_yakflowerPath_stone.yy",},},
     {"id":{"name":"spr_npc_sember","path":"sprites/spr_npc_sember/spr_npc_sember.yy",},},
     {"id":{"name":"spr_resource_farwayRoad","path":"sprites/spr_resource_farwayRoad/spr_resource_farwayRoad.yy",},},

@@ -469,6 +469,7 @@
     {"name":"spr_enemy_ofaPupa_cocoonSpike","order":13,"path":"sprites/spr_enemy_ofaPupa_cocoonSpike/spr_enemy_ofaPupa_cocoonSpike.yy",},
     {"name":"spr_menu_player_statO","order":3,"path":"sprites/spr_menu_player_statO/spr_menu_player_statO.yy",},
     {"name":"spr_enemy_bossZerwerk_riftSlamDownB","order":14,"path":"sprites/spr_enemy_bossZerwerk_riftSlamDownB/spr_enemy_bossZerwerk_riftSlamDownB.yy",},
+    {"name":"spr_boss_concept_a","order":10,"path":"sprites/spr_boss_concept_a/spr_boss_concept_a.yy",},
     {"name":"obj_door_yakflowerPath_stone","order":5,"path":"objects/obj_door_yakflowerPath_stone/obj_door_yakflowerPath_stone.yy",},
     {"name":"spr_npc_sember","order":35,"path":"sprites/spr_npc_sember/spr_npc_sember.yy",},
     {"name":"spr_resource_farwayRoad","order":4,"path":"sprites/spr_resource_farwayRoad/spr_resource_farwayRoad.yy",},
