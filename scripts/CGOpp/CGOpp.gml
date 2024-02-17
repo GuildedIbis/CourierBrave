@@ -53,7 +53,10 @@ if (obj_cardGame.turn = 1)
 		}
 	}
 
-	
+	if (action_timer <= 0)
+	{
+		scr_opp_cg_playcheck();
+	}
 	//Opponent Movecheck
 	if (move_pt = false) and (action_timer <= 0)
 	{
@@ -171,8 +174,11 @@ for (var i = 0; i < _handSize; i = i + 1)
 	}
 	
 	draw_sprite_ext(spr_card_all_back,0,_cardX,4,1,1,0,c_white,1);
+	draw_text_transformed(_cardX,12,string(hand_array[i,0]),.75,.75,0);
+	
 	
 }
+draw_text_transformed(131,8,string(hand_size),.75,.75,0);
 }
 //
 //
@@ -182,7 +188,17 @@ for (var i = 0; i < _handSize; i = i + 1)
 //Opponent Play Check | obj_opponent_cg | scr_draw_cg_opp
 function scr_opp_cg_playcheck()
 {
-
+	for (var i = 0; i < hand_size; i = i + 1)
+	{
+		var _cardID = hand_array[i, 0];
+		hand_slot = i;
+		script_execute(cg_script_database[_cardID,4])
+		if (card_played = true)
+		{
+			card_played = false;
+			break;
+		}	
+	}
 }
 //
 //

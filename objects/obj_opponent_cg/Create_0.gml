@@ -1,5 +1,5 @@
 //Create
-player = -1;
+player = 1;
 hand_slot = -1;
 hand_size = 3;
 active_slot = -1;

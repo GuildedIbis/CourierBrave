@@ -115,6 +115,7 @@
     {"name":"Structures","order":5,"path":"folders/Sprites/Effects/Structures.yy",},
     {"name":"Entity","order":6,"path":"folders/Sprites/Entity.yy",},
     {"name":"Beetrap","order":1,"path":"folders/Sprites/Entity/Enemy/Beetrap.yy",},
+    {"name":"Arok","order":11,"path":"folders/Sprites/Entity/Enemy/Beetrap/Arok.yy",},
     {"name":"Browncap","order":3,"path":"folders/Sprites/Entity/Enemy/Beetrap/Browncap.yy",},
     {"name":"LeachMage","order":9,"path":"folders/Sprites/Entity/Enemy/Beetrap/LeachMage.yy",},
     {"name":"Redcap","order":8,"path":"folders/Sprites/Entity/Enemy/Beetrap/Redcap.yy",},
@@ -186,7 +187,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"Arok","order":11,"path":"folders/Sprites/Entity/Enemy/Beetrap/Arok.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},

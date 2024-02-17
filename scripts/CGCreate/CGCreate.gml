@@ -65,7 +65,7 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	//Copy Database
 	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
-	
+	player = 1;
 	//Create and Shuffle Deck
 	deck_array = array_create(12);
 	deck_array = 
@@ -86,11 +86,12 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	scr_cg_deck_shuffle();
 	
 	//Create Hand
-	hand_array = array_create(1);
+	hand_array = array_create(3);
 	hand_array = 
 	[
 		[0,"KAFFARI GUARD",0,0,4],
-
+		[0,"KAFFARI GUARD",0,0,4],
+		[0,"KAFFARI GUARD",0,0,4],
 	];
 	
 	//Create Active Lane

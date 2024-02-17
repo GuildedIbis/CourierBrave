@@ -1,5 +1,5 @@
 //Create
-player = -1;
+player = 0;
 card_selected = -1;
 hand_slot = -1;
 hand_size = 1;

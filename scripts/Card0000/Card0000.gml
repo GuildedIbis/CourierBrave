@@ -20,7 +20,7 @@ if (player = 0)
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 4;
-	hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
 
 }
 if (player = 1)
@@ -30,7 +30,7 @@ if (player = 1)
 	hand_array[_newCard, 2] = 0;
 	hand_array[_newCard, 3] = 0;
 	hand_array[_newCard, 4] = 4;
-	hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
 
 }
 }
@@ -154,6 +154,7 @@ if (obj_cardGame.turn = 0)
 function scr_cg_opp_0000_hand_playcheck(){
 if (active_array[0,0] = -1)
 {
+	card_played = true;
 	//Set to Active
 	active_array[0,0] = 0;
 	active_array[0,1] = "KAFFARI GAURD";
@@ -162,6 +163,7 @@ if (active_array[0,0] = -1)
 	active_array[0,4] = 4;
 
 	hand_selected = true;
+	hand_size = hand_size - 1;
 	obj_player_cg.action_text = "Opponent played KAFARRI GUARD."
 	action_timer = 60;
 	with (obj_card_effect) instance_destroy();
