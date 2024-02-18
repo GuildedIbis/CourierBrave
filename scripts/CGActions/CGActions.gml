@@ -34,6 +34,52 @@ for (var i = 0; i < _size; i = i + 1)
 }
 }
 //
+//
+//
+//
+//
+//
+function scr_cg_combatant_defeated(){
+if (defeat_delay = true)
+{
+	defeat_timer = defeat_timer - 1;
+	if (defeat_timer <= 0)
+	{
+		defeat_timer = 120;
+		defeat_delay = false;
+		if (discard_array[0,0] != -1)
+		{
+			var _discard = array_length(discard_array)
+			array_resize(discard_array,_discard + 1);
+			discard_array[_discard, 0] = active_array[defeat_target, 0];
+			discard_array[_discard, 1] = active_array[defeat_target, 1];
+			discard_array[_discard, 2] = active_array[defeat_target, 2];
+			discard_array[_discard, 3] = active_array[defeat_target, 3];
+			discard_array[_discard, 4] = active_array[defeat_target, 4];
+			active_array[defeat_target, 0] = -1;
+			active_array[defeat_target, 1] = -1;
+			active_array[defeat_target, 2] = -1;
+			active_array[defeat_target, 3] = -1;
+			active_array[defeat_target, 4] = -1;
+		}
+		else
+		{
+			discard_array[0, 0] = active_array[defeat_target, 0];
+			discard_array[0, 1] = active_array[defeat_target, 1];
+			discard_array[0, 2] = active_array[defeat_target, 2];
+			discard_array[0, 3] = active_array[defeat_target, 3];
+			discard_array[0, 4] = active_array[defeat_target, 4];
+			active_array[defeat_target, 0] = -1;
+			active_array[defeat_target, 1] = -1;
+			active_array[defeat_target, 2] = -1;
+			active_array[defeat_target, 3] = -1;
+			active_array[defeat_target, 4] = -1;
+		}
+		defeat_target = -1;
+	}
+}
+}
+//
 
 //
 //

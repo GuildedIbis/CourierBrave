@@ -58,6 +58,13 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1]
 	];
+	
+	//Create Discard
+	discard_array = array_create(1);
+	discard_array = 
+	[
+		[-1,-1,-1,-1,-1,-1],
+	];
 }
 
 with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
@@ -104,6 +111,13 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1]
+	];
+	
+	//Create Discard
+	discard_array = array_create(1);
+	discard_array = 
+	[
+		[-1,-1,-1,-1,-1,-1],
 	];
 	
 }

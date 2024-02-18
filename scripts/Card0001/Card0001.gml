@@ -205,11 +205,25 @@ if (_targetPos != -1)
 	if (point_in_rectangle(_mouseX,_mouseY,_targetX,56,_targetX + 15,76))
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,_targetX - 1,55,17,23);
-		if (mouse_check_button_pressed(mb_left)) 
+		if (mouse_check_button_pressed(mb_left)) and (obj_opponent_cg.defeat_delay = false)
 		{
 			action_state = false;
-			action_text = "Select a card."
+			
 			obj_opponent_cg.active_array[_targetNum,4] -= 2;
+			if (obj_opponent_cg.active_array[_targetNum,4] <= 0)
+			{
+				action_text = "Target Defeated."
+				with (obj_opponent_cg)
+				{
+					defeat_delay = true;
+					defeat_timer = 120;
+					defeat_target = 5 - other.active_slot;
+				}
+			}
+			else
+			{
+				action_text = "Select a card."
+			}
 			card_selected = -1;
 			with (obj_card_effect) instance_destroy();
 		}

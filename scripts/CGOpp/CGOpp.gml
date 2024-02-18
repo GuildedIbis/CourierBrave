@@ -19,6 +19,8 @@ var _deckLen = array_length(deck_array);
 scr_draw_cg_opp_hand();
 scr_draw_cg_opp_deck();
 scr_draw_cg_opp_active();
+scr_draw_cg_opp_discard();
+scr_cg_combatant_defeated();
 
 if (obj_cardGame.turn = 1)
 {
@@ -179,6 +181,31 @@ for (var i = 0; i < _handSize; i = i + 1)
 	
 }
 draw_text_transformed(131,8,string(hand_size),.75,.75,0);
+}
+//
+//
+//
+//
+//
+//Draw Opponent Deck | obj_opponent_cg | scr_draw_cg_opp
+function scr_draw_cg_opp_discard(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _discardTop = array_length(discard_array) - 1;
+var _discardX = 135;
+var _discardY = 28;
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+
+if (discard_array[_discardTop, 0] != -1)
+{
+	draw_sprite_ext(spr_card_all,discard_array[_discardTop, 2],_discardX,_discardY,1,1,0,c_white,1);
+	draw_text_transformed(130,_discardY,string(array_length(discard_array)),1,1,0);
+}
+
+
 }
 //
 //
