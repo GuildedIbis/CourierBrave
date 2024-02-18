@@ -5,7 +5,6 @@
 //2: Type - Combatants 0-7, Spells 8, Enchantments 9, Pylon 10-15
 //3: Stage - 0,1,2...
 //4: HP - 4,5,6...
-//5: Draw/Select Script
 //
 //Player Card Game 
 //
@@ -13,7 +12,7 @@
 //
 //
 //
-//Player Card Game (Main)
+//Player Card Game (Main) | obj_player_cg | Draw GUI
 function scr_draw_cg_player(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -30,7 +29,9 @@ draw_set_color(c_white);
 scr_draw_cg_player_hand();
 scr_draw_cg_player_deck();
 scr_draw_cg_player_active();
+scr_draw_cg_player_discard();
 scr_draw_cg_player_game();
+
 
 }
 //
@@ -38,7 +39,7 @@ scr_draw_cg_player_game();
 //
 //
 //
-//Draw Player Hand
+//Draw Player Hand | obj_player_cg | scr_draw_cg_player
 function scr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -97,7 +98,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 //
 //
 //
-//Draw Player Deck
+//Draw Player Deck | obj_player_cg | scr_draw_cg_player
 function scr_draw_cg_player_deck(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -145,7 +146,7 @@ if (deck_array[0, 0] != -1)
 //
 //
 //
-//Draw Player Active
+//Draw Player Active | obj_player_cg | scr_draw_cg_player
 function scr_draw_cg_player_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -187,13 +188,37 @@ for (var i = 0; i < 6; i = i + 1)
 
 
 }
+//
+//
+//
+//
+//
+//Draw Opponent Deck | obj_player_cg | scr_draw_cg_player
+function scr_draw_cg_player_discard(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _discardTop = array_length(discard_array) - 1;
+var _discardX = 295;
+var _discardY = 133;
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
 
+if (discard_array[_discardTop, 0] != -1)
+{
+	draw_sprite_ext(spr_card_all,discard_array[_discardTop, 2],_discardX,_discardY,1,1,0,c_white,1);
+	draw_text_transformed(290,_discardY,string(array_length(discard_array)),1,1,0);
+}
+
+
+}
 //
 //
 //
 //
 //
-//Draw Player Active
+//Draw Player Active | obj_player_cg | scr_draw_cg_player
 function scr_draw_cg_player_game(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
@@ -228,7 +253,7 @@ if (obj_cardGame.turn = 0)
 	{
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_sprite_stretched(spr_highlight_nineslice,0,130,138,32,18);
+		draw_sprite_stretched(spr_highlight_nineslice,0,130,138,31,17);
 		draw_text_transformed(145,142,"END\nTURN",.5,.5,0);
 		if (mouse_check_button_released(mb_left))
 		{

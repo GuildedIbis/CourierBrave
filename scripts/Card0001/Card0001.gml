@@ -61,7 +61,7 @@ var _atkName1 = "SWORD ATTACK";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 draw_set_halign(fa_left);
@@ -96,6 +96,28 @@ if (obj_cardGame.turn = 0)
 					draw_sprite_stretched(spr_highlight_nineslice,0,(_actX - 1) + (20 * i),_actY - 1,17,23);
 					if (mouse_check_button_released(mb_left))
 					{
+						
+						if (discard_array[0,0] != -1)
+						{
+							var _discard = array_length(discard_array)
+							array_resize(discard_array,_discard + 1);
+							discard_array[_discard, 0] = active_array[i, 0];
+							discard_array[_discard, 1] = active_array[i, 1];
+							discard_array[_discard, 2] = active_array[i, 2];
+							discard_array[_discard, 3] = active_array[i, 3];
+							discard_array[_discard, 4] = active_array[i, 4];
+
+						}
+						else
+						{
+							discard_array[0, 0] = active_array[i, 0];
+							discard_array[0, 1] = active_array[i, 1];
+							discard_array[0, 2] = active_array[i, 2];
+							discard_array[0, 3] = active_array[i, 3];
+							discard_array[0, 4] = active_array[i, 4];
+
+						}
+						
 						active_array[i,0] = 1;
 						active_array[i,1] = "LIGHTRAY KNIGHT";
 						active_array[i,2] = 0;
@@ -117,7 +139,6 @@ if (obj_cardGame.turn = 0)
 	}
 }
 }
-
 //
 //
 //
@@ -137,7 +158,7 @@ var _atkName1 = "SWORD ATTACK";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 draw_set_halign(fa_left);
@@ -184,7 +205,6 @@ if (obj_cardGame.turn = 0)
 }
 
 }
-
 //
 //
 //
@@ -251,7 +271,7 @@ var _cardX = 0;
 var _cardY = 5;
 
 //Draw Full Card
-draw_sprite_ext(spr_gameBoard_selected,1,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,1,0,0,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 
 //Move (Standard)
