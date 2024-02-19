@@ -14,6 +14,7 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f67e0793-63e4-402d-ab4c-6d506245fee6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1ce3057f-43d8-4947-8e45-0bd2b911c9c5",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"96865453-b9b8-408e-a021-4f44f3eadcc9",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2f2b960c-9b70-4586-9c3c-349f8ed539cd",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e3f28eb4-d91d-4c64-bf11-0048dbfb4752",},
@@ -31,7 +32,7 @@
   "origin": 9,
   "parent": {
     "name": "Arok",
-    "path": "folders/Sprites/Entity/Enemy/Beetrap/Arok.yy",
+    "path": "folders/Sprites/Entity/Enemy/Beetrap/BeetrapConcepts/Arok.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -48,7 +49,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 4.0,
+    "length": 5.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -60,9 +61,10 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f67e0793-63e4-402d-ab4c-6d506245fee6","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"1bf7008e-d8e5-4958-a9bf-5da8ddfcc086","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"96865453-b9b8-408e-a021-4f44f3eadcc9","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"c521bd04-0971-446d-b14c-e12cea75d424","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2f2b960c-9b70-4586-9c3c-349f8ed539cd","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"30208f23-c1e4-469b-9884-30de9cbc43b2","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e3f28eb4-d91d-4c64-bf11-0048dbfb4752","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"92a6c473-39c8-4263-b278-8e1474fe4700","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1ce3057f-43d8-4947-8e45-0bd2b911c9c5","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"248d0281-be5e-49f6-a1ee-e215d16b05a3","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"96865453-b9b8-408e-a021-4f44f3eadcc9","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"c521bd04-0971-446d-b14c-e12cea75d424","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2f2b960c-9b70-4586-9c3c-349f8ed539cd","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"30208f23-c1e4-469b-9884-30de9cbc43b2","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e3f28eb4-d91d-4c64-bf11-0048dbfb4752","path":"sprites/spr_enemy_arok_damaged/spr_enemy_arok_damaged.yy",},},},"Disabled":false,"id":"92a6c473-39c8-4263-b278-8e1474fe4700","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -90,7 +90,7 @@ if (obj_cardGame.turn = 0)
 				active_array[0,2] = 0;
 				active_array[0,3] = 0;
 				active_array[0,4] = 4;
-				//active_array[0,5] = scr_cg_player_0000_active_selected;
+				active_array[0,5] = 0;
 
 		
 				//Remove From Hand
@@ -167,6 +167,7 @@ if (active_array[0,0] = -1)
 	active_array[0,2] = 0;
 	active_array[0,3] = 0;
 	active_array[0,4] = 4;
+	active_array[0,5] = 0;
 
 	hand_selected = true;
 	hand_size = hand_size - 1;

@@ -161,8 +161,9 @@ for (var i = 0; i < 6; i = i + 1)
 {
 	if (active_array[i,0] != -1)
 	{
+		var _hpRem = active_array[i,4] - active_array[i,5];
 		draw_sprite_ext(spr_card_all,active_array[i,2],165 + (20 * i),_cardY,1,1,0,c_white,1);//80,92
-		draw_text_transformed(173 + (20 * i), _cardY + 12,string(active_array[i,4]),.75,.75,0);
+		draw_text_transformed(173 + (20 * i), _cardY + 12,string(_hpRem),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),_cardY,180 + (20 * i),_cardY+21)) and (action_state = false)
 		{
 			var _cardNum = active_array[i,0];

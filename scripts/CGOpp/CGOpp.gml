@@ -119,8 +119,9 @@ for (var i = 0; i < 6; i = i + 1)
 {
 	if (active_array[i,0] != -1)
 	{
+		var _hpRem = active_array[i,4] - active_array[i,5];
 		draw_sprite_ext(spr_card_all,active_array[i,0],_cardX - (20 * i),_cardY,1,1,0,c_white,1);
-		draw_text_transformed((_cardX + 8) - (20 * i), _cardY + 12,string(active_array[i,4]),.75,.75,0);
+		draw_text_transformed((_cardX + 8) - (20 * i), _cardY + 12,string(_hpRem),.75,.75,0);
 		if (point_in_rectangle(_mouseX,_mouseY,_cardX - (20 * i),_cardY,(_cardX + 15) - (20 * i),_cardY+21))
 		{
 			var _cardNum = active_array[i,0];
@@ -248,16 +249,18 @@ function scr_opp_cg_movecheck()
 			active_array[i + 1, 2] = active_array[i, 2];
 			active_array[i + 1, 3] = active_array[i, 3];
 			active_array[i + 1, 4] = active_array[i, 4];
+			active_array[i + 1, 5] = active_array[i, 5];
 			//Clear old slot
 			active_array[i, 0] = -1;
 			active_array[i, 1] = -1;
 			active_array[i, 2] = -1;
 			active_array[i, 3] = -1;
 			active_array[i, 4] = -1;
+			active_array[i, 5] = -1;
 
 
 			with (obj_card_effect) instance_destroy();
-			var _name = "Opponent moved" + active_array[i + 1, 1] + "."
+			var _name = "Opponent moved " + active_array[i + 1, 1] + "."
 			obj_player_cg.action_text = _name
 			obj_player_cg.card_selected = cg_script_database[_cardID,3];
 		}

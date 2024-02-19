@@ -59,7 +59,7 @@
   "origin": 9,
   "parent": {
     "name": "Arok",
-    "path": "folders/Sprites/Entity/Enemy/Beetrap/Arok.yy",
+    "path": "folders/Sprites/Entity/Enemy/Beetrap/BeetrapConcepts/Arok.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

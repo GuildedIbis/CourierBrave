@@ -123,7 +123,6 @@ if (obj_cardGame.turn = 0)
 						active_array[i,2] = 0;
 						active_array[i,3] = 1;
 						active_array[i,4] = 9;
-						//active_array[i,5] = scr_cg_player_0001_active_selected;
 				
 						//Discard? Leave under?
 						with (obj_card_effect) instance_destroy();
@@ -228,9 +227,9 @@ if (_targetPos != -1)
 		if (mouse_check_button_pressed(mb_left)) and (obj_opponent_cg.defeat_delay = false)
 		{
 			action_state = false;
-			
-			obj_opponent_cg.active_array[_targetNum,4] -= 2;
-			if (obj_opponent_cg.active_array[_targetNum,4] <= 0)
+			obj_opponent_cg.active_array[_targetNum,5] += 2;
+			var _hpRem = obj_opponent_cg.active_array[_targetNum,4] - obj_opponent_cg.active_array[_targetNum,5];
+			if (_hpRem <= 0)
 			{
 				action_text = "Target Defeated."
 				with (obj_opponent_cg)
