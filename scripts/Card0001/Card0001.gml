@@ -12,8 +12,29 @@
 //
 //
 //
+//Draw Full Card
+function scr_cg_0001_draw(_player,_cardX=0,_cardY=5){
+var _cName = "LIGHTRAY KNIGHT";
+var _atkName1 = "RALLY STRIKE";
+
+
+//Draw Card
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_sprite_ext(spr_gameBoard_selected,_player,0,0,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+draw_set_halign(fa_right);
+draw_text_transformed(_cardX + 114,_cardY + 102,_atkName1,.75,.75,0);
+}
+//
+//
+//
+//
+//
 //Draw From Deck
-function scr_cg_0001_draw(){
+function scr_cg_0001_draw_fd(){
 var _newCard = array_length(hand_array) - 1; //"-1" because the array was already += 1
 //CID
 //Name
@@ -53,19 +74,19 @@ var _cardX = 0;
 var _cardY = 5;
 var _actX = 165;
 var _actY = 105;
-var _cName = "LIGHTRAY KNIGHT";
-var _atkName1 = "SWORD ATTACK";
+
 
 
 //Draw Full Card
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
-draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
-draw_set_halign(fa_left);
-draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
+scr_cg_0001_draw(0,_cardX,_cardY);
+//draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
+//draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+//draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+//draw_set_halign(fa_left);
+//draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 //
 //
 //
@@ -149,19 +170,18 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 5;
-var _cName = "LIGHTRAY KNIGHT";
-var _atkName1 = "SWORD ATTACK";
 
 
 //Draw Full Card
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
-draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
-draw_set_halign(fa_left);
-draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
+scr_cg_0001_draw(0,_cardX,_cardY);
+//draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
+//draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+//draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+//draw_set_halign(fa_left);
+//draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 
 if (obj_cardGame.turn = 0)
 {
@@ -270,8 +290,9 @@ var _cardX = 0;
 var _cardY = 5;
 
 //Draw Full Card
-draw_sprite_ext(spr_gameBoard_selected,1,0,0,1,1,0,c_white,1);
-draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
+scr_cg_0001_draw(1,_cardX,_cardY);
+//draw_sprite_ext(spr_gameBoard_selected,1,0,0,1,1,0,c_white,1);
+//draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 
 //Move (Standard)
 

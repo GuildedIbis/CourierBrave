@@ -93,7 +93,7 @@ draw_set_color(c_white);
 
 if (deck_array[0, 0] != -1)
 {
-	draw_sprite_ext(spr_card_all_back,0,135,_deckY,1,1,0,c_white,1);
+	draw_sprite_ext(spr_card_back,0,135,_deckY,1,1,0,c_white,1);
 	draw_text_transformed(130,_deckY,string(_deckLen),1,1,0);
 }
 
@@ -175,7 +175,7 @@ for (var i = 0; i < _handSize; i = i + 1)
 		var _cardX = _leftAlign + (_space * i);
 	}
 	
-	draw_sprite_ext(spr_card_all_back,0,_cardX,4,1,1,0,c_white,1);
+	draw_sprite_ext(spr_card_back,0,_cardX,4,1,1,0,c_white,1);
 	draw_text_transformed(_cardX,12,string(hand_array[i,0]),.75,.75,0);
 	
 	

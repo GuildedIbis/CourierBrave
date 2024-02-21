@@ -5,7 +5,7 @@
 //
 //
 //Draw From Deck
-function scr_cg_0002_draw(){
+function scr_cg_0002_draw_fd(){
 var _newCard = array_length(hand_array) - 1; //"-1" because the array was already += 1
 //CID
 //Name

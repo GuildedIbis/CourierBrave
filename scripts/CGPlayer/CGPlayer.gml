@@ -111,7 +111,7 @@ draw_set_color(c_white);
 
 if (deck_array[0, 0] != -1)
 {
-	draw_sprite_ext(spr_card_all_back,0,295,_deckY,1,1,0,c_white,1);
+	draw_sprite_ext(spr_card_back,0,295,_deckY,1,1,0,c_white,1);
 	draw_text_transformed(310,_deckY,string(_deckLen),1,1,0);
 	if (obj_cardGame.turn = 0)
 	{
