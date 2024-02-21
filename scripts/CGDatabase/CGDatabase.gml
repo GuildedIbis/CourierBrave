@@ -14,6 +14,8 @@ function scr_cg_database(){
 //2: Player Active Selected
 //3: Opponent Active Selected
 //4: Opponent Playcheck
+
+
 cg_script_database = array_create(12);
 cg_script_database = 
 [

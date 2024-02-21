@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Beetrap",
-    "path": "folders/Sprites/Entity/Enemy/Beetrap.yy",
+    "name": "Other",
+    "path": "folders/Sprites/Entity/Enemy/Other.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

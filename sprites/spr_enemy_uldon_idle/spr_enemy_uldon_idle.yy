@@ -14,6 +14,7 @@
   "For3D": false,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9c020965-3252-45f0-ba44-cfcc4d137f55",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c32435a7-6535-4986-a20a-295083284956",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0a430102-c8c4-41ae-a45d-76f69186143f",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ed22413c-9adc-4702-a16c-07129fd0ede7",},
@@ -46,7 +47,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 4.0,
+    "length": 5.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -58,9 +59,10 @@
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4efc76d7-689a-4ff8-8bad-1bcc913dd4c5","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"6758bcee-de1c-4f65-a62f-d0cba1c68aa1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"331c98b5-7a71-4a2a-8945-5cff5737f6c6","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"6a8a9e7b-2300-4ac0-a4b3-95d959ddef0a","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"d59eb4c6-ff5c-4104-8c3a-c41686cea4fa","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9c020965-3252-45f0-ba44-cfcc4d137f55","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"05f3a2a8-38a9-4190-9489-87919fb2f439","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c32435a7-6535-4986-a20a-295083284956","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"331c98b5-7a71-4a2a-8945-5cff5737f6c6","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a430102-c8c4-41ae-a45d-76f69186143f","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"6a8a9e7b-2300-4ac0-a4b3-95d959ddef0a","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ed22413c-9adc-4702-a16c-07129fd0ede7","path":"sprites/spr_enemy_uldon_idle/spr_enemy_uldon_idle.yy",},},},"Disabled":false,"id":"d59eb4c6-ff5c-4104-8c3a-c41686cea4fa","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
