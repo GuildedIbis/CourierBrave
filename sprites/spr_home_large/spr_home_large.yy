@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Structures",
-    "path": "folders/Sprites/Effects/Structures.yy",
+    "path": "folders/Sprites/Entity/Structures.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
