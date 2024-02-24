@@ -18,6 +18,7 @@ shadow = false;
 shadow_size = 0;
 drop_amount = -1;
 form_type = -1;
+parent = -1;
 hor_spd = 0;
 ver_spd = 0;
 home_x = x;

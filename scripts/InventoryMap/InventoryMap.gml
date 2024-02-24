@@ -1439,10 +1439,10 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 }
 if (obj_inventory.altar_grid[# 23, 3] = true) 
 {
-	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 71, _yPos + 40,1,1,0,c_white,1);
-	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 29,_xPos + 43,_yPos + 32)) and (altar = true)
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 121, _yPos + 30,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 118,_yPos + 28,_xPos + 123,_yPos + 31)) and (altar = true)
 	{
-		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 41,_yPos + 31);
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 121,_yPos + 30);
 		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
 		{
 			obj_inventory.room_num = 6;
@@ -1454,7 +1454,7 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 			obj_game.room_enemy_grid = obj_game.northernPass_enemy_grid;
 			global.targetX = obj_inventory.altar_grid[# 23, 1];
 			global.targetY = obj_inventory.altar_grid[# 23, 2];
-			global.targetRoom = rm_lenko_beaowire_06;
+			global.targetRoom = rm_beetrap_northernPass_06;
 			global.targetAltar = true;
 			scr_game_room_enemy_reset();
 			global.lastAltar = global.targetRoom;

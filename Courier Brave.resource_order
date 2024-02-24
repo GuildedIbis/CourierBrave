@@ -257,6 +257,7 @@
     {"name":"spr_mapgret","order":4,"path":"sprites/spr_mapgret/spr_mapgret.yy",},
     {"name":"RemphoGhost","order":4,"path":"scripts/RemphoGhost/RemphoGhost.yy",},
     {"name":"spr_enemy_enragedWorm_idle","order":6,"path":"sprites/spr_enemy_enragedWorm_idle/spr_enemy_enragedWorm_idle.yy",},
+    {"name":"spr_projectile_arok_arrowShield","order":6,"path":"sprites/spr_projectile_arok_arrowShield/spr_projectile_arok_arrowShield.yy",},
     {"name":"snd_lenko_themeSmith","order":7,"path":"sounds/snd_lenko_themeSmith/snd_lenko_themeSmith.yy",},
     {"name":"spr_enemy_trapLily_open_hitbox","order":3,"path":"sprites/spr_enemy_trapLily_open_hitbox/spr_enemy_trapLily_open_hitbox.yy",},
     {"name":"spr_npc_rhombail36","order":3,"path":"sprites/spr_npc_rhombail36/spr_npc_rhombail36.yy",},

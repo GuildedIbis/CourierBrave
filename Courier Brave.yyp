@@ -315,6 +315,7 @@
     {"id":{"name":"spr_mapgret","path":"sprites/spr_mapgret/spr_mapgret.yy",},},
     {"id":{"name":"RemphoGhost","path":"scripts/RemphoGhost/RemphoGhost.yy",},},
     {"id":{"name":"spr_enemy_enragedWorm_idle","path":"sprites/spr_enemy_enragedWorm_idle/spr_enemy_enragedWorm_idle.yy",},},
+    {"id":{"name":"spr_projectile_arok_arrowShield","path":"sprites/spr_projectile_arok_arrowShield/spr_projectile_arok_arrowShield.yy",},},
     {"id":{"name":"snd_lenko_themeSmith","path":"sounds/snd_lenko_themeSmith/snd_lenko_themeSmith.yy",},},
     {"id":{"name":"spr_enemy_trapLily_open_hitbox","path":"sprites/spr_enemy_trapLily_open_hitbox/spr_enemy_trapLily_open_hitbox.yy",},},
     {"id":{"name":"spr_npc_rhombail36","path":"sprites/spr_npc_rhombail36/spr_npc_rhombail36.yy",},},

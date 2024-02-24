@@ -274,6 +274,15 @@ bullet = true;
 
 if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
 ds_list_clear(hit_by_attack);
+
+
+with (instance_create_layer(x,y,"Instances",obj_shield))
+{
+	parent = other;
+	scr_projectile_arok_arrowShield_create();
+	sprite_index = projectile_sprite;
+	break_object = other.break_object;
+}
 }
 //
 //
@@ -299,8 +308,92 @@ else
 	speed = 0;
 }
 }
+//
+//
+//
+//
+//
+//
+//Arok Arrow Shield Create
+function scr_projectile_arok_arrowShield_create(){
+home_state = scr_projectile_arok_arrowShield_step;
+entity_step = home_state;
+
+enemy = true;
+lit = true;
+invincible = false;
+inv_dur_timer = 0;
+enemy_move = spr_projectile_arok_arrowShield;
+enemy_idle = spr_projectile_arok_arrowShield;
+projectile_sprite = spr_projectile_arok_arrowShield;
+aggro_drop = 300;
+healthbar = false;
+local_frame = 0;
+hit_by_attack = -1;
+damage = 0;
+fragment_count = 2;
+fragment = obj_fragOrange;
+bullet = true;
+hit_script = scr_entity_hit_destroy;
+
+if (instance_exists(parent))
+{
+	x = parent.x;
+	y = parent.y;
+	image_angle = parent.image_angle;
+}
+
+if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+ds_list_clear(hit_by_attack);
+}
+//
+//
+//
+//
+//
+// 
+//Arok Arrow Shield Step
+function scr_projectile_arok_arrowShield_step(){
+if (obj_game.gamePaused = false)
+{
+//Set
+lit = true;
+enemy = true;
+destructable = false;
+depth = -4700;
+
+//if (place_meeting(x,y,obj_player)) depth = obj_player.depth - 1;
+if (sprite_index != projectile_sprite)
+{
+	//Start Animation From Beginning
+	sprite_index = projectile_sprite;
+	//Clear Hit List
+	if (!ds_exists(hit_by_attack,ds_type_list)) hit_by_attack = ds_list_create();
+	ds_list_clear(hit_by_attack);
+}
 
 
+//Collision
+if (place_meeting(x,y,obj_projectile)) 
+{
+	
+	scr_shield_enemy_calculate(enemy_move,self);
+}
+
+//Follow Arrow and SD when it does
+if (instance_exists(parent))
+{
+	x = parent.x;
+	y = parent.y;
+	image_angle = parent.image_angle;
+}
+else
+{
+	instance_destroy();
+}
+
+}
+}
 
 
 
