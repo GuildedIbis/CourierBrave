@@ -130,7 +130,7 @@ for (var i = 0; i < 6; i = i + 1)
 			if (mouse_check_button_released(mb_left))
 			{
 				obj_player_cg.card_selected = cg_script_database[_cardNum,3];	
-				
+				obj_player_cg.active_slot = i;
 				with (obj_card_effect) instance_destroy();
 				with (instance_create_layer((_cardX-1) - (20 * i),_cardY-1,"Instances",obj_card_effect))
 				{

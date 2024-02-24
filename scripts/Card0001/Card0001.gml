@@ -13,9 +13,11 @@
 //
 //
 //Draw Full Card
-function scr_cg_0001_draw(_player,_cardX=0,_cardY=5){
+function scr_cg_0001_draw(_player,_hpText,_cardX=0,_cardY=5){
 var _cName = "LIGHTRAY KNIGHT";
 var _atkName1 = "RALLY STRIKE";
+var _stage = "SPECIAL KAFFARI WARRIOR";
+
 
 
 //Draw Card
@@ -25,8 +27,11 @@ draw_set_valign(fa_top);
 draw_sprite_ext(spr_gameBoard_selected,_player,0,0,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+draw_text_transformed(_cardX + 60,_cardY + 84,_stage,.5,.5,0);
+draw_text_transformed(_cardX + 115,_cardY + 16,_hpText,1,1,0);
 draw_set_halign(fa_right);
 draw_text_transformed(_cardX + 114,_cardY + 102,_atkName1,.75,.75,0);
+
 }
 //
 //
@@ -70,27 +75,18 @@ if (player = 1)
 function scr_cg_player_0001_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _hpText = string(hand_array[hand_slot,4]);
 var _cardX = 0;
 var _cardY = 5;
 var _actX = 165;
 var _actY = 105;
 
-
-
 //Draw Full Card
+scr_cg_0001_draw(0,_hpText,_cardX,_cardY);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-scr_cg_0001_draw(0,_cardX,_cardY);
-//draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
-//draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-//draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
-//draw_set_halign(fa_left);
-//draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
-//
-//
-//
-//
+
 //Set 
 if (obj_cardGame.turn = 0)
 {
@@ -168,20 +164,16 @@ if (obj_cardGame.turn = 0)
 function scr_cg_player_0001_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _hpText = string(active_array[active_slot,4] - active_array[active_slot,5]);
 var _cardX = 0;
 var _cardY = 5;
 
 
 //Draw Full Card
+scr_cg_0001_draw(0,_hpText,_cardX,_cardY);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-scr_cg_0001_draw(0,_cardX,_cardY);
-//draw_sprite_ext(spr_gameBoard_selected,0,0,0,1,1,0,c_white,1);
-//draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
-//draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
-//draw_set_halign(fa_left);
-//draw_text_transformed(_cardX + 10,_cardY + 100,_atkName1,1,1,0);
 
 if (obj_cardGame.turn = 0)
 {
@@ -286,11 +278,12 @@ function scr_cg_opp_0001_hand_playcheck(){
 function scr_cg_opp_0001_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _hpText = string(obj_opponent_cg.active_array[active_slot,4] - obj_opponent_cg.active_array[active_slot,5]);
 var _cardX = 0;
 var _cardY = 5;
 
 //Draw Full Card
-scr_cg_0001_draw(1,_cardX,_cardY);
+scr_cg_0001_draw(1,_hpText,_cardX,_cardY);
 //draw_sprite_ext(spr_gameBoard_selected,1,0,0,1,1,0,c_white,1);
 //draw_sprite_ext(spr_card_all_full,1,_cardX,_cardY,1,1,0,c_white,1);
 

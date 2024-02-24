@@ -43,6 +43,7 @@ scr_draw_cg_player_game();
 function scr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
+var _hpText = string(hand_array[i,4])
 var _cardY = 161
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -68,8 +69,10 @@ for (var i = 0; i < _handSize; i = i + 1)
 	}
 
 	draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,_cardY,1,1,0,c_white,1);
-	draw_text_transformed(_cardX + 8,_cardY+12,string(hand_array[i,4]),.75,.75,0);
-
+	if (hand_array[i,4] != -1)
+	{
+		draw_text_transformed(_cardX + 8,_cardY+12,_hpText,.75,.75,0);
+	}
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX,_cardY,_cardX + _space,_cardY + 21)) and (action_state = false)
 	{
 		card_hover = string(hand_array[i,1]);

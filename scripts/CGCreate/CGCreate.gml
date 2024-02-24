@@ -48,9 +48,22 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	hand_array = 
 	[
 		[0,"KAFFARI GUARD",0,0,4],
+		[1,"LIGHTRAY KNIGHT",0,1,9],
+		[2,"CAPTAIN HOLON",0,2,14],
+		[3,"YELLOW PYLON",10,-1,-1],
 	];
 	active_array = array_create(6);
 	active_array = 
+	[
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1]
+	];
+	back_array = array_create(6);
+	back_array = 
 	[
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
@@ -109,6 +122,16 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[0,"KAFFARI GUARD",0,0,4,0],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1]
+	];
+	back_array = array_create(6);
+	back_array = 
+	[
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
+		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1],
 		[-1,-1,-1,-1,-1,-1]
