@@ -191,6 +191,8 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"BeetraCity","order":3,"path":"folders/Rooms/Beetrap/BeetraCity.yy",},
+    {"name":"CastleMhere","order":4,"path":"folders/Rooms/Beetrap/CastleMhere.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -1078,6 +1080,7 @@
     {"name":"spr_enemy_endireKnight_fireStrike","order":3,"path":"sprites/spr_enemy_endireKnight_fireStrike/spr_enemy_endireKnight_fireStrike.yy",},
     {"name":"obj_layerControl","order":2,"path":"objects/obj_layerControl/obj_layerControl.yy",},
     {"name":"spr_enemy_ofaPupa_idle","order":12,"path":"sprites/spr_enemy_ofaPupa_idle/spr_enemy_ofaPupa_idle.yy",},
+    {"name":"rm_beetrap_template_x3","order":1,"path":"rooms/rm_beetrap_template_x3/rm_beetrap_template_x3.yy",},
     {"name":"spr_player_halofire_runCastH","order":16,"path":"sprites/spr_player_halofire_runCastH/spr_player_halofire_runCastH.yy",},
     {"name":"snd_enemy_ofa_pupa_damaged","order":13,"path":"sounds/snd_enemy_ofa_pupa_damaged/snd_enemy_ofa_pupa_damaged.yy",},
     {"name":"InventoryMap","order":3,"path":"scripts/InventoryMap/InventoryMap.yy",},
