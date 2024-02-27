@@ -863,6 +863,7 @@
     {"name":"spr_enemy_tortoiseTroll_hammerJumpslamO","order":11,"path":"sprites/spr_enemy_tortoiseTroll_hammerJumpslamO/spr_enemy_tortoiseTroll_hammerJumpslamO.yy",},
     {"name":"obj_stair2","order":6,"path":"objects/obj_stair2/obj_stair2.yy",},
     {"name":"spr_enemy_lilyCultist_stab","order":4,"path":"sprites/spr_enemy_lilyCultist_stab/spr_enemy_lilyCultist_stab.yy",},
+    {"name":"Rooms","order":11,"path":"scripts/Rooms/Rooms.yy",},
     {"name":"snd_enemy_knife_lily_returnLeaf","order":15,"path":"sounds/snd_enemy_knife_lily_returnLeaf/snd_enemy_knife_lily_returnLeaf.yy",},
     {"name":"spr_projectile_browncap_spore","order":5,"path":"sprites/spr_projectile_browncap_spore/spr_projectile_browncap_spore.yy",},
     {"name":"snd_enemy_lily_viceBubble","order":13,"path":"sounds/snd_enemy_lily_viceBubble/snd_enemy_lily_viceBubble.yy",},

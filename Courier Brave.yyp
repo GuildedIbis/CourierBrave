@@ -992,6 +992,7 @@
     {"id":{"name":"spr_enemy_tortoiseTroll_hammerJumpslamO","path":"sprites/spr_enemy_tortoiseTroll_hammerJumpslamO/spr_enemy_tortoiseTroll_hammerJumpslamO.yy",},},
     {"id":{"name":"obj_stair2","path":"objects/obj_stair2/obj_stair2.yy",},},
     {"id":{"name":"spr_enemy_lilyCultist_stab","path":"sprites/spr_enemy_lilyCultist_stab/spr_enemy_lilyCultist_stab.yy",},},
+    {"id":{"name":"Rooms","path":"scripts/Rooms/Rooms.yy",},},
     {"id":{"name":"snd_enemy_knife_lily_returnLeaf","path":"sounds/snd_enemy_knife_lily_returnLeaf/snd_enemy_knife_lily_returnLeaf.yy",},},
     {"id":{"name":"spr_projectile_browncap_spore","path":"sprites/spr_projectile_browncap_spore/spr_projectile_browncap_spore.yy",},},
     {"id":{"name":"snd_enemy_lily_viceBubble","path":"sounds/snd_enemy_lily_viceBubble/snd_enemy_lily_viceBubble.yy",},},
