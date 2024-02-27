@@ -21,6 +21,8 @@ scr_draw_cg_opp_active();
 scr_draw_cg_opp_discard();
 scr_cg_combatant_defeated();
 
+
+//Enemy AI
 if (obj_cardGame.turn = 1)
 {
 	//Draw Per Turn

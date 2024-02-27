@@ -162,9 +162,16 @@ if (obj_cardGame.turn = 0)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			action_state = true;
-			action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
-			action_choose = 0;
+			if (move_pt = false)
+			{
+				action_state = true;
+				action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
+				action_choose = 0;
+			}
+			if (move_pt = true)
+			{
+				action_text = "Move per turn already taken."
+			}
 		}
 	}
 	//Select Attack
@@ -260,6 +267,7 @@ if (active_array[0,0] = -1)
 	hand_selected = true;
 	hand_size = hand_size - 1;
 	obj_player_cg.action_text = "Opponent played KAFARRI GUARD."
+	obj_player_cg.active_slot = 0;
 	action_timer = 60;
 	with (obj_card_effect) instance_destroy();
 	obj_player_cg.card_selected = scr_cg_opp_0000_active_selected;//cg_script_database[0,3];

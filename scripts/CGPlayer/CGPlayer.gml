@@ -43,7 +43,6 @@ scr_draw_cg_player_game();
 function scr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _hpText = string(hand_array[i,4])
 var _cardY = 161
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -54,6 +53,7 @@ card_hover = -1;
 var _handSize = array_length(hand_array);
 for (var i = 0; i < _handSize; i = i + 1)
 {
+	//Set Position
 	if (_handSize < 11)
 	{
 		var _leftAlign = 224 - (_handSize * 8);
@@ -67,12 +67,16 @@ for (var i = 0; i < _handSize; i = i + 1)
 		var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 		var _cardX = _leftAlign + (_space * i);
 	}
-
+	
+	//Draw Card
+	var _hpText = string(hand_array[i,4]);
 	draw_sprite_ext(spr_card_all,hand_array[i,2],_cardX,_cardY,1,1,0,c_white,1);
 	if (hand_array[i,4] != -1)
 	{
 		draw_text_transformed(_cardX + 8,_cardY+12,_hpText,.75,.75,0);
 	}
+	
+	//Select Card
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX,_cardY,_cardX + _space,_cardY + 21)) and (action_state = false)
 	{
 		card_hover = string(hand_array[i,1]);
@@ -263,6 +267,7 @@ if (obj_cardGame.turn = 0)
 		{
 			draw_pt = false;
 			move_pt = false;
+			pylon_pt = false;
 			obj_cardGame.turn = 1;
 		}
 	}

@@ -183,9 +183,16 @@ if (obj_cardGame.turn = 0)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			action_state = true;
-			action_text = "Select a slot to move LIGHTRAY KNIGHT to.\n\n\nESC to exit action."
-			action_choose = 0;
+			if (move_pt = false)
+			{
+				action_state = true;
+				action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
+				action_choose = 0;
+			}
+			if (move_pt = true)
+			{
+				action_text = "Move per turn already taken."
+			}
 		}
 	}
 	//Select Attack

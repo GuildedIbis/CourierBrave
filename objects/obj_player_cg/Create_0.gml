@@ -11,6 +11,7 @@ action_text = -1;
 //Per Turn
 draw_pt = false;
 move_pt = false;
+pylon_pt = false;
 
 //Combatant Defeat 
 defeat_delay = false;
