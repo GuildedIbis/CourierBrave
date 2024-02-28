@@ -90,9 +90,9 @@ draw_set_valign(fa_top);
 //Set 
 if (obj_cardGame.turn = 0)
 {
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 81,_cardX + 102,_cardY + 90))
+	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 19,_cardY + 81,_cardX + 102,_cardY + 90))
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 80,95,12);
+		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
@@ -246,7 +246,7 @@ if (_targetPos != -1)
 		if (mouse_check_button_pressed(mb_left)) and (obj_opponent_cg.defeat_delay = false)
 		{
 			action_state = false;
-			obj_opponent_cg.active_array[_targetNum,5] += 2;
+			obj_opponent_cg.active_array[_targetNum,5] += 4;
 			var _hpRem = obj_opponent_cg.active_array[_targetNum,4] - obj_opponent_cg.active_array[_targetNum,5];
 			if (_hpRem <= 0)
 			{
