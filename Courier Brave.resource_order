@@ -192,6 +192,7 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
+    {"name":"BeetraNPC","order":10,"path":"folders/Sprites/Entity/NPC/BeetraNPC.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},
@@ -1502,6 +1503,7 @@
     {"name":"rm_lenko_farwayRoad_00","order":3,"path":"rooms/rm_lenko_farwayRoad_00/rm_lenko_farwayRoad_00.yy",},
     {"name":"obj_fragPurple","order":16,"path":"objects/obj_fragPurple/obj_fragPurple.yy",},
     {"name":"obj_effect_treeLakebirch","order":3,"path":"objects/obj_effect_treeLakebirch/obj_effect_treeLakebirch.yy",},
+    {"name":"spr_npc_wagonCat","order":4,"path":"sprites/spr_npc_wagonCat/spr_npc_wagonCat.yy",},
     {"name":"spr_player_adavio_riftCrush_freeRun","order":21,"path":"sprites/spr_player_adavio_riftCrush_freeRun/spr_player_adavio_riftCrush_freeRun.yy",},
     {"name":"spr_enemy_ghostMasgar_phantomDagger","order":9,"path":"sprites/spr_enemy_ghostMasgar_phantomDagger/spr_enemy_ghostMasgar_phantomDagger.yy",},
     {"name":"rm_lenko_yakflowerPath_01","order":8,"path":"rooms/rm_lenko_yakflowerPath_01/rm_lenko_yakflowerPath_01.yy",},

@@ -34,7 +34,7 @@ level_name[5] = "Beetra City";
 level_name[6] = "Castle Mhere";
 level_name[7] = "Northern Pass";
 level_name[8] = "Emberof Forest";
-level_name[9] = "Gartraks Forest";
+level_name[9] = "Gartraks Cave";
 
 }
 //
