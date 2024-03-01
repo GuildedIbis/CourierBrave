@@ -242,6 +242,16 @@ if (global.dayPhase = 0) or (global.dayPhase = 1)
 	}
 	
 }
+with (instance_create_layer(152,199,"Instances",obj_npc))
+{
+	image_alpha = 1;
+	scr_npc_ethier_create();
+	x = 152;
+	y = 199;
+	home_x = x;
+	home_y = y;
+	activate_script = scr_text_npc_ethier;
+}
 }
 //
 //
