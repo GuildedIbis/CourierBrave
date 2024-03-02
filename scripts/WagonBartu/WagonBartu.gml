@@ -1,15 +1,15 @@
-//NPC Sirvo
-//Vostle 00-05
+//NPC Bartu
+//Bartu Beetrap 04
 //
 //
 //
 //
-//Sirvo Create
-function scr_npc_ethier_create(){
-entity_step = scr_npc_ethier_step;
-sprite_index = spr_npc_ethierWagon_sit;
-npc_idle = spr_npc_ethierWagon_sit;
-npc_move = spr_npc_ethierWagon_stand;
+//Bartu Create
+function scr_npc_bartu_create(){
+entity_step = scr_npc_bartu_step;
+sprite_index = spr_npc_bartuWagon_sit;
+npc_idle = spr_npc_bartuWagon_sit;
+npc_move = spr_npc_bartuWagon_stand;
 sound = snd_npc_mouse;
 interact = 20;
 npc_spd = 1.0;
@@ -21,8 +21,8 @@ timerW = irandom_range(0,120);
 //
 //
 //
-//Sirvo Step
-function scr_npc_ethier_step(){
+//Bartu Step
+function scr_npc_bartu_step(){
 if (obj_game.gamePaused = false)
 {
 	scr_npc_timer_countdown();
@@ -40,8 +40,8 @@ else
 //
 //
 //
-//Sirvo Text
-function scr_text_npc_ethier(){
+//Bartu Text
+function scr_text_npc_bartu(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
@@ -53,7 +53,7 @@ draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_sprite_stretched(spr_menu_beveled,3,258,114,66,70);
 draw_sprite(spr_npc_portrait_sirvo,0,261,117);
 draw_set_color(c_white);
-var _name = "Wagon-Master Ethier"
+var _name = "Wagon-Master Bartu"
 
 //Draw Based on String Counter
 var _SubString
@@ -84,7 +84,7 @@ if (string_counter >= 1)
 		draw_set_valign(fa_middle)
 		draw_sprite_stretched(spr_menu_circle16,1,70,92,180,20);
 		draw_sprite_stretched(spr_menu_circle16,1,70,114,180,20);
-		var _buttonString = "Beetra City."
+		var _buttonString = "Vostle Town."
 		var _buttonString2 = "Nevermind."
 		draw_text_transformed(76,102,_buttonString,.6,.6,0);
 		draw_text_transformed(76,124,_buttonString2,.6,.6,0);
@@ -96,7 +96,7 @@ if (string_counter >= 1)
 				scr_text_end();
 				_SubString = string_copy(text_string,1,letter_counter);
 				e_page = true;
-				scr_game_room_change(528,272,rm_beetrap_beetraCity_04,4,5,obj_inventory.beetraCity_map_ary,obj_game.beetraCity_enemy_grid,false,-1)
+				scr_game_room_change(240,192,rm_lenko_vostleTown_04,4,0,obj_inventory.vostleTown_map_ary,obj_game.vostleTown_enemy_grid,false,-1)
 			}
 		}
 		if (point_in_rectangle(_mouseX,_mouseY,70,114,250,134))
