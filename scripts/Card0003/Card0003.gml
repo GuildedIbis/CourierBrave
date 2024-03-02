@@ -76,7 +76,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 5;
 var _actX = 165;
-var _actY = 105;
+var _actY = 133;
 
 //Draw Full Card
 scr_cg_0003_draw(0,_cardX,_cardY);
@@ -100,9 +100,9 @@ if (obj_cardGame.turn = 0)
 	{
 		for (var i = 0; i < 6; i = i + 1)
 		{
-			if (back_array[i,0] = 0)
+			if (back_array[i,0] = -1)
 			{
-				draw_sprite_ext(spr_card_slot_effect,1,_actX + (20 * i),_actY,1,1,0,c_white,1);//80,92
+				draw_sprite_ext(spr_card_slot_effect,0,_actX + (20 * i),_actY,1,1,0,c_white,1);//80,92
 				//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
 				if (point_in_rectangle(_mouseX,_mouseY,_actX + (20 * i),_actY,(_actX + 15) + (20 * i),_actY + 21))// and (p_card_selected = -1)
 				{
@@ -146,7 +146,7 @@ var _cardY = 5;
 
 
 //Draw Full Card
-scr_cg_0001_draw(0,_cardX,_cardY);
+scr_cg_0003_draw(0,_cardX,_cardY);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);

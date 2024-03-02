@@ -29,6 +29,7 @@ draw_set_color(c_white);
 scr_draw_cg_player_hand();
 scr_draw_cg_player_deck();
 scr_draw_cg_player_active();
+scr_draw_cg_player_back();
 scr_draw_cg_player_discard();
 scr_draw_cg_player_game();
 
@@ -182,6 +183,52 @@ for (var i = 0; i < 6; i = i + 1)
 				active_slot = i;
 				card_selected = cg_script_database[_cardNum,2];	
 				
+				with (obj_card_effect) instance_destroy();
+				with (instance_create_layer((_cardX-1) + (20 * i),_cardY-1,"Instances",obj_card_effect))
+				{
+					depth = obj_cardGame.depth - 2;
+					slot = i;
+					effect_draw = scr_cg_effect_selected;
+				}
+			}
+		}
+	}
+}
+
+
+}
+//
+//
+//
+//
+//
+//Draw Player Active | obj_player_cg | scr_draw_cg_player
+function scr_draw_cg_player_back(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _cardX = 165;
+var _cardY = 133;
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+
+for (var i = 0; i < 6; i = i + 1)
+{
+	if (back_array[i,0] != -1)
+	{
+		var _charge = back_array[i,4];
+		draw_sprite_ext(spr_card_all,back_array[i,2],165 + (20 * i),_cardY,1,1,0,c_white,1);//80,92
+		draw_text_transformed(173 + (20 * i), _cardY + 12,string(_charge),.75,.75,0);
+		if (point_in_rectangle(_mouseX,_mouseY,165 + (20 * i),_cardY,180 + (20 * i),_cardY+21)) and (action_state = false)
+		{
+			var _cardNum = back_array[i,0];
+			card_hover = string(back_array[i,1]);
+			draw_sprite_stretched(spr_highlight_nineslice,0,(_cardX-1) + (20 * i),_cardY-1,17,23);
+			if (mouse_check_button_released(mb_left))
+			{
+				hand_slot = -1;
+				card_selected = cg_script_database[_cardNum,2];	
 				with (obj_card_effect) instance_destroy();
 				with (instance_create_layer((_cardX-1) + (20 * i),_cardY-1,"Instances",obj_card_effect))
 				{

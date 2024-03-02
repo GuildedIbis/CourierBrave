@@ -11,7 +11,7 @@
 function scr_cg_database(){
 //0: Draw Card From Deck
 //1: Player Hand Selected 
-//2: Player Active Selected
+//2: Player Active/Back Selected
 //3: Opponent Active Selected
 //4: Opponent Playcheck
 
