@@ -54,6 +54,7 @@
     {"name":"Inanimates","order":2,"path":"folders/Scripts/Entities/Inanimates.yy",},
     {"name":"Chests","order":14,"path":"folders/Scripts/Entities/Inanimates/Chests.yy",},
     {"name":"NPC","order":1,"path":"folders/Scripts/Entities/NPC.yy",},
+    {"name":"BeetrapNPC","order":2,"path":"folders/Scripts/Entities/NPC/BeetrapNPC.yy",},
     {"name":"CardGame","order":2,"path":"folders/Scripts/Game/CardGame.yy",},
     {"name":"Cards","order":3,"path":"folders/Scripts/Game/CardGame/Cards.yy",},
     {"name":"General","order":1,"path":"folders/Scripts/Game/General.yy",},
@@ -193,7 +194,6 @@
     {"name":"BeetrapTile","order":11,"path":"folders/Tile Sets/BeetrapTile.yy",},
     {"name":"LenkoTile","order":10,"path":"folders/Tile Sets/LenkoTile.yy",},
     {"name":"OtherTile","order":12,"path":"folders/Tile Sets/OtherTile.yy",},
-    {"name":"BeetrapNPC","order":2,"path":"folders/Scripts/Entities/NPC/BeetrapNPC.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tile_lenko_interior_8","order":3,"path":"tilesets/tile_lenko_interior_8/tile_lenko_interior_8.yy",},

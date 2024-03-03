@@ -10,6 +10,7 @@ action_text = -1;
 
 //Per Turn
 draw_pt = false;
+charge_pt = false;
 move_pt = false;
 pylon_pt = false;
 

@@ -213,6 +213,22 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 
+//Charge At Start of Turn
+if (obj_cardGame.turn = 0) and (charge_pt = false)
+{
+	for (var i = 0; i < 6; i = i + 1)
+	{
+		if (back_array[i,0] != -1)
+		{
+			if (back_array[i,2] > 9) and (back_array[i,2] < 16)
+			{
+				back_array[i,4] = back_array[i,4] + 1;
+			}
+		}
+	}
+	charge_pt = true;
+}
+
 for (var i = 0; i < 6; i = i + 1)
 {
 	if (back_array[i,0] != -1)
@@ -313,6 +329,7 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left))
 		{
 			draw_pt = false;
+			charge_pt = false;
 			move_pt = false;
 			pylon_pt = false;
 			obj_cardGame.turn = 1;

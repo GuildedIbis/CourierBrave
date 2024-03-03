@@ -5,6 +5,7 @@ hand_size = 3;
 active_slot = -1;
 action_timer = 30;
 draw_pt = false;
+charge_pt = false;
 move_pt = false;
 pylon_pt = false;
 //Combatant Defeat 

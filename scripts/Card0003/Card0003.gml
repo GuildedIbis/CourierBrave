@@ -16,6 +16,7 @@
 function scr_cg_0003_draw(_player,_cardX=0,_cardY=5){
 var _cName = "YELLOW PYLON";
 var _bodyText = "At the beginning of each turn,\nthis Pylon gains +1 charge."
+var _stage = "STANDARD PYLON";
 
 
 
@@ -27,8 +28,9 @@ draw_set_valign(fa_top);
 draw_sprite_ext(spr_gameBoard_selected,_player,0,0,1,1,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,3,_cardX,_cardY,1,1,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
+draw_text_transformed(_cardX + 60,_cardY + 84,_stage,.5,.5,0);
 draw_set_halign(fa_left);
-draw_text_transformed(_cardX + 10,_cardY + 90,_bodyText,.5,.5,0);
+draw_text_transformed(_cardX + 10,_cardY + 102,_bodyText,.5,.5,0);
 
 }
 //
