@@ -4,7 +4,7 @@
   "name": "spr_tileset_beetrap",
   "bbox_bottom": 399,
   "bbox_left": 0,
-  "bbox_right": 630,
+  "bbox_right": 639,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
