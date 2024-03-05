@@ -7,6 +7,8 @@ active_slot = -1;
 card_hover = -1;
 action_state = false
 action_text = -1;
+target_selected = -1;
+pylon_cost = -1;
 
 //Per Turn
 draw_pt = false;

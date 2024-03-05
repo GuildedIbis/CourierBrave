@@ -314,6 +314,7 @@
     {"id":{"name":"spr_player_evarel_daggerDash_hitbox","path":"sprites/spr_player_evarel_daggerDash_hitbox/spr_player_evarel_daggerDash_hitbox.yy",},},
     {"id":{"name":"snd_enemy_ofa_pupa_cocoonSpike","path":"sounds/snd_enemy_ofa_pupa_cocoonSpike/snd_enemy_ofa_pupa_cocoonSpike.yy",},},
     {"id":{"name":"spr_enemy_gorogE_chainHook_toss","path":"sprites/spr_enemy_gorogE_chainHook_toss/spr_enemy_gorogE_chainHook_toss.yy",},},
+    {"id":{"name":"obj_effect_house_beetraCity_tavern","path":"objects/obj_effect_house_beetraCity_tavern/obj_effect_house_beetraCity_tavern.yy",},},
     {"id":{"name":"spr_player_sivach_idle","path":"sprites/spr_player_sivach_idle/spr_player_sivach_idle.yy",},},
     {"id":{"name":"snd_theme_main","path":"sounds/snd_theme_main/snd_theme_main.yy",},},
     {"id":{"name":"spr_enemy_motherLily","path":"sprites/spr_enemy_motherLily/spr_enemy_motherLily.yy",},},
