@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "QuestMenu",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Questing",
-    "path": "folders/Scripts/Player/Inventory/Questing.yy",
+  "$GMScript":"",
+  "%Name":"QuestMenu",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"QuestMenu",
+  "parent":{
+    "name":"Questing",
+    "path":"folders/Scripts/Player/Inventory/Questing.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

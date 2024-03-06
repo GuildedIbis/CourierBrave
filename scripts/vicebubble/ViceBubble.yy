@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "ViceBubble",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyHabrafLake",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
+  "$GMScript":"",
+  "%Name":"ViceBubble",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ViceBubble",
+  "parent":{
+    "name":"EnemyHabrafLake",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

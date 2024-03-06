@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerScene01",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Scenes",
-    "path": "folders/Scripts/Player/Scenes.yy",
+  "$GMScript":"",
+  "%Name":"PlayerScene01",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerScene01",
+  "parent":{
+    "name":"Scenes",
+    "path":"folders/Scripts/Player/Scenes.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

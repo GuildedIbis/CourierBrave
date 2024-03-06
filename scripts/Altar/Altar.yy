@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Altar",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Inanimates",
-    "path": "folders/Scripts/Entities/Inanimates.yy",
+  "$GMScript":"",
+  "%Name":"Altar",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Altar",
+  "parent":{
+    "name":"Inanimates",
+    "path":"folders/Scripts/Entities/Inanimates.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

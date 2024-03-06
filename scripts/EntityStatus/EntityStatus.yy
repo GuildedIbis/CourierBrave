@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EntityStatus",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Entities",
-    "path": "folders/Scripts/Entities.yy",
+  "$GMScript":"",
+  "%Name":"EntityStatus",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EntityStatus",
+  "parent":{
+    "name":"Entities",
+    "path":"folders/Scripts/Entities.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

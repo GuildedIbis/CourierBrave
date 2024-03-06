@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Chest01",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Chests",
-    "path": "folders/Scripts/Entities/Inanimates/Chests.yy",
+  "$GMScript":"",
+  "%Name":"Chest01",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Chest01",
+  "parent":{
+    "name":"Chests",
+    "path":"folders/Scripts/Entities/Inanimates/Chests.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

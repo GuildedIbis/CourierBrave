@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Grezal",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "RetiredCharacters",
-    "path": "folders/Scripts/xRetiredScripts/RetiredCharacters.yy",
+  "$GMScript":"",
+  "%Name":"Grezal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Grezal",
+  "parent":{
+    "name":"RetiredCharacters",
+    "path":"folders/Scripts/xRetiredScripts/RetiredCharacters.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

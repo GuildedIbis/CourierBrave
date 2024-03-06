@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EnragedWorm",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyHabrafLake",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
+  "$GMScript":"",
+  "%Name":"EnragedWorm",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EnragedWorm",
+  "parent":{
+    "name":"EnemyHabrafLake",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

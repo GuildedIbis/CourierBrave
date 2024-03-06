@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "StarOrbPedestal",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Inanimates",
-    "path": "folders/Scripts/Entities/Inanimates.yy",
+  "$GMScript":"",
+  "%Name":"StarOrbPedestal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"StarOrbPedestal",
+  "parent":{
+    "name":"Inanimates",
+    "path":"folders/Scripts/Entities/Inanimates.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

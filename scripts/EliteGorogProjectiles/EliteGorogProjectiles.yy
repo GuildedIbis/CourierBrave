@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EliteGorogProjectiles",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyBeaowire",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyBeaowire.yy",
+  "$GMScript":"",
+  "%Name":"EliteGorogProjectiles",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EliteGorogProjectiles",
+  "parent":{
+    "name":"EnemyBeaowire",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyBeaowire.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

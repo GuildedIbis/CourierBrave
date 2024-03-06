@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "KephraStones",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Inanimates",
-    "path": "folders/Scripts/Entities/Inanimates.yy",
+  "$GMScript":"",
+  "%Name":"KephraStones",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"KephraStones",
+  "parent":{
+    "name":"Inanimates",
+    "path":"folders/Scripts/Entities/Inanimates.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

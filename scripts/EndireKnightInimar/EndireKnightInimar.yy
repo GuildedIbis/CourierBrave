@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EndireKnightInimar",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
+  "$GMScript":"",
+  "%Name":"EndireKnightInimar",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EndireKnightInimar",
+  "parent":{
+    "name":"EnemyYakflowerPath",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

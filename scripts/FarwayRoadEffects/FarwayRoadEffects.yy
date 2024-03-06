@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "FarwayRoadEffects",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "LenkoEffects",
-    "path": "folders/Scripts/Effects/LenkoEffects.yy",
+  "$GMScript":"",
+  "%Name":"FarwayRoadEffects",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FarwayRoadEffects",
+  "parent":{
+    "name":"LenkoEffects",
+    "path":"folders/Scripts/Effects/LenkoEffects.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

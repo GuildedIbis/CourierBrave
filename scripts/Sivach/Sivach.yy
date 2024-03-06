@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Sivach",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "FormScripts",
-    "path": "folders/Scripts/Player/Gameplay/FormScripts.yy",
+  "$GMScript":"",
+  "%Name":"Sivach",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Sivach",
+  "parent":{
+    "name":"FormScripts",
+    "path":"folders/Scripts/Player/Gameplay/FormScripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

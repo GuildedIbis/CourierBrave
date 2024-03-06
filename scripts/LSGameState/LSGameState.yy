@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "LSGameState",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "SaveLoad",
-    "path": "folders/Scripts/Game/SaveLoad.yy",
+  "$GMScript":"",
+  "%Name":"LSGameState",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"LSGameState",
+  "parent":{
+    "name":"SaveLoad",
+    "path":"folders/Scripts/Game/SaveLoad.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

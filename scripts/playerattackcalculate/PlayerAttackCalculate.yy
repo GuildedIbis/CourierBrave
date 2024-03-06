@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerAttackCalculate",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Other",
-    "path": "folders/Scripts/Player/Gameplay/Other.yy",
+  "$GMScript":"",
+  "%Name":"PlayerAttackCalculate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerAttackCalculate",
+  "parent":{
+    "name":"Other",
+    "path":"folders/Scripts/Player/Gameplay/Other.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

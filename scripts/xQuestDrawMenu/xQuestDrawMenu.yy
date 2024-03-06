@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "xQuestDrawMenu",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xRetiredScripts",
-    "path": "folders/Scripts/xRetiredScripts.yy",
+  "$GMScript":"",
+  "%Name":"xQuestDrawMenu",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"xQuestDrawMenu",
+  "parent":{
+    "name":"xRetiredScripts",
+    "path":"folders/Scripts/xRetiredScripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Rooms",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "General",
-    "path": "folders/Scripts/Game/General.yy",
+  "$GMScript":"",
+  "%Name":"Rooms",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Rooms",
+  "parent":{
+    "name":"General",
+    "path":"folders/Scripts/Game/General.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "BalurneGorog",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyFarwayRoad",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
+  "$GMScript":"",
+  "%Name":"BalurneGorog",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BalurneGorog",
+  "parent":{
+    "name":"EnemyFarwayRoad",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

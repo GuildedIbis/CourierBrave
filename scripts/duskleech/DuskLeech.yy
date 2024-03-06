@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "DuskLeech",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xRetired",
-    "path": "folders/Scripts/Entities/Enemy/xRetired.yy",
+  "$GMScript":"",
+  "%Name":"DuskLeech",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DuskLeech",
+  "parent":{
+    "name":"xRetired",
+    "path":"folders/Scripts/Entities/Enemy/xRetired.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "BeaowireSpawners",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyBeaowire",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyBeaowire.yy",
+  "$GMScript":"",
+  "%Name":"BeaowireSpawners",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BeaowireSpawners",
+  "parent":{
+    "name":"EnemyBeaowire",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyBeaowire.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

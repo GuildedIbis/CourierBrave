@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "CeriverMenus",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "FormMenus",
-    "path": "folders/Scripts/Player/Inventory/FormMenus.yy",
+  "$GMScript":"",
+  "%Name":"CeriverMenus",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CeriverMenus",
+  "parent":{
+    "name":"FormMenus",
+    "path":"folders/Scripts/Player/Inventory/FormMenus.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

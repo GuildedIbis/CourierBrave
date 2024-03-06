@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Orodry",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "LenkoNPC",
-    "path": "folders/Scripts/Entities/NPC/LenkoNPC.yy",
+  "$GMScript":"",
+  "%Name":"Orodry",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Orodry",
+  "parent":{
+    "name":"LenkoNPC",
+    "path":"folders/Scripts/Entities/NPC/LenkoNPC.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

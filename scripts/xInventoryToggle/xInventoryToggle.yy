@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "xInventoryToggle",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xRetiredScripts",
-    "path": "folders/Scripts/xRetiredScripts.yy",
+  "$GMScript":"",
+  "%Name":"xInventoryToggle",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"xInventoryToggle",
+  "parent":{
+    "name":"xRetiredScripts",
+    "path":"folders/Scripts/xRetiredScripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

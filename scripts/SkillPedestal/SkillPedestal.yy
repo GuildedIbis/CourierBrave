@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "SkillPedestal",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Inanimates",
-    "path": "folders/Scripts/Entities/Inanimates.yy",
+  "$GMScript":"",
+  "%Name":"SkillPedestal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SkillPedestal",
+  "parent":{
+    "name":"Inanimates",
+    "path":"folders/Scripts/Entities/Inanimates.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

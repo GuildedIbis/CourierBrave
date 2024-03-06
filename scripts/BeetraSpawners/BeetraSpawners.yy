@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "BeetraSpawners",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "BeetrapNPC",
-    "path": "folders/Scripts/Entities/NPC/BeetrapNPC.yy",
+  "$GMScript":"",
+  "%Name":"BeetraSpawners",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BeetraSpawners",
+  "parent":{
+    "name":"BeetrapNPC",
+    "path":"folders/Scripts/Entities/NPC/BeetrapNPC.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

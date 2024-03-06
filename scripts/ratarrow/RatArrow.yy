@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "RatArrow",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyFarwayRoad",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
+  "$GMScript":"",
+  "%Name":"RatArrow",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"RatArrow",
+  "parent":{
+    "name":"EnemyFarwayRoad",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

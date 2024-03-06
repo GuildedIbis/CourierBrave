@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Browncap",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "BeetrapEnemy",
-    "path": "folders/Scripts/Entities/Enemy/BeetrapEnemy.yy",
+  "$GMScript":"",
+  "%Name":"Browncap",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Browncap",
+  "parent":{
+    "name":"BeetrapEnemy",
+    "path":"folders/Scripts/Entities/Enemy/BeetrapEnemy.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

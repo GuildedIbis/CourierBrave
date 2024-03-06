@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "IronPlate",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xArmor",
-    "path": "folders/Scripts/xRetiredScripts/xArmor.yy",
+  "$GMScript":"",
+  "%Name":"IronPlate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"IronPlate",
+  "parent":{
+    "name":"xArmor",
+    "path":"folders/Scripts/xRetiredScripts/xArmor.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

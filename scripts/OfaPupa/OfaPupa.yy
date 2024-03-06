@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "OfaPupa",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
+  "$GMScript":"",
+  "%Name":"OfaPupa",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"OfaPupa",
+  "parent":{
+    "name":"EnemyYakflowerPath",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

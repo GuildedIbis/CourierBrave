@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "FayaniBlade",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xWeapons",
-    "path": "folders/Scripts/xRetiredScripts/xWeapons.yy",
+  "$GMScript":"",
+  "%Name":"FayaniBlade",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FayaniBlade",
+  "parent":{
+    "name":"xWeapons",
+    "path":"folders/Scripts/xRetiredScripts/xWeapons.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

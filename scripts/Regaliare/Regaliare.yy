@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Regaliare",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "FormScripts",
-    "path": "folders/Scripts/Player/Gameplay/FormScripts.yy",
+  "$GMScript":"",
+  "%Name":"Regaliare",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Regaliare",
+  "parent":{
+    "name":"FormScripts",
+    "path":"folders/Scripts/Player/Gameplay/FormScripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EnemyAudio",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Enemy",
-    "path": "folders/Scripts/Entities/Enemy.yy",
+  "$GMScript":"",
+  "%Name":"EnemyAudio",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EnemyAudio",
+  "parent":{
+    "name":"Enemy",
+    "path":"folders/Scripts/Entities/Enemy.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

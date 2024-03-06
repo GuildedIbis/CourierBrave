@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "CGActions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "CardGame",
-    "path": "folders/Scripts/Game/CardGame.yy",
+  "$GMScript":"",
+  "%Name":"CGActions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CGActions",
+  "parent":{
+    "name":"CardGame",
+    "path":"folders/Scripts/Game/CardGame.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

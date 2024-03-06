@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "SaveLoad2",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "SaveLoad",
-    "path": "folders/Scripts/Game/SaveLoad.yy",
+  "$GMScript":"",
+  "%Name":"SaveLoad2",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SaveLoad2",
+  "parent":{
+    "name":"SaveLoad",
+    "path":"folders/Scripts/Game/SaveLoad.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Esow",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "LenkoNPC",
-    "path": "folders/Scripts/Entities/NPC/LenkoNPC.yy",
+  "$GMScript":"",
+  "%Name":"Esow",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Esow",
+  "parent":{
+    "name":"LenkoNPC",
+    "path":"folders/Scripts/Entities/NPC/LenkoNPC.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

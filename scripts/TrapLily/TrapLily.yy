@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "TrapLily",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyHabrafLake",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
+  "$GMScript":"",
+  "%Name":"TrapLily",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"TrapLily",
+  "parent":{
+    "name":"EnemyHabrafLake",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyHabrafLake.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

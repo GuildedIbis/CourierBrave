@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "RemphoGhost2",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyFarwayRoad",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
+  "$GMScript":"",
+  "%Name":"RemphoGhost2",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"RemphoGhost2",
+  "parent":{
+    "name":"EnemyFarwayRoad",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyFarwayRoad.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "GenericNPC",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "NPC",
-    "path": "folders/Scripts/Entities/NPC.yy",
+  "$GMScript":"",
+  "%Name":"GenericNPC",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GenericNPC",
+  "parent":{
+    "name":"NPC",
+    "path":"folders/Scripts/Entities/NPC.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "ArcadeSpawners",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Enemy",
-    "path": "folders/Scripts/Entities/Enemy.yy",
+  "$GMScript":"",
+  "%Name":"ArcadeSpawners",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ArcadeSpawners",
+  "parent":{
+    "name":"Enemy",
+    "path":"folders/Scripts/Entities/Enemy.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

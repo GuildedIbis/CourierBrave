@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "VostleTownEffects",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "LenkoEffects",
-    "path": "folders/Scripts/Effects/LenkoEffects.yy",
+  "$GMScript":"",
+  "%Name":"VostleTownEffects",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VostleTownEffects",
+  "parent":{
+    "name":"LenkoEffects",
+    "path":"folders/Scripts/Effects/LenkoEffects.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

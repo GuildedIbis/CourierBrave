@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "xDungeonlog",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "xRetiredScripts",
-    "path": "folders/Scripts/xRetiredScripts.yy",
+  "$GMScript":"",
+  "%Name":"xDungeonlog",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"xDungeonlog",
+  "parent":{
+    "name":"xRetiredScripts",
+    "path":"folders/Scripts/xRetiredScripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

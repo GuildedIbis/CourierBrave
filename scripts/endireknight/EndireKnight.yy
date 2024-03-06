@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "EndireKnight",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "EnemyYakflowerPath",
-    "path": "folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
+  "$GMScript":"",
+  "%Name":"EndireKnight",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EndireKnight",
+  "parent":{
+    "name":"EnemyYakflowerPath",
+    "path":"folders/Scripts/Entities/Enemy/LenkoEnemy/EnemyYakflowerPath.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
