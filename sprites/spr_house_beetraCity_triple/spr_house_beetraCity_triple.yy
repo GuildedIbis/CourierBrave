@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_house_beetraCity_tavern983",
+  "%Name":"spr_house_beetraCity_triple",
   "bboxMode":2,
   "bbox_bottom":143,
   "bbox_left":15,
@@ -23,7 +23,7 @@
     {"$GMImageLayer":"","%Name":"f24d9d41-ce0a-44de-b358-322c0a04d53f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"f24d9d41-ce0a-44de-b358-322c0a04d53f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_house_beetraCity_tavern983",
+  "name":"spr_house_beetraCity_triple",
   "nineSlice":null,
   "origin":9,
   "parent":{
@@ -35,7 +35,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_house_beetraCity_tavern",
+    "%Name":"spr_house_beetraCity_triple",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -59,7 +59,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_house_beetraCity_tavern",
+    "name":"spr_house_beetraCity_triple",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -71,7 +71,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_beetraCity_tavern983/spr_house_beetraCity_tavern983.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_beetraCity_triple/spr_house_beetraCity_triple.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"f05c8df9-e150-4ab6-b56a-095701078f94","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

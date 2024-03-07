@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_house_beetraCity_tavern",
+  "%Name":"spr_house_beetraCity__double",
   "bboxMode":2,
   "bbox_bottom":143,
   "bbox_left":15,
@@ -16,13 +16,12 @@
   ],
   "gridX":16,
   "gridY":16,
-  "height":192,
+  "height":288,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"67591540-6935-4072-89d1-8cebd2ddd004","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"67591540-6935-4072-89d1-8cebd2ddd004","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_house_beetraCity_tavern",
+  "name":"spr_house_beetraCity__double",
   "nineSlice":null,
   "origin":9,
   "parent":{
@@ -34,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_house_beetraCity_tavern",
+    "%Name":"spr_house_beetraCity__double",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -58,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_house_beetraCity_tavern",
+    "name":"spr_house_beetraCity__double",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -70,14 +69,14 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_beetraCity_tavern/spr_house_beetraCity_tavern.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75e4182a-3767-484c-8bd2-562bef3660c1","path":"sprites/spr_house_beetraCity__double/spr_house_beetraCity__double.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"41ee62aa-583d-42f5-a0f7-8c1b987874c0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
     "xorigin":144,
-    "yorigin":174,
+    "yorigin":262,
   },
   "swatchColours":null,
   "swfPrecision":2.525,
