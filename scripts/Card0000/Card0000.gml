@@ -39,31 +39,52 @@ draw_text_transformed(_cardX + 114,_cardY + 102,_atkName1,.75,.75,0);
 //
 //Draw From Deck
 function scr_cg_0000_draw_fd(){
-var _newCard = array_length(hand_array) - 1; //"-1" because the array was already += 1
+//New
+card_id = 0;
+card_hp = 4;
+card_damage = 0;
+card_name = "KAFFARI GUARD";
+card_type = 0;
+card_stage = 0;
+
+//Sprite
+card_sprite = spr_card_all
+sprite_index = card_sprite;
+image_index = card_type;
+
+//Scripts
+card_hit = -1;
+card_ability = -1;
+card_attack1 = scr_cg_0000_atk1;
+card_attack2 = -1;
+
+//Old
+
+//var _newCard = array_length(hand_array) - 1; //"-1" because the array was already += 1
 //CID
 //Name
 //Selected Script
 //Type
-if (player = 0)
-{
-	hand_array[_newCard, 0] = 0;
-	hand_array[_newCard, 1] = "KAFFARI GAURD";
-	hand_array[_newCard, 2] = 0;
-	hand_array[_newCard, 3] = 0;
-	hand_array[_newCard, 4] = 4;
-	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+//if (player = 0)
+//{
+//	hand_array[_newCard, 0] = 0;
+//	hand_array[_newCard, 1] = "KAFFARI GAURD";
+//	hand_array[_newCard, 2] = 0;
+//	hand_array[_newCard, 3] = 0;
+//	hand_array[_newCard, 4] = 4;
+//	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
 
-}
-if (player = 1)
-{
-	hand_array[_newCard, 0] = 0;
-	hand_array[_newCard, 1] = "KAFFARI GAURD";
-	hand_array[_newCard, 2] = 0;
-	hand_array[_newCard, 3] = 0;
-	hand_array[_newCard, 4] = 4;
-	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
+//}
+//if (player = 1)
+//{
+//	hand_array[_newCard, 0] = 0;
+//	hand_array[_newCard, 1] = "KAFFARI GAURD";
+//	hand_array[_newCard, 2] = 0;
+//	hand_array[_newCard, 3] = 0;
+//	hand_array[_newCard, 4] = 4;
+//	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
 
-}
+//}
 }
 //
 //
@@ -208,8 +229,8 @@ if (obj_cardGame.turn = 0)
 //
 //
 //
-//Card 0000 - Player Attack 0
-function scr_cg_player_0000_atk_0(){
+//Card 0000 - Player Attack 1
+function scr_cg_0000_atk1(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _backX = 165;

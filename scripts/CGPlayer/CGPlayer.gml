@@ -26,12 +26,12 @@ draw_set_color(c_white);
 
 //
 //Draw Player
-scr_draw_cg_player_hand();
+//scr_draw_cg_player_hand();
 scr_draw_cg_player_deck();
-scr_draw_cg_player_active();
-scr_draw_cg_player_back();
-scr_draw_cg_player_discard();
-scr_draw_cg_player_game();
+//scr_draw_cg_player_active();
+//scr_draw_cg_player_back();
+//scr_draw_cg_player_discard();
+//scr_draw_cg_player_game();
 
 
 }
@@ -41,7 +41,7 @@ scr_draw_cg_player_game();
 //
 //
 //Draw Player Hand | obj_player_cg | scr_draw_cg_player
-function scr_draw_cg_player_hand(){
+function xscr_draw_cg_player_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardY = 161
@@ -130,12 +130,12 @@ if (deck_array[0, 0] != -1)
 			if ((_deckLen) > 1)
 			{
 				
-				scr_cg_cardDraw_deck();
+				scr_cg_cardDraw_deck(player);
 				array_delete(deck_array,0,1);
 			}
 			if ((_deckLen) = 1)
 			{
-				scr_cg_cardDraw_deck();
+				scr_cg_cardDraw_deck(player);
 				deck_array[0,0] = -1;
 				deck_array[0,1] = -1;
 				deck_array[0,2] = -1;
@@ -155,7 +155,7 @@ if (deck_array[0, 0] != -1)
 //
 //
 //Draw Player Active | obj_player_cg | scr_draw_cg_player
-function scr_draw_cg_player_active(){
+function xscr_draw_cg_player_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 165;
@@ -203,7 +203,7 @@ for (var i = 0; i < 6; i = i + 1)
 //
 //
 //Draw Player Active | obj_player_cg | scr_draw_cg_player
-function scr_draw_cg_player_back(){
+function xscr_draw_cg_player_back(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 165;

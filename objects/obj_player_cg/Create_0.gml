@@ -1,8 +1,8 @@
 ////Create
-//player = 0;
+player = 0;
 //card_selected = -1;
 //hand_slot = -1;
-//hand_size = 1;
+hand_size = 0;
 //active_slot = -1;
 //card_hover = -1;
 //action_state = false
@@ -21,11 +21,11 @@
 //red_cm = 0;
 //any_cm = 0;
 
-////Per Turn
-//draw_pt = false;
-//charge_pt = false;
-//move_pt = false;
-//pylon_pt = false;
+//Per Turn
+draw_pt = false;
+charge_pt = false;
+move_pt = false;
+pylon_pt = false;
 
 ////Combatant Defeat 
 //defeat_delay = false;

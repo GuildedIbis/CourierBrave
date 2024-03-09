@@ -35,6 +35,10 @@ if (obj_game.cardPaused = true)
 		draw_sprite_stretched(spr_highlight_circle,0,124,74,72,18);
 		if (mouse_check_button_pressed(mb_left))
 		{
+			with(obj_card)
+			{
+				instance_destroy();
+			}
 			with(obj_cardGame)
 			{
 				instance_destroy();

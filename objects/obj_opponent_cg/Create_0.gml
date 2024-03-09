@@ -1,13 +1,13 @@
 //Create
-//player = 1;
+player = 1;
 //hand_slot = -1;
-//hand_size = 3;
+hand_size = 0;
 //active_slot = -1;
-//action_timer = 30;
-//draw_pt = false;
-//charge_pt = false;
-//move_pt = false;
-//pylon_pt = false;
+action_timer = 30;
+draw_pt = false;
+charge_pt = false;
+move_pt = false;
+pylon_pt = false;
 ////Combatant Defeat 
 //defeat_delay = false;
 //defeat_timer = 0;

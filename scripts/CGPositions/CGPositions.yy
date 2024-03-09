@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"CGPositions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CGPositions",
+  "parent":{
+    "name":"CardGame",
+    "path":"folders/Scripts/Game/CardGame.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

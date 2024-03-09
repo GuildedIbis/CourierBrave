@@ -27,23 +27,16 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
 	player = 0;
-	//deck_array = array_create(12);
-	//deck_array = 
-	//[
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[0,"Name",0,0,4],
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[1,"Name",0,1,4],
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[2,"Name",0,2,4],
-	//];
-	//scr_cg_deck_shuffle();
+	hand_size = 0;
+	deck_array = array_create(4);
+	deck_array = 
+	[
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+	];
+	scr_cg_deck_shuffle();
 	//hand_array = array_create(1);
 	//hand_array = 
 	//[
@@ -86,25 +79,17 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	//Copy Database
 	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
-	//player = 1;
-	////Create and Shuffle Deck
-	//deck_array = array_create(12);
-	//deck_array = 
-	//[
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[0,"Name",0,0,4],
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[1,"Name",0,1,4],
-	//	[0,"Name",0,0,4],
-	//	[1,"Name",0,1,4],
-	//	[2,"Name",0,2,4],
-	//	[2,"Name",0,2,4],
-	//];
-	//scr_cg_deck_shuffle();
+	player = 1;
+	//Create and Shuffle Deck
+	deck_array = array_create(4);
+	deck_array = 
+	[
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+	];
+	scr_cg_deck_shuffle();
 	
 	////Create Hand
 	//hand_array = array_create(3);

@@ -15,11 +15,11 @@
 function scr_draw_cg_opp(){
 if (action_timer > 0) action_timer = action_timer - 1;
 var _deckLen = array_length(deck_array);
-scr_draw_cg_opp_hand();
+//scr_draw_cg_opp_hand();
 scr_draw_cg_opp_deck();
-scr_draw_cg_opp_active();
-scr_draw_cg_opp_discard();
-scr_cg_combatant_defeated();
+//scr_draw_cg_opp_active();
+//scr_draw_cg_opp_discard();
+//scr_cg_combatant_defeated();
 
 
 //Enemy AI
@@ -33,20 +33,13 @@ if (obj_cardGame.turn = 1)
 		var _cardNum = deck_array[0,0];
 		if ((_deckLen) > 1)
 		{
-			var _newSize = array_length(hand_array) + 1
-			array_resize(hand_array,_newSize);
-			hand_size = array_length(hand_array);
-			script_execute(cg_script_database[_cardNum,0]);
-			
+				
+			scr_cg_cardDraw_deck(player);
 			array_delete(deck_array,0,1);
 		}
 		if ((_deckLen) = 1)
 		{
-			var _newSize = array_length(hand_array) + 1
-			array_resize(hand_array,_newSize);
-			hand_size = array_length(hand_array);
-			script_execute(cg_script_database[_cardNum,0]);
-			
+			scr_cg_cardDraw_deck(player);
 			deck_array[0,0] = -1;
 			deck_array[0,1] = -1;
 			deck_array[0,2] = -1;
@@ -56,15 +49,15 @@ if (obj_cardGame.turn = 1)
 		}
 	}
 
-	if (action_timer <= 0)
-	{
-		scr_opp_cg_playcheck();
-	}
-	//Opponent Movecheck
-	if (move_pt = false) and (action_timer <= 0)
-	{
-		scr_opp_cg_movecheck();
-	}
+	//if (action_timer <= 0)
+	//{
+	//	scr_opp_cg_playcheck();
+	//}
+	////Opponent Movecheck
+	//if (move_pt = false) and (action_timer <= 0)
+	//{
+	//	scr_opp_cg_movecheck();
+	//}
 	
 	//End Turn if no other action can be taken
 	if (action_timer <= 0)
@@ -107,7 +100,7 @@ if (deck_array[0, 0] != -1)
 //
 //
 //Draw Opponent Active | obj_opponent_cg | scr_draw_cg_opp
-function scr_draw_cg_opp_active(){
+function xscr_draw_cg_opp_active(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 265;
@@ -152,7 +145,7 @@ for (var i = 0; i < 6; i = i + 1)
 //
 //
 //Draw Opponent Hand | obj_opponent_cg | scr_draw_cg_opp
-function scr_draw_cg_opp_hand(){
+function xscr_draw_cg_opp_hand(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 draw_set_font(global.fnt_main_white);
@@ -190,7 +183,7 @@ draw_text_transformed(131,8,string(hand_size),.75,.75,0);
 //
 //
 //Draw Opponent Deck | obj_opponent_cg | scr_draw_cg_opp
-function scr_draw_cg_opp_discard(){
+function xscr_draw_cg_opp_discard(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _discardTop = array_length(discard_array) - 1;
@@ -215,7 +208,7 @@ if (discard_array[_discardTop, 0] != -1)
 //
 //
 //Opponent Play Check | obj_opponent_cg | scr_draw_cg_opp
-function scr_opp_cg_playcheck()
+function xscr_opp_cg_playcheck()
 {
 	for (var i = 0; i < hand_size; i = i + 1)
 	{
@@ -235,7 +228,7 @@ function scr_opp_cg_playcheck()
 //
 //
 //Opponent Move Check | obj_opponent_cg | scr_draw_cg_opp
-function scr_opp_cg_movecheck()
+function xscr_opp_cg_movecheck()
 {
 	for (var i = 0; i < 6; i = i + 1)
 	{

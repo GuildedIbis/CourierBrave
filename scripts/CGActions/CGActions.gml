@@ -39,7 +39,7 @@ for (var i = 0; i < _size; i = i + 1)
 //
 //
 //
-function scr_cg_combatant_defeated(){
+function xscr_cg_combatant_defeated(){
 if (defeat_delay = true)
 {
 	defeat_timer = defeat_timer - 1;
@@ -85,47 +85,23 @@ if (defeat_delay = true)
 //
 //
 //Draw Card from Deck
-function scr_cg_cardDraw_deck(){
+function scr_cg_cardDraw_deck(_owner){
 //Temporary Variables
-var _cardNum = deck_array[0,0];
+var _cardID = deck_array[0,0];
 var _cardY = 161;
 
 //Update Hand Array
-array_resize(hand_array,array_length(hand_array) + 1);
-hand_size = array_length(hand_array);	
-script_execute(cg_script_database[_cardNum,0]);
+hand_size = hand_size + 1;	
 
-//Se
-hand_slot = hand_size - 1;
-var _newSelect = hand_array[hand_slot,0];
-card_selected = cg_script_database[_newSelect,1];	
-	
-//Select Drawn Card
-for (var i = 0; i < hand_size; i = i + 1)
+with (instance_create_layer(295,105,"Instances",obj_card))
 {
-
-	if (hand_size < 11)
-	{
-		var _leftAlign = 208 - (hand_size * 8);
-		var _space = 16;
-		var _cardX = _leftAlign + (16 * hand_size);
-	}
-	else
-	{
-		var _leftAlign = 208 - (11 * 8);
-		//var _space = max(1,26 - ((_handSize - 11)));
-		var _space = max(1,170/hand_size); //It's 185 from one edge to the other, -15 for the width of the card
-		var _cardX = _leftAlign + (_space * hand_size);
-	}
+	card_owner = _owner;
+	card_place = 0;
+	card_position = other.hand_size - 1;
+	card_damage = 0;
+	depth = obj_cardGame.depth - 1;
+	script_execute(other.cgdb_draw_fd[_cardID]);
 }
-with (obj_card_effect) instance_destroy();
-with (instance_create_layer(_cardX-1,_cardY-1,"Instances",obj_card_effect))
-{
-	depth = obj_cardGame.depth - 2;
-	slot = other.hand_slot;
-	effect_draw = scr_cg_effect_selected;
-}
-
 }
 //
 //
@@ -133,7 +109,7 @@ with (instance_create_layer(_cardX-1,_cardY-1,"Instances",obj_card_effect))
 //
 //
 //Move Between Active Spaces
-function scr_cg_player_active_move(){
+function xscr_cg_player_active_move(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _actX = 165;
@@ -212,7 +188,7 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 //
 //
 //Check Attack Cost
-function scr_cg_atk_cost_check_yellow(_cost){
+function xscr_cg_atk_cost_check_yellow(_cost){
 var _charges = 0;
 var _costMet = false;
 
@@ -237,7 +213,7 @@ return _costMet
 //
 //
 //Check Attack Cost Any
-function scr_cg_atk_cost_check_any(_cost){
+function xscr_cg_atk_cost_check_any(_cost){
 var _charges = 0;
 var _costMet = false;
 
