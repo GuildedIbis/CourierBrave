@@ -1,5 +1,5 @@
 //Draw
-scr_draw_cg_player();
+//scr_draw_cg_player();
 
 
 

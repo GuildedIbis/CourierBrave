@@ -1,2 +1,2 @@
-scr_draw_cg_opp();
+//scr_draw_cg_opp();
 
