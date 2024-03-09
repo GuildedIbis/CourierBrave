@@ -8,7 +8,18 @@ card_hover = -1;
 action_state = false
 action_text = -1;
 target_selected = -1;
-pylon_cost = -1;
+
+//Pylons
+pylon_use = -1;
+pylon_select = -1;
+pylon_met = false;
+yellow_cm = 0;
+orange_cm = 0;
+violet_cm = 0;
+blue_cm = 0;
+green_cm = 0;
+red_cm = 0;
+any_cm = 0;
 
 //Per Turn
 draw_pt = false;

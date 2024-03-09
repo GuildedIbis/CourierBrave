@@ -206,3 +206,56 @@ if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
 	}
 }
 }
+//
+//
+//
+//
+//
+//Check Attack Cost
+function scr_cg_atk_cost_check_yellow(_cost){
+var _charges = 0;
+var _costMet = false;
+
+for (var i = 0; i < 6; i = i + 1)
+{
+	if (back_array[i,2] = 10) and (back_array[i,4] >= 1)
+	{
+		_charges = _charges + back_array[i,4];
+	}
+}
+
+if (_charges >= _cost)
+{
+	_costMet = true;
+}
+
+return _costMet
+}
+//
+//
+//
+//
+//
+//Check Attack Cost Any
+function scr_cg_atk_cost_check_any(_cost){
+var _charges = 0;
+var _costMet = false;
+
+for (var i = 0; i < 6; i = i + 1)
+{
+	if (back_array[i,2] >= 10) and (back_array[i,2] <= 16)
+	{
+		if (back_array[i,4] >= 1)
+		{
+			_charges = _charges + back_array[i,4];
+		}
+	}
+}
+
+if (_charges >= _cost)
+{
+	_costMet = true;
+}
+
+return _costMet
+}

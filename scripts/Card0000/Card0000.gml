@@ -181,6 +181,8 @@ if (obj_cardGame.turn = 0)
 		if (mouse_check_button_released(mb_left)) 
 		{
 			action_state = true;
+			pylon_use = 0;
+			pylon_select = array_create(2,-1);
 			action_text = "Select a target for KAFFARI GUARD's attack.\n\n\nESC to exit action."
 			action_choose = 1;
 		}
@@ -195,7 +197,6 @@ if (obj_cardGame.turn = 0)
 			break;
 		
 			case 1:
-				pylon_cost = array_create(1);
 				scr_cg_player_0000_atk_0();
 			break;
 		}
@@ -211,7 +212,8 @@ if (obj_cardGame.turn = 0)
 function scr_cg_player_0000_atk_0(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-
+var _backX = 165;
+var _backY = 133;
 var _targetNum = 5 - active_slot;
 var _targetPos = obj_opponent_cg.active_array[_targetNum,0]
 var _targetX = 265 - (20 * _targetNum)
@@ -224,13 +226,13 @@ if (_targetPos != -1) and (target_selected = -1)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_targetX - 1,55,17,23);
 		if (mouse_check_button_pressed(mb_left)) and (obj_opponent_cg.defeat_delay = false)
 		{
-			//if (scr_cg_atk_cost_check(1,0,0,0,0,0,0) = true)
+			//if (scr_cg_atk_cost_check(1,0,0,0,0,0,1) = true)
 			//{
-				target_selected = _targetPos;
+				target_selected = _targetNum;
 			//}
 			//else
 			//{
-				//action_text = "Not enough PYLON CHARGES."
+			//	action_text = "Not enough PYLON CHARGES."
 			//}
 		}
 		
@@ -239,23 +241,78 @@ if (_targetPos != -1) and (target_selected = -1)
 
 if (target_selected != -1)
 {
-	action_text = "Select a YELLOW PYLON CHARGE."
-	for (var i = 0; i < 6; i = i + 1)
+	//Select Pylons
+	switch(pylon_use)
 	{
-		if (back_array[i,2] = 10) (back_array[i,4] >= 1)
-		{
-			draw_sprite_ext(spr_card_slot_effect,3,_actX + (20 * i),_actY,1,1,0,c_white,1);//80,92
-			//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
-			if (point_in_rectangle(_mouseX,_mouseY,_actX + (20 * i),_actY,(_actX + 15) + (20 * i),_actY + 21))// and (p_card_selected = -1)
+		case 0:
+			if (scr_cg_atk_cost_check_yellow(1) = true)
 			{
+				action_text = "CHARGE 1: Select a YELLOW PYLON CHARGE.\n\n\nESC to exit action."
+				for (var i = 0; i < 6; i = i + 1)
+				{
+					if (back_array[i,2] = 10) and (back_array[i,4] >= 1)
+					{
+						draw_sprite_ext(spr_card_slot_effect,3,_backX + (20 * i),_backY,1,1,0,c_white,1);//80,92
+						//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
+						if (point_in_rectangle(_mouseX,_mouseY,_backX + (20 * i),_backY,(_backX + 15) + (20 * i),_backY + 21))// and (p_card_selected = -1)
+						{
+							draw_sprite_stretched(spr_highlight_nineslice,0,_backX - 1,_backY - 1,17,23);
+							if (mouse_check_button_pressed(mb_left))
+							{
+								pylon_use = 1;
+								pylon_select[0] = i;
+								back_array[i,4] = back_array[i,4] - 1;
+							}
+						}
+					}
+				
+				}
 			}
-		}
+			else
+			{
+				action_text = "Not enough YELLOW PYLON CHARGES.\n\n\nESC to exit action."
+			}
+		break;
+		
+		case 1:
+			if (scr_cg_atk_cost_check_any(1) = true)
+			{
+				action_text = "CHARGE 2: Select any PYLON CHARGE.\n\n\nESC to exit action."
+				for (var i = 0; i < 6; i = i + 1)
+				{
+					if (back_array[i,2] >= 10) and (back_array[i,2] <= 16)
+					{
+						if (back_array[i,4] >= 1)
+						{
+							draw_sprite_ext(spr_card_slot_effect,3,_backX + (20 * i),_backY,1,1,0,c_white,1);//80,92
+							//draw_text_transformed(173 + (20 * i), 113,string(active_array[i,4]),.75,.75,0);
+							if (point_in_rectangle(_mouseX,_mouseY,_backX + (20 * i),_backY,(_backX + 15) + (20 * i),_backY + 21))// and (p_card_selected = -1)
+							{
+								draw_sprite_stretched(spr_highlight_nineslice,0,_backX - 1,55,17,23);
+								if (mouse_check_button_pressed(mb_left))
+								{
+									pylon_use = 2;
+									pylon_select[1] = i;
+									back_array[i,4] = back_array[i,4] - 1;
+									pylon_met = true;
+								
+								}
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				action_text = "Not enough PYLON CHARGES.\n\n\nESC to exit action."
+			}
+		break;
 	}
 			
-			
-			
-	if (pylon_cost = true)
+	//Use Attack When Requirments Met				
+	if (pylon_met = true)
 	{
+		
 		//Original
 		action_state = false;
 		obj_opponent_cg.active_array[_targetNum,5] += 2;
@@ -276,6 +333,20 @@ if (target_selected != -1)
 		}
 		card_selected = -1;
 		with (obj_card_effect) instance_destroy();
+		
+		pylon_use = 0;
+		pylon_select = -1;
+		pylon_met = false
+	}
+	
+	//Exit and Return Pylons
+	if (keyboard_check_pressed(vk_escape))
+	{
+		for (var i = 0; i < pylon_use; i = i + 1)
+		{
+			var _returnID = pylon_select[i];
+			back_array[_returnID,4] = back_array[_returnID,4] + 1;
+		}
 	}
 }
 }

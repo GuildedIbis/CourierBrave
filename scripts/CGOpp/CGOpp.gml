@@ -129,7 +129,7 @@ for (var i = 0; i < 6; i = i + 1)
 			var _cardNum = active_array[i,0];
 			obj_player_cg.card_hover = string(active_array[i,1]);
 			draw_sprite_stretched(spr_highlight_nineslice,0,(_cardX -1) - (20 * i),_cardY-1,17,23);
-			if (mouse_check_button_released(mb_left))
+			if (mouse_check_button_released(mb_left)) and (obj_player_cg.action_state = false)
 			{
 				obj_player_cg.card_selected = cg_script_database[_cardNum,3];	
 				obj_player_cg.active_slot = i;
@@ -264,6 +264,7 @@ function scr_opp_cg_movecheck()
 			with (obj_card_effect) instance_destroy();
 			var _name = "Opponent moved " + active_array[i + 1, 1] + "."
 			obj_player_cg.action_text = _name
+			obj_player_cg.active_slot = 0;
 			obj_player_cg.card_selected = cg_script_database[_cardID,3];
 		}
 	}
