@@ -6,23 +6,24 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
+var _handSize = obj_player_cg.hand_size;
 
 switch(card_place)
 {
 	case 0: //Hand
 		//Set Position
 		var _cardY = 161;
-		if (hand_size < 11)
+		if (_handSize < 11)
 		{
-			var _leftAlign = 224 - (hand_size * 8);
+			var _leftAlign = 224 - (_handSize * 8);
 			var _space = 16;
-			var _cardX = _leftAlign + (16 * i);
+			var _cardX = _leftAlign + (16 * card_position);
 		}
 		else
 		{
 			var _leftAlign = 224 - (11 * 8);
 			//var _space = max(1,26 - ((_handSize - 11)));
-			var _space = max(1,170/hand_size); //It's 185 from one edge to the other, -15 for the width of the card
+			var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 			var _cardX = _leftAlign + (_space * card_position);
 		}
 		x = _cardX;
@@ -49,23 +50,24 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
+var _handSize = obj_opponent_cg.hand_size;
 
 switch(card_place)
 {
 	case 0: //Hand
 		//Set Position
-		var _cardY = 4;
-		if (hand_size < 11)
+		var _cardY = 161;
+		if (_handSize < 11)
 		{
-			var _leftAlign = 224 - (hand_size * 8);
+			var _leftAlign = 224 - (_handSize * 8);
 			var _space = 16;
-			var _cardX = _leftAlign + (16 * i);
+			var _cardX = _leftAlign + (16 * card_position);
 		}
 		else
 		{
 			var _leftAlign = 224 - (11 * 8);
 			//var _space = max(1,26 - ((_handSize - 11)));
-			var _space = max(1,170/hand_size); //It's 185 from one edge to the other, -15 for the width of the card
+			var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 			var _cardX = _leftAlign + (_space * card_position);
 		}
 		x = _cardX;

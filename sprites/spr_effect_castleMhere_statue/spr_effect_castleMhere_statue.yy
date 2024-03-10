@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"BeetrapEfEn",
-    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn.yy",
+    "name":"CastleMhereEffects",
+    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn/CastleMhereEffects.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

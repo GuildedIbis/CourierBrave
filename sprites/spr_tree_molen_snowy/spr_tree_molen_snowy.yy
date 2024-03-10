@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"BeetrapEfEn",
-    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn.yy",
+    "name":"BeetrapSharedEffects",
+    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn/BeetrapSharedEffects.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

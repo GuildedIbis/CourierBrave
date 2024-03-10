@@ -1,16 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_effect_house_beetraCity_tavern",
+  "%Name":"obj_effect_beetra_bell1",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_effect_house_beetraCity_tavern",
+  "name":"obj_effect_beetra_bell1",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"shadow","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"break_object","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_break",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_beetraCity_bell",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_beetraCity_bell_create",},
   ],
   "parent":{
     "name":"BeetraSolidFX",
@@ -38,8 +42,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_house_beetraCity_tavern",
-    "path":"sprites/spr_house_beetraCity_tavern/spr_house_beetraCity_tavern.yy",
+    "name":"spr_effect_beetra_bell1",
+    "path":"sprites/spr_effect_beetra_bell1/spr_effect_beetra_bell1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

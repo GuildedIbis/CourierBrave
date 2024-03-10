@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"BeetrapEfEn",
-    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn.yy",
+    "name":"BeetraEffects",
+    "path":"folders/Sprites/Effects/Effects/BeetrapEfEn/BeetraEffects.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

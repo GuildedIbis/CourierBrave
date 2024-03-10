@@ -13,8 +13,8 @@
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
-    "name":"BeetrapSolidFX",
-    "path":"folders/Objects/Effects/SolidEffects/BeetrapSolidFX.yy",
+    "name":"BeetraSolidFX",
+    "path":"folders/Objects/Effects/SolidEffects/BeetrapSolidFX/BeetraSolidFX.yy",
   },
   "parentObjectId":{
     "name":"obj_effect",
