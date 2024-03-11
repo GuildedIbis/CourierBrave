@@ -31,7 +31,7 @@ scr_draw_cg_player_deck();
 //scr_draw_cg_player_active();
 //scr_draw_cg_player_back();
 //scr_draw_cg_player_discard();
-//scr_draw_cg_player_game();
+scr_draw_cg_player_game();
 
 
 }
@@ -300,17 +300,14 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 
-if (card_selected != -1) //Primary Card View (Left Click)
-{
-	script_execute(card_selected);
-}
 
-if (card_hover != -1)
-{
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);
-	draw_text_transformed(_mouseX,_mouseY-14,card_hover,.5,.5,0);
-}
+
+//if (card_hover != -1)
+//{
+//	draw_set_halign(fa_center);
+//	draw_set_valign(fa_top);
+//	draw_text_transformed(_mouseX,_mouseY-14,card_hover,.5,.5,0);
+//}
 
 if (action_text != -1)
 {
@@ -318,14 +315,15 @@ if (action_text != -1)
 	draw_set_valign(fa_top);
 	draw_text_transformed(128,80,action_text,.5,.5,0);//126,85
 }
+
 if (obj_cardGame.turn = 0)
 {
+	draw_text_transformed(145,142,"END\nTURN",.5,.5,0);
 	if (point_in_rectangle(_mouseX,_mouseY,131,139,159,153)) and (action_state = false)
 	{
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
 		draw_sprite_stretched(spr_highlight_nineslice,0,130,138,31,17);
-		draw_text_transformed(145,142,"END\nTURN",.5,.5,0);
 		if (mouse_check_button_released(mb_left))
 		{
 			draw_pt = false;

@@ -46,11 +46,15 @@ card_damage = 0;
 card_name = "KAFFARI GUARD";
 card_type = 0;
 card_stage = 0;
+card_hand = scr_cg_player_0000_hand_selected;
+card_active = scr_cg_player_0000_active_selected;
+card_back = -1;
 
 //Sprite
 card_sprite = spr_card_all
 sprite_index = card_sprite;
 image_index = card_type;
+image_speed = 0;
 
 //Scripts
 card_hit = -1;
@@ -96,7 +100,7 @@ function scr_cg_player_0000_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cName = "KAFFARI GUARD";
-var _hpText = string(hand_array[hand_slot,4]);
+var _hpText = 4;
 var _cardX = 0;
 var _cardY = 5;
 var _actX = 165;
@@ -111,48 +115,50 @@ draw_set_valign(fa_top);
 
 
 //Actions and Buttons
-if (obj_cardGame.turn = 0)
+if (obj_cardGame.turn = 0) and (obj_player_cg.action_state = false)
 {
 	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 19,_cardY + 81,_cardX + 102,_cardY + 90))
 	{
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			action_state = true;
-			action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
-		}
-	}
-	
-	if (active_array[0,0] = -1) and (action_state = true)
-	{
-		draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
-		if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
-		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
-			if (mouse_check_button_released(mb_left)) 
+			scr_cg_card_playcheck_entry(card_owner);
+			if (playable = true)
 			{
-				//Set to Active
-				active_array[0,0] = 0;
-				active_array[0,1] = "KAFFARI GAURD";
-				active_array[0,2] = 0;
-				active_array[0,3] = 0;
-				active_array[0,4] = 4;
-				active_array[0,5] = 0;
-
-		
-				//Remove From Hand
-				with (obj_card_effect) instance_destroy();
-				array_delete(hand_array,hand_slot,1);
-				action_text = "Select a card."
-				hand_slot = -1;
-				card_selected = -1;
-				action_state = false;
+				with (obj_player_cg)
+				{
+					action_state = true;
+					action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
+				}
+			}
+			else
+			{
+				with (obj_player_cg)
+				{
+					action_text = "ENTRY SLOT occupied."
+				}
 			}
 		}
+		
+	}
+}
+
+if (obj_player_cg.action_state = true)
+{
+	draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
+	{
+		draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
+		if (mouse_check_button_released(mb_left)) 
+		{
+			//Set to Active
+			card_place = 1;
+			card_position = 0;
+				
+		}
 	}
 }
 }
-
 //
 //
 //
@@ -164,7 +170,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
 var _cardY = 5;
-var _hpText = string(active_array[active_slot,4] - active_array[active_slot,5]);
+var _hpText = 4;
 
 
 

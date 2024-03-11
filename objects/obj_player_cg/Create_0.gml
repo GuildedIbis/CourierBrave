@@ -1,12 +1,13 @@
 ////Create
 player = 0;
-//card_selected = -1;
+card_script = -1;
+card_selected = -1;
 //hand_slot = -1;
 hand_size = 0;
 //active_slot = -1;
 //card_hover = -1;
-//action_state = false
-//action_text = -1;
+action_text = -1;
+action_state = false;
 //target_selected = -1;
 
 ////Pylons

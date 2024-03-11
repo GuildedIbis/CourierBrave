@@ -8,6 +8,9 @@ card_damage = -1;
 card_name = -1;
 card_type = -1;
 card_stage = -1;
+action_state = false;
+action_text = -1;
+playable = false;
 
 //Pylon Stats
 pylon_use = -1;
@@ -21,6 +24,11 @@ green_charge = -1;
 red_charge = -1;
 
 //Scripts
+selected = false;
+card_script = -1;
+card_hand = -1;
+card_active = -1;
+card_back = -1;
 card_hit = -1;
 card_ability = -1;
 card_attack1 = -1;

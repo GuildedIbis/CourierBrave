@@ -28,9 +28,13 @@ with (instance_create_layer(0,0,"Instances",obj_player_cg))
 	depth = obj_cardGame.depth - 1;
 	player = 0;
 	hand_size = 0;
-	deck_array = array_create(4);
+	deck_array = array_create(8);
 	deck_array = 
 	[
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],
@@ -81,9 +85,13 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	depth = obj_cardGame.depth - 1;
 	player = 1;
 	//Create and Shuffle Deck
-	deck_array = array_create(4);
+	deck_array = array_create(8);
 	deck_array = 
 	[
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
+		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],
 		[0,"Name",0,0,4],

@@ -101,6 +101,34 @@ with (instance_create_layer(295,105,"Instances",obj_card))
 	card_damage = 0;
 	depth = obj_cardGame.depth - 1;
 	script_execute(other.cgdb_draw_fd[_cardID]);
+	
+	//Select Card
+	with (obj_card)
+	{
+		selected = false;
+	}
+	selected = true;
+}
+}
+//
+//
+//
+//
+//
+//
+//Check if card is playable
+function scr_cg_card_playcheck_entry(_player){
+playable = true;
+
+with (obj_card)
+{
+	if (card_owner = _player)
+	{
+		if (card_place = 1) and (card_position = 0)
+		{
+			other.playable = false;
+		}
+	}
 }
 }
 //
