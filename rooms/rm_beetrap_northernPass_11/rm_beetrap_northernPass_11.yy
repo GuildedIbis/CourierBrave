@@ -7,7 +7,6 @@
   "inheritLayers":false,
   "instanceCreationOrder":[
     {"name":"inst_32DA1CF3_1_4","path":"rooms/rm_beetrap_northernPass_11/rm_beetrap_northernPass_11.yy",},
-    {"name":"inst_18E8E2A3_1_4","path":"rooms/rm_beetrap_northernPass_11/rm_beetrap_northernPass_11.yy",},
     {"name":"inst_4E6698F8_1_4","path":"rooms/rm_beetrap_northernPass_11/rm_beetrap_northernPass_11.yy",},
     {"name":"inst_7F9B2453_3","path":"rooms/rm_beetrap_northernPass_11/rm_beetrap_northernPass_11.yy",},
     {"name":"inst_50D981EC_3","path":"rooms/rm_beetrap_northernPass_11/rm_beetrap_northernPass_11.yy",},
@@ -226,7 +225,6 @@
         {"$GMRInstance":"","%Name":"inst_515185EC_3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_515185EC_3","objectId":{"name":"obj_ledge","path":"objects/obj_ledge/obj_ledge.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":4.0,"x":284.0,"y":120.0,},
       ],"layers":[],"name":"Ledge","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":false,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":700,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"","%Name":"inst_18E8E2A3_1_4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_18E8E2A3_1_4","objectId":{"name":"obj_song","path":"objects/obj_song/obj_song.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":8.0,"y":8.0,},
         {"$GMRInstance":"","%Name":"inst_40F5C4DE_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_40F5C4DE_1","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_room","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rm_lenko_vostleTown_04",},
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"target_x","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"136",},

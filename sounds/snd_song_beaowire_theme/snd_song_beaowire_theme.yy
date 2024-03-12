@@ -12,8 +12,8 @@
   "duration":48.0,
   "name":"snd_song_beaowire_theme",
   "parent":{
-    "name":"Lenko",
-    "path":"folders/Sounds/World/Music/Lenko.yy",
+    "name":"LenkoMusic",
+    "path":"folders/Sounds/World/Music/LenkoMusic.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
