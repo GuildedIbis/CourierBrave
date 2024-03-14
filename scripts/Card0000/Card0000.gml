@@ -49,6 +49,7 @@ card_stage = 0;
 card_hand = scr_cg_player_0000_hand_selected;
 card_active = scr_cg_player_0000_active_selected;
 card_back = -1;
+card_back = -1;
 
 //Sprite
 card_sprite = spr_card_all
@@ -189,7 +190,8 @@ if (obj_cardGame.turn = 0)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			if (move_pt = false)
+			scr_cg_player_active_move_check();
+			if (move_pt = false) and (moveable = true)
 			{
 				action_state = true;
 				action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
@@ -199,21 +201,25 @@ if (obj_cardGame.turn = 0)
 			{
 				action_text = "Move per turn already taken."
 			}
+			if (moveable = false)
+			{
+				action_text = "Position Occupied."
+			}
 		}
 	}
 	//Select Attack
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 100,_cardX + 114,_cardY + 109))
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 99,106,12);
-		if (mouse_check_button_released(mb_left)) 
-		{
-			action_state = true;
-			pylon_use = 0;
-			pylon_select = array_create(2,-1);
-			action_text = "Select a target for KAFFARI GUARD's attack.\n\n\nESC to exit action."
-			action_choose = 1;
-		}
-	}
+	//if (point_in_rectangle(_mouseX,_mouseY,_cardX + 10,_cardY + 100,_cardX + 114,_cardY + 109))
+	//{
+	//	draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 9,_cardY + 99,106,12);
+	//	if (mouse_check_button_released(mb_left)) 
+	//	{
+	//		action_state = true;
+	//		pylon_use = 0;
+	//		pylon_select = array_create(2,-1);
+	//		action_text = "Select a target for KAFFARI GUARD's attack.\n\n\nESC to exit action."
+	//		action_choose = 1;
+	//	}
+	//}
 	//Action State
 	if (action_state = true)
 	{
@@ -223,9 +229,9 @@ if (obj_cardGame.turn = 0)
 				scr_cg_player_active_move();
 			break;
 		
-			case 1:
-				scr_cg_player_0000_atk_0();
-			break;
+			//case 1:
+			//	scr_cg_player_0000_atk_0();
+			//break;
 		}
 	}
 }

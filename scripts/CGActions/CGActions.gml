@@ -137,12 +137,33 @@ with (obj_card)
 //
 //
 //Move Between Active Spaces
-function xscr_cg_player_active_move(){
+function scr_cg_player_active_move_check(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _actX = 165;
 var _actY = 105;
+moveable = true;
 
+with (obj_card)
+{
+	if (player = 0) and (card_place = 1)
+	{
+		if (card_position = other.card_position)
+		{
+			moveable = false;
+		}
+	}
+}
+
+return moveable
+}
+//
+//
+//
+//
+//
+//Move Between Active Spaces
+function scr_cg_player_active_move(){
 if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 {
 	draw_sprite_ext(spr_card_slot_effect,0,_actX + (20 * (active_slot + 1)),_actY,1,1,0,c_white,1);//80,92
@@ -152,26 +173,26 @@ if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 		if (mouse_check_button_released(mb_left))
 		{
 			//Set to Active
-			active_array[active_slot + 1, 0] = active_array[active_slot, 0];
-			active_array[active_slot + 1, 1] = active_array[active_slot, 1];
-			active_array[active_slot + 1, 2] = active_array[active_slot, 2];
-			active_array[active_slot + 1, 3] = active_array[active_slot, 3];
-			active_array[active_slot + 1, 4] = active_array[active_slot, 4];
-			active_array[active_slot + 1, 5] = active_array[active_slot, 5];
-			active_array[active_slot, 0] = -1;
-			active_array[active_slot, 1] = -1;
-			active_array[active_slot, 2] = -1;
-			active_array[active_slot, 3] = -1;
-			active_array[active_slot, 4] = -1;
-			active_array[active_slot, 5] = -1;
+			//active_array[active_slot + 1, 0] = active_array[active_slot, 0];
+			//active_array[active_slot + 1, 1] = active_array[active_slot, 1];
+			//active_array[active_slot + 1, 2] = active_array[active_slot, 2];
+			//active_array[active_slot + 1, 3] = active_array[active_slot, 3];
+			//active_array[active_slot + 1, 4] = active_array[active_slot, 4];
+			//active_array[active_slot + 1, 5] = active_array[active_slot, 5];
+			//active_array[active_slot, 0] = -1;
+			//active_array[active_slot, 1] = -1;
+			//active_array[active_slot, 2] = -1;
+			//active_array[active_slot, 3] = -1;
+			//active_array[active_slot, 4] = -1;
+			//active_array[active_slot, 5] = -1;
 			
 			with (obj_card_effect) instance_destroy();
 			move_pt = true;
 			action_text = "Select a card."
 			action_state = false;
 			card_selected = -1;
-			active_slot = -1;
-			hand_slot = -1;
+			//active_slot = -1;
+			//hand_slot = -1;
 			
 		}
 	}

@@ -19,6 +19,7 @@
   "height":360,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"e5f904a1-55b2-457f-9e0e-e4ea274b89a9","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e5f904a1-55b2-457f-9e0e-e4ea274b89a9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"63c01e01-5133-4931-ae03-7954f77892c4","blendMode":0,"displayName":"default","isLocked":false,"name":"63c01e01-5133-4931-ae03-7954f77892c4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tileset_beetrap_home_interior",

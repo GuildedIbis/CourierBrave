@@ -47,6 +47,25 @@ switch(card_place)
 	break;
 		
 	case 1: //Active
+		//Set Position
+		var _cardX = 165 + (20 * card_position)
+		var _cardY = 105;
+		x = _cardX;
+		y = _cardY;
+		
+		//Select
+		if (point_in_rectangle(mouse_x,mouse_y,_cardX,_cardY,_cardX+15,_cardY+21))
+		{
+			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + -1,_cardY -1,17,23);
+			if (mouse_check_button_pressed(mb_left))
+			{
+				with (obj_card)
+				{
+					selected = false;
+				}
+				selected = true;
+			}
+		}
 	break;
 		
 	case 2: //Back

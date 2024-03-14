@@ -118,16 +118,24 @@ for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 30; j = j + 1)
 	{
-		northernPass_enemy_grid[# i, j] = false;
+		beetraCity_enemy_grid[# i, j] = false;
 	}
 }
 for (var i = 0; i < 20; i = i + 1)
 {
 	for (var j = 0; j < 30; j = j + 1)
 	{
-		beetraCity_enemy_grid[# i, j] = false;
+		castleMhere_enemy_grid[# i, j] = false;
 	}
 }
+for (var i = 0; i < 20; i = i + 1)
+{
+	for (var j = 0; j < 30; j = j + 1)
+	{
+		northernPass_enemy_grid[# i, j] = false;
+	}
+}
+
 }
 //
 //
