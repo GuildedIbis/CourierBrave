@@ -136,6 +136,31 @@ with (obj_card)
 //
 //
 //
+//While Selected in Hand
+function scr_cg_player_active_move(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _aheadX = x + (20 * card_position +1)
+
+//Select Attack
+draw_sprite_ext(spr_card_slot_effect,0,x + 20,y,1,1,0,c_white,1);//80,92
+if (point_in_rectangle(_mouseX,_mouseY,_aheadX,105,_aheadX + 20,126))
+{
+	draw_sprite_stretched(spr_highlight_nineslice,0,_aheadX - 1,104,17,23);
+	if (mouse_check_button_released(mb_left)) 
+	{
+		//action_state = true;
+		//pylon_use = 0;
+		//pylon_select = array_create(2,-1);
+		//action_choose = 1;
+	}
+}
+}
+//
+//
+//
+//
+//
 //Move Between Active Spaces
 function scr_cg_player_active_move_check(){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -146,7 +171,7 @@ moveable = true;
 
 with (obj_card)
 {
-	if (player = 0) and (card_place = 1)
+	if (card_owner = 0) and (card_place = 1)
 	{
 		if (card_position = other.card_position)
 		{
@@ -163,7 +188,7 @@ return moveable
 //
 //
 //Move Between Active Spaces
-function scr_cg_player_active_move(){
+function xscr_cg_player_active_move(){
 if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
 {
 	draw_sprite_ext(spr_card_slot_effect,0,_actX + (20 * (active_slot + 1)),_actY,1,1,0,c_white,1);//80,92
