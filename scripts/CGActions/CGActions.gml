@@ -140,11 +140,13 @@ with (obj_card)
 function scr_cg_player_active_move(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _aheadX = x + (20 * card_position +1)
+//var _aheadX = x + (20 * card_position +1)
+var _aheadX = x + 20;
+
 
 //Select Attack
-draw_sprite_ext(spr_card_slot_effect,0,x + 20,y,1,1,0,c_white,1);//80,92
-if (point_in_rectangle(_mouseX,_mouseY,_aheadX,105,_aheadX + 20,126))
+draw_sprite_ext(spr_card_slot_effect,0,_aheadX,y,1,1,0,c_white,1);//80,92
+if (point_in_rectangle(_mouseX,_mouseY,_aheadX,105,_aheadX + 15,126))
 {
 	draw_sprite_stretched(spr_highlight_nineslice,0,_aheadX - 1,104,17,23);
 	if (mouse_check_button_released(mb_left)) 

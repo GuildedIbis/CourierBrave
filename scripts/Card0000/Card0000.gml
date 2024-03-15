@@ -155,7 +155,12 @@ if (obj_player_cg.action_state = true)
 			//Set to Active
 			card_place = 1;
 			card_position = 0;
-				
+			selected = false;
+			with (obj_player_cg)
+			{
+				action_state = false;
+				action_text = "Select a card."
+			}
 		}
 	}
 }
@@ -193,17 +198,26 @@ if (obj_cardGame.turn = 0)
 			scr_cg_player_active_move_check();
 			if (obj_player_cg.move_pt = false) and (moveable = true)
 			{
-				action_state = true;
-				action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
+				with (obj_player_cg)
+				{
+					action_state = true;
+					action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
+				}
 				action_choose = 0;
 			}
 			if (obj_player_cg.move_pt = true)
 			{
-				action_text = "Move per turn already taken."
+				with (obj_player_cg)
+				{
+					action_text = "Move per turn already taken."
+				}
 			}
 			if (moveable = false)
 			{
-				action_text = "Position Occupied."
+				with (obj_player_cg)
+				{
+					action_text = "Position Occupied."
+				}
 			}
 		}
 	}
