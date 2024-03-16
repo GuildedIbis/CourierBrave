@@ -117,7 +117,7 @@ with (instance_create_layer(295,105,"Instances",obj_card))
 //
 //
 //Check if card is playable
-function scr_cg_card_playcheck_entry(_player){
+function scr_cg_card_hand_play_check(_player){
 playable = true;
 
 with (obj_card)
@@ -136,129 +136,62 @@ with (obj_card)
 //
 //
 //
+//Move Between Active Spaces
+function scr_cg_card_active_move_check(_cardPosition){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+var _actX = 165;
+var _actY = 105;
+var _cardInst = id;
+
+with (obj_card)
+{
+	if (id != _cardInst)
+	{
+		if (card_owner = 0) and (card_place = 1)
+		{
+			if (card_position = _cardPosition)
+			{
+				_cardInst.moveable = false;
+			}
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
 //While Selected in Hand
-function scr_cg_player_active_move(){
+function scr_cg_card_active_move(_player){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 //var _aheadX = x + (20 * card_position +1)
 var _aheadX = x + 20;
 
 
-//Select Attack
-draw_sprite_ext(spr_card_slot_effect,0,_aheadX,y,1,1,0,c_white,1);//80,92
-if (point_in_rectangle(_mouseX,_mouseY,_aheadX,105,_aheadX + 15,126))
+if (_player = 0)
 {
-	draw_sprite_stretched(spr_highlight_nineslice,0,_aheadX - 1,104,17,23);
-	if (mouse_check_button_released(mb_left)) 
+	//Select Attack
+	draw_sprite_ext(spr_card_slot_effect,0,_aheadX,y,1,1,0,c_white,1);//80,92
+	if (point_in_rectangle(_mouseX,_mouseY,_aheadX,105,_aheadX + 15,126))
 	{
-		//action_state = true;
-		//pylon_use = 0;
-		//pylon_select = array_create(2,-1);
-		//action_choose = 1;
-	}
-}
-}
-//
-//
-//
-//
-//
-//Move Between Active Spaces
-function scr_cg_player_active_move_check(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-var _actX = 165;
-var _actY = 105;
-moveable = true;
-
-with (obj_card)
-{
-	if (card_owner = 0) and (card_place = 1)
-	{
-		if (card_position = other.card_position)
+		draw_sprite_stretched(spr_highlight_nineslice,0,_aheadX - 1,104,17,23);
+		if (mouse_check_button_released(mb_left)) 
 		{
-			moveable = false;
-		}
-	}
-}
-
-return moveable
-}
-//
-//
-//
-//
-//
-//Move Between Active Spaces
-function xscr_cg_player_active_move(){
-if (active_slot <= 4) and (active_array[active_slot + 1, 0] = -1)
-{
-	draw_sprite_ext(spr_card_slot_effect,0,_actX + (20 * (active_slot + 1)),_actY,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,_actX + (20 * (active_slot + 1)),_actY,(_actX + 15) + (20 * (active_slot + 1)),_actY + 21)) 
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,(_actX -1) + (20 * (active_slot + 1)),_actY - 1,17,23);
-		if (mouse_check_button_released(mb_left))
-		{
-			//Set to Active
-			//active_array[active_slot + 1, 0] = active_array[active_slot, 0];
-			//active_array[active_slot + 1, 1] = active_array[active_slot, 1];
-			//active_array[active_slot + 1, 2] = active_array[active_slot, 2];
-			//active_array[active_slot + 1, 3] = active_array[active_slot, 3];
-			//active_array[active_slot + 1, 4] = active_array[active_slot, 4];
-			//active_array[active_slot + 1, 5] = active_array[active_slot, 5];
-			//active_array[active_slot, 0] = -1;
-			//active_array[active_slot, 1] = -1;
-			//active_array[active_slot, 2] = -1;
-			//active_array[active_slot, 3] = -1;
-			//active_array[active_slot, 4] = -1;
-			//active_array[active_slot, 5] = -1;
-			
-			with (obj_card_effect) instance_destroy();
-			move_pt = true;
-			action_text = "Select a card."
+			card_position = card_position + 1;
+			with (obj_player_cg)
+			{
+				move_pt = true;
+				action_state = false;
+				action_text = "Combatant moved."
+			}
 			action_state = false;
-			card_selected = -1;
-			//active_slot = -1;
-			//hand_slot = -1;
-			
 		}
 	}
 }
-if (active_slot >= 1) and (active_array[active_slot - 1, 0] = -1)
-{
-	draw_sprite_ext(spr_card_slot_effect,0,_actX + (20 * (active_slot - 1)),_actY,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,_actX + (20 * (active_slot - 1)),_actY,(_actY + 15) + (20 * (active_slot - 1)),_actY + 21)) 
-	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,(_actX - 1) + (20 * (active_slot - 1)),_actY - 1,17,23);
-		if (mouse_check_button_released(mb_left))
-		{
-			//Set to Active
-			active_array[active_slot - 1, 0] = active_array[active_slot, 0];
-			active_array[active_slot - 1, 1] = active_array[active_slot, 1];
-			active_array[active_slot - 1, 2] = active_array[active_slot, 2];
-			active_array[active_slot - 1, 3] = active_array[active_slot, 3];
-			active_array[active_slot - 1, 4] = active_array[active_slot, 4];
-			active_array[active_slot - 1, 5] = active_array[active_slot, 5];
-			active_array[active_slot, 0] = -1;
-			active_array[active_slot, 1] = -1;
-			active_array[active_slot, 2] = -1;
-			active_array[active_slot, 3] = -1;
-			active_array[active_slot, 4] = -1;
-			active_array[active_slot, 5] = -1;
-
-			with (obj_card_effect) instance_destroy();
-			move_pt = true;
-			action_text = "Select a card."
-			card_selected = -1;
-			action_state = false;
-			active_slot = -1;
-			hand_slot = -1;
-			
-		}
-	}
-}
-}
-//
+}//
 //
 //
 //

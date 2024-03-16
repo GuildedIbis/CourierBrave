@@ -123,7 +123,7 @@ if (obj_cardGame.turn = 0) and (obj_player_cg.action_state = false)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			scr_cg_card_playcheck_entry(card_owner);
+			scr_cg_card_hand_play_check(card_owner);
 			if (playable = true)
 			{
 				with (obj_player_cg)
@@ -195,7 +195,8 @@ if (obj_cardGame.turn = 0)
 		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
 		if (mouse_check_button_released(mb_left)) 
 		{
-			scr_cg_player_active_move_check();
+			moveable = true;
+			scr_cg_card_active_move_check(card_position + 1);
 			if (obj_player_cg.move_pt = false) and (moveable = true)
 			{
 				with (obj_player_cg)
@@ -203,21 +204,26 @@ if (obj_cardGame.turn = 0)
 					action_state = true;
 					action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
 				}
+				action_state = true;
 				action_choose = 0;
 			}
 			if (obj_player_cg.move_pt = true)
 			{
 				with (obj_player_cg)
 				{
+					action_state = false;
 					action_text = "Move per turn already taken."
 				}
+				action_state = false;
 			}
 			if (moveable = false)
 			{
 				with (obj_player_cg)
 				{
-					action_text = "Position Occupied."
+					action_state = false;
+					action_text = "Position occupied."
 				}
+				action_state = false;
 			}
 		}
 	}
@@ -228,7 +234,7 @@ if (obj_cardGame.turn = 0)
 		switch (action_choose)
 		{
 			case 0:
-				scr_cg_player_active_move();
+				scr_cg_card_active_move(card_owner);
 			break;
 		
 			//case 1:
