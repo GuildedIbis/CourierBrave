@@ -31,12 +31,6 @@ if (obj_cardGame.turn = 1)
 		draw_pt = true;
 		action_timer = 60;
 		var _cardNum = deck_array[0,0];
-		if ((_deckLen) > 1)
-		{
-				
-			scr_cg_cardDraw_deck(player);
-			array_delete(deck_array,0,1);
-		}
 		if ((_deckLen) = 1)
 		{
 			scr_cg_cardDraw_deck(player);
@@ -46,6 +40,12 @@ if (obj_cardGame.turn = 1)
 			deck_array[0,3] = -1;
 			deck_array[0,4] = -1;
 			deck_array[0,5] = -1;
+		}
+		if ((_deckLen) > 1)
+		{
+				
+			scr_cg_cardDraw_deck(player);
+			array_delete(deck_array,0,1);
 		}
 	}
 

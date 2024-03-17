@@ -84,7 +84,7 @@ with (instance_create_layer(0,0,"Instances",obj_opponent_cg))
 	scr_cg_database();
 	depth = obj_cardGame.depth - 1;
 	player = 1;
-	//Create and Shuffle Deck
+	hand_size = 0;
 	deck_array = array_create(8);
 	deck_array = 
 	[

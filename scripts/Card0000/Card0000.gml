@@ -40,16 +40,12 @@ draw_text_transformed(_cardX + 114,_cardY + 102,_atkName1,.75,.75,0);
 //Draw From Deck
 function scr_cg_0000_draw_fd(){
 //New
+card_name = "KAFFARI GUARD";
 card_id = 0;
 card_hp = 4;
 card_damage = 0;
-card_name = "KAFFARI GUARD";
 card_type = 0;
 card_stage = 0;
-card_hand = scr_cg_player_0000_hand_selected;
-card_active = scr_cg_player_0000_active_selected;
-card_back = -1;
-card_back = -1;
 
 //Sprite
 card_sprite = spr_card_all
@@ -57,39 +53,16 @@ sprite_index = card_sprite;
 image_index = card_type;
 image_speed = 0;
 
+
 //Scripts
+card_hand = scr_cg_0000_hand_selected;
+card_active = scr_cg_0000_active_selected;
+card_back = -1;
 card_hit = -1;
 card_ability = -1;
 card_attack1 = scr_cg_0000_atk1;
 card_attack2 = -1;
 
-//Old
-
-//var _newCard = array_length(hand_array) - 1; //"-1" because the array was already += 1
-//CID
-//Name
-//Selected Script
-//Type
-//if (player = 0)
-//{
-//	hand_array[_newCard, 0] = 0;
-//	hand_array[_newCard, 1] = "KAFFARI GAURD";
-//	hand_array[_newCard, 2] = 0;
-//	hand_array[_newCard, 3] = 0;
-//	hand_array[_newCard, 4] = 4;
-//	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
-
-//}
-//if (player = 1)
-//{
-//	hand_array[_newCard, 0] = 0;
-//	hand_array[_newCard, 1] = "KAFFARI GAURD";
-//	hand_array[_newCard, 2] = 0;
-//	hand_array[_newCard, 3] = 0;
-//	hand_array[_newCard, 4] = 4;
-//	//hand_array[_newCard, 5] = scr_cg_player_0000_hand_selected;
-
-//}
 }
 //
 //
@@ -97,11 +70,11 @@ card_attack2 = -1;
 //
 //
 //While Selected in Hand
-function scr_cg_player_0000_hand_selected(){
+function scr_cg_0000_hand_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cName = "KAFFARI GUARD";
-var _hpText = 4;
+var _hpText = card_hp - card_damage;
 var _cardX = 0;
 var _cardY = 5;
 var _actX = 165;
@@ -109,57 +82,73 @@ var _actY = 105;
 
 
 //Draw Card
-scr_cg_0000_draw(0,_hpText,_cardX,_cardY);
+scr_cg_0000_draw(card_owner,_hpText,_cardX,_cardY);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 
 
-//Actions and Buttons
-if (obj_cardGame.turn = 0) and (obj_player_cg.action_state = false)
+if (card_owner = 0)
 {
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 19,_cardY + 81,_cardX + 102,_cardY + 90))
+	//Select Action
+	if (obj_cardGame.turn = 0) and (obj_player_cg.action_state = false)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
-		if (mouse_check_button_released(mb_left)) 
+		if (point_in_rectangle(_mouseX,_mouseY,_cardX + 19,_cardY + 81,_cardX + 102,_cardY + 90))
 		{
-			scr_cg_card_hand_play_check(card_owner);
-			if (playable = true)
+			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
+			if (mouse_check_button_released(mb_left)) 
 			{
-				with (obj_player_cg)
+				scr_cg_card_hand_play_check(card_owner);
+				if (playable = true)
 				{
-					action_state = true;
-					action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
+					with (obj_player_cg)
+					{
+						action_state = true;
+						action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
+					}
+				}
+				else
+				{
+					with (obj_player_cg)
+					{
+						action_text = "ENTRY SLOT occupied."
+					}
 				}
 			}
-			else
-			{
-				with (obj_player_cg)
-				{
-					action_text = "ENTRY SLOT occupied."
-				}
-			}
-		}
 		
+		}
 	}
-}
 
-if (obj_player_cg.action_state = true)
-{
-	draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
-	if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
+	//Execute Action
+	if (obj_player_cg.action_state = true)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
-		if (mouse_check_button_released(mb_left)) 
+		draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
+		if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
 		{
-			//Set to Active
-			card_place = 1;
-			card_position = 0;
-			selected = false;
-			with (obj_player_cg)
+			draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
+			if (mouse_check_button_released(mb_left)) 
 			{
-				action_state = false;
-				action_text = "Select a card."
+				//Set to Active
+				var _cardPosition = card_position;
+				with (obj_card)
+				{
+					if (card_owner = 0)
+					{
+						if (card_place = 0) and (card_position > _cardPosition)
+						{
+							card_position = card_position - 1;
+						}
+					}
+				}
+				card_place = 1;
+				card_position = 0;
+				selected = false;
+				with (obj_player_cg)
+				{
+					action_state = false;
+					action_text = "Select a card."
+					hand_size = hand_size - 1;
+				}
 			}
 		}
 	}
@@ -171,7 +160,7 @@ if (obj_player_cg.action_state = true)
 //
 //
 //While Selected in Hand
-function scr_cg_player_0000_active_selected(){
+function scr_cg_0000_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;
@@ -398,7 +387,7 @@ if (target_selected != -1)
 //
 //
 //While Selected in Hand
-function scr_cg_opp_0000_hand_playcheck(){
+function xscr_cg_opp_0000_hand_playcheck(){
 if (active_array[0,0] = -1)
 {
 	card_played = true;
@@ -428,7 +417,7 @@ if (active_array[0,0] = -1)
 //
 //
 //While Selected in Hand
-function scr_cg_opp_0000_active_selected(){
+function xscr_cg_opp_0000_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 0;

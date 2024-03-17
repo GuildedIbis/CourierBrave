@@ -1,18 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_light_vostleTown_window",
+  "%Name":"obj_light_beetraCity_window",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_light_vostleTown_window",
+  "name":"obj_light_beetraCity_window",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house_create",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_beetraCity_window_house",},
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_beetraCity_window_house_create",},
     {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
   ],
   "parent":{
@@ -41,8 +41,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_effect_window_farwayRoad_house",
-    "path":"sprites/spr_effect_window_farwayRoad_house/spr_effect_window_farwayRoad_house.yy",
+    "name":"spr_effect_window_beetraCity_house",
+    "path":"sprites/spr_effect_window_beetraCity_house/spr_effect_window_beetraCity_house.yy",
   },
   "spriteMaskId":null,
   "visible":true,
