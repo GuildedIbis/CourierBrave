@@ -115,27 +115,6 @@ with (instance_create_layer(295,105,"Instances",obj_card))
 //
 //
 //
-//
-//Check if card is playable
-function scr_cg_card_hand_play_check(_player){
-playable = true;
-
-with (obj_card)
-{
-	if (card_owner = _player)
-	{
-		if (card_place = 1) and (card_position = 0)
-		{
-			other.playable = false;
-		}
-	}
-}
-}
-//
-//
-//
-//
-//
 //Move Between Active Spaces
 function scr_cg_card_active_move_check(_cardPosition){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -144,15 +123,34 @@ var _actX = 165;
 var _actY = 105;
 var _cardInst = id;
 
-with (obj_card)
+if (card_owner = 0)
 {
-	if (id != _cardInst)
+	with (obj_card)
 	{
-		if (card_owner = 0) and (card_place = 1)
+		if (id != _cardInst)
 		{
-			if (card_position = _cardPosition)
+			if (card_owner = 0) and (card_place = 1)
 			{
-				_cardInst.moveable = false;
+				if (card_position = _cardPosition)
+				{
+					_cardInst.moveable = false;
+				}
+			}
+		}
+	}
+}
+if (card_owner = 1)
+{
+	with (obj_card)
+	{
+		if (id != _cardInst)
+		{
+			if (card_owner = 1) and (card_place = 1)
+			{
+				if (card_position = _cardPosition)
+				{
+					_cardInst.moveable = false;
+				}
 			}
 		}
 	}
@@ -190,6 +188,15 @@ if (_player = 0)
 			action_state = false;
 		}
 	}
+}
+if (_player = 1)
+{
+	with (obj_opponent_cg)
+	{
+		move_pt = true;
+		action_timer = 120;
+	}
+	card_position = card_position + 1;
 }
 }//
 //

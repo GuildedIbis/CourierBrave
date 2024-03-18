@@ -24,7 +24,7 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_sprite_ext(spr_gameBoard_selected,_player,0,0,1,1,0,c_white,1);
-draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
+draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,.5,.5,0,c_white,1);
 draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
 draw_text_transformed(_cardX + 60,_cardY + 84,_stage,.5,.5,0);
 draw_text_transformed(_cardX + 115,_cardY + 16,_hpText,1,1,0);
@@ -57,11 +57,9 @@ image_speed = 0;
 //Scripts
 card_hand = scr_cg_0000_hand_selected;
 card_active = scr_cg_0000_active_selected;
-card_back = -1;
-card_hit = -1;
-card_ability = -1;
+card_play = scr_cg_0000_play_fh;
+card_move = scr_cg_0000_move;
 card_attack1 = scr_cg_0000_atk1;
-card_attack2 = -1;
 
 }
 //
@@ -98,22 +96,7 @@ if (card_owner = 0)
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 18,_cardY + 80,86,12);
 			if (mouse_check_button_released(mb_left)) 
 			{
-				scr_cg_card_hand_play_check(card_owner);
-				if (playable = true)
-				{
-					with (obj_player_cg)
-					{
-						action_state = true;
-						action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
-					}
-				}
-				else
-				{
-					with (obj_player_cg)
-					{
-						action_text = "ENTRY SLOT occupied."
-					}
-				}
+				scr_cg_0000_play_fh();
 			}
 		
 		}
@@ -175,65 +158,160 @@ draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 
-
-if (obj_cardGame.turn = 0)
+if (card_owner = 0)
 {
-	//Select Move
-	if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
+	if (obj_cardGame.turn = 0)
 	{
-		draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
-		if (mouse_check_button_released(mb_left)) 
+		//Select Action
+		if (point_in_rectangle(_mouseX,_mouseY,_cardX + 105,_cardY + 81,_cardX + 114,_cardY + 90))
 		{
-			moveable = true;
-			scr_cg_card_active_move_check(card_position + 1);
-			if (obj_player_cg.move_pt = false) and (moveable = true)
+			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + 104,_cardY + 80,12,12);
+			if (mouse_check_button_released(mb_left)) 
 			{
-				with (obj_player_cg)
-				{
-					action_state = true;
-					action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
-				}
-				action_state = true;
-				action_choose = 0;
-			}
-			if (obj_player_cg.move_pt = true)
-			{
-				with (obj_player_cg)
-				{
-					action_state = false;
-					action_text = "Move per turn already taken."
-				}
-				action_state = false;
-			}
-			if (moveable = false)
-			{
-				with (obj_player_cg)
-				{
-					action_state = false;
-					action_text = "Position occupied."
-				}
-				action_state = false;
+				scr_cg_0000_move();
 			}
 		}
+	
+		//Execute Action
+		if (action_state = true)
+		{
+			switch (action_choose)
+			{
+				case 0:
+					scr_cg_card_active_move(card_owner);
+				break;
+		
+				//case 1:
+				//	scr_cg_player_0000_atk_0();
+				//break;
+			}
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//While Selected in Hand
+function scr_cg_0000_play_fh(){
+//
+if (card_owner = 0)
+{
+	playable = true;
+	with (obj_card)
+	{
+		if (card_owner = 0)
+		{
+			if (card_place = 1) and (card_position = 0)
+			{
+				other.playable = false;
+			}
+		}
+	}
+	if (playable = true)
+	{
+		with (obj_player_cg)
+		{
+			action_state = true;
+			action_text = "Select the ENTRY SLOT to put KAFFARI GUARD into play.\n\n\nESC to exit action."
+		}
+	}
+	else
+	{
+		with (obj_player_cg)
+		{
+			action_text = "ENTRY SLOT occupied."
+		}
+	}
+}
+//
+if (card_owner = 1)
+{
+	playable = true;
+	with (obj_card)
+	{
+		if (card_owner = 1)
+		{
+			if (card_place = 1) and (card_position = 0)
+			{
+				other.playable = false;
+			}
+		}
+	}
+	if (playable = true)
+	{
+		obj_opponent_cg.action_timer = 120;
+		with (obj_player_cg)
+		{
+			action_text = "Opponent played KAFFARI GUARD."
+		}
+		card_place = 1;
+		card_position = 0;
+	}
+}
+//
+//
+}
+//
+//
+//
+//
+//
+//While Selected in Hand
+function scr_cg_0000_move(){
+//
+if (card_owner = 0)
+{
+	moveable = true;
+	scr_cg_card_active_move_check(card_position + 1);
+	if (obj_player_cg.move_pt = false) and (moveable = true)
+	{
+		with (obj_player_cg)
+		{
+			action_state = true;
+			action_text = "Select a slot to move KAFFARI GUARD to.\n\n\nESC to exit action."
+		}
+		action_state = true;
+		action_choose = 0;
+	}
+	if (obj_player_cg.move_pt = true)
+	{
+		with (obj_player_cg)
+		{
+			action_state = false;
+			action_text = "Move per turn already taken."
+		}
+		action_state = false;
+	}
+	if (moveable = false)
+	{
+		with (obj_player_cg)
+		{
+			action_state = false;
+			action_text = "Position occupied."
+		}
+		action_state = false;
+	}
+}
+//
+if (card_owner = 1)
+{
+	moveable = true;
+	scr_cg_card_active_move_check(card_position + 1);
+	if (obj_opponent_cg.move_pt = false) and (moveable = true)
+	{
+		with (obj_player_cg)
+		{
+			action_text = "Opponent moved KAFFARI GUARD."
+		}
+		scr_cg_card_active_move(card_owner);
 	}
 	
-	//Action State
-	if (action_state = true)
-	{
-		switch (action_choose)
-		{
-			case 0:
-				scr_cg_card_active_move(card_owner);
-			break;
-		
-			//case 1:
-			//	scr_cg_player_0000_atk_0();
-			//break;
-		}
-	}
 }
+//
 }
-
 //
 //
 //
@@ -381,54 +459,4 @@ if (target_selected != -1)
 	}
 }
 }
-//
-//
-//
-//
-//
-//While Selected in Hand
-function xscr_cg_opp_0000_hand_playcheck(){
-if (active_array[0,0] = -1)
-{
-	card_played = true;
-	//Set to Active
-	active_array[0,0] = 0;
-	active_array[0,1] = "KAFFARI GAURD";
-	active_array[0,2] = 0;
-	active_array[0,3] = 0;
-	active_array[0,4] = 4;
-	active_array[0,5] = 0;
 
-	hand_selected = true;
-	hand_size = hand_size - 1;
-	obj_player_cg.action_text = "Opponent played KAFARRI GUARD."
-	obj_player_cg.active_slot = 0;
-	action_timer = 60;
-	with (obj_card_effect) instance_destroy();
-	obj_player_cg.card_selected = scr_cg_opp_0000_active_selected;//cg_script_database[0,3];
-	array_delete(hand_array,hand_slot,1);
-}
-
-
-}
-//
-//
-//
-//
-//
-//While Selected in Hand
-function xscr_cg_opp_0000_active_selected(){
-var _mouseX = device_mouse_x_to_gui(0);
-var _mouseY = device_mouse_y_to_gui(0);
-var _cardX = 0;
-var _cardY = 5;
-var _hpText = string(obj_opponent_cg.active_array[active_slot,4] - obj_opponent_cg.active_array[active_slot,5]);
-
-//Draw Full Card
-scr_cg_0000_draw(1,_hpText,_cardX,_cardY);
-//draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,1,1,0,c_white,1);
-
-//Move (Standard)
-
-
-}

@@ -34,6 +34,7 @@ switch(card_place)
 		//Select
 		if (point_in_rectangle(mouse_x,mouse_y,_cardX,_cardY,_cardX+15,_cardY+21))
 		{
+			draw_sprite_ext(spr_card_all_full,0,129,107,.25,.25,0,c_white,1);
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + -1,_cardY -1,17,23);
 			if (mouse_check_button_pressed(mb_left))
 			{
