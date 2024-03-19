@@ -23,13 +23,13 @@ var _stage = "ORDINARY KAFFARI WARRIOR";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,_player,0,0,1,1,0,c_white,1);
+draw_sprite_ext(spr_gameBoard_selected,_player,0,0,.5,.5,0,c_white,1);
 draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,.5,.5,0,c_white,1);
-draw_text_transformed(_cardX + 63,_cardY + 5,_cName,1,1,0);
-draw_text_transformed(_cardX + 60,_cardY + 84,_stage,.5,.5,0);
-draw_text_transformed(_cardX + 115,_cardY + 16,_hpText,1,1,0);
+draw_text_transformed(_cardX + 31,_cardY + 5,_cName,1,1,0);
+draw_text_transformed(_cardX + 30,_cardY + 42,_stage,.5,.5,0);
+draw_text_transformed(_cardX + 57,_cardY + 8,_hpText,1,1,0);
 draw_set_halign(fa_right);
-draw_text_transformed(_cardX + 114,_cardY + 102,_atkName1,.75,.75,0);
+draw_text_transformed(_cardX + 57,_cardY + 62,_atkName1,.75,.75,0);
 
 }
 //
