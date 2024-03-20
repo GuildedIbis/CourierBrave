@@ -13,7 +13,7 @@
 //
 //
 //Draw Full Card
-function scr_cg_0000_draw(_player,_hpText,_cardX=0,_cardY=3){
+function scr_cg_0000_draw(_player=0,_selected = false,_hpText=0,_cardX=0,_cardY=3,_scale=1){
 //
 var _cName = "KAFFARI GUARD";
 var _atkName1 = "SWORD STRIKE";
@@ -23,13 +23,16 @@ var _stage = "ORDINARY KAFFARI WARRIOR";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-draw_sprite_ext(spr_gameBoard_selected,_player,0,0,.5,.5,0,c_white,1);
-draw_sprite_ext(spr_card_all_full,0,_cardX,_cardY,.5,.5,0,c_white,1);
-draw_text_transformed(_cardX + 15,_cardY + 4,_cName,.5,.5,0);
-draw_text_transformed(_cardX + 15,_cardY + 42,_stage,.25,.25,0);
-draw_text_transformed(_cardX + 28,_cardY + 8,_hpText,.5,.5,0);
-draw_set_halign(fa_right);
-draw_text_transformed(_cardX + 28,_cardY + 62,_atkName1,.4,.4,0);
+if (_selected = true)
+{
+	draw_sprite_ext(spr_gameBoard_selected,_player,0,0,_scale,_scale,0,c_white,1);
+}
+draw_sprite_ext(spr_card_all_full2,0,_cardX,_cardY,_scale*.5,_scale*.5,0,c_white,1);
+//draw_text_transformed(_cardX + (30*_scale),_cardY + (8*_scale),_cName,_scale,_scale,0);
+//draw_text_transformed(_cardX + (30*_scale),_cardY + (85*_scale),_stage,_scale*.5,_scale*.5,0);
+//draw_text_transformed(_cardX + (56*_scale),_cardY + (16*_scale),_hpText,_scale*.5,_scale*.5,0);
+//draw_set_halign(fa_right);
+//draw_text_transformed(_cardX + (115*_scale),_cardY + (105*_scale),_atkName1,_scale*.8,_scale*.8,0);
 }
 //
 //
@@ -77,7 +80,7 @@ var _actY = 105;
 
 
 //Draw Card
-scr_cg_0000_draw(card_owner,_hpText,_cardX,_cardY);
+scr_cg_0000_draw(card_owner,true,_hpText,_cardX,_cardY,.5);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
@@ -150,7 +153,7 @@ var _hpText = 4;
 
 
 //Draw Full Card
-scr_cg_0000_draw(0,_hpText,_cardX,_cardY);
+scr_cg_0000_draw(0,true,_hpText,_cardX,_cardY,.5);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
