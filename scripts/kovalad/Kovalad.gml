@@ -22,7 +22,7 @@ interact = 20;
 //Kovalad Step
 function scr_npc_kovalad_step(){
 sprite_index = spr_npc_kovalad;
-scr_npc_interact(12);
+scr_npc_interact(interact);
 if (animation_counter <= 2)
 {
 	var _totalFrames = sprite_get_number(sprite_index);

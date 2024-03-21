@@ -27,7 +27,7 @@ if (obj_game.gamePaused = false)
 {
 	scr_npc_timer_countdown();
 	sprite_index = npc_idle;
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 	scr_npc_animation();
 }
 else

@@ -11,7 +11,7 @@ sprite_index = spr_npc_sirvo;
 npc_idle = spr_npc_sirvo;
 npc_move = spr_npc_sirvo_walk;
 sound = snd_npc_mouse;
-interact = 20;
+interact = 12;
 npc_spd = 1.0;
 path = -1;
 timerW = irandom_range(0,120);
@@ -26,7 +26,7 @@ function scr_npc_sirvo_step(){
 if (obj_game.gamePaused = false)
 {
 	scr_npc_timer_countdown();
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 	scr_npc_wander_home_range(60,240,home_x,home_y,64);
 	scr_npc_animation();
 }

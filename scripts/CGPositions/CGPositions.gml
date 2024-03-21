@@ -17,13 +17,13 @@ switch(card_place)
 		var _cardY = 161;
 		if (_handSize < 11)
 		{
-			var _leftAlign = 224 - (_handSize * 8);
+			var _leftAlign = 164 - (_handSize * 8);
 			var _space = 16;
 			var _cardX = _leftAlign + (16 * card_position);
 		}
 		else
 		{
-			var _leftAlign = 224 - (11 * 8);
+			var _leftAlign = 164 - (11 * 8);
 			//var _space = max(1,26 - ((_handSize - 11)));
 			var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 			var _cardX = _leftAlign + (_space * card_position);
@@ -34,7 +34,7 @@ switch(card_place)
 		//Select
 		if (point_in_rectangle(mouse_x,mouse_y,_cardX,_cardY,_cardX+15,_cardY+21))
 		{
-			draw_sprite_ext(spr_card_all_full,0,129,107,.25,.25,0,c_white,1);
+			draw_sprite_ext(spr_card_all_full2,card_id,257,3,.25,.25,0,c_white,1);
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + -1,_cardY -1,17,23);
 			if (mouse_check_button_pressed(mb_left))
 			{
@@ -49,7 +49,7 @@ switch(card_place)
 		
 	case 1: //Active
 		//Set Position
-		var _cardX = 165 + (20 * card_position)
+		var _cardX = 105 + (20 * card_position)
 		var _cardY = 105;
 		x = _cardX;
 		y = _cardY;

@@ -10,6 +10,7 @@ entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi1_active;
 stone_sprite = spr_solarSabi1_stone;
+interact = 12;
 }
 //
 //
@@ -22,6 +23,7 @@ entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi2_active;
 stone_sprite = spr_solarSabi2_stone;
+interact = 12;
 }
 //
 //
@@ -34,6 +36,7 @@ entity_step = scr_npc_solarSabi_step;
 sound = snd_solarSabi;
 active_sprite = spr_solarSabi3_active;
 stone_sprite = spr_solarSabi3_stone;
+interact = 12;
 }
 //
 //
@@ -44,7 +47,7 @@ stone_sprite = spr_solarSabi3_stone;
 function scr_npc_solarSabi_step(){
 if (global.dayPhase < 2) and (obj_inventory.quest_grid[# 6, 1] >= 2)
 {
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 	sprite_index = active_sprite;
 	image_speed = 1;
 }

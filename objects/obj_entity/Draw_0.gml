@@ -17,7 +17,7 @@ draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_a
 
 if (obj_game.gamePaused = false)
 {
-	if (point_in_circle(obj_player.x,obj_player.y,x,y,12)) and (interact != -1)
+	if (point_in_circle(obj_player.x,obj_player.y,x,y,interact)) and (interact != -1)
 	{
 		interact_timer = interact_timer - 1;
 		if (interact_timer <= 0)

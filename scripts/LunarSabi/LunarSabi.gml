@@ -12,7 +12,8 @@ active_sprite = spr_npc_lunarSabi;
 stone_sprite = spr_npc_lunarSabi_stone;
 sprite_index = stone_sprite;
 animation_end = false;
-local_frame = 0
+local_frame = 0;
+interact = 12;
 direction = 270;
 }
 //
@@ -24,7 +25,7 @@ direction = 270;
 function scr_npc_lunarSabi_step(){
 if (global.dayPhase = 2)
 {
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 	scr_npc_animation();
 	sprite_index = active_sprite;
 	image_speed = 1;

@@ -14,7 +14,7 @@ timer1 = 40;
 idle_sprite = spr_npc_emissary;
 npc_idle = spr_npc_emissary;
 scene = false;
-interact = 20;
+interact = 12;
 sprite_index = spr_npc_emissary_scene_00;
 image_speed = 0;
 }
@@ -60,7 +60,7 @@ image_alpha = 1;
 image_index = 1;
 image_speed = 0;
 sprite_index = spr_npc_emissary;
-scr_npc_interact(12);
+scr_npc_interact(interact);
 
 //Animate
 if (point_in_circle(obj_player.x,obj_player.y,x,y,12))

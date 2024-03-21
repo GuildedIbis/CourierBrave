@@ -9,7 +9,7 @@ function scr_npc_nisma_create(){
 entity_step = scr_npc_nisma_step;
 npc_idle = spr_npc_nisma;
 sound = snd_npc_mouse;
-interact = 20;
+interact = 12;
 }
 //
 //
@@ -22,7 +22,7 @@ if (obj_game.gamePaused = false)
 {
 	sprite_index = spr_npc_nisma;
 	scr_player_animation();
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 }
 else
 {
@@ -92,7 +92,7 @@ function scr_npc_nisma_block_create(){
 entity_step = scr_npc_nisma_block_step;
 npc_idle = spr_npc_nisma;
 sound = snd_npc_mouse;
-interact = 20;
+interact = 12;
 }
 //
 //
@@ -105,7 +105,7 @@ if (obj_game.gamePaused = false)
 {
 	sprite_index = spr_npc_nisma;
 	scr_player_animation();
-	scr_npc_interact(12);
+	scr_npc_interact(interact);
 }
 else
 {

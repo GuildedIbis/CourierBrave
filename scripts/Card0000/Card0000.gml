@@ -13,7 +13,7 @@
 //
 //
 //Draw Full Card
-function scr_cg_0000_draw(_player=0,_selected = false,_hpText=0,_cardX=0,_cardY=3,_scale=1){
+function scr_cg_0000_draw(_player=0,_selected = false,_hpText=0,_cardX=1,_cardY=3,_scale=1){
 //
 var _cName = "KAFFARI GUARD";
 var _atkName1 = "SWORD STRIKE";
@@ -73,7 +73,7 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cName = "KAFFARI GUARD";
 var _hpText = card_hp - card_damage;
-var _cardX = 0;
+var _cardX = 1;
 var _cardY = 3;
 var _actX = 165;
 var _actY = 105;
@@ -146,8 +146,8 @@ if (card_owner = 0)
 function scr_cg_0000_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
-var _cardX = 0;
-var _cardY = 5;
+var _cardX = 1;
+var _cardY = 3;
 var _hpText = 4;
 
 
