@@ -15,7 +15,7 @@
 //
 //Cards Create
 function scr_card_game_create(){
-	
+display_set_gui_size((_resolutionWidth * 6),(_resolutionHeight*6));	
 
 with (instance_create_layer(0,0,"Instances",obj_cardGame))
 {

@@ -2,7 +2,8 @@
 function scr_cg_card_position_player(){
 //var _mouseX = device_mouse_x_to_gui(0);
 //var _mouseY = device_mouse_y_to_gui(0);
-draw_sprite_ext(spr_card_all,card_type,x,y,1,1,0,c_white,1.0);
+//draw_sprite_ext(spr_card_all,card_type,x,y,1,1,0,c_white,1.0);
+draw_sprite_ext(spr_card_all_full2_monotext,card_id,x,y,.5,.5,0,c_white,1.0);
 depth = obj_cardGame.depth - 1;
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
@@ -14,18 +15,18 @@ switch(card_place)
 {
 	case 0: //Hand
 		//Set Position
-		var _cardY = 161;
+		var _cardY = (155 * 6);
 		if (_handSize < 11)
 		{
-			var _leftAlign = 164 - (_handSize * 8);
-			var _space = 16;
-			var _cardX = _leftAlign + (16 * card_position);
+			var _leftAlign = (164 * 6) - (_handSize * 64);
+			var _space = 64;
+			var _cardX = _leftAlign + (64 * card_position);
 		}
 		else
 		{
-			var _leftAlign = 164 - (11 * 8);
+			var _leftAlign = (164 * 6) - (11 * 64);
 			//var _space = max(1,26 - ((_handSize - 11)));
-			var _space = max(1,170/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
+			var _space = max(1,(170*6)/_handSize); //It's 185 from one edge to the other, -15 for the width of the card
 			var _cardX = _leftAlign + (_space * card_position);
 		}
 		x = _cardX;
@@ -34,7 +35,7 @@ switch(card_place)
 		//Select
 		if (point_in_rectangle(mouse_x,mouse_y,_cardX,_cardY,_cardX+15,_cardY+21))
 		{
-			draw_sprite_ext(spr_card_all_full2,card_id,257,3,.25,.25,0,c_white,1);
+			draw_sprite_ext(spr_card_all_full2_monotext,card_id,1542,3,1.5,1.5,0,c_white,1);
 			draw_sprite_stretched(spr_highlight_nineslice,0,_cardX + -1,_cardY -1,17,23);
 			if (mouse_check_button_pressed(mb_left))
 			{

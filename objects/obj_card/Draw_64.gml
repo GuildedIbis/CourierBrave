@@ -20,3 +20,12 @@ if (selected = true)
 		script_execute(card_script);
 	}
 }
+
+if (card_owner = 0)
+{
+	scr_cg_card_position_player();
+}
+else
+{
+	scr_cg_card_position_opp();
+}
