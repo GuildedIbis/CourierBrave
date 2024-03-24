@@ -15,7 +15,7 @@ if (flash != 0)
 //Shadow
 if (shadow = true)
 {
-	draw_sprite(spr_player_shadow,0,x+1,y)
+	draw_sprite_ext(spr_player_shadow,0,x+1,y,scale_x,scale_y,0,c_white,1)
 }
 //if (dead = false)
 //{
@@ -46,13 +46,13 @@ if (_castDir >= 90) and (_castDir < 329)
 else _armY = 1;
 if (casting = true) and (_castDepth = true)
 {
-	draw_sprite_ext(arm_sprite,0,x + dir_offX,y + dir_offY,1.0,_armY,_castDir,c_white,1.0);
+	draw_sprite_ext(arm_sprite,0,x + dir_offX,y + dir_offY,scale_x,(scale_y * _armY),_castDir,c_white,1.0);
 }
 event_inherited();
 draw_sprite_ext(sprite_index,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 if (casting = true) and (_castDepth = false)
 {
-	draw_sprite_ext(arm_sprite,0,x + dir_offX,y + dir_offY,1.0,_armY,_castDir,c_white,1.0);
+	draw_sprite_ext(arm_sprite,0,x + dir_offX,y + dir_offY,scale_x,(scale_y * _armY),_castDir,c_white,1.0);
 }
 
 

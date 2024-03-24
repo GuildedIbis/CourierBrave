@@ -22,6 +22,7 @@ menuPaused = false; //This and invPaused control what the menu object draws.
 invPaused = false;
 textPaused = false;
 cardPaused = false;
+card_live = false;
 event_live = false;
 save_num = -1;
 gameplay_timer = 60;

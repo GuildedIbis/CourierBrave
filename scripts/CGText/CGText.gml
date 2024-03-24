@@ -36,6 +36,12 @@ if (obj_game.cardPaused = true)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			display_set_gui_size(_resolutionWidth,_resolutionHeight);
+			obj_game.card_live = false;
+			with (obj_cursor)
+			{
+				scale_x = 6;
+				scale_y = 6;
+			}
 			with(obj_card)
 			{
 				instance_destroy();

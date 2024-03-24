@@ -24,12 +24,15 @@ map_grid[# 3, 2] = scr_menu_map_habraf_lake;
 map_grid[# 4, 0] = "Beaowire Fortress"
 map_grid[# 4, 1] = false;
 map_grid[# 4, 2] = scr_menu_map_beaowire_fortress;
-map_grid[# 5, 1] = "Northern Pass";
+map_grid[# 5, 1] = "Beetra City";
 map_grid[# 5, 1] = false;
-map_grid[# 5, 2] = scr_menu_map_northern_pass;
-map_grid[# 6, 0] = "Beetrap 2";
+map_grid[# 5, 2] = scr_menu_map_beetra_city;
+map_grid[# 6, 0] = "Castle Mhere";
 map_grid[# 6, 1] = false;
-map_grid[# 6, 2] = scr_menu_map_farway_road;
+map_grid[# 6, 2] = scr_menu_map_castle_mhere;
+map_grid[# 7, 0] = "Nothern Pass";
+map_grid[# 7, 1] = false;
+map_grid[# 7, 2] = scr_menu_map_northern_pass;
 
 if (slot != -1)
 {
@@ -1325,6 +1328,410 @@ if (obj_inventory.level_ary[0] = true)
 //
 //
 //
+//Beetra City Map Menu Draw
+function scr_menu_map_beetra_city(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+//Top Left Corner of Map
+var _xPos = 64;
+var _yPos = 47;
+
+//Format and Draw Text
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(159,39,"BEETRA CITY",1,1,0);
+
+//Draw Player Position
+if (obj_game.level_num = 5)
+{
+	var _mapRoomX = obj_inventory.beetraCity_map_ary[obj_game.room_num][1] 
+	var _mapRoomY = obj_inventory.beetraCity_map_ary[obj_game.room_num][2]
+	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
+	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
+	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
+	
+}
+
+
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 20, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 78, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 76,_yPos + 38,_xPos + 81,_yPos + 41)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 78,_yPos + 40);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.beetraCity_map_ary;
+			obj_game.level_num = 5;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.beetraCity_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 20, 1];
+			global.targetY = obj_inventory.altar_grid[# 20, 2];
+			global.targetRoom = rm_beetrap_beetraCity_00;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+
+//Mhere Connector Arrow
+if (obj_inventory.level_ary[6] = true)
+{
+	draw_sprite_ext(spr_map_arrow,1,_xPos + 129, _yPos + 40,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 126,_yPos + 37,_xPos + 132,_yPos + 46))
+	{
+		draw_sprite(spr_map_arrow_highlight,1,_xPos + 129,_yPos + 40);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 1;
+			map_selected = obj_inventory.map_grid[# 6, 2];
+		}
+	}
+}
+
+//NPass Connector Arrow
+if (obj_inventory.level_ary[7] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 87, _yPos + 55,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 52,_xPos + 90,_yPos + 58))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 87,_yPos + 55);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 2;
+			map_selected = obj_inventory.map_grid[# 7, 2];
+		}
+	}
+}
+
+//Level8 Connector Arrow
+if (obj_inventory.level_ary[8] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 57, _yPos + 74,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 54,_yPos + 71,_xPos + 60,_yPos + 77))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 57,_yPos + 74);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 3;
+			map_selected = obj_inventory.map_grid[# 8, 2];
+		}
+	}
+}
+
+//Level9 Connector Arrow
+if (obj_inventory.level_ary[9] = true)
+{
+	draw_sprite_ext(spr_map_arrow,0,_xPos + 41, _yPos + 47,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 38,_yPos + 44,_xPos + 44,_yPos + 50))
+	{
+		draw_sprite(spr_map_arrow_highlight,0,_xPos + 41,_yPos + 47);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 4;
+			map_selected = obj_inventory.map_grid[# 9, 2];
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
+//Castle Mhere Map Menu Draw
+function scr_menu_map_castle_mhere(){
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
+
+var _xPos = 64;
+var _yPos = 47;
+
+draw_set_font(global.fnt_main_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text_transformed(159,39,"CASTLE MHERE",1,1,0);
+
+if (obj_game.level_num = 6)
+{
+	var _mapRoomX = obj_inventory.castleMhere_map_ary[obj_game.room_num][1] 
+	var _mapRoomY = obj_inventory.castleMhere_map_ary[obj_game.room_num][2]
+	var _mapIconX = _mapRoomX + round((obj_player.x / 2)/10);
+	var _mapIconY = _mapRoomY + round((obj_player.y / 2)/10);
+	draw_sprite_ext(spr_formSelect_icons,obj_player.form,_xPos + _mapIconX,_yPos + _mapIconY,.5,.5,0,c_white,1);
+	
+}
+
+
+//Draw Altars (Selectable for travel
+if (obj_inventory.altar_grid[# 21, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 19, _yPos + 22,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 16,_yPos + 20,_xPos + 21,_yPos + 23)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 19,_yPos + 22);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 0;
+			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+			obj_game.level_num = 1;
+			obj_game.room_num = 0;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 0, 1];
+			global.targetY = obj_inventory.altar_grid[# 0, 2];
+			global.targetRoom = rm_lenko_farwayRoad_00;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.altar_grid[# 22, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 56, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 53,_yPos + 47,_xPos + 58,_yPos + 50)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 56,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 4;
+			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+			obj_game.level_num = 1;
+			obj_game.room_num = 4;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 1, 1];
+			global.targetY = obj_inventory.altar_grid[# 1, 2];
+			global.targetRoom = rm_lenko_farwayRoad_04;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.altar_grid[# 23, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 47,_xPos + 119,_yPos + 50)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 117,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 6;
+			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+			obj_game.level_num = 1;
+			obj_game.room_num = 6;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 2, 1];
+			global.targetY = obj_inventory.altar_grid[# 2, 2];
+			global.targetRoom = rm_lenko_farwayRoad_06;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+			
+		}
+	}
+}
+if (obj_inventory.altar_grid[# 24, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 87, _yPos + 31,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 84,_yPos + 29,_xPos + 89,_yPos + 32)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 87,_yPos + 31);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 9;
+			obj_inventory.room_ary = obj_inventory.farwayRoad_map_ary;
+			obj_game.level_num = 1;
+			obj_game.room_num = 9;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.farwayRoad_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 3, 1];
+			global.targetY = obj_inventory.altar_grid[# 3, 2];
+			global.targetRoom = rm_lenko_farwayRoad_09;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.altar_grid[# 25, 3] = true) 
+{
+	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 88, _yPos + 67,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 85,_yPos + 65,_xPos + 90,_yPos + 68)) and (altar = true)
+	{
+		draw_sprite(spr_map_alter_icon_highlight,0,_xPos + 88,_yPos + 67);
+		if (mouse_check_button_pressed(mb_left))// and (obj_inventory.quest_grid[# 1, 3] = true)
+		{
+			obj_inventory.room_num = 13;
+			obj_inventory.room_ary = obj_inventory.yakflowerPath_map_ary;
+			obj_game.level_num = 1;
+			obj_game.room_num = 13;
+			obj_game.room_name = obj_inventory.room_ary[obj_game.room_num][0];
+			obj_game.room_name_timer = 180;
+			obj_game.room_enemy_grid = obj_game.yakflowerPath_enemy_grid;
+			global.targetX = obj_inventory.altar_grid[# 4, 1];
+			global.targetY = obj_inventory.altar_grid[# 4, 2];
+			global.targetRoom = rm_lenko_farwayRoad_13;
+			global.targetAltar = true;
+			scr_game_room_enemy_reset();
+			global.lastAltar = global.targetRoom;
+			global.lastAltarX = global.targetX;
+			global.lastAltarY = global.targetY;
+			global.transition = true;
+			global.fadeOut = true;
+			obj_game.gamePaused = false;
+			obj_game.invPaused = false;
+			obj_game.textPaused = false;
+			obj_inventory.swap_menu = false;
+			obj_inventory.main_menu = false;
+			obj_inventory.quest_menu = false;
+			obj_inventory.map_menu = false;
+			
+			with (obj_player)
+			{
+				walk_snd = snd_walk_regular;
+				if (max_weapon_count != -1)
+				{
+					weapon_count = max_weapon_count;
+				}
+			}
+		}
+	}
+}
+if (obj_inventory.level_ary[5] = true)
+{
+	draw_sprite_ext(spr_map_arrow,3,_xPos + 29, _yPos + 49,1,1,0,c_white,1);
+	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 26,_yPos + 46,_xPos + 32,_yPos + 52))
+	{
+		draw_sprite(spr_map_arrow_highlight,3,_xPos + 29,_yPos + 49);
+		if (mouse_check_button_pressed(mb_left))
+		{
+			slot = 0;
+			map_selected = obj_inventory.map_grid[# 0, 2];
+		}
+	}
+}
+}
+//
+//
+//
+//
+//
 //Northern Pass Map Menu Draw
 function scr_menu_map_northern_pass(){
 var _mouseX = device_mouse_x_to_gui(0);
@@ -1340,7 +1747,7 @@ draw_set_color(c_white);
 draw_text_transformed(159,39,"NORTHERN PASS",1,1,0);
 
 
-if (obj_game.level_num = 5)
+if (obj_game.level_num = 7)
 {
 	var _mapRoomX = obj_inventory.northernPass_map_ary[obj_game.room_num][1] 
 	var _mapRoomY = obj_inventory.northernPass_map_ary[obj_game.room_num][2]
@@ -1351,7 +1758,7 @@ if (obj_game.level_num = 5)
 
 
 //Draw Altars (Selectable for travel
-if (obj_inventory.altar_grid[# 21, 3] = true)
+if (obj_inventory.altar_grid[# 27, 3] = true)
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 22, _yPos + 76,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 19,_yPos + 74,_xPos + 24,_yPos + 77)) and (altar = true)
@@ -1394,7 +1801,7 @@ if (obj_inventory.altar_grid[# 21, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 22, 3] = true) 
+if (obj_inventory.altar_grid[# 28, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 58, _yPos + 39,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 55,_yPos + 37,_xPos + 60,_yPos + 40)) and (altar = true)
@@ -1437,7 +1844,7 @@ if (obj_inventory.altar_grid[# 22, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 23, 3] = true) 
+if (obj_inventory.altar_grid[# 29, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 121, _yPos + 30,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 118,_yPos + 28,_xPos + 123,_yPos + 31)) and (altar = true)
@@ -1481,7 +1888,7 @@ if (obj_inventory.altar_grid[# 23, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 24, 3] = true) 
+if (obj_inventory.altar_grid[# 30, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 38, _yPos + 50,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 100,_yPos + 47,_xPos + 105,_yPos + 50)) and (altar = true)
@@ -1524,7 +1931,7 @@ if (obj_inventory.altar_grid[# 24, 3] = true)
 		}
 	}
 }
-if (obj_inventory.altar_grid[# 25, 3] = true) 
+if (obj_inventory.altar_grid[# 31, 3] = true) 
 {
 	draw_sprite_ext(spr_map_alter_icon,0,_xPos + 117, _yPos + 50,1,1,0,c_white,1);
 	if (point_in_rectangle(_mouseX,_mouseY,_xPos + 114,_yPos + 48,_xPos + 119,_yPos + 51)) and (altar = true)

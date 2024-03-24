@@ -108,7 +108,7 @@ if (card_owner = 0)
 		draw_sprite_ext(spr_card_slot_effect,0,_actX,_actY,1,1,0,c_white,1);//80,92
 		if (point_in_rectangle(_mouseX,_mouseY,_actX,_actY,_actX + 15,_actY + 21))
 		{
-			draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,17,23);
+			draw_sprite_stretched(spr_highlight_nineslice,0,_actX - 1,_actY - 1,127,177);
 			if (mouse_check_button_released(mb_left)) 
 			{
 				//Set to Active

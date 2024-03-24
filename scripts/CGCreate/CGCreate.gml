@@ -16,7 +16,12 @@
 //Cards Create
 function scr_card_game_create(){
 display_set_gui_size((_resolutionWidth * 6),(_resolutionHeight*6));	
-
+obj_game.card_live = true;
+with (obj_cursor)
+{
+	scale_x = 6;
+	scale_y = 6;
+}
 with (instance_create_layer(0,0,"Instances",obj_cardGame))
 {
 	depth = obj_cursor.depth + 3;

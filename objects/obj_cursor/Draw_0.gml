@@ -8,7 +8,7 @@ if (obj_game.gamePaused = false) and (global.home = false)
 	}
 	else
 	{
-		draw_sprite_ext(spr_player_interact,0,x,y,1,1,0,c_white,1);
+		draw_sprite_ext(spr_player_interact,0,x,y,scale_x,scale_y,0,c_white,1);
 	}
 }
 

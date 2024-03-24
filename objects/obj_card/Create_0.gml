@@ -11,6 +11,8 @@ card_stage = -1;
 action_state = false;
 action_text = -1;
 playable = false;
+scale_x = 1;
+scale_y = 1;
 
 //Pylon Stats
 pylon_use = -1;

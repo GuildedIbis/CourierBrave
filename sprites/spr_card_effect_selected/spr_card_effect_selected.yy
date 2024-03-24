@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_card_effect_selected",
   "bboxMode":0,
-  "bbox_bottom":22,
+  "bbox_bottom":180,
   "bbox_left":0,
-  "bbox_right":16,
+  "bbox_right":130,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -21,7 +21,7 @@
   ],
   "gridX":12,
   "gridY":16,
-  "height":23,
+  "height":181,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"e0c17153-4ed8-41bb-9988-8c4ab7c3d376","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"e0c17153-4ed8-41bb-9988-8c4ab7c3d376","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -107,5 +107,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":17,
+  "width":131,
 }

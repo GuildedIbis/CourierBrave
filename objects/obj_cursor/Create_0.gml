@@ -2,6 +2,8 @@
 game_paused_image_speed = 0;
 follow_x = mouse_x;
 follow_y = mouse_y;
+scale_x = 1;
+scale_y = 1;
 curs_meter = true;
 curs_form = 0;
 curs_width = 8;

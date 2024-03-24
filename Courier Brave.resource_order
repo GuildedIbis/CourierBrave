@@ -1228,6 +1228,7 @@
     {"name":"spr_heavyBullet","order":10,"path":"sprites/spr_heavyBullet/spr_heavyBullet.yy",},
     {"name":"spr_highlight_button","order":2,"path":"sprites/spr_highlight_button/spr_highlight_button.yy",},
     {"name":"spr_highlight_nineslice","order":1,"path":"sprites/spr_highlight_nineslice/spr_highlight_nineslice.yy",},
+    {"name":"spr_highlight_nineslice3","order":4,"path":"sprites/spr_highlight_nineslice3/spr_highlight_nineslice3.yy",},
     {"name":"spr_hitbox_acolyte_slash","order":4,"path":"sprites/spr_hitbox_acolyte_slash/spr_hitbox_acolyte_slash.yy",},
     {"name":"spr_hitbox_acolyte_special","order":10,"path":"sprites/spr_hitbox_acolyte_special/spr_hitbox_acolyte_special.yy",},
     {"name":"spr_home_interior","order":5,"path":"sprites/spr_home_interior/spr_home_interior.yy",},

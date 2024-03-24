@@ -8,6 +8,8 @@
 z = 0;
 flash = 0;
 local_frame = 0;
+scale_x = 1;
+scale_y = 1;
 uni_flash = shader_get_uniform(sh_flash_white,"flash");
 special_draw = -1;
 shadow_sprite = -1;

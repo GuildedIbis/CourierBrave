@@ -1406,6 +1406,7 @@
     {"id":{"name":"spr_highlight_button","path":"sprites/spr_highlight_button/spr_highlight_button.yy",},},
     {"id":{"name":"spr_highlight_circle","path":"sprites/spr_highlight_circle/spr_highlight_circle.yy",},},
     {"id":{"name":"spr_highlight_nineslice","path":"sprites/spr_highlight_nineslice/spr_highlight_nineslice.yy",},},
+    {"id":{"name":"spr_highlight_nineslice3","path":"sprites/spr_highlight_nineslice3/spr_highlight_nineslice3.yy",},},
     {"id":{"name":"spr_hitbox_acolyte_slash","path":"sprites/spr_hitbox_acolyte_slash/spr_hitbox_acolyte_slash.yy",},},
     {"id":{"name":"spr_hitbox_acolyte_special","path":"sprites/spr_hitbox_acolyte_special/spr_hitbox_acolyte_special.yy",},},
     {"id":{"name":"spr_hitbox_skirmisher_slash","path":"sprites/spr_hitbox_skirmisher_slash/spr_hitbox_skirmisher_slash.yy",},},

@@ -69,6 +69,7 @@
     {"name":"inst_FAAE125","path":"rooms/rm_beetrap_beetraCity_00/rm_beetrap_beetraCity_00.yy",},
     {"name":"inst_48729A8A","path":"rooms/rm_beetrap_beetraCity_00/rm_beetrap_beetraCity_00.yy",},
     {"name":"inst_185CAC56","path":"rooms/rm_beetrap_beetraCity_00/rm_beetrap_beetraCity_00.yy",},
+    {"name":"inst_70017641","path":"rooms/rm_beetrap_beetraCity_00/rm_beetrap_beetraCity_00.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -219,6 +220,7 @@
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"room_enemy_grid","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_game.beetraCity_enemy_grid",},
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"level_num","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":-24.0,"y":256.0,},
+        {"$GMRInstance":"","%Name":"inst_70017641","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70017641","objectId":{"name":"obj_altar","path":"objects/obj_altar/obj_altar.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":240.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Effects","depth":800,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"","%Name":"inst_6D8593C8_4_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6D8593C8_4_1_1","objectId":{"name":"obj_effect_treeMolen_snowy","path":"objects/obj_effect_treeMolen_snowy/obj_effect_treeMolen_snowy.yy",},"properties":[
