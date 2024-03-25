@@ -39,8 +39,8 @@ if (obj_game.cardPaused = true)
 			obj_game.card_live = false;
 			with (obj_cursor)
 			{
-				scale_x = 6;
-				scale_y = 6;
+				scale_x = 1;
+				scale_y = 1;
 			}
 			with(obj_card)
 			{

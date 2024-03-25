@@ -18,9 +18,9 @@ switch(card_place)
 		var _cardY = (155 * 6);
 		if (_handSize < 11)
 		{
-			var _leftAlign = (164 * 6) - (_handSize * 64);
-			var _space = 64;
-			var _cardX = _leftAlign + (64 * card_position);
+			var _leftAlign = (164 * 6) - (_handSize * 128);
+			//var _space = 64;
+			var _cardX = _leftAlign + (128 * card_position);
 		}
 		else
 		{
@@ -35,8 +35,8 @@ switch(card_place)
 		//Select
 		if (point_in_rectangle(_mouseX,_mouseY,_cardX,_cardY,_cardX+125,_cardY+175))
 		{
-			draw_sprite_ext(spr_card_all_full3,card_id,1542,3,1,1,0,c_white,1);
-			draw_sprite_stretched(spr_highlight_nineslice3,0,_cardX + -3,_cardY -3,131,181);
+			draw_sprite_ext(spr_card_all_full3,card_id,1542,554,1,1,0,c_white,1);
+			draw_sprite_stretched(spr_highlight_nineslice3,0,_cardX-3,_cardY-3,131,181);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				with (obj_card)
@@ -44,9 +44,14 @@ switch(card_place)
 					selected = false;
 				}
 				selected = true;
+				with (obj_card_effect)
+				{
+					instance_destroy();
+				}
 				with (instance_create_layer(x-3,y-3,"Instances",obj_card_effect))
 				{
-					sprite_index = 
+					depth = obj_cardGame.depth - 2;
+					effect_draw = scr_cg_effect_selected;
 				}
 			}
 		}

@@ -13,7 +13,7 @@
 //
 //
 //Draw Full Card
-function scr_cg_0000_draw(_player=0,_selected = false,_hpText=0,_cardX=1,_cardY=3,_scale=1){
+function scr_cg_0000_draw(_player=0,_selected = false,_hpText=0,_cardX=1,_cardY=554,_scale=1){
 //
 var _cName = "KAFFARI GUARD";
 var _atkName1 = "SWORD STRIKE";
@@ -23,10 +23,10 @@ var _stage = "ORDINARY KAFFARI WARRIOR";
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
-if (_selected = true)
-{
-	draw_sprite_ext(spr_gameBoard_selected,_player,0,0,_scale,_scale,0,c_white,1);
-}
+//if (_selected = true)
+//{
+//	draw_sprite_ext(spr_gameBoard_selected,_player,0,0,_scale,_scale,0,c_white,1);
+//}
 draw_sprite_ext(spr_card_all_full3,0,_cardX,_cardY,_scale,_scale,0,c_white,1);
 //draw_text_transformed(_cardX + (30*_scale),_cardY + (8*_scale),_cName,_scale,_scale,0);
 //draw_text_transformed(_cardX + (30*_scale),_cardY + (85*_scale),_stage,_scale*.5,_scale*.5,0);
@@ -74,7 +74,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 var _cName = "KAFFARI GUARD";
 var _hpText = card_hp - card_damage;
 var _cardX = 1;
-var _cardY = 3;
+var _cardY = 554;
 var _actX = 165;
 var _actY = 105;
 
@@ -147,7 +147,7 @@ function scr_cg_0000_active_selected(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _cardX = 1;
-var _cardY = 3;
+var _cardY = 554;
 var _hpText = 4;
 
 

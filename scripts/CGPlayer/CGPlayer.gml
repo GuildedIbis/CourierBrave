@@ -139,7 +139,8 @@ if (action_text != -1)
 
 if (obj_cardGame.turn = 0)
 {
-	draw_text_transformed(145,142,"END\nTURN",.5,.5,0);
+	draw_sprite_stretched(spr_menu,3,1542,32,160,64)
+	draw_text_transformed(1542,64,"END\nTURN",3,3,0);
 	if (point_in_rectangle(_mouseX,_mouseY,131,139,159,153)) and (action_state = false)
 	{
 		draw_set_halign(fa_center);
