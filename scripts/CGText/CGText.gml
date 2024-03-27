@@ -24,15 +24,15 @@ if (keyboard_check_pressed(vk_escape))
 
 if (obj_game.cardPaused = true)
 {
-	draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
-	draw_sprite_stretched(spr_menu_beveled,3,120,50,80,60);
-	draw_sprite_stretched(spr_menu,8,115,50,90,20);
-	draw_sprite_stretched(spr_menu_circle16,1,125,75,70,16);
-	draw_sprite_stretched(spr_menu_circle16,1,125,93,70,16);
+	draw_sprite_stretched(spr_menu_background,0,0,0,1920,1080);
+	draw_sprite_stretched(spr_menu_beveled_6,3,750,100,420,360);
+	draw_sprite_stretched(spr_menu_6,8,720,100,540,120);
+	draw_sprite_stretched(spr_menu_circle_6,1,780,250,360,96);
+	draw_sprite_stretched(spr_menu_circle_6,1,780,358,360,96);
 	
-	if (point_in_rectangle(_mouseX,_mouseY,125,75,195,91))
+	if (point_in_rectangle(_mouseX,_mouseY,780,250,1140,346))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,124,74,72,18);
+		draw_sprite_stretched(spr_highlight_circle,0,780,250,360,96);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			display_set_gui_size(_resolutionWidth,_resolutionHeight);
