@@ -42,7 +42,7 @@ function scr_draw_cg_player_deck(){
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 var _deckLen = array_length(deck_array);
-var _deckY = 105;
+var _deckY = 630;
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -50,8 +50,8 @@ draw_set_color(c_white);
 
 if (deck_array[0, 0] != -1)
 {
-	draw_sprite_ext(spr_card_back,0,295,_deckY,1,1,0,c_white,1);
-	draw_text_transformed(310,_deckY,string(_deckLen),1,1,0);
+	draw_sprite_ext(spr_card_back_full,0,1380,_deckY,1,1,0,c_white,1);
+	draw_text_transformed(1434,540,string(_deckLen),1,1,0);
 	if (obj_cardGame.turn = 0)
 	{
 		if (draw_pt = false)
