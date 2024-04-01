@@ -807,8 +807,8 @@ follow_y = mouse_y;
 curs_form = 0;
 
 //Move toward variables set to player XY
-x = x + (follow_x - x) / 15;
-y = y + (follow_y - y) / 15;
+x = x + (follow_x - x) / 16;
+y = y + (follow_y - y) / 16;
 
 if (obj_player.magic_primary = true)
 {
