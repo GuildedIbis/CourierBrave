@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_cg_gameBoard",
   "bboxMode":0,
-  "bbox_bottom":179,
+  "bbox_bottom":269,
   "bbox_left":0,
-  "bbox_right":319,
+  "bbox_right":479,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":5,
   "gridY":7,
-  "height":180,
+  "height":270,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"757743fd-b5f1-42fd-b769-3f86bb4ec668","blendMode":0,"displayName":"default","isLocked":false,"name":"757743fd-b5f1-42fd-b769-3f86bb4ec668","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -87,5 +87,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":320,
+  "width":480,
 }

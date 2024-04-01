@@ -85,42 +85,42 @@ if (timer1 > 0)
 	{
 		alpha = timer1/100;
 	}
-	draw_sprite_ext(spr_guildedIbis2,0,160,80,.25,.25,0,c_white,alpha);
+	draw_sprite_ext(spr_guildedIbis2,0,240,135,.5,.5,0,c_white,alpha);
 	//draw_text(version)
 	timer1 = timer1 - 1;
 	
 	draw_set_font(global.fnt_main_white);
 	draw_set_halign(fa_left);
-	draw_text_transformed(4,173,string(version),.5,.5,0);
+	draw_text_transformed(4,260,string(version),1,1,0);
 	draw_set_halign(fa_right);
-	draw_text_transformed(308,173,"Developed by Guilded Ibis",.5,.5,0)
+	draw_text_transformed(476,260,"Developed by Guilded Ibis",1,1,0)
 }
 if (timer1 <= 0)
 {
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 	
-draw_sprite_ext(spr_home_title,0,80,0,1.0,1.0,0,c_white,1.0)
+draw_sprite_ext(spr_home_title,0,160,0,1.0,1.0,0,c_white,1.0)
 //draw_sprite_stretched(spr_menu_beveled,3,85,16,150,124);
 //draw_sprite_stretched(spr_menu,8,80,16,160,24);
 //draw_sprite_stretched(spr_menu_circle16,1,90,44,140,20);
-draw_sprite_stretched(spr_menu_circle16,1,90,86,140,20);
-draw_sprite_stretched(spr_menu_circle16,1,90,108,140,20);
-draw_sprite_stretched(spr_menu_circle16,1,90,130,140,20);
-draw_sprite_stretched(spr_menu_circle16,1,90,152,140,20);
+draw_sprite_stretched(spr_menu_circle16,1,170,86,140,20);
+draw_sprite_stretched(spr_menu_circle16,1,170,108,140,20);
+draw_sprite_stretched(spr_menu_circle16,1,170,130,140,20);
+draw_sprite_stretched(spr_menu_circle16,1,170,152,140,20);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 //draw_text_transformed(160,20,"COURIER BRAVE",2,2,0);
 //draw_text_transformed(160,48,"ADVENTURE",1,1,0);
-draw_text_transformed(160,92,"ADVENTURE",1,1,0);
-draw_text_transformed(160,114,"ARCADE",1,1,0);
-draw_text_transformed(160,136,"SETTINGS",1,1,0);
-draw_text_transformed(160,158,"QUIT GAME",1,1,0);
-if (point_in_rectangle(_mouseX,_mouseY,90,86,230,106))//Adventure Save Select
+draw_text_transformed(240,92,"ADVENTURE",1,1,0);
+draw_text_transformed(240,114,"ARCADE",1,1,0);
+draw_text_transformed(240,136,"SETTINGS",1,1,0);
+draw_text_transformed(240,158,"QUIT GAME",1,1,0);
+if (point_in_rectangle(_mouseX,_mouseY,170,86,310,106))//Adventure Save Select
 {
-	draw_sprite_stretched(spr_highlight_circle,0,89,85,142,22);
+	draw_sprite_stretched(spr_highlight_circle,0,169,85,142,22);
 	if (mouse_check_button_pressed(mb_left))
 	{
 		audio_sound_gain(snd_menu,global.volumeMenu,1);
