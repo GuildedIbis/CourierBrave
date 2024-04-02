@@ -11,7 +11,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 	
 
 //Tinted Background
-draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+draw_sprite_stretched(spr_menu_background,0,0,0,480,270);
 //Menu Sprites
 //draw_sprite_stretched(spr_menu_circle16,3,69,8,21,24);
 draw_sprite_stretched(spr_menu_circle16,3,92,8,21,24);

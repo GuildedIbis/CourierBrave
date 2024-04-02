@@ -44,7 +44,7 @@ if (global.transition = true)
 	if (global.fadeOut = true)
 	{
 		transition_timer = transition_timer + 8;
-		draw_sprite_ext(spr_pixel,0,0,0,320,180,0,c_black,transition_timer/100);
+		draw_sprite_ext(spr_pixel,0,0,0,480,2700,0,c_black,transition_timer/100);
 		if (transition_timer >= 100)
 		{
 			room_goto(global.targetRoom);
@@ -70,7 +70,7 @@ if (global.transition = true)
 	if (global.fadeOut = false)
 	{
 		transition_timer = transition_timer - 8;
-		draw_sprite_ext(spr_pixel,0,0,0,320,180,0,c_black,transition_timer/100);
+		draw_sprite_ext(spr_pixel,0,0,0,480,270,0,c_black,transition_timer/100);
 		if (transition_timer <= 0)
 		{
 			global.transition = false;

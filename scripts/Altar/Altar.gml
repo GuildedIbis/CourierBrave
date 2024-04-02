@@ -39,7 +39,7 @@ var _mouseY = device_mouse_y_to_gui(0);
 draw_set_font(global.fnt_main_white);
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+draw_sprite_stretched(spr_menu_background,0,0,0,480,2700);
 draw_sprite_stretched(spr_menu_beveled,3,64,136,192,48);
 draw_set_color(c_white);
 

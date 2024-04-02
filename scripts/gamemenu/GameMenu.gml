@@ -187,23 +187,23 @@ var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
 //Draw Sprites
-draw_sprite_stretched(spr_menu_beveled,3,13,16,90,78);
-draw_sprite_stretched(spr_menu,8,8,16,100,24);
-draw_sprite_stretched(spr_menu_beveled,3,115,16,90,78);
-draw_sprite_stretched(spr_menu,8,110,16,100,24);
-draw_sprite_stretched(spr_menu_beveled,3,217,16,90,78);
-draw_sprite_stretched(spr_menu,8,212,16,100,24);
-draw_sprite_stretched(spr_menu_beveled,3,13,96,90,20);
-draw_sprite_stretched(spr_menu_beveled,3,115,96,90,20);
-draw_sprite_stretched(spr_menu_beveled,3,217,96,90,20);	
+draw_sprite_stretched(spr_menu_beveled,3,93,16,90,78);
+draw_sprite_stretched(spr_menu,8,88,16,100,24);
+draw_sprite_stretched(spr_menu_beveled,3,195,16,90,78);
+draw_sprite_stretched(spr_menu,8,190,16,100,24);
+draw_sprite_stretched(spr_menu_beveled,3,297,16,90,78);
+draw_sprite_stretched(spr_menu,8,292,16,100,24);
+draw_sprite_stretched(spr_menu_beveled,3,93,96,90,20);
+draw_sprite_stretched(spr_menu_beveled,3,195,96,90,20);
+draw_sprite_stretched(spr_menu_beveled,3,297,96,90,20);	
 
 //Time Played
 var _timePlayed = "TIME:" + string(obj_game.time_played div 3600) + "h " + string((obj_game.time_played div 60) mod 60) + "m";
 var _timePlayed2 = "TIME:" + string(obj_game.time_played2 div 3600) + "h " + string((obj_game.time_played2 div 60) mod 60) + "m";
 var _timePlayed3 = "TIME:" + string(obj_game.time_played3 div 3600) + "h " + string((obj_game.time_played3 div 60) mod 60) + "m";
-draw_text_transformed(58,101,_timePlayed,1,1,0);
-draw_text_transformed(160,101,_timePlayed2,1,1,0);
-draw_text_transformed(262,101,_timePlayed3,1,1,0);
+draw_text_transformed(138,101,_timePlayed,1,1,0);
+draw_text_transformed(240,101,_timePlayed2,1,1,0);
+draw_text_transformed(342,101,_timePlayed3,1,1,0);
 
 //Set Text
 draw_set_font(global.fnt_main_white)
@@ -217,14 +217,14 @@ if (obj_game.time_played > 0)
 	if (restart = false)
 	{
 		//Buttons and Text
-		draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-		draw_text_transformed(58,21,"SAVE 1",2,2,0);	
-		draw_text_transformed(58,49,"RESUME",1,1,0);	
-		draw_text_transformed(58,71,"RESTART",1,1,0);	
-		if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Resume Game 1
+		draw_sprite_stretched(spr_menu_circle16,1,98,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,98,66,80,20);
+		draw_text_transformed(138,24,"SAVE 1",1,1,0);	
+		draw_text_transformed(138,49,"RESUME",1,1,0);	
+		draw_text_transformed(138,71,"RESTART",1,1,0);	
+		if (point_in_rectangle(_mouseX,_mouseY,98,44,178,64))//Resume Game 1
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,97,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 0;
@@ -246,9 +246,9 @@ if (obj_game.time_played > 0)
 				scr_audio_transition();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))//New Game 1
+		if (point_in_rectangle(_mouseX,_mouseY,98,66,178,86))//New Game 1
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,97,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart = true;
@@ -258,14 +258,14 @@ if (obj_game.time_played > 0)
 	else
 	{	
 	
-		draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,18,66,80,20);
-		draw_text_transformed(58,21,"RESTART?",2,2,0);
-		draw_text_transformed(58,49,"YES",1,1,0);	
-		draw_text_transformed(58,71,"NO",1,1,0);
-		if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
+		draw_sprite_stretched(spr_menu_circle16,1,98,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,98,66,80,20);
+		draw_text_transformed(138,24,"RESTART?",1,1,0);
+		draw_text_transformed(138,49,"YES",1,1,0);	
+		draw_text_transformed(138,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,98,44,178,64))//Restart Game 1
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,97,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 0;
@@ -298,9 +298,9 @@ if (obj_game.time_played > 0)
 				scr_game_song_list_main();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,18,66,98,86))
+		if (point_in_rectangle(_mouseX,_mouseY,98,66,178,86))
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,17,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,97,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart = false;
@@ -310,12 +310,12 @@ if (obj_game.time_played > 0)
 }
 else
 {
-	draw_sprite_stretched(spr_menu_circle16,1,18,44,80,20);
-	draw_text_transformed(58,21,"NEW GAME",2,2,0);
-	draw_text_transformed(58,49,"START",1,1,0);	
-	if (point_in_rectangle(_mouseX,_mouseY,18,44,98,64))//Restart Game 1
+	draw_sprite_stretched(spr_menu_circle16,1,98,44,170,20);
+	draw_text_transformed(138,24,"NEW GAME",1,1,0);
+	draw_text_transformed(138,49,"START",1,1,0);	
+	if (point_in_rectangle(_mouseX,_mouseY,98,44,178,64))//Restart Game 1
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,17,43,82,22);
+		draw_sprite_stretched(spr_highlight_circle,0,97,43,162,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 0;
@@ -354,14 +354,14 @@ if (obj_game.time_played2 > 0)
 	if (restart2 = false) and (obj_game.time_played2 > 0)
 	{
 		//Buttons and Text
-		draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-		draw_text_transformed(160,21,"SAVE 1",2,2,0);	
-		draw_text_transformed(160,49,"RESUME",1,1,0);	
-		draw_text_transformed(160,71,"RESTART",1,1,0);
-		if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Resume Game 1
+		draw_sprite_stretched(spr_menu_circle16,1,200,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,200,66,80,20);
+		draw_text_transformed(240,24,"SAVE 1",1,1,0);	
+		draw_text_transformed(240,49,"RESUME",1,1,0);	
+		draw_text_transformed(240,71,"RESTART",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,200,44,280,64))//Resume Game 1
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,199,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 1;
@@ -383,9 +383,9 @@ if (obj_game.time_played2 > 0)
 				scr_audio_transition();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,86))//Restart Game 2
+		if (point_in_rectangle(_mouseX,_mouseY,200,66,280,86))//Restart Game 2
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,199,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart2 = true;
@@ -394,14 +394,14 @@ if (obj_game.time_played2 > 0)
 	}
 	else
 	{
-		draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-		draw_text_transformed(160,21,"RESTART?",2,2,0);
-		draw_text_transformed(160,49,"YES",1,1,0);	
-		draw_text_transformed(160,71,"NO",1,1,0);
-		if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Restart
+		draw_sprite_stretched(spr_menu_circle16,1,200,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,200,66,80,20);
+		draw_text_transformed(240,24,"RESTART?",1,1,0);
+		draw_text_transformed(240,49,"YES",1,1,0);	
+		draw_text_transformed(240,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,200,44,280,64))//Confirm Restart
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,199,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 1;
@@ -434,9 +434,9 @@ if (obj_game.time_played2 > 0)
 				scr_game_song_list_main();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,120,66,200,686))
+		if (point_in_rectangle(_mouseX,_mouseY,200,66,280,686))
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,119,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,199,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart2 = false;
@@ -446,14 +446,14 @@ if (obj_game.time_played2 > 0)
 }
 else
 {
-	draw_sprite_stretched(spr_menu_circle16,1,120,44,80,20);
+	draw_sprite_stretched(spr_menu_circle16,1,200,44,80,20);
 	//draw_sprite_stretched(spr_menu_circle16,1,120,66,80,20);
-	draw_text_transformed(160,21,"NEW GAME",2,2,0);
-	draw_text_transformed(160,49,"START",1,1,0);	
+	draw_text_transformed(2420,24,"NEW GAME",1,1,0);
+	draw_text_transformed(240,49,"START",1,1,0);	
 	//draw_text_transformed(160,71,"NO",1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,120,44,200,64))//Confirm Start
+	if (point_in_rectangle(_mouseX,_mouseY,200,44,280,64))//Confirm Start
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,119,43,82,22);
+		draw_sprite_stretched(spr_highlight_circle,0,199,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 1;
@@ -492,14 +492,14 @@ if (obj_game.time_played3 > 0)
 	if (restart3 = false)
 	{
 		//Buttons and Text
-		draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-		draw_text_transformed(262,21,"SAVE 3",2,2,0);	
-		draw_text_transformed(262,49,"RESUME",1,1,0);	
-		draw_text_transformed(262,71,"RESTART",1,1,0);
-		if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Resume Game 3
+		draw_sprite_stretched(spr_menu_circle16,1,302,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,302,66,80,20);
+		draw_text_transformed(342,24,"SAVE 3",1,1,0);	
+		draw_text_transformed(342,49,"RESUME",1,1,0);	
+		draw_text_transformed(342,71,"RESTART",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,302,44,382,64))//Resume Game 3
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,301,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 2;
@@ -521,9 +521,9 @@ if (obj_game.time_played3 > 0)
 				scr_audio_transition();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,86))//Restart Game 3
+		if (point_in_rectangle(_mouseX,_mouseY,302,66,382,86))//Restart Game 3
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,301,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart3 = true;
@@ -532,14 +532,14 @@ if (obj_game.time_played3 > 0)
 	}
 	else
 	{
-		draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
-		draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-		draw_text_transformed(262,21,"RESTART?",2,2,0);
-		draw_text_transformed(262,49,"YES",1,1,0);	
-		draw_text_transformed(262,71,"NO",1,1,0);
-		if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Confirm Restart 3
+		draw_sprite_stretched(spr_menu_circle16,1,302,44,80,20);
+		draw_sprite_stretched(spr_menu_circle16,1,302,66,80,20);
+		draw_text_transformed(342,24,"RESTART?",1,1,0);
+		draw_text_transformed(342,49,"YES",1,1,0);	
+		draw_text_transformed(342,71,"NO",1,1,0);
+		if (point_in_rectangle(_mouseX,_mouseY,302,44,382,64))//Confirm Restart 3
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,301,43,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				obj_game.save_num = 2;
@@ -572,9 +572,9 @@ if (obj_game.time_played3 > 0)
 				scr_game_song_list_main();
 			}
 		}
-		if (point_in_rectangle(_mouseX,_mouseY,222,66,302,686))//Return
+		if (point_in_rectangle(_mouseX,_mouseY,302,66,382,86))//Return
 		{
-			draw_sprite_stretched(spr_highlight_circle,0,221,65,82,22);
+			draw_sprite_stretched(spr_highlight_circle,0,301,65,82,22);
 			if (mouse_check_button_pressed(mb_left))
 			{
 				restart3 = false;
@@ -584,14 +584,14 @@ if (obj_game.time_played3 > 0)
 }
 else
 {
-	draw_sprite_stretched(spr_menu_circle16,1,222,44,80,20);
+	draw_sprite_stretched(spr_menu_circle16,1,302,44,80,20);
 	//draw_sprite_stretched(spr_menu_circle16,1,222,66,80,20);
-	draw_text_transformed(262,21,"NEW GAME",2,2,0);
-	draw_text_transformed(262,49,"START",1,1,0);	
+	draw_text_transformed(342,24,"NEW GAME",1,1,0);
+	draw_text_transformed(342,49,"START",1,1,0);	
 	//draw_text_transformed(262,71,"NO",1,1,0);
-	if (point_in_rectangle(_mouseX,_mouseY,222,44,302,64))//Confirm Restart 3
+	if (point_in_rectangle(_mouseX,_mouseY,302,44,382,64))//Confirm Restart 3
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,221,43,82,22);
+		draw_sprite_stretched(spr_highlight_circle,0,301,43,82,22);
 		if (mouse_check_button_pressed(mb_left))
 		{
 			obj_game.save_num = 2;

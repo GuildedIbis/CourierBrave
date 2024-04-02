@@ -49,7 +49,7 @@ kephra_grid[# 9, 2] = "STATUS EFFECTS"
 //Kephra Stone Main
 function scr_kephra_stone(){
 //Format
-draw_sprite_stretched(spr_menu_background,0,0,0,320,180);
+draw_sprite_stretched(spr_menu_background,0,0,0,480,270);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_font(global.fnt_main_white);
