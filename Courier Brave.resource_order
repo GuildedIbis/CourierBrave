@@ -789,6 +789,8 @@
     {"name":"spr_button_background","order":10,"path":"sprites/spr_button_background/spr_button_background.yy",},
     {"name":"spr_card_all_full","order":3,"path":"sprites/spr_card_all_full/spr_card_all_full.yy",},
     {"name":"spr_card_all_full3","order":17,"path":"sprites/spr_card_all_full3/spr_card_all_full3.yy",},
+    {"name":"spr_card_all_mid","order":21,"path":"sprites/spr_card_all_mid/spr_card_all_mid.yy",},
+    {"name":"spr_card_all_mid1011","order":22,"path":"sprites/spr_card_all_mid1011/spr_card_all_mid1011.yy",},
     {"name":"spr_card_all","order":5,"path":"sprites/spr_card_all/spr_card_all.yy",},
     {"name":"spr_card_back_full","order":18,"path":"sprites/spr_card_back_full/spr_card_back_full.yy",},
     {"name":"spr_card_back","order":7,"path":"sprites/spr_card_back/spr_card_back.yy",},

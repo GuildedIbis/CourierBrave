@@ -927,6 +927,8 @@
     {"id":{"name":"spr_button2","path":"sprites/spr_button2/spr_button2.yy",},},
     {"id":{"name":"spr_card_all_full","path":"sprites/spr_card_all_full/spr_card_all_full.yy",},},
     {"id":{"name":"spr_card_all_full3","path":"sprites/spr_card_all_full3/spr_card_all_full3.yy",},},
+    {"id":{"name":"spr_card_all_mid","path":"sprites/spr_card_all_mid/spr_card_all_mid.yy",},},
+    {"id":{"name":"spr_card_all_mid1011","path":"sprites/spr_card_all_mid1011/spr_card_all_mid1011.yy",},},
     {"id":{"name":"spr_card_all","path":"sprites/spr_card_all/spr_card_all.yy",},},
     {"id":{"name":"spr_card_back_full","path":"sprites/spr_card_back_full/spr_card_back_full.yy",},},
     {"id":{"name":"spr_card_back","path":"sprites/spr_card_back/spr_card_back.yy",},},

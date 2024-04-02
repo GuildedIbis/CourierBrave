@@ -19,7 +19,7 @@
   "height":270,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"757743fd-b5f1-42fd-b769-3f86bb4ec668","blendMode":0,"displayName":"default","isLocked":false,"name":"757743fd-b5f1-42fd-b769-3f86bb4ec668","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f5eb4490-d5fd-4354-ba7d-080181be5859","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"f5eb4490-d5fd-4354-ba7d-080181be5859","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"5012602d-ea1c-45a0-9072-b736c660acf7","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"5012602d-ea1c-45a0-9072-b736c660acf7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_cg_gameBoard",
