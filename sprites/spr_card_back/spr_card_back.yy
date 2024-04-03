@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_card_back",
   "bboxMode":0,
-  "bbox_bottom":20,
+  "bbox_bottom":41,
   "bbox_left":0,
-  "bbox_right":14,
+  "bbox_right":29,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":12,
   "gridY":16,
-  "height":21,
+  "height":42,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"b58366a7-7423-4080-97d7-74b4cc3a9a8e","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"b58366a7-7423-4080-97d7-74b4cc3a9a8e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -88,5 +88,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":15,
+  "width":30,
 }

@@ -24,12 +24,12 @@ if (scene = false) and (obj_game.textPaused = false)
 	var _osColor = make_color_rgb(109,208,247);
 	draw_ring_healthbar(12,169,hp,max_hp,_hpColor,9,1,3);
 	if (overshield > 0) draw_ring_healthbar(12,169,overshield,20,_osColor,9,1,3);
-	draw_sprite(spr_hud_meter_round,0,0,157);
+	draw_sprite(spr_hud_meter_round,0,0,245);
 	draw_sprite(spr_formSelect_icons,form,12,170);
 	
 	//Stamina (Bottom Left)
 	draw_ring_healthbar(36,169,stamina,max_stamina,c_yellow,9,1,3);
-	draw_sprite(spr_hud_meter_round,0,24,157);
+	draw_sprite(spr_hud_meter_round,0,24,245);
 	draw_sprite(spr_weapons_allGame,form,20,160);
 	if (weapon_aim = true) draw_sprite(spr_hud_weapon_aim,1,48,165);
 	else draw_sprite(spr_hud_weapon_aim,0,48,165);
@@ -41,8 +41,8 @@ if (scene = false) and (obj_game.textPaused = false)
 		case 0:
 			selected_primary = yellow_primary;
 			selected_special = yellow_special;
-			draw_ring_healthbar(286,170,yellow_primary,max_charge,c_yellow,9,1,3);
-			draw_ring_healthbar(308,170,yellow_special,max_charge,c_yellow,9,1,3);
+			draw_ring_healthbar(286,260,yellow_primary,max_charge,c_yellow,9,1,3);
+			draw_ring_healthbar(308,260,yellow_special,max_charge,c_yellow,9,1,3);
 		break;
 		
 		case 1:
@@ -86,8 +86,8 @@ if (scene = false) and (obj_game.textPaused = false)
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
-	draw_sprite(spr_hud_meter_round,0,274,158);
-	draw_sprite(spr_hud_meter_round,0,296,158);
+	draw_sprite(spr_hud_meter_round,0,432,245);
+	draw_sprite(spr_hud_meter_round,0,456,245);
 	if (magic_primary = true) draw_sprite(spr_primary_allGame,form,270,160);
 	else draw_sprite(spr_primaryAlt_allGame,form,270,160);
 	draw_sprite(spr_special_allGame,form,292,160);

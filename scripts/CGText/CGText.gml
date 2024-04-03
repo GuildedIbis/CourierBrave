@@ -24,24 +24,18 @@ if (keyboard_check_pressed(vk_escape))
 
 if (obj_game.cardPaused = true)
 {
-	draw_sprite_stretched(spr_menu_background,0,0,0,1920,1080);
-	draw_sprite_stretched(spr_menu_beveled_6,3,750,100,420,360);
-	draw_sprite_stretched(spr_menu_6,8,720,100,540,120);
-	draw_sprite_stretched(spr_menu_circle_6,1,780,250,360,96);
-	draw_sprite_stretched(spr_menu_circle_6,1,780,358,360,96);
+	draw_sprite_stretched(spr_menu_background,0,0,0,480,270);
+	draw_sprite_stretched(spr_menu_beveled,3,200,100,80,60);
+	draw_sprite_stretched(spr_menu,8,190,100,90,20);
+	draw_sprite_stretched(spr_menu_circle16,1,210,124,60,16);
+	draw_sprite_stretched(spr_menu_circle16,1,210,142,60,16);
 	
-	if (point_in_rectangle(_mouseX,_mouseY,780,250,1140,346))
+	if (point_in_rectangle(_mouseX,_mouseY,210,124,270,140))
 	{
-		draw_sprite_stretched(spr_highlight_circle,0,780,250,360,96);
+		draw_sprite_stretched(spr_highlight_circle,0,219,123,62,18);
 		if (mouse_check_button_pressed(mb_left))
 		{
-			display_set_gui_size(_resolutionWidth,_resolutionHeight);
 			obj_game.card_live = false;
-			with (obj_cursor)
-			{
-				scale_x = 1;
-				scale_y = 1;
-			}
 			with(obj_card)
 			{
 				instance_destroy();
@@ -69,13 +63,13 @@ if (obj_game.cardPaused = true)
 			obj_game.cardPaused = false;
 		}
 	}
-	if (point_in_rectangle(_mouseX,_mouseY,125,93,195,109))
-	{
-		draw_sprite_stretched(spr_highlight_circle,0,124,92,72,18);
-		if (mouse_check_button_pressed(mb_left))
-		{
-			obj_game.cardPaused = false;
-		}
-	}
+	//if (point_in_rectangle(_mouseX,_mouseY,125,93,195,109))
+	//{
+	//	draw_sprite_stretched(spr_highlight_circle,0,124,92,72,18);
+	//	if (mouse_check_button_pressed(mb_left))
+	//	{
+	//		obj_game.cardPaused = false;
+	//	}
+	//}
 }
 }

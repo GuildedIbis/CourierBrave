@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"CardGame",
-    "path":"folders/Sprites/Game/CardGame.yy",
+    "name":"CGretired",
+    "path":"folders/Sprites/Game/CardGame/CGretired.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

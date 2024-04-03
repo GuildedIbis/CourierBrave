@@ -27,7 +27,7 @@ draw_set_valign(fa_top);
 //{
 //	draw_sprite_ext(spr_gameBoard_selected,_player,0,0,_scale,_scale,0,c_white,1);
 //}
-draw_sprite_ext(spr_card_all_full3,0,_cardX,_cardY,_scale,_scale,0,c_white,1);
+draw_sprite_ext(spr_card_all,0,_cardX,_cardY,_scale,_scale,0,c_white,1);
 //draw_text_transformed(_cardX + (30*_scale),_cardY + (8*_scale),_cName,_scale,_scale,0);
 //draw_text_transformed(_cardX + (30*_scale),_cardY + (85*_scale),_stage,_scale*.5,_scale*.5,0);
 //draw_text_transformed(_cardX + (56*_scale),_cardY + (16*_scale),_hpText,_scale*.5,_scale*.5,0);
