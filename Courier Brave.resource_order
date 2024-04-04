@@ -1675,6 +1675,7 @@
     {"name":"spr_well","order":12,"path":"sprites/spr_well/spr_well.yy",},
     {"name":"spr_zerkriftHook_fourRift_hitbox","order":7,"path":"sprites/spr_zerkriftHook_fourRift_hitbox/spr_zerkriftHook_fourRift_hitbox.yy",},
     {"name":"Sprite1009","order":7,"path":"sprites/Sprite1009/Sprite1009.yy",},
+    {"name":"Sprite1011","order":12,"path":"sprites/Sprite1011/Sprite1011.yy",},
     {"name":"Sprite178","order":14,"path":"sprites/Sprite178/Sprite178.yy",},
     {"name":"Sprite189","order":12,"path":"sprites/Sprite189/Sprite189.yy",},
     {"name":"Sprite414","order":11,"path":"sprites/Sprite414/Sprite414.yy",},
