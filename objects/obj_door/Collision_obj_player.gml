@@ -40,7 +40,7 @@ if (obj_game.gamePaused = false) and (global.transition = false) // and (keyboar
 			
 				global.lastAltar = target_room;
 				global.lastAltarX = obj_inventory.altar_grid[# altar_num, 1];
-				global.lastAltarY = obj_inventory.altar_grid[# altar_num, 2]
+				global.lastAltarY = obj_inventory.altar_grid[# altar_num, 2];
 				if (altar_num != -1)
 				{
 					obj_inventory.altar_grid[# altar_num, 3] = true;

@@ -117,7 +117,7 @@ timer1 = timer1 - 1;
 timer2 = timer2 - 1;
 if (timer1 <= 0)
 {
-	scr_game_room_change(88,88,rm_lenko_farwayRoad_00,0,1,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0);	
+	scr_game_room_change(360,168,rm_lenko_farwayRoad_00,0,1,obj_inventory.farwayRoad_map_ary,obj_game.farwayRoad_enemy_grid,true,0);	
 }
 if (timer2 <= 0)
 {

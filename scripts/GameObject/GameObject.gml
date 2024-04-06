@@ -4,7 +4,7 @@
 //
 //
 //Change Rooms
-function scr_game_room_change(xPos,yPos,targetRoom,roomNum,levelNum,roomArray,enemyGrid,camp,campNum){
+function scr_game_room_change(xPos,yPos,targetRoom,roomNum,levelNum,roomArray,enemyGrid,altar,altarNum){
 obj_inventory.room_num = roomNum;
 obj_inventory.room_ary = roomArray;
 obj_game.room_num = roomNum;
@@ -19,13 +19,13 @@ global.targetX = xPos;
 global.targetY = yPos;
 global.targetRoom = targetRoom;
 
-if (camp = true)
+if (altar = true)
 {
 	global.targetAltar = true;
 	global.lastAltar = targetRoom;
-	global.lastAltarX = xPos;
-	global.lastAltarY = yPos;
-	obj_inventory.altar_grid[# campNum, 3] = true;
+	global.lastAltarX = obj_inventory.altar_grid[# altarNum, 1];
+	global.lastAltarY = obj_inventory.altar_grid[# altarNum, 2];
+	obj_inventory.altar_grid[# altarNum, 3] = true;
 }
 
 scr_game_room_enemy_reset();
