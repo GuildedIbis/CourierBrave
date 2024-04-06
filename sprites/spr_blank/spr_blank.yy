@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Other",
-    "path":"folders/Sprites/Effects/Effects/Other.yy",
+    "name":"OtherEfEn",
+    "path":"folders/Sprites/Effects/Effects/OtherEfEn.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
