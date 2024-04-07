@@ -51,7 +51,7 @@ sy4 = y + 3;
 //
 //Effect Lenko Trees
 function scr_effect_lenko_trees(){
-frag = false
+frag = false;
 image_speed = 0;
 depth = -y;
 image_xscale = 1;
@@ -296,7 +296,7 @@ sy4 = y + 3;
 //
 //Effect Jelx Trees Step
 function scr_effect_jelx_tree(){
-frag = false
+frag = false;
 image_speed = 0;
 image_index = variant;
 depth = -y;

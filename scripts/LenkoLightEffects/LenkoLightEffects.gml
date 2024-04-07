@@ -160,6 +160,8 @@ depth = -y;
 image_xscale = 1;
 image_yscale = 1;
 sprite_index = spr_light_town_floorTorch;
+var _sprLen = sprite_get_number(sprite_index)-1;
+image_index = irandom_range(0,_sprLen)
 with (instance_create_layer(x-2,y-1,"Wall",obj_wall))
 {
 	image_xscale = .5;

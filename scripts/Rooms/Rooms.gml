@@ -53,8 +53,8 @@ altar_grid = ds_grid_create(100,4);
 //y spawn
 //discovered (saved)
 altar_grid[# 0, 0] = "Farway Road 00"
-altar_grid[# 0, 1] = 360;
-altar_grid[# 0, 2] = 168;
+altar_grid[# 0, 1] = 224;
+altar_grid[# 0, 2] = 128;
 altar_grid[# 0, 3] = true;
 altar_grid[# 1, 0] = "Farway Road 04"
 altar_grid[# 1, 1] = 176;
