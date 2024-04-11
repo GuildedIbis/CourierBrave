@@ -27,10 +27,10 @@ if (spawn_timer > 0)
 	{
 			
 		//Decide Spawn Position
-		if (point_in_rectangle(obj_player.x,obj_player.y,0,0,319,179))
+		if (point_in_rectangle(obj_player.x,obj_player.y,0,0,479,269))
 		{
-			x_spawn1 = 380;
-			y_spawn1 = 112;
+			x_spawn1 = 224;
+			y_spawn1 = 352;
 
 		}
 		else
@@ -38,13 +38,13 @@ if (spawn_timer > 0)
 			var _choose = irandom_range(0,1)
 			if (_choose = 0)
 			{
-				x_spawn1 = 380;
-				y_spawn1 = 112;
+				x_spawn1 = 224;
+				y_spawn1 = 160;
 			}
 			else
 			{
-				x_spawn1 = 380;
-				y_spawn1 = 112;
+				x_spawn1 = 224;
+				y_spawn1 = 160;
 			}
 		}
 			
