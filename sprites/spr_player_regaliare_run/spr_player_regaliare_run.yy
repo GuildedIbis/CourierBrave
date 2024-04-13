@@ -50,7 +50,6 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"fbc46ac9-3aad-48a2-964f-c3c43e09c5c2","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"fbc46ac9-3aad-48a2-964f-c3c43e09c5c2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_regaliare_run",
