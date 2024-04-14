@@ -46,10 +46,7 @@
   "height":34,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"8c441a77-1ea6-4928-9f50-9d7772c7d593","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"8c441a77-1ea6-4928-9f50-9d7772c7d593","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"7f14563d-c860-4a48-a690-26dacd4aa1be","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"7f14563d-c860-4a48-a690-26dacd4aa1be","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"2c097762-93d7-4f46-81b8-0ab4da828e16","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"2c097762-93d7-4f46-81b8-0ab4da828e16","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b499ec0f-c56c-4672-a3f0-7d72769255c3","blendMode":0,"displayName":"default","isLocked":false,"name":"b499ec0f-c56c-4672-a3f0-7d72769255c3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_skirmisher_slash",
   "nineSlice":null,
