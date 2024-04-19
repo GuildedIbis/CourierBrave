@@ -19,8 +19,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"e145ecb3-a878-4e46-9256-38b520273e37","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"e145ecb3-a878-4e46-9256-38b520273e37","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"42dd3f86-07ad-4675-9916-749c7d85a7ba","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"42dd3f86-07ad-4675-9916-749c7d85a7ba","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"2d63eed5-00ef-465b-b839-cb0a3e1fea98","blendMode":0,"displayName":"default","isLocked":false,"name":"2d63eed5-00ef-465b-b839-cb0a3e1fea98","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_hud_meter_round",
   "nineSlice":null,
