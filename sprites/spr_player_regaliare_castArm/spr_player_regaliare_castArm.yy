@@ -19,8 +19,7 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"4fa6215f-cac6-417f-b9f8-45ee3952dba4","blendMode":0,"displayName":"default","isLocked":false,"name":"4fa6215f-cac6-417f-b9f8-45ee3952dba4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"8bd2290c-0bca-4813-9141-4722061eb052","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"8bd2290c-0bca-4813-9141-4722061eb052","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"17807bd1-8e29-4975-80f1-8e4ce1632031","blendMode":0,"displayName":"default","isLocked":false,"name":"17807bd1-8e29-4975-80f1-8e4ce1632031","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_regaliare_castArm",
   "nineSlice":null,

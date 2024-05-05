@@ -50,8 +50,7 @@
   "height":22,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"fbefc4a6-18b1-4855-8d4e-639ed31b0dae","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"fbefc4a6-18b1-4855-8d4e-639ed31b0dae","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7671b1b5-3070-451c-b50a-a9ef569635b3","blendMode":0,"displayName":"default","isLocked":false,"name":"7671b1b5-3070-451c-b50a-a9ef569635b3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_halofire_idle",
   "nineSlice":null,
