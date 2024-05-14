@@ -50,8 +50,7 @@
   "height":36,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"6c8af66f-1bd2-449e-8b52-2cc265f32dbe","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"6c8af66f-1bd2-449e-8b52-2cc265f32dbe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"fde95f82-194e-47c6-bb1c-600f76977109","blendMode":0,"displayName":"Layer 4","isLocked":false,"name":"fde95f82-194e-47c6-bb1c-600f76977109","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"71a383f7-7d0a-42d8-8931-fe459f830307","blendMode":0,"displayName":"default","isLocked":false,"name":"71a383f7-7d0a-42d8-8931-fe459f830307","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_halofire_hamaxe_chargingMove",
   "nineSlice":null,

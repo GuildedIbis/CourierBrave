@@ -50,9 +50,7 @@
   "height":36,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"6c35e724-3bba-4af1-ac7e-e720c6ba082c","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"6c35e724-3bba-4af1-ac7e-e720c6ba082c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"6c8af66f-1bd2-449e-8b52-2cc265f32dbe","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"6c8af66f-1bd2-449e-8b52-2cc265f32dbe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"fde95f82-194e-47c6-bb1c-600f76977109","blendMode":0,"displayName":"Layer 4","isLocked":false,"name":"fde95f82-194e-47c6-bb1c-600f76977109","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f1f04ffd-7ebf-45a4-9c43-7c2af5199db4","blendMode":0,"displayName":"default","isLocked":false,"name":"f1f04ffd-7ebf-45a4-9c43-7c2af5199db4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_halofire_hamaxe_chargedMove",
   "nineSlice":null,
