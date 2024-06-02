@@ -10,9 +10,9 @@
   "managed":true,
   "name":"obj_activator",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"hit_script","path":"objects/obj_entity/obj_entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_entity_hit",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"collision","path":"objects/obj_entity/obj_entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_activator_create",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"hit_script","path":"objects/obj_entity/obj_entity.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_entity_hit",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"collision","path":"objects/obj_entity/obj_entity.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entity","path":"objects/obj_entity/obj_entity.yy",},"propertyId":{"name":"entity_create","path":"objects/obj_entity/obj_entity.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_activator_create",},
   ],
   "parent":{
     "name":"Interactable",
@@ -36,7 +36,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"map_ary","filters":[],"listItems":[],"multiselect":false,"name":"map_ary","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"map_ary","filters":[],"listItems":[],"multiselect":false,"name":"map_ary","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

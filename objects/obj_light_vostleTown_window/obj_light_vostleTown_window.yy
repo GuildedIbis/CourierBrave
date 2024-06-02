@@ -9,11 +9,11 @@
   "managed":true,
   "name":"obj_light_vostleTown_window",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house_create",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_vostleTown_window_house_create",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"propertyId":{"name":"solar","path":"objects/obj_light/obj_light.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
   ],
   "parent":{
     "name":"Lights",

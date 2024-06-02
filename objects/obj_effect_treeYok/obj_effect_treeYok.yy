@@ -9,10 +9,10 @@
   "managed":true,
   "name":"obj_effect_treeYok",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_tree_yok_step",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_tree_create",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"deteriorate_after","path":"objects/obj_fragment/obj_fragment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3600",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_fragment","path":"objects/obj_fragment/obj_fragment.yy",},"propertyId":{"name":"bounce_count","path":"objects/obj_fragment/obj_fragment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_script","path":"objects/obj_effect/obj_effect.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_tree_yok_step",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_effect","path":"objects/obj_effect/obj_effect.yy",},"propertyId":{"name":"effect_create","path":"objects/obj_effect/obj_effect.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"scr_effect_tree_create",},
   ],
   "parent":{
     "name":"OtherSolidFX",
@@ -36,7 +36,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"variant","filters":[],"listItems":[],"multiselect":false,"name":"variant","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"variant","filters":[],"listItems":[],"multiselect":false,"name":"variant","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -9,8 +9,8 @@
   "managed":true,
   "name":"obj_environment_reedsHabraf",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_environment","path":"objects/obj_environment/obj_environment.yy",},"propertyId":{"name":"environment_variations","path":"objects/obj_environment/obj_environment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"8",},
-    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"obj_environment","path":"objects/obj_environment/obj_environment.yy",},"propertyId":{"name":"environment_sprite","path":"objects/obj_environment/obj_environment.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_reeds",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_environment","path":"objects/obj_environment/obj_environment.yy",},"propertyId":{"name":"environment_variations","path":"objects/obj_environment/obj_environment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"8",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_environment","path":"objects/obj_environment/obj_environment.yy",},"propertyId":{"name":"environment_sprite","path":"objects/obj_environment/obj_environment.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"spr_reeds",},
   ],
   "parent":{
     "name":"Environment",
