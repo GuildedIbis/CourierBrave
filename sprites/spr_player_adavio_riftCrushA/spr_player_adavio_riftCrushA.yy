@@ -27,8 +27,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"234fa735-2455-4e77-9ae6-1d925cc90144","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"234fa735-2455-4e77-9ae6-1d925cc90144","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"979bd4d4-e0d3-4f17-91d4-6b1c5ddcf33e","blendMode":0,"displayName":"default","isLocked":false,"name":"979bd4d4-e0d3-4f17-91d4-6b1c5ddcf33e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_adavio_riftCrushA",
   "nineSlice":null,

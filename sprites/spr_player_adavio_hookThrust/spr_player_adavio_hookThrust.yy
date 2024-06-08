@@ -34,9 +34,7 @@
   "height":40,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"2e0ee47b-0573-4b71-a594-0d88df60322a","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"2e0ee47b-0573-4b71-a594-0d88df60322a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"019442df-0955-43a4-9854-0754d7a3058b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"019442df-0955-43a4-9854-0754d7a3058b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"61f0c493-44ba-4301-8927-5715af067cb2","blendMode":0,"displayName":"default","isLocked":false,"name":"61f0c493-44ba-4301-8927-5715af067cb2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_player_adavio_hookThrust",
   "nineSlice":null,
