@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"FarwayRoadEffects",
   "isCompatibility":false,
   "isDnD":false,

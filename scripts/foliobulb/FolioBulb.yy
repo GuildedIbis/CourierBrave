@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"FolioBulb",
   "isCompatibility":false,
   "isDnD":false,

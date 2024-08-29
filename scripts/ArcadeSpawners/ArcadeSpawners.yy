@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"ArcadeSpawners",
   "isCompatibility":false,
   "isDnD":false,

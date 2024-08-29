@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Nisma",
   "isCompatibility":false,
   "isDnD":false,

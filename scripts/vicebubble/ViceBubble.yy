@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"ViceBubble",
   "isCompatibility":false,
   "isDnD":false,

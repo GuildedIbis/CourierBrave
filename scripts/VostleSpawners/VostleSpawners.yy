@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"VostleSpawners",
   "isCompatibility":false,
   "isDnD":false,

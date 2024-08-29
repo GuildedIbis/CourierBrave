@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"AdavioMenus",
   "isCompatibility":false,
   "isDnD":false,

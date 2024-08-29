@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"FolioBulbTasar",
   "isCompatibility":false,
   "isDnD":false,

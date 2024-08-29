@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"KephraStones",
   "isCompatibility":false,
   "isDnD":false,

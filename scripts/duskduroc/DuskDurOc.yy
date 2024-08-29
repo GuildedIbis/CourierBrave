@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"DuskDurOc",
   "isCompatibility":false,
   "isDnD":false,

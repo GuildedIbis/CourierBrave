@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Browncap",
   "isCompatibility":false,
   "isDnD":false,

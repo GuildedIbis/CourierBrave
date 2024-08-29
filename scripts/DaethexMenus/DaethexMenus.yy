@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"DaethexMenus",
   "isCompatibility":false,
   "isDnD":false,

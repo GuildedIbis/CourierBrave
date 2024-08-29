@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"SkillPedestal",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"BeaowireEffects",
   "isCompatibility":false,
   "isDnD":false,

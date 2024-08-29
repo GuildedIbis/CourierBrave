@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Daethex",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"EliteHunter",
   "isCompatibility":false,
   "isDnD":false,

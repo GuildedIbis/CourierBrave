@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"xQuestDrawActive",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Activator",
   "isCompatibility":false,
   "isDnD":false,

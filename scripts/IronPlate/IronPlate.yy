@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"IronPlate",
   "isCompatibility":false,
   "isDnD":false,

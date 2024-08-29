@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"YakflowerEffects",
   "isCompatibility":false,
   "isDnD":false,

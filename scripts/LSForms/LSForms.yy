@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LSForms",
   "isCompatibility":false,
   "isDnD":false,

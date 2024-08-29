@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"HabrafSpawners",
   "isCompatibility":false,
   "isDnD":false,

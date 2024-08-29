@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"EndireKnightInimar",
   "isCompatibility":false,
   "isDnD":false,

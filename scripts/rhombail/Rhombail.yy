@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Rhombail",
   "isCompatibility":false,
   "isDnD":false,

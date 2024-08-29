@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Esow",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"OfaMoth",
   "isCompatibility":false,
   "isDnD":false,

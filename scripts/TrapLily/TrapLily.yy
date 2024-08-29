@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"TrapLily",
   "isCompatibility":false,
   "isDnD":false,

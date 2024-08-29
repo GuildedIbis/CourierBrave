@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LSQuests",
   "isCompatibility":false,
   "isDnD":false,

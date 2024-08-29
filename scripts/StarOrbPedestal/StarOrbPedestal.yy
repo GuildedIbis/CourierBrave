@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"StarOrbPedestal",
   "isCompatibility":false,
   "isDnD":false,

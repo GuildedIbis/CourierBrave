@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LilyGuard",
   "isCompatibility":false,
   "isDnD":false,

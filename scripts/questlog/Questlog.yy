@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Questlog",
   "isCompatibility":false,
   "isDnD":false,

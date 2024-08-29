@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"NPCVendor",
   "isCompatibility":false,
   "isDnD":false,

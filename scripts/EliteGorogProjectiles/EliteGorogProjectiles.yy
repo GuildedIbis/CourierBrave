@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"EliteGorogProjectiles",
   "isCompatibility":false,
   "isDnD":false,

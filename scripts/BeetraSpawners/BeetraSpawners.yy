@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"BeetraSpawners",
   "isCompatibility":false,
   "isDnD":false,

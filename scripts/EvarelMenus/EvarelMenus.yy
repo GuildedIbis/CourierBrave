@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"EvarelMenus",
   "isCompatibility":false,
   "isDnD":false,

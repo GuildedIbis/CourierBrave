@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"BossTortoiseTrollProjectiles",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"ZerkriftHook",
   "isCompatibility":false,
   "isDnD":false,

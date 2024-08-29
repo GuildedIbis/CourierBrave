@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"OfaWorm",
   "isCompatibility":false,
   "isDnD":false,

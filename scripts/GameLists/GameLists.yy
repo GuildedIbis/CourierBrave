@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"GameLists",
   "isCompatibility":false,
   "isDnD":false,

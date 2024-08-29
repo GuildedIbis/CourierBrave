@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"AcolyteDecoy",
   "isCompatibility":false,
   "isDnD":false,

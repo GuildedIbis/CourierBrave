@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"WhiteCrescent",
   "isCompatibility":false,
   "isDnD":false,

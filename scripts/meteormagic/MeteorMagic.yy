@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"MeteorMagic",
   "isCompatibility":false,
   "isDnD":false,

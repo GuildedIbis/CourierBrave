@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"WagonEthier",
   "isCompatibility":false,
   "isDnD":false,

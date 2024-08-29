@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"RazerSprout",
   "isCompatibility":false,
   "isDnD":false,

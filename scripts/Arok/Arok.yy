@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Arok",
   "isCompatibility":false,
   "isDnD":false,

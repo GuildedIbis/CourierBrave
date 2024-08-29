@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"CGPlayer",
   "isCompatibility":false,
   "isDnD":false,

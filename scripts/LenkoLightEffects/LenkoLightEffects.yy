@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LenkoLightEffects",
   "isCompatibility":false,
   "isDnD":false,

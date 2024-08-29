@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"QuestMenu",
   "isCompatibility":false,
   "isDnD":false,

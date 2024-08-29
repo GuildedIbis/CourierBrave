@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Enchantments",
   "isCompatibility":false,
   "isDnD":false,

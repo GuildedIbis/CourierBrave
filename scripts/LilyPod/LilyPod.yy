@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"LilyPod",
   "isCompatibility":false,
   "isDnD":false,
