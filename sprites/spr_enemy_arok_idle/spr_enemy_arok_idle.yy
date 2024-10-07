@@ -22,9 +22,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"1d38796a-a801-449e-ade8-07a39aa48690","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"1d38796a-a801-449e-ade8-07a39aa48690","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"778b2edf-3cb8-4285-8076-2ffb407a51ea","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"778b2edf-3cb8-4285-8076-2ffb407a51ea","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"c52db8b2-cc58-459a-9b66-ae924442d6e2","blendMode":0,"displayName":"default","isLocked":false,"name":"c52db8b2-cc58-459a-9b66-ae924442d6e2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"c3b256b8-3be1-4b19-a82c-10c29e825ced","blendMode":0,"displayName":"default","isLocked":false,"name":"c3b256b8-3be1-4b19-a82c-10c29e825ced","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_arok_idle",
   "nineSlice":null,

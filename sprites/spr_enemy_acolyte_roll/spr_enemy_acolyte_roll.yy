@@ -34,8 +34,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"fd945d30-a630-4d44-9b83-82229950da6f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"fd945d30-a630-4d44-9b83-82229950da6f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"9c4d93a7-cbc9-4ec0-8cfc-91237e0cfd94","blendMode":0,"displayName":"default","isLocked":false,"name":"9c4d93a7-cbc9-4ec0-8cfc-91237e0cfd94","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_acolyte_roll",
   "nineSlice":null,

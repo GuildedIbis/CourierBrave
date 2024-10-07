@@ -19,10 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"3296df18-4a89-4d24-97bf-6abaa5c6187d","blendMode":0,"displayName":"Layer 4","isLocked":false,"name":"3296df18-4a89-4d24-97bf-6abaa5c6187d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"08d62dd5-8fc8-4519-aee9-18ae6a03f488","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"08d62dd5-8fc8-4519-aee9-18ae6a03f488","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"f750cdb9-f4c7-407b-92e0-b6b4733cecae","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"f750cdb9-f4c7-407b-92e0-b6b4733cecae","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"be3fb81e-c40e-4a8c-a8d0-5e1d1fa51e9f","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"be3fb81e-c40e-4a8c-a8d0-5e1d1fa51e9f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f37976d0-e1ea-4038-b686-9e090be36824","blendMode":0,"displayName":"default","isLocked":false,"name":"f37976d0-e1ea-4038-b686-9e090be36824","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_beetraCity_00_1",
   "nineSlice":null,

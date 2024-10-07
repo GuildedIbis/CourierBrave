@@ -19,8 +19,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"8bf197f9-9423-4fea-b8cb-b34f0f8d243a","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"8bf197f9-9423-4fea-b8cb-b34f0f8d243a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"ddfb3ab4-40b5-4c18-87bd-2219ca07a006","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"ddfb3ab4-40b5-4c18-87bd-2219ca07a006","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"4c7d61f4-063c-4048-9547-d5624b16ba45","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"4c7d61f4-063c-4048-9547-d5624b16ba45","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_effect_beetra_bell1",
   "nineSlice":null,

@@ -34,8 +34,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a220452b-ec90-4472-8807-b222d33a543b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b66a7a02-9572-4c89-8889-763eb91a9a9a","blendMode":0,"displayName":"default","isLocked":false,"name":"b66a7a02-9572-4c89-8889-763eb91a9a9a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_cultistBacwire_run",
   "nineSlice":null,

@@ -46,9 +46,7 @@
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a220452b-ec90-4472-8807-b222d33a543b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"42ad84f4-c12c-43b1-9104-e5ae2eac07e8","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"42ad84f4-c12c-43b1-9104-e5ae2eac07e8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"78c4454b-9201-4af5-9388-21ae9892d876","blendMode":0,"displayName":"default","isLocked":false,"name":"78c4454b-9201-4af5-9388-21ae9892d876","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_zealot_waterSlash_back",
   "nineSlice":null,

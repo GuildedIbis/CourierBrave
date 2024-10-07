@@ -38,8 +38,7 @@
   "height":40,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9fdc4548-61f6-4bcc-98c6-b0942431048f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"9fdc4548-61f6-4bcc-98c6-b0942431048f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"16610d85-18a3-4a9c-ab1f-cb955c8993f7","blendMode":0,"displayName":"default","isLocked":false,"name":"16610d85-18a3-4a9c-ab1f-cb955c8993f7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"1f3440bd-d0d1-43ce-8539-466d38f64764","blendMode":0,"displayName":"default","isLocked":false,"name":"1f3440bd-d0d1-43ce-8539-466d38f64764","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_enragedMoth_spawnOrb",
   "nineSlice":null,

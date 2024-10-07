@@ -19,8 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"f750cdb9-f4c7-407b-92e0-b6b4733cecae","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"f750cdb9-f4c7-407b-92e0-b6b4733cecae","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"be3fb81e-c40e-4a8c-a8d0-5e1d1fa51e9f","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"be3fb81e-c40e-4a8c-a8d0-5e1d1fa51e9f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"40c3a061-328e-4f79-a083-417bf4f522c0","blendMode":0,"displayName":"default","isLocked":false,"name":"40c3a061-328e-4f79-a083-417bf4f522c0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_beetraCity_single",
   "nineSlice":null,

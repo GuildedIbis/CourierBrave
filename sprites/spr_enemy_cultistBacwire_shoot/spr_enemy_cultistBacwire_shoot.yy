@@ -46,9 +46,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a220452b-ec90-4472-8807-b222d33a543b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"3820618c-7208-42e8-b57a-873e71cdd25d","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"3820618c-7208-42e8-b57a-873e71cdd25d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8707f9ce-1b22-490c-b7b2-9e5a60a4635d","blendMode":0,"displayName":"default","isLocked":false,"name":"8707f9ce-1b22-490c-b7b2-9e5a60a4635d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_cultistBacwire_shoot",
   "nineSlice":null,

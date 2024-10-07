@@ -19,11 +19,7 @@
   "height":288,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"63167a3d-808d-4a42-bf67-cb8a4c79ca03","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"63167a3d-808d-4a42-bf67-cb8a4c79ca03","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"705c92dd-d89c-47dd-a637-93131215b920","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"705c92dd-d89c-47dd-a637-93131215b920","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"f02554e3-7854-4cd3-9881-e9384c5c4a43","blendMode":0,"displayName":"default (2)","isLocked":false,"name":"f02554e3-7854-4cd3-9881-e9384c5c4a43","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"343fe2cc-a292-4120-868e-c5e46286fada","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"343fe2cc-a292-4120-868e-c5e46286fada","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8893ba0c-cb7e-403e-b167-e24a217210ed","blendMode":0,"displayName":"default","isLocked":false,"name":"8893ba0c-cb7e-403e-b167-e24a217210ed","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_effect_castleMhere_tower_2",
   "nineSlice":null,

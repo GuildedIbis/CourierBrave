@@ -34,8 +34,7 @@
   "height":12,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"adb3cb50-3bc5-4d26-93fc-7850409915f0","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"adb3cb50-3bc5-4d26-93fc-7850409915f0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"334d58df-3ce0-408e-97c3-e07d183b1844","blendMode":0,"displayName":"default","isLocked":false,"name":"334d58df-3ce0-408e-97c3-e07d183b1844","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"4084be09-00f9-4d27-ac7e-c76765212a63","blendMode":0,"displayName":"default","isLocked":false,"name":"4084be09-00f9-4d27-ac7e-c76765212a63","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_enragedWorm_charge",
   "nineSlice":null,

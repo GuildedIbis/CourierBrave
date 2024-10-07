@@ -34,9 +34,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"323bc19c-6ccb-4fac-ac0d-f27d9486664d","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"323bc19c-6ccb-4fac-ac0d-f27d9486664d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"461dab8d-12a9-48ea-b2e0-e48356a363d3","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"461dab8d-12a9-48ea-b2e0-e48356a363d3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"a63d460a-f9aa-423e-8741-8a00c3f87397","blendMode":0,"displayName":"default","isLocked":false,"name":"a63d460a-f9aa-423e-8741-8a00c3f87397","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_endireKnight_run",
   "nineSlice":null,

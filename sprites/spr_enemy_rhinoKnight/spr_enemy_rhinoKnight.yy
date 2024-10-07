@@ -22,9 +22,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"c896cd64-bef6-4704-9f94-cd5ce3201095","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"c896cd64-bef6-4704-9f94-cd5ce3201095","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a220452b-ec90-4472-8807-b222d33a543b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"44d3dbf0-27e6-430f-b2ca-59fb0654a0b1","blendMode":0,"displayName":"default","isLocked":false,"name":"44d3dbf0-27e6-430f-b2ca-59fb0654a0b1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_rhinoKnight",
   "nineSlice":null,

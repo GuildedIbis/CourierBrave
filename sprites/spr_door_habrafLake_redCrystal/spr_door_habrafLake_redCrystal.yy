@@ -29,8 +29,7 @@
   "height":34,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"071fe797-3e31-4537-8985-26f0fb5af661","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"071fe797-3e31-4537-8985-26f0fb5af661","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"name":"731b3c07-7f94-4531-88ff-0724b8b13625","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b0f24513-f826-4a0c-b45f-99c1212c636f","blendMode":0,"displayName":"default","isLocked":false,"name":"b0f24513-f826-4a0c-b45f-99c1212c636f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_door_habrafLake_redCrystal",
   "nineSlice":null,

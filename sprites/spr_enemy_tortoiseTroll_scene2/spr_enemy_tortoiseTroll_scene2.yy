@@ -56,8 +56,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"cd8bfa64-8eb4-4203-9b76-e04631fd1036","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"cd8bfa64-8eb4-4203-9b76-e04631fd1036","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"fe7fdf13-7f47-4331-b18f-cf7641a634f1","blendMode":0,"displayName":"default","isLocked":false,"name":"fe7fdf13-7f47-4331-b18f-cf7641a634f1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8ba74abb-25a4-4cef-a239-cf809f7b7d89","blendMode":0,"displayName":"default","isLocked":false,"name":"8ba74abb-25a4-4cef-a239-cf809f7b7d89","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_tortoiseTroll_scene2",
   "nineSlice":null,

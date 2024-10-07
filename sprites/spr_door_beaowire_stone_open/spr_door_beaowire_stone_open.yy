@@ -19,8 +19,7 @@
   "height":34,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"071fe797-3e31-4537-8985-26f0fb5af661","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"071fe797-3e31-4537-8985-26f0fb5af661","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"name":"731b3c07-7f94-4531-88ff-0724b8b13625","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"43dea4bd-35e0-4602-a3f4-e54d9c7adac3","blendMode":0,"displayName":"default","isLocked":false,"name":"43dea4bd-35e0-4602-a3f4-e54d9c7adac3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_door_beaowire_stone_open",
   "nineSlice":null,

@@ -19,8 +19,7 @@
   "height":34,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"071fe797-3e31-4537-8985-26f0fb5af661","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"071fe797-3e31-4537-8985-26f0fb5af661","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"name":"731b3c07-7f94-4531-88ff-0724b8b13625","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e6573f2a-b194-4606-90ec-1ac00fe69bf7","blendMode":0,"displayName":"default","isLocked":false,"name":"e6573f2a-b194-4606-90ec-1ac00fe69bf7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_door_yakflowerPath_stone",
   "nineSlice":null,

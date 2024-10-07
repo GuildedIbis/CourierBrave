@@ -50,9 +50,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"a220452b-ec90-4472-8807-b222d33a543b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a220452b-ec90-4472-8807-b222d33a543b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"2c14ead6-bb84-4f6a-a394-748f489755d5","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"2c14ead6-bb84-4f6a-a394-748f489755d5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9c3d0609-54d7-42c3-b755-616034cc62ce","blendMode":0,"displayName":"default","isLocked":false,"name":"9c3d0609-54d7-42c3-b755-616034cc62ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"308fb25c-05af-4988-981e-cf43c5889369","blendMode":0,"displayName":"default","isLocked":false,"name":"308fb25c-05af-4988-981e-cf43c5889369","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_lilyCultist_run",
   "nineSlice":null,

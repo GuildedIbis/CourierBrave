@@ -19,8 +19,7 @@
   "height":34,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"071fe797-3e31-4537-8985-26f0fb5af661","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"071fe797-3e31-4537-8985-26f0fb5af661","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"731b3c07-7f94-4531-88ff-0724b8b13625","blendMode":0,"displayName":"default","isLocked":false,"name":"731b3c07-7f94-4531-88ff-0724b8b13625","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"982e2431-7533-4afd-930a-f98b31bdd59f","blendMode":0,"displayName":"default","isLocked":false,"name":"982e2431-7533-4afd-930a-f98b31bdd59f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_door_beaowire_stone",
   "nineSlice":null,

@@ -19,8 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"4a654864-c651-43cd-95eb-0bd4c6fda709","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"4a654864-c651-43cd-95eb-0bd4c6fda709","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"436ac27d-e84c-4ac4-9818-976ceb6534bd","blendMode":0,"displayName":"default","isLocked":false,"name":"436ac27d-e84c-4ac4-9818-976ceb6534bd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_vostleTown_winet",
   "nineSlice":null,

@@ -19,10 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"44cca80a-a430-40ee-bd1e-89d6a97d3919","blendMode":0,"displayName":"Layer 4","isLocked":false,"name":"44cca80a-a430-40ee-bd1e-89d6a97d3919","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"f603f7d9-5895-4ed1-a5c4-5783311423d2","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"f603f7d9-5895-4ed1-a5c4-5783311423d2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"44e12d3e-e158-4784-b8f1-0d2c02a394fb","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"44e12d3e-e158-4784-b8f1-0d2c02a394fb","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"c3c00055-f14e-4573-b1b1-9342e8a9c1f7","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"c3c00055-f14e-4573-b1b1-9342e8a9c1f7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b99cdaae-dd5c-4f37-886f-2ee6e09fc4f8","blendMode":0,"displayName":"default","isLocked":false,"name":"b99cdaae-dd5c-4f37-886f-2ee6e09fc4f8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_vostleTown_stables",
   "nineSlice":null,

@@ -19,8 +19,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9acb11b6-aabd-45f5-b369-43f908f573c5","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"9acb11b6-aabd-45f5-b369-43f908f573c5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"e9dda20e-9915-4960-8ef1-baf12c78f875","blendMode":0,"displayName":"default","isLocked":false,"name":"e9dda20e-9915-4960-8ef1-baf12c78f875","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"1171554e-73d4-45b8-beed-8e001a3a7f80","blendMode":0,"displayName":"default","isLocked":false,"name":"1171554e-73d4-45b8-beed-8e001a3a7f80","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_effect_sign_beetra",
   "nineSlice":null,

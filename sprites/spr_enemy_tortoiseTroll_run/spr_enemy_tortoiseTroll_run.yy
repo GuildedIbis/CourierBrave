@@ -58,8 +58,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"cd8bfa64-8eb4-4203-9b76-e04631fd1036","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"cd8bfa64-8eb4-4203-9b76-e04631fd1036","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
-    {"$GMImageLayer":"","%Name":"fe7fdf13-7f47-4331-b18f-cf7641a634f1","blendMode":0,"displayName":"default","isLocked":false,"name":"fe7fdf13-7f47-4331-b18f-cf7641a634f1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"513c4771-a805-4088-98ff-0f7dacfbb2c3","blendMode":0,"displayName":"default","isLocked":false,"name":"513c4771-a805-4088-98ff-0f7dacfbb2c3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_tortoiseTroll_run",
   "nineSlice":null,

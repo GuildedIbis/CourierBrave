@@ -23,8 +23,7 @@
   "height":40,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"354fedb0-e189-4e97-9d58-3029a3ab5ff4","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"354fedb0-e189-4e97-9d58-3029a3ab5ff4","opacity":51.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"83b51456-d338-4619-9200-9b5923739a97","blendMode":0,"displayName":"default","isLocked":false,"name":"83b51456-d338-4619-9200-9b5923739a97","opacity":70.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"906e5e8c-cf24-436e-9106-6c51dfd0b9b9","blendMode":0,"displayName":"default","isLocked":false,"name":"906e5e8c-cf24-436e-9106-6c51dfd0b9b9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_projectile_sarcap_sporeWall",
   "nineSlice":null,

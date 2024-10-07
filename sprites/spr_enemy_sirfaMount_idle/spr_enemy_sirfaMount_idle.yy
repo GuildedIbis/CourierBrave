@@ -22,8 +22,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"778b2edf-3cb8-4285-8076-2ffb407a51ea","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"778b2edf-3cb8-4285-8076-2ffb407a51ea","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"c52db8b2-cc58-459a-9b66-ae924442d6e2","blendMode":0,"displayName":"default","isLocked":false,"name":"c52db8b2-cc58-459a-9b66-ae924442d6e2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"6560514a-786a-4226-b2ea-06278e0e9ed3","blendMode":0,"displayName":"default","isLocked":false,"name":"6560514a-786a-4226-b2ea-06278e0e9ed3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_sirfaMount_idle",
   "nineSlice":null,

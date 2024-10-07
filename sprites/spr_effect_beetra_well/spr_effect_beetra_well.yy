@@ -19,9 +19,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"8bf197f9-9423-4fea-b8cb-b34f0f8d243a","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"8bf197f9-9423-4fea-b8cb-b34f0f8d243a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"9a6dc9a4-8092-472c-9b9e-e5e1f7dc714c","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"9a6dc9a4-8092-472c-9b9e-e5e1f7dc714c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"fc1ac945-a4c1-4659-adb0-a9d1350f7384","blendMode":0,"displayName":"default","isLocked":false,"name":"fc1ac945-a4c1-4659-adb0-a9d1350f7384","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"0d4d0792-d40b-45cf-86fe-3e8109dabd43","blendMode":0,"displayName":"default","isLocked":false,"name":"0d4d0792-d40b-45cf-86fe-3e8109dabd43","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_effect_beetra_well",
   "nineSlice":null,

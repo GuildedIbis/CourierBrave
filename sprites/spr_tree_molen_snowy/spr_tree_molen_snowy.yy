@@ -21,8 +21,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"6a990805-0285-4c42-aaea-f21bbe6c6132","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"6a990805-0285-4c42-aaea-f21bbe6c6132","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"7cda3a4b-1ad8-4eda-b5a8-f30c0ac80530","blendMode":0,"displayName":"default","isLocked":false,"name":"7cda3a4b-1ad8-4eda-b5a8-f30c0ac80530","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e75cfe3c-8a51-43d0-984f-d8e3248445db","blendMode":0,"displayName":"default","isLocked":false,"name":"e75cfe3c-8a51-43d0-984f-d8e3248445db","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tree_molen_snowy",
   "nineSlice":null,

@@ -19,9 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"79408a5c-58e5-4b13-918f-f239cdfa940a","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"79408a5c-58e5-4b13-918f-f239cdfa940a","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"f24d9d41-ce0a-44de-b358-322c0a04d53f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"f24d9d41-ce0a-44de-b358-322c0a04d53f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"845ffbb3-dd4f-4a85-8539-c8d30078959c","blendMode":0,"displayName":"default","isLocked":false,"name":"845ffbb3-dd4f-4a85-8539-c8d30078959c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_vostleTown_tavern3",
   "nineSlice":null,

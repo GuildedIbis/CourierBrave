@@ -22,8 +22,7 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"201bd555-1422-4099-9e73-f0d60148b76c","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"201bd555-1422-4099-9e73-f0d60148b76c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"a3d804bc-b067-4fb4-ad51-d53eab113091","blendMode":0,"displayName":"default","isLocked":false,"name":"a3d804bc-b067-4fb4-ad51-d53eab113091","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"3bec541e-b8af-46f5-a503-b2bcffe9ed70","blendMode":0,"displayName":"default","isLocked":false,"name":"3bec541e-b8af-46f5-a503-b2bcffe9ed70","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_razerSprout",
   "nineSlice":null,

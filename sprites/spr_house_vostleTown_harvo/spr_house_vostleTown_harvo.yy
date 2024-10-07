@@ -19,8 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"bd86c323-9437-4963-9ee1-3aff8a9a11e7","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"bd86c323-9437-4963-9ee1-3aff8a9a11e7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"72ddad6b-eeec-4868-9960-4456243c8f02","blendMode":0,"displayName":"default","isLocked":false,"name":"72ddad6b-eeec-4868-9960-4456243c8f02","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_vostleTown_harvo",
   "nineSlice":null,

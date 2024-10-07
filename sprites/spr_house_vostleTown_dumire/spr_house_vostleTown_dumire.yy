@@ -19,8 +19,7 @@
   "height":160,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"479d8fa8-6d95-4ce7-b390-0eb7b6593765","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"479d8fa8-6d95-4ce7-b390-0eb7b6593765","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"84bdba82-57cd-4cda-908e-c326eae5d469","blendMode":0,"displayName":"default","isLocked":false,"name":"84bdba82-57cd-4cda-908e-c326eae5d469","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"32edae80-f585-417d-8030-1239a0c9612d","blendMode":0,"displayName":"default","isLocked":false,"name":"32edae80-f585-417d-8030-1239a0c9612d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_house_vostleTown_dumire",
   "nineSlice":null,
